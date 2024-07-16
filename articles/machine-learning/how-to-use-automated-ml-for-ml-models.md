@@ -5,12 +5,12 @@ description: Learn how to set up AutoML training jobs without a single line of c
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-author: manashgoswami 
-ms.author: magoswam
-ms.reviewer: ssalgado 
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.date: 07/20/2023
 ms.topic: how-to
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, ignite-2022
+ms.custom: automl
 ---
 
 # Set up no-code AutoML training for tabular data with the studio UI 
@@ -123,15 +123,27 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
     Additional configurations|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#primary-metric).
-   Debug model via the Responsible AI dashboard | Generate a Responsible AI dashboard to do a holistic assessment and debugging of the recommended best model. This includes insights such as model explanations, fairness and performance explorer, data explorer, model error analysis. [Learn more about how you can generate a Responsible AI dashboard.](./how-to-responsible-ai-insights-ui.md). RAI Dashboard can only be run if 'Serverless' compute (preview) is specified in the experiment set-up step.
-    Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
-    Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you don't spend more time on the training job than necessary.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job won't run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Enable ensemble stacking | Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. [Learn more about ensemble models](concept-automated-ml.md#ensemble).
+    Blocked models| Select models you want to exclude from the training job. <br><br> Allowing models is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
+    Explain best model| Automatically shows explainability on the best model created by Automated ML.
+   Positive class label| Label that Automated ML will use to calculate binary metrics.
+ 
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings**, you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
-    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
+    ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization.png)
 
+1. The **[Optional] Limits** form allows you to do the following.
+
+   | Option | Description |
+   |---|-----|
+   |**Max trials**| Maximum number of trials, each with different combination of algorithm and hyperparameters to try during the AutoML job. Must be an integer between 1 and 1000.
+   |**Max concurrent trials**| Maximum number of trial jobs that can be executed in parallel. Must be an integer between 1 and 1000.
+   |**Max nodes**| Maximum number of nodes this job can use from selected compute target.
+   |**Metric score threshold**| When this threshold value will be reached for an iteration metric the training job will terminate. Keep in mind that meaningful models have correlation > 0, otherwise they are as good as guessing the average Metric threshold should be between bounds [0, 10].
+   |**Experiment timeout (minutes)**| Maximum time in minutes the entire experiment is allowed to run. Once this limit is reached the system will cancel the AutoML job, including all its trials (children jobs).
+   |**Iteration timeout (minutes)**| Maximum time in minutes each trial job is allowed to run. Once this limit is reached the system will cancel the trial.
+   |**Enable early termination**| Select to end the job if the score is not improving in the short term.
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
@@ -152,7 +164,7 @@ b. Provide a test dataset (preview) to evaluate the recommended model that autom
      * The test dataset shouldn't be the same as the training dataset or the validation dataset.
      * Forecasting jobs don't support train/test split.
         
-![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-and-test.png)
         
 ## Customize featurization
 
@@ -162,11 +174,10 @@ The following table summarizes the customizations currently available via the st
 
 Column| Customization
 ---|---
-Included | Specifies which columns to include for training.
 Feature type| Change the value type for the selected column.
 Impute with| Select what value to impute missing values with in your data.
 
-![Azure Machine Learning studio custom featurization](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Screenshot showing Azure Machine Learning studio custom featurization.](media/how-to-use-automated-ml-for-ml-models/updated-featurization.png)
 
 ## Run experiment and view results
 
@@ -181,24 +192,13 @@ The **Job Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they're added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-![Job detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
-
 ### View training job details
 
-Drill down on any of the completed models to see training job details. In the **Model** tab, you can view details like a model summary and the hyperparameters used for the selected model. 
+Drill down on any of the completed models to see training job details. 
 
-[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png#lightbox)
+You can see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
- You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
-
-![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
-
-On the Data transformation tab, you can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
-
->[!IMPORTANT]
-> The Data transformation tab is in preview. This capability should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) and may change at any time.
-
-![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
+This is also where you can find details on all the properties of the model along with associated code, child jobs, and images.
 
 ## View remote test job results (preview)
 
@@ -269,7 +269,7 @@ To generate a Responsible AI dashboard for a particular model,
 
 
 
-    ![Select Explain best model from the Automated ML job configuration page](media/how-to-use-automated-ml-for-ml-models/best-model-selection.png)
+    ![Screenshot showing the Automated ML job configuration page with Explain best model selected.](media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png)
 
 3. Proceed to the **Compute** page of the setup form and choose the **Serverless** option for your compute.
 

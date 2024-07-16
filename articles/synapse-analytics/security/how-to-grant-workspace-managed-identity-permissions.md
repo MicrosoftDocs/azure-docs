@@ -3,7 +3,7 @@ title: Grant permissions to managed identity in Synapse workspace
 description: An article that explains how to configure permissions for managed identity in Azure Synapse workspace.
 author: meenalsri
 ms.author: mesrivas
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 09/01/2022
 ms.service: synapse-analytics
 ms.subservice: security
@@ -68,7 +68,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

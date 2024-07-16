@@ -2,17 +2,10 @@
 title: Troubleshoot Azure Application Consistent Snapshot tool - Azure NetApp Files
 description: Troubleshoot communication issues, test failures, and other SAP HANA issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 01/16/2023
+ms.date: 05/15/2024
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
 ---
@@ -121,7 +114,7 @@ For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose
       Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
       ```
 
-1. Example output where a failure has occured and AzAcSnap captured the failure:
+1. Example output where a failure has occurred and AzAcSnap captured the failure:
 
    1. Output to *\*.result* file:
    
@@ -250,7 +243,7 @@ To troubleshoot this error:
    ```
 
 > [!TIP]
-> For more information on generating a new Service Principal, refer to the section [Enable communication with Storage](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage) in the [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) guide.
+> For more information on generating a new Service Principal, refer to the section [Enable communication with Storage](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage) in the [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) guide.
 
 ## Troubleshoot failed 'test hana' command
 
@@ -334,7 +327,7 @@ To troubleshoot this error:
 
 ### Insufficient privilege error
 
-If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-the-database). Verify the user's privileges with the following command:
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-configure-database.md#enable-communication-with-the-database). Verify the user's privileges with the following command:
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap
@@ -366,5 +359,3 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 
 - [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
 - [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)
-
-

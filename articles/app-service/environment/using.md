@@ -3,7 +3,7 @@ title: Use an App Service Environment
 description: Learn how to use your App Service Environment to host isolated applications.
 author: madsd
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 06/26/2024
 ms.author: madsd
 ---
 
@@ -12,7 +12,7 @@ ms.author: madsd
 App Service Environment is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network, and you're the only user of this system. Apps deployed are subject to the networking features that are applied to the subnet. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
 
 > [!NOTE]
-> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
+> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
 
 ## Create an app
 
@@ -47,7 +47,7 @@ Every App Service app runs in an App Service plan. App Service Environments hold
 
 When you scale an App Service plan, the needed infrastructure is added automatically. Be aware that there's a time delay to scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
 
-A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes.
+A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes but can take up to 45 minutes.
 
 In a multi-tenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 

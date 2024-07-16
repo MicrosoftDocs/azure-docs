@@ -1,54 +1,67 @@
 ---
 title: Run or reset indexers
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Run indexers in full, or reset an indexer, skills, or individual documents to refresh all or part of a search index or knowledge store.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: 
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 06/25/2024
 ---
 
 # Run or reset indexers, skills, or documents
 
-In Azure Cognitive Search, there are several ways to run an indexer:
+In Azure AI Search, there are several ways to run an indexer:
 
-+ [Run when creating or updating an indexer](search-howto-create-indexers.md), assuming it's not created in "disabled" mode.
++ [Run immediately upon indexer creation](search-howto-create-indexers.md), assuming it's not created in "disabled" mode.
 + [Run on a schedule](search-howto-schedule-indexers.md) to invoke execution at regular intervals.
 + Run on demand, with or without a "reset".
 
 This article explains how to run indexers on demand, with and without a reset. It also describes indexer execution, duration, and concurrency.
 
+## How indexers connect to Azure resources
+
+Indexers are one of the few subsystems that make overt outbound calls to other Azure resources. In terms of Azure roles, indexers don't have separate identities: a connection from the search engine to another Azure resource is made using the [system or user-assigned managed identity](search-howto-managed-identities-data-sources.md) of a search service. If the indexer connects to an Azure resource on a virtual network, you should create a [shared private link](search-indexer-howto-access-private.md) for that connection. For more information about secure connections, see the [Security in Azure AI Search](search-security-overview.md).
+
 ## Indexer execution
 
-You can run multiple indexers at one time, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
+A search service runs one indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions). Every search service starts with one search unit, but each new partition or replica increases the search units of your service. You can check the search unit count in the portal's Essential section of the **Overview** page. If you need concurrent processing, make sure you have sufficient replicas. Indexers don't run in the background, so you might detect more query throttling than usual if the service is under pressure.
 
-An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure Cognitive Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multi-tenant environment).
+The following screenshot shows the number of search units, which determines how many indexers can run at once.
+
+:::image type="content" source="media/search-howto-run-reset-indexers/search-units.png" alt-text="Screenshot of the essentials section of the overview page, showing search units.":::
+
+Once indexer execution starts, you can't pause or stop it. Indexer execution stops when there are no more documents to load or refresh, or when the [maximum running time limit](search-limits-quotas-capacity.md#indexer-limits) is reached.
+
+You can run multiple indexers at one time assuming sufficient capacity, but each indexer itself is single-instance. Starting a new instance while the indexer is already in execution produces this error: `"Failed to run indexer "<indexer name>" error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."`
+
+An indexer job runs in a managed execution environment. Currently, there are two environments. You can't control or configure which environment is used. Azure AI Search determines the environment based on job composition and the ability of the service to move an indexer job onto a content processor (some [security features](search-indexer-securing-resources.md#indexer-execution-environment) block the multitenant environment).
 
 Indexer execution environments include:
 
 + A private execution environment that runs on search nodes, specific to your search service.
 
-+ A multi-tenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multi-tenant environment.
++ A multitenant environment with content processors, managed and secured by Microsoft at no extra cost. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. Whenever possible, most indexer jobs are executed in the multitenant environment.
 
 Indexer limits vary for each environment:
 
 | Workload | Maximum duration | Maximum jobs | Execution environment |
 |----------|------------------|---------------------|-----------------------------|
-| Private execution | 24 hours | One indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) <sup>1</sup>.  | Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large. |
-| Multi-tenant| 2 hours <sup>2</sup> | Indeterminate <sup>3</sup> | Because the content processing cluster is multi-tenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
+| Private execution | 24 hours | One indexer job per [search unit](search-capacity-planning.md#concepts-search-units-replicas-partitions) <sup>1</sup>.  | Indexing doesn't run in the background. Instead, the search service will balance all indexing jobs against ongoing queries and object management actions (such as creating or updating indexes). When running indexers, you should expect to see [some query latency](search-performance-analysis.md#impact-of-indexing-on-queries) if indexing volumes are large. |
+| Multitenant| 2 hours <sup>2</sup> | Indeterminate <sup>3</sup> | Because the content processing cluster is multitenant, nodes are added to meet demand. If you experience a delay in on-demand or scheduled execution, it's probably because the system is either adding nodes or waiting for one to become available.|
 
 <sup>1</sup> Search units can be [flexible combinations](search-capacity-planning.md#partition-and-replica-combinations) of partitions and replicas, but indexer jobs aren't tied to one or the other. In other words, if you have 12 units, you can have 12 indexer jobs running concurrently in private execution, no matter how the search units are deployed.
 
 <sup>2</sup> If more than two hours are needed to process all of the data, [enable change detection](search-howto-create-indexers.md#change-detection-and-internal-state) and [schedule the indexer](search-howto-schedule-indexers.md) to run at two hour intervals. See [Indexing a large data set](search-howto-large-index.md) for more strategies.
 
-<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
+<sup>3</sup> "Indeterminate" means that the limit isn't quantified by the number of jobs. Some workloads, such as skillset processing, can run in parallel, which could result in many jobs even though only one indexer is involved. Although the environment doesn't impose constraints, [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service still apply.
 
 ## Run without reset
 
-A [Run Indexer](/rest/api/searchservice/run-indexer) operation will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
+A [Run Indexer](/rest/api/searchservice/indexers/run) operation will detect and process only what it necessary to synchronize the search index with changes in the underlying data source. Incremental indexing starts by locating an internal high-water mark to find the last updated search document, which becomes the starting point for indexer execution over new and updated documents in the data source.
 
 [Change detection](search-howto-create-indexers.md#change-detection-and-internal-state) is essential for determining what's new or updated in the data source. Indexers use the change detection capabilities of the underlying data source to determine what's new or updated in the data source. 
 
@@ -70,7 +83,7 @@ If you need to rebuild all or part of an index, you can clear the indexer's high
 + [Reset Documents (preview)](#reset-docs) reindexes a specific document or list of documents
 + [Reset Skills (preview)](#reset-skills) invokes skill processing for a specific skill
 
-After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source can't be removed through reset/run. If you need to delete documents, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) instead.
+After reset, follow with a Run command to reprocess new and existing documents. Orphaned search documents having no counterpart in the data source can't be removed through reset/run. If you need to delete documents, see [Documents - Index](/rest/api/searchservice/documents) instead.
 
 <a name="reset-indexers"></a>
 
@@ -80,7 +93,7 @@ Reset clears the high-water mark. All documents in the search index will be flag
 
 The actual work occurs when you follow a reset with a Run command:
 
-+ All new documents found the underlying source will be added to the search index. 
++ All new documents found the underlying source are added to the search index. 
 + All documents that exist in both the data source and search index will be overwritten in the search index. 
 + Any enriched content created from skillsets will be rebuilt. The enrichment cache, if one is enabled, is refreshed.
 
@@ -88,7 +101,7 @@ As previously noted, reset is a passive operation: you must follow up a Run requ
 
 Reset/run operations apply to a search index or a knowledge store, to specific documents or projections, and to cached enrichments if a reset explicitly or implicitly includes skills.
 
-Reset also applies to create and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Add, Update or Delete Documents](/rest/api/searchservice/AddUpdate-or-Delete-Documents).
+Reset also applies to create and update operations. It will not trigger deletion or clean up of orphaned documents in the search index. For more information about deleting documents, see [Documents - Index](/rest/api/searchservice/documents/).
 
 Once you reset an indexer, you can't undo the action.
 
@@ -105,7 +118,7 @@ Once you reset an indexer, you can't undo the action.
 
 ### [**REST**](#tab/reset-indexer-rest)
 
-The following example illustrates [**Reset Indexer**](/rest/api/searchservice/reset-indexer) and [**Run Indexer**](/rest/api/searchservice/run-indexer) REST calls. Use [**Get Indexer Status**](/rest/api/searchservice/get-indexer-status) to check results.
+The following example illustrates [**Reset Indexer**](/rest/api/searchservice/indexers/reset) and [**Run Indexer**](/rest/api/searchservice/indexers/run) REST calls. Use [**Get Indexer Status**](/rest/api/searchservice/indexers/get-status) to check results.
 
 There are no parameters or properties for any of these calls.
 
@@ -158,10 +171,10 @@ catch (RequestFailedException ex) when (ex.Status == 429)
 
 For indexers that have skillsets, you can reset individual skills to force processing of just that skill and any downstream skills that depend on its output. The [enrichment cache](search-howto-incremental-index.md), if you enabled it, is also refreshed. 
 
-[Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is currently REST-only, available through `api-version=2020-06-30-Preview` or later.
+[Reset Skills](/rest/api/searchservice/skillsets/reset-skills?view=rest-searchservice-2024-05-01-preview&preserve-view=true) is currently REST-only, available through 2020-06-30-preview or later. We recommend the latest preview API.
 
 ```http
-POST /skillsets/[skillset name]/resetskills?api-version=2020-06-30-Preview
+POST /skillsets/[skillset name]/resetskills?api-version=2024-05-01-preview
 {
     "skillNames" : [
         "#1",
@@ -181,20 +194,20 @@ Remember to follow up with Run Indexer to invoke actual processing.
 
 ## How to reset docs (preview)
 
-The [Reset Documents API](/rest/api/searchservice/preview-api/reset-documents) accepts a list of document keys so that you can refresh specific documents. If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that document is processed.
+The [Indexers - Reset Docs](/rest/api/searchservice/indexers/reset-docs?view=rest-searchservice-2024-05-01-preview&preserve-view=true) accepts a list of document keys so that you can refresh specific documents. If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that document is processed.
 
 On a per-document basis, all fields in that search document are refreshed with values from the data source. You can't pick and choose which fields to refresh. 
 
 If the document is enriched through a skillset and has cached data, the  skillset is invoked for just the specified documents, and the cache is updated for the reprocessed documents.
 
-When you're testing this API for the first time, the following APIs can help you validate and test the behaviors:
+When you're testing this API for the first time, the following APIs can help you validate and test the behaviors. You can use preview API version 2020-06-30-preview and later. We recommend the latest preview API.
 
-1. Call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with API version `api-version=2020-06-30-Preview` or later, to check reset status and execution status. You can find information about the reset request at the end of the status response.
+1. Call [Indexers - Get Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a preview API version to check reset status and execution status. You can find information about the reset request at the end of the status response.
 
-1. Call [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) with API version `api-version=2020-06-30-Preview` or later, to specify which documents to process.
+1. Call [Indexers - Reset Docs](/rest/api/searchservice/indexers/reset-docs?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a preview API version to specify which documents to process.
 
     ```http
-    POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2020-06-30-Preview
+    POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2024-05-01-preview
     {
         "documentKeys" : [
             "1001",
@@ -203,13 +216,13 @@ When you're testing this API for the first time, the following APIs can help you
     }
     ```
 
-    + The document keys provided in the request are values from the search index, which can be different from the corresponding fields in the data source. If you're unsure of the key value, [send a query](search-query-create.md) to return the value.You can use `select` to return just the document key field.
+    + The document keys provided in the request are values from the search index, which can be different from the corresponding fields in the data source. If you're unsure of the key value, [send a query](search-query-create.md) to return the value. You can use `select` to return just the document key field.
 
     + For blobs that are parsed into multiple search documents (where parsingMode is set to [jsonLines or jsonArrays](search-howto-index-json-blobs.md), or [delimitedText](search-howto-index-csv-blobs.md)), the document key is generated by the indexer and might be unknown to you. In this scenario, a query for the document key to return the correct value.
 
-1. Call [Run Indexer](/rest/api/searchservice/run-indexer) (any API version) to process the documents you specified. Only those specific documents are indexed.
+1. Call [Run Indexer](/rest/api/searchservice/indexers/run) (any API version) to process the documents you specified. Only those specific documents are indexed.
 
-1. Call [Run Indexer](/rest/api/searchservice/run-indexer) a second time to process from the last high-water mark.
+1. Call [Run Indexer](/rest/api/searchservice/indexers/run) a second time to process from the last high-water mark.
 
 1. Call [Search Documents](/rest/api/searchservice/search-documents) to check for updated values, and also to return document keys if you're unsure of the value. Use `"select": "<field names>"` if you want to limit which fields appear in the response.
 
@@ -232,7 +245,7 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 
 To check reset status and to see which document keys are queued up for processing, following these steps.
 
-1. Call [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with `api-version=06-30-2020-Preview` or later. 
+1. Call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a preview API. 
 
    The preview API will return the **`currentState`** section, found at the end of the response.
 

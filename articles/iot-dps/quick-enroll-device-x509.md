@@ -7,14 +7,15 @@ ms.date: 07/22/2022
 ms.topic: how-to
 ms.service: iot-dps
 services: iot-dps
-ms.devlang: csharp, java, nodejs
-ms.custom: mvc, mode-other, devx-track-extended-java
+ms.devlang: csharp
+# ms.devlang: csharp, java, nodejs
+ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-js
 zone_pivot_groups: iot-dps-set2
 ---
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
 
-This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Azure IoT Hub DPS service SDK](libraries-sdks.md#service-sdks) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Azure IoT Hub DPS service SDK](libraries-sdks.md#service-sdks) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Use X.509 certificates with DPS](./concepts-x509-attestation.md#use-x509-certificates-with-dps). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
 ## Prerequisites
 
@@ -40,7 +41,7 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 :::zone pivot="programming-language-java"
 
-* [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This article installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This article uses Windows.
+* [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This article uses the [Azure IoT SDK for Java](https://azure.github.io/azure-iot-sdk-java/master/service/), which works on both Windows and Linux. This article uses Windows.
 
 * [Maven 3](https://maven.apache.org/download.cgi).
 
@@ -53,13 +54,13 @@ This article shows you how to programmatically create an [enrollment group](conc
 
 ## Create test certificates
 
-Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. This provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.
+Enrollment groups that use X.509 certificate attestation can be configured to use a root CA certificate or an intermediate certificate. The more usual case is to configure the enrollment group with an intermediate certificate. Using an intermediate certificate provides more flexibility as multiple intermediate certificates can be generated or revoked by the same root CA certificate.
 
-For this article, you'll need either a root CA certificate file, an intermediate CA certificate file, or both in *.pem* or *.cer* format. One file contains the public portion of the root CA X.509 certificate and the other contains the public portion of the intermediate CA X.509 certificate.
+For this article, you need either a root CA certificate file, an intermediate CA certificate file, or both in *.pem* or *.cer* format. One file contains the public portion of the root CA X.509 certificate and the other contains the public portion of the intermediate CA X.509 certificate.
 
 If you already have a root CA file and/or an intermediate CA file, you can continue to [Add and verify your root or intermediate CA certificate](#add-and-verify-your-root-or-intermediate-ca-certificate).
 
-If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-the-intermediate-ca-certificate) as you won't need device certificates to complete the steps in this article. When you're finished, you'll have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
+If you don't have a root CA file and/or an intermediate CA file, follow the steps in [Create an X.509 certificate chain](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-x509-certificate-chain) to create them. You can stop after you complete the steps in [Create the intermediate CA certificate](tutorial-custom-hsm-enrollment-group-x509.md?tabs=windows#create-an-intermediate-ca-certificate) as you don't need device certificates to complete the steps in this article. When you're finished, you have two X.509 certificate files: *./certs/azure-iot-test-only.root.ca.cert.pem* and *./certs/azure-iot-test-only.intermediate.cert.pem*.
 
 ## Add and verify your root or intermediate CA certificate
 
@@ -67,7 +68,7 @@ Devices that provision through an enrollment group using X.509 certificates, pre
 
 For this article, assuming you have both a root CA certificate and an intermediate CA certificate signed by the root CA:
 
-* If you plan on creating the enrollment group with the root CA certificate, you'll need to upload and verify the root CA certificate. 
+* If you plan on creating the enrollment group with the root CA certificate, you need to upload and verify the root CA certificate. 
 
 * If you plan on creating the enrollment group with the intermediate CA certificate, you can upload and verify either the root CA certificate or the intermediate CA certificate. (If you have multiple intermediate CA certificates in the certificate chain, you could, alternatively, upload and verify any intermediate certificate that sits between the root CA certificate and the intermediate certificate that you create the enrollment group with.)
 
@@ -93,7 +94,7 @@ To add and verify your root or intermediate CA certificate to the Device Provisi
 
 ## Get the connection string for your provisioning service
 
-For the sample in this article, you'll need to copy the connection string for your provisioning service.
+For the sample in this article, you need the connection string for your provisioning service. Use the following steps to retrieve it.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -133,7 +134,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 1. Open *Program.cs* file in an editor.
 
-1. Replace the namespace statement at the top of the file with the following:
+1. Replace the namespace statement at the top of the file with the following line:
 
     ```csharp
     namespace CreateEnrollmentGroup;
@@ -309,7 +310,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
             "-----END CERTIFICATE-----";
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-cert.pem` with the location of your certificate file, and press **ENTER**. This command will generate the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into a **Git Bash** prompt, replace `your-cert.pem` with the location of your certificate file, and press **ENTER**. This command generates the syntax for the `PUBLIC_KEY_CERTIFICATE_STRING` string constant value and writes it to the output.
 
     ```bash
     sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' your-cert.pem
@@ -323,7 +324,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
     > * Hard-coding the connection string for the provisioning service administrator is against security best practices. Instead, the connection string should be held in a secure manner, such as in a secure configuration file or in the registry.
     > * Be sure to upload only the public part of the signing certificate. Never upload .pfx (PKCS12) or .pem files containing private keys to the provisioning service.
 
-1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This must be an IoT hub that has been previously linked to the provisioning service. For this article, we'll let DPS choose from the linked hubs according to the default allocation policy, evenly-weighted distribution. Comment out the following statement in the file:
+1. The sample allows you to set an IoT hub in the enrollment group to provision the device to. This must be an IoT hub that has been previously linked to the provisioning service. For this article, we let DPS choose from the linked hubs according to the default allocation policy, evenly weighted distribution. Comment out the following statement in the file:
 
     ```Java
     enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
@@ -377,7 +378,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
     This command downloads the [Azure IoT DPS service client Maven package](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine and builds the sample. This package includes the binaries for the Java service SDK.
 
-1. Switch to the *target* folder and run the sample. Be aware that the build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
+1. Switch to the *target* folder and run the sample. The build in the previous step outputs .jar file in the *target* folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. You may need to replace the version in the command below.
 
     ```cmd\sh
     cd target
@@ -442,15 +443,13 @@ If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, 
 
 :::zone pivot="programming-language-csharp"
 
-The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
-
-The [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples/how%20to%20guides/GroupCertificateVerificationSample) in the [Azure IoT SDK for C# (.NET)](https://github.com/Azure/azure-iot-sdk-csharp) shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+The [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) has scripts that can help you create and manage certificates. To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 :::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
-The [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) has scripts that can help you create root CA, intermediate CA, and device certificates, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools).
+The [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) has scripts that can help you create and manage certificates. To learn more, see [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools).
 
 You can also use tools available in the  [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). To learn more, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -458,7 +457,7 @@ You can also use tools available in the  [Azure IoT C SDK](https://github.com/Az
 
 :::zone pivot="programming-language-java"
 
-The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify root and intermediate CA certificates. To learn more, see [X509 certificate generator using DICE emulator](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-tools/provisioning-x509-cert-generator).
+The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create and manage certificates. To learn more, see [X509 certificate generator using DICE emulator](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-tools/provisioning-x509-cert-generator).
 
 :::zone-end
 

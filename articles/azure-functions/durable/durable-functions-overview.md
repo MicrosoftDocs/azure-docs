@@ -13,7 +13,7 @@ zone_pivot_groups: df-languages
 
 # What are Durable Functions?
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing [*orchestrator functions*](durable-functions-orchestrations.md) and stateful entities by writing [*entity functions*](durable-functions-entities.md) using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
+*Durable Functions* is a feature of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing [*orchestrator functions*](durable-functions-orchestrations.md) and stateful entities by writing [*entity functions*](durable-functions-entities.md) using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
 
 ## <a name="language-support"></a>Supported languages
 
@@ -31,6 +31,11 @@ Durable Functions is designed to work with all Azure Functions programming langu
 
 ::: zone pivot="javascript"
 [!INCLUDE [functions-nodejs-model-tabs-description](../../../includes/functions-nodejs-model-tabs-description.md)]
+::: zone-end
+
+::: zone pivot="python"
+> [!IMPORTANT]
+> This article uses tabs to support multiple versions of the Python programming model. The v2 model is generally available and is designed to provide a more code-centric way for authoring functions through decorators. For more details about how the v2 model works, refer to the [Azure Functions Python developer guide](../functions-reference-python.md). 
 ::: zone-end
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
@@ -154,7 +159,6 @@ You can use the `context.df` object to invoke other functions by name, pass para
 
 ::: zone-end
 ::: zone pivot="python"
-
 # [Python](#tab/v1-model)
 
 ```python
@@ -1152,9 +1156,6 @@ The tricky thing about trying to implement this pattern with normal, stateless f
 You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
 ::: zone pivot="csharp"
-
-> [!NOTE]
-> Support for Durable entities is currently in **preview** for the .NET-isolated worker. [Learn more.](durable-functions-dotnet-entities.md)
 
 #### [In-process](#tab/in-process)
 

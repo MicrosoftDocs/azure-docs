@@ -1,8 +1,68 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference-gcp.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference-aws.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/upcoming-changes.md",
+            "redirect_url": "/azure/defender-for-cloud/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/secret-scanning.md",
+            "redirect_url": "/azure/defender-for-cloud/secrets-scanning-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/prevent-misconfigurations.md",
+            "redirect_url": "/azure/defender-for-cloud/manage-mcsb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-policy.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-manage-aws-assessments-standards.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-manage-gcp-assessments-standards.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/release-notes.md",
             "redirect_url": "/azure/defender-for-cloud/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-credential-scanner-rules.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-devops-posture-management-overview.md",
+            "redirect_url": "/azure/defender-for-cloud/concept-devops-environment-posture-management-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/detect-exposed-secrets.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
             "redirect_document_id": false
         },
         {
@@ -553,7 +613,7 @@
         {
             "source_path_from_root": "/articles/security-center/managing-and-responding-alerts.md",
             "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/os-coverage.md",
@@ -667,8 +727,8 @@
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-incident.md",
-            "redirect_url": "/azure/defender-for-cloud/tutorial-security-incident",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-policy.md",
@@ -676,7 +736,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.md",
+            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.yml",
             "redirect_url": "/azure/defender-for-cloud/update-regulatory-compliance-packages",
             "redirect_document_id": true
         },
@@ -686,7 +746,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/workflow-automation.md",
+            "source_path_from_root": "/articles/security-center/workflow-automation.yml",
             "redirect_url": "/azure/defender-for-cloud/workflow-automation",
             "redirect_document_id": true
         },
@@ -707,8 +767,8 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-cicd.md",
-            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-cicd",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-container-registries-usage.md",
@@ -738,7 +798,7 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-cicd.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-pull-request-annotations.md",
@@ -752,8 +812,8 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/detect-credential-leaks.md",
-            "redirect_url": "/azure/defender-for-cloud/detect-exposed-secrets",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-devops-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-ecr.md",
@@ -846,8 +906,88 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/support-agentless-containers-posture.md",
+            "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-containers",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-exclude.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-classic-enable#exclude-a-storage-account-from-a-protected-subscription-in-the-per-transaction-plan",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/agentless-container-registry-vulnerability-assessment.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images-running-on-aks.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-for-images",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/attack-path-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/how-to-manage-attack-path",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/integration-overview.md",
+            "redirect_url": "/azure/defender-for-cloud/integration-servicenow",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-use-the-classic-connector.md",
+            "redirect_url": "/azure/defender-for-cloud/multicloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-aws-connector.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/concept-gcp-connector.md",
+            "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-gcp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-elastic.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-aws",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/custom-security-policies.md",
+            "redirect_url": "/azure/defender-for-cloud/create-custom-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-containers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerability-assessment-findings.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerability-registry-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/management-groups-roles.md",
+            "redirect_url": "/azure/governance/management-groups/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",
+            "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
             "redirect_document_id": true
         }
     ]

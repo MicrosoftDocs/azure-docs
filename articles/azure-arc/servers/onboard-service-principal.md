@@ -22,7 +22,7 @@ Before you start connecting your machines, review the following requirements:
     * Microsoft.HybridCompute
     * Microsoft.GuestConfiguration
     * Microsoft.HybridConnectivity
-    * Microsoft.AzureArcData (if you plan to Arc-enable SQL Servers)
+    * Microsoft.AzureArcData (if you plan to Arc-enable SQL Server instances)
 
     See detailed how to here: [Azure resource providers prerequisites](prerequisites.md#azure-resource-providers)
 
@@ -33,6 +33,8 @@ Before you start connecting your machines, review the following requirements:
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.-->
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
 
 ## Create a service principal for onboarding at scale
 

@@ -2,17 +2,12 @@
 title: Best practices for secure PaaS deployments - Microsoft Azure
 description: "Learn best practices for designing, building, and managing secure cloud applications on Azure and understand the security advantages of PaaS versus other cloud service models."
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/31/2023
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---

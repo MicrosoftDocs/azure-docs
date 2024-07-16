@@ -2,15 +2,14 @@
 title: Manage versions - LUIS
 titleSuffix: Azure AI services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 01/19/2024
 ---
 
 # Use versions to edit and test without impacting staging or production apps
@@ -71,5 +70,5 @@ You can import a `.json` or a `.lu` version of your application.
 
 See the following links to view the REST APIs for importing and exporting applications:
 
-* [Importing applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5892283039e2bb0d9c2805f5)
-* [Exporting applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c40)
+* [Importing applications](/rest/api/cognitiveservices-luis/authoring/versions/import?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+* [Exporting applications](/rest/api/cognitiveservices-luis/authoring/versions/export?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)

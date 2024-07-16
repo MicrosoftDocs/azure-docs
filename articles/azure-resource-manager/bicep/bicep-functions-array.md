@@ -1,11 +1,9 @@
 ---
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
-author: mumian
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.author: jgao
-ms.date: 12/09/2022
+ms.date: 07/11/2024
 ---
 
 # Array functions for Bicep
@@ -206,7 +204,7 @@ param dnsServers array = []
 
 ...
 
-resource vnet 'Microsoft.Network/virtualNetworks@2021-02-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: vnetName
   location: location
   properties: {
@@ -649,7 +647,7 @@ param availabilityZones array = [
   '2'
 ]
 
-resource exampleApim 'Microsoft.ApiManagement/service@2021-08-01' = {
+resource exampleApim 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
   name: apiManagementName
   location: location
   sku: {
@@ -799,7 +797,7 @@ The following example is extracted from a quickstart template, [Two VMs in VNET 
 ...
 var numberOfInstances = 2
 
-resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = [for i in range(0, numberOfInstances): {
+resource networkInterface 'Microsoft.Network/networkInterfaces@2023-11-01' = [for i in range(0, numberOfInstances): {
   name: '${networkInterfaceName}${i}'
   location: location
   properties: {
@@ -807,7 +805,7 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = [fo
   }
 }]
 
-resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = [for i in range(0, numberOfInstances): {
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = [for i in range(0, numberOfInstances): {
   name: '${vmNamePrefix}${i}'
   location: location
   properties: {
@@ -949,6 +947,8 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
+
 ### Example
 
 The following example shows how to use union with arrays and objects:
@@ -988,6 +988,63 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```bicep
+var firstObject = {
+  property: {
+    one: 'a'
+    two: 'b'
+    three: 'c1'
+  }
+  nestedArray: [
+    1
+    2
+  ]
+}
+var secondObject = {
+  property: {
+    three: 'c2'
+    four: 'd'
+    five: 'e'
+  }
+  nestedArray: [
+    3
+    4
+  ]
+}
+var firstArray = [
+  [
+    'one'
+    'two'
+  ]
+  [
+    'three'
+  ]
+]
+var secondArray = [
+  [
+    'three'
+  ]
+  [
+    'four'
+    'two'
+  ]
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

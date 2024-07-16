@@ -5,63 +5,84 @@ description: Extract text, tables, selections, titles, section headings, page he
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
-<!-- markdownlint-disable DOCSMD006 -->
+<!-- markdownlint-disable DOCSMD006 -->
 
 # Document Intelligence layout model
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 Document Intelligence layout model is an advanced machine-learning based document analysis API available in the Document Intelligence cloud. It enables you to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../ai-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
 ## Document layout analysis
 
-Document structure layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page to build better semantic understanding models. There are two types of roles that text plays in a document layout:
+Document structure layout analysis is the process of analyzing a document to extract regions of interest and their inter-relationships. The goal is to extract text and structural elements from the page to build better semantic understanding models. There are two types of roles in a document layout:
 
-* **Geometric roles**: Text, tables, and selection marks are examples of geometric roles.
-* **Logical roles**: Titles, headings, and footers are examples of logical roles.
+* **Geometric roles**: Text, tables, figures, and selection marks are examples of geometric roles.
+* **Logical roles**: Titles, headings, and footers are examples of logical roles of texts.
 
 The following illustration shows the typical components in an image of a sample page.
 
-  :::image type="content" source="media/document-layout-example.png" alt-text="Illustration of document layout example.":::
-
-::: moniker range=">=doc-intel-3.0.0"
-
-  ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
-
-  :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Document Intelligence Studio.":::
-
-::: moniker-end
+  :::image type="content" source="media/document-layout-example-new.png" alt-text="Illustration of document layout example.":::
 
 ## Development options
 
-::: moniker range=">=doc-intel-3.0.0"
+::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v3.1 and later versions support the following tools:
+Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
-|----------|------------|------------|
-|**Layout model**| <ul><li>[**Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li><li>[**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</li></ul>|**prebuilt-layout**|
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-layout**|
+::: moniker-end
 
+::: moniker range="doc-intel-3.1.0"
+
+Document Intelligence v3.1 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true)|**prebuilt-layout**|
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+Document Intelligence v3.0 supports the following tools, applications, and libraries:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Layout model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-layout**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
 
-**Sample document processed with [Document Intelligence Sample Labeling tool layout model](https://fott-2-1.azurewebsites.net/layout-analyze)**:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
-:::image type="content" source="media/layout-tool-example.jpg" alt-text="Screenshot of a document processed with the layout model.":::
-
+| Feature | Resources |
+|----------|-------------------------|
+|**Layout model**|&bullet; [**Document Intelligence labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</br>&bullet;  [**REST API**](how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&view=doc-intel-2.1.0&preserve-view=true&tabs=windows)</br>&bullet;  [**Client-library SDK**](~/articles/ai-services/document-intelligence/how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true)</br>&bullet;  [**Document Intelligence Docker container**](containers/install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)|
 ::: moniker-end
 
 ## Input requirements
@@ -72,45 +93,43 @@ Document Intelligence v3.1 and later versions support the following tools:
 
 ::: moniker-end
 
-::: moniker range=">=doc-intel-2.1.0"
+::: moniker range="doc-intel-2.1.0"
 
-* Supported file formats: JPEG, PNG, PDF, and TIFF
-* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* Supported file formats: JPEG, PNG, PDF, and TIFF.
+* Supported number of pages: For PDF and TIFF, up to 2,000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* Supported file size: the file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 
 ::: moniker-end
 
-### Layout model data extraction
+### Get started with Layout model
 
 See how data, including text, tables, table headers, selection marks, and structure information is extracted from documents using  Document Intelligence. You need the following resources:
 
-* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 
-* An [Form Recognizer instance (Document Intelligence forthcoming)](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
+* A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-## Document Intelligence Studio
-
 > [!NOTE]
-> Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
+> Document Intelligence Studio is available with v3.0 APIs and later versions.
 
 ***Sample document processed with [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of Layout processing a newspaper page in Document Intelligence Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Layout**
+1. On the Document Intelligence Studio home page, select **Layout**.
 
 1. You can analyze the sample document or upload your own files.
 
-1. Select the **Run analysis** button and, if necessary, configure the **Analyze options** :
+1. Select the **Run analysis** button and, if necessary, configure the **Analyze options**:
 
     :::image type="content" source="media/studio/run-analysis-analyze-options.png" alt-text="Screenshot of Run analysis and Analyze options buttons in the Document Intelligence Studio.":::
 
    > [!div class="nextstepaction"]
-   > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   > [Try Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/layout).
 
 ::: moniker-end
 
@@ -130,15 +149,15 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 1. In the **Source** field, select **URL** from the dropdown menu You can use our sample document:
 
-    * [**Sample document**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg)
+    * [**Sample document**](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg).
 
     * Select the **Fetch** button.
 
-1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the `Analyze Layout` API to analyze the document.
 
-    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of Layout dropdown window.":::
+    :::image type="content" source="media/fott-layout.png" alt-text="Screenshot of `Layout` dropdown window.":::
 
-1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
+1. View the results - see the highlighted extracted text, detected selection marks, and detected tables.
 
     :::image type="content" source="media/label-tool/layout-3.jpg" alt-text="Screenshot of connection settings for the Document Intelligence Sample Labeling tool.":::
 
@@ -146,445 +165,11 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 ## Supported languages and locales
 
-::: moniker range=">=doc-intel-3.0.0"
-
-The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
-
-> [!NOTE]
-> **Language code optional**
->
-> Document Intelligence's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
-
-### Handwritten text
-
-The following table lists the supported languages for extracting handwritten texts.
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-### Print text
-
-The following table lists the supported languages for print text by the most recent GA version.
-
-:::row:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Abaza|abq|
-  |Abkhazian|ab|
-  |Achinese|ace|
-  |Acoli|ach|
-  |Adangme|ada|
-  |Adyghe|ady|
-  |Afar|aa|
-  |Afrikaans|af|
-  |Akan|ak|
-  |Albanian|sq|
-  |Algonquin|alq|
-  |Angika (Devanagari)|anp|
-  |Arabic|ar|
-  |Asturian|ast|
-  |Asu (Tanzania)|asa|
-  |Avaric|av|
-  |Awadhi-Hindi (Devanagari)|awa|
-  |Aymara|ay|
-  |Azerbaijani (Latin)|az|
-  |Bafia|ksf|
-  |Bagheli|bfy|
-  |Bambara|bm|
-  |Bashkir|ba|
-  |Basque|eu|
-  |Belarusian (Cyrillic)|be, be-cyrl|
-  |Belarusian (Latin)|be, be-latn|
-  |Bemba (Zambia)|bem|
-  |Bena (Tanzania)|bez|
-  |Bhojpuri-Hindi (Devanagari)|bho|
-  |Bikol|bik|
-  |Bini|bin|
-  |Bislama|bi|
-  |Bodo (Devanagari)|brx|
-  |Bosnian (Latin)|bs|
-  |Brajbha|bra|
-  |Breton|br|
-  |Bulgarian|bg|
-  |Bundeli|bns|
-  |Buryat (Cyrillic)|bua|
-  |Catalan|ca|
-  |Cebuano|ceb|
-  |Chamling|rab|
-  |Chamorro|ch|
-  |Chechen|ce|
-  |Chhattisgarhi (Devanagari)|hne|
-  |Chiga|cgg|
-  |Chinese Simplified|zh-Hans|
-  |Chinese Traditional|zh-Hant|
-  |Choctaw|cho|
-  |Chukot|ckt|
-  |Chuvash|cv|
-  |Cornish|kw|
-  |Corsican|co|
-  |Cree|cr|
-  |Creek|mus|
-  |Crimean Tatar (Latin)|crh|
-  |Croatian|hr|
-  |Crow|cro|
-  |Czech|cs|
-  |Danish|da|
-  |Dargwa|dar|
-  |Dari|prs|
-  |Dhimal (Devanagari)|dhi|
-  |Dogri (Devanagari)|doi|
-  |Duala|dua|
-  |Dungan|dng|
-  |Dutch|nl|
-  |Efik|efi|
-  |English|en|
-  |Erzya (Cyrillic)|myv|
-  |Estonian|et|
-  |Faroese|fo|
-  |Fijian|fj|
-  |Filipino|fil|
-  |Finnish|fi|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Fon|fon|
-  |French|fr|
-  |Friulian|fur|
-  |Ga|gaa|
-  |Gagauz (Latin)|gag|
-  |Galician|gl|
-  |Ganda|lg|
-  |Gayo|gay|
-  |German|de|
-  |Gilbertese|gil|
-  |Gondi (Devanagari)|gon|
-  |Greek|el|
-  |Greenlandic|kl|
-  |Guarani|gn|
-  |Gurung (Devanagari)|gvr|
-  |Gusii|guz|
-  |Haitian Creole|ht|
-  |Halbi (Devanagari)|hlb|
-  |Hani|hni|
-  |Haryanvi|bgc|
-  |Hawaiian|haw|
-  |Hebrew|he|
-  |Herero|hz|
-  |Hiligaynon|hil|
-  |Hindi|hi|
-  |Hmong Daw (Latin)|mww|
-  |Ho(Devanagiri)|hoc|
-  |Hungarian|hu|
-  |Iban|iba|
-  |Icelandic|is|
-  |Igbo|ig|
-  |Iloko|ilo|
-  |Inari Sami|smn|
-  |Indonesian|id|
-  |Ingush|inh|
-  |Interlingua|ia|
-  |Inuktitut (Latin)|iu|
-  |Irish|ga|
-  |Italian|it|
-  |Japanese|ja|
-  |Jaunsari (Devanagari)|Jns|
-  |Javanese|jv|
-  |Jola-Fonyi|dyo|
-  |Kabardian|kbd|
-  |Kabuverdianu|kea|
-  |Kachin (Latin)|kac|
-  |Kalenjin|kln|
-  |Kalmyk|xal|
-  |Kangri (Devanagari)|xnr|
-  |Kanuri|kr|
-  |Karachay-Balkar|krc|
-  |Kara-Kalpak (Cyrillic)|kaa-cyrl|
-  |Kara-Kalpak (Latin)|kaa|
-  |Kashubian|csb|
-  |Kazakh (Cyrillic)|kk-cyrl|
-  |Kazakh (Latin)|kk-latn|
-  |Khakas|kjh|
-  |Khaling|klr|
-  |Khasi|kha|
-  |K'iche'|quc|
-  |Kikuyu|ki|
-  |Kildin Sami|sjd|
-  |Kinyarwanda|rw|
-  |Komi|kv|
-  |Kongo|kg|
-  |Korean|ko|
-  |Korku|kfq|
-  |Koryak|kpy|
-  |Kosraean|kos|
-  |Kpelle|kpe|
-  |Kuanyama|kj|
-  |Kumyk (Cyrillic)|kum|
-  |Kurdish (Arabic)|ku-arab|
-  |Kurdish (Latin)|ku-latn|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Kurukh (Devanagari)|kru|
-  |Kyrgyz (Cyrillic)|ky|
-  |Lak|lbe|
-  |Lakota|lkt|
-  |Latin|la|
-  |Latvian|lv|
-  |Lezghian|lex|
-  |Lingala|ln|
-  |Lithuanian|lt|
-  |Lower Sorbian|dsb|
-  |Lozi|loz|
-  |Lule Sami|smj|
-  |Luo (Kenya and Tanzania)|luo|
-  |Luxembourgish|lb|
-  |Luyia|luy|
-  |Macedonian|mk|
-  |Machame|jmc|
-  |Madurese|mad|
-  |Mahasu Pahari (Devanagari)|bfz|
-  |Makhuwa-Meetto|mgh|
-  |Makonde|kde|
-  |Malagasy|mg|
-  |Malay (Latin)|ms|
-  |Maltese|mt|
-  |Malto (Devanagari)|kmj|
-  |Mandinka|mnk|
-  |Manx|gv|
-  |Maori|mi|
-  |Mapudungun|arn|
-  |Marathi|mr|
-  |Mari (Russia)|chm|
-  |Masai|mas|
-  |Mende (Sierra Leone)|men|
-  |Meru|mer|
-  |Meta'|mgo|
-  |Minangkabau|min|
-  |Mohawk|moh|
-  |Mongolian (Cyrillic)|mn|
-  |Mongondow|mog|
-  |Montenegrin (Cyrillic)|cnr-cyrl|
-  |Montenegrin (Latin)|cnr-latn|
-  |Morisyen|mfe|
-  |Mundang|mua|
-  |Nahuatl|nah|
-  |Navajo|nv|
-  |Ndonga|ng|
-  |Neapolitan|nap|
-  |Nepali|ne|
-  |Ngomba|jgo|
-  |Niuean|niu|
-  |Nogay|nog|
-  |North Ndebele|nd|
-  |Northern Sami (Latin)|sme|
-  |Norwegian|no|
-  |Nyanja|ny|
-  |Nyankole|nyn|
-  |Nzima|nzi|
-  |Occitan|oc|
-  |Ojibwa|oj|
-  |Oromo|om|
-  |Ossetic|os|
-  |Pampanga|pam|
-  |Pangasinan|pag|
-  |Papiamento|pap|
-  |Pashto|ps|
-  |Pedi|nso|
-  |Persian|fa|
-  |Polish|pl|
-  |Portuguese|pt|
-  |Punjabi (Arabic)|pa|
-  |Quechua|qu|
-  |Ripuarian|ksh|
-  |Romanian|ro|
-  |Romansh|rm|
-  |Rundi|rn|
-  |Russian|ru|
-   :::column-end:::
-   :::column span="":::
-      |Language| Code (optional) |
-  |:-----|:----:|
-  |Rwa|rwk|
-  |Sadri (Devanagari)|sck|
-  |Sakha|sah|
-  |Samburu|saq|
-  |Samoan (Latin)|sm|
-  |Sango|sg|
-  |Sangu (Gabon)|snq|
-  |Sanskrit (Devanagari)|sa|
-  |Santali(Devanagiri)|sat|
-  |Scots|sco|
-  |Scottish Gaelic|gd|
-  |Sena|seh|
-  |Serbian (Cyrillic)|sr-cyrl|
-  |Serbian (Latin)|sr, sr-latn|
-  |Shambala|ksb|
-  |Sherpa (Devanagari)|xsr|
-  |Shona|sn|
-  |Siksika|bla|
-  |Sirmauri (Devanagari)|srx|
-  |Skolt Sami|sms|
-  |Slovak|sk|
-  |Slovenian|sl|
-  |Soga|xog|
-  |Somali (Arabic)|so|
-  |Somali (Latin)|so-latn|
-  |Songhai|son|
-  |South Ndebele|nr|
-  |Southern Altai|alt|
-  |Southern Sami|sma|
-  |Southern Sotho|st|
-  |Spanish|es|
-  |Sundanese|su|
-  |Swahili (Latin)|sw|
-  |Swati|ss|
-  |Swedish|sv|
-  |Tabassaran|tab|
-  |Tachelhit|shi|
-  |Tahitian|ty|
-  |Taita|dav|
-  |Tajik (Cyrillic)|tg|
-  |Tamil|ta|
-  |Tatar (Cyrillic)|tt-cyrl|
-  |Tatar (Latin)|tt|
-  |Teso|teo|
-  |Tetum|tet|
-  |Thai|th|
-  |Thangmi|thf|
-  |Tok Pisin|tpi|
-  |Tongan|to|
-  |Tsonga|ts|
-  |Tswana|tn|
-  |Turkish|tr|
-  |Turkmen (Latin)|tk|
-  |Tuvan|tyv|
-  |Udmurt|udm|
-  |Uighur (Cyrillic)|ug-cyrl|
-  |Ukrainian|uk|
-  |Upper Sorbian|hsb|
-  |Urdu|ur|
-  |Uyghur (Arabic)|ug|
-  |Uzbek (Arabic)|uz-arab|
-  |Uzbek (Cyrillic)|uz-cyrl|
-  |Uzbek (Latin)|uz|
-  |Vietnamese|vi|
-  |Volapük|vo|
-  |Vunjo|vun|
-  |Walser|wae|
-  |Welsh|cy|
-  |Western Frisian|fy|
-  |Wolof|wo|
-  |Xhosa|xh|
-  |Yucatec Maya|yua|
-  |Zapotec|zap|
-  |Zarma|dje|
-  |Zhuang|za|
-  |Zulu|zu|
-   :::column-end:::
-:::row-end:::
-
-::: moniker-end
+*See* our [Language Support—document analysis models](language-support-ocr.md) page for a complete list of supported languages.
 
 ::: moniker range="doc-intel-2.1.0"
 
-:::row:::
-:::column:::
-
-|Language| Language code |
-|:-----|:----:|
-|Afrikaans|`af`|
-|Albanian |`sq`|
-|Asturian |`ast`|
-|Basque  |`eu`|
-|Bislama   |`bi`|
-|Breton    |`br`|
-|Catalan    |`ca`|
-|Cebuano    |`ceb`|
-|Chamorro  |`ch`|
-|Chinese (Simplified) | `zh-Hans`|
-|Chinese (Traditional) | `zh-Hant`|
-|Cornish     |`kw`|
-|Corsican      |`co`|
-|Crimean Tatar (Latin)  |`crh`|
-|Czech | `cs` |
-|Danish | `da` |
-|Dutch | `nl` |
-|English (printed and handwritten) | `en` |
-|Estonian  |`et`|
-|Fijian |`fj`|
-|Filipino  |`fil`|
-|Finnish | `fi` |
-|French | `fr` |
-|Friulian  | `fur` |
-|Galician   | `gl` |
-|German | `de` |
-|Gilbertese    | `gil` |
-|Greenlandic   | `kl` |
-|Haitian Creole  | `ht` |
-|Hani  | `hni` |
-|Hmong Daw (Latin) | `mww` |
-|Hungarian | `hu` |
-|Indonesian   | `id` |
-|Interlingua  | `ia` |
-|Inuktitut (Latin)  | `iu`  |
-|Irish    | `ga` |
-:::column-end:::
-:::column:::
-|Language| Language code |
-|:-----|:----:|
-|Italian | `it` |
-|Japanese | `ja` |
-|Javanese | `jv` |
-|K'iche'  | `quc` |
-|Kabuverdianu | `kea` |
-|Kachin (Latin) | `kac` |
-|Kara-Kalpak | `kaa` |
-|Kashubian | `csb` |
-|Khasi  | `kha` |
-|Korean | `ko` |
-|Kurdish (latin) | `kur` |
-|Luxembourgish  | `lb` |
-|Malay (Latin)  | `ms` |
-|Manx  | `gv` |
-|Neapolitan   | `nap` |
-|Norwegian | `no` |
-|Occitan | `oc` |
-|Polish | `pl` |
-|Portuguese | `pt` |
-|Romansh  | `rm` |
-|Scots  | `sco` |
-|Scottish Gaelic  | `gd` |
-|Slovenian  | `slv` |
-|Spanish | `es` |
-|Swahili (Latin)  | `sw` |
-|Swedish | `sv` |
-|Tatar (Latin)  | `tat` |
-|Tetum    | `tet` |
-|Turkish | `tr` |
-|Upper Sorbian  | `hsb` |
-|Uzbek (Latin)     | `uz` |
-|Volapük   | `vo` |
-|Walser    | `wae` |
-|Western Frisian | `fy` |
-|Yucatec Maya | `yua` |
-|Zhuang | `za` |
-|Zulu  | `zu` |
-:::column-end:::
-:::row-end:::
-
-::: moniker-end
-
-::: moniker range="doc-intel-2.1.0"
-
-Document Intelligence v2.1 supports the following tools:
+Document Intelligence v2.1 supports the following tools, applications, and libraries:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -598,11 +183,123 @@ Document Intelligence v2.1 supports the following tools:
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 
+> [!NOTE]
+> Versions `2024-02-29-preview`, `2023-10-31-preview`, and later support Microsoft office (DOCX, XLSX, PPTX) and HTML files. The following features are not supported:
+>
+> * There are no angle, width/height and unit with each page object.
+> * For each object detected, there is no bounding polygon or bounding region.
+> * Page range (`pages`) is not supported as a parameter.
+> * No `lines` object.
+
+### Pages
+
+The pages collection is a list of pages within the document. Each page is represented sequentially within the document and includes the orientation angle indicating if the page is rotated and the width and height (dimensions in pixels). The page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Images (JPEG/JPG, PNG, BMP, HEIF) | Each image = 1 page unit | Total images  |
+|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
+|TIFF | Each image in the TIFF = 1 page unit | Total images in the TIFF |
+|Word (DOCX)  | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Excel (XLSX)  | Each worksheet = 1 page unit, embedded or linked images not supported | Total worksheets | 
+|PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides | 
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing layout from page #{page.page_number}----")
+    print(
+        f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}"
+    )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing layout from page #{page.page_number}----")
+    print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+
+::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
+
+### Extract selected pages from documents
+
+For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+
 ### Paragraphs
 
 The Layout model extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top level `content` property that contains the full text from the document.
 
 ```json
+
 "paragraphs": [
     {
         "spans": [],
@@ -614,16 +311,16 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The new machine-learning based page object detection extracts logical roles like titles, section headings, page headers, page footers, and more. The Document Intelligence Layout model assigns certain text blocks in the `paragraphs` collection with their specialized role or type predicted by the model. It's best to use paragraph roles with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
-| **Predicted role**   | **Description**   |
-| --- | --- |
-| `title`  | The main heading(s) in the page |
-| `sectionHeading`  | One or more subheading(s) on the page  |
-| `footnote`  | Text near the bottom of the page  |
-| `pageHeader`  | Text near the top edge of the page  |
-| `pageFooter`  | Text near the bottom edge of the page  |
-| `pageNumber`  | Page number  |
+| **Predicted role**   | **Description**   | **Supported file types** | 
+| --- | --- | --- |
+| `title`  | The main headings in the page | pdf, image, docx, pptx, xlsx, html |
+| `sectionHeading`  | One or more subheadings on the page  | pdf, image, docx, xlsx, html |
+| `footnote`  | Text near the bottom of the page  | pdf, image |
+| `pageHeader`  | Text near the top edge of the page  | pdf, image, docx |
+| `pageFooter`  | Text near the bottom edge of the page  | pdf, image, docx, pptx, html |
+| `pageNumber`  | Page number  | pdf, image |
 
 ```json
 {
@@ -645,29 +342,15 @@ The new machine-learning based page object detection extracts logical roles like
 
 ```
 
-### Pages
+### Text, lines, and words
 
-The pages collection is the first object you see in the service response.
+The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
-```json
-"pages": [
-    {
-        "pageNumber": 1,
-        "angle": 0,
-        "width": 915,
-        "height": 1190,
-        "unit": "pixel",
-        "words": [],
-        "lines": [],
-        "spans": [],
-        "kind": "document"
-    }
-]
-```
+For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence versions 2024-02-29-preview and  2023-10-31-preview Layout model extract all embedded text as is. Texts are extracted as words and paragraphs. Embedded images aren't supported.
 
-### Text lines and words
+::: moniker-end
 
-The document layout model in Document Intelligence extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
+::: moniker range="doc-intel-3.0.0"
 
 ```json
 "words": [
@@ -686,11 +369,120 @@ The document layout model in Document Intelligence extracts print and handwritte
     }
 ]
 ```
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze lines.
+for line_idx, line in enumerate(page.lines):
+    words = line.get_words()
+    print(
+        f"...Line # {line_idx} has word count {len(words)} and text '{line.content}' "
+        f"within bounding polygon '{format_polygon(line.polygon)}'"
+    )
+
+    # Analyze words.
+    for word in words:
+        print(
+            f"......Word '{word.content}' has a confidence of {word.confidence}"
+        )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze lines.
+if page.lines:
+    for line_idx, line in enumerate(page.lines):
+    words = get_words(page, line)
+    print(
+        f"...Line # {line_idx} has word count {len(words)} and text '{line.content}' "
+        f"within bounding polygon '{line.polygon}'"
+    )
+
+    # Analyze words.
+    for word in words:
+        print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+---
+::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
+
+### Handwritten style for text lines
+
+The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. See [Handwritten language support](language-support-ocr.md). The following example shows an example JSON snippet.
+
+```json
+"styles": [
+{
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
+}
+```
+
+If you enable the [font/style addon capability](concept-add-on-capabilities.md#font-property-extraction), you also get the font/style result as part of the `styles` object.
 
 ### Selection marks
 
-The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). Any associated text if extracted is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
+The Layout model also extracts selection marks from documents. Extracted selection marks appear within the `pages` collection for each page. They include the bounding `polygon`, `confidence`, and selection `state` (`selected/unselected`). The text representation (that is, `:selected:` and `:unselected`) is also included as the starting index (`offset`) and `length` that references the top level `content` property that contains the full text from the document.
 
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
 ```json
 {
     "selectionMarks": [
@@ -706,10 +498,97 @@ The Layout model also extracts selection marks from documents. Extracted selecti
     ]
 }
 ```
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze selection marks.
+for selection_mark in page.selection_marks:
+    print(
+        f"Selection mark is '{selection_mark.state}' within bounding polygon "
+        f"'{format_polygon(selection_mark.polygon)}' and has a confidence of {selection_mark.confidence}"
+    )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+{
+    "selectionMarks": [
+        {
+            "state": "unselected",
+            "polygon": [],
+            "confidence": 0.995,
+            "span": {
+                "offset": 1421,
+                "length": 12
+            }
+        }
+    ]
+}
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze selection marks.
+if page.selection_marks:
+    for selection_mark in page.selection_marks:
+        print(
+            f"Selection mark is '{selection_mark.state}' within bounding polygon "
+            f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
+        )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+{
+    "selectionMarks": [
+        {
+            "state": "unselected",
+            "polygon": [],
+            "confidence": 0.995,
+            "span": {
+                "offset": 1421,
+                "length": 12
+            }
+        }
+    ]
+}
+```
+---
+::: moniker-end
+
+::: moniker range=">=doc-intel-3.0.0"
 
 ### Tables
 
-Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether it's recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
+Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
+
+Here are a few factors to consider when using the Document Intelligence bale extraction capability:
+
+* Is the data that you want to extract presented as a table, and is the table structure meaningful?
+
+* Can the data fit in a two-dimensional grid if the data isn't in a table format?
+
+* Do your tables span multiple pages? If so, to avoid having to label all the pages, split the PDF into pages before sending it to Document Intelligence. After the analysis, post-process the pages to a single table.
+
+* Refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables) if you're creating custom models. Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
+
+> [!NOTE]
+> Table is not supported if the input file is XLSX.
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
 
 ```json
 {
@@ -733,48 +612,275 @@ Extracting tables is a key requirement for processing documents containing large
 }
 
 ```
+::: moniker-end
 
-### Handwritten style for text lines
+::: moniker range="doc-intel-3.1.0"
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. For more information. *see*, [Handwritten language support](#handwritten-text). The following example shows an example JSON snippet.
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze tables.
+for table_idx, table in enumerate(result.tables):
+    print(
+        f"Table # {table_idx} has {table.row_count} rows and "
+        f"{table.column_count} columns"
+    )
+    for region in table.bounding_regions:
+        print(
+            f"Table # {table_idx} location on page: {region.page_number} is {format_polygon(region.polygon)}"
+        )
+    for cell in table.cells:
+        print(
+            f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'"
+        )
+        for region in cell.bounding_regions:
+            print(
+                f"...content on page {region.page_number} is within bounding polygon '{format_polygon(region.polygon)}'"
+            )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model/sample_analyze_layout.py)
 
+#### [Output](#tab/output)
 ```json
-"styles": [
 {
-    "confidence": 0.95,
-    "spans": [
-    {
-        "offset": 509,
-        "length": 24
-    }
-    "isHandwritten": true
+    "tables": [
+        {
+            "rowCount": 9,
+            "columnCount": 4,
+            "cells": [
+                {
+                    "kind": "columnHeader",
+                    "rowIndex": 0,
+                    "columnIndex": 0,
+                    "columnSpan": 4,
+                    "content": "(In millions, except earnings per share)",
+                    "boundingRegions": [],
+                    "spans": []
+                    },
+            ]
+        }
     ]
 }
-```
 
-### Annotations (available only in ``2023-07-31`` (v3.1 GA) API.)
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+if result.tables:
+    for table_idx, table in enumerate(result.tables):
+        print(f"Table # {table_idx} has {table.row_count} rows and " f"{table.column_count} columns")
+        if table.bounding_regions:
+            for region in table.bounding_regions:
+                print(f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}")
+        # Analyze cells.
+        for cell in table.cells:
+            print(f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'")
+            if cell.bounding_regions:
+                for region in cell.bounding_regions:
+                print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+```json
+{
+    "tables": [
+        {
+            "rowCount": 9,
+            "columnCount": 4,
+            "cells": [
+                {
+                    "kind": "columnHeader",
+                    "rowIndex": 0,
+                    "columnIndex": 0,
+                    "columnSpan": 4,
+                    "content": "(In millions, except earnings per share)",
+                    "boundingRegions": [],
+                    "spans": []
+                    },
+            ]
+        }
+    ]
+}
+
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+### Annotations (available only in ``2023-02-28-preview`` API.)
 
 The Layout model extracts annotations in documents, such as checks and crosses. The response includes the kind of annotation, along with a confidence score and bounding polygon.
 
 ```json
     {
-  "pages": [
+    "pages": [
     {
-      "annotations": [
+        "annotations": [
         {
-          "kind": "cross",
-          "polygon": [...],
-          "confidence": 1
+            "kind": "cross",
+            "polygon": [...],
+            "confidence": 1
         }
-      ]
+        ]
     }
-  ]
+    ]
+}
+```
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+### Output to markdown format
+
+The Layout API can output the extracted text in markdown format. Use the `outputContentFormat=markdown` to specify the output format in markdown. The markdown content is output as part of the `content` section.
+
+#### [Sample code](#tab/sample-code)
+```Python
+document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+poller = document_intelligence_client.begin_analyze_document(
+    "prebuilt-layout",
+    AnalyzeDocumentRequest(url_source=url),
+    output_content_format=ContentFormat.MARKDOWN,
+)
+
+```
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_analyze_documents_output_in_markdown.py)
+
+#### [Output](#tab/output)
+
+```Markdown
+<!-- PageHeader="This is the header of the document." -->
+
+This is title
+===
+# 1\. Text
+Latin refers to an ancient Italic language originating in the region of Latium in ancient Rome.
+# 2\. Page Objects
+## 2.1 Table
+Here's a sample table below, designed to be simple for easy understand and quick reference.
+| Name | Corp | Remark |
+| - | - | - |
+| Foo | | |
+| Bar | Microsoft | Dummy |
+Table 1: This is a dummy table
+## 2.2. Figure
+<figure>
+<figcaption>
+
+Figure 1: Here is a figure with text
+</figcaption>
+
+![](figures/0)
+<!-- FigureContent="500 450 400 400 350 250 200 200 200- Feb" -->
+</figure>
+
+# 3\. Others
+Al Document Intelligence is an Al service that applies advanced machine learning to extract text, key-value pairs, tables, and structures from documents automatically and accurately:
+ :selected:
+clear
+ :selected:
+precise
+ :unselected:
+vague
+ :selected:
+coherent
+ :unselected:
+Incomprehensible
+Turn documents into usable data and shift your focus to acting on information rather than compiling it. Start with prebuilt models or create custom models tailored to your documents both on premises and in the cloud with the Al Document Intelligence studio or SDK.  
+Learn how to accelerate your business processes by automating text extraction with Al Document Intelligence. This webinar features hands-on demos for key use cases such as document processing, knowledge mining, and industry-specific Al model customization.
+<!-- PageFooter="This is the footer of the document." -->
+<!-- PageFooter="1 | Page" -->
+```
+---
+
+### Figures
+
+Figures (charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption` if there's any.
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze figures.
+if result.figures:                    
+    for figures_idx,figures in enumerate(result.figures):
+        print(f"Figure # {figures_idx} has the following spans:{figures.spans}")
+        for region in figures.bounding_regions:
+            print(f"Figure # {figures_idx} location on page:{region.page_number} is within bounding polygon '{region.polygon}'")                    
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/sample_analyze_layout.py)
+
+#### [Output](#tab/output)
+
+```json
+{
+    "figures": [
+      {
+        "boundingRegions": [],
+        "spans": [],
+        "elements": [
+          "/paragraphs/15",
+          ...
+        ],
+        "caption": {
+          "content": "Here is a figure with some text",
+          "boundingRegions": [],
+          "spans": [],
+          "elements": [
+            "/paragraphs/15"
+          ]
+        }
+      }
+    ]
+}
+```
+:::image type="content" source="media/document-layout-example-figures.png" alt-text="Screenshot of examples of document figures.":::
+
+---
+### Sections
+Hierarchical document structure analysis is pivotal in organizing, comprehending, and processing extensive documents. This approach is vital for semantically segmenting long documents to boost comprehension, facilitate navigation, and improve information retrieval. The advent of [Retrieval Augmented Generation (RAG)](concept-retrieval-augmented-generation.md) in document generative AI underscores the significance of hierarchical document structure analysis. The Layout model supports sections and subsections in the output, which identifies the relationship of sections and object within each section. The hierarchical structure is maintained in `elements` of each section. You can use [output to markdown format](#output-to-markdown-format) to easily get the sections and subsections in markdown.
+
+#### [Sample code](#tab/sample-code)
+```Python
+document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+poller = document_intelligence_client.begin_analyze_document(
+    "prebuilt-layout",
+    AnalyzeDocumentRequest(url_source=url),
+    output_content_format=ContentFormat.MARKDOWN,
+)
+
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/samples/sample_analyze_documents_output_in_markdown.py)
+
+#### [Output](#tab/output)
+```json
+{
+    "sections": [
+      {
+        "spans": [],
+        "elements": [
+          "/paragraphs/0",
+          "/sections/1",
+          "/sections/2",
+          "/sections/5"
+        ]
+      },
+...
 }
 ```
 
-### Extract selected page(s) from documents
+:::image type="content" source="media/document-layout-example-section.png" alt-text="Screenshot of examples of document sections.":::
 
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
+---
 
 ::: moniker-end
 
@@ -784,7 +890,7 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of layout model reading order processing." lightbox="../../ai-services/Computer-vision/Images/ocr-reading-order-example.png":::
+:::image type="content" source="media/layout-reading-order-example.png" alt-text="Screenshot of `layout` model reading order processing." lightbox="../../ai-services/Computer-vision/Images/ocr-reading-order-example.png":::
 
 ### Select page numbers or ranges for text extraction
 
@@ -794,13 +900,13 @@ For large multi-page documents, use the `pages` query parameter to indicate spec
 
 ## The Get Analyze Layout Result operation
 
-The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID the Analyze Layout operation created. It returns a JSON response that contains a **status** field with the following possible values.
+The second step is to call the [Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) operation. This operation takes as input the Result ID the `Analyze Layout` operation created. It returns a JSON response that contains a **status** field with the following possible values.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
-|status | string | `notStarted`: The analysis operation hasn't started.<br /><br />`running`: The analysis operation is in progress.<br /><br />`failed`: The analysis operation has failed.<br /><br />`succeeded`: The analysis operation has succeeded.|
+|status | string | `notStarted`: The analysis operation isn't started.</br></br>`running`: The analysis operation is in progress.</br></br>`failed`: The analysis operation failed.</br></br>`succeeded`: The analysis operation succeeded.|
 
-Call this operation iteratively until it returns the `succeeded` value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+Call this operation iteratively until it returns the `succeeded` value. To avoid exceeding the requests per second (RPS) rate, use an interval of 3 to 5 seconds.
 
 When the **status** field has the `succeeded` value, the JSON response includes the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated.
 
@@ -808,7 +914,7 @@ When the **status** field has the `succeeded` value, the JSON response includes 
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Screenshot of layout model handwriting classification process.":::
+:::image type="content" source="./media/layout-handwriting-classification.png" alt-text="Screenshot of `layout` model handwriting classification process.":::
 
 ### Sample JSON output
 
@@ -828,7 +934,7 @@ Layout API extracts text from documents and images with multiple text angles and
 
 ### Tables with headers
 
-Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with information whether it's recognized as part of a header or not. The model predicted header cells can span multiple rows and aren't necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
+Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Tables can be complex with merged cells or columns, with or without borders, and with odd angles. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding box is output along with whether the area is recognized as part of a header or not. The model predicted header cells can span multiple rows and aren't necessarily the first rows in a table. They also work with rotated tables. Each table cell also includes the full text with references to the individual words in the `readResults` section.
 
 ![Tables example](./media/layout-table-header-demo.gif)
 
@@ -845,15 +951,23 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* [Learn how to process your own forms and documents](quickstarts/try-document-intelligence-studio.md) with the [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker-end
 
+::: moniker range="doc-intel-4.0.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Layout_model)
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Layout_model)
+::: moniker-end
+
 ::: moniker range="doc-intel-2.1.0"
 
-* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

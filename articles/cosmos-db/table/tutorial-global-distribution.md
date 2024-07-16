@@ -5,7 +5,6 @@ author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: table
-ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: mjbrown

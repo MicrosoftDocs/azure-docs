@@ -1,27 +1,27 @@
 ---
-title: Elastic SAN Preview scalability and performance targets
-description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN.
+title: Elastic SAN scalability and performance targets
+description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN. Learn which regions support higher capacities.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 10/19/2023
+ms.date: 05/31/2024
 ms.author: rogarana
-ms.custom: references_regions, ignite-2022
+ms.custom: references_regions
 ---
 
-# Scale targets for Elastic SAN Preview
+# Scale targets for Elastic SAN
 
 There are three main components to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes.
 
 ## The Elastic SAN
 
-An Elastic SAN Preview has three attributes that determine its performance: total capacity, IOPS, and throughput.
+An Elastic SAN has three attributes that determine its performance: total capacity, IOPS, and throughput.
 
 ### Capacity
 
 The total capacity of your Elastic SAN is determined by two different capacities, the base capacity and the additional capacity. Increasing the base capacity also increases the SAN's IOPS and throughput but is more costly than increasing the additional capacity. Increasing additional capacity doesn't increase IOPS or throughput.
 
-The maximum total capacity of your SAN is determined by the region where it's located and by its redundancy configuration. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
+The region your SAN is located in and your SAN's redundancy determines its maximum total capacity. The minimum total capacity for an Elastic SAN is 1 tebibyte (TiB). Base or additional capacity can be increased in increments of 1 TiB.
 
 ### IOPS
 
@@ -37,15 +37,37 @@ The appliance scale targets vary depending on region and redundancy of the SAN i
 
 #### LRS
 
-|Resource  |France Central   |Southeast Asia |Australia East |North Europe | West Europe | UK South | East US | East US 2 | South Central US| West US 2   | West US 3 | Sweden Central |
-|---------|---------|---------|---------|
-|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5        |5        |5        |5        |5        |5        |5        | 5 | 5|5|
-|Maximum total capacity (TiB)     |100         |100         |600        |600|600|600|        |600        |600        |600        | 100 | 100 |
-|Maximum base capacity (TiB)    |100         |100         |400        |400 | 400|400       |400        |400        |400        |400        | 100 |100 |
-|Minimum total capacity (TiB)    |1         |1         |1        |1        |1        |1        |1        |1        | 1 | 1 | 1 |1|
-|Maximum total IOPS     |500,000         |500,000         |2,000,000        |2,000,000|2,000,000   |2,000,000        |2,000,000        |2,000,000        |2,000,000        |2,000,000        | 500,000 |500,000 |
-|Maximum total throughput (MB/s)    |8,000         |8,000         |32,000        |32,000 |32,000|32,000        |32,000        |32,000        |32,000        |32,000        | 8,000|8,000|
+Different regions have varying levels of base storage capacity available. We break them down into two sets, regions with a higher base storage capacity available, and regions with a lower base storage capacity available. Other than the base storage capacity differences, which directly affect the available performance that a SAN can distribute to its volumes and volume groups, there are no differences between these sets of regions.
 
+##### Higher available base storage capacity
+
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: Australia East, Brazil South, Canada Central, Germany West, North Europe, West Europe, UK South, East US, East US 2, South Central US, US Central, and West US 2.
+
+
+|Resource  |Values  |
+|---------|---------|
+|Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
+|Maximum capacity-only units (TiB)     | 600         |
+|Maximum base capacity units (TiB)     | 400         |
+|Minimum total SAN capacity (TiB)     | 1         |
+|Maximum total IOPS     |2,000,000         |
+|Maximum total throughput (MB/s)     |80,000         |
+
+
+##### Lower available base storage capacity
+
+
+The following regions are regions with higher base storage capacity available, and the table following the regions outlines their scale targets: East Asia, Korea Central, South Africa North, France Central, Southeast Asia, West US 3, Sweden Central, Switzerland North.
+
+
+|Resource  |Values  |
+|---------|---------|
+|Maximum number of Elastic SANs that can be deployed per subscription per region     | 5         |
+|Maximum capacity-only units (TiB)     | 100         |
+|Maximum base capacity units (TiB)     | 100         |
+|Minimum total SAN capacity (TiB)     | 1         |
+|Maximum total IOPS     |500,000         |
+|Maximum total throughput (MB/s)     |20,000         |
 
 #### ZRS
 
@@ -54,12 +76,16 @@ ZRS is only available in France Central, North Europe, West Europe and West US 2
 |Resource  |France Central  |North Europe | West Europe |West US 2    |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5        |5        |5        |
-|Maximum total capacity (TiB)     |200         |200        |200        |200        |
-|Maximum base capacity (TiB)    |100         |100        |100        |100        |
-|Minimum total capacity (TiB)    |1         |1        |1        |1        |
+|Maximum capacity-only units (TiB)     |200         |200        |200        |200        |
+|Maximum base capacity units (TiB)    |100         |100        |100        |100        |
+|Minimum total SAN capacity (TiB)    |1         |1        |1        |1        |
 |Maximum total IOPS     |500,000         |500,000        |500,000        |500,000        |
-|Maximum total throughput (MB/s)    |8,000         |8,000        |8,000        |8,000        |
+|Maximum total throughput (MB/s)    |20,000         |20,000        |20,000        |20,000        |
 
+#### Quota and capacity increases
+To increase quota, raise a support ticket with the subscription ID and region information to request for an increase in quota for the “Maximum number of Elastic SAN that can be deployed per subscription per region”.
+
+For capacity increase requests, raise a support ticket with the subscription ID and the region information and it will be evaluated.
 
 ## Volume group
 
@@ -77,4 +103,4 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
+[Plan for deploying an Elastic SAN](elastic-san-planning.md)

@@ -2,7 +2,7 @@
 title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 03/21/2024
 ms.service: backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -61,7 +61,7 @@ See the [sample ARG queries](query-backups-using-azure-resource-graph.md#sample-
 
 ### Automate responses/actions
 
-The automation of responses for transient Backup job failures helps you ensure that you've the right number of reliable backups to restore from. This also helps to avoid unintentional breaches in your [RPO](azure-backup-glossary.md#rpo-recovery-point-objective).
+The automation of responses for transient Backup job failures helps you ensure that you've the right number of reliable backups to restore from. This also helps to avoid unintentional breaches in your [RPO](azure-backup-glossary.md#recovery-point-objective-rpo).
 
 You can set up a workflow to retry Backup jobs using a combination of Azure Automation Runbooks, PowerShell, and ARG. This helps in scenarios where Backup jobs have failed due to transient error or planned/unplanned outage.
 

@@ -1,64 +1,67 @@
 ---
-title: Vision SDK Overview
+title: Image Analysis SDK Overview
 titleSuffix: Azure AI services
-description: This page gives you an overview of the Azure AI Vision SDK for Image Analysis.
-services: cognitive-services
+description: This page gives you an overview of the Azure AI Image Analysis SDK.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 08/01/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
-# Vision SDK overview
+# Image Analysis SDK overview
 
-The Vision SDK (Preview) provides a convenient way to access the Image Analysis service using [version 4.0 of the REST APIs](https://aka.ms/vision-4-0-ref).
+The Image Analysis SDK provides a convenient way to access the Image Analysis service using [version 4.0 of the REST API](https://aka.ms/vision-4-0-ref).
 
-[!INCLUDE [License Notice](../includes/setup-sdk/license-notice-sdk.md)]
+> [!IMPORTANT]
+> **Breaking Changes in SDK version 1.0.0-beta.1**
+>
+> The Image Analysis SDK was rewritten in version 1.0.0-beta.1 to better align with other Azure SDKs. All APIs have changed. See the updated [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40), [samples](#github-samples) and [how-to-guides](/azure/ai-services/computer-vision/how-to/call-analyze-image-40) for information on how to use the new SDK.
+>
+> Major changes:
+> - The SDK now calls the generally available [Computer Vision REST API (2023-10-01)](/rest/api/computervision/operation-groups?view=rest-computervision-2023-10-01), instead of the preview [Computer Vision REST API (2023-04-01-preview)](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview).
+> - Support for JavaScript was added.
+> - C++ is no longer supported.
+> - Image Analysis with a custom model, and Image Segmentation (background removal) are no longer supported in the SDK, because the [Computer Vision REST API (2023-10-01)](/rest/api/computervision/operation-groups?view=rest-computervision-2023-10-01) does not yet support them. To use either feature, call the [Computer Vision REST API (2023-04-01-preview)](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview) directly (using the `Analyze` and `Segment` operations respectively).
 
 ## Supported languages
 
-The Vision SDK supports the following languages and platforms:
+The Image Analysis SDK supports the following languages and platforms:
 
 | Programming language | Quickstart | API Reference | Platform support |
 |----------------------|------------|-----------|------------------|
-| C# <sup>1</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](/dotnet/api/azure.ai.vision.imageanalysis) | Windows, UWP, Linux |
-| C++ <sup>2</sup> | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-cpp)  | [reference](/cpp/cognitive-services/vision) | Windows, Linux |
-| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](/python/api/azure-ai-vision) | Windows, Linux |
-| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](/java/api/com.azure.ai.vision.imageanalysis) | Windows, Linux |
+| C# | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-csharp)  | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/csharp) | Windows, Linux, macOS |
+| Python | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-python) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/python) | Windows, Linux, macOS |
+| Java | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-java) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/java) | Windows, Linux, macOS |
+| JavaScript | [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md?pivots=programming-language-js) | [reference](https://aka.ms/azsdk/image-analysis/ref-docs/js) | Windows, Linux, macOS |
 
-
-<sup>1 The Vision SDK for C# is based on .NET Standard 2.0. See [.NET Standard](/dotnet/standard/net-standard?tabs=net-standard-2-0#net-implementation-support) documentation.</sup>
-
-<sup>2 ANSI-C isn't a supported programming language for the Vision SDK.</sup>
 
 ## GitHub samples
 
-Numerous samples are available in the [Azure-Samples/azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository on GitHub.
+Numerous code samples are available in the SDK repositories on GitHub.
+- [C#](https://aka.ms/azsdk/image-analysis/samples/csharp)
+- [Python](https://aka.ms/azsdk/image-analysis/samples/python)
+- [Java](https://aka.ms/azsdk/image-analysis/samples/java)
+- [JavaScript](https://aka.ms/azsdk/image-analysis/samples/js)
 
-## Getting help
 
-If you need assistance using the Vision SDK or would like to report a bug or suggest new features, open a [GitHub issue in the samples repository](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues). The SDK development team monitors these issues.
+## Help and support
+
+If you need assistance using the Image Analysis SDK or would like to report a bug or suggest new features, open a GitHub issue in the respective SDK repo. The SDK development team monitors these issues.
+- [C#](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Python](https://github.com/Azure/azure-sdk-for-python/issues)
+- [Java](https://github.com/Azure/azure-sdk-for-java/issues)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/issues)
 
 Before you create a new issue:
 * Make sure you first scan to see if a similar issue already exists.
 * Find the sample closest to your scenario and run it to see if you see the same issue in the sample code.
 
-## Release notes
-
-* **Vision SDK 0.15.1-beta.1** released September 2023.
-  * Image Analysis Java JRE APIs for Windows x64 and Linux x64 were added.
-  * Image Analysis can now be done from a memory buffer (C#, C++, Python, Java).
-* **Vision SDK 0.13.0-beta.1** released July 2023. Image Analysis support was added for Universal Windows Platform (UWP) applications (C++, C#). Run-time package size reduction: Only the two native binaries
-`Azure-AI-Vision-Native.dll` and `Azure-AI-Vision-Extension-Image.dll` are now needed.
-* **Vision SDK 0.11.1-beta.1** released May 2023. Image Analysis APIs were updated to support [Background Removal](../how-to/background-removal.md).
-* **Vision SDK 0.10.0-beta.1** released April 2023. Image Analysis APIs were updated to support [Dense Captions](../concept-describe-images-40.md?tabs=dense).
-* **Vision SDK 0.9.0-beta.1** first released on March 2023, targeting Image Analysis applications on Windows and Linux platforms.
-
 
 ## Next steps
 
-- [Install the SDK](./install-sdk.md)
-- [Try the Image Analysis Quickstart](../quickstarts-sdk/image-analysis-client-library-40.md)
+- [Install the Image Analysis SDK](./install-sdk.md)
+- [Follow the Image Analysis Quickstart](../quickstarts-sdk/image-analysis-client-library-40.md)

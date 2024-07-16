@@ -2,9 +2,8 @@
 title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.service:ms.service: oracle-on-azure
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 08/02/2018
@@ -25,7 +24,7 @@ Before you start, make sure that the Azure CLI has been installed. For more info
 
 GoldenGate is a logical replication software that enables real-time replication, filtering, and transformation of data from a source database to a target database. This feature ensures that changes in the source database are replicated in real-time, making it possible for the target database to be up-to-date with the latest data.
 
-Use GoldenGate mainly for heterogeneous replication cases, such as replicating data from different source databases to a single database. For example, a data warehouse. You can also use it for cross-platform migrations, such as from SPARC and AIX to Linux x86 environments, and advanced high availability and scalability scenarios. 
+Use GoldenGate mainly for heterogeneous replication cases, such as replicating data from different source databases to a single database. For example, a data warehouse. You can also use it for cross-platform migrations, such as from SPARC and AIX to Linux x86 environments, and advanced high availability and scalability scenarios.
 
 Additionally, GoldenGate is also suitable for near-zero downtime migrations since it supports online migrations with minimal disruption to the source systems.
 
@@ -90,7 +89,7 @@ We use key file based authentication with ssh to connect to the Oracle Database 
 Location of key files depends on your source system.
 
 Windows: %USERPROFILE%\.ssh
-Linux: ~/.ssh 
+Linux: ~/.ssh
 
 If they don't exist you can create a new keyfile pair.
 
@@ -168,7 +167,7 @@ $ az network vnet create \
         --resource-group GoldenGateOnAzureLab \
         --name AzureBastionSubnet \
         --vnet-name ggVnet \
-        --address-prefixes 10.0.1.0/24 
+        --address-prefixes 10.0.1.0/24
     ```
 
 2. Create public IP for Bastion
@@ -177,7 +176,7 @@ $ az network vnet create \
     $ az network public-ip create \
         --resource-group GoldenGateOnAzureLab \
         --name ggBastionIP \
-        --sku Standard 
+        --sku Standard
     ```
 
 3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
@@ -272,7 +271,7 @@ $ az vm create \
     --subnet ggSubnet1 \
     --public-ip-address "" \
     --nsg "" \
-    --zone 1 
+    --zone 1
 ```
 
 #### Create ggVM2 (replicate)
@@ -367,7 +366,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-3. Set the ORACLE_SID and LD_LIBRARY_PATH variables. 
+3. Set the ORACLE_SID and LD_LIBRARY_PATH variables.
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -403,7 +402,7 @@ Configure firewall to allow connections from ggVM1. Following command is run on 
 
 ```bash
 $ sudo su -
-$ firewall-cmd --permanent --zone=trusted --add-source=10.0.0.5 
+$ firewall-cmd --permanent --zone=trusted --add-source=10.0.0.5
 $ firewall-cmd --reload
 $ exit
 ```
@@ -713,9 +712,9 @@ SQL> EXIT;
    EXTRACT EXTORA
    USERID C##GGADMIN@cdb1, PASSWORD ggadmin
    RMTHOST 10.0.0.5, MGRPORT 7809
-   RMTTRAIL ./dirdat/rt  
+   RMTTRAIL ./dirdat/rt
    DDL INCLUDE MAPPED
-   DDLOPTIONS REPORT 
+   DDLOPTIONS REPORT
    LOGALLSUPCOLS
    UPDATERECORDFORMAT COMPACT
    TABLE pdb1.test.TCUSTMER;
@@ -790,7 +789,7 @@ SQL> EXIT;
    USERID C##GGADMIN@cdb1, PASSWORD ggadmin
    RMTHOST 10.0.0.6, MGRPORT 7809
    RMTTASK REPLICAT, GROUP INITREP
-   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 2172191'; 
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 2172191';
    ```
 
    ```bash
@@ -850,7 +849,7 @@ SQL> EXIT;
    SQL> CREATE USER REPUSER IDENTIFIED BY REP_PASS CONTAINER=CURRENT;
    SQL> GRANT DBA TO REPUSER;
    SQL> EXEC DBMS_GOLDENGATE_AUTH.GRANT_ADMIN_PRIVILEGE('REPUSER',CONTAINER=>'PDB1');
-   SQL> CONNECT REPUSER/REP_PASS@PDB1 
+   SQL> CONNECT REPUSER/REP_PASS@PDB1
    SQL> EXIT;
    ```
 
@@ -878,7 +877,7 @@ SQL> EXIT;
    ```
 
    ```
-   GGSCI> EDIT PARAMS REPORA  
+   GGSCI> EDIT PARAMS REPORA
    ```
 
     When vi editor opens you have to press `i` to switch to insert mode, then copy and paste file contents and press `Esc` key, `:wq!` to save file.
@@ -908,7 +907,7 @@ SQL> EXIT;
    ASSUMETARGETDEFS
    DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
    USERID repuser@pdb1, PASSWORD REP_PASS
-   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
    ```bash
@@ -982,7 +981,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
 * To view reports on **ggVM1**, run the following commands.
 
   ```bash
-  GGSCI> VIEW REPORT EXTORA 
+  GGSCI> VIEW REPORT EXTORA
   ```
 
 * To view reports on **ggVM2**, run the following commands.
@@ -996,14 +995,14 @@ The replication has begun, and you can test it by inserting new records to TEST 
 * To view status and history on **ggVM1**, run the following commands.
 
   ```bash
-  GGSCI> DBLOGIN USERID C##GGADMIN@CDB1, PASSWORD ggadmin 
+  GGSCI> DBLOGIN USERID C##GGADMIN@CDB1, PASSWORD ggadmin
   GGSCI> INFO EXTRACT EXTORA, DETAIL
   ```
 
 * To view status and history on **ggVM2**, run the following commands.
 
   ```bash
-  GGSCI> DBLOGIN USERID REPUSER@PDB1 PASSWORD REP_PASS 
+  GGSCI> DBLOGIN USERID REPUSER@PDB1 PASSWORD REP_PASS
   GGSCI> INFO REP REPORA, DETAIL
   ```
 
@@ -1051,22 +1050,22 @@ The replication has begun, and you can test it by inserting new records to TEST 
 
   ```output
     Sending STATS request to Extract group EXTORA ...
-    
+
     Start of statistics at 2023-03-24 19:41:54.
-    
+
     DDL replication statistics (for all trails):
-    
+
     *** Total statistics since extract started     ***
     Operations                           0.00
     Mapped operations                    0.00
     Unmapped operations                    0.00
     Other operations                    0.00
     Excluded operations                    0.00
-    
+
     Output to ./dirdat/rt:
-    
+
     Extracting from PDB1.TEST.TCUSTORD to PDB1.TEST.TCUSTORD:
-    
+
     *** Total statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1074,7 +1073,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Daily statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1082,7 +1081,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Hourly statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1090,7 +1089,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     *** Latest statistics since 2023-03-24 19:41:34 ***
        Total inserts                              1.00
        Total updates                              0.00
@@ -1098,7 +1097,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
        Total upserts                              0.00
        Total discards                             0.00
        Total operations                           1.00
-    
+
     End of statistics.
   ```
 
@@ -1131,7 +1130,7 @@ ggXServer VM is only used during setup. You can safely delete it after completin
 ```azurecli
 $ az vm delete --resource-group GoldenGateOnAzureLab --name ggXServer --force-deletion yes
 
-$ az network public-ip delete --resource-group GoldenGateOnAzureLab --name ggXServerPublicIP 
+$ az network public-ip delete --resource-group GoldenGateOnAzureLab --name ggXServerPublicIP
 ```
 
 ## Delete Golden Gate On Azure Lab Setup

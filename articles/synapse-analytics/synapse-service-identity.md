@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Synapse.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 
@@ -192,7 +192,7 @@ You can find the managed identity information from Azure portal -> your Synapse 
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Select **Access control (IAM)**.
 
@@ -313,6 +313,9 @@ You can easily execute Synapse Spark Notebooks with the system assigned managed 
 ![synapse-run-as-msi-2](https://user-images.githubusercontent.com/81656932/179052982-4d31bccf-e407-477c-babc-42043840a6ef.png)
 
 ![synapse-run-as-msi-3](https://user-images.githubusercontent.com/81656932/179053008-0f495b93-4948-48c8-9496-345c58187502.png)
+
+>[!NOTE]
+>  Synapse notebooks and Spark job definitions only support the use of system-assigned managed identity through linked services and the [mssparkutils APIs](./spark/apache-spark-secure-credentials-with-tokenlibrary.md). MSAL and other authentication libraries can't use the system-assigned managed identity. You can instead generate a service principal and store the credentials in Key Vault.
 
 ## User-assigned managed identity
 

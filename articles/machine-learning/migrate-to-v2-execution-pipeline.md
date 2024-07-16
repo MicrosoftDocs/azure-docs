@@ -6,11 +6,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: cloga
-ms.author: lochen
+author: sdgilley
+ms.author: sgilley
 ms.date: 09/16/2022
-ms.reviewer: sgilley
-ms.custom: migration
+ms.reviewer: lochen
+ms.custom:
+  - migration
+  - ignite-2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
@@ -227,24 +229,24 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |`adla_step`|None|None|
 |`automl_step`|`automl` job|`automl` component|
 |`azurebatch_step`| None| None|
-|`command_step`| `command` job|`command` component|
-|`data_transfer_step`| coming soon | coming soon|
-|`databricks_step`| coming soon|coming soon|
-|`estimator_step`| command job|`command` component|
-|`hyper_drive_step`|`sweep` job| `sweep` component|
+|`command_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`data_transfer_step`| None | None |
+|`databricks_step`| None | None |
+|`estimator_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`hyper_drive_step`|[`sweep` job](reference-yaml-job-sweep.md)| None |
 |`kusto_step`| None|None|
-|`module_step`|None|command component|
-|`mpi_step`| command job|command component|
+|`module_step`|None| [`command` component](reference-yaml-component-command.md)|
+|`mpi_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
 |`parallel_run_step`|`Parallel` job| `Parallel` component|
-|`python_script_step`| `command` job|command component|
-|`r_script_step`| `command` job|`command` component|
-|`synapse_spark_step`| coming soon|coming soon|
+|`python_script_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`r_script_step`| [`command` job](reference-yaml-job-command.md) | [`command` component](reference-yaml-component-command.md)|
+|`synapse_spark_step`| [`spark` job](reference-yaml-job-spark.md) | [`spark` component](reference-yaml-component-spark.md) |
 
 ## Published pipelines
 
-Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
+Once you have a pipeline up and running, you can publish a pipeline so that it runs with different inputs. This was known as __Published Pipelines__. [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment).
 
-[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
 
 The following table shows a comparison of each of the concepts:
 

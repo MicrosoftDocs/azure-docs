@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: sample
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin 
 ms.custom: devx-track-azurecli
 ---
@@ -16,7 +16,7 @@ This Azure CLI script example creates a DNS zone and record for a domain name.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

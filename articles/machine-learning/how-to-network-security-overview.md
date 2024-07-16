@@ -5,12 +5,12 @@ description: Secure Azure Machine Learning workspace resources and compute envir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 10/19/2023
 ms.topic: how-to
-ms.custom: references_regions, contperf-fy21q1, contperf-fy21q4, FY21Q4-aml-seo-hack, security, event-tier1-build-2022, build-2023
+ms.custom: references_regions, security, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 

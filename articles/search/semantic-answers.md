@@ -1,20 +1,19 @@
 ---
 title: Return a semantic answer
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Describes the composition of a semantic answer and how to obtain answers from a result set.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/22/2023
+ms.date: 02/08/2024
 ---
 
-# Return a semantic answer in Azure Cognitive Search
-
-> [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. This feature is billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
+# Return a semantic answer in Azure AI Search
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -30,7 +29,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 + Query strings entered by the user must be recognizable as a question (what, where, when, how).
 
-+ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer is returned.
++ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-configure.md). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ...", then it's unlikely an answer is returned.
 
 > [!NOTE]
 > Starting in 2021-04-30-Preview, in [Create or Update Index (Preview)](/rest/api/searchservice/preview-api/create-or-update-index) requests, a `"semanticConfiguration"` is required for specifying input fields for semantic ranking.
@@ -39,7 +38,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 A semantic answer is a substructure of a [semantic query response](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. To return an answer, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
 
-Cognitive Search uses a machine reading comprehension model to recognize and pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it proposes one as an answer.
+Azure AI Search uses a machine reading comprehension model to recognize and pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it proposes one as an answer.
 
 Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element within the response consisting of text, a document key, and a confidence score.
 
@@ -68,7 +67,7 @@ To return a semantic answer, the query must have the semantic `"queryType"`, `"q
 
 + `"queryLanguage"` must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
-+ A `"semanticConfiguration"` determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-query-request.md#2---create-a-semantic-configuration) for details.
++ A `"semanticConfiguration"` determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. See [Create a semantic configuration](semantic-how-to-configure.md) for details.
 
 + For `"answers"`, parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of 10.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -129,7 +128,7 @@ Within @search.answers:
 
 + **"score"** is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general the same documents appear in the top positions within each array.
 
-Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Configure semantic ranking](semantic-how-to-query-request.md) for details.
+Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. See [Configure semantic ranking](semantic-how-to-configure.md) for details.
 
 ## Tips for producing high-quality answers
 
@@ -143,6 +142,6 @@ For best results, return semantic answers on a document corpus having the follow
 
 ## Next steps
 
-+ [Semantic search overview](semantic-search-overview.md)
++ [Semantic ranking overview](semantic-search-overview.md)
 + [Configure BM25 ranking](index-ranking-similarity.md)
-+ [Configure semantic ranking](semantic-how-to-query-request.md)
++ [Configure semantic ranking](semantic-how-to-configure.md)

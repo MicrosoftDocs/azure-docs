@@ -1,16 +1,17 @@
 ---
 title: "Use Azure AI Translator APIs"
 titleSuffix: Azure AI services
-description: "Learn to translate text, transliterate text, detect language and more with the Translator service. Examples are provided in C#, Java, JavaScript and Python."
-services: cognitive-services
+description: "Learn to translate text, transliterate text, detect language, and more with the Translator service. Examples are provided in C#, Java, JavaScript, and Python."
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/08/2024
 ms.author: lajanuar
-ms.devlang: csharp, golang, java, javascript, python
-ms.custom: cog-serv-seo-aug-2020, mode-other, devx-track-python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
+ms.custom: mode-other, devx-track-python
 keywords: translator, translator service, translate text, transliterate text, language detection
 ---
 
@@ -22,11 +23,11 @@ keywords: translator, translator service, translate text, transliterate text, la
 
 In this how-to guide, you learn to use the [Translator service REST APIs](reference/rest-api-guide.md). You start with basic examples and move onto some core configuration options that are commonly used during development, including:
 
-* [Translation](#translate-text)
-* [Transliteration](#transliterate-text)
+* [Language Translation](#translate-text)
+* [Language Transliteration](#transliterate-text)
 * [Language identification/detection](#detect-language)
-* [Calculate sentence length](#get-sentence-length)
-* [Get alternate translations](#dictionary-lookup-alternate-translations) and [examples of word usage in a sentence](#dictionary-examples-translations-in-context)
+* [Sentence length calculation](#get-sentence-length)
+* [Alternate translations](#dictionary-lookup-alternate-translations) and [examples of word usage in a sentence](#dictionary-examples-translations-in-context)
 
 ## Prerequisites
 
@@ -93,7 +94,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
     :::image type="content" source="media/quickstarts/newtonsoft.png" alt-text="Screenshot of the NuGet package install window.":::
 
-1. Select install from the right package manager window to add the package to your project.
+1. Select install from the right package manager window and add the package to your project.
 
     :::image type="content" source="media/how-to-guides/install-newtonsoft.png" alt-text="Screenshot of the NuGet package install button.":::
 
@@ -110,21 +111,21 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 
 1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`. Copy and paste the code samples into your application's Program.cs file. For each code sample, make sure you update the key and endpoint variables with values from your Azure portal Translator instance.
 
-1. Once you've added a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
+1. Once you add a desired code sample to your application, choose the green **start button** next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
 :::image type="content" source="media/how-to-guides/run-program-visual-studio.png" alt-text="Screenshot of the run program button in Visual Studio.":::
 
 ### [Go](#tab/go)
 
-You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go extension](/azure/developer/go/configure-visual-studio-code).
+You can use any text editor to write Go applications. We recommend using the latest version of [Visual Studio Code and the Go application extension](/azure/developer/go/configure-visual-studio-code).
 
 > [!TIP]
 >
 > If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
+1. If you don't have it in your dev environment, [download and install Go](https://go.dev/doc/install).
 
-    * Download the Go version for your operating system.
+    * Download the Go application version for your operating system.
     * Once the download is complete, run the installer.
     * Open a command prompt and enter the following to confirm Go was installed:
 
@@ -138,7 +139,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Copy and paste the code samples into your **text-translator.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance.
 
-1. Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
+1. Once you add a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **translator-text-app** folder and use the following command:
 
       ```console
        go run translation.go
@@ -227,7 +228,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Copy and paste the code samples `TranslatorText.java` file. **Make sure you update the key with one of the key values from your Azure portal Translator instance**.
 
-1. Once you've added a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
+1. Once you add a code sample to your application, navigate back to your main project directory—**translator-text-app**, open a console window, and enter the following commands:
 
     1. Build your application with the `build` command:
 
@@ -243,7 +244,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 ### [Node.js](#tab/nodejs)
 
-1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
+1. If it isn't installed in your dev environment, download the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
     > [!TIP]
     >
@@ -270,7 +271,7 @@ You can use any text editor to write Go applications. We recommend using the lat
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
-    * After you've completed the prompts, a `package.json` file will be created in your translator-text-app directory.
+    * After you complete the prompts, a `package.json` file will be created in your translator-text-app directory.
 
 1. Open a console window and use npm to install the `axios` HTTP library and `uuid` package:
 
@@ -290,7 +291,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Copy and paste the code samples into your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**.
 
-1. Once you've added the code sample to your application, run your program:
+1. Once you add the code sample to your application, run your program:
 
     1. Navigate to your application directory (translator-text-app).
 
@@ -302,7 +303,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 ### [Python](#tab/python)
 
-1. If you haven't done so already, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
+1. If you don't have it in your dev environment, install the latest version of [Python 3.x](https://www.python.org/downloads/). The Python installer package (pip) is included with the Python installation.
 
     > [!TIP]
     >
@@ -321,7 +322,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Add the following code sample to your `text-translator.py` file. **Make sure you update the key with one of the values from your Azure portal Translator instance**.
 
-1. Once you've added a desired code sample to your application, build and run your program:
+1. Once you add a desired code sample to your application, build and run your program:
 
     1. Navigate to your **text-translator.py** file.
 
@@ -519,14 +520,20 @@ public class TranslatorText {
 
 ```javascript
 const axios = require('axios').default;
-    const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-    let key = "<your-translator-key>";
-    let endpoint = "https://api.cognitive.microsofttranslator.com";
+let key = "<your-translator-key>";
+let endpoint = "https://api.cognitive.microsofttranslator.com";
 
-    // location, also known as region.
-    // required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
-    let location = "<YOUR-RESOURCE-LOCATION>";
+// location, also known as region.
+// required if you're using a multi-service or regional (not global) resource. It can be found in the Azure portal on the Keys and Endpoint page.
+let location = "<YOUR-RESOURCE-LOCATION>";
+
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "sw");
+params.append("to", "it");
 
 axios({
     baseURL: endpoint,
@@ -539,11 +546,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': ['sw', 'it']
-    },
+    params: params,
     data: [{
         'text': 'Hello, friend! What did you do today?'
     }],
@@ -810,6 +813,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "en");
+params.append("to", "it");
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -821,10 +829,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': ['en', 'it']
-    },
+    params: params,
     data: [{
         'text': 'Halo, rafiki! Ulifanya nini leo?'
     }],
@@ -1086,6 +1091,9 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+
 axios({
     baseURL: endpoint,
     url: '/detect',
@@ -1097,9 +1105,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0'
-    },
+    params: params,
     data: [{
         'text': 'Hallo Freund! Was hast du heute gemacht?'
     }],
@@ -1365,6 +1371,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "th");
+params.append("toScript", "latn");
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -1376,11 +1387,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': 'th',
-        'toScript': 'latn'
-    },
+    params: params,
     data: [{
         'text': 'Hello, friend! What did you do today?'
     }],
@@ -1650,6 +1657,12 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("language", "th");
+params.append("fromScript", "thai");
+params.append("toScript", "latn");
+
 axios({
     baseURL: endpoint,
     url: '/transliterate',
@@ -1661,12 +1674,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'language': 'th',
-        'fromScript': 'thai',
-        'toScript': 'latn'
-    },
+    params: params,
     data: [{
         'text': 'สวัสดีเพื่อน! วันนี้คุณทำอะไร'
     }],
@@ -1926,6 +1934,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("to", "es");
+params.append("includeSentenceLength", true);
+
 axios({
     baseURL: endpoint,
     url: '/translate',
@@ -1937,11 +1950,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'to': 'es',
-        'includeSentenceLength': true
-    },
+    params: params,
     data: [{
         'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
     }],
@@ -2209,6 +2218,9 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+
 axios({
     baseURL: endpoint,
     url: '/breaksentence',
@@ -2220,9 +2232,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0'
-    },
+    params: params,
     data: [{
         'text': 'Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.'
     }],
@@ -2477,6 +2487,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "es");
+
 axios({
     baseURL: endpoint,
     url: '/dictionary/lookup',
@@ -2488,11 +2503,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
+    params: params,
     data: [{
         'text': 'sunlight'
     }],
@@ -2713,7 +2724,7 @@ After a successful call, you should see the following response. Let's examine th
 
 ## Dictionary examples (translations in context)
 
-After you've performed a dictionary lookup, pass the source and translation text to the `dictionary/examples` endpoint, to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
+After you perform a dictionary lookup, pass the source and translation text to the `dictionary/examples` endpoint, to get a list of examples that show both terms in the context of a sentence or phrase. Building on the previous example, you use the `normalizedText` and `normalizedTarget` from the dictionary lookup response as `text` and `translation` respectively. The source language (`from`) and output target (`to`) parameters are required.
 
 ### [C#](#tab/csharp)
 
@@ -2900,6 +2911,11 @@ let endpoint = "https://api.cognitive.microsofttranslator.com";
 // This is required if using an Azure AI multi-service resource.
 let location = "<YOUR-RESOURCE-LOCATION>";
 
+let params = new URLSearchParams();
+params.append("api-version", "3.0");
+params.append("from", "en");
+params.append("to", "es");
+
 axios({
     baseURL: endpoint,
     url: '/dictionary/examples',
@@ -2911,11 +2927,7 @@ axios({
         'Content-type': 'application/json',
         'X-ClientTraceId': uuidv4().toString()
     },
-    params: {
-        'api-version': '3.0',
-        'from': 'en',
-        'to': 'es'
-    },
+    params: params,
     data: [{
         'text': 'sunlight',
         'translation': 'luz solar'
@@ -3113,12 +3125,12 @@ After a successful call, you should see the following response. For more informa
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
 | 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
-| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
+| 429 | Too Many Requests | You exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 ### Java users
 
-If you're encountering connection issues, it may be that your TLS/SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
+If you're encountering connection issues, it may be that your TLS/SSL certificate is expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 

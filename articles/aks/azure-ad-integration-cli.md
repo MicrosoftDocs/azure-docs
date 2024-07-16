@@ -1,17 +1,18 @@
 ---
 title: Integrate Microsoft Entra ID with Azure Kubernetes Service (AKS) (legacy)
 description: Learn how to use the Azure CLI to create and Microsoft Entra ID-enabled Azure Kubernetes Service (AKS) cluster (legacy)
-author: TomGeske
+author: miwithro
 ms.topic: article
+ms.subservice: aks-integration
 ms.custom: devx-track-azurecli
-ms.date: 08/15/2023
+ms.date: 02/21/2024
 ms.author: miwithro
 ---
 
 # Integrate Microsoft Entra ID with Azure Kubernetes Service (AKS) using the Azure CLI (legacy)
 
 > [!WARNING]
-> The feature described in this document, Microsoft Entra Integration (legacy) was **deprecated on June 1st, 2023**. At this time, no new clusters can be created with Microsoft Entra Integration (legacy). All Microsoft Entra Integration (legacy) AKS clusters will be migrated to AKS-managed Microsoft Entra ID automatically starting from December 1st, 2023.
+> The feature described in this document, Microsoft Entra Integration (legacy) was **deprecated on June 1st, 2023**. At this time, no new clusters can be created with Microsoft Entra Integration (legacy). 
 >
 > AKS has a new improved [AKS-managed Microsoft Entra ID][managed-aad] experience that doesn't require you to manage server or client applications. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
@@ -336,5 +337,6 @@ For best practices on identity and resource control, see [Best practices for aut
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-azure-ad.md
-[managed-aad-migrate]: managed-azure-ad.md#upgrade-a-legacy-azure-ad-cluster-to-aks-managed-azure-ad-integration
+[managed-aad-migrate]: managed-azure-ad.md#migrate-a-legacy-azure-ad-cluster-to-integration
 [az-aks-show]: /cli/azure/aks#az_aks_show
+

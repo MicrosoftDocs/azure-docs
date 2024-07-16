@@ -6,7 +6,6 @@ ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/15/2023
-ms.custom: seodec18, ignite-2022
 ---
 
 # Build an IoT solution by using Stream Analytics

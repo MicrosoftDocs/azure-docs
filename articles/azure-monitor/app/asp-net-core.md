@@ -4,12 +4,14 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/10/2023
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 # Application Insights for ASP.NET Core applications
 
 This article describes how to enable and configure Application Insights for an [ASP.NET Core](/aspnet/core) application.
+
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
 Application Insights can collect the following telemetry from your ASP.NET Core application:
 
@@ -25,7 +27,7 @@ We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If yo
 
 An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!NOTE]
 > If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
@@ -164,9 +166,66 @@ If `IConfiguration` has loaded configuration from multiple providers, then `serv
 
 Run your application and make requests to it. Telemetry should now flow to Application Insights. The Application Insights SDK automatically collects incoming web requests to your application, along with the following telemetry.
 
-### Live Metrics
+### Live metrics
 
-[Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if application monitoring with Application Insights is configured correctly. Telemetry can take a few minutes to appear in the Azure portal, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+
+#### Enable live metrics by using code for any .NET application
+
+> [!NOTE]
+> Live metrics are enabled by default when you onboard it by using the recommended instructions for .NET applications.
+
+To manually configure live metrics:
+
+1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
+1. The following sample console app code shows setting up live metrics:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+
+// Create a TelemetryConfiguration instance.
+TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+QuickPulseTelemetryProcessor quickPulseProcessor = null;
+config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+    .Use((next) =>
+    {
+        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+        return quickPulseProcessor;
+    })
+    .Build();
+
+var quickPulseModule = new QuickPulseTelemetryModule();
+
+// Secure the control channel.
+// This is optional, but recommended.
+quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+quickPulseModule.Initialize(config);
+quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+// Create a TelemetryClient instance. It is important
+// to use the same TelemetryConfiguration here as the one
+// used to set up live metrics.
+TelemetryClient client = new TelemetryClient(config);
+
+// This sample runs indefinitely. Replace with actual application logic.
+while (true)
+{
+    // Send dependency and request telemetry.
+    // These will be shown in live metrics.
+    // CPU/Memory Performance counter is also shown
+    // automatically without any additional steps.
+    client.TrackDependency("My dependency", "target", "http://sample",
+        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+    client.TrackRequest("My Request", DateTimeOffset.Now,
+        TimeSpan.FromMilliseconds(230), "200", true);
+    Task.Delay(1000).Wait();
+}
+```
+
+The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the live metrics module.
 
 ### ILogger logs
 
@@ -248,7 +307,7 @@ var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.Applicat
 // Disables adaptive sampling.
 aiOptions.EnableAdaptiveSampling = false;
 
-// Disables QuickPulse (Live Metrics stream).
+// Disables live metrics (also known as QuickPulse).
 aiOptions.EnableQuickPulseMetricStream = false;
 
 builder.Services.AddApplicationInsightsTelemetry(aiOptions);
@@ -265,7 +324,7 @@ public void ConfigureServices(IServiceCollection services)
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
-    // Disables QuickPulse (Live Metrics stream).
+    // Disables live metrics (also known as QuickPulse).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
 }
@@ -450,7 +509,7 @@ By default, the following automatic-collection modules are enabled. These module
 * `RequestTrackingTelemetryModule`: Collects RequestTelemetry from incoming web requests.
 * `DependencyTrackingTelemetryModule`: Collects [DependencyTelemetry](./asp-net-dependencies.md) from outgoing HTTP calls and SQL calls.
 * `PerformanceCollectorModule`: Collects Windows PerformanceCounters.
-* `QuickPulseTelemetryModule`: Collects telemetry to show in the Live Metrics portal.
+* `QuickPulseTelemetryModule`: Collects telemetry to show in the live metrics pane.
 * `AppServicesHeartbeatTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the App Service environment where the application is hosted.
 * `AzureInstanceMetadataTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the Azure VM environment where the application is hosted.
 * `EventCounterCollectionModule`: Collects [EventCounters](eventcounters.md). This module is a new feature and is available in SDK version 2.8.0 and later.
@@ -654,6 +713,16 @@ public class HomeController : Controller
 
 For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](./api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights by using the [GetMetric API](./get-metric.md).
 
+### How do I capture Request and Response body in my telemetry?
+
+ASP.NET Core has [built-in
+support](/aspnet/core/fundamentals/http-logging) for
+logging HTTP Request/Response information (including body) via
+[`ILogger`](#ilogger-logs). It is recommended to leverage this. This may
+potentially expose personally identifiable information (PII) in telemetry, and
+can cause costs (performance costs and Application Insights billing) to
+significantly increase, so evaluate the risks carefully before using this.
+
 ### How do I customize ILogger logs collection?
 
 The default setting for Application Insights is to only capture **Warning** and more severe logs.
@@ -719,55 +788,10 @@ If the SDK is installed at build time as shown in this article, you don't need t
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
 * The SDK collects [event counters](./eventcounters.md) on Linux because [performance counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
-* Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel.
 
-### [ASP.NET Core 6.0](#tab/netcore6)
+### Is this SDK supported for Worker Services?
 
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// The following will configure the channel to use the given folder to temporarily
-// store telemetry items during network or Application Insights server issues.
-// User should ensure that the given folder already exists
-// and that the application has read/write permissions.
-builder.Services.AddSingleton(typeof(ITelemetryChannel),
-                        new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-builder.Services.AddApplicationInsightsTelemetry();
-
-var app = builder.Build();
-```
-
-### [ASP.NET Core 3.1](#tab/netcore3)
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-
-public void ConfigureServices(IServiceCollection services)
-{
-    // The following will configure the channel to use the given folder to temporarily
-    // store telemetry items during network or Application Insights server issues.
-    // User should ensure that the given folder already exists
-    // and that the application has read/write permissions.
-    services.AddSingleton(typeof(ITelemetryChannel),
-                            new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-    services.AddApplicationInsightsTelemetry();
-}
-```
-
-> [!NOTE]
-> This .NET version is no longer supported.
-
----
-
-This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.
-
-### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
-
-This SDK requires `HttpContext`. It doesn't work in any non-HTTP applications, including the .NET Core 3.X Worker Service applications. To enable Application Insights in such applications by using the newly released Microsoft.ApplicationInsights.WorkerService SDK, see [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md).
+No. Please use [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md) for worker services.
 
 ### How can I uninstall the SDK?
 
@@ -832,7 +856,9 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 ## Troubleshooting
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
+
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

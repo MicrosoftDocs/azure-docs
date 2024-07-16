@@ -1,8 +1,10 @@
 ---
 author: ggailey777
 ms.service: azure-functions
+ms.custom:
+  - build-2024
 ms.topic: include
-ms.date: 06/05/2023
+ms.date: 05/10/2024
 ms.author: glenga
 ---
 
@@ -17,7 +19,7 @@ Core Tools automatically generates a Dockerfile for your project that uses the m
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-+ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
 
 + Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.0.5198, or a later version.
 ::: zone-end  
@@ -151,7 +153,7 @@ cd fabrikam-functions
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
 
 ```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end
 <!---add back programming-language-other-->
@@ -159,7 +161,7 @@ func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
 ```console
-func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
+func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 <!---
@@ -340,7 +342,7 @@ To make your container image available for deployment to a hosting environment, 
 
 # [Azure Container Registry](#tab/acr)
 
-Azure Container Apps is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
+Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
 
 1. Use the following command to sign in to your registry instance:
 
@@ -369,8 +371,9 @@ Azure Container Apps is a private registry service for building, storing, and ma
     az acr update -n <REGISTRY_NAME> --admin-enabled true
     ```
 
+<!---Hide until Functions + ACA supports managed identities
     > [!IMPORTANT]
-    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  
+    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  -->
 
 1. Use the following command to retrieve the admin username and password, which Functions needs to connect to the registry:
 

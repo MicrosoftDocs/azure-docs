@@ -4,13 +4,15 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/02/2023
+ms.date: 02/05/2024
 ms.topic: tutorial
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 zone_pivot_groups: iotedge-dev
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Tutorial: Develop IoT Edge modules using Visual Studio Code
@@ -21,7 +23,7 @@ This tutorial walks through developing and deploying your own code to an IoT Edg
 
 This article includes steps for two IoT Edge development tools.
 
- * *Azure IoT Edge Dev Tool* command-line tool (CLI). This tool is preferred for development.
+ * *Azure IoT Edge Dev Tool* command-line (CLI). This tool is preferred for development.
  * *Azure IoT Edge tools for Visual Studio Code* extension. The extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
@@ -56,7 +58,7 @@ Cloud resources:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!TIP]
 > For guidance on interactive debugging in Visual Studio Code or Visual Studio 2022:
@@ -112,6 +114,9 @@ Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iote
 ::: zone-end
 
 ::: zone pivot="iotedge-dev-ext"
+
+> [!IMPORTANT]
+> The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
 
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions offer project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
 
@@ -187,6 +192,7 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
 
     ```bash
     mkdir c:\dev\iotedgesolution
+    cd c:\dev\iotedgesolution
     ```
 
 1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub in the development language of your choice.
@@ -257,7 +263,7 @@ After solution creation, these main files are in the solution:
 
 - Two module deployment files named **deployment.template.json** and **deployment.debug.template.json** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules (edgeAgent and edgeHub) and sample modules such as:
     - **filtermodule** is a sample module that implements a simple filter function.
-    - **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information on how the simulated temperature module works, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+    - **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information on how the simulated temperature module works, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/main/edge-modules/SimulatedTemperatureSensor).
    
    > [!NOTE]
    > The exact modules installed may depend on your language of choice.
@@ -266,23 +272,25 @@ After solution creation, these main files are in the solution:
 
 ### Set IoT Edge runtime version
 
-The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
+The latest stable IoT Edge system module version is 1.5. Set your system modules to version 1.5.
 
 1. In Visual Studio Code, open **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images **edgeAgent** and **edgeHub**. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images **edgeAgent** and **edgeHub**. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
 
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
 
         "edgeHub": {
 
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
     ```
 
 ::: zone-end
+
+::: zone pivot="iotedge-dev-ext"
 
 ### Provide your registry credentials to the IoT Edge agent
 
@@ -310,6 +318,8 @@ Check to see if your credentials exist. If not, add them now:
 > [!NOTE]
 > This tutorial uses administrator login credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
+::: zone-end
+
 ### Target architecture
 
 You need to select the architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device and keep the default **amd64**.
@@ -326,6 +336,12 @@ If you need to change the target architecture for your solution, use the followi
 
 ::: zone pivot="iotedge-dev-cli"
 
+# [C\#](#tab/csharp)
+
+The target architecture is set when you create the container image in a later step.
+
+# [C, Java, Node.js, Python](#tab/c+java+node+python)
+
 1. Open or create **settings.json** in the **.vscode** directory of your solution.
 
 1. Change the *platform* value to `amd64`, `arm32v7`, `arm64v8`, or `windows-amd64`. For example:
@@ -338,6 +354,8 @@ If you need to change the target architecture for your solution, use the followi
         }
     }
     ```
+
+---
 
 ::: zone-end
 
@@ -663,7 +681,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-1. Find the `SetupCallbacksForModule` function. Replace the function with the following code that adds an **else if** statement to check if the module twin has been updated.
+1. Find the `SetupCallbacksForModule` function. Replace the function with the following code that adds an **else if** statement to check if the module twin is updated.
 
    ```c
    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
@@ -726,7 +744,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-1. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value.
+1. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature isn't reported to IoT Hub until it goes over this value.
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -898,7 +916,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 # [Python](#tab/python)
 
-In this section, add the code that expands the *filtermodule* to analyze the messages before sending them. You'll add code that filters messages where the reported machine temperature is within the acceptable limits.
+In this section, add the code that expands the *filtermodule* to analyze the messages before sending them. You add code that filters messages where the reported machine temperature is within the acceptable limits.
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **main.py**.
 
@@ -986,33 +1004,7 @@ In this section, add the code that expands the *filtermodule* to analyze the mes
 
 ## Build and push your solution
 
-You've updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build your module container image and push it to your container registry.
-
-### Sign in to Docker
-
-Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
-
-1. Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal**.
-
-1. Sign in to Docker with the Azure Container Registry (ACR) credentials that you saved after creating the registry.
-
-   ```bash
-   docker login -u <ACR username> -p <ACR password> <ACR login server>
-   ```
-
-   You may receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
-
-3. Sign in to the Azure Container Registry. You may need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
-
-   ```azurecli
-   az acr login -n <ACR registry name>
-   ```
->[!TIP]
->If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps to continue.
-
-### Build and push
-
-Visual Studio Code now has access to your container registry, so it's time to turn the solution code into a container image.
+You updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build your module container image and push it to your container registry.
 
 In Visual Studio Code, open the **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) describes the modules to be configured on the targeted IoT Edge device. Before deployment, you need to update your Azure Container Registry credentials and your module images with the proper `createOptions` values. For more information about createOption values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
@@ -1052,7 +1044,41 @@ For example, the *filtermodule* configuration should be similar to:
 
 #### Build module Docker image
 
-Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/commandline/build/) the module Docker image.
+Open the Visual Studio Code integrated terminal by selecting **Terminal** > **New Terminal**.
+
+# [C\#](#tab/csharp)
+
+Use the `dotnet publish` command to build the container image for Linux and amd64 architecture. Change directory to the *filtermodule* directory in your project and run the *dotnet publish* command.
+
+```bash
+dotnet publish --os linux --arch x64 /t:PublishContainer
+```
+
+Currently, the *iotedgedev* tool template targets .NET 7.0. If you want to target a different version of .NET, you can edit the *filtermodule.csproj* file and change the *TargetFramework* and *PackageReference* values. For example to target .NET 8.0, your *filtermodule.csproj* file should look like this:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.42.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    </ItemGroup>
+</Project>
+```
+
+Tag the docker image with your container registry information, version, and architecture. Replace **myacr** with your own registry name.
+
+```bash
+docker tag filtermodule myacr.azurecr.io/filtermodule:0.0.1-amd64
+```
+
+# [C, Java, Node.js, Python](#tab/c+java+node+python)
+
+Use the module's Dockerfile to [build](https://docs.docker.com/engine/reference/commandline/build/) and tag the module Docker image.
 
 ```bash
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
@@ -1061,35 +1087,56 @@ docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>"
 For example, to build the image for the local registry or an Azure container registry, use the following commands:
 
 ```bash
-# Build the image for the local registry
+# Build and tag the image for the local registry
 
 docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t localhost:5000/filtermodule:0.0.1-amd64 "./modules/filtermodule"
 
-# Or build the image for an Azure Container Registry
+# Or build and tag the image for an Azure Container Registry. Replace myacr with your own registry name.
 
 docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t myacr.azurecr.io/filtermodule:0.0.1-amd64 "./modules/filtermodule"
 ```
 
+---
+
 #### Push module Docker image
 
-[Push](https://docs.docker.com/engine/reference/commandline/push/) your module image to the local registry or a container registry.
+Provide your container registry credentials to Docker so that it can push your container image to storage in the registry.
 
-```bash
-docker push <ImageName>
-```
+1. Sign in to Docker with the Azure Container Registry (ACR) credentials.
 
-For example:
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
 
-```bash
-# Push the Docker image to the local registry
+   You might receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-docker push localhost:5000/filtermodule:0.0.1-amd64
+1. Sign in to the Azure Container Registry. You need to [Install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings** > **Access keys**.
 
-# Or push the Docker image to an Azure Container Registry
-az acr login --name myacr
-docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
-```
+   ```azurecli
+   az acr login -n <ACR registry name>
+   ```
+   >[!TIP]
+   >If you get logged out at any point in this tutorial, repeat the Docker and Azure Container Registry sign in steps to continue.
 
+1. [Push](https://docs.docker.com/engine/reference/commandline/push/) your module image to the local registry or a container registry.
+
+    ```bash
+    docker push <ImageName>
+    ```
+    
+    For example:
+    
+    ```bash
+    # Push the Docker image to the local registry
+    
+    docker push localhost:5000/filtermodule:0.0.1-amd64
+    
+    # Or push the Docker image to an Azure Container Registry. Replace myacr with your Azure Container Registry name.
+
+    az acr login --name myacr
+    docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
+    ```
+    
 #### Update the deployment template
 
 Update the deployment template *deployment.template.json* with the container registry image location. For example, if you're using an Azure Container Registry *myacr.azurecr.io* and your image is *filtermodule:0.0.1-amd64*, update the *filtermodule* configuration to:
@@ -1119,9 +1166,9 @@ This process may take several minutes the first time, but is faster the next tim
 
 ::: zone-end
 
-#### Update the build and image
+#### Optional: Update the module and image
 
-If you make changes to your module code, you need to rebuild and push the module image to your container registry. Use the steps in this section to update the build and image. You can skip this section if you didn't make any changes to your module code.
+If you make changes to your module code, you need to rebuild and push the module image to your container registry. Use the steps in this section to update the build and container image. You can skip this section if you didn't make any changes to your module code.
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -1142,9 +1189,29 @@ Notice that the two parameters that had placeholders now contain their proper va
 
 ::: zone pivot="iotedge-dev-cli"
 
-Build and push the updated image with a *0.0.2* version tag.
+Build and push the updated image with a *0.0.2* version tag. For example, to build and push the image for the local registry or an Azure container registry, use the following commands:
 
-For example, to build and push the image for the local registry or an Azure container registry, use the following commands:
+# [C\#](#tab/csharp)
+
+```bash
+
+# Build the container image for Linux and amd64 architecture.
+
+dotnet publish --os linux --arch x64
+
+# For local registry:
+# Tag the image with version 0.0.2, x64 architecture, and the local registry.
+
+docker tag filtermodule localhost:5000/filtermodule:0.0.2-amd64
+
+# For Azure Container Registry:
+# Tag the image with version 0.0.2, x64 architecture, and your container registry information. Replace **myacr** with your own registry name.
+
+docker tag filtermodule myacr.azurecr.io/filtermodule:0.0.2-amd64
+```
+
+# [C, Java, Node.js, Python](#tab/c+java+node+python)
+
 
 ```bash
 # Build and push the 0.0.2 image for the local registry
@@ -1153,12 +1220,15 @@ docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t localhos
 
 docker push localhost:5000/filtermodule:0.0.2-amd64
 
-# Or build and push the 0.0.2 image for an Azure Container Registry
+# Or build and push the 0.0.2 image for an Azure Container Registry. Replace myacr with your own registry name.
 
 docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t myacr.azurecr.io/filtermodule:0.0.2-amd64 "./modules/filtermodule"
 
 docker push myacr.azurecr.io/filtermodule:0.0.2-amd64
 ```
+
+---
+
 
 ::: zone-end
 
@@ -1217,7 +1287,7 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new *tempSensor* and *filtermodule* modules running on your device.
 
-   It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
+   It might take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View messages from device
 

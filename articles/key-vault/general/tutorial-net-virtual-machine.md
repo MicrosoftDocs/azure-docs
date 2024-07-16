@@ -1,13 +1,12 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in .NET
 description: In this tutorial, you configure a virtual machine an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -62,11 +61,11 @@ Connect-AzAccount
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 Create a Windows or Linux virtual machine using one of the following methods:

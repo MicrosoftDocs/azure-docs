@@ -2,11 +2,11 @@
 title: Save on JBoss EAP Integrated Support on Azure App Service with reservations
 description: Learn how you can save on your JBoss EAP Integrated Support fee on Azure App Service.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 04/15/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -23,8 +23,8 @@ When you purchase a JBoss EAP Integrated Support reservation, the discount is au
 
 You can buy a reservation for JBoss EAP Integrated Support in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md).
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
-- For EA subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin for the subscription.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+- For EA subscriptions, the **Reserved Instances** policy option must be enabled in the [Azure portal](../manage/direct-ea-administration.md#view-and-manage-enrollment-policies). Or, if that setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
 To buy an instance:

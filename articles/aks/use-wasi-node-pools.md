@@ -2,13 +2,16 @@
 title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
 ms.topic: article
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.custom: devx-track-azurecli
 ms.date: 05/17/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 
-[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model.
+[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things like environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model.
 
 > [!IMPORTANT]
 > WASI nodepools now use [containerd shims][wasm-containerd-shims] to run WASM workloads. Previously, AKS used [Krustlet][krustlet] to allow WASM modules to be run on Kubernetes. If you are still using Krustlet-based WASI nodepools, you can migrate to containerd shims by creating a new WASI nodepool and migrating your workloads to the new nodepool.
@@ -19,7 +22,7 @@ You must have the latest version of Azure CLI installed.
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -55,7 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.  
+* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.
 * You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.
@@ -71,7 +74,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mywasipool \
     --node-count 1 \
-    --workload-runtime WasmWasi 
+    --workload-runtime WasmWasi
 ```
 
 > [!NOTE]
@@ -92,7 +95,7 @@ az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mywasipoo
 "WasmWasi"
 ```
 
-Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:  
+Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:
 
 ```azurecli-interactive
 az aks get-credentials -n myakscluster -g myresourcegroup
@@ -246,3 +249,4 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [use-system-pool]: use-system-pools.md
+

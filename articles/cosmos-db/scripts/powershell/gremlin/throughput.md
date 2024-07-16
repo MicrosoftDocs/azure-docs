@@ -4,17 +4,17 @@ description: PowerShell scripts for throughput (RU/s) operations for API for Gre
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: apache-gremlin
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: ignite-2022, devx-track-azurepowershell
+ms.reviewer: mjbrown
 ---
 
 # Throughput (RU/s) operations with PowerShell for a database or graph for Azure Cosmos DB - API for Gremlin
 [!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

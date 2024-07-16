@@ -3,7 +3,7 @@ title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/28/2022
+ms.date: 12/06/2023
 ---
 
 # Outputs in Bicep
@@ -15,10 +15,10 @@ This article describes how to define output values in a Bicep file. You use outp
 The syntax for defining an output value is:
 
 ```bicep
-output <name> <data-type> = <value>
+output <name> <data-type or type-expression> = <value>
 ```
 
-An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md).
+An output can have the same name as a parameter, variable, module, or resource. Each output value must resolve to one of the [data types](data-types.md), or [user-defined data type expression](./user-defined-data-types.md).
 
 The following example shows how to return a property from a deployed resource. In the example, `publicIP` is the symbolic name for a public IP address that is deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
@@ -28,7 +28,13 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 
 The next example shows how to return outputs of different types.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+```bicep
+output stringOutput string = deployment().name
+output integerOutput int = length(environment().authentication.audiences)
+output booleanOutput bool = contains(deployment().name, 'demo')
+output arrayOutput array = environment().authentication.audiences
+output objectOutput object = subscription()
+```
 
 If you need to output a property that has a hyphen in the name, use brackets around the name instead of dot notation. For example, use  `['property-name']` instead of `.property-name`.
 
@@ -39,6 +45,16 @@ var user = {
 
 output stringOutput string = user['user-name']
 ```
+
+The following example shows how to use type expression:
+
+```bicep
+param foo 'a' | 'b' = 'a'
+
+output out 'a' | 'b' = foo
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md).
 
 ## Conditional output
 
@@ -57,7 +73,7 @@ param deployStorage bool = true
 param storageName string
 param location string = resourceGroup().location
 
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = if (deployStorage) {
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = if (deployStorage) {
   name: storageName
   location: location
   kind: 'StorageV2'
@@ -93,7 +109,7 @@ param orgNames array = [
   'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for name in orgNames: {
   name: 'nsg-${name}'
   location: nsgLocation
 }]
@@ -117,7 +133,29 @@ To get an output value from a module, use the following syntax:
 
 The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
+```bicep
+module publicIP 'modules/public-ip-address.bicep' = {
+  name: 'public-ip-address-module'
+}
+
+resource loadBalancer 'Microsoft.Network/loadBalancers@2023-11-01' = {
+  name: loadBalancerName
+  location: location
+  properties: {
+    frontendIPConfigurations: [
+      {
+        name: 'name'
+        properties: {
+          publicIPAddress: {
+            id: publicIP.outputs.resourceId
+          }
+        }
+      }
+    ]
+    // ...
+  }
+}
+```
 
 ## Get output values
 

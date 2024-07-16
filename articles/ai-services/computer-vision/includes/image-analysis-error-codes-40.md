@@ -1,4 +1,4 @@
-# [C#](#tab/csharp)
+<!--# [C#](#tab/csharp)
 
 The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
 
@@ -59,6 +59,7 @@ Make sure the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysi
 To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
 
 # [REST API](#tab/rest)
+-->
 
 On error, the Image Analysis service response contains a JSON payload that includes an error code and error message. It may also include other details in the form of and inner error code and message. For example:
 
@@ -94,7 +95,7 @@ List of common errors:
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
   * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
   * `InvalidRequest - Image format is not valid`
-    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](../overview-image-analysis.md?tabs=4-0#image-requirements) section for supported image formats.
+    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](../overview-image-analysis.md?tabs=4-0#input-requirements) section for supported image formats.
   * `InvalidRequest - Analyze query is invalid`
     * `NotSupportedVisualFeature - Specified feature type is not valid`. Make sure the **features** query string has a valid value.
     * `NotSupportedLanguage - The input language is not supported`. Make sure the **language** query string has a valid value for the selected visual feature, based on the [following table](https://aka.ms/cv-languages).
@@ -113,7 +114,8 @@ List of common errors:
     * `Timeout` - Image processing timed out.
     * `InternalServerError`
 -->
----
+
+
 
 > [!TIP]
 > While working with Azure AI Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).

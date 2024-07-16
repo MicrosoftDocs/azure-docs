@@ -1,7 +1,7 @@
 ---
 title: Monitor OT networks with Zero Trust principles - Microsoft Defender for IoT
 description: Learn how to use Microsoft Defender for IoT to monitor your operational technology (OT) networks with Zero Trust principles.
-ms.date: 02/15/2023
+ms.date: 5/21/2024
 ms.topic: tutorial
 ms.collection:
   -       zerotrust-services
@@ -32,9 +32,7 @@ To perform the tasks in this tutorial, you need:
 
 - A [Defender for IoT OT plan](how-to-manage-subscriptions.md) on your Azure subscription
 
-- Multiple cloud-connected, [OT sensors deployed](onboard-sensors.md), streaming traffic data to Defender for IoT. Each sensor should be assigned to a different site and zone, keeping each of your network segments separate and secure.
-
-    For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md) or [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
+- Multiple cloud-connected, [OT sensors deployed](onboard-sensors.md), streaming traffic data to Defender for IoT. Each sensor should be assigned to a different site and zone, keeping each of your network segments separate and secure. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 - The following permissions:
 
@@ -181,24 +179,6 @@ In the Azure portal, view Defender for IoT data by site and zone from the follow
 
 - **Sites and sensors**: [Filter the sensors](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal) listed by site or zone.
 
-### View data in air-gapped environments
-
-Use the following procedure to view more data for each site and zone on an on-premises management console. We recommend using an on-premises management console in air-gapped environments to centrally manage and monitor OT devices across your network.
-
-1. Sign into your on-premises management console and select **Site Management**.
-
-1. Locate the site and zone you want to view, using the filtering options at the top as needed:
-
-    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
-    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
-    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](ot-deploy/sites-and-zones-on-premises.md#create-business-units).
-    - **Region**: Select to view all OT sensors, or only those from a [specific region](ot-deploy/sites-and-zones-on-premises.md#create-regions).
-
-Each site and zone lists operational details about the sensor, such as details about its last software update, as well as the number of devices, alerts, and sensors aggregated for each zone.
-
-Select **View device inventory**, **View zone map**, the :::image type="icon" source="media/sites-and-zones/sensor-icon.png" border="false"::: sensor icon, or the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button to jump to more specific data.
-
-
 ## Sample alerts to watch for
 
 When monitoring for Zero Trust, the following list is an example of important Defender for IoT alerts to watch for:
@@ -235,6 +215,5 @@ In addition to using the built-in Defender for IoT **Vulnerabilities** workbook,
 For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Manage on-premises sites and zones](ot-deploy/sites-and-zones-on-premises.md#manage-sites-and-zones)
 - [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Visualize Microsoft Defender for IoT data with Azure Monitor workbooks](workbooks.md)

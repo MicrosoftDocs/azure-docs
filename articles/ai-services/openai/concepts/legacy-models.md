@@ -1,21 +1,22 @@
 ---
-title: Azure OpenAI Service legacy models
+title: Azure OpenAI Service deprecated models
 titleSuffix: Azure OpenAI
-description: Learn about the legacy models in Azure OpenAI. 
+description: Learn about the deprecated models in Azure OpenAI.
 ms.service: azure-ai-openai
-ms.topic: conceptual 
-ms.date: 07/06/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.topic: conceptual
+ms.date: 06/14/2024
+ms.custom: references_regions, build-2023, build-2023-dataai
 manager: nitinme
-author: mrbullwinkle #ChrisHMSFT
-ms.author: mbullwin #chrhoder
+author: mrbullwinkle 
+ms.author: mbullwin 
 recommendations: false
-keywords: 
 ---
 
-# Azure OpenAI Service legacy models
+# Azure OpenAI Service deprecated models
 
-Azure OpenAI Service offers a variety of models for different use cases. The following models are not available for new deployments beginning July 6, 2023. Deployments created prior to July 6, 2023 remain available to customers until July 5, 2024. We recommend customers migrate to the replacement models prior to the July 5, 2024 retirement.
+Azure OpenAI Service offers a variety of models for different use cases. The following models were deprecated on July 6, 2023 and will be retired on June 14, 2024.  These models are no longer available for new deployments. Deployments created prior to July 6, 2023 remain available to customers until June 14, 2024. We recommend customers migrate their applications to deployments of replacement models prior to the June 14, 2024 retirement.
+
+At the time of retirement, deployments of these models will stop returning valid API responses.
 
 ## GPT-3.5
 
@@ -37,7 +38,7 @@ The impacted GPT-3 models are the following. The replacement for the GPT-3 model
 
 ## Embedding models
 
-The embedding models below will be retired effective July 5, 2024. Customers should migrate to `text-embedding-ada-002` (version 2).
+The embedding models below will be retired effective June 14, 2024. Customers should migrate to `text-embedding-ada-002` (version 2).
 
 - [Similarity](#similarity-embedding)
 - [Text search](#text-search-embedding)
@@ -47,10 +48,10 @@ Each family includes models across a range of capability. The following list ind
 
 |  Base Model  |  Model(s)  |  Dimensions  |
 |---|---|---|
-| Ada | | 1024 |
-| Babbage |  | 2048 |
-| Curie |  | 4096 |
-| Davinci |  | 12288 |
+| Ada | | 1,024 |
+| Babbage |  | 2,048 |
+| Curie |  | 4,096 |
+| Davinci |  | 12,288 |
 
 
 ### Similarity embedding
@@ -116,7 +117,7 @@ Region availability is for customers with deployments of the models prior to Jul
 |  --- | --- | --- | --- | --- |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
-| text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
+| text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2,046 | Aug 2020 |
 | text-similarity-davinci-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-search-ada-doc-001 | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-search-ada-query-001 | South Central US, West Europe | N/A | 2,046 | Aug 2020 |

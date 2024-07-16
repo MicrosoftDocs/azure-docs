@@ -8,7 +8,7 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/27/2023
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
@@ -23,7 +23,7 @@ In addition to a partition key that determines the item's logical partition, eac
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXbMV]
 
-This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we've covered them so you have clarity on how Azure Cosmos DB works.
+This article explains the relationship between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to select your partition key but we're covering them so you can have clarity on how Azure Cosmos DB works.
 
 ## Logical partitions
 
@@ -52,10 +52,6 @@ There's no limit to the total number of physical partitions in your container. A
 
 Throughput provisioned for a container is divided evenly among physical partitions. A partition key design that doesn't distribute requests evenly might result in too many requests directed to a small subset of partitions that become "hot." Hot partitions lead to inefficient use of provisioned throughput, which might result in rate-limiting and higher costs.
 
-You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure portal:
-
-:::image type="content" source="./media/partitioning-overview/view-partitions.png" alt-text="Screenshot of Azure Cosmos DB classic metrics displaying the number of physical partitions." :::
-
 For example, consider a container with the path `/foodGroup` specified as the partition key. The container could have any number of physical partitions, but in this example we assume it has three. A single physical partition could contain multiple partition keys. As an example, the largest physical partition could contain the top three most significant size logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
 If you assign a throughput of 18,000 request units per second (RU/s), then each of the three physical partitions can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption. For more information, see [choosing the right logical partition key](#choose-partitionkey).
@@ -64,7 +60,7 @@ If you assign a throughput of 18,000 request units per second (RU/s), then each 
 
 Azure Cosmos DB transparently and automatically manages the placement of logical partitions on physical partitions to efficiently satisfy the scalability and performance needs of the container. As the throughput and storage requirements of an application increase, Azure Cosmos DB moves logical partitions to automatically spread the load across a greater number of physical partitions. You can learn more about [physical partitions](partitioning-overview.md#physical-partitions).
 
-Azure Cosmos DB uses hash-based partitioning to spread logical partitions across physical partitions. Azure Cosmos DB hashes the partition key value of an item. The hashed result determines the physical partition. Then, Azure Cosmos DB allocates the key space of partition key hashes evenly across the physical partitions.
+Azure Cosmos DB uses hash-based partitioning to spread logical partitions across physical partitions. Azure Cosmos DB hashes the partition key value of an item. The hashed result determines the logical partition. Then, Azure Cosmos DB allocates the key space of partition key hashes evenly across the physical partitions.
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
@@ -88,7 +84,7 @@ A partition key has two components: **partition key path** and the **partition k
 
 To learn about the limits on throughput, storage, and length of the partition key, see the [Azure Cosmos DB service quotas](concepts-limits.md) article.
 
-Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it isn't possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](intra-account-container-copy.md) help with this process.)
+Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it isn't possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key. ([Container copy jobs](container-copy.md) help with this process.)
 
 For **all** containers, your partition key should:
 
@@ -128,7 +124,7 @@ If your container could grow to more than a few physical partitions, then you sh
 
 If your container has a property that has a wide range of possible values, it's likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* (`/id`) is naturally a great choice for the partition key.
 
-The system property *item ID* exists in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these IDs are also great partition key choices for the same reasons as the *item ID*.
+The system property *item ID* exists in every item in your container. You might have other properties that represent a logical ID of your item. In many cases, these IDs are also great partition key choices for the same reasons as the *item ID*.
 
 The *item ID* is a great partition key choice for the following reasons:
 

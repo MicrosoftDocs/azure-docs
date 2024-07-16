@@ -7,7 +7,6 @@ ms.service: azure-import-export
 ms.topic: conceptual
 ms.date: 03/14/2022
 ms.author: alkohli
-ms.custom: contperf-fy22q1
 ---
 # Open a support ticket for an Import/Export job
 

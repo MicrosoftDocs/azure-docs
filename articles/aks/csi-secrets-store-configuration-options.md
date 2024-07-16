@@ -1,11 +1,12 @@
 ---
 title: Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
 description: Learn configuration and troubleshooting options for the Azure Key Vault provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS).
-author: nickomang 
+author: nickomang
 ms.author: nickoman
-ms.topic: how-to 
+ms.subservice: aks-security
+ms.topic: how-to
 ms.date: 10/19/2023
-ms.custom: template-how-to, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Azure Key Vault provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) configuration and troubleshooting options
@@ -33,7 +34,12 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Enable auto-rotation of secrets on a new cluster using the [`az aks create`][az-aks-create] command and enable the `enable-secret-rotation` add-on.
 
     ```azurecli-interactive
-    az aks create -n myAKSCluster2 -g myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks create \
+        --name myAKSCluster2 \
+        --resource-group myResourceGroup \
+        --enable-addons azure-keyvault-secrets-provider \
+        --enable-secret-rotation \
+        --generate-ssh-keys
     ```
 
 #### Enable auto-rotation on an existing AKS cluster
@@ -41,7 +47,7 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Update an existing cluster to enable auto-rotation of secrets using the [`az aks addon update`][az-aks-addon-update] command and the `enable-secret-rotation` parameter.
 
     ```azurecli-interactive
-    az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation
+    az aks addon update --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider --enable-secret-rotation
     ```
 
 #### Specify a custom rotation interval
@@ -49,7 +55,7 @@ Follow the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driv
 * Specify a custom rotation interval using the [`az aks addon update`][az-aks-addon-update] command with the `rotation-poll-interval` parameter.
 
     ```azurecli-interactive
-    az aks addon update -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
+    az aks addon update --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 5m
     ```
 
 #### Disable auto-rotation
@@ -59,14 +65,16 @@ To disable auto-rotation, you first need to disable the add-on. Then, you can re
 1. Disable the secrets provider add-on using the [`az aks addon disable`][az-aks-addon-disable] command.
 
     ```azurecli-interactive
-    az aks addon disable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+    az aks addon disable --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider
     ```
 
 2. Re-enable the secrets provider add-on without the `enable-secret-rotation` parameter using the [`az aks addon enable`][az-aks-addon-enable] command.
 
     ```azurecli-interactive
-    az aks addon enable -g myResourceGroup -n myAKSCluster2 -a azure-keyvault-secrets-provider
+    az aks addon enable --resource-group myResourceGroup --name myAKSCluster2 --addon azure-keyvault-secrets-provider
     ```
+
+If you are already using a `SecretProviderClass`, you can update the add-on without disabling it first by using `az aks addon enable` without specifying the `enable-secret-rotation` parameter.
 
 ### Sync mounted content with a Kubernetes secret
 
@@ -83,7 +91,7 @@ You might want to create a Kubernetes secret to mirror your mounted secrets cont
     metadata:
       name: azure-sync
     spec:
-      provider: azure                             
+      provider: azure
       secretObjects:                              # [OPTIONAL] SecretObjects defines the desired state of synced Kubernetes secret objects
       - data:
         - key: username                           # data field to populate
@@ -110,7 +118,7 @@ You might want to create a Kubernetes secret to mirror your mounted secrets cont
     spec:
       containers:
         - name: busybox
-          image: registry.k8s.io/e2e-test-images/busybox:1.29-1 
+          image: registry.k8s.io/e2e-test-images/busybox:1.29-1
           command:
             - "/bin/sleep"
             - "10000"
@@ -204,7 +212,7 @@ Metrics are served from port 8095, but this port isn't exposed outside the pod b
 
 ## Troubleshooting
 
-For troubleshooting steps, see [Azure Key Vault provider for Secrets Store CSI Driver troubleshooting](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/).
+For troubleshooting steps, see [Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver][troubleshoot-csi].
 
 ## Next steps
 
@@ -221,6 +229,8 @@ To learn more about the Azure Key Vault provider for Secrets Store CSI Driver, s
 [az-aks-addon-update]: /cli/azure/aks#az-aks-addon-update
 [az-aks-addon-disable]: /cli/azure/aks#az-aks-addon-disable
 [az-aks-addon-enable]: /cli/azure/aks#az-aks-addon-enable
+[troubleshoot-csi]: /troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver
 
 <!-- LINKS EXTERNAL -->
 [reloader]: https://github.com/stakater/Reloader
+

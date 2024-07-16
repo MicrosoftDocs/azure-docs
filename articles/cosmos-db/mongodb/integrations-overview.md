@@ -3,7 +3,6 @@ title: Integrations overview in Azure Cosmos DB for MongoDB
 description: Learn how to integrate Azure Cosmos DB for MongoDB account with other Azure services.
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/25/2022
 ms.author: sidandrews
@@ -11,7 +10,7 @@ ms.subservice: mongodb
 ---
 
 # Integrate Azure Cosmos DB for MongoDB with Azure services
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB for MongoDB is a cloud-native offering and can be integrated seamlessly with other Azure services to build enterprise-grade modern applications. 
 
@@ -69,9 +68,9 @@ Read more about [how to choose the right compute service on Azure](/azure/archit
 
 ## Enhance functionalities in the application
 
-### Azure Cognitive Search
-Azure Cognitive Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
-Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure Cognitive Search.
+### Azure AI Search
+Azure AI Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
+Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure AI Search.
 
 ## Improve database security
 

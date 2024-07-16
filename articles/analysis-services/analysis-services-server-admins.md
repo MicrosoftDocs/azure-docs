@@ -1,11 +1,11 @@
 ---
 title: Manage server admins in Azure Analysis Services | Microsoft Docs
 description: This article describes how to manage server administrators for an Azure Analysis Services server by using the Azure portal, PowerShell, or REST APIs.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan 
 ---
 # Manage server administrators
@@ -36,7 +36,7 @@ If server firewall is enabled, server administrator client computer IP addresses
 
 ## PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
 Use [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.

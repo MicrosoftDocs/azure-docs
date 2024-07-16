@@ -5,7 +5,8 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -218,12 +219,12 @@ The following [az network nic show][az-network-nic-show] commands get the privat
 ```azurecli
 REGISTRY_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry'].privateIPAddress" \
   --output tsv)
 
 DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REGISTRY_LOCATION'].privateIPAddress" \
   --output tsv)
 
 # An FQDN is associated with each IP address in the IP configurations
@@ -247,7 +248,7 @@ If your registry is [geo-replicated](container-registry-geo-replication.md), que
 REPLICA_LOCATION=eastus
 GEO_REPLICA_DATA_ENDPOINT_PRIVATE_IP=$(az network nic show \
   --ids $NETWORK_INTERFACE_ID \
-  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIpAddress" \
+  --query "ipConfigurations[?privateLinkConnectionProperties.requiredMemberName=='registry_data_$REPLICA_LOCATION'].privateIPAddress" \
   --output tsv) 
 
 GEO_REPLICA_DATA_ENDPOINT_FQDN=$(az network nic show \
@@ -335,13 +336,15 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 ## Execute the `az acr build` with private endpoint and private registry
 
-Consider the following options to execute the `az acr build` successfully.
 > [!NOTE]
 > Once you disable public network [access here](#disable-public-access), then `az acr build` commands will no longer work.
+> Unless you are utilizing dedicated agent pools, it's typically require the public IP's. Tasks reserve a set of public IPs in each region for outbound requests. If needed, we have the option to add these IPs to our firewall's allowed list for seamless communication.`az acr build` command uses the same set of IPs as the tasks.
 
-1. Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
-2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range)
-3. Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
+Consider the following options to execute the `az acr build` successfully.
+
+* Assign a [dedicated agent pool.](./tasks-agent-pools.md) 
+* If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range). Tasks reserve a set of public IPs in each region (a.k.a. AzureContainerRegistry Service Tag) for outbound requests. You can choose to add the IPs in the firewall allowed list.
+* Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
 
 ## Disable access to a container registry using a service endpoint 
 

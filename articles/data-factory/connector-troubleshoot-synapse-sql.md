@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 05/19/2023
+ms.date: 01/05/2024
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
@@ -135,7 +135,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
-- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program utility (bcp) client.
+- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program (bcp) utility client.
 
 - **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md).
 
@@ -296,7 +296,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     
     2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
     
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

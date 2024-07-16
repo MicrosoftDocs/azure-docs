@@ -2,21 +2,23 @@
 title: Tutorial to configure Keyless with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Tutorial to configure Sift Keyless with Azure Active Directory B2C for passwordless authentication 
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 03/06/2023
+ms.date: 06/21/2024
+
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer integrating Azure AD B2C with Keyless for passwordless authentication. I need to configure Keyless with Azure AD B2C, so I can provide a secure and convenient passwordless authentication experience for my customer applications.
+
 ---
 
 # Tutorial: Configure Keyless with Azure Active Directory B2C
 
-Learn to configure Azure Active Directory B2C (Azure AD B2C) with the Sift Keyless passwordless solution. With Azure AD B2C as an identity provider (IdP), integrate Keyless with customer applications to provide passwordless authentication. The Keyless Zero-Knowledge Biometric (ZKB) is passwordless multi-factor authentication that helps eliminate fraud, phishing, and credential reuse, while enhancing the customer experience and protecting privacy.
+Learn to configure Azure Active Directory B2C (Azure AD B2C) with the Sift Keyless passwordless solution. With Azure AD B2C as an identity provider (IdP), integrate Keyless with customer applications to provide passwordless authentication. The Keyless Zero-Knowledge Biometric (ZKB) is passwordless multifactor authentication that helps eliminate fraud, phishing, and credential reuse, while enhancing the customer experience and protecting privacy.
 
 Go to keyless.io to learn about: 
 
@@ -60,7 +62,7 @@ Use the following sections to add an IdP, configure the IdP, and create a user f
 
 To add a new Identity provider:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant. 
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant. 
 2. Select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.

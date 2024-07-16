@@ -1,5 +1,5 @@
 ---
-title: Managing personal data in Azure Monitor Log Analytics and Application Insights
+title: Managing personal data in Azure Monitor Logs and Application Insights
 description: This article describes how to manage personal data stored in Azure Monitor Log Analytics and the methods to identify and remove it.
 ms.topic: conceptual
 author: guywild
@@ -10,13 +10,13 @@ ms.date: 06/28/2022
 
 ---
 
-# Managing personal data in Log Analytics and Application Insights
+# Managing personal data in Azure Monitor Logs and Application Insights
 
 Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article explains where Log Analytics and Application Insights store personal data and how to manage this data.
 
 In this article, _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you're using a workspace-based Application Insights resource, the information on log data applies. If you're using a classic Application Insights resource, the application data applies.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## Strategy for personal data handling
@@ -80,6 +80,7 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 
 > [!IMPORTANT]
 >  While most purge operations complete much quicker, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform. This SLA meets GDPR requirements. It's an automated process, so there's no way to expedite the operation. 
+
 ### View and export
 
 Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
@@ -91,11 +92,14 @@ You need to implement the logic for converting the data to an appropriate format
 > [!WARNING]
 > Deletes in Log Analytics are destructive and non-reversible! Please use extreme caution in their execution.
 
-Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
+Azure Monitor's [Purge API](/rest/api/loganalytics/workspacepurge/purge) lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
 Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
 To manage system resources, we limit purge requests to 50 requests an hour. Batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. Run the query before executing the purge request to verify the expected results.
+
+> [!IMPORTANT]
+> Use of the Log Analytics or Application Insights Purge API does not affect your retention costs. To lower retention costs, you must decrease your data retention period.
 
 #### Log data
 

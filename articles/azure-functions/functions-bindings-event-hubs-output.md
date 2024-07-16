@@ -3,7 +3,7 @@ title: Azure Event Hubs output binding for Azure Functions
 description: Learn to write messages to Azure Event Hubs streams using Azure Functions.
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
-ms.custom: ignite-2022, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 03/03/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -22,17 +22,7 @@ Make sure the required package references are in place before you try to impleme
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
 ::: zone-end
 
@@ -45,9 +35,11 @@ This article supports both programming models.
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="20-31":::
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an event hub, using the method return value as the output:
 
@@ -195,6 +187,27 @@ def eventhub_output(req: func.HttpRequest, event: func.Out[str]):
     return 'ok'
 ```
 
+Here's Python code that sends multiple messages:
+```python
+import logging
+import azure.functions as func
+from typing import List
+
+app = func.FunctionApp()
+
+@app.function_name(name="eventhub_output")
+@app.route(route="eventhub_output")
+@app.event_hub_output(arg_name="event",
+                      event_hub_name="<EVENT_HUB_NAME>",
+                      connection="<CONNECTION_SETTING>")
+
+def eventhub_output(req: func.HttpRequest, event: func.Out[List[str]]) -> func.HttpResponse:
+    my_messages=["message1", "message2","message3"]
+    event.set(my_messages)
+    return func.HttpResponse(f"Messages sent")
+```
+
+
 # [v1](#tab/python-v1)
 
 The following examples show Event Hubs binding data in the *function.json* file.
@@ -221,6 +234,19 @@ def main(timer: func.TimerRequest) -> str:
     timestamp = datetime.datetime.utcnow()
     logging.info('Message created at: %s', timestamp)
     return 'Message created at: {}'.format(timestamp)
+```
+
+Here's Python code that sends multiple messages:
+```python
+import logging
+from typing import List
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, messages:func.Out[List[str]]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+    messages.set([{"message1"}, {"message2"}])
+    return func.HttpResponse(f"Messages sent")
 ```
 
 ---
@@ -272,7 +298,7 @@ Use the [EventHubAttribute] to define an output binding to an event hub, which s
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_trigger`:
+For Python v2 functions defined using a decorator, these properties are supported for `event_hub_output`:
 
 | Property    | Description |
 |-------------|-----------------------------|

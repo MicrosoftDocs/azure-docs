@@ -4,7 +4,8 @@ description: Use Azure role-based access control (Azure RBAC) and identity and a
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Azure Container Registry roles and permissions
@@ -141,7 +142,7 @@ To create or update a custom role using the JSON description, use the [Azure CLI
 
 ## Next steps
 
-* Learn more about assigning Azure roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), or other Azure tools.
+* Learn more about assigning Azure roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.yml), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), or other Azure tools.
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
 

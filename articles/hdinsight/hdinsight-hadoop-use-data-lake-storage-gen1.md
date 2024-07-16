@@ -3,8 +3,8 @@ title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
-ms.date: 11/17/2022
+ms.custom: hdinsightactive, devx-track-azurepowershell
+ms.date: 12/07/2023
 ---
 
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
@@ -19,13 +19,13 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 > [!NOTE]  
 > Data Lake Storage Gen1 is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Availability for HDInsight clusters
 
 Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, specify a blob container in Azure Storage as the default file system. Or with HDInsight 3.5 and newer versions, you can select either Azure Blob storage or Azure Data Lake Storage Gen1 as the default files system with a few exceptions. The cluster and the storage account must be hosted in the same region.
 
-HDInsight clusters can use Data Lake Storage Gen1 in two ways:
+HDInsight clusters can use Data Lake Storage Gen1 in 2 ways:
 
 * As the default storage
 * As additional storage, with Azure Blob storage as default storage.
@@ -50,8 +50,8 @@ Using Data Lake Storage Gen1 as an additional storage account doesn't affect per
 
 When HDInsight is deployed with Data Lake Storage Gen1 as default storage, the cluster-related files are stored in `adl://mydatalakestore/<cluster_root_path>/`, where `<cluster_root_path>` is the name of a folder you create in Data Lake Storage. By specifying a root path for each cluster, you can use the same Data Lake Storage account for more than one cluster. So, you can have a setup where:
 
-* Cluster1 can use the path `adl://mydatalakestore/cluster1storage`
-* Cluster2 can use the path `adl://mydatalakestore/cluster2storage`
+* Cluster 1 can use the path `adl://mydatalakestore/cluster1storage`
+* Cluster 2 can use the path `adl://mydatalakestore/cluster2storage`
 
 Notice that both the clusters use the same Data Lake Storage Gen1 account **mydatalakestore**. Each cluster has access to its own root filesystem in Data Lake Storage. The Azure portal deployment experience  prompts you to use a folder name such as **/clusters/\<clustername>** for the root path.
 
@@ -113,7 +113,7 @@ For more information for creating service principal and grant access, see Config
 
 ## Use more than one Data Lake Storage Gen1 account
 
-Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts can be done. Give the HDInsight cluster permission on data in one or more Data Lake Storage accounts. See Configure Data Lake Storage Gen1 access below.
+Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts can be done. Give the HDInsight cluster permission on data in one or more Data Lake Storage accounts. See Configure Data Lake Storage Gen1 access.
 
 ## Configure Data Lake Storage Gen1 access
 

@@ -7,7 +7,6 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Azure features & resources that help you protect, detect, and respond
@@ -75,7 +74,7 @@ Respond to incidents rapidly with built-in orchestration and automation of commo
 
 Microsoft Defender for Cloud scans virtual machines across an Azure subscription and makes a recommendation to deploy endpoint protection where an existing solution is not detected. This recommendation can be accessed via the Recommendations section:
 
-:::image type="content" source="../../defender-for-cloud/media/get-started/overview.png" alt-text="Screenshot of Microsoft Defender for Cloud overview":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/defender-for-cloud/overview.png" alt-text="Screenshot of Microsoft Defender for Cloud overview":::
 
 Microsoft Defender for Cloud provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more. When Microsoft Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
 

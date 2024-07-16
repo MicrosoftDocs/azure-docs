@@ -1,11 +1,13 @@
 ---
 title: "Face Python client library quickstart"
 description: Use the Face client library for Python to detect faces and identify faces (facial recognition search).
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 05/03/2022
 ms.author: pafarley
@@ -26,8 +28,9 @@ Get started with facial recognition using the Face client library for Python. Fo
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
+## Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../face-environment-variables.md)]
 
 ## Identify and verify faces
 
@@ -104,5 +107,5 @@ In this quickstart, you learned how to use the Face client library for Python to
 > [!div class="nextstepaction"]
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
-* [What is the Face service?](../../overview.md)
+* [What is the Face service?](../../overview-identity.md)
 * More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

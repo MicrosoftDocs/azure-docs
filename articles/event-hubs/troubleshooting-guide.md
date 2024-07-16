@@ -6,7 +6,7 @@ ms.date: 12/15/2022
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs
-There are various reasons for client applications not able to connect to an event hub. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues. This article provides tips for troubleshooting connectivity issues with Azure Event Hubs. 
+There are various reasons for client applications not able to connect to an event hub. The connectivity issues might be permanent or transient. If the issue happens all the time (permanent), you might want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces might help with troubleshooting the issues. This article provides tips for troubleshooting connectivity issues with Azure Event Hubs. 
 
 ## Troubleshoot permanent connectivity issues
 If the application isn't able to connect to the event hub at all, follow steps from this section to troubleshoot the issue. 
@@ -24,7 +24,7 @@ For Kafka clients, verify that producer.config or consumer.config files are conf
 ### Verify that Event Hubs service tag is allowed in your network security groups
 If your application is running inside a subnet and there's an associated network security group, confirm whether the internet outbound is allowed or Event Hubs service tag (`EventHub`) is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
 
-### Check if the application needs to be running in a specific subnet of a vnet
+### Check if the application needs to be running in a specific subnet of a virtual network
 Confirm that your application is running in a virtual network subnet that has access to the namespace. If it's not, run the application in the subnet that has access to the namespace or add the IP address of the machine on which application is running to the [IP firewall](event-hubs-ip-filtering.md). 
 
 When you create a virtual network service endpoint for an event hub namespace, the namespace accepts traffic only from the subnet that's bound to the service endpoint. There's an exception to this behavior. You can add specific IP addresses in the IP firewall to enable access to the event hub's public endpoint. For more information, see [Network service endpoints](event-hubs-service-endpoints.md).
@@ -32,7 +32,7 @@ When you create a virtual network service endpoint for an event hub namespace, t
 ### Check the IP Firewall settings for your namespace
 Check that the public IP address of the machine on which the application is running isn't blocked by the IP firewall.  
 
-By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
+By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 or IPv6 addresses or address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
@@ -71,12 +71,12 @@ An example of **failure error message**:
 If you're experiencing intermittent connectivity issues, go through the following sections for troubleshooting tips. 
 
 ### Use the latest version of the client SDK
-Some of the transient connectivity issues may have been fixed in the later versions of the SDK than what you are using. Ensure that you're using the latest version of client SDKs in your applications. SDKs are continuously improved with new/updated features and bug fixes, so always test with latest package. Check the release notes for issues that are fixed and features added/updated. 
+Some of the transient connectivity issues might have been fixed in the later versions of the SDK than what you are using. Ensure that you're using the latest version of client SDKs in your applications. SDKs are continuously improved with new/updated features and bug fixes, so always test with latest package. Check the release notes for issues that are fixed and features added/updated. 
 
 For information about client SDKs, see the [Azure Event Hubs - Client SDKs](sdks.md) article. 
 
 ### Run the command to check dropped packets
-When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command will try to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
+When there are intermittent connectivity issues, run the following command to check if there are any dropped packets. This command tries to establish 25 different TCP connections every 1 second with the service. Then, you can check how many of them succeeded/failed and also see TCP connection latency. You can download the `psping` tool from [here](/sysinternals/downloads/psping).
 
 ```shell
 .\psping.exe -n 25 -i 1 -q <yournamespacename>.servicebus.windows.net:5671 -nobanner     
@@ -86,14 +86,14 @@ You can use equivalent commands if you're using other tools such as `tnc`, `ping
 Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 
 ### Service upgrades/restarts
-Transient connectivity issues may occur because of backend service upgrades and restarts. When they occur, you may see the following symptoms: 
+Transient connectivity issues might occur because of backend service upgrades and restarts. When they occur, you might see the following symptoms: 
 
-- There may be a drop in incoming messages/requests.
-- The log file may contain error messages.
-- The applications may be disconnected from the service for a few seconds.
-- Requests may be momentarily throttled.
+- There might be a drop in incoming messages/requests.
+- The log file might contain error messages.
+- The applications might be disconnected from the service for a few seconds.
+- Requests might be momentarily throttled.
 
-If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow. Catching these transient errors, backing off and then retrying the call will ensure that your code is resilient to these transient issues.
+If the application code utilizes SDK, the retry policy is already built in and active. The application reconnects without significant impact to the application/workflow. Catching these transient errors, backing off and then retrying the call ensures that your code is resilient to these transient issues.
 
 ## Next steps
 See the following articles:

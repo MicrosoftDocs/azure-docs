@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Train a small object detection model with AutoML (preview) (v1)
@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 
 > [!IMPORTANT]

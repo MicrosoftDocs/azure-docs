@@ -8,7 +8,7 @@ author: akashdubey-ms
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 08/17/2023
+ms.date: 01/11/2024
 ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
 ---
@@ -41,7 +41,7 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 # [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) for information about installing PowerShell.
 
@@ -113,57 +113,20 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 ### Monitoring existing storage accounts
 
-To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the storage service for GPv1, GPv2, and Blob storage account types. This data is stored in well-known tables in the same storage account.
+To monitor your existing storage accounts and gather this data, you can make use of storage metrics in Azure Monitor. Azure Monitor stores metrics that include aggregated transaction statistics and capacity data about requests to the storage service. Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal as well as data that is ingested. For more information, see any of these articles:
 
-For more information, see [About Storage Analytics Metrics](../blobs/monitor-blob-storage.md) and [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)
-
-> [!NOTE]
-> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account.
-
-To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
-
-To monitor data access patterns for Blob storage, you need to enable the hourly transaction metrics from the API. With hourly transaction metrics enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint when using RA-GRS storage accounts.
-
-> [!NOTE]
-> If you have a general-purpose storage account in which you have stored page blobs and virtual machine disks, or queues, files, or tables, alongside block and append blob data, this estimation process isn't applicable. The capacity data doesn't differentiate block blobs from other types, and doesn't give capacity data for other data types. If you use these types, an alternative methodology is to look at the quantities on your most recent bill.
-
-To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
-
-For details on enabling, collecting, and viewing metrics data, see [Storage analytics metrics](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json).
-
-> [!NOTE]
-> Storing, accessing, and downloading analytics data is also charged just like regular user data.
-
-### Utilizing usage metrics to estimate costs
-
-#### Capacity costs
-
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data. The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
-
-This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account. The same method can also be used for estimating storage costs in GPv1 storage accounts.
-
-#### Transaction costs
-
-The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *For example*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
-
-In order to estimate transaction costs for Blob storage accounts, you need to break down the transactions into three groups since they're priced differently.
-
-- Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-- Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
-- All other transactions.
-
-In order to estimate transaction costs for GPv1 storage accounts, you need to aggregate all transactions irrespective of the operation/API.
-
-#### Data access and geo-replication data transfer costs
-
-While storage analytics doesn't provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table. The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API. Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
+- [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
+- [Monitoring Azure Files](../files/storage-files-monitoring.md)
+- [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
+- [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
 In order to estimate the data access costs for Blob storage accounts, you need to break down the transactions into two groups.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
+- The amount of data retrieved from the storage account can be estimated by looking at the sum of the *'Egress'* metric for primarily the *'GetBlob'* and *'CopyBlob'* operations.
 
-- The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- The amount of data written to the storage account can be estimated by looking at the sum of *'Ingress'* metrics for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+
+To determine the price of each operation against the blob storage service, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
 The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written when using a GRS or RA-GRS storage account.
 

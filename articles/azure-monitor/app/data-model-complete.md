@@ -2,12 +2,9 @@
 title: Application Insights telemetry data model
 description: This article describes the Application Insights telemetry data model including request, dependency, exception, trace, event, metric, PageView, and context.
 services: application-insights
-documentationcenter: .net
-manager: carmonm
-ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 01/31/2024
 ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
@@ -22,7 +19,7 @@ The following types of telemetry are used to monitor the execution of your app. 
 
 * [Request](#request): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
 
-    An *operation* is made up of the threads of execution that process a request. You can also [write code](./api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data. Each operation has an ID. The ID can be used to [group](distributed-tracing-telemetry-correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails and has a duration of time.
+    An *operation* is made up of the threads of execution that process a request. You can also [write code](./api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data. Each operation has an ID. The ID can be used to [group](distributed-trace-data.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails and has a duration of time.
 * [Exception](#exception): Typically represents an exception that causes an operation to fail.
 * [Dependency](#dependency): Represents a call from your app to an external service or storage, such as a REST API or SQL. In ASP.NET, dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`.
 
@@ -36,7 +33,7 @@ Every telemetry item can define the [context information](#context) like applica
 
 You can use session ID to calculate an outage or an issue impact on users. Calculating the distinct count of session ID values for a specific failed dependency, error trace, or critical exception gives you a good understanding of an impact.
 
-The Application Insights telemetry model defines a way to [correlate](distributed-tracing-telemetry-correlation.md) telemetry to the operation of which it's a part. For example, a request can make a SQL Database call and record diagnostics information. You can set the correlation context for those telemetry items that tie it back to the request telemetry.
+The Application Insights telemetry model defines a way to [correlate](distributed-trace-data.md) telemetry to the operation of which it's a part. For example, a request can make a SQL Database call and record diagnostics information. You can set the correlation context for those telemetry items that tie it back to the request telemetry.
 
 ## Schema improvements
 
@@ -52,7 +49,7 @@ You can group requests by logical `name` and define the `source` of this request
 
 Request telemetry supports the standard extensibility model by using custom `properties` and `measurements`.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Name
 
@@ -64,7 +61,7 @@ The Application Insights web SDK sends a request name "as is" about letter case.
 
 ### ID
 
-ID is the identifier of a request call instance. It's used for correlation between the request and other telemetry items. The ID should be globally unique. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
+ID is the identifier of a request call instance. It's used for correlation between the request and other telemetry items. The ID should be globally unique. For more information, see [Telemetry correlation in Application Insights](distributed-trace-data.md).
 
 **Maximum length:** 128 characters
 
@@ -76,7 +73,7 @@ URL is the request URL with all query string parameters.
 
 ### Source
 
-Source is the source of the request. Examples are the instrumentation key of the caller or the IP address of the caller. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
+Source is the source of the request. Examples are the instrumentation key of the caller or the IP address of the caller. For more information, see [Telemetry correlation in Application Insights](distributed-trace-data.md).
 
 **Maximum length:** 1,024 characters
 
@@ -102,11 +99,11 @@ Partially accepted content `206` might indicate a failure of an overall request.
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ### Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 ## Dependency
 
@@ -118,7 +115,7 @@ This field is the name of the command initiated with this dependency call. It ha
 
 ### ID
 
-ID is the identifier of a dependency call instance. It's used for correlation with the request telemetry item that corresponds to this dependency call. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
+ID is the identifier of a dependency call instance. It's used for correlation with the request telemetry item that corresponds to this dependency call. For more information, see [Telemetry correlation in Application Insights](distributed-trace-data.md).
 
 ### Data
 
@@ -130,7 +127,7 @@ This field is the dependency type name. It has a low cardinality value for logic
 
 ### Target
 
-This field is the target site of a dependency call. Examples are server name and host address. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
+This field is the target site of a dependency call. Examples are server name and host address. For more information, see [Telemetry correlation in Application Insights](distributed-trace-data.md).
 
 ### Duration
 
@@ -146,11 +143,11 @@ This field is the indication of a successful or unsuccessful call.
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ### Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 ## Exception
 
@@ -172,11 +169,11 @@ This field is the trace severity level. The value can be `Verbose`, `Information
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ### Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 ## Trace
 
@@ -196,7 +193,7 @@ Trace severity level.
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ## Event
 
@@ -212,11 +209,11 @@ Semantically, events might or might not be correlated to requests. If used prope
 
 ### Custom properties
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ### Custom measurements
 
-[!INCLUDE [application-insights-data-model-measurements](../../../includes/application-insights-data-model-measurements.md)]
+[!INCLUDE [application-insights-data-model-measurements](../includes/application-insights-data-model-measurements.md)]
 
 ## Metric
 
@@ -270,7 +267,7 @@ This field is the standard deviation of the aggregated metric. It shouldn't be s
 
 The metric with the custom property `CustomPerfCounter` set to `true` indicates that the metric represents the Windows performance counter. These metrics are placed in the `performanceCounters` table, not in `customMetrics`. Also, the name of this metric is parsed to extract category, counter, and instance names.
 
-[!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
+[!INCLUDE [application-insights-data-model-properties](../includes/application-insights-data-model-properties.md)]
 
 ## PageView
 
@@ -328,13 +325,13 @@ Originally, this field was used to indicate the type of the device the user of t
 
 ### Operation ID
 
-This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
+This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](distributed-trace-data.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
 
 **Maximum length:** 128
 
 ### Parent operation ID
 
-This field is the unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md).
+This field is the unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](distributed-trace-data.md).
 
 **Maximum length:** 128
 
@@ -428,24 +425,24 @@ This can occur if you're using string values. Only numeric values work with cust
 ## Next steps
 
 Learn how to use the [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
-- [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
-- [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
-- [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
-- [Custom event telemetry](./api-custom-events-metrics.md#trackevent)
-- [Custom metric telemetry](./api-custom-events-metrics.md#trackmetric)
+* [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
+* [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
+* [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
+* [Custom event telemetry](./api-custom-events-metrics.md#trackevent)
+* [Custom metric telemetry](./api-custom-events-metrics.md#trackmetric)
 
 Set up dependency tracking for:
-- [.NET](./asp-net-dependencies.md)
-- [Java](./opentelemetry-enable.md?tabs=java)
+* [.NET](./asp-net-dependencies.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 
 To learn more:
 
-- Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
-- Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
-- Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
-- Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#logs).
-- Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
-- Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
-- Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
-- Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
-- Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.
+* Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
+* Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
+* Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
+* Explore [Java trace logs in Application Insights](./opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api).
+* Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
+* Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
+* Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
+* Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
+* Use [sampling](./sampling.md) to minimize the amount of telemetry based on data model.

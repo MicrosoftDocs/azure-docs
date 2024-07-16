@@ -5,12 +5,11 @@ description: Learn how to schedule pipeline jobs that allow you to automate rout
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 03/27/2023
 ms.topic: how-to
-ms.custom: ignite-2022
 ---
 
 # Schedule machine learning pipeline jobs
@@ -18,6 +17,9 @@ ms.custom: ignite-2022
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure and use the schedule UI to do the same. You can create a schedule based on elapsed time. Time-based schedules can be used to take care of routine tasks, such as retrain models or do batch predictions regularly to keep them up-to-date. After learning how to create schedules, you'll learn how to retrieve, update and deactivate them via CLI, SDK, and studio UI.
+
+> [!TIP]
+> If you need to schedule jobs using an external orchestrator, like Azure Data Factory or Microsoft Fabric, consider deploying your pipeline jobs under a Batch Endpoint. Learn more about [how to deploy jobs under a batch endpoint](how-to-use-batch-pipeline-from-job.md), and [how to consume batch endpoints from Microsoft Fabric](how-to-use-batch-fabric.md).
 
 ## Prerequisites
 
@@ -98,7 +100,7 @@ When you have a pipeline job with satisfying performance and outputs, you can se
       - **Time zone**: the time zone based on which to calculate the trigger time, by default is (UTC) Coordinated Universal Time.
       - **Recurrence** or **Cron expression**: select recurrence to specify the recurring pattern. Under **Recurrence**, you can specify the recurrence frequency as minutely, hourly, daily, weekly and monthly.
       - **Start**: specifies the date from when the schedule becomes active. By default it's the date you create this schedule.
-      - **End**: specifies the date after when the schedule becomes inactive. By default its NONE, which means the schedule will always be active until you manually disable it.
+      - **End**: specifies the date after when the schedule becomes inactive. By default it's NONE, which means the schedule will always be active until you manually disable it.
       - **Tags**: tags of the schedule.
 
     After you configure the basic settings, you can directly select **Review + Create**, and the schedule will automatically submit jobs according to the recurrence pattern you specified.
@@ -449,7 +451,7 @@ All the display name of jobs triggered by schedule will have the display name as
 
 You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to query the jobs triggered by a schedule name.
 
-:::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
+:::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="query_triggered_jobs":::  
 
 > [!NOTE]
 > For a simpler way to find all jobs triggered by a schedule, see the *Jobs history* on the *schedule detail page* using the studio UI.
@@ -489,6 +491,11 @@ Currently there are three action rules related to schedules and you can configur
 | Read   | Get and list schedules in Machine Learning workspace                        | Microsoft.MachineLearningServices/workspaces/schedules/read   |
 | Write  | Create, update, disable and enable schedules in Machine Learning workspace | Microsoft.MachineLearningServices/workspaces/schedules/write  |
 | Delete | Delete a schedule in Machine Learning workspace                            | Microsoft.MachineLearningServices/workspaces/schedules/delete |
+
+## Cost considerations
+
+- Schedules are billed based on the number of schedules, each schedule will create a logic apps host Azure Machine Learning subs on behalf (HOBO) of the user. 
+- The cost of logic apps will change back to the user's Azure subscription, and you can find costs of HOBO resources are billed using the same meter emitted by the original RP. They are shown under the host resource (the workspace).
 
 ## Frequently asked questions
 

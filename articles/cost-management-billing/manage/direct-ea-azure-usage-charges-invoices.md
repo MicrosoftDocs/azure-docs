@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2023
+ms.date: 06/24/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -13,13 +13,6 @@ ms.reviewer: sapnakeshari
 # View your usage summary details and download reports for EA enrollments
 
 This article explains how partner administrators of indirect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
-
-> [!NOTE]
-> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
->
-> As of February 20, 2023 indirect EA customers can't manage their billing account in the EA portal. Instead, they must use the Azure portal. 
-> 
-> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
@@ -32,6 +25,8 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 ## Review usage charges
 
 To view detailed usage for specific accounts, download the usage detail report. Usage files can be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
+
+Enterprise Administrators and partner administrators can view historical data usage for terminated enrollments just as they do for active ones using the following information.
 
 As an enterprise administrator:
 
@@ -167,6 +162,9 @@ Enterprise administrators and partner administrators use the Download Usage + Ch
 - **Price sheet** - The Price Sheet CSV file contains the applicable rate for each meter for the given Enrollment and Billing Period.
 - **Balance and Summary** - The Balance and Summary CSV file contains a monthly summary of information for balances, new purchases, Marketplace service charges, adjustments, and overage charges.
 
+>[!NOTE]
+> The download URI for all the CSV files is valid for one hour. Ensure that you download the file before it expires. Otherwise, you'll have to retry the download.
+
 1. Select the **Download** symbol next to the month's report.  
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-usage-charges-csv.png" alt-text="Screenshot showing the Download option." :::
 1. On the Download Usage + Charges page, select **Prepare document** for the report that you want to download.  
@@ -219,7 +217,7 @@ You can use the Download Advanced Report to get reports that cover specific date
 
 > [!NOTE]
 > - Inactive accounts for the selected time range aren't shown.
-> - You can redownload reports from the Report History since they were first created. For new reports, the selected time range must be within the last 90 days.
+> - The download start date must be within 90 days of the end date. You can’t select a range longer than 90 days.
 
 ### Download your Azure invoices (.pdf)
 
@@ -276,9 +274,8 @@ The EA admin receives an invoice notification email after the end of billing per
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 
 > [!NOTE]
->PO number update is only used for Overage/Marketplace invoices. To update a PO number for other invoices such as the invoice for a prepayment purchase, contact your Software Advisor (direct customer) or your partner (indirect customer). They in-turn, can contact the Regional Operation Center to update a PO number using the Call Logging tool at the Explore.ms site.
-
-Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
+>PO number update is only used for Overage/Marketplace invoices. To update a PO number for other invoices such as the invoice for a prepayment purchase, contact your Software Advisor (direct customer) or your partner (indirect customer). They in-turn, can contact the Regional Operation Center to update a PO number using the Cases & Support at the Volume Licensing Central portal.
+>Check out the [Manage purchase order number in the Azure portal](https://www.youtube.com/watch?v=26aanfQfjaY) video.
 >[!VIDEO https://www.youtube.com/embed/26aanfQfjaY]
 
 The EA admin can update the PO number for a billing account:

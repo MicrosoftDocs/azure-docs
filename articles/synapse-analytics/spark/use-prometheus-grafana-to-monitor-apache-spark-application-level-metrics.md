@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Monitor Apache Spark Applications metrics with Prometheus and Grafana
 description: Tutorial - Learn how to deploy the Apache Spark application metrics solution to an Azure Kubernetes Service (AKS) cluster and learn how to integrate the Grafana dashboards.
-services: synapse-analytics 
 author: juluczni
 ms.author: juluczni
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

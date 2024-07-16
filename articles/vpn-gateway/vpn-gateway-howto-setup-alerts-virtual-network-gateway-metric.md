@@ -4,7 +4,7 @@ description: Learn about alerts based on metrics for virtual network VPN gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 03/12/2024
 ms.author: cherylmc
 
 ---
@@ -21,6 +21,8 @@ For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-
 | **BGP Peer Status**                        | Count        | 5 minutes           | Average BGP connectivity status per peer and per instance.                              |
 | **BGP Routes Advertised**                  | Count        | 5 minutes           | Number of routes advertised per peer and per instance.                                  |
 | **BGP Routes Learned**                     | Count        | 5 minutes           | Number of routes learned per peer and per instance.                                     |
+| **Gateway Inbound Flows**                  | Count        | 5 minutes           | Number of distinct 5-tuple flows flowing into a VPN Gateway. Limit is 250k flows.       |
+| **Gateway Outbound Flows**                 | Count        | 5 minutes           | Number of distinct 5-tuple flows flowing out of a VPN Gateway. Limit is 250k flows.     |
 | **Gateway P2S Bandwidth**                  | Bytes/s      | 1 minute            | Average combined bandwidth utilization of all point-to-site connections on the gateway. |
 | **Gateway S2S Bandwidth**                  | Bytes/s      | 5 minutes           | Average combined bandwidth utilization of all site-to-site connections on the gateway.  |
 | **P2S Connection Count**                   | Count        | 1 minute            | Count of point-to-site connections on the gateway.                                      |
@@ -36,7 +38,7 @@ For steps, see [Tutorial: Create a metric alert for an Azure resource](../azure-
 | **Tunnel MMSA Count**                      | Count        | 5 minutes           | Number of main mode security associations present.                                      |
 | **Tunnel Peak PPS**                        | Count        | 5 minutes           | Max number of packets per second per tunnel.                                            |
 | **Tunnel QMSA Count**                      | Count        | 5 minutes           | Number of quick mode security associations present.                                     |
-| **Tunnel Total Flow Count**                | Count        | 5 minutes           | Number of distinct flows created per tunnel.                                            |
+| **Tunnel Total Flow Count**                | Count        | 5 minutes           | Number of distinct 3-tuple flows created per tunnel.                                    |
 | **User Vpn Route Count**                   | Count        | 5 minutes           | Number of user VPN routes configured on the VPN Gateway.                                |
 | **VNet Address Prefix Count**              | Count        | 5 minutes           | Number of VNet address prefixes that are used/advertised by the gateway.                |
 

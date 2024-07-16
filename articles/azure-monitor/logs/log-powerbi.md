@@ -4,8 +4,8 @@ description: Learn how to send results from a query in Log Analytics to Power BI
 ms.topic: how-to
 author: guywild
 ms.author: guywild
-ms.reviewer: roygal
-ms.date: 02/06/2023
+ms.reviewer: ilanawaitser
+ms.date: 05/26/2024
 
 ---
 # Integrate Log Analytics with Power BI
@@ -37,6 +37,9 @@ From the **Export** menu in Log Analytics, select one of the two options for cre
  
 - **Power BI (as an M query)**: This option exports the query (together with the connection string for the query) to a .txt file that you can use in Power BI Desktop. Use this option if you need to model or transform the data in ways that aren't available in the Power BI service. Otherwise, consider exporting the query as a new dataset.
 - **Power BI (new Dataset)**: This option creates a new dataset based on your query directly in the Power BI service. After the dataset has been created, you can create reports, use Analyze in Excel, share it with others, and use other Power BI features. For more information, see [Create a Power BI dataset directly from Log Analytics](/power-bi/connect-data/create-dataset-log-analytics).
+
+> [!NOTE]
+> The export operation is subject to the [Log Analytics Query API limits](../service-limits.md#la-query-api). If your query results exceed the maximum size of data returned by the Query API, the operation exports partial results.
 
 ## Collect data with Power BI dataflows
 

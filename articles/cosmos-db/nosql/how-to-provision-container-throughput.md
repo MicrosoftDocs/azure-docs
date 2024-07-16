@@ -1,6 +1,6 @@
 ---
 title: Provision container throughput in Azure Cosmos DB for NoSQL
-description: Learn how to provision throughput at the container level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell and various other SDKs. 
+description: Learn how to provision throughput at the container level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell and various other SDKs.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp, ignite-2022, devx-track-dotnet
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp, devx-track-dotnet
 ---
 
 # Provision standard (manual) throughput on an Azure Cosmos DB container - API for NoSQL

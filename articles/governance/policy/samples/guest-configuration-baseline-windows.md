@@ -2,6 +2,8 @@
 title: Reference - Azure Policy guest configuration baseline for Windows
 description: Details of the Windows baseline on Azure implemented through Azure Policy guest configuration.
 ms.date: 02/14/2023
+author: michaeltlombardi
+ms.author: mlombardi
 ms.topic: reference
 ms.custom: generated
 ---
@@ -16,6 +18,10 @@ implementations:
   Security Center
 
 For more information, see [Azure Automanage machine configuration](../../machine-configuration/overview.md).
+
+ >[!IMPORTANT]
+  > Azure Policy guest configuration only applies to Windows Server SKU and Azure Stack SKU. It does not apply to end user compute like Windows 10 and Windows 11 SKUs.
+
 
 ## Account Policies-Password Policy
 

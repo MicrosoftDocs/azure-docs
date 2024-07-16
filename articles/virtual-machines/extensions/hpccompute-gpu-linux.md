@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Linux VMs 
+title: NVIDIA GPU Driver Extension - Azure Linux VMs
 description: Microsoft Azure extension for installing NVIDIA GPU drivers on N-series compute VMs running Linux.
 services: virtual-machines
 manager: gwallace
@@ -8,13 +8,15 @@ ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: devx-track-linux
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 07/28/2023
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 # NVIDIA GPU Driver Extension for Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This extension installs NVIDIA GPU drivers on Linux N-series virtual machines (VMs). Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers by using this extension, you're accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/). During the installation process, the VM might reboot to complete the driver setup.
 
@@ -37,13 +39,12 @@ This extension supports the following OS distros, depending on driver support fo
 |---|---|
 | Linux: Ubuntu | 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.9 |
-| Linux: CentOS | 7 |
 
 > [!NOTE]
 > The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.
 
-> [!IMPORTANT] 
-> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version. 
+> [!IMPORTANT]
+> This document references a release version of Linux that is nearing or at, End of Life (EOL). Please consider updating to a more current version.
 
 ### Internet connectivity
 
@@ -117,7 +118,7 @@ You can deploy Azure NVIDIA VM extensions in the Azure portal.
 1. Select **Review + create**, and select **Create**. Wait a few minutes for the driver to deploy.
 
     :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting the Review + create button.":::
-  
+
 1. Verify that the extension was added to the list of installed extensions.
 
     :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
@@ -175,7 +176,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.6 
+  --version 1.6
 ```
 
 The following example also adds two optional custom settings as an example for nondefault driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the `--settings` are optional and default. Updating the kernel might increase the extension installation times. Also, choosing a specific (older) CUDA toolkit version might not always be compatible with newer kernels.

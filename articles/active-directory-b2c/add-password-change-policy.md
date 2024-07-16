@@ -2,18 +2,21 @@
 title: Set up password change by using custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to set up a custom policy so users can change their password in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
-ms.custom: build-2023
+
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to set up a password change flow using custom policies, so that users can change their passwords without email verification, improving the user experience and security.
+
 ---
 
 # Set up password change by using custom policies in Azure Active Directory B2C

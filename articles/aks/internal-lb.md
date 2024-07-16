@@ -66,7 +66,7 @@ You can create and use an internal load balancer to restrict access to your appl
 
 ## Specify an IP address
 
-When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
+When you specify an IP address for the load balancer, the specified IP address must reside in the same virtual network as the AKS cluster, but it can't already be assigned to another resource in the virtual network. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster. Using an IP address that's already assigned to another resource in the same virtual network can cause issues with the load balancer.
 
 You can use the [`az network vnet subnet list`][az-network-vnet-subnet-list] Azure CLI command or the [`Get-AzVirtualNetworkSubnetConfig`][get-azvirtualnetworksubnetconfig] PowerShell cmdlet to get the subnets in your virtual network.
 
@@ -255,7 +255,15 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> You may need to assign a minimum of *Microsoft.Network/virtualNetworks/subnets/read* and *Microsoft.Network/virtualNetworks/subnets/join/action* permission to AKS MSI on the Azure Virtual Network resources. You can view the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [`az role assignment create`][az-role-assignment-create] command.
+>
+> The cluster identity used by the AKS cluster must at least have the [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the virtual network resource. You can view the cluster identity using the [`az aks show`][az-aks-show] command, such as `az aks show --resource-group <resource-group-name> --name <cluster-name> --query "identity"`. You can assign the Network Contributor role using the [`az role assignment create`][az-role-assignment-create] command, such as `az role assignment create --assignee <identity-resource-id> --scope <virtual-network-resource-id> --role "Network Contributor"`.
+>
+> If you want to define a [custom role](../role-based-access-control/custom-roles-cli.md) instead, you need the following permissions:
+>
+> * `Microsoft.Network/virtualNetworks/subnets/join/action`
+> * `Microsoft.Network/virtualNetworks/subnets/read`
+>
+> For more information, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 ### Specify a different subnet
 
@@ -309,3 +317,4 @@ To learn more about Kubernetes services, see the [Kubernetes services documentat
 [get-azvirtualnetworksubnetconfig]: /powershell/module/az.network/get-azvirtualnetworksubnetconfig
 [az-network-private-link-service-list]: /cli/azure/network/private-link-service#az_network_private_link_service_list
 [az-network-private-endpoint-create]: /cli/azure/network/private-endpoint#az_network_private_endpoint_create
+

@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance Node.js | Microsoft Docs
 description: Application performance monitoring for Azure app services using Node.js. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 12/15/2023
 ms.devlang: javascript
 ms.custom: "devx-track-js"
 ms.reviewer: abinetabate
@@ -46,6 +46,21 @@ The integration is in public preview. The integration adds Node.js SDK, which is
 
     :::image type="content"source="./media/azure-web-apps-nodejs/app-service-node.png" alt-text="Screenshot of instrument your application."::: 
 
+## Configuration
+
+The Node.js agent can be configured using JSON. Set the `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT` environment variable to the JSON string or set the `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable to the file path containing the JSON.
+
+```json
+"samplingPercentage": 80,
+"enableAutoCollectExternalLoggers": true,
+"enableAutoCollectExceptions": true,
+"enableAutoCollectHeartbeat": true,
+"enableSendLiveMetrics": true,
+...
+    
+```
+
+The full [set of configurations](https://github.com/microsoft/ApplicationInsights-node.js#configuration) is available, you just need to use a valid json file.
 
 ## Enable client-side monitoring
 
@@ -67,7 +82,7 @@ In order to enable telemetry collection with Application Insights, only the foll
 > [!NOTE]
 > Profiler and snapshot debugger are not available for Node.js applications
 
-[!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
+[!INCLUDE [azure-web-apps-arm-automation](../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
 ## Troubleshooting
 
@@ -140,9 +155,9 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 ---
 
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+[!INCLUDE [azure-web-apps-troubleshoot](../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

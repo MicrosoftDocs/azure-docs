@@ -2,17 +2,15 @@
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK.
-services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/26/2023
-keywords:
+ms.date: 11/15/2023
 ---
 
-[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)
+[Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI/) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/tests/Samples)| [Retrieval Augmented Generation (RAG) enterprise chat template](/dotnet/ai/get-started-app-chat-template) |
 
 ## Prerequisites
 
@@ -50,29 +48,24 @@ using Azure.AI.OpenAI;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    Messages =
-    {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
-Response<ChatCompletions> response = client.GetChatCompletions(
-    deploymentOrModelName: "gpt-35-turbo", 
-    chatCompletionsOptions);
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
 
-Console.WriteLine(response.Value.Choices[0].Message.Content);
-
-Console.WriteLine();
+Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
 ```
 
 > [!IMPORTANT]
@@ -85,7 +78,7 @@ dotnet run program.cs
 ## Output
 
 ```output
-Yes, many of the Azure AI services support customer managed keys. Some examples include Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
+Assistant : Yes, many other Azure AI services also support customer managed keys, including Azure Cognitive Services, Azure Machine Learning, and Azure Databricks. By using customer managed keys, you can retain complete control over your encryption keys and provide an additional layer of security for your AI assets.
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.
@@ -95,37 +88,38 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
+using OpenAI.Chat;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
+
+var chatUpdates = chatClient.CompleteChatStreamingAsync(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
+
+await foreach(var chatUpdate in chatUpdates)
 {
-    Messages =
+    if (chatUpdate.Role.HasValue)
     {
-        new ChatMessage(ChatRole.System, "You are a helpful assistant."),
-        new ChatMessage(ChatRole.User, "Does Azure OpenAI support customer managed keys?"),
-        new ChatMessage(ChatRole.Assistant, "Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatMessage(ChatRole.User, "Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
-
-Response<StreamingChatCompletions> response = await client.GetChatCompletionsStreamingAsync(
-    deploymentOrModelName: "gpt-35-turbo",
-    chatCompletionsOptions);
-using StreamingChatCompletions streamingChatCompletions = response.Value;
-
-await foreach (StreamingChatChoice choice in streamingChatCompletions.GetChoicesStreaming())
-{
-    await foreach (ChatMessage message in choice.GetMessageStreaming())
-    {
-        Console.Write(message.Content);
+        Console.Write($"{chatUpdate.Role} : ");
     }
-    Console.WriteLine();
+    
+    foreach(var contentPart in chatUpdate.ContentUpdate)
+    {
+        Console.Write(contentPart.Text);
+    }
 }
 ```
 

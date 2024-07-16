@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Deploy an Angular app on Azure Static Web Apps'
+title: 'Deploy an Angular app on Azure Static Web Apps'
 description: Learn to deploy an Angular app in the Azure portal with Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
 
-# Tutorial:  Deploy an Angular app on Azure Static Web Apps
+# Deploy an Angular app on Azure Static Web Apps
 
 In this article, you learn to deploy an Angular application to Azure Static Web Apps using the Azure portal.
 
@@ -107,4 +107,4 @@ Select **Go to resource**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Add an API to your application](./add-api.md?tabs=angular)

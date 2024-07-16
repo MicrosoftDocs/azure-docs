@@ -24,6 +24,13 @@ When loading a model (for example, via a Unity sample) fails although the blob c
 Sometimes during [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) the Remote Rendering account isn't listed. To fix this issue, go to the ARR account in the Azure portal and select **Identity** under the **Settings** group on the left. Make sure **Status** is set to **On**.
 ![Unity frame debugger](./media/troubleshoot-portal-identity.png)
 
+## Cannot load model through a SAS token
+
+If the client application fails to load a model from storage through a valid SAS-token, it might be caused by the [public network access level](../../storage/common/storage-network-security.md#change-the-default-network-access-rule) configured on the blob storage. Loading an ARR model from SAS token only works if it has been configured with the "Enabled from all networks" option:
+![Screenshot of Azure portal settings for public network access level on blob storage.](./media/portal-blob-access-restrictions.png)
+
+If limiting to private endpoints is a requirement, the [storage account must be linked](../how-tos/create-an-account.md#link-storage-accounts) and the model must be loaded through the non-SAS code path as [described here](../tutorials/unity/security/security.md#securing-your-content-in-azure-blob-storage).
+
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 
 Check that your GPU supports hardware video decoding. See [Development PC](../overview/system-requirements.md#development-pc).
@@ -221,7 +228,7 @@ Inside the C++ NuGet package, there's file `microsoft.azure.remoterendering.Cpp.
 
 ## Unstable Holograms
 
-In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
+In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection (LSR)*. Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
 
 Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ServiceStatistics.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ServiceStatistics.VideoFramesReused` is frequently larger than zero, it indicates a network problem.
 
@@ -305,7 +312,8 @@ The Conversion service downloads all files specified under the `blobPrefix`, not
       "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
       "blobPrefix": "models/Assets",
       "relativeInputAssetPath": "myAsset.fbx"
-    ...
+      ...
+    }
   }
 }
 ```

@@ -83,34 +83,6 @@ This article provides the properties and schema for Azure Data Manager for Agric
 
 ## Example events
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
-
-```JSON
-[
-  {
-      "data": {
-        "actionType": "Deleted",
-        "modifiedDateTime": "2022-10-17T18:43:37Z",
-        "eTag": "f700fdd7-0000-0700-0000-634da2550000",
-        "properties": {
-        "key1": "value1",
-        "key2": 123.45
-        },
-        "id": "<YOUR-PARTY-ID>",
-        "createdDateTime": "2022-10-17T18:43:30Z"
-      },
-      "id": "23fad010-ec87-40d9-881b-1f2d3ba9600b",
-      "topic": "/subscriptions/{SUBSCRIPTION-ID}/resourceGroups/{RESOURCE-GROUP-NAME}/providers/Microsoft.AgFoodPlatform/farmBeats/{YOUR-RESOURCE-NAME}",
-      "subject": "/parties/<YOUR-PARTY-ID>",
-      "eventType": "Microsoft.AgFoodPlatform.PartyChanged",
-      "dataVersion": "1.0",
-      "metadataVersion": "1",
-      "eventTime": "2022-10-17T18:43:37.3306735Z"
-    }
-]
-```
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -140,9 +112,54 @@ The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
 ]
 ```
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+The following example show schema for **Microsoft.AgFoodPlatform.PartyChanged**:
+
+```JSON
+[
+  {
+      "data": {
+        "actionType": "Deleted",
+        "modifiedDateTime": "2022-10-17T18:43:37Z",
+        "eTag": "f700fdd7-0000-0700-0000-634da2550000",
+        "properties": {
+        "key1": "value1",
+        "key2": 123.45
+        },
+        "id": "<YOUR-PARTY-ID>",
+        "createdDateTime": "2022-10-17T18:43:30Z"
+      },
+      "id": "23fad010-ec87-40d9-881b-1f2d3ba9600b",
+      "topic": "/subscriptions/{SUBSCRIPTION-ID}/resourceGroups/{RESOURCE-GROUP-NAME}/providers/Microsoft.AgFoodPlatform/farmBeats/{YOUR-RESOURCE-NAME}",
+      "subject": "/parties/<YOUR-PARTY-ID>",
+      "eventType": "Microsoft.AgFoodPlatform.PartyChanged",
+      "dataVersion": "1.0",
+      "metadataVersion": "1",
+      "eventTime": "2022-10-17T18:43:37.3306735Z"
+    }
+]
+```
+
 ---
 
 ## Event properties
+
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+An event has the following top-level data:
+
+| Property | Type | Description |
+|:-----:|:----:|:----:|
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | App Configuration event data. |
+| `specversion` | string | CloudEvents schema specification version. |
+
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -158,20 +175,6 @@ An event has the following top-level data:
 | `data` | object | App Configuration event data. |
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
-
-# [Cloud event schema](#tab/cloud-event-schema)
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-|:-----:|:----:|:----:|
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | App Configuration event data. |
-| `specversion` | string | CloudEvents schema specification version. |
 
 ---
 

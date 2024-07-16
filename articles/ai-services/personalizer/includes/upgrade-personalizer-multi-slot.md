@@ -1,10 +1,10 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 03/23/2021
+ms.date: 01/19/2024
 ---
 ### Upgrade Personalizer instance to Multi-Slot
 

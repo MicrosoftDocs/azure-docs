@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: rosouz
-ms.custom: synapse-cosmos-db, ignite-2022
+ms.custom: synapse-cosmos-db
 ---
 
 # Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link 

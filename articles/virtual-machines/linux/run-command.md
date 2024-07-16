@@ -5,11 +5,11 @@ services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: nikhilpatel909
-ms.author: erd
+ms.author: jushiman
 ms.date: 06/01/2023
-ms.topic: how-to  
-ms.reviewer: erd
-ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.reviewer: jushiman
+ms.custom: devx-track-azurecli, linux-related-content
 ms.devlang: azurecli
 ---
 # Run scripts in your Linux VM by using action Run Commands
@@ -30,7 +30,6 @@ This capability is useful in all scenarios where you want to run a script within
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
 | Alma Linux |	9.x+ |	9.x+ |
-| CentOS |	7.x+,  8.x+ |	7.x+ |
 | Debian |	10+ |	11.x+ |
 | Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
 | Azure Linux | 2.x | 2.x |

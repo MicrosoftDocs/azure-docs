@@ -3,12 +3,10 @@ title: Azure Key Vault security overview
 description: An overview of security features and best practices for Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 09/25/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -33,15 +31,10 @@ Azure Private Link Service enables you to access Azure Key Vault and Azure hoste
 ## TLS and HTTPS
 
 - The Key Vault front end (data plane) is a multi-tenant server. This means that key vaults from different customers can share the same public IP address. In order to achieve isolation, each HTTP request is authenticated and authorized independently of other requests.
-- You may identify older versions of TLS to report vulnerabilities but because the public IP address is shared, it is not possible for key vault service team to disable old versions of TLS for individual key vaults at transport level.
-- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Applications that are communicating with or authenticating against Microsoft Entra ID might not work as expected if they are NOT able to use TLS 1.2 to communicate.
-- Despite known vulnerabilities in TLS protocol, there is no known attack that would allow a malicious agent to extract any information from your key vault when the attacker initiates a connection with a TLS version that has vulnerabilities. The attacker would still need to authenticate and authorize itself, and as long as legitimate clients always connect with TLS 1.2 version, there is no way that credentials could have been leaked from vulnerabilities at old TLS versions.
+- The HTTPS protocol allows the client to participate in TLS negotiation. **Clients can enforce the version of TLS**, and whenever a client does so, the entire connection will use the corresponding level protection. Key Vault supports TLS 1.2 and 1.3 protocol versions. 
 
 > [!NOTE]
-> For Azure Key Vault, ensure that the application accessing the Keyvault service should be running on a platform that supports TLS 1.2. If the application is dependent on .NET Framework, it should be updated as well. You can also make the registry changes mentioned in [this article](/troubleshoot/azure/active-directory/enable-support-tls-environment) to explicitly enable the use of TLS 1.2 at OS level and for .NET Framework. To meet with compliance obligations and to improve security posture, Key Vault connections via TLS 1.0 & 1.1 are considered a security risk, and any connections using old TLS protocols will be disallowed starting June 2023. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
-
-> [!WARNING]
-> TLS 1.0 and 1.1 is deprecated by Microsoft Entra ID and tokens to access key vault may not longer be issued for users or services requesting them with deprecated protocols. This may lead to loss of access to Key vaults. More information on Microsoft Entra TLS support can be found in [Microsoft Entra TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made)
+> You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
 
 ## Key Vault authentication options
 
@@ -112,7 +105,7 @@ When you create a key vault in a resource group, you manage access by using Micr
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
-> When using the Access Policy permission model, if a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults with the Access Policy permission model to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates. It is recommended to use the new **Role Based Access Control (RBAC) permission model** to avoid this issue. With the RBAC permission model, permission management is limited to 'Owner' and 'User Access Administrator' roles, which allows separation of duties between roles for security operations and general administrative operations.
+> When using the Access Policy permission model, if a user has `Contributor`, `Key Vault Contributor` or other role with `Microsoft.KeyVault/vaults/write` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults with the Access Policy permission model to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates. It is recommended to use the new **Role Based Access Control (RBAC) permission model** to avoid this issue. With the RBAC permission model, permission management is limited to 'Owner' and 'User Access Administrator' roles, which allows separation of duties between roles for security operations and general administrative operations.
 
 ### Controlling access to Key Vault data
 

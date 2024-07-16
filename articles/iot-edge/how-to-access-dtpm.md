@@ -1,18 +1,18 @@
 ---
-title: dTPM access for Azure IoT Edge for Linux on Windows | Microsoft Docs
+title: dTPM access for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure access the dTPM on your  Azure IoT Edge for Linux on Windows virtual machine.
-author: fcabrera
-manager: patricka
+author: PatAltimore
 ms.author: patricka
-ms.date: 8/1/2022
+ms.date: 05/29/2024
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # dTPM access for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 A Trusted platform module (TPM) chip is a secure crypto-processor that is designed to carry out cryptographic operations. This technology is designed to provide hardware-based, security-related functions. The Azure IoT Edge for Linux on Windows (EFLOW) virtual machine doesn't have a virtual TPMs attached to the VM. However, the user can enable or disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. The TPM passthrough feature enables two main scenarios:
 
@@ -26,7 +26,7 @@ This article describes how to develop a sample code in C# to read cryptographic 
 
 ## Prerequisites
 
-- A Windows host OS with a TPM or vTPM (ig using Windows host OS virtual machine).
+- A Windows host OS with a TPM or vTPM (if using Windows host OS virtual machine).
 - EFLOW virtual machine with TPM passthrough enabled. Using an elevated PowerShell session, use `Set-EflowVmFeature -feature "DpsTpm" -enable` to enable TPM passthrough. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 - Ensure that the NV index (default index=3001) is initialized with 8 bytes of data. The default AuthValue used by the sample is {1,2,3,4,5,6,7,8} which corresponds to the NV (Windows) Sample in the TSS.MSR libraries when writing to the TPM. All index initialization must take place on the Windows Host before reading from the EFLOW VM. For more information about TPM samples, see [TSS.MSR](https://github.com/microsoft/TSS.MSR).
 
@@ -86,14 +86,14 @@ Once the executable file and dependency files are created, you need to copy the 
     cd "C:\Users\User"
     ```
 
-1. Create a *tar* file with all the files created in previous steps. For more information about PowerShell *tar* support, see [Tar and Curl Come to Windows](/virtualization/community/team-blog/2017/20171219-tar-and-curl-come-to-windows).
-    For example, if you have all your files under the folder _TPM_, you can use the following command to create the _TPM.tar_ file.
+1. Create a *tar* file with all the files created in previous steps.
+    For example, if you have all your files under the folder *TPM*, you can use the following command to create the *TPM.tar* file.
     ```powershell
      tar -cvzf TPM.tar ".\TPM"
     ```
 
 1. Once the *TPM.tar* file is created successfully, use the `Copy-EflowVmFile` cmdlet to copy the *tar* file created to the EFLOW VM.
-    For example, if you have the _tar_ file name _TPM.tar_ in the directory `C:\Users\User`. you can use the following command to copy to the EFLOW VM.
+    For example, if you have the *tar* file name *TPM.tar* in the directory `C:\Users\User`. you can use the following command to copy to the EFLOW VM.
     ```powershell
     Copy-EflowVmFile -fromFile "C:\Users\User\TPM.tar" -toFile "/home/iotedge-user/" -pushFile
     ```
@@ -105,7 +105,7 @@ Once the executable file and dependency files are created, you need to copy the 
 
 1. Change directory to the folder where you copied the *tar* file and check the file is available. If you used the example above, when connected to the EFLOW VM, you'll already be at the *iotedge-user* root folder. Run the `ls` command to list the files and folders.
 
-1. Run the following command to extract all the content from the _tar_ file.
+1. Run the following command to extract all the content from the *tar* file.
     ```bash
     tar -xvzf TPM.tar
     ```

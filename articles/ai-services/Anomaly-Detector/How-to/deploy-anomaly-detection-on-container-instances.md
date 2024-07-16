@@ -2,13 +2,13 @@
 title: Run Anomaly Detector Container in Azure Container Instances
 titleSuffix: Azure AI services
 description: Deploy the Anomaly Detector container to an Azure Container Instance, and test it in a web browser.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/01/2020
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 
@@ -24,7 +24,7 @@ Learn how to deploy the Azure AI services [Anomaly Detector](../anomaly-detector
 
 [!INCLUDE [Create an Anomaly Detector container on Azure Container Instances](../../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
-[!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [API documentation](../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Next steps
 

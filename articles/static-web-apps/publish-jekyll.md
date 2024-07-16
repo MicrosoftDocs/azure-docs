@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Publish a Jekyll site to Azure Static Web Apps"
+title: "Deploy a Jekyll site to Azure Static Web Apps"
 description: Learn how to deploy a Jekyll application to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/11/2021
 ms.author: cshoe
 ---
 
-# Tutorial: Publish a Jekyll site to Azure Static Web Apps
+# Deploy a Jekyll site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Jekyll](https://jekyllrb.com/) web application to [Azure Static Web Apps](overview.md).
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > - Setup an Azure Static Web Apps resource
 > - Deploy the Jekyll app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

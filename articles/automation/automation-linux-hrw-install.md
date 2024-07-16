@@ -3,12 +3,15 @@ title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.custom: devx-track-linux
-ms.date: 09/17/2023
-ms.topic: conceptual 
+ms.custom: linux-related-content
+ms.date: 06/29/2024
+ms.topic: conceptual
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!IMPORTANT]
 >  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
@@ -41,22 +44,26 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 isn't supported for any operating system.
 
 * Amazon Linux 2012.09 to 2015.09
-* CentOS Linux 5, 6, 7, and 8
 * Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14) 
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
 * Ubuntu
 
    **Linux OS** | **Name** |
   ---|--- |
-  20.04 LTS | Focal Fossa 
-  18.04 LTS | Bionic Beaver 
-  16.04 LTS | Xenial Xerus   
-  14.04 LTS | Trusty Tahr  
+  20.04 LTS | Focal Fossa
+  18.04 LTS | Bionic Beaver
+  16.04 LTS | Xenial Xerus
+  14.04 LTS | Trusty Tahr
+
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
+
+
 
 ### Minimum requirements
 
@@ -97,7 +104,7 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8, and CentOS 8|
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8|
 |Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
 |PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
@@ -221,15 +228,13 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-Run the following commands as root on the agent-based Linux Hybrid Worker:
+1. Run the following commands as root on the agent-based Linux Hybrid Worker:
 
-1. ```bash
-      sudo bash
+   ```bash
+   sudo bash
+   rm -r /home/nxautomation
    ```
 
-1. ```bash
-      rm -r /home/nxautomation
-   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
@@ -237,7 +242,7 @@ Run the following commands as root on the agent-based Linux Hybrid Worker:
 
 
    > [!NOTE]
-   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. 
+   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
    > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
    > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
@@ -265,7 +270,7 @@ To check the version of agent-based Linux Hybrid Runbook Worker, go to the follo
 ```bash
    sudo cat /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION
 ```
-The file *VERSION* has the version number of Hybrid Runbook Worker. 
+The file *VERSION* has the version number of Hybrid Runbook Worker.
 
 ## Next steps
 

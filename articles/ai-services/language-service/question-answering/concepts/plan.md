@@ -1,41 +1,41 @@
 ---
-title: Plan your app - question answering
-description: Learn how to plan your question answering app. Understand how question answering works and interacts with other Azure services and some project concepts.
+title: Plan your app - custom question answering
+description: Learn how to plan your custom question answering app. Understand how custom question answering works and interacts with other Azure services and some project concepts.
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ---
 
-# Plan your question answering app
+# Plan your custom question answering app
 
-To plan your question answering app, you need to understand how question answering works and interacts with other Azure services. You should also have a solid grasp of project concepts.
+To plan your custom question answering app, you need to understand how custom question answering works and interacts with other Azure services. You should also have a solid grasp of project concepts.
 
 ## Azure resources
 
-Each [Azure resource](azure-resources.md#resource-purposes) created with question answering has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
+Each [Azure resource](azure-resources.md#resource-purposes) created with custom question answering has a specific purpose. Each resource has its own purpose, limits, and [pricing tier](azure-resources.md#pricing-tier-considerations). It's important to understand the function of these resources so that you can use that knowledge into your planning process.
 
 | Resource | Purpose |
 |--|--|
 | [Language resource](azure-resources.md) resource | Authoring, query prediction endpoint and telemetry|
-| [Cognitive Search](azure-resources.md#azure-cognitive-search-resource) resource | Data storage and search |
+| [Azure AI Search](azure-resources.md#azure-ai-search-resource) resource | Data storage and search |
 
 ### Resource planning
 
-Question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+Custom question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure AI Search.
 
 ### Language resource
 
-A single language resource with the custom question answering feature enabled can host more than one project. The number of projects is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to projects](azure-resources.md#index-usage).
+A single language resource with the custom question answering feature enabled can host more than one project. The number of projects is determined by the Azure AI Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to projects](azure-resources.md#index-usage).
 
 ### Project size and throughput
 
 When you build a real app, plan sufficient resources for the size of your project and for your expected query prediction requests.
 
 A project size is controlled by the:
-* [Cognitive Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
-* [Question answering limits](./limits.md)
+* [Azure AI Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
+* [Custom question answering limits](./limits.md)
 
 The project query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.
 
@@ -57,7 +57,7 @@ You can now have projects in different languages within the same language resour
 
 ### Ingest data sources
 
-Question answering also supports unstructured content. You can upload a file that has unstructured content.
+Custom question answering also supports unstructured content. You can upload a file that has unstructured content.
 
 Currently we do not support URLs for unstructured content.
 
@@ -87,7 +87,7 @@ project authoring supports several role-based access permissions you apply in th
 
 ## Integration with client applications
 
-Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific project with an SDK or REST-based request to your question answering web app endpoint.
+Integration with client applications is accomplished by sending a query to the prediction runtime endpoint. A query is sent to your specific project with an SDK or REST-based request to your custom question answering web app endpoint.
 
 To authenticate a client request correctly, the client application must send the correct credentials and project ID. If you're using an Azure AI Bot Service, configure these settings as part of the bot configuration in the Azure portal.
 
@@ -99,7 +99,7 @@ Does your client application support conversation flow, either by providing alte
 
 ### Active learning from a client application
 
-Question answering uses _active learning_ to improve your project by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../tutorials/active-learning.md). Through conversational prompts, the client application can determine that the project returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the project to improve the prediction quality.
+Custom question answering uses _active learning_ to improve your project by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../tutorials/active-learning.md). Through conversational prompts, the client application can determine that the project returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the project to improve the prediction quality.
 
 ### Providing a default answer
 
@@ -109,7 +109,7 @@ This default answer is different from the Azure bot default answer. You configur
 
 ## Prediction
 
-The prediction is the response from your project, and it includes more information than just the answer. To get a query prediction response, use the question answering API.
+The prediction is the response from your project, and it includes more information than just the answer. To get a query prediction response, use the custom question answering API.
 
 ### Prediction score fluctuations
 
@@ -122,7 +122,7 @@ A score can change based on several factors:
 
 ### Analytics with Azure Monitor
 
-In question answering, telemetry is offered through the [Azure Monitor service](../../../../azure-monitor/index.yml). Use our [top queries](../how-to/analytics.md) to understand your metrics.
+In custom question answering, telemetry is offered through the [Azure Monitor service](../../../../azure-monitor/index.yml). Use our [top queries](../how-to/analytics.md) to understand your metrics.
 
 ## Development lifecycle
 
@@ -141,7 +141,7 @@ Each pair can contain:
 
 Developing a project to insert into a DevOps pipeline requires that the project is isolated during batch testing.
 
-A project shares the Cognitive Search index with all other projects on the language resource. While the project is isolated by partition, sharing the index can cause a difference in the score when compared to the published project.
+A project shares the Azure AI Search index with all other projects on the language resource. While the project is isolated by partition, sharing the index can cause a difference in the score when compared to the published project.
 
 To have the _same score_ on the `test` and `production` projects, isolate a language resource to a single project. In this architecture, the resource only needs to live as long as the isolated batch test.
 

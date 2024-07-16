@@ -18,10 +18,9 @@ ms.custom: devx-track-azurepowershell
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
 - [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-- [Microsoft Azure operated by 21Vianet](http://www.windowsazure.cn/)
 - [Azure German Cloud](../../germany/germany-welcome.md)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Using an independent cloud
 
@@ -44,7 +43,7 @@ Get-AzEnvironment
 Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.
 
 ```powershell
-Connect-AzAccount –Environment AzureUSGovernment
+Connect-AzAccount -Environment AzureUSGovernment
 ```
 
 To access the China Cloud, use the environment **AzureChinaCloud**. To access the German Cloud, use **AzureGermanCloud**.

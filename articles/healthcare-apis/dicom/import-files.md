@@ -28,9 +28,13 @@ Before you perform a bulk import, you need to enable a system-assigned managed i
 
 1. In the Azure portal, go to the DICOM instance and then select **Identity** from the left pane.
 
-1. On the **Identity** page, select the **System assigned** tab, and then set the **Status** field to **On**. Select **Save**.
+2. On the **Identity** page, select the **System assigned** tab.
+   
+3. In the **Status** field, select **On**. 
 
-   :::image type="content" source="media/system-assigned-managed-identity.png" alt-text="Screenshot that shows the system-assigned managed identity toggle on the Identity page." lightbox="media/system-assigned-managed-identity.png":::
+4. Choose **Save**.
+
+:::image type="content" source="media/configure-customer-managed-keys/system-assigned-managed-identity.png" alt-text="Screenshot showing the system assigned managed identity toggle on the Identity page." lightbox="media/configure-customer-managed-keys/system-assigned-managed-identity.png":::
 
 ## Enable bulk import
 
@@ -80,7 +84,7 @@ DICOM images are added to the DICOM service by copying them into the `import-con
 
 #### Grant write access to the import container
 
-The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+The user or account that adds DICOM images to the import container needs write access to the container by using the `Data Owner` role. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 #### Upload DICOM images to the import container
 

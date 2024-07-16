@@ -11,7 +11,9 @@ ms.date: 10/12/2022
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-This article is an introduction to developing Azure Functions by using C# in .NET class libraries.
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+This article is an introduction to developing Azure Functions by using C# in .NET class libraries. These class libraries are used to run _in-process with the Functions runtime_. Your .NET functions can alternatively run _isolated from the Functions _runtime_, which offers several advantages. To learn more, see [the isolated worker model](dotnet-isolated-process-guide.md). For a comprehensive comparison between these two models, see [Differences between the in-process model and the isolated worker model](dotnet-isolated-in-process-differences.md).
 
 >[!IMPORTANT]
 >This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated worker process model is the only way to run non-LTS versions of .NET and .NET Framework apps in current versions of the Functions runtime. To learn more, see [.NET isolated worker process functions](dotnet-isolated-process-guide.md). 
@@ -26,6 +28,64 @@ As a C# developer, you may also be interested in one of the following articles:
 Azure Functions supports C# and C# script programming languages. If you're looking for guidance on [using C# in the Azure portal](functions-create-function-app-portal.md), see [C# script (.csx) developer reference](functions-reference-csharp.md).
 
 [!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
+
+### Updating to target .NET 8
+
+> [!NOTE]
+> Targeting .NET 8 with the in-process model is not yet enabled for Linux or for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
+
+Apps using the in-process model can target .NET 8 by following the steps outlined in this section. However, if you choose to exercise this option, you should still begin planning your [migration to the isolated worker model](./migrate-dotnet-to-isolated-model.md) in advance of [support ending for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model).
+
+Many apps can change the configuration of the function app in Azure without updates to code or redeployment. To run .NET 8 with the in-process model, three configurations are required:
+
+- The [application setting](./functions-how-to-use-azure-function-app-settings.md) `FUNCTIONS_WORKER_RUNTIME` must be set with the value "dotnet".
+- The application setting `FUNCTIONS_EXTENSION_VERSION` must be set with the value "~4".
+- The application setting `FUNCTIONS_INPROC_NET8_ENABLED` must be set with the value "1".
+- You must [update the stack configuration](./update-language-versions.md#update-the-stack-configuration) to reference .NET 8.
+
+Support for .NET 8 still uses version 4.x of the Functions runtime, and no change to the configured runtime version is required.
+
+To update your local project, first make sure you are using the latest versions of local tools. Then ensure that the project references [version 4.4.0 or later of Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.4.0). You can then change your `TargetFramework` to "net8.0". You must also update `local.settings.json` to include both `FUNCTIONS_WORKER_RUNTIME` set to "dotnet" and `FUNCTIONS_INPROC_NET8_ENABLED` set to "1".
+
+The following is an example of a minimal `project` file with these changes:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AzureFunctionsVersion>V4</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+The following is an example of a minimal `local.settings.json` file with these changes:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+        "FUNCTIONS_INPROC_NET8_ENABLED": "1",
+        "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+    }
+}
+```
+
+If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions), ensure it targets version 1.5.3 or later. Due to a behavior change in .NET 8, apps with older versions of the package will throw an ambiguous constructor exception.
+
+You might need to make other changes to your app based on the version support of its other dependencies.
 
 ## Functions class library project
 
@@ -163,11 +223,11 @@ The following example shows the relevant parts of the `.csproj` files that have 
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net6.0</TargetFramework>
+  <TargetFramework>net8.0</TargetFramework>
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
 </ItemGroup>
 ```
 
@@ -210,7 +270,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net6.0</TargetFramework>
+  <TargetFramework>net8.0</TargetFramework>
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   <PublishReadyToRun>true</PublishReadyToRun>
   <RuntimeIdentifier>win-x86</RuntimeIdentifier>
@@ -612,8 +672,7 @@ Define an imperative binding as follows:
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
-with blob path that's defined at run time, then writes a string to the blob.
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md) with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
 public static class IBinderExample

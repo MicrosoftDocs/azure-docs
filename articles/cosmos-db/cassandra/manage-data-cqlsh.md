@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: quickstart
 ms.date: 01/24/2022
-ms.custom: template-quickstart, ignite-2022
+ms.custom: template-quickstart
 ---
 
 

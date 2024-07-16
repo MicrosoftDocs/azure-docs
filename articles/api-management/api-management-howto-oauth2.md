@@ -3,17 +3,18 @@ title: Authorize test console of API Management developer portal using OAuth 2.0
 titleSuffix: Azure API Management
 description: Set up OAuth 2.0 user authorization for the test console in the Azure API Management developer portal. This example uses Microsoft Entra ID as an OAuth 2.0 provider.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 09/12/2023
+ms.date: 04/01/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # How to authorize test console of developer portal by configuring OAuth 2.0 user authorization
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure an external provider for OAuth 2.0 user authorization.
 
@@ -25,7 +26,6 @@ This article shows you how to configure your API Management service instance to 
 
 If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Scenario overview
 
@@ -70,7 +70,8 @@ The following is a high level summary. For more information about grant types, s
 |Grant type  |Description  |Scenarios  |
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
+|Authorization code + PKCE   | Enhancement to authorization code flow that creates a code challenge that is sent with authorization request       |  Mobile and public clients that can't protect a secret or token      |
+|Implicit (deprecated)     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
 |Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
 |Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that don't require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
@@ -257,7 +258,7 @@ Optionally:
 
 1. Select **Create** to save the API Management OAuth 2.0 authorization server configuration. 
 
-1. [Republish](api-management-howto-developer-portal-customize.md#publish) the developer portal.
+1. [Republish](developer-portal-overview.md#publish-the-portal) the developer portal.
 
     > [!IMPORTANT]
     > When making OAuth 2.0-related changes, be sure to republish the developer portal after every modification as relevant changes (for example, scope change) otherwise cannot propagate into the portal and subsequently be used in trying out the APIs.
@@ -290,40 +291,11 @@ To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) po
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
+## Related content
 
-## Legacy developer portal - test the OAuth 2.0 user authorization
+* For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
 
-[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
-
-Once you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the developer portal and calling an API. Select **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
-
-Select **APIs** in the top menu and select **Echo API**.
-
-![Echo API][api-management-apis-echo-api]
-
-> [!NOTE]
-> If you have only one API configured or visible to your account, then clicking APIs takes you directly to the operations for that API.
-
-Select the **GET Resource** operation, select **Open Console**, and then select **Authorization code** from the drop-down.
-
-![Open console][api-management-open-console]
-
-When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example, the sign-in form is provided by Microsoft Entra ID.
-
-> [!NOTE]
-> If you have pop-ups disabled, you'll be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
-
-![Sign in][api-management-oauth2-signin]
-
-Once you've signed in, the **Request headers** are populated with an `Authorization : Bearer` header that authorizes the request.
-
-![Request header token][api-management-request-header-token]
-
-At this point you can configure the desired values for the remaining parameters, and submit the request.
-
-## Next steps
-
-For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+* Learn more about [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
 
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
@@ -338,7 +310,7 @@ For more information about using OAuth 2.0 and API Management, see [Protect a we
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
-[Caching policies]: ./api-management-policies.md#caching-policies
+[Caching policies]: ./api-management-policies.md#caching
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 A collection of speech samples derived from various audio sources. The dataset contains short audio clips in Russian.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 This Russian speech to text (STT) dataset includes:
 - ~16 million utterances
@@ -178,8 +178,6 @@ CC-BY-NC and commercial usage available after agreement with dataset authors.
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=open-speech-to-text -->
 
-> [!TIP]
-> **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=open-speech-to-text)**.
 
 ## Helper functions / dependencies
 

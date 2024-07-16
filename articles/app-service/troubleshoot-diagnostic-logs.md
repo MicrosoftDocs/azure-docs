@@ -4,12 +4,21 @@ description: Learn how to enable diagnostic logging and add instrumentation to y
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 06/29/2023
-ms.custom: "devx-track-csharp, seodec18"
 ms.author: msangapu
 author: msangapu-msft
-
+ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
+ai-usage: ai-assisted
 ---
+
 # Enable diagnostics logging for apps in Azure App Service
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
+This video shows you how to enable diagnostics logging for apps.
+> [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
+
+The steps in the video are also described in the following sections.
+
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
@@ -17,7 +26,6 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 > [!NOTE]
 > In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
->
 >
 
 |Type|Platform|Location|Description|
@@ -43,9 +51,6 @@ To enable application logging for Windows apps in the [Azure portal](https://por
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
 
 The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
-
-> [!NOTE]
-> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
 
 > [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
@@ -88,9 +93,6 @@ When finished, select **Save**.
 To enable web server logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
-
-> [!NOTE]
-> If your Azure Storage account is secured by firewall rules, see [Networking considerations](#networking-considerations).
 
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
@@ -188,43 +190,21 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 
 ## Send logs to Azure Monitor
 
-With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. When you add a diagnostic setting, App Service adds app settings to your app, which triggers an app restart.
 
 > [!div class="mx-imgBorder"]
 > ![Diagnostic Settings](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### Supported log types
 
-The following table shows the supported log types and descriptions: 
-
-| Log type | Windows | Windows Container | Linux | Linux Container | Description |
-|-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
-| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
-
-<sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
-
-<sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
-
-<sup>3</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+For a list of supported log types and their descriptions, see [Supported resource logs for Microsoft.Web](monitor-app-service-reference.md#supported-resource-logs-for-microsoftweb).
 
 ## Networking considerations
 
-If you secure your Azure Storage account by [only allowing selected networks](../storage/common/storage-network-security.md#change-the-default-network-access-rule), it can receive logs from App Service only if both of the following are true:
-
-- The Azure Storage account is in a different Azure region from the App Service app.
-- All outbound addresses of the App Service app are [added to the Storage account's firewall rules](../storage/common/storage-network-security.md#managing-ip-network-rules). To find the outbound addresses for your app, see [Find outbound IPs](overview-inbound-outbound-ips.md#find-outbound-ips).
+For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](../azure-monitor/essentials/diagnostic-settings.md#destination-limitations).
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

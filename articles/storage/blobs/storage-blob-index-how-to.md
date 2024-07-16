@@ -280,13 +280,13 @@ Within the Azure portal, the blob index tags filter automatically applies the `@
 3. To find all blobs that match a specific blob tag, use the `az storage blob filter` command. 
 
    ```azurecli
-   az storage blob filter --account-name mystorageaccount --tag-filter ""tag1"='value1' and "tag2"='value2'" --auth-mode login
+   az storage blob filter --account-name mystorageaccount --tag-filter """tag1""='value1' and ""tag2""='value2'" --auth-mode login
    ```
 
 4. To find blobs only in a specific container, include the container name in the `--tag-filter` parameter.
 
    ```azurecli
-   az storage blob filter --account-name mystorageaccount --tag-filter ""@container"='myContainer' and "tag1"='value1' and "tag2"='value2'" --auth-mode login
+   az storage blob filter --account-name mystorageaccount --tag-filter """@container""='myContainer' and ""tag1""='value1' and ""tag2""='value2'" --auth-mode login
    ```
 
 ### [AzCopy](#tab/azcopy)
@@ -299,3 +299,4 @@ N/A
 
 - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
+- Learn more about how to set index tags on objects at scale across multiple storage accounts. See [What is Azure Storage Actions?](../../storage-actions/overview.md)

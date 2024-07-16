@@ -2,55 +2,54 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 1/18/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
 
-# Embedded Speech (preview)
+# Embedded Speech
 
-Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
+Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md).
 
 > [!IMPORTANT]
 > Microsoft limits access to embedded speech. You can apply for access through the Azure AI Speech [embedded speech limited access review](https://aka.ms/csgate-embedded-speech). For more information, see [Limited access for embedded speech](/legal/cognitive-services/speech-service/embedded-speech/limited-access-embedded-speech?context=/azure/ai-services/speech-service/context/context).
 
 ## Platform requirements
 
-Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](#embedded-speech-sdk-packages) for programming language and target platform specific details.
+Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for C#, C++, and Java. Refer to the general [Speech SDK installation requirements](quickstarts/setup-platform.md#platform-requirements) for programming language and target platform specific details.
 
 **Choose your target environment**
 
 # [Android](#tab/android-target)
 
-Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
+Requires Android 7.0 (API level 24) or higher on Arm64 (`arm64-v8a`) or Arm32 (`armeabi-v7a`) hardware.
 
-Embedded TTS with neural voices is only supported on ARM64.
+Embedded TTS with neural voices is only supported on Arm64.
 
 # [Linux](#tab/linux-target)
 
-Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
+Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
 Embedded speech isn't supported on RHEL/CentOS 7.
 
-Embedded TTS with neural voices isn't supported on ARM32.
+Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
 
-Requires 10.14 or newer on x64 or ARM64 hardware.
+Requires 10.14 or newer on x64 or Arm64 hardware.
 
 # [Windows](#tab/windows-target)
 
-Requires Windows 10 or newer on x64 or ARM64 hardware.
+Requires Windows 10 or newer on x64 or Arm64 hardware.
 
 The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) must be installed regardless of the programming language used with the Speech SDK.
 
-The Speech SDK for Java doesn't support Windows on ARM64.
+The Speech SDK for Java doesn't support Windows on Arm64.
 
 ---
 
@@ -107,7 +106,7 @@ For Java embedded applications, add [client-sdk-embedded](https://mvnrepository.
 Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. Install [Apache Maven](https://maven.apache.org/install.html).
-1. Open a command prompt where you want the new project, and create a new `pom.xml` file. 
+1. Open a command prompt where you want the new project, and create a new `pom.xml` file.
 1. Copy the following XML content into `pom.xml`:
     ```xml
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -132,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.33.0</version>
+            <version>1.38.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -153,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.33.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.38.0@aar'
 }
 ```
 ::: zone-end
@@ -163,15 +162,15 @@ dependencies {
 
 For embedded speech, you need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions are provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+The following [speech to text](speech-to-text.md) models are available: da-DK, de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, pt-PT, zh-CN, zh-HK, and zh-TW.
 
-All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices.
 
 ## Embedded speech configuration
 
-For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you downloaded to your local device. 
+For cloud connected applications, as shown in most Speech SDK samples, you use the `SpeechConfig` object with a Speech resource key and region. For embedded speech, you don't use a Speech resource. Instead of a cloud resource, you use the [models and voices](#models-and-voices) that you download to your local device.
 
-Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices. 
+Use the `EmbeddedSpeechConfig` object to set the location of the models or voices. If your application is used for both speech to text and text to speech, you can use the same `EmbeddedSpeechConfig` object to set the location of the models and voices.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -184,7 +183,7 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.FromPaths(paths.ToArray());
 
 // For speech to text
 embeddedSpeechConfig.SetSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     Environment.GetEnvironmentVariable("MODEL_KEY"));
 
 // For text to speech
@@ -209,7 +208,7 @@ auto embeddedSpeechConfig = EmbeddedSpeechConfig::FromPaths(paths);
 
 // For speech to text
 embeddedSpeechConfig->SetSpeechRecognitionModel((
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     GetEnvironmentVariable("MODEL_KEY"));
 
 // For text to speech
@@ -232,7 +231,7 @@ var embeddedSpeechConfig = EmbeddedSpeechConfig.fromPaths(paths);
 
 // For speech to text
 embeddedSpeechConfig.setSpeechRecognitionModel(
-    "Microsoft Speech Recognizer en-US FP Model V8", 
+    "Microsoft Speech Recognizer en-US FP Model V8",
     System.getenv("MODEL_KEY"));
 
 // For text to speech
@@ -273,7 +272,7 @@ You can find ready to use embedded speech samples at [GitHub](https://aka.ms/emb
 
 Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service by default and embedded speech as a fallback in case cloud connectivity is limited or slow.
 
-With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
+With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition might continue using the cloud service again if the connection is later resumed.
 
 With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the final result is selected based on response speed. The best result is evaluated again on each new synthesis request.
 
@@ -283,7 +282,7 @@ For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to 
 
 ## Embedded voices capabilities
 
-For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
+For embedded voices, it's essential to note that certain SSML tags might not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
 
 | Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
 |-----------------|-----------|-------------------------------------------------------|--------------------------|

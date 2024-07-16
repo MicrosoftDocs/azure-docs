@@ -49,7 +49,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
          log
          errors
          rewrite stop {
-           name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+           name regex (.*)\.<domain to be rewritten>\.com {1}.default.svc.cluster.local
            answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
          }
          forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
@@ -224,6 +224,9 @@ Sudden spikes in DNS traffic within AKS clusters are a common occurrence due to 
 
 CoreDNS uses [horizontal cluster proportional autoscaler][cluster-proportional-autoscaler] for pod auto scaling. The `coredns-autoscaler` ConfigMap can be edited to configure the scaling logic for the number of CoreDNS pods. The `coredns-autoscaler` ConfigMap currently supports two different ConfigMap key values: `linear` and `ladder` which correspond to two supported control modes. The `linear` controller yields a number of replicas in [min,max] range equivalent to `max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )`. The `ladder` controller calculates the number of replicas by consulting two different step functions, one for core scaling and another for node scaling, yielding the max of the two replica values. For more information on the control modes and ConfigMap format, please consult the [upstream documentation][cluster-proportional-autoscaler-control-patterns].
 
+> [!IMPORTANT]
+> A minimum of 2 CoreDNS pod replicas per cluster is recommended. Configuring a minimum of 1 CoreDNS pod replica may result in failures during operations which require node draining, such as cluster upgrade operations.
+
 To retrieve the `coredns-autoscaler` ConfigMap, you can run the `kubectl get configmap coredns-autoscaler -n kube-system -o yaml` command which will return the following:
 
 ```yaml
@@ -292,3 +295,4 @@ To learn more about core network concepts, see [Network concepts for application
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+

@@ -2,19 +2,19 @@
 title: Entity categories recognized by Named Entity Recognition in Azure AI Language
 titleSuffix: Azure AI services
 description: Learn about the entities the NER feature can recognize from unstructured text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner
 ---
 
 # Supported Named Entity Recognition (NER) entity categories and entity types
 
-Use this article to find the entity categories that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document. 
+Use this article to find the entity categories that can be returned by [Named Entity Recognition (NER)](../how-to-call.md). NER runs a predictive model to identify and categorize named entities from an input document. 
 
 > [!NOTE]
 > * Starting from API version 2023-04-15-preview, the category and subcategory fields are replaced with entity types and tags to introduce better flexibility. 
@@ -811,7 +811,7 @@ The entity in this category can have the following subcategories.
 
 ## Supported Named Entity Recognition (NER) entity categories 
 
-Use this article to find the entity types and the additional tags that can be returned by [Named Entity Recognition](../how-to-call.md) (NER). NER runs a predictive model to identify and categorize named entities from an input document.
+Use this article to find the entity types and the additional tags that can be returned by [Named Entity Recognition (NER)](../how-to-call.md). NER runs a predictive model to identify and categorize named entities from an input document.
 
 ### Type: Address
 

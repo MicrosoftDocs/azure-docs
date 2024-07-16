@@ -6,15 +6,15 @@ ms.author: aahi
 ms.service: azure-ai-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 02/14/2024
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
 # Develop Azure AI services applications with Key Vault
 
-Use this article to learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
+Learn how to develop Azure AI services applications securely by using [Azure Key Vault](../key-vault/general/overview.md). 
 
-Key Vault reduces the chances that secrets may be accidentally leaked, because you won't store security information in your application. 
+Key Vault reduces the risk that secrets may be accidentally leaked, because you avoid storing security information in your application. 
 
 ## Prerequisites
 
@@ -206,7 +206,7 @@ namespace key_vault_console_app
 
 ## Run the application
 
-Run the application by selecting the **Debug** button at the top of Visual studio. Your key and endpoint secrets will be retrieved from your key vault. 
+Run the application by selecting the **Debug** button at the top of Visual Studio. Your key and endpoint secrets will be retrieved from your key vault. 
 
 ## Send a test Language service call (optional)
 
@@ -376,18 +376,17 @@ In your project, add the following dependencies to your `pom.xml` file.
 
 ```xml
 <dependencies>
-        
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-security-keyvault-secrets</artifactId>
-            <version>4.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.azure</groupId>
-            <artifactId>azure-identity</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-    </dependencies>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-security-keyvault-secrets</artifactId>
+        <version>4.2.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-identity</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+</dependencies>
 ```
 
 ## Import the example code

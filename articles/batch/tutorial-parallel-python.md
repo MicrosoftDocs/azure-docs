@@ -3,8 +3,8 @@ title: "Tutorial: Run a parallel workload using the Python API"
 description: Learn how to process media files in parallel using ffmpeg in Azure Batch with the Batch Python client library.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/25/2023
-ms.custom: mvc, devx-track-python, devx-track-linux
+ms.date: 03/01/2024
+ms.custom: mvc, devx-track-python
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
@@ -19,13 +19,13 @@ Use Azure Batch to run large-scale parallel and high-performance computing (HPC)
 > * Monitor task execution.
 > * Retrieve output files.
 
-In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files to MP3 format, in parallel, by using the [ffmpeg](https://ffmpeg.org/) open-source tool.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Python version 3.7 or later](https://www.python.org/downloads/)
+* [Python version 3.8 or later](https://www.python.org/downloads/)
 
 * [pip package manager](https://pip.pypa.io/en/stable/installation/)
 
@@ -35,7 +35,7 @@ In this tutorial, you convert MP4 media files to MP3 format, in parallel, by usi
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
+[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
 ## Download and run the sample app
 
@@ -74,8 +74,8 @@ To run the script:
 python batch_python_tutorial_ffmpeg.py
 ```
 
-When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. 
-   
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started.
+
 ```
 Sample start: 11/28/2018 3:20:21 PM
 
@@ -103,7 +103,7 @@ When tasks are running, the heat map is similar to the following:
 
 :::image type="content" source="./media/tutorial-parallel-python/pool.png" alt-text="Screenshot of Pool heat map.":::
 
-Typical execution time is approximately *5 minutes* when you run the application in its default configuration. Pool creation takes the most time. 
+Typical execution time is approximately *5 minutes* when you run the application in its default configuration. Pool creation takes the most time.
 
 [!INCLUDE [batch-common-tutorial-download](../../includes/batch-common-tutorial-download.md)]
 
@@ -157,7 +157,7 @@ input_files = [
 
 Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*. 
+The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*.
 
 In addition to physical node properties, this pool configuration includes a [StartTask](/python/api/azure-batch/azure.batch.models.starttask) object. The StartTask executes on each node as that node joins the pool, and each time a node is restarted. In this example, the StartTask runs Bash shell commands to install the ffmpeg package and dependencies on the nodes.
 
@@ -207,7 +207,7 @@ The app creates tasks in the job with a call to `add_tasks`. This defined functi
 
 The sample creates an [OutputFile](/python/api/azure-batch/azure.batch.models.outputfile) object for the MP3 file after running the command line. Each task's output files (one, in this case) are uploaded to a container in the linked storage account, using the task's `output_files` property.
 
-Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes. 
+Then, the app adds tasks to the job with the [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations) method, which queues them to run on the compute nodes.
 
 ```python
 tasks = list()
@@ -235,7 +235,7 @@ batch_service_client.task.add_collection(job_id, tasks)
 
 ### Monitor tasks
 
-When tasks are added to a job, Batch automatically queues and schedules them for execution on compute nodes in the associated pool. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties. 
+When tasks are added to a job, Batch automatically queues and schedules them for execution on compute nodes in the associated pool. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties.
 
 There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in this example uses the [TaskState](/python/api/azure-batch/azure.batch.models.taskstate) object to monitor tasks for a certain state, in this case the completed state, within a time limit.
 

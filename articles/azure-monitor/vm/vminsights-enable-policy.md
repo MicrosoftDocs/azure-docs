@@ -15,11 +15,17 @@ ms.date: 07/09/2023
 
 This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, and hybrid virtual machines connected with Azure Arc by using predefined VM insights policy initiates.
 
-> [!NOTE]
-> For information about how to use Azure Policy with Azure virtual machine scale sets and how to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
 VM insights policy initiatives install Azure Monitor Agent and the Dependency agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on Windows or Linux Azure virtual machines in the defined scope automatically.
+
+> [!NOTE]
+> The VM Insights initiatives listed below don't update a Dependency Agent extension that already exists on your VM with Azure Monitoring Agent settings. Make sure to uninstall the Dependency Agent extension from your VM before deploying these initiatives.
+
+Enable Azure Monitor for VMs with Azure Monitoring Agent
+Enable Azure Monitor for virtual machine scale sets with Azure Monitoring Agent
+Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent
+
 
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs.
 
@@ -30,6 +36,8 @@ The initiatives apply to new machines you create and machines you modify, but no
 | Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
 | Legacy: Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
 | Legacy: Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on virtual machine scale sets. |
+
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
 ## Support for custom images
 
@@ -55,8 +63,6 @@ To assign a VM insights policy initiative to a subscription or management group 
     1. Select the ellipsis (**...**) next to **Initiative assignment** to start the policy definition picker. Select one of the VM insights initiatives.
     1. (Optional) Change the **Assignment name** and add a **Description**.
     1. On the **Parameters** tab, select a **Log Analytics workspace** to which all virtual machines in the assignment will send data. For virtual machines to send data to different workspaces, create multiple assignments, each with their own scope.
-    
-        If you're assigning a legacy initiative, the workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
     
         :::image type="content" source="media/vminsights-enable-policy/assignment-workspace.png" lightbox="media/vminsights-enable-policy/assignment-workspace.png" alt-text="Screenshot that shows a workspace.":::
        

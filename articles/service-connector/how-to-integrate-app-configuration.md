@@ -1,45 +1,49 @@
 ---
 title: Integrate Azure App Configuration with Service Connector
-description: Integrate Azure App Configuration into your application with Service Connector
+description: In this document, learn how to integrate Azure App Configuration into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 02/02/2024
 ---
 
 # Integrate Azure App Configuration with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
 
 ## Supported compute services
 
+Service Connector can be used to connect the following compute services to Azure App Configuration:
+
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure App Configuration using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
-| Client type |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
-|-------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| .NET        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js     | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python      | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
----
+| Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
+|-------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
+| .NET        |                Yes               |               Yes              |            Yes           |        Yes        |
+| Java        |                Yes               |               Yes              |            Yes           |        Yes        |
+| Node.js     |                Yes               |               Yes              |            Yes           |        Yes        |
+| Python      |                Yes               |               Yes              |            Yes           |        Yes        |
+| None        |                Yes               |               Yes              |            Yes           |        Yes        |
+
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure App Configuration using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure App Configuration stores. This page also shows default environment variable names and values you get when you create the service connection, as well as sample code. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to Azure App Configuration stores. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
-| Default environment variable name | Description                  | Sample value                                   |
-|-----------------------------------|------------------------------|------------------------------------------------|
+| Default environment variable name | Description                  | Sample value                                     |
+| --------------------------------- | ---------------------------- | ------------------------------------------------ |
 | AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration   endpoint | `https://<App-Configuration-name>.azconfig.io` |
 
 #### Sample code
@@ -48,8 +52,8 @@ Refer to the steps and code below to connect to Azure App Configuration using a 
 
 ### User-assigned managed identity
 
-| Default environment variable name | Description                | Sample value                                  |
-|-----------------------------------|----------------------------|-----------------------------------------------|
+| Default environment variable name | Description                | Sample value                                    |
+| --------------------------------- | -------------------------- | ----------------------------------------------- |
 | AZURE_APPCONFIGURATION_ENDPOINT   | App Configuration Endpoint | `https://App-Configuration-name>.azconfig.io` |
 | AZURE_APPCONFIGURATION_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
@@ -71,8 +75,8 @@ Refer to the steps and code below to connect to Azure App Configuration using a 
 
 ### Service principal
 
-| Default environment variable name   | Description                | Sample value                                 |
-|-------------------------------------|----------------------------|----------------------------------------------|
+| Default environment variable name   | Description                | Sample value                                   |
+| ----------------------------------- | -------------------------- | ---------------------------------------------- |
 | AZURE_APPCONFIGURATION_ENDPOINT     | App Configuration Endpoint | `https://<AppConfigurationName>.azconfig.io` |
 | AZURE_APPCONFIGURATION_CLIENTID     | Your client ID             | `<client-ID>`                                |
 | AZURE_APPCONFIGURATION_CLIENTSECRET | Your client secret         | `<client-secret>`                            |

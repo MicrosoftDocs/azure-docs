@@ -2,12 +2,12 @@
 title: Text Moderation - Content Moderator
 titleSuffix: Azure AI services
 description: Use text moderation for possible unwanted text, personal data, and custom lists of terms.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 01/18/2024
 ms.author: pafarley
 
 ---
@@ -27,7 +27,7 @@ The service response includes the following information:
 
 ## Profanity
 
-If the API detects any profane terms in any of the [supported languages](./language-support.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
+If the API detects any profane terms in any of the [supported languages](./language-support.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in custom term lists if available.
 
 ```json
 "Terms": [
@@ -152,8 +152,8 @@ The following example shows the matching List ID:
     }
 ```
 
-The Content Moderator provides a [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for managing custom term lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+The Content Moderator provides a [Term List API](/rest/api/cognitiveservices/contentmoderator/list-management-term-lists) with operations for managing custom term lists. Check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 
 ## Next steps
 
-Test out the APIs with the [Text moderation API console](try-text-api.md).
+Test out the APIs with the [Quickstart](client-libraries.md).

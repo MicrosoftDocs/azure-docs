@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Share insights with non-technical business stakeholders by exporting a PDF Responsible AI scorecard from Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: enterprise-readiness
+ms.subservice: rai
 ms.topic:  how-to
-ms.author: mesameki
-author: mesameki
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mesameki
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml
 ---
 
 # Use Responsible AI scorecard (preview) in Azure Machine Learning

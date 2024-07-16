@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ms.author: abnarain
 ---
 
@@ -99,7 +99,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 <br/> 
 
-- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+- **Message**: `User: 'SimpleUserContext{userId=..., name=user@company.com, orgId=...}' is not authorized to access cluster.`
 
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
@@ -1183,7 +1183,7 @@ Then our pipeline will succeed. And we can see in the input box that the paramet
 
 :::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -5,6 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.topic: how-to
 ms.date: 08/18/2023
+ms.subservice: aks-developer
 ms.custom: ignite-fall-2022, references_regions
 ---
 
@@ -23,7 +24,7 @@ Included among these solutions are Kubernetes application-based container offers
 
 This feature is currently supported only in the following regions:
 
-- East US, EastUS2EUAP, West US, Central US, West Central US, South Central US, East US2, West US2, West Europe, North Europe, Canada Central, South East Asia, Australia East, Central India, Japan East, Korea Central, UK South, UK West, Germany West Central, France Central, East Asia, West US3, Norway East, South African North, North Central US, Australia South East, Switzerland North, Japan West, South India
+- Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, East Asia, East US, East US 2, East US 2 EAUP, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Jio India West, Korea Central, Korea South, North Central Us, North Europe, Norway East, Norway West, South Africa North, South Central US, South India, Southeast Asia, Sweden Central, Switzerland North, UAE North, UK South, UK West, West Central US, West Europe, West US, West US 2, West US 3
 
 Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
@@ -60,10 +61,9 @@ Kubernetes application-based container offers can't be deployed on AKS for Azure
 1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under **Categories** select **Containers**.
 
    :::image type="content" source="./media/deploy-marketplace/containers-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the container category on the left side highlighted." lightbox="./media/deploy-marketplace/containers.png":::
-
+   
    > [!IMPORTANT]
-   > The **Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
-
+   > The **Containers** category includes Kubernetes applications. This walkthrough is specific to Kubernetes applications. 
 1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
 
    :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal. 'See More' is highlighted." lightbox="./media/deploy-marketplace/see-more.png":::
@@ -97,6 +97,7 @@ Verify the deployment by using the following command to list the extensions that
 ```azurecli-interactive
 az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
 
 
 
@@ -138,6 +139,7 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 
 
 
+
 ---
 
 ## Monitor billing and usage information
@@ -169,6 +171,7 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 
 
+
 ---
 
 ## Troubleshooting
@@ -179,6 +182,7 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 
 - Learn more about [exploring and analyzing costs][billing].
 - Learn more about [deploying a Kubernetes application programmatically using Azure CLI](/azure/aks/deploy-application-az-cli)
+
 - Learn more about [deploying a Kubernetes application through an ARM template](/azure/aks/deploy-application-template)
 
 <!-- LINKS -->
@@ -189,5 +193,6 @@ If you experience issues, see the [troubleshooting checklist for failed deployme
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
 
 [marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer
+
 
 

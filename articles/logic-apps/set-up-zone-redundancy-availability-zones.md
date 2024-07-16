@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 01/04/2024
 ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect logic apps from region failures with zone redundancy and availability zones
+# Protect logic apps from zonal failures with zone redundancy and availability zones
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -30,7 +30,7 @@ Availability zone support is available for Standard logic apps, which are powere
 
 * You can enable availability zone redundancy *only for new* Standard logic apps with workflows that run in single-tenant Azure Logic Apps. You can't enable availability zone redundancy for existing Standard logic app workflows.
 
-* You can enable availability zone redundancy *only at creation time using Azure portal*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy.
+* You can enable availability zone redundancy *only at creation time*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy after creation.
 
 ### [Consumption (preview)](#tab/consumption)
 

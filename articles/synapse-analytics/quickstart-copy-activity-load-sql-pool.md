@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.custom: seo-lt-2019, mode-other
+ms.custom: mode-other
 ms.date: 11/02/2020
 ---
 

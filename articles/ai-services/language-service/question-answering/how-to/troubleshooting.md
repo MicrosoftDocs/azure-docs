@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting - question answering
-description: The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
+title: Troubleshooting - custom question answering
+description: The curated list of the most frequently asked questions regarding custom question answering will help you adopt the feature faster and with better results.
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ---
 
-# Troubleshooting for question answering
+# Troubleshooting for custom question answering
 
-The curated list of the most frequently asked questions regarding question answering will help you adopt the feature faster and with better results.
+The curated list of the most frequently asked questions regarding custom question answering will help you adopt the feature faster and with better results.
 
 ## Manage predictions
 
@@ -18,7 +18,7 @@ The curated list of the most frequently asked questions regarding question answe
 <summary><b>How can I improve the throughput performance for query predictions?</b></summary>
 
 **Answer**:
-Throughput performance issues indicate you need to scale up your Cognitive Search. Consider adding a replica to your Cognitive Search to improve performance.
+Throughput performance issues indicate you need to scale up your Azure AI Search. Consider adding a replica to your Azure AI Search to improve performance.
 
 Learn more about [pricing tiers](../Concepts/azure-resources.md).
 </details>
@@ -29,7 +29,7 @@ Learn more about [pricing tiers](../Concepts/azure-resources.md).
 <summary><b>Why is my URL(s)/file(s) not extracting question-answer pairs?</b></summary>
 
 **Answer**:
-It's possible that question answering can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your project through the [Language Studio portal](https://language.azure.com).
+It's possible that custom question answering can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your project through the [Language Studio portal](https://language.azure.com).
 
 </details>
 
@@ -52,12 +52,12 @@ Sharing works at the level of the language resource, that is, all projects assoc
 <summary><b>Can you share a project with a contributor that is not in the same Microsoft Entra tenant, to modify a project?</b></summary>
 
 **Answer**:
-Sharing is based on Azure role-based access control (Azure Role-base access control). If you can share _any_ resource in Azure with another user, you can also share question answering.
+Sharing is based on Azure role-based access control (Azure Role-base access control). If you can share _any_ resource in Azure with another user, you can also share custom question answering.
 
 </details>
 
 <details>
-<summary><b>Can you assign read/write rights to 5 different users so each of them can access only 1 question answering project?</b></summary>
+<summary><b>Can you assign read/write rights to 5 different users so each of them can access only 1 custom question answering project?</b></summary>
 
 **Answer**:
 You can share an entire language resource, not individual projects.
@@ -89,7 +89,7 @@ Once QnA pairs are in the project, you can edit an answer's markdown text to inc
 </details>
 
 <details>
-<summary><b>Does question answering support non-English languages?</b></summary>
+<summary><b>Does custom question answering support non-English languages?</b></summary>
 
 **Answer**:
 See more details about [supported languages](../language-support.md).
@@ -104,7 +104,7 @@ If you have content from multiple languages, be sure to create a separate projec
 <summary><b>I deleted my existing Search service. How can I fix this?</b></summary>
 
 **Answer**:
-If you delete an Azure Cognitive Search index, the operation is final and the index cannot be recovered.
+If you delete an Azure AI Search index, the operation is final and the index cannot be recovered.
 
 </details>
 
@@ -117,7 +117,7 @@ In case you deleted the `testkbv2` index in your Search service, you can restore
 </details>
 
 <details>
-<summary><b>Can I use the same Azure Cognitive Search resource for projects using multiple languages?</b></summary>
+<summary><b>Can I use the same Azure AI Search resource for projects using multiple languages?</b></summary>
 
 **Answer**:
 To use multiple language and multiple projects, the user has to create a project for each language and the first project created for the language resource has to select the option **I want to select the language when I create a project in this resource**. This will create a separate Azure search service per language.
@@ -127,15 +127,15 @@ To use multiple language and multiple projects, the user has to create a project
 ## Integrate with other services including Bots
 
 <details>
-<summary><b>Do I need to use Bot Framework in order to use question answering?</b></summary>
+<summary><b>Do I need to use Bot Framework in order to use custom question answering?</b></summary>
 
 **Answer**:
-No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with question answering. However, Question answering is offered as one of several templates in [Azure AI Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) with custom question answering. However, custom question answering is offered as one of several templates in [Azure AI Bot Service](/azure/bot-service/). Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
 
 </details>
 
 <details>
-<summary><b>How can I create a new bot with question answering?</b></summary>
+<summary><b>How can I create a new bot with custom question answering?</b></summary>
 
 **Answer**:
 Follow the instructions in [this](../tutorials/bot-service.md) documentation to create your Bot with Azure AI Bot Service.
@@ -167,10 +167,10 @@ Yes, the project can be queried from any number of clients.
 </details>
 
 <details>
-<summary><b>How do I embed question answering in my website?</b></summary>
+<summary><b>How do I embed custom question answering in my website?</b></summary>
 
 **Answer**:
-Follow these steps to embed the question answering service as a web-chat control in your website:
+Follow these steps to embed the custom question answering service as a web-chat control in your website:
 
 1. Create your FAQ bot by following the instructions [here](../tutorials/bot-service.md).
 2. Enable the web chat by following the steps [here](../tutorials/bot-service.md#integrate-the-bot-with-channels)
@@ -182,6 +182,6 @@ Follow these steps to embed the question answering service as a web-chat control
 
 **Answer**:
 
-When you create your language resource for question answering, you selected an Azure region. Your projects and log files are stored in this region.
+When you create your language resource for custom question answering, you selected an Azure region. Your projects and log files are stored in this region.
 
 </details>

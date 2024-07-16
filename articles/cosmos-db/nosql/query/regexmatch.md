@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ This function provides regular expression capabilities. Regular expressions are 
 
 ## Syntax
 
-```sql
+```nosql
 RegexMatch(<string_expr_1>, <string_expr_2>, [, <string_expr_3>])  
 ```  
 
@@ -46,7 +47,7 @@ Returns a boolean expression.
 
 The following example illustrates regular expression matches using a few different modifiers.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch/query.sql" highlight="2-9":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch/query.sql" highlight="2-9":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch/result.json":::
 
@@ -56,7 +57,7 @@ The next example assumes that you have a container with items including a `name`
 
 This example uses a regular expression match as a filter to return a subset of items.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/query.sql" highlight="7":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/query.sql" highlight="7":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/regexmatch-field/result.json":::
 

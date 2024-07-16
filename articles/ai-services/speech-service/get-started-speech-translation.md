@@ -2,13 +2,12 @@
 title: Speech translation quickstart - Speech service
 titleSuffix: Azure AI services
 description: In this quickstart, you translate speech from one language to text in another language. 
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: quickstart
-ms.date: 09/16/2022
+ms.date: 2/16/2024
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services
 keywords: speech translation

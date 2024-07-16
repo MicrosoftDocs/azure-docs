@@ -5,9 +5,9 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/22/2022
 ms.author: esarroyo
-author: StefArroyo 
+author: StefArroyo
 ms.reviewer: mjbrown
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Set up a CI/CD pipeline with the Azure Cosmos DB Emulator build task in Azure DevOps
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
@@ -35,7 +35,7 @@ Example of a task executing the PowerShell script needed to start the emulator.
 
 # Write your PowerShell commands here.
 
-dir "C:\Program Files\Azure Cosmos DB Emulator\"
+dir "$env:ProgramFiles\Azure Cosmos DB Emulator\"
 
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 
@@ -81,7 +81,7 @@ steps:
     script: |
       # Write your PowerShell commands here.
       
-      dir "C:\Program Files\Azure Cosmos DB Emulator\"
+      dir "$env:ProgramFiles\Azure Cosmos DB Emulator\"
       
       Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
       

@@ -2,14 +2,13 @@
 title: High availability for NFS on Azure VMs on SLES | Microsoft Docs
 description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
+ms.custom: linux-related-content
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 06/20/2023
+ms.date: 06/19/2024
 ms.author: radeltch
 ---
 
@@ -92,54 +91,35 @@ This document assumes that you've already deployed a resource group, [Azure Virt
 
 Deploy two virtual machines for NFS servers. Choose a suitable SLES image that is supported with your SAP system. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
 
-### Deploy Azure Load Balancer manually via Azure portal
+### Configure Azure load balancer
 
-After you deploy the VMs for your SAP system, create a load balancer. Use VMs created for NFS servers in the backend pool.
+Follow [create load balancer](../../load-balancer/quickstart-load-balancer-standard-internal-portal.md#create-load-balancer) guide to configure a standard load balancer for an NFS server high availability. During the configuration of load balancer, consider following points.
 
-1. Create a Load Balancer (internal). We recommend [standard load balancer](../../load-balancer/load-balancer-overview.md).  
-   1. Follow these instructions to create standard Load balancer:
-      1. Create the frontend IP addresses
-         1. IP address 10.0.0.4 for NW1
-            1. Open the load balancer, select frontend IP pool, and click Add
-            2. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
-            3. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-            4. Click OK
-         2. IP address 10.0.0.5 for NW2
-            * Repeat the steps above for NW2
-      2. Create a single back-end pool:
-         1. Open the load balancer, select **Backend pools**, and then select **Add**.
-         2. Enter the name of the new back-end pool (for example, **nw-backend**).
-         3. Select **NIC** for Backend Pool Configuration.
-         4. Select **Add a virtual machine**.
-         5. Select the virtual machines of the cluster.
-         6. Select **Add**.
-         7. Select **Save**.
-      3. Create the health probes
-         1. Port 61000 for NW1
-            1. Open the load balancer, select health probes, and click Add
-            2. Enter the name of the new health probe (for example **nw1-hp**)
-            3. Select TCP as protocol, port 610**00**, keep Interval 5  
-            4. Click OK
-         2. Port 61001 for NW2
-            * Repeat the steps above to create a health probe for NW2
-      4. Load balancing rules
-         1. Open the load balancer, select load-balancing rules and click Add
-         2. Enter the name of the new load balancer rule (for example **nw1-lb**)
-         3. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
-         4. Increase idle timeout to 30 minutes
-         5. Select **HA Ports**.
-         6. **Make sure to enable Floating IP**
-         7. Click OK
-         * Repeat the steps above to create load balancing rule for NW2
+1. **Frontend IP Configuration:** Create two frontend IP. Select the same virtual network and subnet as your NFS server.
+2. **Backend Pool:** Create backend pool and add NFS server VMs.
+3. **Inbound rules:** Create two load balancing rule, one for NW1 and another for NW2. Follow the same steps for both load balancing rules.
+     * Frontend IP address: Select frontend IP
+     * Backend pool: Select backend pool
+     * Check "High availability ports"
+     * Protocol: TCP
+     * Health Probe: Create health probe with below details (applies for both NW1 and NW2)
+       * Protocol: TCP
+       * Port: [for example: 61000 for NW1, 61001 for NW2]
+       * Interval: 5
+       * Probe Threshold: 2
+     * Idle timeout (minutes): 30
+     * Check "Enable Floating IP"
 
-> [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> [!NOTE]
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+>
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ### Create Pacemaker cluster
 

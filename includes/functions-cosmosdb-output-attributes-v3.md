@@ -14,4 +14,4 @@ ms.author: glenga
 |**PartitionKey**| When `CreateIfNotExists` is true, it defines the partition key path for the created collection. May include binding parameters.|
 |**CollectionThroughput** | When `CreateIfNotExists` is true, it defines the [throughput](../articles/cosmos-db/set-throughput.md) of the created collection. |
 |**PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, `East US,South Central US,North Europe`. |
-|**UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, supports [multi-region writes](../articles/cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. |
+|**UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, supports [multi-region writes](../articles/cosmos-db/how-to-manage-database-account.yml#configure-multiple-write-regions) in the Azure Cosmos DB service. |

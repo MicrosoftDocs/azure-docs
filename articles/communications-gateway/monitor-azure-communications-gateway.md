@@ -6,7 +6,7 @@ ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 08/23/2023
+ms.date: 01/25/2024
 ---
 
 # Monitoring Azure Communications Gateway
@@ -42,9 +42,9 @@ Azure Communications Gateway collects metrics. See [Monitoring Azure Communicati
 
 You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
-All Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. 
+Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS or INVITE** dimension.
 
-You can also split a metric by the **Region** dimension to visualize how different segments of the metric compare with each other. 
+You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
 
 For more information on filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 

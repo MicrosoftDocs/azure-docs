@@ -1,23 +1,23 @@
 ---
 title: How to migrate to OpenAI Python v1.x
 titleSuffix: Azure OpenAI Service
-description: Learn about migrating to the latest release of the OpenAI Python library with Azure OpenAI
+description: Learn about migrating to the latest release of the OpenAI Python library with Azure OpenAI.
 author: mrbullwinkle 
 ms.author: mbullwin 
 ms.service: azure-ai-openai
-ms.custom: 
+ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 02/26/2024
 manager: nitinme
 ---
 
 # Migrating to the OpenAI Python API library 1.x
 
-OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/631) and will help bring you up to speed on the changes specific to Azure OpenAI.
+OpenAI has just released a new version of the [OpenAI Python API library](https://github.com/openai/openai-python/). This guide is supplemental to [OpenAI's migration guide](https://github.com/openai/openai-python/discussions/742) and will help bring you up to speed on the changes specific to Azure OpenAI.
 
 ## Updates
 
-- This is a completely new version of the OpenAI Python API library.
+- This is a new version of the OpenAI Python API library.
 - Starting on November 6, 2023 `pip install openai` and `pip install openai --upgrade` will install `version 1.x` of the OpenAI Python library.
 - Upgrading from `version 0.28.1` to `version 1.x` is a breaking change, you'll need to test and update your code.  
 - Auto-retry with backoff if there's an error
@@ -28,9 +28,9 @@ OpenAI has just released a new version of the [OpenAI Python API library](https:
 
 ## Known issues
 
-- The latest release of the [OpenAI Python library](https://pypi.org/project/openai/) doesn't currently support DALL-E when used with Azure OpenAI. DALL-E with Azure OpenAI is still supported with `0.28.1`. For those who can't wait for native support for DALL-E and Azure OpenAI we're providing [two code examples](#dall-e-fix) which can be used as a workaround.
+- **`DALL-E3` is [fully supported with the latest 1.x release](../dall-e-quickstart.md).** `DALL-E2` can be used with 1.x by making the [following modifications to your code](#dall-e-fix).
 - `embeddings_utils.py` which was used to provide functionality like cosine similarity for semantic text search is [no longer part of the OpenAI Python API library](https://github.com/openai/openai-python/issues/676).
-- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/703) for the OpenAI Python library.
+- You should also check the active [GitHub Issues](https://github.com/openai/openai-python/issues/) for the OpenAI Python library.
 
 ## Test before you migrate
 
@@ -41,16 +41,16 @@ As this is a new version of the library with breaking changes, you should test y
 
 To make the migration process easier, we're updating existing code examples in our docs for Python to a tabbed experience:
 
-# [OpenAI Python 0.28.1](#tab/python)
-
-```console
-pip install openai==0.28.1
-```
-
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai --upgrade
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```console
+pip install openai==0.28.1
 ```
 
 ---
@@ -58,6 +58,35 @@ pip install openai --upgrade
 This provides context for what has changed and allows you to test the new library in parallel while continuing to provide support for version `0.28.1`. If you upgrade to `1.x` and realize you need to temporarily revert back to the previous version, you can always `pip uninstall openai` and then reinstall targeted to `0.28.1` with `pip install openai==0.28.1`.
 
 ## Chat completions
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version="2024-02-01"
+)
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo", # model = "deployment_name"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+Additional examples can be found in our [in-depth Chat Completion article](chatgpt.md).
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -68,8 +97,8 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
-openai.api_version = "2023-05-15"
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
+openai.api_version = "2024-02-01"
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # engine = "deployment_name".
@@ -85,38 +114,30 @@ print(response)
 print(response['choices'][0]['message']['content'])
 ```
 
-# [OpenAI Python 1.x](#tab/python-new)
+---
 
-You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name results in an error unless you chose a deployment name that is identical to the underlying model name.
+## Completions
+
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```python
 import os
 from openai import AzureOpenAI
-
+    
 client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-05-15"
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-02-01",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
-
-response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
-        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
-        {"role": "user", "content": "Do other Azure AI services support this too?"}
-    ]
-)
-
-print(response.choices[0].message.content)
+    
+deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+    
+# Send a completion call to generate an answer
+print('Sending a test completion job')
+start_phrase = 'Write a tagline for an ice cream shop. '
+response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10) # model = "deployment_name"
+print(response.choices[0].text)
 ```
-
-Additional examples can be found in our [in-depth Chat Completion article](chatgpt.md).
-
----
-
-## Completions
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -124,10 +145,10 @@ Additional examples can be found in our [in-depth Chat Completion article](chatg
 import os
 import openai
 
-openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = 'azure'
-openai.api_version = '2023-05-15' # this might change in the future
+openai.api_version = '2024-02-01' # this might change in the future
 
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
@@ -139,30 +160,31 @@ text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip
 print(start_phrase+text)
 ```
 
+---
+
+## Embeddings
+
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
 import os
 from openai import AzureOpenAI
-    
+
 client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-10-01-preview",
-    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    )
-    
-deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
-    
-# Send a completion call to generate an answer
-print('Sending a test completion job')
-start_phrase = 'Write a tagline for an ice cream shop. '
-response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
-print(response.choices[0].text)
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
+  api_version = "2024-02-01",
+  azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
+)
+
+response = client.embeddings.create(
+    input = "Your text string goes here",
+    model= "text-embedding-ada-002"  # model = "deployment_name".
+)
+
+print(response.model_dump_json(indent=2))
 ```
 
----
-
-## Embeddings
+Additional examples including how to handle semantic text search without `embeddings_utils.py` can be found in our [embeddings tutorial](../tutorials/embeddings.md).
 
 # [OpenAI Python 0.28.1](#tab/python)
 
@@ -172,7 +194,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = YOUR_API_KEY
 openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.Embedding.create(
     input="Your text string goes here",
@@ -182,28 +204,6 @@ embeddings = response['data'][0]['embedding']
 print(embeddings)
 ```
 
-# [OpenAI Python 1.x](#tab/python-new)
-
-```python
-import os
-from openai import AzureOpenAI
-
-client = AzureOpenAI(
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
-  api_version = "2023-05-15",
-  azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
-)
-
-response = client.embeddings.create(
-    input = "Your text string goes here",
-    model= "text-embedding-ada-002"
-)
-
-print(response.model_dump_json(indent=2))
-```
-
-Additional examples including how to handle semantic text search without `embeddings_utils.py` can be found in our [embeddings tutorial](../tutorials/embeddings.md).
-
 ---
 
 ## Async
@@ -211,16 +211,21 @@ Additional examples including how to handle semantic text search without `embedd
 OpenAI doesn't support calling asynchronous methods in the module-level client, instead you should instantiate an async client.
 
 ```python
+import os
+import asyncio
 from openai import AsyncAzureOpenAI
 
-client = AsyncAzureOpenAI(  
-  api_key = os.getenv("AZURE_OPENAI_KEY"),  
-  api_version = "2023-10-01-preview",
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-)
-response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+async def main():
+    client = AsyncAzureOpenAI(  
+      api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
+      api_version = "2024-02-01",
+      azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}]) # model = model deployment name
 
-print(response.model_dump_json(indent=2))
+    print(response.model_dump_json(indent=2))
+
+asyncio.run(main())
 ```
 
 ## Authentication
@@ -231,7 +236,7 @@ from openai import AzureOpenAI
 
 token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
-api_version = "2023-10-01-preview"
+api_version = "2024-02-01"
 endpoint = "https://my-resource.openai.azure.com"
 
 client = AzureOpenAI(
@@ -241,7 +246,7 @@ client = AzureOpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="deployment-name",  # gpt-35-instant
+    model="deployment-name",  # model = "deployment_name"
     messages=[
         {
             "role": "user",
@@ -251,6 +256,116 @@ completion = client.chat.completions.create(
 )
 print(completion.model_dump_json(indent=2))
 ```
+
+## Use your data
+
+For the full configuration steps that are required to make these code examples work, consult the [use your data quickstart](../use-your-data-quickstart.md).
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+import openai
+import dotenv
+
+dotenv.load_dotenv()
+
+endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
+api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+deployment = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
+
+client = openai.AzureOpenAI(
+    base_url=f"{endpoint}/openai/deployments/{deployment}/extensions",
+    api_key=api_key,
+    api_version="2023-08-01-preview",
+)
+
+completion = client.chat.completions.create(
+    model=deployment, # model = "deployment_name"
+    messages=[
+        {
+            "role": "user",
+            "content": "How is Azure machine learning different than Azure OpenAI?",
+        },
+    ],
+    extra_body={
+        "dataSources": [
+            {
+                "type": "AzureCognitiveSearch",
+                "parameters": {
+                    "endpoint": os.environ["AZURE_AI_SEARCH_ENDPOINT"],
+                    "key": os.environ["AZURE_AI_SEARCH_API_KEY"],
+                    "indexName": os.environ["AZURE_AI_SEARCH_INDEX"]
+                }
+            }
+        ]
+    }
+)
+
+print(completion.model_dump_json(indent=2))
+```
+
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+```python
+import os
+import openai
+import dotenv
+import requests
+
+dotenv.load_dotenv()
+
+openai.api_base = os.environ.get("AZURE_OPENAI_ENDPOINT")
+openai.api_version = "2023-08-01-preview"
+openai.api_type = 'azure'
+openai.api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+
+def setup_byod(deployment_id: str) -> None:
+    """Sets up the OpenAI Python SDK to use your own data for the chat endpoint.
+
+    :param deployment_id: The deployment ID for the model to use with your own data.
+
+    To remove this configuration, simply set openai.requestssession to None.
+    """
+
+    class BringYourOwnDataAdapter(requests.adapters.HTTPAdapter):
+
+     def send(self, request, **kwargs):
+         request.url = f"{openai.api_base}/openai/deployments/{deployment_id}/extensions/chat/completions?api-version={openai.api_version}"
+         return super().send(request, **kwargs)
+
+    session = requests.Session()
+
+    # Mount a custom adapter which will use the extensions endpoint for any call using the given `deployment_id`
+    session.mount(
+        prefix=f"{openai.api_base}/openai/deployments/{deployment_id}",
+        adapter=BringYourOwnDataAdapter()
+    )
+
+    openai.requestssession = session
+
+aoai_deployment_id = os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID")
+setup_byod(aoai_deployment_id)
+
+completion = openai.ChatCompletion.create(
+    messages=[{"role": "user", "content": "What are the differences between Azure Machine Learning and Azure AI services?"}],
+    deployment_id=os.environ.get("AZURE_OPEN_AI_DEPLOYMENT_ID"),
+    dataSources=[  # camelCase is intentional, as this is the format the API expects
+        {
+            "type": "AzureCognitiveSearch",
+            "parameters": {
+                "endpoint": os.environ.get("AZURE_AI_SEARCH_ENDPOINT"),
+                "key": os.environ.get("AZURE_AI_SEARCH_API_KEY"),
+                "indexName": os.environ.get("AZURE_AI_SEARCH_INDEX"),
+            }
+        }
+    ]
+)
+print(completion)
+```
+
+---
 
 ## DALL-E fix
 
@@ -417,6 +532,7 @@ asyncio.run(dall_e())
 ```
 
 ---
+
 ## Name changes
 
 > [!NOTE]

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Create a predictive pipeline using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
@@ -211,7 +211,7 @@ Let's look at a scenario for using Web service parameters. You have a deployed M
 
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **ML Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](update-machine-learning-models.md) article for details.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

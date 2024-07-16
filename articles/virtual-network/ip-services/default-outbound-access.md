@@ -2,27 +2,25 @@
 title: Default outbound access in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
-services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 08/24/2023
-ms.custom: FY23 content-maintenance
+ms.date: 07/02/2024
 ---
 
 # Default outbound access in Azure
 
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as default outbound access. 
 
-Examples of explicit outbound connectivity are virtual machines:
+Examples of explicit outbound connectivity for virtual machines are:
 
 * Created within a subnet associated to a NAT gateway.
 
-* In the backend pool of a standard load balancer with outbound rules defined.
+* Deployed in the backend pool of a standard load balancer with outbound rules defined.
 
-* In the backend pool of a basic public load balancer.
+* Deployed in the backend pool of a basic public load balancer.
 
 * Virtual machines with public IP addresses explicitly associated to them.
 
@@ -34,7 +32,7 @@ The public IPv4 address used for the access is called the default outbound acces
 
 ## When is default outbound access provided?
 
-If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP. The image below shows the underlying logic behind deciding which method of outbound to utilize, with default outbound being a "last resort".
+If you deploy a virtual machine in Azure and it doesn't have explicit outbound connectivity, it's assigned a default outbound access IP.
 
 :::image type="content" source="./media/default-outbound-access/decision-tree-load-balancer.svg"  alt-text="Diagram of decision tree for default outbound access.":::
 
@@ -55,22 +53,63 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
     * Customers don't own the default outbound access IP. This IP might change, and any dependency on it could cause issues in the future.
 
+Some examples of configurations that won't work when using default outbound access:
+- When you have multiple NICs on the same VM, default outbound IPs won't consistently be the same across all NICs.
+- When scaling up/down Virtual Machine Scale sets, default outbound IPs assigned to individual instances can and  change.
+- Similarly, default outbound IPs aren't consistent or contiguous across VM instances in a Virtual Machine Scale Set.
+
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
+ 
+There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
+ 
+>[!Important]
+> Private Subnet is currently in public preview.  It's provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+ 
+### Utilize the Private Subnet parameter
+ 
+* Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
+ 
+* The parameter to create a Private subnet can only be set during the creation of a subnet.
+ 
+* VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
+ 
+    > [!NOTE]
+    > Certain services won't function on a virtual machine in a Private Subnet without an explicit method of egress (examples are Windows Activation and Windows Updates).
+ 
+#### Add the Private subnet feature
+ 
+* From the Azure portal, ensure the option to enable Private subnet is selected when creating a subnet as part of the Virtual Network create experience as shown below:
+ 
+:::image type="content" source="./media/default-outbound-access/private-subnet-portal.png"  alt-text="Screenshot of Azure portal showing Private subnet option.":::
+ 
+* Using PowerShell, when creating a subnet with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), use the `DefaultOutboundAccess` option and choose "$false"
 
-There are multiple ways to turn off default outbound access:
+* Using CLI, when creating a subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create), use the `--default-outbound` option and choose "false"
+ 
+* Using an Azure Resource Manager template, set the value of `defaultOutboundAccess` parameter to be "false"
 
-*  Add an explicit outbound connectivity method.
+#### Private subnet limitations
+ 
+* In order to utilize to activate/update virtual machine operation systems, including Windows, it's a requirement to have an explicit outbound connectivity method.
 
-    * Associate a NAT gateway to the subnet of your virtual machine.
+* Delegated subnets can't be marked as Private.
 
-    * Associate a standard load balancer configured with outbound rules.
-    
-    * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
+* Existing subnets can't currently be converted to Private.
 
-*  Use Flexible orchestration mode for Virtual Machine Scale Sets.
-
-    * Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
-
+* In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
+ 
+### Add an explicit outbound connectivity method
+ 
+* Associate a NAT gateway to the subnet of your virtual machine.
+ 
+* Associate a standard load balancer configured with outbound rules.
+ 
+* Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
+ 
+### Use Flexible orchestration mode for Virtual Machine Scale Sets
+ 
+* Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode)
+ 
 >[!Important]
 > When a load balancer backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).
 
@@ -80,9 +119,11 @@ NAT gateway is the recommended approach to have explicit outbound connectivity. 
 
 ## Constraints
 
-* Public connectivity is required for Windows Activation and Windows Updates.  It is recommended to set up an explicit form of public outbound connectivity.
+* Public connectivity is required for Windows Activation and Windows Updates.  It's recommended to set up an explicit form of public outbound connectivity.
 
-* Default outbound access IP doesn't support fragmented packets. 
+* Default outbound access IP doesn't support fragmented packets.
+
+* Default outbound access IP doesn't support ICMP pings.
 
 ## Next steps
 

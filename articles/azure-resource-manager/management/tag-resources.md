@@ -2,12 +2,12 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Describes the conditions and limitations for using tags with Azure resources.
 ms.topic: conceptual
-ms.date: 04/19/2023
+ms.date: 01/04/2024
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
 
-Tags are metadata elements that you apply to your Azure resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named `Environment`. To identify the resources deployed to production, give them a value of `Production`. The fully-formed key-value pair is `Environment = Production`.
+Tags are metadata elements that you apply to your Azure resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named `Environment`. To identify the resources deployed to production, give them a value of `Production`. The full key-value pair is `Environment = Production`.
 
 This article describes the conditions and limitations for using tags. For steps on how to work with tags, see:
 
@@ -20,7 +20,7 @@ This article describes the conditions and limitations for using tags. For steps 
 
 ## Tag usage and recommendations
 
-You can apply tags to your Azure resources, resource groups, and subscriptions.
+You can apply tags to your Azure resources, resource groups, and subscriptions, but not to management groups.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
@@ -37,7 +37,7 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 >
 > Tag values are case-sensitive.
 
-[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Required access
 
@@ -50,6 +50,8 @@ There are two ways to get the required access to tag resources.
 ## Inherit tags
 
 Resources don't inherit the tags you apply to a resource group or a subscription. To apply tags from a subscription or resource group to the resources, see [Azure Policies - tags](tag-policies.md).
+
+You can group costs for an Azure resource by using the **cm-resource-parent** tag. This tag lets you review tagged costs in Microsoft Cost Management without having to use filters. The key for this tag is cm-resource-parent and its value is the resource ID of the Azure resource you want to group costs by. For example, to group costs by an Azure Virtual Desktop host pool, provide the resource ID of the host pool. For more information, see [Group related resources in the cost analysis](../../cost-management-billing/costs/group-filter.md#group-related-resources-in-the-resources-view).
 
 ## Tags and billing
 

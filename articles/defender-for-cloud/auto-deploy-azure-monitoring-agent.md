@@ -4,8 +4,8 @@ description: Learn how to deploy the Azure Monitor Agent on your Azure, multiclo
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/02/2023
-ms.custom: template-how-to, ignite-2022
+ms.date: 02/28/2024
+ms.custom: template-how-to
 ---
 
 # Azure Monitor Agent in Defender for Cloud
@@ -19,7 +19,9 @@ In this article, we give an overview of AMA preferences for when you deploy Defe
 
 ## Azure Monitor Agent in Defender for Servers
 
-Azure Monitor Agent (AMA) is still available for deployment on your servers but is not required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This will ensure you’ll seamlessly be up to date and receive all the alternative deliverables once they are provided.
+Azure Monitor Agent (AMA) is still available for deployment on your servers but isn't required to receive Defender for Servers features and capabilities. To ensure your servers are secured, receive all the security content of Defender for Servers, verify [Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [agentless disk scanning](concept-agentless-data-collection.md) are enabled on your subscriptions. This ensures you’ll seamlessly be up to date and receive all the alternative deliverables once they're provided.
+
+AMA provisioning is available through the Microsoft Defender for Cloud platform only through  Defender for SQL servers on machines. Learn how to [deploy AMA on your servers using standard methods including PowerShell, CLI, and Resource Manager templates](../azure-monitor/vm/monitor-virtual-machine-agent.md#agent-deployment-options).
 
 ## Availability
 
@@ -78,21 +80,15 @@ The required [Log Analytics workspace solutions](/previous-versions/azure/azure-
 - Cloud security posture management (CSPM) – **SecurityCenterFree solution**
 - Defender for Servers Plan 2 – **Security solution**
 
-### Other extensions for Defender for Cloud
-
-The Azure Monitor Agent requires more extensions. The ASA extension, which supports endpoint protection recommendations, fileless attack detection, and Adaptive Application controls, is automatically installed when you autoprovision the Azure Monitor Agent.
-
 ### Other security events collection
 
-When you autoprovision the Log Analytics agent in Defender for Cloud, you can choose to collect other security events to the workspace. When you autoprovision the Azure Monitor agent in Defender for Cloud, the option to collect other security events to the workspace isn't available. Defender for Cloud doesn't rely on these security events, but they can be helpful for investigations through Microsoft Sentinel.
+When you autoprovision the Log Analytics agent in Defender for Cloud, you can choose to collect other security events to the workspace.
 
-If you want to collect security events when you autoprovision the Azure Monitor Agent, you can create a [Data Collection Rule](../azure-monitor/essentials/data-collection-rule-overview.md) to collect the required events. Learn [how do it with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
-
-As in Log Analytics workspaces, Defender for Cloud users are eligible for [500 MB of free data](faq-defender-for-servers.yml) daily on defined data types that include security events.
+As in Log Analytics workspaces, Defender for Servers Plan 2 users are eligible for [500 MB of free data](faq-defender-for-servers.yml) daily on defined data types that include security events.
 
 ## Next steps
 
-Now that you enabled the Azure Monitor Agent, check out the features that are supported by the agent:
+Now that you enabled the Log Analytics agent, check out the features that are supported by the agent:
 
 - [Endpoint protection assessment](endpoint-protection-recommendations-technical.md)
 - [Adaptive application controls](adaptive-application-controls.md)

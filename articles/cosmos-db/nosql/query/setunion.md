@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Gathers expressions in two sets and returns a set of expressions containing all 
 
 ## Syntax
 
-```sql
+```nosql
 SetUnion(<array_expr_1>, <array_expr_2>)
 ```
 
@@ -39,7 +40,7 @@ Returns an array of expressions.
 
 This first example uses the function with static arrays to demonstrate the union functionality.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setunion/query.novalidate.sql" highlight="2-5":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/setunion/query.novalidate.sql" highlight="2-5":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setunion/result.novalidate.json":::
 
@@ -49,7 +50,7 @@ This last example uses an item that share values within multiple array propertie
 
 The query returns the union of the two arrays as a new property.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/query.novalidate.sql" highlight="3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/query.novalidate.sql" highlight="3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/setunion-field/result.novalidate.json":::
 

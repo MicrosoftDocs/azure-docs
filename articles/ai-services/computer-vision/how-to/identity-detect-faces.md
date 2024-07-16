@@ -2,14 +2,14 @@
 title: "Call the Detect API - Face"
 titleSuffix: Azure AI services
 description: This guide demonstrates how to use face detection to extract attributes like age, emotion, or head pose from a given image.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: how-to
-ms.date: 12/27/2022
+ms.date: 02/14/2024
 ms.author: pafarley
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -21,9 +21,9 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [Sensitive attributes notice](../includes/identity-sensitive-attributes.md)]
 
-This guide demonstrates how to use the face detection API to extract attributes like age, emotion, or head pose from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
+This guide demonstrates how to use the face detection API to extract attributes from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 
-The code snippets in this guide are written in C# by using the Azure AI Face client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+The code snippets in this guide are written in C# by using the Azure AI Face client library. The same functionality is available through the [REST API](/rest/api/face/face-detection-operations/detect).
 
 
 ## Setup
@@ -98,5 +98,5 @@ In this guide, you learned how to use the various functionalities of face detect
 
 ## Related articles
 
-- [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [Reference documentation (REST)](/rest/api/face/operation-groups)
 - [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/face-readme)

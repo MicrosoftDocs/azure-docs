@@ -1,18 +1,18 @@
 ---
 title: Get model with REST call in Node.js
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 
 manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 01/19/2024
 
 ms.custom: devx-track-js
 ---
 
-[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
+[Reference documentation](/rest/api/cognitiveservices-luis/?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
 
 ## Prerequisites
 

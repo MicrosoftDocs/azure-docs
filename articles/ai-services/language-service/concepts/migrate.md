@@ -2,13 +2,12 @@
 title: "Migrate to Azure AI Language from: LUIS, QnA Maker, and Text Analytics"
 titleSuffix: Azure AI services
 description: Use this article to learn if you need to migrate your applications from LUIS, QnA Maker, and Text Analytics.
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 09/29/2022
-ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 # Migrating to Azure AI Language
@@ -17,7 +16,7 @@ On November 2nd 2021, Azure AI Language was released into public preview. This l
 
 ## Do I need to migrate to the language service if I am using Text Analytics?
 
-Text Analytics has been incorporated into the language service, and its features are still available. If you were using Text Analytics, your applications should continue to work without breaking changes. You can also see the [Text Analytics migration guide](migrate-language-service-latest.md), if you need to update an older application. 
+Text Analytics has been incorporated into the language service, and its features are still available. If you were using Text Analytics features, your applications should continue to work without breaking changes. If you are using Text Analytics API (v2.x or v3), see the [Text Analytics migration guide](migrate-language-service-latest.md) to migrate your applications to the unified Language endpoint and the latest client library. 
 
 Consider using one of the available quickstart articles to see the latest information on service endpoints, and API calls. 
 

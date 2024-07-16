@@ -1,16 +1,18 @@
 ---
 title: Upgrade pipeline endpoints to SDK v2
 titleSuffix: Azure Machine Learning
-description: Upgrade pipeline endpoints from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade pipeline endpoints from v1 to v2 of Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: santiagxf
-ms.author: fasantia
+author: sdgilley
+ms.author: sgilley
 ms.date: 05/01/2023
-ms.reviewer: sgilley
-ms.custom: migration
+ms.reviewer: fasantia
+ms.custom:
+  - migration
+  - ignite-2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
@@ -20,9 +22,9 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 
 ## What has changed?
 
-[Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
+[Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API, which is why the Published pipelines functionality was moved to [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment).
 
-[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
 
 The following table shows a comparison of each of the concepts:
 
@@ -68,7 +70,7 @@ Compare how publishing a pipeline has changed from v1 to v2:
 
 # [SDK v2](#tab/v2)
 
-1. First, we need to get the pipeline we want to publish. However, batch endpoints can't deploy pipelines but pipeline components. We need to convert the pipeline to a component.
+1. First, we need to define the pipeline we want to publish.
 
     ```python
     @pipeline()
@@ -78,8 +80,12 @@ Compare how publishing a pipeline has changed from v1 to v2:
         return {
             (..)
         }
+    ```
 
-    pipeline_component = pipeline.pipeline_builder.build()
+1. Batch endpoints don't deploy pipelines but pipeline components. Components propose a more reliable way for having source control of the assets that are being deployed under an endpoint. We can convert any pipeline definition into a pipeline component as follows:
+
+    ```python
+    pipeline_component = pipeline().component
     ```
 
 1. As a best practice, we recommend registering pipeline components so you can keep versioning of them in a centralized way inside the workspace or even the shared registries.
@@ -88,7 +94,7 @@ Compare how publishing a pipeline has changed from v1 to v2:
     ml_client.components.create(pipeline_component)
     ```
 
-1. Then, we need to create the endpoint that will host all the pipeline deployments:
+1. Then, we need to create the endpoint hosting all the pipeline deployments:
 
     ```python
     endpoint_name = "PipelineEndpointTest"
@@ -133,6 +139,17 @@ job = ml_client.batch_endpoints.invoke(
     endpoint_name=batch_endpoint, 
 )
 ```
+
+Use `inputs` to indicate the inputs of the job if needed. See [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md) for a more detailed explanation about how to indicate inputs and outputs.
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=batch_endpoint,
+    inputs={
+        "input_data": Input(type=AssetTypes.URI_FOLDER, path="./my_local_data")
+    }
+)
+```
 ---
 
 You can also submit a job to a specific version:
@@ -145,9 +162,9 @@ run_id = pipeline_endpoint.submit(endpoint_name, pipeline_version="0")
 
 # [SDK v2](#tab/v2)
 
-In batch endpoints, deployments are not versioned. However, you can deploy multiple pipeline components versions under the same endpoint. In this sense, each pipeline version in v1 will correspond to a different pipeline component version and its corresponding deployment under the endpoint.
+In batch endpoints, deployments aren't versioned. However, you can deploy multiple pipeline components versions under the same endpoint. In this sense, each pipeline version in v1 corresponds to a different pipeline component version and its corresponding deployment under the endpoint.
 
-Then, you can deploy a specific deployment running under the endpoint if that deployment runs the version you are interested in.
+Then, you can deploy a specific deployment running under the endpoint if that deployment runs the version yo're interested in.
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -208,7 +225,7 @@ response = requests.post(
 
 # [SDK v2](#tab/v2)
 
-Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`:
+Batch endpoints support multiple inputs types. The following example shows how to indicate two different inputs of type `string` and `numeric`. See [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest) for more detailed examples:
 
 ```python
 batch_endpoint = ml_client.batch_endpoints.get(endpoint_name)
@@ -233,8 +250,6 @@ response = requests.post(
     }
 )
 ```
-
-To know how to indicate inputs and outputs in batch endpoints and all the supported types see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
 
 ---
 

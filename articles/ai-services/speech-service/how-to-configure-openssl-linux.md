@@ -2,18 +2,20 @@
 title: How to configure OpenSSL for Linux
 titleSuffix: Azure AI services
 description: Learn how to configure OpenSSL for Linux.
-services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: azure-ai-speech
-ms.custom: devx-track-extended-java, devx-track-go, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-python, linux-related-content
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 1/18/2024
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-three
 ---
 
 # Configure OpenSSL for Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 With the Speech SDK, [OpenSSL](https://www.openssl.org) is dynamically configured to the host-system version. 
 
@@ -55,7 +57,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 
 When the Speech SDK connects to the Speech service, it checks the Transport Layer Security (TLS/SSL) certificate. The Speech SDK verifies that the certificate reported by the remote endpoint is trusted and hasn't been revoked. This verification provides a layer of protection against attacks involving spoofing and other related vectors. The check is accomplished by retrieving a certificate revocation list (CRL) from a certificate authority (CA) used by Azure. A list of Azure CA download locations for updated TLS CRLs can be found in [this document](../../security/fundamentals/tls-certificate-changes.md).
 
-If a destination posing as the Speech service reports a certificate that's been revoked in a retrieved CRL, the SDK will terminate the connection and report an error via a `Canceled` event. The authenticity of a reported certificate can't be checked without an updated CRL. Therefore, the Speech SDK will also treat a failure to download a CRL from an Azure CA location as an error.
+If a destination posing as the Speech service reports a certificate that's been revoked in a retrieved CRL, the SDK terminates the connection and reports an error via a `Canceled` event. The authenticity of a reported certificate can't be checked without an updated CRL. Therefore, the Speech SDK also treats a failure to download a CRL from an Azure CA location as an error.
 
 > [!WARNING]
 > If your solution uses proxy or firewall it should be configured to allow access to all certificate revocation list URLs used by Azure. Note that many of these URLs are outside of `microsoft.com` domain, so allowing access to `*.microsoft.com` is not enough. See [this document](../../security/fundamentals/tls-certificate-changes.md) for details. In exceptional cases you may ignore CRL failures (see [the correspondent section](#bypassing-or-ignoring-crl-failures)), but such configuration is strongly not recommended, especially for production scenarios.
@@ -108,12 +110,12 @@ speechConfig.properties.SetPropertyByString("CONFIG_MAX_CRL_SIZE_KB", "15000")
 
 ### Bypassing or ignoring CRL failures
 
-If an environment can't be configured to access an Azure CA location, the Speech SDK will never be able to retrieve an updated CRL. You can configure the SDK either to continue and log download failures or to bypass all CRL checks.
+If an environment can't be configured to access an Azure CA location, the Speech SDK can't retrieve an updated CRL. You can configure the SDK either to continue and log download failures or to bypass all CRL checks.
 
 > [!WARNING]
 > CRL checks are a security measure and bypassing them increases susceptibility to attacks. They should not be bypassed without thorough consideration of the security implications and alternative mechanisms for protecting against the attack vectors that CRL checks mitigate.
 
-To continue with the connection when a CRL can't be retrieved, set the property `"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"` to `"true"`. An attempt will still be made to retrieve a CRL and failures will still be emitted in logs, but connection attempts will be allowed to continue.
+To continue with the connection when a CRL can't be retrieved, set the property `"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"` to `"true"`. An attempt is still made to retrieve a CRL and failures is still emitted in logs, but connection attempts are allowed to continue.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -200,9 +202,9 @@ speechConfig.properties.SetPropertyByString("OPENSSL_DISABLE_CRL_CHECK", "true")
 
 ### CRL caching and performance
 
-By default, the Speech SDK will cache a successfully downloaded CRL on disk to improve the initial latency of future connections. When no cached CRL is present or when the cached CRL is expired, a new list will be downloaded.
+By default, the Speech SDK will cache a successfully downloaded CRL on disk to improve the initial latency of future connections. When no cached CRL is present or when the cached CRL is expired, a new list is downloaded.
 
-Some Linux distributions don't have a `TMP` or `TMPDIR` environment variable defined, so the Speech SDK won't cache downloaded CRLs. Without `TMP` or `TMPDIR` environment variable defined, the Speech SDK will download a new CRL for each connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
+Some Linux distributions don't have a `TMP` or `TMPDIR` environment variable defined, so the Speech SDK doesn't cache downloaded CRLs. Without `TMP` or `TMPDIR` environment variable defined, the Speech SDK downloads a new CRL for each connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 

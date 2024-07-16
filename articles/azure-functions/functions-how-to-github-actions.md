@@ -2,7 +2,7 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
-ms.date: 05/16/2023
+ms.date: 03/16/2024
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -159,19 +159,7 @@ You can get started quickly with GitHub Actions through the Deployment tab when 
 
 ### For an existing function app 
 
-You can also add GitHub Actions to an existing function app. To add a GitHub Actions workflow to an existing function app:
-
-1. Navigate to your function app in the Azure portal.
-
-1. Select **Deployment Center**. 
-
-1. Under Continuous Deployment (CI / CD), select **GitHub**. You see a default message, *Building with GitHub Actions*. 
-
-1. Enter your GitHub organization, repository, and branch. 
-
-1. Select **Preview file** to see the workflow file that will be added to your GitHub repository in `github/workflows/`.
-
-1. Select **Save** to add the workflow file to your repository. 
+[!INCLUDE [functions-deploy-github-actions](../../includes/functions-deploy-github-actions.md)]
 
 ::: zone-end
 ::: zone pivot="method-cli"
@@ -307,7 +295,7 @@ The following parameters are also supported, but are used only in specific cases
 |---------|---------|
 | _**package**_ | (Optional) Sets a subpath in your repository from which to publish. By default, this value is set to `.`, which means all files and folders in the GitHub repository are deployed. |
 | _**respect-pom-xml**_ | (Optional) Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, you should set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
-| _**respect-funcignore**_ | (Optional) Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this vale to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. | 
+| _**respect-funcignore**_ | (Optional) Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. | 
 | _**scm-do-build-during-deployment**_ | (Optional) Whether the App Service deployment site (Kudu) performs predeployment operations. The deployment site for your function app can be found at `https://<APP_NAME>.scm.azurewebsites.net/`. Change this setting to `true` when you need to control the deployments in Kudu rather than resolving the dependencies in the GitHub Actions workflow. The default value is `false`. For more information, see the [SCM_DO_BUILD_DURING_DEPLOYMENT](./functions-app-settings.md#scm_do_build_during_deployment) setting. |
 | _**enable-oryx-build**_ |(Optional) Whether the Kudu deployment site resolves your project dependencies by using Oryx. Set to `true` when you want to use Oryx to resolve your project dependencies by using a remote build instead of the GitHub Actions workflow. When `true`, you should also set `scm-do-build-during-deployment` to `true`. The default value is `false`.|
 

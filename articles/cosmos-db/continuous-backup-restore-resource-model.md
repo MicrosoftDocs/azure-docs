@@ -4,9 +4,8 @@ description: This article explains the resource model for the Azure Cosmos DB po
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 03/21/2024
 ms.reviewer: mjbrown
 ---
 
@@ -31,6 +30,9 @@ A new property in the account level backup policy named ``Type`` under the ``bac
 
 This property indicates how the account was created. The possible values are *Default* and *Restore*. To perform a restore, set this value to *Restore* and provide the appropriate values in the `RestoreParameters` property.
 
+### publicNetworkAccess
+This property needs to be set to 'Disabled' to restore account without public network access. If this property is not provided, restore of the account will proceed with publicNetworkAccess as `Enabled`. 
+
 ### RestoreParameters
 
 The `RestoreParameters` resource contains the restore operation details including, the account ID, the time to restore, and resources that need to be restored.
@@ -42,6 +44,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 | ``restoreTimestampInUtc`` | Point in time in UTC to restore the account. |
 | ``databasesToRestore`` | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database. For more information, see [restorable SQL resources](#restorable-sql-resources). If this value is empty, then the entire account is restored. |
 | ``gremlinDatabasesToRestore`` | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database. For more information, see [restorable Gremlin resources](#restorable-graph-resources). If this value is empty, then the entire account is restored. |
+| ``restoreWithTtlDisabled`` |  boolean flag values (true/false) to disable Time-To-Live in the restored account upon completion of the restore. (preview)  | 
 | ``tablesToRestore`` | List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database. For more information, see [restorable Table resources](#restorable-table-resources). If this value is empty, then the entire account is restored. |
 
 ### Sample resource
@@ -61,8 +64,10 @@ The following JSON is a sample database account resource with continuous backup 
       }
     ],
     "createMode": "Restore",
+    "publicNetworkAccess":"Disabled",
     "restoreParameters": {
       "restoreMode": "PointInTime",
+      "restoreWithTtlDisabled" : "true",
       "restoreSource": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
       "restoreTimestampInUtc": "2020-06-11T22:05:09Z",
       "databasesToRestore": [
@@ -84,7 +89,7 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
-      ....
+      ...
     }
   }
 }

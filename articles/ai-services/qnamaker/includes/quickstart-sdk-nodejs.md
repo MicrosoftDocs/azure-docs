@@ -2,8 +2,8 @@
 title: "Quickstart: QnA Maker client library for Node.js"
 description: This quickstart shows how to get started with the QnA Maker client library for Node.js.
 ms.topic: include
-ms.date: 06/18/2020
-ms.custom: devx-track-js, ignite-fall-2021
+ms.date: 01/19/2024
+ms.custom: devx-track-js
 ---
 
 Use the QnA Maker client library for Node.js to:
@@ -19,7 +19,7 @@ Use the QnA Maker client library for Node.js to:
 
 [Reference documentation](/javascript/api/@azure/cognitiveservices-qnamaker/) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [Custom subdomains notice](../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB for MongoDB"
+title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB for MongoDB RU"
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB online by using Azure Database Migration Service.
+description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB for MongoDB RU online by using Azure Database Migration Service.
 author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
@@ -9,21 +9,20 @@ ms.date: 09/21/2021
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-nov-2020
-  - ignite-2022
   - sql-migration-content
+  - ignite-2023
 ---
 
-# Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB online using DMS
-[!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb.md)]
+# Tutorial: Migrate MongoDB to Azure Cosmos DB for MongoDB RU online using Azure Database Migration Service
+
+[!INCLUDE[appliesto-mongodb-api](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]
-> Please read this entire guide before carrying out your migration steps.
->
+> Please read this entire guide before carrying out your migration steps. Azure Database Migration Service does not currently support migrations to an Azure Cosmos DB for MongoDB vCore account.
 
 This MongoDB migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](../cosmos-db/mongodb-pre-migration.md), migration, and [post-migration](../cosmos-db/mongodb-post-migration.md), as shown below.
 
-![Diagram of migration steps.](../cosmos-db/mongodb/media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of online data migration from MongoDB to Azure Cosmos DB using DMS
 
@@ -50,7 +49,7 @@ In this tutorial, you migrate a dataset in MongoDB hosted in an Azure virtual ma
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article describes an online migration from MongoDB to Azure Cosmos DB for MongoDB. For an offline migration, see [Migrate MongoDB to Azure Cosmos DB for MongoDB offline using DMS](tutorial-mongodb-cosmos-db.md).
 
@@ -91,7 +90,7 @@ And if it is *Disabled*, then we recommend you enable it as shown below
 
 ![Screenshot of MongoDB Server-Side Retry enable.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)] 
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)] 
 
 ## Create an instance
 

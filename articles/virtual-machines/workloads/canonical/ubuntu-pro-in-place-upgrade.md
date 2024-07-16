@@ -4,7 +4,7 @@ description: Learn how to do an in-place upgrade from Ubuntu Server to Ubuntu Pr
 author: anujkmaurya
 ms.service: virtual-machines
 ms.subservice: billing
-ms.custom: devx-track-linux, devx-track-azurecli, linux-related-content
+ms.custom: linux-related-content, devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 9/12/2023
@@ -22,6 +22,10 @@ their servers from Ubuntu 18.04 LTS now that it's reached End of Life (EOL).
 > [out of standard support][01]. This means that Canonical will no longer offer technical support,
 > software updates, or security patches for this version. Customers wishing to continue using Ubuntu
 > 18.04 LTS need to upgrade to Ubuntu Pro for continued supportability.
+
+## Limitations
+- Only Ubuntu images **published by Canonical** can be converted to "UBUNTU_PRO"
+- Images published by other vendors or custom images are not supported
 
 ## What's Ubuntu Pro?
 
@@ -51,9 +55,11 @@ packages.
 - Portability: Ubuntu is available in all regions with content mirrors to reduce the need to go across regions or out to the Internet for updates
 - Consistent experience across platforms: from edge to multicloud, Ubuntu provides the same experience regardless of the platform. It ensures consistency of your CI/CD pipelines and management mechanisms.
 
-> [!NOTE]
+> [!IMPORTANT]
 > This document provides instructions to upgrade Ubuntu Server (16.04 or higher) to
-> Ubuntu Pro. Converting to Ubuntu Pro is an irreversible process.
+> Ubuntu Pro.
+> 
+> Converting to Ubuntu Pro is an **irreversible** process.
 
 ## Convert to Ubuntu Pro using the Azure CLI
 
@@ -68,8 +74,12 @@ Execute these commands inside the VM:
 ```bash
 sudo apt install ubuntu-advantage-tools
 sudo pro auto-attach
+
+
 ```
 
+> [!IMPORTANT]
+> The change of the "licenseType" property may take some time to propagate thru the system. If the auto-attach process fails, please wait for a few minutes and try again. If the auto-attach process continues to fail, please open a support ticket with Microsoft.
 If the `pro --version` is lower than 28, execute this command:
 
 ```bash
@@ -99,7 +109,7 @@ You can create a new VM using the Ubuntu Server images and apply Ubuntu Pro at t
 The following command enables Ubuntu Pro on a virtual machine in Azure:
 
 ```Azure CLI
-az vm update -g myResourceGroup -n myVmName --license-type UBUNTU_PRO
+az vm create -g myResourceGroup -n myVmName --license-type UBUNTU_PRO --image ubuntu2204
 ```
 
 Execute these commands inside the VM:
@@ -170,4 +180,4 @@ However, this action only applies if they're using version 28 of the Pro client.
 [04]: https://ubuntu.com/security/livepatch/docs
 [05]: https://help.ubuntu.com/community/Repositories
 [06]: https://ubuntu.com/tutorials/comply-with-cis-or-disa-stig-on-ubuntu#1-overview
-[07]: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements.html
+[07]: https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/

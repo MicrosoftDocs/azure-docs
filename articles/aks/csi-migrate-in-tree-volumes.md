@@ -2,9 +2,9 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 07/26/2023
+ms.date: 01/11/2024
 author: mgoedtel
-
+ms.subservice: aks-storage
 ---
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
@@ -110,7 +110,7 @@ The following are important considerations to evaluate:
         i=$((i + 1))
       else
         PVC_CREATION_TIME=$(kubectl get pvc  $PVC -n $NAMESPACE -o jsonpath='{.metadata.creationTimestamp}')
-        if [[ $PVC_CREATION_TIME > $STARTTIMESTAMP ]]; then
+        if [[ $PVC_CREATION_TIME >= $STARTTIMESTAMP ]]; then
           if [[ $ENDTIMESTAMP > $PVC_CREATION_TIME ]]; then
             PV="$(kubectl get pvc $PVC -n $NAMESPACE -o jsonpath='{.spec.volumeName}')"
             RECLAIM_POLICY="$(kubectl get pv $PV -n $NAMESPACE -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
@@ -183,7 +183,7 @@ The following are important considerations to evaluate:
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - The CSI storage driver-based StorageClass, which can be either one of the default storage classes that have the provisioner set to **disk.csi.azure.com** or **file.csi.azure.com**. Or you can create a custom storage class as long as it is set to either one of those two provisioners. 
-   * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
+   * `startTimeStamp` - Provide a start time **before** PVC creation time in the format **yyyy-mm-ddthh:mm:ssz**
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
     ```bash
@@ -515,7 +515,7 @@ Migration from in-tree to CSI is supported by creating a static volume:
 - Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster
+[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-cluster-access
 [azure-resource-locks]: ../azure-resource-manager/management/lock-resources.md
 [csi-driver-overview]: csi-storage-drivers.md
 [aks-storage-backups-best-practices]: operator-best-practices-storage.md

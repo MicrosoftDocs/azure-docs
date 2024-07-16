@@ -2,27 +2,21 @@
 title: Configure cloud metrics and logs for Azure API Management self-hosted gateway | Microsoft Docs
 description: Learn how to configure cloud metrics and logs for Azure API Management self-hosted gateway
 services: api-management
-documentationcenter: ''
 author: dlepow
 manager: gwallace
-editor: ''
-
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: danlep
-
 ---
 
 # Configure cloud metrics and logs for Azure API Management self-hosted gateway
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 This article provides details for configuring cloud metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md).
 
 The self-hosted gateway has to be associated with an API management service and requires outbound TCP/IP connectivity to Azure on port 443. The gateway leverages the outbound connection to send telemetry to Azure, if configured to do so. 
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Metrics
 By default, the self-hosted gateway emits a number of metrics through [Azure Monitor](https://azure.microsoft.com/services/monitor/), same as the managed gateway [in the cloud](api-management-howto-use-azure-monitor.md). 

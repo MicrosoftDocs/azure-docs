@@ -5,7 +5,7 @@ description: Learn how to copy and transform data from Microsoft 365 (Office 365
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
 ms.author: jianleishen
@@ -29,7 +29,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
@@ -59,7 +59,7 @@ To copy and transform data from Microsoft 365 (Office 365) into Azure, you need 
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request.
 
 
 ## Getting started
@@ -361,5 +361,5 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

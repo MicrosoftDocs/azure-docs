@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Process data by running U-SQL scripts on Azure Data Lake Analytics with Azure Data Factory and Synapse Analytics
@@ -191,7 +191,7 @@ It is possible to use dynamic parameters instead. For example:
 
 In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the window start time being passed in when pipeline gets triggered.  
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [Hive activity](transform-data-using-hadoop-hive.md)

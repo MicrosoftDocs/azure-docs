@@ -1,13 +1,13 @@
 ---
 title: Product updates for Azure Cosmos DB for PostgreSQL
-description: Release notes, new features and features in preview
+description: Release notes, new features, and features in preview
 ms.author: nlarin
 author: niklarin
 ms.custom: mvc, references_regions
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2023
+ms.date: 07/07/2024
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -21,6 +21,42 @@ Azure Cosmos DB for PostgreSQL gets updated regularly.
 Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
 
 Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### July 2024
+* [MD5 hashing is disabled](./reference-limits.md#security) in Azure Cosmos DB for PostgreSQL.
+
+### May 2024
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.19, 13.15, 14.12, 15.7, and 16.3) are now available.
+    * [The last update for PostgreSQL 11](./reference-versions.md#postgresql-version-11-and-older) was released by community in November 2023.
+
+
+### March 2024
+* General availability: [Oracle's compatibility functions and packages enablement via orafce extension](reference-extensions.md#functions-extensions).
+
+### February 2024
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (12.18, 13.14, 14.11, 15.6, and 16.2) are now available.
+    * [The last update for PostgreSQL 11](./reference-versions.md#postgresql-version-11-and-older) was released by community in November 2023.
+* General availability: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles in [all supported regions](./resources-regions.md).
+
+### January 2024
+* General availability: [32 TiB storage per node for multi-node configurations](./resources-compute.md#multi-node-cluster) in all supported regions.
+    * See [how to get the most out of storage](./resources-compute.md#maximum-iops-for-your-compute--storage-configuration)
+* General availability: Geo-redundant backup and restore
+    * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md#backup-redundancy)
+
+### December 2023
+* Preview: [PgBouncer](./concepts-connection-pool.md) is now supported with [Microsoft Entra ID authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview).
+* General availability: Azure Cosmos DB for PostgreSQL is now available in Poland Central and South India.
+    * See [all supported regions](./resources-regions.md).
+
+### November 2023
+* General availability: [Availability zone (AZ) outage resiliency](./concepts-availability-zones.md) is now supported in [select regions](./resources-regions.md)
+* General availability: [The latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.22, 12.17, 13.13, 14.10, 15.5, and 16.1) are now available in all supported regions.
+* PostgreSQL 16 is now the default Postgres version for Azure Cosmos DB for PostgreSQL in Azure portal.
+    * Learn how to do [in-place upgrade of major PostgreSQL versions](./howto-upgrade.md) in Azure Cosmos DB for PostgreSQL.
+* Retirement: As of November 9, 2023, PostgreSQL 11 is unsupported by PostgreSQL community.
+    * See [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
+    * See [restrictions](./reference-versions.md#retired-postgresql-engine-versions-not-supported-in-azure-cosmos-db-for-postgresql) that apply to the retired PostgreSQL major versions in Azure Cosmos DB for PostgreSQL.
 
 ### October 2023
 * General availability: Azure SDKs are now generally available for all Azure Cosmos DB for PostgreSQL management operations supported in REST APIs.
@@ -39,7 +75,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 	* See all supported PostgreSQL versions [here](./reference-versions.md#postgresql-versions).
 	* [Upgrade to PostgreSQL 16](./howto-upgrade.md)
 * General availability: [Citus 12.1 with new features and PostgreSQL 16 support](https://www.citusdata.com/updates/v12-1).
-* General availability: Data encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) (CMK) is now supported for all available regions.
+* General availability: Data encryption at rest using [Customer Managed Keys (CMK)](./concepts-customer-managed-keys.md) is now supported for all available regions.
    * See [this guide](./how-to-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 * Preview: Geo-redundant backup and restore
     * Learn more about [backup and restore Azure Cosmos DB for PostgreSQL](./concepts-backup.md)
@@ -56,7 +92,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 * General availability: Citus 12 is now available in [all supported regions](./resources-regions.md) with PostgreSQL 14 and PostgreSQL 15.
     * Check [what's new in Citus 12](https://www.citusdata.com/updates/v12-0/).
     * See [Postgres and Citus version in-place upgrade](./concepts-upgrade.md).
-* Preview: [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview) is now supported in addition to Postgres roles.
+* Preview: [Microsoft Entra authentication](./concepts-authentication.md#microsoft-entra-id-authentication-preview) is now supported in addition to Postgres roles.
 * Preview: Azure CLI is now supported for all Azure Cosmos DB for PostgreSQL management operations.
     * See [details](/cli/azure/cosmosdb/postgres).
 
@@ -67,7 +103,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
     * [Java (preview)](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmosdbforpostgresql/1.0.0-beta.1/overview)
     * [JavaScript (preview)](https://www.npmjs.com/package/@azure/arm-cosmosdbforpostgresql/v/1.0.0-beta.1)
     * [Python (preview)](https://pypi.org/project/azure-mgmt-cosmosdbforpostgresql/1.0.0b1/)
-* General availability: Terraform support is now available for all cluster management operations. See the following pages for details:
+* General availability: [Terraform support](./reference-terraform.md) is now available for all cluster management operations. See the following pages for details:
     * [Cluster management](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_cluster)
     * [Worker node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_node_configuration)
     * [Coordinator / single node configuration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_postgresql_coordinator_configuration)
@@ -152,13 +188,11 @@ Azure Cosmos DB for PostgreSQL offers
 previews for unreleased features. Preview versions are provided
 without a service level agreement, and aren't recommended for
 production workloads. Certain features might not be supported or
-might have constrained capabilities.  For more information, see
+might have capabilities with limitations. For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-* [Geo-redundant backup and restore](./concepts-backup.md#backup-redundancy)
-* [32 TiB storage per node in multi-node clusters](./resources-compute.md#multi-node-cluster)
-* [Microsoft Entra authentication](./concepts-authentication.md#azure-active-directory-authentication-preview)
+* There are no features in preview at this time.
 
 ## Contact us
 

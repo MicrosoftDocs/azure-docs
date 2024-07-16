@@ -34,7 +34,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 - Linux:
    - Syslog – to eventhub and storage
    - Perf counters – to eventhub and storage
-   - Custom Logs / Log files – to eventhub and storage
+   - Custom Logs / Log files – to storage
 
 ### Operating systems
 
@@ -53,7 +53,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 ## Prerequisites
 
-A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
+A managed identity (either system or user) associated with the resources below. We highly recommend using [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for better scalability and performance.
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
@@ -229,7 +229,7 @@ Create a data collection rule for collecting events and sending to storage and e
             },
             {
                 "streams": [
-                "Microsoft-WindowsEvent"
+                "Microsoft-Event"
                 ],
                 "destinations": [
                 "myEh1",
@@ -375,7 +375,7 @@ Create a data collection rule for collecting events and sending to storage and e
                                     "news",
                                     "syslog",
                                     "user",
-                                    "UUCP"
+                                    "uucp"
                                 ],
                 "logLevels": [
                                     "Debug",
@@ -522,7 +522,7 @@ Create a data collection rule for collecting events and sending to storage and e
 
 1. Select **Save**.
 
-## Create DCR association and deploy AzureMonitorAgent
+## Create DCR association and deploy Azure Monitor Agent
 
 Use custom template deployment to create the DCR association and AMA deployment.
 
@@ -534,7 +534,9 @@ Use custom template deployment to create the DCR association and AMA deployment.
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
 
-1. Paste this Azure Resource Manager template into the editor:
+1. Paste this Azure Resource Manager template into the editor.
+
+    ### [Windows](#tab/windows-1)
 
     ```json
     {
@@ -600,7 +602,7 @@ Use custom template deployment to create the DCR association and AMA deployment.
             "settings": {
             "authentication": {
                 "managedIdentity": {
-                "identifier-type": "mi_res_id",
+                "identifier-name": "mi_res_id",
                 "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
                 }
             }
@@ -611,6 +613,84 @@ Use custom template deployment to create the DCR association and AMA deployment.
     }
     ```
 
+    ### [Linux](#tab/linux-1)
+
+    ```json
+    {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+        "defaultValue": "[concat(resourceGroup().name, 'vm')]",
+        "type": "String"
+        },
+        "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+            "description": "Location for all resources."
+        }
+        },
+        "dataCollectionRulesName": {
+        "defaultValue": "[concat(resourceGroup().name, 'DCR')]",
+        "type": "String",
+        "metadata": {
+            "description": "Data Collection Rule Name"
+        }
+        },
+        "dcraName": {
+        "type": "string",
+        "defaultValue": "[concat(uniquestring(resourceGroup().id), 'DCRLink')]",
+        "metadata": {
+            "description": "Name of the association."
+        }
+        },
+        "identityName": {
+        "type": "string",
+        "defaultValue": "[concat(resourceGroup().name, 'UAI')]",
+        "metadata": {
+            "description": "Managed Identity"
+        }
+        }
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations",
+        "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('dcraName'))]",
+        "apiVersion": "2021-04-01",
+        "properties": {
+            "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+            "dataCollectionRuleId": "[resourceID('Microsoft.Insights/dataCollectionRules',parameters('dataCollectionRulesName'))]"
+        }
+        },
+        {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('vmName'), '/AMAExtension')]",
+        "apiVersion": "2020-06-01",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations', parameters('vmName'), 'Microsoft.Insights', parameters('dcraName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.Azure.Monitor",
+            "type": "AzureMonitorLinuxAgent",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+            "authentication": {
+                "managedIdentity": {
+                "identifier-name": "mi_res_id",
+                "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
+                }
+            }
+            }
+        }
+        }
+    ]
+    }
+    ```
+    ---
+   
 1. Select **Save**.
 
 ## Troubleshooting
@@ -625,13 +705,13 @@ Use the following section to troubleshoot sending data to Event Hubs and Storage
 
 ### Data not found in storage account table storage
 
-- Check that the built-in role `Storage Table Data Contributor` is assigned with managed identity on storage account.
+- Check that the built-in role `Storage Table Data Contributor` is assigned with managed identity on the storage account.
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
 ### Data not flowing to event hub
 
-- Check that the built-in role `Azure Event Hubs Data Sender` is assigned with managed identity on storage account.
+- Check that the built-in role `Azure Event Hubs Data Sender` is assigned with managed identity on the event hub instance.
 - Check that the managed identity is assigned to the VM.
 - Check that the AMA settings have managed identity parameter.
 
@@ -659,4 +739,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
+- For more information on creating a data collection rule, see [Collect data from virtual machines using Azure Monitor Agent](./azure-monitor-agent-data-collection.md).

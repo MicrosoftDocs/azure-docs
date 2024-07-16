@@ -2,20 +2,24 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/01/2023
+ms.date: 02/05/2024
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - ignite-2023
 ---
 ::: zone pivot="programming-language-csharp"
-The following table shows the runtime and language versions supported for C# functions. Select your preferred development language at the top of the article. 
+The following table shows the .NET versions supported by Azure Functions. Select your preferred development language at the top of the article. 
 
-The supported version of .NET depends on both your Functions runtime version and your chosen .NET worker process model:
+The supported version of .NET depends on both your Functions runtime version and your chosen execution model:
 
 ### [Isolated worker model](#tab/isolated-process)
 
 Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
 ### [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
 Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
@@ -25,7 +29,10 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle)<sup>1</sup> | GA | November 10, 2026 |
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
+
+<sup>1</sup> Targeting .NET 8 with the in-process model is not yet enabled for Linux or for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
@@ -43,12 +50,14 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| .NET 8 | Preview<sup>*</sup> | N/A |
-| [.NET 7](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | May 14, 2024 |
-| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
-| .NET Framework 4.8 | GA | [See policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-framework)  |
+| .NET 8 | GA | [November 10, 2026][dotnet-policy] |
+| .NET 6 | GA | [November 12, 2024][dotnet-policy] |
+| .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
-<sup>*</sup> See [Preview .NET versions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#preview-net-versions) for details on support, current restrictions, and instructions for using the preview version.
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
+[dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -64,6 +73,7 @@ The following table shows the language versions supported for Java functions. Se
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
 | [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
 | [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
@@ -76,8 +86,8 @@ The following table shows the language versions supported for Node.js functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [Node.js 20](https://endoflife.date/nodejs) | Preview | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April, 2025|
+| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
+| [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
 | [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
 | [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
 
@@ -99,13 +109,10 @@ The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| Python 3.11 | GA | N/A |
-| Python 3.10 | GA | October, 2026 |
-| Python 3.9 | GA | October, 2025 |
-| Python 3.8 | GA | October, 2024 |
-| Python 3.7 | GA | June 27, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until September 30, 2023.
+| Python 3.11 | GA | October 2027 |
+| Python 3.10 | GA | October 2026 |
+| Python 3.9 | GA | October 2025 |
+| Python 3.8 | GA | October 2024 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

@@ -2,14 +2,11 @@
 title: Metrics and alerts - Azure DNS
 description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
-documentationcenter: na
 author: greg-lindsay
 manager: kumudD
 ms.service: dns
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ---
 

@@ -1,13 +1,11 @@
 ---
 title: Azure custom roles - Azure RBAC
 description: Learn how to create Azure custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 09/18/2023
+ms.date: 02/22/2024
 ms.author: rolyon
 ---
 
@@ -186,17 +184,23 @@ Just like built-in roles, the `AssignableScopes` property specifies the scopes t
 | Update a custom role | `Microsoft.Authorization/ roleDefinitions/write` | Users that are granted this action on all the `AssignableScopes` of the custom role can update custom roles in those scopes. For example, [Owners](built-in-roles.md#owner) and [User Access Administrators](built-in-roles.md#user-access-administrator) of management groups, subscriptions, and resource groups. |
 | View a custom role | `Microsoft.Authorization/ roleDefinitions/read` | Users that are granted this action at a scope can view the custom roles that are available for assignment at that scope. All built-in roles allow custom roles to be available for assignment. |
 
+> [!NOTE]  
+> Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
+
 ## Find role assignments to delete a custom role
 
 Before you can delete a custom role, you must remove any role assignments that use the custom role. If you try to delete a custom role with role assignments, you get the message: `There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)`.
 
 Here are steps to help find the role assignments before deleting a custom role:
 
-- List the [custom role definition](role-definitions-list.md).
+- List the [custom role definition](role-definitions-list.yml).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
-- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.md).
-- [Remove the role assignments](role-assignments-remove.md) that use the custom role.
+- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.yml).
+- [Remove the role assignments](role-assignments-remove.yml) that use the custom role.
+- If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
+
+For information about how to find unused custom roles, see [Symptom - No more role definitions can be created](troubleshoot-limits.md#symptom---no-more-role-definitions-can-be-created).
 
 ## Custom role limits
 
@@ -206,16 +210,11 @@ The following list describes the limits for custom roles.
 - Microsoft Azure operated by 21Vianet can have up to 2000 custom roles for each tenant.
 - You cannot set `AssignableScopes` to the root scope (`"/"`).
 - You cannot use wildcards (`*`) in `AssignableScopes`. This wildcard restriction helps ensure a user can't potentially obtain access to a scope by updating the role definition.
-- You can define only one management group in `AssignableScopes` of a custom role.
 - You can have only one wildcard in an action string.
-- Custom roles with `DataActions` can't be assigned at the management group scope.
+- You can define only one management group in `AssignableScopes` of a custom role.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's `AssignableScopes`.
-
-> [!IMPORTANT]
-> Custom roles with DataActions and management group AssignableScope is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-- You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription. This preview isn't available in Azure Government or Microsoft Azure operated by 21Vianet.
+- Custom roles with `DataActions` can't be assigned at the management group scope.
+- You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription.
 
 For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 

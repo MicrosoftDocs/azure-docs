@@ -2,8 +2,10 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 07/02/2024
 ms.service: backup
+ms.custom:
+  - ignite-2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -15,8 +17,23 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
-
+- July 2024
+  - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
+- May 2024
+  - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
+- March 2024
+  - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
+  - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
+  - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
+- January 2024
+  - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+- December 2023
+  - [Vaulted backup and Cross Region Restore for support for AKS (preview)](#vaulted-backup-and-cross-region-restore-for-support-for-aks-preview)
 - November 2023
+  - [Encryption using Customer Managed Keys for Backup vaults (preview)](#encryption-using-customer-managed-keys-for-backup-vaults-preview)
+  - [Back up Azure Database for PostgreSQL-Flexible server (preview)](#back-up-azure-database-for-postgresql-flexible-server-preview)
+  - [Azure Kubernetes Service backup is now generally available](#azure-kubernetes-service-backup-is-now-generally-available)
+  - [Manage protection of datasources using Azure Business Continuity center (preview)](#manage-protection-of-datasources-using-azure-business-continuity-center-preview)
   - [Save your MARS backup passphrase securely to Azure Key Vault is now generally available.](#save-your-mars-backup-passphrase-securely-to-azure-key-vault-is-now-generally-available)
   - [Update Rollup 1 for Microsoft Azure Backup Server v4 is now generally available](#update-rollup-1-for-microsoft-azure-backup-server-v4-is-now-generally-available)
   - [SAP HANA instance snapshot backup support is now generally available](#sap-hana-instance-snapshot-backup-support-is-now-generally-available)
@@ -72,6 +89,98 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available
+
+Azure Backup now allows you to back up the Azure Virtual Machines that use disks with private endpoints (disk access). This support is extended for Virtual Machines that are backed up using Enhanced backup policies, along with the existing support for those that were backed up using Standard backup policies. While initiating the restore operation, you can specify the network access settings required for the restored disks. You can choose to keep the network configuration of the restored disks the same as that of the source disks, specify the access from specific networks only, or allow public access from all networks.
+ 
+For more information, see [Assign network access settings during restore](backup-azure-arm-restore-vms.md#assign-network-access-settings-during-restore).
+
+## Migration of Azure VM backups from standard to enhanced policy (preview)
+
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+
+For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
+
+## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
+
+Azure Backup now supports agentless VM backups by using multi-disk crash-consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
+
+For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+
+## Azure Files vaulted backup (preview)
+
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
+
+By using vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for up to *99 years*. If any data loss occurs on the source account, you can trigger a restore operation to an alternate account and access your data. Additionally, you can use Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich *Alerting* and *Reporting* capabilities of Azure Backup.
+
+If you're currently using snapshot-based backups, we recommend that you try vaulted backups (preview) for complete protection from different data loss scenarios.
+
+>[!Note]
+>Switching to vaulted backups (preview) doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
+
+For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
+
+## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
+
+Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
+
+- Comprehensive data protection for different levels of data loss due to  accidental deletions or ransomware attacks.
+- Customer controlled scheduled and on-demand backups.
+- Isolated backups stored in a separate security and fault domain.
+- Long-term retention of backups.
+- Centralized monitoring of all backup operations and jobs.
+
+Azure Backup and Azure Database services together help you build an enterprise-class backup solution for Azure MySQL - Flexible Server. You can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years. This feature allows you to back up the entire MySQL - Flexible Server to long-term Azure Backup vault storage. You  can also restore the backups to your storage account and use the native MySQL tools to re-create the MySQL Server. Currently, you can use the Azure portal to perform the MySQL - Flexible Server database protection operations.
+
+For more information, see [About Azure Database for MySQL - Flexible Server retention for long term (preview)](backup-azure-mysql-flexible-server-about.md).
+
+## Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available
+
+Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.
+
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
+
+## Vaulted backup and Cross Region Restore for support for AKS (preview)
+ 
+Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
+
+Once the feature is enabled, your snapshot-based AKS backups stored in Operational Tier are converted into blobs and moved to a Vault-standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your backup policy. This feature also allows you to back up data for long term storage as per the compliance and regulatory requirements. With this feature, you can also enable a Backup vault to be *Globally redundant* with *Cross Region Restore*, and then your vaulted backups will be available in an Azure Paired region for restore. In case of primary region outage, you can use these backups to restore your AKS clusters in a secondary region.
+
+For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+
+## Encryption using Customer Managed Keys for Backup vaults (preview)
+
+Azure Backup Vault now allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which are enabled by default. This feature enables you to control data access using the key and Key Vault you provide.
+
+For more information, see [Encryption of backup data in the Backup vault using customer-managed keys (preview)](encryption-at-rest-with-cmk-for-backup-vault.md).
+
+## Back up Azure Database for PostgreSQL-Flexible server (preview) 
+
+Azure Backup and Azure Database services together help you to build an enterprise-class backup solution for Azure PostgreSQL-Flexible server. You can meet your data protection and compliance needs with an end-user-controlled backup policy that enables retention of backups for up to 10 years. 
+
+With this, you can back up the entire PostgreSQL Flexible server to Azure Backup Vault storage. These backups can be restored to a target storage account, and you can use native PostgreSQL tools to re-create the PostgreSQL Server.
+
+For more information, see [Azure Database for PostgreSQL Flexible server (preview)](backup-azure-database-postgresql-flex-overview.md).
+
+## Azure Kubernetes Service backup is now generally available
+
+Azure Kubernetes Service (AKS) backup is a simple, cloud-native process to back up and restore the containerized applications and data running in AKS clusters. You can configure scheduled backup for both cluster state and application data (persistent volumes - CSI driver based Azure Disks). 
+
+The solution provides granular control to choose a specific namespace or an entire cluster to back up or restore with the ability to store backups locally in a blob container and as disk snapshots. With AKS backup, you can unlock end-to-end scenarios - operational recovery, cloning test or developer environments, or cluster upgrade scenarios. 
+
+AKS backup integrates with [Backup center](backup-center-overview.md) (with other backup management capabilities) to provide a single pane of glass that helps you govern, monitor, operate, and analyze backups at scale.
+
+If you're running specialized database workloads in the AKS clusters in containers, you can achieve application consistent backups of those databases with Custom Hooks. Once the backup is complete, you can restore those databases in the original or alternate AKS cluster, in the same or different subscription.
+
+For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+
+## Manage protection of datasources using Azure Business Continuity center (preview)
+
+You can now also manage Azure Backup protections with Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. 
+
+For more information, see the [supported scenarios of ABC center (preview)](../business-continuity-center/business-continuity-center-support-matrix.md).
+
+
 ## Save your MARS backup passphrase securely to Azure Key Vault is now generally available.
 
 Azure Backup now allows you to save the MARS passphrase to Azure Key Vault automatically from the MARS console during registration or changing passphrase with MARS agent.
@@ -89,12 +198,11 @@ Azure Backup now provides Update Rollup 1 for Microsoft Azure Backup Server (MAB
 
 For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
 
-
 ## SAP HANA instance snapshot backup support is now generally available
 
 Azure Backup now supports SAP HANA instance snapshot backup and enhanced restore, which provides a cost-effective backup solution using managed disk incremental snapshots. Because instant backup uses snapshot, the effect on the database is minimum. 
 
- You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot.
+You can now take an instant snapshot of the entire HANA instance and backup- logs for all databases, with a single solution. It also enables you to do an instant restore of the entire instance with point-in-time recovery using logs over the snapshot.
 
 >[!Note]
 >- Currently, the snapshots are stored on your storage account/operational tier and isn't stored in Recovery Services vault.
@@ -132,7 +240,7 @@ For more information, see [Save and manage MARS agent passphrase securely in Azu
 
 You can now restore data from the secondary region for MARS Agent backups using Cross Region Restore on Recovery Services vaults with Geo-redundant storage (GRS) replication. You can use this capability to do recovery drills from the secondary region for audit or compliance. If disasters cause partial or complete unavailability of the primary region, you can directly access the  backup data from the secondary region.
 
-For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore-preview).
+For more information, see [Cross Region Restore for MARS (preview)](about-restore-microsoft-azure-recovery-services.md#cross-region-restore).
 
 ## SAP HANA System Replication database backup support is now generally available
 
@@ -146,7 +254,7 @@ For more information, see [Back up a HANA system with replication enabled](sap-h
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region.
 
-For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup-preview).
+For more information, see [Cross Region Restore support for PostgreSQL using Azure Backup](backup-vault-overview.md#cross-region-restore-support-for-postgresql-using-azure-backup).
 
 ## Microsoft Azure Backup Server v4 is now generally available
 
@@ -353,7 +461,7 @@ Azure Backup now provides enhanced capabilities (in preview) to manage encryptio
 >[!NOTE]
 >- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 >- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
->- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policies-to-audit-and-enforce-encryption-with-customer-managed-keys-in-preview).
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policy-to-audit-and-enforce-encryption-via-customer-managed-keys-in-preview).
 
 For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 

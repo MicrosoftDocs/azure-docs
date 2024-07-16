@@ -1,11 +1,11 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: travisw
 ms.author: travisw
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 08/29/2023
+ms.date: 03/07/2024
 ---
 
 [!INCLUDE [Set up required variables](./use-your-data-common-variables.md)]
@@ -22,62 +22,44 @@ using Azure.AI.OpenAI;
 using System.Text.Json;
 using static System.Environment;
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string deploymentName = GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_ID");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 
-var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
+#pragma warning disable AOAI001
+AzureOpenAIClient azureClient = new(
+    new Uri(azureOpenAIEndpoint),
+    new AzureKeyCredential(azureOpenAIKey));
+ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
+ChatCompletionOptions options = new();
+options.AddDataSource(new AzureSearchChatDataSource()
 {
-    Messages =
-    {
-        new ChatMessage(ChatRole.User, "What are the differences between Azure Machine Learning and Azure AI services?"),
-    },
-    AzureExtensionsOptions = new AzureChatExtensionsOptions()
-    {
-        Extensions =
-        {
-            new AzureCognitiveSearchChatExtensionConfiguration()
-            {
-                SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
-                IndexName = searchIndex,
-            },
-        }
-    }
-};
+    Endpoint = new Uri(searchEndpoint),
+    IndexName = searchIndex,
+    Authentication = DataSourceAuthentication.FromApiKey(searchKey),
+});
 
-Response<ChatCompletions> response = client.GetChatCompletions(deploymentName, chatCompletionsOptions);
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new UserChatMessage("What are my available health plans?"),
+    ], options);
 
-ChatMessage responseMessage = response.Value.Choices[0].Message;
+Console.WriteLine(completion.Content[0].Text);
 
-Console.WriteLine($"Message from {responseMessage.Role}:");
-Console.WriteLine("===");
-Console.WriteLine(responseMessage.Content);
-Console.WriteLine("===");
+AzureChatMessageContext onYourDataContext = completion.GetAzureMessageContext();
 
-Console.WriteLine($"Context information (e.g. citations) from chat extensions:");
-Console.WriteLine("===");
-foreach (ChatMessage contextMessage in responseMessage.AzureExtensionsContext.Messages)
+if (onYourDataContext?.Intent is not null)
 {
-    string contextContent = contextMessage.Content;
-    try
-    {
-        var contextMessageJson = JsonDocument.Parse(contextMessage.Content);
-        contextContent = JsonSerializer.Serialize(contextMessageJson, new JsonSerializerOptions()
-        {
-            WriteIndented = true,
-        });
-    }
-    catch (JsonException)
-    {}
-    Console.WriteLine($"{contextMessage.Role}: {contextContent}");
+    Console.WriteLine($"Intent: {onYourDataContext.Intent}");
 }
-Console.WriteLine("===");
+foreach (AzureChatCitation citation in onYourDataContext?.Citations ?? [])
+{
+    Console.WriteLine($"Citation: {citation.Content}");
+}
 ```
 
 > [!IMPORTANT]
@@ -90,30 +72,16 @@ dotnet run program.cs
 ## Output
 
 ```output
-Answer from assistant:
-===
-Azure Machine Learning is a cloud-based service that provides tools and services to build, train, and deploy machine learning models. It offers a collaborative environment for data scientists, developers, and domain experts to work together on machine learning projects. Azure Machine Learning supports various programming languages, frameworks, and libraries, including Python, R, TensorFlow, and PyTorch [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-  "citations": [
-    {
-      "content": "...",
-      "id": null,
-      "title": "...",
-      "filepath": "...",
-      "url": "...",
-      "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-      },
-      "chunk_id": "2"
-    },
-    ...
-  ],
-  "intent": "[\u0022What are the differences between Azure Machine Learning and Azure AI services?\u0022]"
-}
-===
+Contoso Electronics offers two health plans: Northwind Health Plus and Northwind Standard [doc1]. Northwind Health Plus is a comprehensive plan that provides coverage for medical, vision, and dental services, prescription drug coverage, mental health and substance abuse coverage, and coverage for preventive care services. It also offers coverage for emergency services, both in-network and out-of-network. On the other hand, Northwind Standard is a basic plan that provides coverage for medical, vision, and dental services, prescription drug coverage, and coverage for preventive care services. However, it does not offer coverage for emergency services, mental health and substance abuse coverage, or out-of-network services [doc1].
+
+Intent: ["What are the available health plans?", "List of health plans available", "Health insurance options", "Types of health plans offered"]
+
+Citation:
+Contoso Electronics plan and benefit packages
+
+Thank you for your interest in the Contoso electronics plan and benefit packages. Use this document to
+
+learn more about the various options available to you...// Omitted for brevity
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *Program.cs* with the code in the next example.
@@ -123,81 +91,64 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
-using System.Text.Json;
+using Azure.AI.OpenAI.Chat;
+using OpenAI.Chat;
 using static System.Environment;
 
-string endpoint = GetEnvironmentVariable("AOAIEndpoint");
-string key = GetEnvironmentVariable("AOAIKey");
+string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
+string azureOpenAIKey = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
+string deploymentName = GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT_ID");
+string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
+string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
+string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 
-var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
+#pragma warning disable AOAI001
 
-string azureOpenAIEndpoint = GetEnvironmentVariable("AOAIEndpoint");
-string azureOpenAIKey = GetEnvironmentVariable("AOAIKey");
-string searchEndpoint = GetEnvironmentVariable("SearchEndpoint");
-string searchKey = GetEnvironmentVariable("SearchKey");
-string searchIndex = GetEnvironmentVariable("SearchIndex");
-string deploymentName = GetEnvironmentVariable("AOAIDeploymentId");
+AzureOpenAIClient azureClient = new(
+    new Uri(azureOpenAIEndpoint),
+    new AzureKeyCredential(azureOpenAIKey));
+ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
-var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
-
-var chatCompletionsOptions = new ChatCompletionsOptions()
+ChatCompletionOptions options = new();
+options.AddDataSource(new AzureSearchChatDataSource()
 {
-    Messages =
-    {
-        new ChatMessage(ChatRole.User, "What are the differences between Azure Machine Learning and Azure AI services?"),
-    },
-    AzureExtensionsOptions = new AzureChatExtensionsOptions()
-    {
-        Extensions =
-        {
-            new AzureCognitiveSearchChatExtensionConfiguration()
-            {
-                SearchEndpoint = new Uri(searchEndpoint),
-                SearchKey = new AzureKeyCredential(searchKey),
-                IndexName = searchIndex,
-            },
-        }
-    }
-};
+    Endpoint = new Uri(searchEndpoint),
+    IndexName = searchIndex,
+    Authentication = DataSourceAuthentication.FromApiKey(searchKey),
+});
 
-Response<StreamingChatCompletions> response = await client.GetChatCompletionsStreamingAsync(
-    deploymentName,
-    chatCompletionsOptions);
+var chatUpdates = chatClient.CompleteChatStreamingAsync(
+    [
+        new UserChatMessage("What are my available health plans?"),
+    ], options);
 
-using StreamingChatCompletions streamingChatCompletions = response.Value;
-
-await foreach (StreamingChatChoice streamingChatChoice in streamingChatCompletions.GetChoicesStreaming())
+AzureChatMessageContext onYourDataContext = null;
+await foreach (var chatUpdate in chatUpdates)
 {
-    await foreach (ChatMessage chatMessage in streamingChatChoice.GetMessageStreaming())
+    if (chatUpdate.Role.HasValue)
     {
-        if (chatMessage.Role != default)
-        {
-            Console.WriteLine($"Message from {chatMessage.Role}: ");
-        }
-        if (chatMessage.Content != default)
-        {
-            Console.Write(chatMessage.Content);
-        }
-        if (chatMessage.AzureExtensionsContext != default)
-        {
-            Console.WriteLine($"Context information (e.g. citations) from chat extensions:");
-            foreach (var contextMessage in chatMessage.AzureExtensionsContext.Messages)
-            {
-                string contextContent = contextMessage.Content;
-                try
-                {
-                    var contextMessageJson = JsonDocument.Parse(contextMessage.Content);
-                    contextContent = JsonSerializer.Serialize(contextMessageJson, new JsonSerializerOptions()
-                    {
-                        WriteIndented = true,
-                    });
-                }
-                catch (JsonException)
-                {}
-                Console.WriteLine($"{contextMessage.Role}: {contextContent}");
-            }
-        }
+        Console.WriteLine($"{chatUpdate.Role}: ");
     }
+
+    foreach (var contentPart in chatUpdate.ContentUpdate)
+    {
+        Console.Write(contentPart.Text);
+    }
+
+    if (onYourDataContext == null)
+    {
+        onYourDataContext = chatUpdate.GetAzureMessageContext();
+    }
+}
+
+Console.WriteLine();
+if (onYourDataContext?.Intent is not null)
+{
+    Console.WriteLine($"Intent: {onYourDataContext.Intent}");
+}
+foreach (AzureChatCitation citation in onYourDataContext?.Citations ?? [])
+{
+    Console.Write($"Citation: {citation.Content}");
 }
 ```
 

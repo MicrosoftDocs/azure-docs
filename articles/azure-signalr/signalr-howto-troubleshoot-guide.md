@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 07/02/2024
 ms.author: lianwei
 ms.devlang: csharp
 ---
@@ -164,9 +164,9 @@ For **Standard** instances, **concurrent** connection count limit **per unit** i
 
 The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
 
-### Too many negotiate requests at the same time
+### NegotiateThrottled
 
-We suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
+When there are too many client negotiate requests at the **same** time, it may get throttled. The limit relates to the unit counts that more units has a higher limit. Besides, we suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -447,7 +447,7 @@ Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samp
 
 * [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
+* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net70/wwwroot/js/chat.js)
 
 * [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 

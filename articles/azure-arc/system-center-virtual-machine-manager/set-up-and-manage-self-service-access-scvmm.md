@@ -1,13 +1,13 @@
 ---
 title: Set up and manage self-service access to SCVMM resources
-description: Learn how to switch to the new preview version and use its capabilities
+description: This article describes how to use built-in roles to manage granular access to SCVMM resources through Azure Role-based Access Control (RBAC).
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to 
-ms.date: 10/18/2023
+ms.date: 11/15/2023
 keywords: "VMM, Arc, Azure"
 ---
 
@@ -18,7 +18,7 @@ Once your SCVMM resources are enabled in Azure, as a final step, provide your te
 ## Prerequisites
 
 - Your SCVMM instance must be connected to Azure Arc.
-- Your SCVMM resources such as virtual machines, clouds, VM networks and VM templates must be Azure enabled.
+- Your SCVMM resources such as virtual machines, clouds, VM networks, and VM templates must be Azure enabled.
 - You must have **User Access Administrator** or **Owner** role at the scope (resource group/subscription) to assign roles to other users.
 
 ## Provide access to use Arc-enabled SCVMM resources
@@ -27,7 +27,7 @@ To provision SCVMM VMs and change their size, add disks, change network interfac
 
 You must assign this role to an individual cloud, VM network, and VM template that a user or a group needs to access.
 
-1. Go to the [SCVMM management servers (preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/scVmmManagementServer) list in Arc center.
+1. Go to the [SCVMM management servers](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/scVmmManagementServer) list in Arc center.
 2. Search and select your SCVMM management server.
 3. Navigate to the **Clouds** in **SCVMM inventory** section in the table of contents.
 4. Find and select the cloud for which you want to assign permissions. 
@@ -61,4 +61,4 @@ The **Azure Arc ScVmm VM Contributor** role is a built-in role that provides per
 
 ## Next steps
 
-[Create an Azure Arc VM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/create-virtual-machine).
+[Create an Azure Arc VM](create-virtual-machine.md).

@@ -2,11 +2,12 @@
 title: Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters
 description: Learn what ports and addresses are required to control egress traffic in Azure Kubernetes Service (AKS)
 ms.subservice: aks-networking
+ms.custom:
+  - build-2024
 ms.topic: article
 ms.author: allensu
 ms.date: 06/13/2023
 author: asudbring
-
 #Customer intent: As an cluster operator, I want to learn the network and FQDNs rules to control egress traffic and improve security for my AKS clusters.
 ---
 
@@ -59,7 +60,7 @@ The following network and FQDN/application rules are required for an AKS cluster
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Required for Node <-> API server communication. Replace *\<location\>* with the region where your AKS cluster is deployed. This is required for clusters with *konnectivity-agent* enabled. Konnectivity also uses Application-Layer Protocol Negotiation (ALPN) to communicate between agent and server. Blocking or rewriting the ALPN extension will cause a failure. This isn't required for [private clusters][private-clusters]. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts (for example, coreDNS, etc.). These images are required for the correct creation and functioning of the cluster, including scale and upgrade operations.  |
-| **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
+| **`*.data.mcr.microsoft.com`**, **`mcr-0001.mcr-msedge.net`**   | **`HTTPS:443`** | Required for MCR storage backed by the Azure content delivery network (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Required for Microsoft Entra authentication. |
 | **`packages.microsoft.com`**     | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
@@ -176,10 +177,32 @@ There are two options to provide access to Azure Monitor for containers:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
-| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used for metrics and monitoring telemetry using Azure Monitor. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for Containers Agent Telemetry. |
 | **`*.ods.opinsights.azure.com`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
 | **`*.oms.opinsights.azure.com`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
 | **`*.monitoring.azure.com`** | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
+| **`<cluster-region-name>.ingest.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used by Azure Monitor managed service for Prometheus metrics ingestion.|
+| **`<cluster-region-name>.handler.control.monitor.azure.com`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
+
+#### Microsoft Azure operated by 21Vianet required FQDN / application rules
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| **`dc.services.visualstudio.cn`** | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for Containers Agent Telemetry. |
+| **`*.ods.opinsights.azure.cn`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.cn`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`global.handler.control.monitor.azure.cn`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for accessing the control service. |
+| **`<cluster-region-name>.handler.control.monitor.azure.cn`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
+
+#### Azure US Government required FQDN / application rules
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| **`dc.services.visualstudio.us`** | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for Containers Agent Telemetry. |
+| **`*.ods.opinsights.azure.us`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for ingesting log analytics data. |
+| **`*.oms.opinsights.azure.us`** | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
+| **`global.handler.control.monitor.azure.us`**    | **`HTTPS:443`**    | This endpoint is used by Azure Monitor for accessing the control service. |
+| **`<cluster-region-name>.handler.control.monitor.azure.us`** | **`HTTPS:443`** | This endpoint is used to fetch data collection rules for a specific cluster. |
 
 ### Azure Policy
 
@@ -205,6 +228,15 @@ There are two options to provide access to Azure Monitor for containers:
 | **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 
+### AKS cost analysis add-on
+
+#### Required FQDN / application rules
+
+| FQDN                                                       | Port      | Use      |
+|------------------------------------------------------------|-----------|----------|
+| **`management.azure.com`** <br/> **`management.usgovcloudapi.net`** (Azure Government) <br/> **`management.chinacloudapi.cn`** (Azure operated by 21Vianet)| **`HTTPS:443`** | Required for Kubernetes operations against the Azure API. |
+| **`login.microsoftonline.com`** <br/> **`login.microsoftonline.us`** (Azure Government) <br/> **`login.microsoftonline.cn`** (Azure operated by 21Vianet) | **`HTTPS:443`** | Required for Microsoft Entra ID authentication. |
+
 ## Cluster extensions
 
 ### Required FQDN / application rules
@@ -214,8 +246,14 @@ There are two options to provide access to Azure Monitor for containers:
 | **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 |**`arcmktplaceprod.azurecr.io`**|**`HTTPS:443`**|This address is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.centralindia.data.azurecr.io`** | **`HTTPS:443`** | This address is for the Central India regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.japaneast.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East Japan regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westus2.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West US2 regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westeurope.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West Europe regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.eastus.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East US regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
 |**`*.ingestion.msftcloudes.com, *.microsoftmetrics.com`**|**`HTTPS:443`**|This address is used to send agents metrics data to Azure.|
 |**`marketplaceapi.microsoft.com`**|**`HTTPS: 443`**|This address is used to send custom meter-based usage to the commerce metering API.|
+
 
 #### Azure US Government required FQDN / application rules
 
@@ -237,4 +275,5 @@ If you want to restrict how pods communicate between themselves and East-West tr
 <!-- LINKS - internal -->
 
 [private-clusters]: ./private-clusters.md
+
 [use-network-policies]: ./use-network-policies.md

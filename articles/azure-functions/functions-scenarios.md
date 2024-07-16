@@ -75,7 +75,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ## Real-time stream and event processing
 
-So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in Cosmos DB for use in an analytics dashboard.
+So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](../cosmos-db/introduction.md) for use in an analytics dashboard.
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
@@ -131,36 +131,57 @@ public static async Task Run(
 
 ::: zone pivot="programming-language-java" 
 + [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
-+ [Event Hubs trigger examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/EventHubTriggerFunction.java)
-+ [Kafka triggered function examples](https://github.com/azure-samples/azure-functions-samples-java/blob/master/src/main/java/com/functions/KafkaTriggerFunction.java)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
 ::: zone-end
 
 ## Machine learning and AI
 
-Besides data processing, Azure Functions can be used to infer on models. 
+Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions.
 
-For example, a function that calls a TensorFlow model or submits it to Azure AI services can process and classify a stream of images.
+Functions can connect to an OpenAI resources to enable text and chat completions, use assistants, and leverage embeddings and semantic search.   
 
-Functions can also connect to other services to help process data and perform other AI-related tasks, like [text summarization](https://github.com/Azure-Samples/function-csharp-ai-textsummarize).
+A function might also call a TensorFlow model or Azure AI services to process and classify a stream of images.
 
 [ ![Diagram of a machine learning and AI process using Azure Functions.](./media/functions-scenarios/machine-learning-and-ai.png) ](./media/functions-scenarios/machine-learning-and-ai-expanded.png#lightbox)
 
-
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-csharp"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
 + Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/csharp-ooproc/Embeddings)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/csharp-ooproc)
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-java)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/java)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/java)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/java)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/java)
 ::: zone-end
-
-::: zone pivot="programming-language-javascript"
-+ Training: [Create a custom skill for Azure Cognitive Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
+::: zone pivot="programming-language-javascript"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
++ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)
 + Tutorial: [Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
 + Tutorial: [Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/python)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/python)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/python)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/python)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
++ Sample: [LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-powershell)
++ Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/powershell)
++ Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/powershell)
++ Sample: [Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/powershell)
++ Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
 ::: zone-end
 
 ## Run scheduled tasks 

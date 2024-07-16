@@ -1,54 +1,55 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 11/01/2023
+ms.date: 07/01/2024
 ms.service: active-directory
 ms.subservice: B2C
-ms.topic: reference
-ms.workload: identity
+ms.topic: whats-new
+
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to stay updated on the latest documentation changes and new features, so that I can effectively use and implement the B2C service in my applications.
+
 ---
 
 # Azure Active Directory B2C: What's new
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
-## October 2023
-
-### Updated articles
-
-- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md) - Editorial updates
-- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Editorial updates
-- [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md) - Added breaking change on script tags
-
-## September 2023
+## June 2024
 
 ### Updated articles
 
-- [Supported Microsoft Entra features](supported-azure-ad-features.md) - Editorial updates
-- [Publish your Azure Active Directory B2C app to the Microsoft Entra app gallery](publish-app-to-azure-ad-app-gallery.md) - Editorial updates
-- [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md) - Editorial updates
-- [Azure AD B2C: Frequently asked questions (FAQ)'](faq.yml) - Editorial updates
-- [Define an ID token hint technical profile in an Azure Active Directory B2C custom policy](id-token-hint.md) - Editorial updates
-- [Set up sign-in for multitenant Microsoft Entra ID using custom policies in Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md) - Editorial updates
-- [Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md) - Editorial updates
-- [Localization string IDs](localization-string-ids.md) - Editorial updates
-- [Define a Microsoft Entra multifactor authentication technical profile in an Azure AD B2C custom policy](multi-factor-auth-technical-profile.md) - Editorial updates
-- [Define a Microsoft Entra SSPR technical profile in an Azure AD B2C custom policy](aad-sspr-technical-profile.md) - Editorial updates
-- [Define a Microsoft Entra technical profile in an Azure Active Directory B2C custom policy](active-directory-technical-profile.md) - Editorial updates
-- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md) - Editorial updates
-- [Billing model for Azure Active Directory B2C](billing.md) - Editorial updates
-- [Enable custom domains for Azure Active Directory B2C](custom-domain.md) - Editorial updates
-- [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md) - Editorial updates
-- [Create and read a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) - Editorial updates
+- [Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy](oauth2-error-technical-profile.md) - Error code updates
+- [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md) - Python version update
 
-## August 2023
+
+## May 2024
+
+### New articles
+
+- [Configure Transmit Security with Azure Active Directory B2C for risk detection and prevention](partner-transmit-security.md)
 
 ### Updated articles
 
-- [Page layout versions](page-layout.md) - Editorial updates
-- [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md) - Oauth Bearer Authentication updated to GA
+- [Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C](identity-provider-linkedin.md) - Updated LinkedIn instructions
+- [Page layout versions](page-layout.md) - Updated page layout versions
 
+## February 2024
+
+### New articles
+
+- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md)
+- [Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy](captcha-technical-profile.md)
+- [Verify CAPTCHA challenge string using CAPTCHA display control](display-control-captcha.md)
+
+### Updated articles
+
+- [Enable custom domains in Azure Active Directory B2C](custom-domain.md) - Updated steps to block the default B2C domain
+- [Manage Azure AD B2C custom policies with Microsoft Graph PowerShell](manage-custom-policies-powershell.md) - Microsoft Graph PowerShell updates 
+- [Localization string IDs](localization-string-ids.md) - CAPTCHA updates
+- [Page layout versions](page-layout.md) - CAPTCHA updates
 

@@ -2,13 +2,12 @@
 title: "Quickstart: Speech SDK for Java (Windows, Linux, macOS) platform setup - Speech service"
 titleSuffix: Azure AI services
 description: Use this guide to set up your platform for using Java (Windows, Linux, macOS) with the Speech SDK.
-services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 09/05/2023
-ms.custom: devx-track-java
+ms.date: 02/02/2024
+ms.custom: devx-track-java, linux-related-content
 ms.author: eur
 ---
 
@@ -53,7 +52,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
            <dependency>
            <groupId>com.microsoft.cognitiveservices.speech</groupId>
            <artifactId>client-sdk</artifactId>
-           <version>1.33.0</version>
+           <version>1.38.0</version>
            </dependency>
        </dependencies>
    </project>
@@ -79,7 +78,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
 
 1. In a moment, the main window of the Eclipse IDE appears. Close the **Welcome** screen if one is present.
 
-1. From the Eclipse menu, create a new project by selecting **File** > **New** > **Project**.
+1. From the Eclipse menu, select **File** > **New** > **Project**.
 
 1. The **New Project** dialog box appears. Select **Java Project**, and then select **Next**.
 
@@ -108,7 +107,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
      <dependency>
        <groupId>com.microsoft.cognitiveservices.speech</groupId>
        <artifactId>client-sdk</artifactId>
-       <version>1.33.0</version>
+       <version>1.38.0</version>
      </dependency>
    </dependencies>
    ```
@@ -125,7 +124,7 @@ Gradle configurations require an explicit reference to the *.jar* dependency ext
 // build.gradle
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.33.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.38.0", ext: "jar"
 }
 ```
 

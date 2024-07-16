@@ -1,30 +1,32 @@
 ---
 title: Azure CLI scripts using the az search module
-titleSuffix: Azure Cognitive Search
-description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
+titleSuffix: Azure AI Search
+description: Create and configure an Azure AI Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-author: mattmsft
+author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 04/05/2024
 ---
 
-# Manage your Azure Cognitive Search service with the Azure CLI
+# Manage your Azure AI Search service with the Azure CLI
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](search-manage-rest.md)
-> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The [**az search**](/cli/azure/search) module extends the [Azure CLI](/cli/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
+You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in Azure Cloud Shell to create and configure Azure AI Search.
+
+Use the [**az search module**](/cli/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
-> * [List search services in a subscription](#list-search-services)
+> * [List search services in a subscription](#list-services-in-a-subscription)
 > * [Return service information](#get-search-service-information)
 > * [Create or delete a service](#create-or-delete-a-service)
 > * [Create a service with a private endpoint](#create-a-service-with-a-private-endpoint)
@@ -35,15 +37,17 @@ You can run Azure CLI commands and scripts on Windows, macOS, Linux, or in [Azur
 
 Occasionally, questions are asked about tasks *not* on the above list.
 
-You cannot change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
+You can't change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
 
-You cannot use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
+You can't use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
 
-Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
+Preview administration features are typically not available in the **az search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-<a name="list-search-services"></a>
+Azure CLI versions are [listed on GitHub](https://github.com/Azure/azure-cli/releases).
+
+The [**az search**](/cli/azure/search) module extends the [Azure CLI](/cli/) with full parity to the stable versions of the [Search Management REST APIs](/rest/api/searchmanagement).
 
 ## List services in a subscription
 
@@ -73,7 +77,7 @@ az search --help
 
 The response should look similar to the following output.
 
-```
+```bash
 Group
     az search : Manage Azure Search services, admin keys and query keys.
         WARNING: This command group is in preview and under development. Reference and support
@@ -161,7 +165,7 @@ az search service delete --name <service-name> \
 
 ### Create a service with IP rules
 
-Depending on your security requirements, you may want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, pass the Public IP (v4) addresses or CIDR ranges to the `ip-rules` argument as shown below. Rules should be separated by a comma (`,`) or semicolon (`;`).
+Depending on your security requirements, you might want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, pass the Public IP (v4) addresses or CIDR ranges to the `ip-rules` argument as shown below. Rules should be separated by a comma (`,`) or semicolon (`;`).
 
 ```azurecli-interactive
 az search service create \
@@ -175,7 +179,7 @@ az search service create \
 
 ### Create a service with a system assigned managed identity
 
-In some cases, such as when [using managed identity to connect to a data source](search-howto-managed-identities-storage.md), you will need to turn on [system assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This is done by adding `--identity-type SystemAssigned` to the command.
+In some cases, such as when [using managed identity to connect to a data source](search-howto-managed-identities-storage.md), you need to turn on [system assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This is done by adding `--identity-type SystemAssigned` to the command.
 
 ```azurecli-interactive
 az search service create \
@@ -189,8 +193,8 @@ az search service create \
 
 ## Create a service with a private endpoint
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
-[creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure AI Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more information, please refer to the documentation on 
+[creating a private endpoint for Azure AI Search](service-create-private-endpoint.md).
 
 The following example shows how to create a search service with a private endpoint.
 
@@ -268,7 +272,7 @@ az network private-endpoint dns-zone-group create \
    --zone-name "searchServiceZone"
 ```
 
-For more information on creating private endpoints in Azure CLI, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
+For more information on creating private endpoints in Azure CLI, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md).
 
 ### Manage private endpoint connections
 
@@ -286,7 +290,7 @@ az search private-endpoint-connection show \
 To update the connection, use [**az search private-endpoint-connection update**](/cli/azure/search/private-endpoint-connection#az-search-private-endpoint-connection-update). The following example sets a private endpoint connection to rejected:
 
 ```azurecli-interactive
-az search private-endpoint-connection show \
+az search private-endpoint-connection update \
     --name <pe-connection-name> \
     --service-name <search-service-name> \
     --resource-group <search-service-resource-group-name> 
@@ -310,9 +314,9 @@ To roll over admin [API keys](search-security-api-keys.md), use [**az search adm
 
 You can only regenerate one at a time, specified as either the `primary` or `secondary` key. For uninterrupted service, remember to update all client code to use a secondary key while rolling over the primary key. Avoid changing the keys while operations are in flight.
 
-As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys does not permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
+As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys doesn't permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
 
-Values for the API keys are generated by the service. You cannot provide a custom key for Azure Cognitive Search to use. Similarly, there is no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
+Values for the API keys are generated by the service. You can't provide a custom key for Azure AI Search to use. Similarly, there's no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
 
 ```azurecli-interactive
 az search admin-key renew \
@@ -332,9 +336,9 @@ Results should look similar to the following output. Both keys are returned even
 
 ## Create or delete query keys
 
-To create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index, use [**az search query-key create**](/cli/azure/search/query-key#az-search-query-key-create). Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
+To create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure AI Search index, use [**az search query-key create**](/cli/azure/search/query-key#az-search-query-key-create). Query keys are used to authenticate to a specific index for retrieving search results. Query keys don't grant read-only access to other items on the service, such as an index, data source, or indexer.
 
-You cannot provide a key for Azure Cognitive Search to use. API keys are generated by the service.
+You can't provide a key for Azure AI Search to use. API keys are generated by the service.
 
 ```azurecli-interactive
 az search query-key create \
@@ -345,13 +349,13 @@ az search query-key create \
 
 ## Scale replicas and partitions
 
-To [increase or decrease replicas and partitions](search-capacity-planning.md) use [**az search service update**](/cli/azure/search/service#az-search-service-update). Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
+To [increase or decrease replicas and partitions](search-capacity-planning.md) use [**az search service update**](/cli/azure/search/service#az-search-service-update). Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for more processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
 
-It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Additional capacity is used for incoming requests as soon as it's ready, with no additional configuration required. 
+It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Extra capacity is used for incoming requests as soon as it's ready, with no extra configuration required. 
 
 Removing capacity can be disruptive. Stopping all indexing and indexer jobs prior to reducing capacity is recommended to avoid dropped requests. If that isn't feasible, you might consider reducing capacity incrementally, one replica and partition at a time, until your new target levels are reached.
 
-Once you submit the command, there is no way to terminate it midway through. You will have to wait until the command is finished before revising the counts.
+Once you submit the command, there's no way to terminate it midway through. You have to wait until the command is finished before revising the counts.
 
 ```azurecli-interactive
 az search service update \
@@ -365,13 +369,13 @@ In addition to updating replica and partition counts, you can also update `ip-ru
 
 ## Create a shared private link resource
 
-Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+Private endpoints of secured resources that are created through Azure AI Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
+If you're using an indexer to index data in Azure AI Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
-A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure AI Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
 
-To create the shared private link resource, use [**az search shared-private-link-resource create**](/cli/azure/search/shared-private-link-resource#az-search-shared-private-link-resource-list). Keep in mind that some configuration may be required for the data source before running this command.
+To create the shared private link resource, use [**az search shared-private-link-resource create**](/cli/azure/search/shared-private-link-resource#az-search-shared-private-link-resource-list). Keep in mind that some configuration might be required for the data source before running this command.
 
 ```azurecli-interactive
 az search shared-private-link-resource create \
@@ -392,7 +396,7 @@ az search shared-private-link-resource list \
     --resource-group <search-service-resource-group-name> 
 ```
 
-You'll need to approve the connection with the following command before it can be used. The ID of the private endpoint connection will need to be retrieved from the child resource. In this case, we get the connection ID from az storage.
+You need to approve the connection with the following command before it can be used. The ID of the private endpoint connection must be retrieved from the child resource. In this case, we get the connection ID from az storage.
 
 ```azurecli-interactive
 id = (az storage account show -n myBlobStorage --query "privateEndpointConnections[0].id")
@@ -409,13 +413,13 @@ az search shared-private-link-resource delete \
     --resource-group <search-service-resource-group-name> 
 ```
 
-For full details on setting up shared private link resources, see the documentation on [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
+For more information on setting up shared private link resources, see [making indexer connections through a private endpoint](search-indexer-howto-access-private.md).
 
 ## Next steps
 
 Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
+* [Create an Azure AI Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
-* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
-* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)
+* [Query an Azure AI Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure AI Search in .NET](search-howto-dotnet-sdk.md)

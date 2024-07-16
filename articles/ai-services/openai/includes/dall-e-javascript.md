@@ -2,14 +2,13 @@
 title: 'Quickstart: Use Azure OpenAI Service with the JavaScript SDK to generate images'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first image generation call with the JavaScript SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
 ms.date: 08/24/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for JavaScript.
@@ -27,7 +26,7 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 > [!NOTE]
 > Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
@@ -61,7 +60,7 @@ const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 // You will need to set these environment variables or edit the following values
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 // The prompt to generate images from
 const prompt = "a monkey eating a banana";
@@ -74,7 +73,8 @@ async function main() {
     console.log("== Batch Image Generation ==");
   
     const client = new OpenAIClient(endpoint, new AzureKeyCredential(azureApiKey));
-    const results = await client.getImages(prompt, { n, size });
+    const deploymentName = "dall-e";
+    const results = await client.getImages(deploymentName, prompt, { n, size });
   
     for (const image of results.data) {
       console.log(`Image generation result URL: ${image.url}`);
@@ -115,5 +115,5 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

@@ -5,7 +5,6 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
@@ -21,9 +20,8 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 
 
 > [!IMPORTANT]
-> Microsoft does not provide support for images you share to the community.
+> Microsoft does not provide support for Community Images and customers should contact the Image Publishers for any image related issues, however Microsoft will provide commercially reasonable support to isolate any platform issue when using Community image. Customers can find the publisher contact by querying the image.
 > 
-
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
@@ -32,6 +30,11 @@ There are three main ways to share images in an Azure Compute Gallery, depending
 | [RBAC Sharing](share-gallery.md) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
+
+> [!NOTE]
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
+> 
+> When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
 
 ## Disclaimer
 
@@ -114,7 +117,7 @@ You can also use the following links to report issues, but the forms won't be pr
  
 ## Best practices
 
-- Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- Images published to the community gallery should be [generalized](generalize.yml) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
 - If you would like to block sharing images to Community at the organization level, create an Azure policy with the following policy rule to deny sharing to Community.
 ```
   "policyRule": {
@@ -215,7 +218,7 @@ When you're ready to make the gallery public:
 ---
 
 > [!IMPORTANT]
-> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.md).
+> If you are listed as the owner of your subscription, but you are having trouble sharing the gallery publicly, you may need to explicitly [add yourself as owner again](../role-based-access-control/role-assignments-portal-subscription-admin.yml).
 
 To go back to only RBAC based sharing, use the [az sig share reset](/cli/azure/sig/share#az-sig-share-reset) command.
 

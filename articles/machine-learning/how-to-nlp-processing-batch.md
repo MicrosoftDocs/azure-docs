@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande
-ms.custom: devplatv2
+ms.reviewer: fasantia
+ms.custom: devplatv2, update-code
 ---
 
 # Deploy language models in batch endpoints
@@ -294,6 +294,9 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    # [Python](#tab/python)
    
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path="data")
    job = ml_client.batch_endpoints.invoke(

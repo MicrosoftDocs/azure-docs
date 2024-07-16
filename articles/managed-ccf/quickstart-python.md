@@ -13,7 +13,7 @@ ms.custom: devx-track-python, mode-api
 
 Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Managed CCF, see [About Azure Managed Confidential Consortium Framework](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)
 
@@ -21,6 +21,8 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python versions supported by the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
+- The minimum supported version of the Python package is 2.0.0b3.
 
 ## Setup
 
@@ -40,10 +42,10 @@ Install the Azure Active Directory identity client library:
 pip install azure-identity
 ```
 
-Install the Azure confidential ledger management plane client library.
+Install the Azure confidential ledger management plane client library. The minimum supported version is 2.0.0b3 or later.
 
 ```terminal
-pip install azure.mgmt.confidentialledger
+pip install azure-mgmt-confidentialledger==2.0.0b3
 ```
 
 ### Create a resource group

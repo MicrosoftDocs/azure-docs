@@ -1,13 +1,11 @@
 ---
 title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 10/26/2022
+ms.date: 12/01/2023
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,13 +14,13 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes how to assign roles using Azure PowerShell.
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To assign roles, you must have:
 
-- `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 
@@ -86,7 +84,7 @@ Here's how to list the details of a particular role.
 Get-AzRoleDefinition -Name <roleName>
 ```
 
-For more information, see [List Azure role definitions](role-definitions-list.md#azure-powershell).
+For more information, see [List Azure role definitions](role-definitions-list.yml#azure-powershell).
 
 ### Step 3: Identify the needed scope
 
@@ -382,6 +380,6 @@ CanDelegate        : False
 
 ## Next steps
 
-- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.md)
+- [List Azure role assignments using Azure PowerShell](role-assignments-list-powershell.yml)
 - [Tutorial: Grant a group access to Azure resources using Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Manage resources with Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

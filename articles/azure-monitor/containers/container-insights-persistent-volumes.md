@@ -2,7 +2,7 @@
 title: Configure PV monitoring with Container insights | Microsoft Docs
 description: This article describes how you can configure monitoring Kubernetes clusters with persistent volumes with Container insights.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 5/15/2024
 ms.reviewer: aul
 ---
 
@@ -12,13 +12,13 @@ Starting with agent version *ciprod10052020*, the Container insights integrated 
 
 ## PV metrics
 
-Container insights automatically starts monitoring PV usage by collecting the following metrics at 60-second intervals and storing them in the **InsightMetrics** table.
+Container insights automatically starts monitoring PV usage by collecting the following metrics at 60-second intervals and storing them in the **InsightsMetrics** table.
 
 | Metric name | Metric dimension (tags) | Metric description |
 |-----|-----------|----------|
 | `pvUsedBytes`| `podUID`, `podName`, `pvcName`, `pvcNamespace`, `capacityBytes`, `clusterId`, `clusterName`| Used space in bytes for a specific persistent volume with a claim used by a specific pod. The `capacityBytes` tag is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
 
-To learn more about how to configure collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-agent-config.md).
+To learn more about how to configure collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-data-collection-configmap.md).
 
 ## PV inventory
 
@@ -47,6 +47,11 @@ You can find an overview of persistent volume inventory in the **Persistent Volu
 ### Persistent Volume Usage recommended alert
 You can enable a recommended alert to alert you when average PV usage for a pod is above 80%. To learn more about alerting, see [Metric alert rules in Container insights (preview)](./container-insights-metric-alerts.md). To learn how to override the default threshold, see the [Configure alertable metrics in ConfigMaps](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps) section.
 
+## Limitations
+Persistent volumes where storage class is "azureblob-*" won't collect PV metrics due to a limitation in CAdvisor. The following command will show persistent volumes and their properties (including storage class). 
+ 
+```kubectl get pvc```
+
 ## Next steps
 
-To learn more about collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-agent-config.md).
+To learn more about collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-data-collection-configmap.md).

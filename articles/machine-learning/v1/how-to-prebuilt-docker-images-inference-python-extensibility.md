@@ -5,12 +5,12 @@ description: 'Extend prebuilt docker images with Python package extensibility so
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.custom: UpdateFrequency5, deploy, docker, prebuilt, sdkv1, event-tier1-build-2022, devx-track-python
+ms.reviewer: sehan
+ms.custom: UpdateFrequency5, deploy, docker, prebuilt, sdkv1, devx-track-python
 ---
 
 # Python package extensibility for prebuilt Docker images (preview)

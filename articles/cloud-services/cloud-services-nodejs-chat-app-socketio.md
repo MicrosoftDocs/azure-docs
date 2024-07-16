@@ -135,8 +135,8 @@ Azure emulator:
    relative path, Socket.IO was not referenced in the package.json
    file, so we must install it by issuing the following command:
 
-   ```powershell
-   PS C:\node\chatapp\WorkerRole1> npm install socket.io --save
+    ```powershell
+    PS C:\node\chatapp\WorkerRole1> npm install socket.io --save
     ```
 
 ### Test and Deploy

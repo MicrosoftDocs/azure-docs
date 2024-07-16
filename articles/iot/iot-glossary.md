@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot
 services: iot
 ms.topic: conceptual
-ms.date: 08/26/2022
+ms.date: 02/28/2024
 
 # Generated from YAML source.
 ---
@@ -79,16 +79,6 @@ Casing rules: Always lowercase.
 
 Applies to: Iot Hub
 
-### Azure Certified Device program
-
-Azure Certified [Device](#device) is a free program that enables you to differentiate, certify, and promote your IoT devices built to run on Azure.
-
-[Learn more](../certification/overview.md)
-
-Casing rules: Always capitalize as *Azure Certified Device*.
-
-Applies to: Iot Hub, IoT Central
-
 ### Azure Digital Twins
 
 A platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build twin graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences.
@@ -123,6 +113,16 @@ Casing rules: Always capitalize as *Azure IoT Explorer*.
 
 Applies to: Iot Hub, Device developer
 
+### Azure IoT Operations Preview - enabled by Azure Arc
+
+A unified data plane for the edge. It's a collection of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+
+[Learn more](../iot-operations/get-started/overview-iot-operations.md)
+
+On first mention in an article, use *Azure IoT Operations Preview - enabled by Azure Arc*. On subsequent mentions, you can use *Azure IoT Operations*. Never use an acronym.
+
+Casing rules: Always capitalize as *Azure IoT Operations Preview - enabled by Azure Arc* or *Azure IoT Operations*.
+
 ### Azure IoT Tools
 
 A cross-platform, open-source, Visual Studio Code extension that helps you manage Azure [IoT Hub](#iot-hub) and [devices](#device) in VS Code. With Azure IoT Tools, IoT developers can easily develop an IoT project in VS Code
@@ -135,7 +135,7 @@ Applies to: Iot Hub, IoT Edge, IoT Central, Device developer
 
 These SDKS, available for multiple languages, enable you to create [device apps](#device-app) that interact with an [IoT hub](#iot-hub) or an IoT Central application.
 
-[Learn more](../iot-develop/about-iot-sdks.md)
+[Learn more](./iot-sdks.md)
 
 Casing rules: Always refer to as *Azure IoT device SDKs*.
 
@@ -288,7 +288,7 @@ Applies to: Iot Hub
 
 ### Device
 
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The device catalog provides a list of certified devices.
+In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse.
 
 Casing rules: Always lowercase.
 
@@ -310,7 +310,7 @@ Applies to: Iot Hub, Device Provisioning Service, IoT Central
 
 A REST API you can use on a [device](#device) to send [device-to-cloud](#device-to-cloud) messages to an [IoT hub](#iot-hub), and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [Azure IoT device SDKs](#azure-iot-device-sdks).
 
-[Learn more](/rest/api/iothub/device)
+[Learn more](/rest/api/iothub/device/device)
 
 Casing rules: Always *device REST API*.
 
@@ -354,7 +354,7 @@ Applies to: Iot Hub, IoT Central
 
 A description, that uses the [Digital Twins Definition Language](#digital-twins-definition-language), of the capabilities of a [device](#device). Capabilities include [telemetry](#telemetry), [properties](#properties), and [commands](#command).
 
-[Learn more](../iot-develop/concepts-modeling-guide.md)
+[Learn more](../iot/concepts-modeling-guide.md)
 
 Casing rules: Always lowercase.
 
@@ -414,7 +414,7 @@ Applies to: Iot Hub, IoT Central, Digital Twins
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](../iot-develop/index.yml) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](./overview-iot-plug-and-play.md) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
 
 See also [Device twin](#device-twin)
 
@@ -583,12 +583,6 @@ Identifies a single [device](#device) that the [Device Provisioning Service](#de
 Casing rules: Always lowercase.
 
 Applies to: Iot Hub, Device Provisioning Service
-
-### Industry 4.0
-
-Refers to the fourth revolution that's occurred in manufacturing. Companies can build connected [solutions](#solution) to manage the manufacturing facility and equipment more efficiently by enabling manufacturing equipment to be cloud connected, allowing remote access and management from the cloud, and enabling OT personnel to have a single pane view of their entire facility.
-
-Applies to: Iot Hub, IoT Central
 
 ### Interface
 
@@ -800,7 +794,7 @@ Applies to: Iot Hub, IoT Central, Digital Twins
 
 ### Model repository REST API
 
-An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to add and search for [device models](#device-model).
+An API for managing and interacting with a [model repository](#model-repository). For example, you can use the API to search for and retrieve [device models](#device-model).
 
 Casing rules: Always capitalize as *model repository REST API*.
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-bicep
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using a Bicep template
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
@@ -53,7 +53,7 @@ resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
     nodeGroupSpecs: [
         {
             kind: 'Shard'
-            nodeCount: 1
+            shardCount: 1
             sku: 'M40'
             diskSizeGB: 128
             enableHa: false
@@ -71,11 +71,13 @@ resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10
   }
 }
 ```
+> [!NOTE]
+> Kindly note that in the above code, shardGroupSpecs is called nodeGroupSpecs. 
 
 Two Azure resources are defined in the Bicep file:
 
-- [`Microsoft.DocumentDB/databaseAccounts`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates an Azure Cosmos DB for MongoDB vCore cluster.
-  - [`Microsoft.DocumentDB/databaseAccounts/sqlDatabases`](/azure/templates/microsoft.documentdb/databaseAccounts?pivots=deployment-language-bicep): Creates firewall rules for the Azure Cosmos DB for MongoDB vCore cluster.
+- [`Microsoft.DocumentDB/mongoclusters`](/azure/templates/microsoft.documentdb/mongoclusters?pivots=deployment-language-bicep): Creates an Azure Cosmos DB for MongoDB vCore cluster.
+  - [`Microsoft.DocumentDB/mongoClusters/firewallRules`](/azure/templates/microsoft.documentdb/mongoclusters?pivots=deployment-language-bicep): Creates firewall rules for the Azure Cosmos DB for MongoDB vCore cluster.
 
 ## Deploy the Bicep file
 

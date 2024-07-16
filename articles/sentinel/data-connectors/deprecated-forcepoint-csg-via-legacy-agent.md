@@ -3,9 +3,10 @@ title: "[Deprecated] Forcepoint CSG via Legacy Agent connector for Microsoft Sen
 description: "Learn how to install the connector [Deprecated] Forcepoint CSG via Legacy Agent to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Deprecated] Forcepoint CSG via Legacy Agent connector for Microsoft Sentinel

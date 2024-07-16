@@ -5,9 +5,9 @@ description: How to use pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, designer
@@ -32,7 +32,8 @@ In this article, you learn how to do the following:
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
-[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 ## Create pipeline parameter
 

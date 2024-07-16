@@ -1,31 +1,28 @@
 ---
-title: Language support - Content Safety
+title: Language support - Azure AI Content Safety
 titleSuffix: Azure AI services
-description: This is a list of natural languages that the Content Safety API supports.
-services: cognitive-services
+description: This is a list of natural languages that the Azure AI Content Safety API supports.
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.topic: conceptual
-ms.date: 08/01/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 
 ---
 
-# Language support for Content Safety
+# Language support for Azure AI Content Safety
 
-Some capabilities of Azure Content Safety support multiple languages; any capabilities not mentioned here only support English.
-
-## Text moderation
-
-The Content Safety text moderation feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
+> [!IMPORTANT]
+> Azure AI Content Safety models have been specifically trained and tested on the following languages: Chinese, English, French, German, Italian, Japanese, Portuguese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 > [!NOTE]
 > **Language auto-detection**
 >
-> You don't need to specify a language code for text moderation; the service automatically detects your input language.
+> You don't need to specify a language code for text moderation and Prompt Shields. The service automatically detects your input language.
 
-| Language name         | Language code | Text moderation | Specially trained |
+| Language name         | Language code | Supported Languages | Specially trained languages|
 |-----------------------|---------------|--------|--|
 | Afrikaans             | `af`          | ✔️    |  |
 | Albanian              | `sq`          | ✔️    |  |

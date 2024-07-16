@@ -7,8 +7,8 @@ ms.subservice: apache-gremlin
 ms.topic: sample
 ms.date: 05/02/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # PowerShell script to list or get Azure Cosmos DB for Gremlin databases and graphs
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell, ignite-2022
 
 This PowerShell script lists or gets specific Azure Cosmos DB accounts, API for Gremlin databases, and  API for Gremlin graphs.
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity
@@ -269,7 +269,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
     }
 }
 ```
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

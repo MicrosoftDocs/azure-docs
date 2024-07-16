@@ -2,8 +2,8 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: how-to
-ms.date: 06/24/2023
-ms.custom: devx-track-azurepowershell, engagement-fy23
+ms.date: 06/04/2024
+ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -33,7 +33,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 ## Set up and register
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To begin:
 
@@ -530,7 +530,7 @@ $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targ
 
 Azure Backup also allows you to use managed identity (MSI) during restore operation to access storage accounts where disks have to be restored to. This option is currently supported only for managed disk restore.
 
-If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
+If you wish to use the vault's system assigned managed identity to restore disks, pass an additional flag ***-UseSystemAssignedIdentity*** to the Restore-AzRecoveryServicesBackupItem command. If you wish to use a user-assigned managed identity, pass a parameter ***-UserAssignedIdentityId*** with the Azure Resource Manager ID of the vault's managed identity as the value of the parameter. Refer to [this article](encryption-at-rest-with-cmk.md#enable-a-managed-identity-for-your-recovery-services-vault) to learn how to enable managed identity for your vaults. 
 
 #### Restore selective disks
 
@@ -618,7 +618,7 @@ Cross-zonal restore is supported only in scenarios where:
 To replace the disks and configuration information, perform the following steps:
 
 * Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
-* Step 2: [Detach data disk using PowerShell](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-powershell)
+* Step 2: [Detach data disk using PowerShell](../virtual-machines/windows/detach-disk.yml#detach-a-data-disk-using-powershell)
 * Step 3: [Attach data disk to Windows VM with PowerShell](../virtual-machines/windows/attach-disk-ps.md)
 
 ## Create a VM from restored disks

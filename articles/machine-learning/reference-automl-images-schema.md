@@ -5,11 +5,11 @@ description: Learn how to format your JSONL files for data consumption in automa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: ignite-2022, devx-track-python
+ms.custom:  update-code, devx-track-python
 ms.topic: reference
-ms.reviewer: ssalgado
-ms.author: rvadthyavath
-author: vadthyavath
+ms.reviewer: None
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 09/09/2022
 ---
 

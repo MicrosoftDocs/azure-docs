@@ -2,22 +2,26 @@
 title: Enable authentication in your own Node.js web API by using Azure Active Directory B2C 
 description: Follow this article to learn how to call your own web API protected by Azure AD B2C from your own node js web app. The web app acquires an access token and uses it to call a protected endpoint in the web API. The web app adds the access token as a bearer in the Authorization header, and the web API needs to validate it. 
 titleSuffix: Azure AD B2C
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.custom: devx-track-js
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to enable authentication in my Node.js web API using Azure Active Directory B2C, so that I can protect my web API and authorize access using valid access tokens issued by Azure AD B2C.
+
 ---
 
 # Enable authentication in your own Node.js web API by using Azure Active Directory B2C
 
-In this article, you learn how to create your web app that calls your web API. The web API needs to be protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to a the web API, you serve requests that include a valid access token that's issued by Azure AD B2C. 
+In this article, you learn how to create your web app that calls your web API. The web API needs to be protected by Azure Active Directory B2C (Azure AD B2C). To authorize access to the web API, you serve requests that include a valid access token that's issued by Azure AD B2C. 
 
 ## Prerequisites
 

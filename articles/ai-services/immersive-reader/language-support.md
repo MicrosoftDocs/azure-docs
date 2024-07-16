@@ -1,20 +1,19 @@
 ---
-title: Language support - Immersive Reader
+title: Language support for Immersive Reader
 titleSuffix: Azure AI services
-description: Learn more about the human languages that are available with Immersive Reader.
-services: cognitive-services
+description: Learn more about the human languages that Immersive Reader supports.
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 ms.service: azure-ai-immersive-reader
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 02/07/2024
 ms.author: rwaller
 ---
 
-# Language support for Immersive Reader
+# Language support for Azure AI Immersive Reader
 
-This article lists supported human languages for Immersive Reader features.
-
+Immersive Reader supports the following human languages.
 
 ## Text to speech
 
@@ -666,3 +665,28 @@ This article lists supported human languages for Immersive Reader features.
 | Spanish (Spain) | es-ES |
 | Swedish | sv |
 | Swedish (Sweden) | sv-SE |
+
+## Math
+
+| Language | Tag |
+|----------|-----|
+| Catalan (Catalan) | ca-ES |
+| Chinese Simplified | zh-Hans |
+| Chinese Traditional | zh-Hant |
+| Danish (Denmark) | da-DK |
+| Dutch (Netherlands) | nl-NL |
+| English (United States) | en-US |
+| Finnish (Finland) | fi-FI |
+| French (France) | fr-FR |
+| German (Germany) | de-DE |
+| Italian (Italy) | it-IT |
+| Japanese (Japan) | ja-JP |
+| Korean (Korea) | ko-KR |
+| Norwegian Bokmal (Norway) | nb-NO |
+| Polish (Poland) | pl-PL |
+| Portuguese (Brazil) | pt-BR |
+| Portuguese (Portugal) | pt-PT |
+| Russian (Russia) | ru-RU |
+| Swedish (Sweden) | sv-SE |
+| Spanish (Spain) | es-ES |
+| Turkish (Türkiye) | tr-TR |

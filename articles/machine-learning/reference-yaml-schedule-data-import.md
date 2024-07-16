@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: amarbadal
-ms.author: ambadal
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 05/25/2023
-ms.reviewer: franksolomon
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) import schedule YAML schema
@@ -27,7 +27,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the schedule. | |
-| `version` | string | Version of the schedule. If omitted, Azure Machine Learning autogenerates a version. | |
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
 | `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |

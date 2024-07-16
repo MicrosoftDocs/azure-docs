@@ -1,17 +1,17 @@
 ---
-title: Export/import/refresh | question answering projects and projects
-description: Learn about backing up your question answering projects and projects
+title: Export/import/refresh | custom question answering projects and projects
+description: Learn about backing up your custom question answering projects and projects
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.date: 01/25/2022
+ms.date: 12/19/2023
 ---
-# Export-import-refresh in question answering
+# Export-import-refresh in custom question answering
 
-You may want to create a copy of your question answering project or related question and answer pairs for several reasons:
+You may want to create a copy of your custom question answering project or related question and answer pairs for several reasons:
 
 * To implement a backup and restore process
 * To integrate with your CI/CD pipeline
@@ -64,7 +64,7 @@ To automate the import process, use the [import functionality of the authoring A
 
 4. We recommend having a backup of your project/question answer pairs prior to running each refresh so that you can always roll-back if needed.
 
-5. Select a url-based source to refresh > Select **Refresh URL**.
+5. Select a URL-based source to refresh > Select **Refresh URL**.
 6. Only one URL can be refreshed at a time.
 
 ### Refresh a URL programmatically
@@ -95,7 +95,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
 
 ## Export questions and answers
 
-It’s also possible to export/import a specific project of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific project of question and answers rather than the entire custom question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 
@@ -114,7 +114,7 @@ It’s also possible to export/import a specific project of question and answers
 
 ## Import questions and answers
 
-It’s also possible to export/import a specific project of question and answers rather than the entire question answering project.
+It’s also possible to export/import a specific project of question and answers rather than the entire custom question answering project.
 
 1. Sign in to the [Language Studio](https://language.azure.com/) with your Azure credentials.
 

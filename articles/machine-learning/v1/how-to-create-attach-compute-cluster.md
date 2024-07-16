@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/02/2022
 ---
 
@@ -217,7 +217,8 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 ---
 
-[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
+> [!NOTE]
+> Azure Machine Learning compute clusters support only **one system-assigned identity** or **multiple user-assigned identities**, not both concurrently.
 
 ### Managed identity usage
 

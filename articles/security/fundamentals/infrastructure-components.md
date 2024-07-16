@@ -2,7 +2,6 @@
 title: Azure information system components and boundaries
 description: This article provides a general description of the Microsoft Azure architecture and management.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,9 +9,7 @@ ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/09/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---

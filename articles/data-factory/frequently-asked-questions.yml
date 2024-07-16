@@ -7,7 +7,7 @@ metadata:
   ms.service: data-factory
   ms.subservice: 
   ms.topic: faq
-  ms.date: 08/10/2023
+  ms.date: 05/15/2024
 title: Azure Data Factory FAQ
 summary: |
   [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -320,7 +320,7 @@ sections:
 
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
   For step-by-step instructions to create a data factory, see the following tutorials:
           

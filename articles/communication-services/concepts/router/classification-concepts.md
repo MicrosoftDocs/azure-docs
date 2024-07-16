@@ -2,19 +2,17 @@
 title: Job classification concepts for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router classification concepts.
-author: jasonshave
+author: sroons
 manager: phans
 services: azure-communication-services
 
-ms.author: jassha
+ms.author: serooney 
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Job classification
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 When you submit a job to Job Router, you can either specify the queue, priority, and worker selectors manually or you can specify a classification policy to drive these values.
 
@@ -25,6 +23,10 @@ The process of classifying a Job involves optionally setting the following prope
 - Priority
 - Worker Selectors
 - Queue ID
+
+## Fallback queue
+
+The fallback queue is used when queue selectors, resulting from queue selector attachments, are unable to select a queue _and_ the job does not have a `queueId`. In this case, if the fallback queue is defined, the job is assigned to it.
 
 ## Prioritization rule
 

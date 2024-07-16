@@ -1,17 +1,19 @@
 ---
 title: "Face .NET client library quickstart"
 description: Use the Face client library for .NET to detect and identify faces (facial recognition search).
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: include
 ms.date: 05/03/2022
 ms.author: pafarley
 ---
 
-Get started with facial recognition using the Face client library for .NET. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
+Get started with facial recognition using the Face client library for .NET. The Azure AI Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
 [Reference documentation](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.3) | [Samples](/samples/browse/?products=azure&term=face)
 
@@ -25,8 +27,9 @@ Get started with facial recognition using the Face client library for .NET. The 
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
+## Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../face-environment-variables.md)]
 
 ## Identify and verify faces
 
@@ -161,5 +164,5 @@ In this quickstart, you learned how to use the Face client library for .NET to d
 > [!div class="nextstepaction"]
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
-* [What is the Face service?](../../overview.md)
+* [What is the Face service?](../../overview-identity.md)
 * More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).

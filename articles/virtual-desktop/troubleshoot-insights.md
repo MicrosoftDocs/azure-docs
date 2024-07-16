@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 09/12/2023
 ms.author: helohr
-manager: femila
 ---
 # Troubleshoot Azure Virtual Desktop Insights
 
@@ -21,9 +20,9 @@ This article presents known issues and solutions for common problems in Azure Vi
 If the configuration workbook isn't working properly to automate setup, you can use these resources to set up your environment manually:
 
 - To manually enable diagnostics or access the Log Analytics workspace, see [Send Azure Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
-- To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#install).
+- To install the Azure Monitor Agent extension on a session host manually, see [Azure Monitor Agent virtual machine extension for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md#installation-options).
 - To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
-- To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md#view-data-collection-rules).
+- To validate the Data Collection Rules in use, see [View data collection rules](../azure-monitor/essentials/data-collection-rule-view.md).
 
 ## My data isn't displaying properly
 
@@ -61,7 +60,7 @@ If your data isn't displaying properly, check the following common solutions:
     - Read-access to the subscription's resource groups that hold your Azure Virtual Desktop session hosts 
     - Read-access to whichever Log Analytics workspaces you're using
 - You may need to open outgoing ports in your server's firewall to allow Azure Monitor and Log Analytics to send data to the portal. To learn how to do this, see the following articles:
-      - [Azure Monitor Outgoing ports](../azure-monitor/app/ip-addresses.md)
+      - [Azure Monitor Outgoing ports](../azure-monitor/ip-addresses.md)
       - [Log Analytics Firewall Requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 

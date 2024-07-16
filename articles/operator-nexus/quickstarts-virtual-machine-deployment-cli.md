@@ -32,9 +32,9 @@ Before you run the commands, you need to set several variables to define the con
 | RESOURCE_GROUP             | The name of the Azure resource group where you want to create the virtual machine.                    |
 | SUBSCRIPTION               | The ID of your Azure subscription.                                                                    |
 | CUSTOM_LOCATION            | This argument specifies a custom location of the Nexus instance.                                      |
-| CSN_ARM_ID                 | CSN ID is the unique identifier for the cloud services network you want to use.                       |
-| L3_NETWORK_ID              | L3 Network ID is the unique identifier for the network interface to be used by the virtual machine.   |
-| NETWORK_INTERFACE_NAME     | The name of the L3 network interface for the virtual machine.                                         |
+| CSN_ARM_ID                 | The ARM ID of the cloud services network that the virtual machine will be connected to.               |
+| L3_NETWORK_ID              | The ARM ID of the L3 network that the virtual machine will be connected to.                           |
+| NETWORK_INTERFACE_NAME     | The name of the L3 network interface to be assigned.                                                  |
 | ADMIN_USERNAME             | The username for the virtual machine administrator.                                                   |
 | SSH_PUBLIC_KEY             | The SSH public key that is used for secure communication with the virtual machine.                    |
 | CPU_CORES                  | The number of CPU cores for the virtual machine (even number, max 46 vCPUs)                           |

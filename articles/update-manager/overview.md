@@ -2,9 +2,10 @@
 title: Azure Update Manager overview
 description: This article tells what Azure Update Manager in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
 ms.service: azure-update-manager
+ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/25/2023
+ms.date: 02/21/2024
 ms.topic: overview
 ---
 
@@ -19,7 +20,7 @@ You can use Update Manager in Azure to:
 
 - Oversee update compliance for your entire fleet of machines in Azure, on-premises, and in other cloud environments.
 - Instantly deploy critical updates to help secure your machines.
-- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
+- Use flexible patching options such as [automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hotpatching](../automanage/automanage-hotpatch.md), and customer-defined maintenance schedules.
 
 We also offer other capabilities to help you manage updates for your Azure VMs that you should consider as part of your overall update management strategy. To learn more about the options that are available, see the Azure VM [update options](../virtual-machines/updates-maintenance-overview.md).
 
@@ -61,6 +62,9 @@ All assessment information and update installation results are reported to Updat
 
 The machines assigned to Update Manager report how up to date they are based on what source they're configured to synchronize with. You can configure [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) on Windows machines to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) or Microsoft Update, which is by default. You can configure Linux machines to report to a local or public YUM or APT package repository. If the Windows Update Agent is configured to report to WSUS, depending on when WSUS last synchronized with Microsoft Update, the results in Update Manager might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
 
+> [!NOTE]
+> WSUS isn't available in Azure China operated by 21 Vianet.
+
 You can manage your Azure VMs or Azure Arc-enabled servers directly or at scale with Update Manager.
 
 ## Prerequisites
@@ -72,7 +76,7 @@ Along with the following prerequisites, see [Support matrix](support-matrix.md) 
 Resource | Role
 --- | ---
 |Azure VM | [Azure Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or Azure [Owner](../role-based-access-control/built-in-roles.md#owner)
-Azure Arc-enabled server | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-overview.md#identity-and-access-control)
+Azure Arc-enabled server | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-identity-authorization.md#identity-and-access-control)
 
 ### Permissions
 
@@ -80,27 +84,28 @@ You need the following permissions to create and manage update deployments. The 
 
 Actions |Permission |Scope |
 --- | --- | --- |
-|Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
+|Read Azure VM properties | Microsoft.Compute/virtualMachines/read ||
 |Update assessment on Azure VMs |Microsoft.Compute/virtualMachines/assessPatches/action ||
-|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
+|Read assessment data for Azure VMs | Microsoft.Compute/virtualMachines/patchAssessmentResults/latest </br> Microsoft.Compute/virtualMachines/patchAssessmentResults/latest/softwarePatches ||
+|Install update on Azure VMs |Microsoft.Compute/virtualMachines/installPatches/action ||
+|Read patch installation data for Azure VMs | Microsoft.Compute/virtualMachines/patchInstallationResults </br> Microsoft.Compute/virtualMachines/patchInstallationResults/softwarePatches ||
+|Read Azure Arc-enabled server properties | Microsoft.HybridCompute/machines/read||
 |Update assessment on Azure Arc-enabled server |Microsoft.HybridCompute/machines/assessPatches/action ||
+|Read assessment data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchAssessmentResults </br> Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches ||
+|Install update on Azure Arc-enabled server |Microsoft.HybridCompute/machines/installPatches/action ||
+|Read patch installation data for Azure Arc-enabled server | Microsoft.HybridCompute/machines/patchInstallationResults </br> Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches||
 |Register the subscription for the Microsoft.Maintenance resource provider| Microsoft.Maintenance/register/action | Subscription|
 |Create/modify maintenance configuration |Microsoft.Maintenance/maintenanceConfigurations/write |Subscription/resource group |
-|Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Machine |
+|Create/modify configuration assignments |Microsoft.Maintenance/configurationAssignments/write |Subscription |
 |Read permission for Maintenance updates resource |Microsoft.Maintenance/updates/read |Machine |
 |Read permission for Maintenance apply updates resource |Microsoft.Maintenance/applyUpdates/read |Machine |
+
 
 ### VM images
 
 For more information, see the [list of supported operating systems and VM images](support-matrix.md#supported-operating-systems).
 
-- [Specialized images](../virtual-machines/linux/imaging.md#specialized-images) - Azure Update Manager now supports scheduled patching and periodic assessment for VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery in preview.
-
-Currently, Update Manager has the following limitation regarding operating system support:
-
- - Marketplace images other than the [list of supported Marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images) are currently not supported.
-
-For the preceding limitation, we recommend that you use [Automation Update Management](../automation/update-management/overview.md) until support is available in Update Manager. To learn more, see [Supported operating systems](support-matrix.md#supported-operating-systems).
+ Azure Update Manager supports [specialized images](../virtual-machines/linux/imaging.md#specialized-images) including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery.
 
 ## VM extensions
 

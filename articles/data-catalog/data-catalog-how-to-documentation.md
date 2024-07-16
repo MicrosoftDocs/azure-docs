@@ -3,7 +3,7 @@ title: How to document data sources in Azure Data Catalog
 description: How-to article highlighting how to document data assets in Azure Data Catalog.
 ms.service: data-catalog
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 12/13/2023
 ---
 # How to document data sources in Azure Data Catalog
 

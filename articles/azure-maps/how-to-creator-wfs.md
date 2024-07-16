@@ -76,7 +76,7 @@ To query the unit collection in your dataset, create a new **HTTP GET Request**:
 https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
 ```
 
-After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". Use "UNIT26" as your features `id` when you [Update a feature state].
+After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26".
 
 ```json
 {
@@ -108,17 +108,11 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [How to create a feature stateset]
-
-[datasets]: /rest/api/maps/v2/dataset
-[WFS API]: /rest/api/maps/v2/wfs
-[Web Feature Service (WFS)]: /rest/api/maps/v2/wfs
+[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
+[datasets]: /rest/api/maps-creator/dataset
+[WFS API]: /rest/api/maps-creator/wfs
+[Web Feature Service (WFS)]: /rest/api/maps-creator/wfs
 [Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services
-[WFS Describe Collections API]: /rest/api/maps/v2/wfs/get-collection-definition
-[Update a feature state]: how-to-creator-feature-stateset.md#update-a-feature-state
-[How to create a feature stateset]: how-to-creator-feature-stateset.md
+[WFS Describe Collections API]: /rest/api/maps-creator/wfs/get-collection-definition

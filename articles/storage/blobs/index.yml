@@ -6,14 +6,14 @@ summary: Azure Blob Storage is Microsoft's object storage solution for the cloud
 metadata:
   title: Azure Blob Storage documentation
   description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
-  services: storage
-  ms.service: storage
+  ms.service: azure-storage
+  ms.subservice: blobs
+  ms.custom:
+    - ignite-2023
   ms.topic: landing-page
-  ms.collection: collection
   author: normesta
   ms.author: normesta
   ms.date: 08/05/2022
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -26,6 +26,13 @@ landingContent:
         links:
           - text: What is Azure Blob Storage?
             url: storage-blobs-overview.md
+    # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure Well-Architected Framework considerations
+            url: /azure/well-architected/service-guides/azure-blob-storage?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Get started
     linkLists:
@@ -133,7 +140,7 @@ landingContent:
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide
         links:
-          - text: Access blob data with a Microsoft Entra account
+          - text: Access blob data with Microsoft Entra account
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
             url: assign-azure-role-data-access.md
@@ -144,6 +151,8 @@ landingContent:
         links:
           - text: Compare data transfer solutions
             url: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json
+          - text: Tape migration overview
+            url: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json
           - text: Use Azure Data Box for offline transfer
             url: ../../databox/data-box-overview.md?toc=/azure/storage/blobs/toc.json
       - linkListType: how-to-guide

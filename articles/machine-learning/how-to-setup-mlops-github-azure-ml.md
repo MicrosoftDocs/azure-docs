@@ -3,12 +3,12 @@ title: Set up MLOps with GitHub
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample MLOps environment in Azure Machine Learning with GitHub Actions
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: Blackmist
+ms.author: larryfr
 ms.service: machine-learning
-ms.reviewer: larryfr
+ms.reviewer: kritifaujdar
 ms.subservice: mlops
-ms.date: 11/29/2022
+ms.date: 01/29/2024
 ms.topic: conceptual
 ms.custom: cli-v2, sdk-v2, github-actions-azure, build-2023, build-2023-dataai
 ---
@@ -73,9 +73,12 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
     # Verify the ID of the active subscription
     echo "Using subscription ID $subscriptionId"
     echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes     /subscriptions/$subscriptionId"
-    az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --sdk-auth 
+    az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --json-auth 
     echo "Please ensure that the information created here is properly save for future use."
     ```
+
+    > [!NOTE]
+    > The parameter `--json-auth` of the `az ad sp create-for-rbac` command is available in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth`.
 
 1. Copy your edited commands into the Azure Shell and run them (**Ctrl** + **Shift** + **v**).
 

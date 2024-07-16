@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 11/01/2022
+ms.date: 05/31/2024
 ms.author: victorh
 ---
 
@@ -199,6 +199,9 @@ Here's an example JSON description of the custom rule:
   "action": "Block"
 }
 ```
+## Copying and duplicating custom rules
+
+Custom rules can be duplicated within a given policy. When duplicating a rule, you need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Azure Front Door WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another, you need to select the Azure Front Door WAF policy you wish to copy the rule into. Once you select the WAF policy you need to give the rule a unique name, and assign a priority rank.
 
 ## Next steps
 - [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md).

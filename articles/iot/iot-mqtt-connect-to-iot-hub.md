@@ -8,7 +8,13 @@ services: iot
 ms.topic: conceptual
 ms.date: 06/27/2023
 ms.author: kgremban
-ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', iot]
+ms.custom:
+  - amqp
+  - mqtt
+  - "Role: IoT Device"
+  - "Role: Cloud Development"
+  - iot
+  - ignite-2023
 ---
 
 # Communicate with an IoT hub using the MQTT protocol
@@ -24,7 +30,7 @@ All device communication with IoT Hub must be secured using TLS/SSL. Therefore, 
 
 ## Compare MQTT support in IoT Hub and Event Grid
 
-IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs MQTT, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md), currently in public preview. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a pub-sub messaging model. It also enables you to route MQTT messages to Azure services or custom endpoints for further processing.
+IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs MQTT, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a pub-sub messaging model. It also enables you to route MQTT messages to Azure services or custom endpoints for further processing.
 
 The following table explains the differences in MQTT support between the two services:
 
@@ -34,7 +40,7 @@ The following table explains the differences in MQTT support between the two ser
 | Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
 | Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts and device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
-| 256-kb max message size. | 512-kb max message size. |
+| 256KB max message size. | 512KB max message size. |
 
 ## Connecting to IoT Hub
 
@@ -135,7 +141,7 @@ In the **CONNECT** packet, the device should use the following values:
 
   You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
-For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md).
+For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md).
 
 ### Using the Azure IoT Hub extension for Visual Studio Code
   
@@ -183,7 +189,7 @@ The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample)
 
 The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
 
-To learn more, see [Tutorial - Use MQTT to develop an IoT device client](../iot-develop/tutorial-use-mqtt.md).
+To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutorial-use-mqtt.md).
 
 ## TLS/SSL configuration
 
@@ -436,7 +442,7 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 To learn more about using MQTT, see: 
 
 * [MQTT documentation](https://mqtt.org/)
-* [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+* [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
 * [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:
@@ -444,8 +450,6 @@ To learn more about using IoT device SDKS, see:
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified Device Catalog](https://devicecatalog.azure.com/)
 * [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
 * [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md)
 * [Choose the right IoT Hub tier for your solution](../iot-hub/iot-hub-scaling.md)
-

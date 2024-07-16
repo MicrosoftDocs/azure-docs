@@ -3,12 +3,11 @@ metadata:
   title: Voice assistants frequently asked questions
   titleSuffix: Azure AI services
   description: Get answers to the most popular questions about voice assistants using Custom Commands or the Direct Line Speech channel.
-  services: cognitive-services
   author: trrwilson
   manager: nitinme
   ms.service: azure-ai-speech
   ms.topic: faq
-  ms.date: 11/05/2019
+  ms.date: 1/18/2024
   ms.author: travisw
   ms.custom: cogserv-non-critical-speech
 title: Voice assistants frequently asked questions
@@ -43,11 +42,11 @@ sections:
       - question: |
           Where's my channel secret?
         answer: |
-          If you've used the preview version of Direct Line Speech or you're reading related documentation, you may expect to find a secret key on the Direct Line Speech channel registration page. The v1.7 `DialogServiceConfig` factory method `FromBotSecret` in the Speech SDK also expects this value.
+          If you used the preview version of Direct Line Speech or you're reading related documentation, you might expect to find a secret key on the Direct Line Speech channel registration page. The v1.7 `DialogServiceConfig` factory method `FromBotSecret` in the Speech SDK also expects this value.
           
-          The latest version of Direct Line Speech simplifies the process of contacting your bot from a device. On the channel registration page, the drop-down at the top associates your Direct Line Speech channel registration with a speech resource. Once associated, the v1.8 Speech SDK includes a `BotFrameworkConfig::FromSubscription` factory method that will configure a `DialogServiceConnector` to contact the bot you've associated with your subscription.
+          The latest version of Direct Line Speech simplifies the process of contacting your bot from a device. On the channel registration page, the drop-down at the top associates your Direct Line Speech channel registration with a speech resource. Once associated, the v1.8 Speech SDK includes a `BotFrameworkConfig::FromSubscription` factory method that configures a `DialogServiceConnector` to contact the bot you associated with your subscription.
           
-          If you're still migrating your client application from v1.7 to v1.8, `DialogServiceConfig::FromBotSecret` may continue to work with a non-empty, non-null value for its channel secret parameter, e.g. the previous secret you used. It will simply be ignored when using a speech subscription associated with a newer channel registration. Please note that the value _must_ be non-null and non-empty, as these are checked for on the device before the service-side association is relevant.
+          If you're still migrating your client application from v1.7 to v1.8, `DialogServiceConfig::FromBotSecret` might continue to work with a non-empty, non-null value for its channel secret parameter, for example, the previous secret you used. It will be ignored when using a speech subscription associated with a newer channel registration. Note that the value _must_ be non-null and non-empty, as these are checked for on the device before the service-side association is relevant.
           
           For a more detailed guide, please see the [tutorial section](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) that walks through channel registration.
           
@@ -64,7 +63,7 @@ sections:
           This error indicates a communication problem between your assistant and the voice assistant service.
           
           - For Custom Commands, ensure that your Custom Commands Application is published
-          - For Direct Line Speech, ensure that you've [connected your bot to the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech), [added Streaming protocol support](/azure/bot-service/directline-speech-bot) to your bot (with the related Web Socket support), and then check that your bot is responding to incoming requests from the channel.
+          - For Direct Line Speech, ensure that you have [connected your bot to the Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech), [added Streaming protocol support](/azure/bot-service/directline-speech-bot) to your bot (with the related Web Socket support), and then check that your bot is responding to incoming requests from the channel.
           
       - question: |
           This code still doesn't work and/or I'm getting a different error when using a `DialogServiceConnector`. What should I do?

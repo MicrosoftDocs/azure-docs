@@ -2,8 +2,12 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-linux
-ms.date: 10/07/2023
+ms.custom:
+ms.subservice: aks-storage
+ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -193,6 +197,8 @@ You can request a larger volume for a PVC. Edit the PVC object, and specify a la
 
 > [!NOTE]
 > A new PV is never created to satisfy the claim. Instead, an existing volume is resized.
+>
+> Shrinking persistent volumes is currently not supported.
 
 In AKS, the built-in `azurefile-csi` storage class already supports expansion, so use the [PVC created earlier with this storage class](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). The PVC requested a 100 GiB file share. We can confirm that by running:
 
@@ -251,7 +257,7 @@ allowVolumeExpansion: true
 parameters:
   resourceGroup: <resourceGroup>
   storageAccount: <storageAccountName>
-  server: <storageAccountName>.file.core.windows.net 
+  server: <storageAccountName>.file.core.windows.net
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 mountOptions:
@@ -276,9 +282,9 @@ The output of the command resembles the following example:
 ```output
 storageclass.storage.k8s.io/private-azurefile-csi created
 ```
-  
+
 Create a file named `private-pvc.yaml`, and then paste the following example manifest in the file:
-  
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -292,9 +298,9 @@ spec:
     requests:
       storage: 100Gi
 ```
-  
+
 Create the PVC by using the [kubectl apply][kubectl-apply] command:
-  
+
 ```bash
 kubectl apply -f private-pvc.yaml
 ```
@@ -336,13 +342,18 @@ parameters:
   protocol: nfs
 mountOptions:
   - nconnect=4
+  - noresvport
+  - actimeo=30
   - rsize=262144
   - wsize=262144
 ```
 
 ### Create NFS file share storage class
 
-Create a file named `nfs-sc.yaml` and copy the manifest below.
+Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options].
+
+> [!NOTE]
+> `vers`, `minorversion`, `sec` are configured by the Azure File CSI driver. Specifying a value in your manifest for these properties aren't supported.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -355,6 +366,8 @@ parameters:
   protocol: nfs
 mountOptions:
   - nconnect=4
+  - noresvport
+  - actimeo=30
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -487,9 +500,7 @@ The output of the commands resembles the following example:
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
-[data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/azcore/internal/shared/shared.go
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
@@ -500,12 +511,10 @@ The output of the commands resembles the following example:
 [concepts-storage]: concepts-storage.md
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
-[storage-tiers]: ../storage/files/storage-files-planning.md#storage-tiers
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
-[access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
-[tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [statically-provision-a-volume]: azure-csi-files-storage-provision.md#statically-provision-a-volume
 [azure-private-endpoint-dns]: ../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration
 [azure-netapp-files-mount-options-best-practices]: ../azure-netapp-files/performance-linux-mount-options.md#rsize-and-wsize
+[nfs-file-share-mount-options]: ../storage/files/storage-files-how-to-mount-nfs-shares.md#mount-options

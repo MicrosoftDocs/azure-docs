@@ -2,6 +2,7 @@
 title: Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster to secure your pods.
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 08/30/2023
 ---
@@ -90,7 +91,6 @@ You can either [grant access to your key vault for the identity after cluster cr
 
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command with the following parameters:
 
-    * `--enable-managed-identity`: Enables managed identity for the cluster.
     * `--enable-windows-gmsa`: Enables GMSA for the cluster.
     * `--gmsa-dns-server`: The IP address of the DNS server.
     * `--gmsa-root-domain-name`: The root domain name of the DNS server.
@@ -106,10 +106,10 @@ You can either [grant access to your key vault for the identity after cluster cr
         --network-plugin azure \
         --load-balancer-sku standard \
         --windows-admin-username $WINDOWS_USERNAME \
-        --enable-managed-identity \
         --enable-windows-gmsa \
         --gmsa-dns-server $DNS_SERVER \
-        --gmsa-root-domain-name $ROOT_DOMAIN_NAME
+        --gmsa-root-domain-name $ROOT_DOMAIN_NAME \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
@@ -117,6 +117,15 @@ You can either [grant access to your key vault for the identity after cluster cr
     > * If you're using a custom VNet, you need to specify the VNet ID using the `vnet-subnet-id` parameter, and you may need to also add the `docker-bridge-address`, `dns-service-ip`, and `service-cidr` parameters depending on your configuration.
     >
     > * If you created your own identity for the kubelet identity, use the `assign-kubelet-identity` parameter to specify your identity.
+    > * When you specify the `--gmsa-dns-server` and `--gmsa-root-domain-name` parameters, a DNS forward rule is added to the `kube-system/coredns` ConfigMap. This rule forwards the DNS requests for `$ROOT_DOMAIN_NAME` from the pods to the `$DNS_SERVER`.
+    >   ```
+    >   $ROOT_DOMAIN_NAME:53 {
+    >       errors
+    >       cache 30
+    >       log
+    >       forward . $DNS_SERVER
+    >   }
+    >   ```
 
 3. Add a Windows Server node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 

@@ -1,28 +1,30 @@
 ---
 title: Lucene query syntax
-titleSuffix: Azure Cognitive Search
-description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
+titleSuffix: Azure AI Search
+description: Reference for the full Lucene query syntax, as used in Azure AI Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 02/22/2024
 ---
 
-# Lucene query syntax in Azure Cognitive Search
+# Lucene query syntax in Azure AI Search
 
-When creating queries in Azure Cognitive Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
+When creating queries in Azure AI Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure AI Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
 
-To use full Lucene syntax, set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
+To use full Lucene syntax, set the queryType to `full` and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 ## Example (full syntax)
 
 The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term `budget`. Any documents containing the phrase `"recently renovated"` are ranked higher as a result of the term boost value (3).  
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
   "queryType": "full",
   "search": "category:budget AND \"recently renovated\"^3",
@@ -60,7 +62,7 @@ Special characters that require escaping include the following:
 
 ### Encoding unsafe and reserved characters in URLs
 
-Ensure all unsafe and reserved characters are encoded in a URL. For example, `#` is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. `&` and `=` are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. See [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
+Ensure all unsafe and reserved characters are encoded in a URL. For example, `#` is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. `&` and `=` are examples of reserved characters as they delimit parameters and specify values in Azure AI Search. See [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
@@ -87,7 +89,7 @@ You can embed Boolean operators in a query string to improve the precision of a 
 * In full syntax, queries with a single negation are not allowed. For example, the query `-luxury` is not allowed.
 * In full syntax, negations will behave as if they are always ANDed onto the query regardless of the search mode.
    * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
-* If you want to use negations to search over all documents in the index, simple syntax with the any search mode is recommended.
+* If you want to use negations to search over all documents in the index, simple syntax with the `any` search mode is recommended.
 * If you want to use negations to search over a subset of documents in the index, full syntax or the simple syntax with the all search mode are recommended.
 
 | Query Type | Search Mode | Example Query | Behavior |
@@ -134,17 +136,19 @@ The following example helps illustrate the differences. Suppose that there's a s
 
 ##  <a name="bkmk_regex"></a> Regular expression search
  
- A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure Cognitive Search, a regular expression is enclosed between forward slashes `/`.
+ A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure AI Search, a regular expression is enclosed between forward slashes `/`.
 
  For example, to find documents containing `motel` or `hotel`, specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
-Some tools and languages impose other escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+Some tools and languages impose extra escape character requirements beyond the [escape rules](#escaping-special-characters) imposed by Azure AI Search. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash. 
 
 Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` matches the terms `bee` and `bet` while `/be*/` would match `be`, `bee`, and `beee` but not `bet`. Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with `be` such as `better`.
 
+If you get syntax errors in your regular expression, review the [escape rules](#escaping-special-characters) for special characters. You might also try a different client to confirm whether the problem is tool-specific.
+
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
-You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix, infix, and suffix matching. 
+You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix and infix matching. Use [regular expression](#bkmk_regex) syntax for suffix matching. 
 
 Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
@@ -159,12 +163,12 @@ You can combine operators in one expression. For example, `980?2*` matches on `9
 Suffix matching requires the regular expression forward slash `/` delimiters. Generally, you can’t use a `*` or `?` symbol as the first character of a term, without the `/`. It's also important to note that the `*` behaves differently when used outside of regex queries. Outside of the regex forward slash `/` delimiter, the `*` is a wildcard character and matches any series of characters much like `.*` in regex. As an example, `search=/non.*al/` produces the same result set as `search=non*al`.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#optimizing-prefix-and-suffix-queries).
 >
 
 ### Effect of an analyzer on wildcard queries
 
-During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
+During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure AI Search queries](search-query-partial-matching.md).
 
 Consider a situation where you may want the search query `terminal*` to return results that contain terms such as `terminate`, `termination`, and `terminates`.
 
@@ -174,7 +178,7 @@ On the other side, the Microsoft analyzers (in this case, the en.microsoft analy
 
 ## Scoring wildcard and regex queries
 
-Azure Cognitive Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
+Azure AI Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
 ## Special characters
 
@@ -182,7 +186,7 @@ In some circumstances, you may want to search for a special character, like an '
 
 Analyzers that tokenize special characters include the whitespace analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the `❤` string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
-When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Some REST clients do this translation automatically.  
 
 ## Precedence (grouping)
 
@@ -192,7 +196,7 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ## Query size limits
 
-Azure Cognitive Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
+Azure AI Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
 
 For more information on query limits, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
@@ -202,4 +206,4 @@ For more information on query limits, see [API request limits](search-limits-quo
 + [Query examples for full Lucene search](search-query-lucene-examples.md)
 + [Search Documents](/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md)   
-+ [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)
++ [Simple query syntax in Azure AI Search](query-simple-syntax.md)

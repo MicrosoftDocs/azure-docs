@@ -1,8 +1,9 @@
 ﻿---
 title: Use Microsoft Purview with an Azure Operator Insights Data Product
 description: In this article, learn how to set up Microsoft Purview to explore an Azure Operator Insights Data Product.
-author: HollyCl
-ms.author: HollyCl
+author: rcdun
+ms.author: rdunstan
+ms.reviewer: sergeyche
 ms.service: operator-insights
 ms.topic: how-to
 ms.date: 11/02/2023
@@ -28,9 +29,9 @@ The Microsoft Purview account and collection is populated with catalog details o
 
 You can access your Purview account through the Azure portal by going to `https://web.purview.azure.com` and selecting your Microsoft Entra ID and account name. Or by going to `https://web.purview.azure.com/resource/<yourpurviewaccountname>`.
 
-To begin to catalog a data product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
+To begin to catalog a Data Product in this account, [create a collection](../purview/how-to-create-and-manage-collections.md) to hold the Data Product.
 
-Provide your User-Assigned-Managed-Identity (UAMI) with necessary roles in the Microsoft Purview compliance portal. The UAMI you enter is the one that was set up when creating an AOI Data Product. For information on how to set up this UAMI, refer to [Set up user-assigned managed identity](data-product-create.md#set-up-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
+Provide the user-assigned managed identity (UAMI) for your Azure Operator Insights Data Product with necessary roles in the Microsoft Purview compliance portal. This UAMI was set up when the Data Product was created. For information on how to set up this UAMI, see [Set up a user-assigned managed identity](data-product-create.md#set-up-a-user-assigned-managed-identity). At the desired collection, assign this UAMI to the **Collection admin**, **Data source admin**, and **Data curator** roles. Alternately, you can apply the UAMI at the root collection/account level. All collections would inherit these role assignments by default.
 
 :::image type="content" source="media/purview-setup/data-product-role-assignments.png" alt-text="Screenshot of collections with Role assignment tab open and icon to add the UAMI to the collection admins role highlighted.":::
 
@@ -42,21 +43,21 @@ Assign roles to your users using effective role-based access control (RBAC). The
 
 When creating an Azure Operator Insights Data Product, select the **Advanced** tab and enable Purview.
 
-:::image type="content" source="media/purview-setup/data-product-purview.png" alt-text="A screenshot of the Advanced tab on Create a data product page in Azure Operator Insights.":::
+:::image type="content" source="media/purview-setup/data-product-purview.png" alt-text="A screenshot of the Advanced tab on Create a Data Product page in Azure Operator Insights.":::
 
-Select **Select Purview Account** to provide the required values to populate a Purview collection with data product details.
+Select **Select Purview Account** to provide the required values to populate a Purview collection with Data Product details.
 - **Purview account name** - When you select your subscription, all Purview accounts in that subscription are available. Select the account you created.
 - **Purview collection ID** - The five-character ID visible in the URL of the Purview collection. To find the ID, select your collection and the collection ID is the five characters following `?collection=` in the URL. In the following example, the Investment collection has the collection ID *50h55*.
 
 :::image type="content" source="media/purview-setup/purview-collection-id.png" alt-text="A screenshot that emphasizes the collection ID in the Purview collection URL.":::
 
-### Data Product representation in Microsoft Purview
+## Understand Data Product representation in Microsoft Purview
 
-A Data Product is made up of many Azure Services and Data Assets, which are represented as an asset inside the Microsoft Purview compliance portal of the necessary types. The following asset types are represented.
+A Data Product is made up of many Azure Services and Data Assets, which are represented as assets of multiple types inside the Microsoft Purview compliance portals. The following asset types are represented.
 
-#### Data Product
+### Data Product
 
-An overall representation of the AOI Data Product
+An overall representation of the Azure Operator Insights Data Product.
 
 | **Additional fields** | **Description**                               |
 |-----------------------|-----------------------------------------------|
@@ -65,34 +66,34 @@ An overall representation of the AOI Data Product
 | Azure Region          | The region where the Data Product is deployed |
 | Docs                  | A link to documents that explain the data     |
 
-#### AOI Data Lake
+### AOI Data Lake
 
-Also known as Azure Data Lake Storage (ADLS)
+Also known as Azure Data Lake Storage.
 
 | **Additional fields** | **Description**                                    |
 |-----------------------|----------------------------------------------------|
-| DFS Endpoint Address  | Provides access to Parquet files in AOI Data Lake  |
+| DFS Endpoint Address  | Provides access to Parquet files in Azure Operator Insights Data Lake  |
 
-#### AOI Database
+### AOI Database
 
-Also known as Azure Data Explorer (ADX)
+Also known as Azure Data Explorer.
 
 | **Additional fields** | **Description**                                          |
 |-----------------------|----------------------------------------------------------|
-| KQL Endpoint Address  | Provides access to AOI tables for exploration using KQL  |
+| KQL Endpoint Address  | Provides access to Azure Operator Insights tables for exploration using KQL  |
 
-#### AOI Table
+### AOI Table
 
-ADX Tables and Materialized Views
+Azure Data Explorer tables and materialized views.
 
 | **Additional fields** | **Description**                              |
 |-----------------------|----------------------------------------------|
 | Description           | Brief description of each table and view     |
 | Schema                | Contains the table columns and their details |
 
-#### AOI Parquet details
+### AOI Parquet Details
 
-Each ADX Table is an equivalent Parquet file type
+Each Azure Data Explorer table is an equivalent Parquet file type.
 
 | **Additional fields** | **Description**                                                   |
 |-----------------------|-------------------------------------------------------------------|
@@ -100,9 +101,9 @@ Each ADX Table is an equivalent Parquet file type
 | Description           | Identical to the equivalent AOI Table                             |
 | Schema                | Identical to the equivalent AOI Table                             |
 
-#### AOI Column
+### AOI Column
 
-The columns belong to AOI Tables and the equivalent AOI Parquet details
+The columns belong to Azure Operator Insights tables and the equivalent AOI Parquet Details.
 
 | **Additional fields** | **Description**                       |
 |-----------------------|---------------------------------------|
@@ -119,13 +120,13 @@ When the Data Product creation process is complete, you can see the catalog deta
 :::image type="content" source="media/purview-setup/data-map-collections.png" alt-text="A screenshot of Data map collections in Purview.":::
 
 > [!NOTE]
-> The Microsoft Purview integration with Azure Operator Insights Data Products only features the Data catalog and Data map of the Purview portal.
+> The Microsoft Purview integration with Azure Operator Insights Data Products only features the Data catalog and Data map of the Microsoft Purview compliance portal.
 
-Select **Assets** to view the data product catalog and to list all assets of your data product.
+Select **Assets** to view the Data Product catalog and to list all assets of your Data Product.
 
 :::image type="content" source="media/purview-setup/data-product-assets.png" alt-text="A screenshot of Data Product assets in Purview":::
 
-Select **Assets** to view the asset catalog of your data product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), and the related assets.
+Select **Assets** to view the asset catalog of your Data Product. You can filter by the data source type for the asset type. For each asset, you can display properties, a list of owners (if applicable), and the related assets.
 
 :::image type="content" source="media/purview-setup/data-product-assets-collection.png" alt-text="A screenshot of Data Product assets in Purview collection.":::
 

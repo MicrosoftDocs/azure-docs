@@ -140,6 +140,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Are core services available on the HDInsight cluster?<br> - Can the HDInsight cluster access the key for BYOK encryption at rest?|
 
+## Microsoft.HealthcareApis/workspaces/dicomservices
+|Executed Checks|
+|---|
+| - Is the DICOM service up and running?<br> - Can the DICOM service access the customer-managed encryption key?<br> - Can the DICOM service access the connected data lake?|
+
 ## Microsoft.HybridCompute/machines
 |Executed Checks|
 |---|
@@ -149,6 +154,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 | - Is the IoT Central Application available?|
+
+## Microsoft.Insights/scheduledQueryRules
+|Executed Checks|
+|---|
+|- Is this log search alert rule currently disabled?<br> - Does this rule runs less frequently than every 15 minutes?<br> - Is there a semantic, syntax, or validation error in the query?<br> - Is  the response size is too large?<br> - Is the query consuming too many resources?<br> - Can the target Log Analytics/Application Insights workspace for this alert rule be found?<br> - Is the alert rule query failing because of throttling (Error 429)?<br> - Does the query have the correct permissions?<br> - Are there NSP validations issues for the query?<br> - Does the query evaluation fail due to exceeding the limit of fired (non- resolved) alerts per day?<br> - Did the alert evaluation fail due to exceeding the allowed limit of dimension combinations values that meet the threshold?|
 
 ## Microsoft.KeyVault/vaults
 |Executed Checks|
@@ -195,6 +205,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Is the ExpressRoute circuit healthy?|
 
+## Microsoft.Network/expressRouteGateways (ExpressRoute Gateways in Virtual WAN)
+|Executed Checks|
+|---|
+| - Is the ExpressRoute Gateway up and running?|
+
 ## Microsoft.network/frontdoors
 |Executed Checks|
 |---|
@@ -216,6 +231,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Are there any issues impacting the Traffic Manager profile?|
 
+## Microsoft.Network/virtualHubs
+|Executed Checks|
+|---|
+| - Is the virtual hub router up and running?|
+
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
 |---|
@@ -234,7 +254,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.operationalinsights/workspaces
 |Executed Checks|
 |---|
-| - Are there indexing delays for the workspace?|
+| - Are there ingestion delays in the workspace?|
 
 ## Microsoft.PowerBIDedicated/Capacities
 |Executed Checks|
@@ -264,7 +284,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
-| - Have login attempts to the database failed because the database was unavailable?|
+| - When there are many logins, have more than a quarter of the login attempts failed for system reasons?<br> - Have more that one login attempt failed for system reasons (in two of the last three minutes)?|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|

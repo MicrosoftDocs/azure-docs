@@ -23,7 +23,7 @@ For the sake of simplicity, this tutorial shows you how to use an Azure database
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Link a Azure SQL database to your static web app
+> * Link an Azure SQL database to your static web app
 > * Create, read, update, and delete data
 
 ## Prerequisites
@@ -75,7 +75,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. On the left-hand navigation window, select **Query editor**.
 
-1. Sign in to the server with your Active Directory account or the server's user name and password.
+1. Sign in to the server with your Entra ID account or the server's user name and password.
 
 1. Run the following script to create a new table named `MyTestPersonTable`.
 

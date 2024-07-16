@@ -7,11 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-ms.reviewer: larryfr
-ms.author: andzha
-author: Anurzeuii
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 05/09/2022
-ms.custom: references_regions, event-tier1-build-2022
+ms.custom:
+  - references_regions
+  - ignite-2023
 ---
 
 # Azure Machine Learning feature availability across clouds regions
@@ -24,6 +26,10 @@ In the list of global Azure regions, there are several regions that serve specif
 * Azure operated by 21Vianet region **China-East-2**.
 
 Azure Machine Learning is still in development in air-gap Regions. 
+
+For the Italy North Region, Application Insights is not available until 12/12/2023 without allow list. This will effect the following service until then - Job schedule  - Feature store  - Model monitor - Data import
+
+
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government    
@@ -78,7 +84,6 @@ The information in the rest of this document provides information on what featur
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
 | [The Azure Machine Learning CLI v1](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
-| [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
 | [Integrate Azure Stream Analytics with Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Public Preview       | NO                 | NO          |
@@ -100,10 +105,9 @@ The information in the rest of this document provides information on what featur
 | **Inference** |   | | |
 | Managed online endpoints | GA | YES | YES |
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
-| [Azure Stack Edge with FPGA (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
 | [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
-| [Custom Cognitive Search (SDK v1)](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
+| [Custom Azure AI Search (SDK v1)](./v1/how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
 
 
 ### Azure Government scenarios
@@ -217,7 +221,7 @@ The information in the rest of this document provides information on what featur
 | Azure Stack Edge with FPGA                                                    | Deprecating       | Deprecating            | N/A        |
 | **Other** |    | | |
 | Open Datasets                                                              | Preview   | YES       | N/A        |
-| Custom Cognitive Search                                                    | Preview   | YES       | N/A        |
+| Custom Azure AI Search                                                    | Preview   | YES       | N/A        |
 
 
 

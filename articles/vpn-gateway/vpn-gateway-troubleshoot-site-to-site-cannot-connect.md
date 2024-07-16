@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 After you configure a site-to-site VPN connection between an on-premises network and an Azure virtual network, the VPN connection suddenly stops working and can't be reconnected. This article provides troubleshooting steps to help you resolve this problem.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Troubleshooting steps
 
@@ -46,7 +46,7 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 **Azure PowerShell**
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 For the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
@@ -98,7 +98,7 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
 
 > [!NOTE]
 > Basic SKU VPN gateways do not reply to health probe.
-> They are not recommended for [production workloads](vpn-gateway-about-vpn-gateway-settings.md#workloads).
+> They are not recommended for [production workloads](about-gateway-skus.md#workloads).
 
 ### Step 8: Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 

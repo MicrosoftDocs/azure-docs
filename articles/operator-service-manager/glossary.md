@@ -6,6 +6,9 @@ ms.author: sherryg
 ms.date: 08/15/2023
 ms.topic: glossary
 ms.service: azure-operator-service-manager
+content_well_notification: 
+  - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Glossary: Azure Operator Service Manager

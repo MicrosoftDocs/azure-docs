@@ -1,14 +1,16 @@
 ---
-title: Azure Elastic SAN Preview and virtual machine performance
+title: Learn about Azure Elastic SAN and VM performance
 description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: overview
-ms.date: 11/06/2023
+ms.custom:
+  - ignite-2023-elastic-SAN
+ms.topic: conceptual
+ms.date: 05/31/2024
 ms.author: rogarana
 ---
 
-# How performance works when Virtual Machines are connected to Elastic SAN Preview volumes
+# How performance works when virtual machines are connected to Elastic SAN volumes
 
 This article clarifies how Elastic SAN performance works, and how the combination of Elastic SAN limits and Azure Virtual Machines (VM) limits can affect the performance of your workloads.
 
@@ -32,7 +34,7 @@ The IOPS of an Elastic SAN increases by 5,000 per base TiB. So if you had an Ela
 
 ### Throughput
 
-The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 480 MB/s. That same SAN would provide 480-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
+The throughput of an Elastic SAN increases by 200 MB/s per base TiB. So if you had an Elastic SAN that has 6 TiB of base capacity, that SAN could still provide up to 1200 MB/s. That same SAN would provide 1200-MB/s throughput whether it had 50 TiB of additional capacity or 500 TiB of additional capacity, since the SAN's performance is only determined by the base capacity. The throughput of an Elastic SAN is distributed among all its volumes.
 
 ### Elastic SAN volumes
 
@@ -40,18 +42,8 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ## Example configuration
 
-Each of the example scenarios in this article uses the following configuration for the VMs and the Elastic SAN:
+Each of the example scenarios in this article uses the following configuration for the Elastic SAN:
 
-### VM limits
-
-|VM  |VM IOPS limit  |
-|---------|---------|
-|Standard_DS2_v2 (AKS)     |5,000         |
-|Standard_L48s_v2 (workload 1)     |48,000     |
-|Standard_L32s_v3 (workload 2)    |51,200         |
-|Standard_L48_v3 (workload 3)    |76,800         |
-
-### Elastic SAN limits
 
 |Resource  |Capacity  |IOPS  |
 |---------|---------|---------|
@@ -101,7 +93,7 @@ Generally, this is the ideal configuration for a SAN sharing workloads. It's bes
 |Workload  |Requested IOPS  |Served IOPS  |Spike time  |
 |---------|---------|---------|---------|
 |AKS workload     |5,000         |5,000         |9:00 am         |
-|Workload 1     |40,000         |19,000         |9:01 am         |
+|Workload 1     |40,000         |21,000         |9:01 am         |
 |Workload 2     |45,000         |45,000         |9:00 am         |
 |Workload 3     |64,000         |64,000         |9:00 am         |
 
@@ -114,4 +106,4 @@ In this scenario, all the workloads hit their spike at almost the same time. At 
 
 ## Next steps
 
-[Deploy an Elastic SAN (preview)](elastic-san-create.md).
+[Deploy an Elastic SAN](elastic-san-create.md).

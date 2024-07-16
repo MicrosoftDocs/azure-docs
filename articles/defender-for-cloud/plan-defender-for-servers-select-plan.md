@@ -4,7 +4,7 @@ description: Select a Microsoft Defender for Servers plan in Microsoft Defender 
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/06/2022
+ms.date: 11/20/2023
 ---
 
 # Select a Defender for Servers plan
@@ -23,11 +23,11 @@ This article is the *fourth* article in the Defender for Servers planning guide.
 
 ## Review plans
 
-You can choose from two Defender for Servers paid plans:
+You can choose from two paid plans:
 
 - **Defender for Servers Plan 1** is entry-level and must be enabled at the subscription level. Features include:
 
-  - [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md#defender-cspm-plan-options), which is provided free by Defender for Cloud.
+  - [Foundational cloud security posture management (CSPM)](concept-cloud-security-posture-management.md), which is provided free by Defender for Cloud.
 
     - For Azure virtual machines and Amazon Web Services (AWS) and Google Cloud Platform (GCP) machines, you don't need a Defender for Cloud plan enabled to use foundational CSPM features.
     - For on-premises server, to receive configuration recommendations machines must be onboarded to Azure with Azure Arc, and Defender for Servers must be enabled.
@@ -46,15 +46,14 @@ You can choose from two Defender for Servers paid plans:
 
 | Feature | Details | Plan 1 | Plan 2 |
 |:---|:---|:---:|:---:|
-| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint and protects servers with all the features, including:<br/><br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/><br/> - [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection), including real-time scanning and protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br/><br/> - EDR, including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Microsoft Defender Experts](/microsoft-365/security/defender-endpoint/endpoint-attack-notifications).<br/><br/> - Vulnerability assessment and mitigation provided by [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities) as part of the Defender for Endpoint integration. With Plan 2, you can get premium MDVM features, provided by the [MDVM add-on](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities#vulnerability-managment-capabilities-for-servers).| :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Defender for Endpoint integration** | Defender for Servers integrates with Defender for Endpoint and protects servers with all the features, including:<br/><br/>- [Attack surface reduction](/microsoft-365/security/defender-endpoint/overview-attack-surface-reduction) to lower the risk of attack.<br/><br/> - [Next-generation protection](/microsoft-365/security/defender-endpoint/next-generation-protection), including real-time scanning and protection and [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/next-generation-protection).<br/><br/> - EDR, including [threat analytics](/microsoft-365/security/defender-endpoint/threat-analytics), [automated investigation and response](/microsoft-365/security/defender-endpoint/automated-investigations), [advanced hunting](/microsoft-365/security/defender-endpoint/advanced-hunting-overview), and [Endpoint Attack Notifications](/microsoft-365/security/defender-endpoint/endpoint-attack-notifications).<br/><br/> - Vulnerability assessment and mitigation provided by [Microsoft Defender Vulnerability Management (MDVM)](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities) as part of the Defender for Endpoint integration. With Plan 2, you can get premium MDVM features, provided by the [MDVM add-on](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities#vulnerability-managment-capabilities-for-servers).| :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Licensing** | Defender for Servers covers licensing for Defender for Endpoint. Licensing is charged per hour instead of per seat, lowering costs by protecting virtual machines only when they're in use.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Defender for Endpoint provisioning** | Defender for Servers automatically provisions the Defender for Endpoint sensor on every supported machine that's connected to Defender for Cloud.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Unified view** | Defender for Endpoint alerts appear in the Defender for Cloud portal. You can get detailed information in the Defender for Endpoint portal.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection for OS-level (agent-based)** | Defender for Servers and Defender for Endpoint detect threats at the OS level, including virtual machine behavioral detections and *fileless attack detection*, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br><br />[Learn more about alerts for Windows machines](alerts-reference.md#alerts-windows)<br /><br />[Learn more about alerts for Linux machines](alerts-reference.md#alerts-linux)<br /><br /><br />[Learn more about alerts for DNS](alerts-reference.md#alerts-dns) | :::image type="icon" source="./media/icons/yes-icon.png":::</br>[Provided by MDE](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response) | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **Threat detection for network-level (agentless security alerts)** | Defender for Servers detects threats that are directed at the control plane on the network, including network-based security alerts for Azure virtual machines. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Unified view** | Alerts from Defender for Endpoint appear in the Defender for Cloud portal. You can get detailed information in the Defender for Endpoint portal.| :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for OS-level (agent-based)** | Defender for Servers and Defender for Endpoint detect threats at the OS level, including virtual machine behavioral detections and *fileless attack detection*, which generates detailed security alerts that accelerate alert triage, correlation, and downstream response time.<br><br />[Learn more about alerts for Windows machines](alerts-reference.md#alerts-for-windows-machines)<br /><br />[Learn more about alerts for Linux machines](alerts-reference.md#alerts-for-linux-machines)<br /><br /><br />[Learn more about alerts for DNS](alerts-reference.md#alerts-for-dns) | :::image type="icon" source="./media/icons/yes-icon.png":::</br>[Provided by MDE](/microsoft-365/security/defender-endpoint/overview-endpoint-detection-response) | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **Threat detection for network-level (agentless security alerts)** | Defender for Servers detects threats that are directed at the control plane on the network, including network-based security alerts for Azure virtual machines. [Learn more](alerts-reference.md) | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Microsoft Defender Vulnerability Management (MDVM) Add-on** | Enhance your vulnerability management program consolidated asset inventories, security baselines assessments, application block feature, and more. [Learn more](deploy-vulnerability-assessment-defender-vulnerability-management.md). | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Security Policy and Regulatory Compliance** | Customize a security policy for your subscription and also compare the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Learn more about [regulatory compliance](regulatory-compliance-dashboard.md) and [security policies](security-policy-concept.md) | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
-| **[Qualys vulnerability assessment](deploy-vulnerability-assessment-vm.md)** | As an alternative to Defender Vulnerability Management, Defender for Cloud can deploy a Qualys scanner and display the findings. You don't need a Qualys license or account. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 |**[Adaptive application controls](adaptive-application-controls.md)** | Adaptive application controls define allowlists of known safe applications for machines. To use this feature, Defender for Cloud must be enabled on the subscription. | Not supported in Plan 1 |:::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Free data ingestion (500 MB) to Log Analytics workspaces** | Free data ingestion is available for [specific data types](faq-defender-for-servers.yml#what-data-types-are-included-in-the-daily-allowance-) to Log Analytics workspaces. Data ingestion is calculated per node, per reported workspace, and per day. It's available for every workspace that has a *Security* or *AntiMalware* solution installed. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Free Azure Update Manager Remediation for Arc machines** | [Azure Update Manager remediation of unhealthy resources and recommendations](../update-center/update-manager-faq.md#im-a-defender-for-server-customer-and-use-update-recommendations-powered-by-azure-update-manager-namely-periodic-assessment-should-be-enabled-on-your-machines-and-system-updates-should-be-installed-on-your-machines-would-i-be-charged-for-azure-update-manager) is available at no additional cost for Arc enabled machines. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png"::: |
@@ -65,7 +64,7 @@ You can choose from two Defender for Servers paid plans:
 |[Network map](protect-network-resources.md) | Provides a geographical view of recommendations for hardening your network resources. | Not supported in Plan 1| :::image type="icon" source="./media/icons/yes-icon.png"::: |
 |[Agentless scanning](concept-agentless-data-collection.md) | Scans Azure virtual machines by using cloud APIs to collect data. | Not supported in Plan 1 | :::image type="icon" source="./media/icons/yes-icon.png":::|
 
->[!Note]
+>[!NOTE]
 >Once a plan is enabled, a 30-day trial period begins. There is no way to stop, pause, or extend this trial period.
 >To enjoy the full 30-day trial, make sure to plan ahead to meet your evaluation purposes.
 
@@ -80,18 +79,11 @@ A couple of vulnerability assessment options are available in Defender for Serve
   - Has the same [Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints#prerequisites), [Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#prerequisites), and [network](/microsoft-365/security/defender-endpoint/configure-proxy-internet#enable-access-to-microsoft-defender-for-endpoint-service-urls-in-the-proxy-server) prerequisites as Defender for Endpoint.
   - No extra software is required.
 
-    >[!Note]
+    >[!NOTE]
     > Microsoft Defender Vulnerability Management Add-on capabilities are included in Defender for Servers Plan 2. This provides consolidated inventories, new assessments, and mitigation tools to further enhance your vulnerability management program. To learn more, see [Vulnerability Management capabilities for servers](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management-capabilities#vulnerability-managment-capabilities-for-servers).
     >
     > Defender Vulnerability Management add-on capabilities are only available through the [Microsoft Defender 365 portal](https://security.microsoft.com/homepage).
 
-- [Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md): Provided by Defender for Cloud Qualys integration.
-
-  - Available only in Defender for Servers Plan 2.
-  - A great fit if you're using a third-party EDR solution or a Fanotify-based solution. In these scenarios, you might not be able to deploy the Defender for Endpoint for vulnerability assessment.
-  - The integrated Defender for Cloud Qualys solution doesn't support a proxy configuration, and it can't connect to an existing Qualys deployment. Vulnerability findings are available only in Defender for Cloud.
-
 ## Next steps
 
 After you work through these planning steps, [review Azure Arc and agent and extension requirements](plan-defender-for-servers-agents.md).
-

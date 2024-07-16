@@ -4,7 +4,6 @@ description: Learn how to diagnose and fix forbidden exceptions.
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting

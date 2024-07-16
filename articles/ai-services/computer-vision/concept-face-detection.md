@@ -1,25 +1,30 @@
 ---
-title: "Face detection and attributes - Face"
+title: "Face detection, attributes, and input data - Face"
 titleSuffix: Azure AI services
 description: Learn more about face detection; face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 07/04/2023
+ms.date: 04/30/2024
 ms.author: pafarley
 ---
 
-# Face detection and attributes
+# Face detection, attributes, and input data
 
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
+> [!IMPORTANT]
+> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data. Please refrain from using these attributes for anti-spoofing. Instead, we recommend using Face Liveness detection. For more information, please refer to [Tutorial: Detect liveness in faces](/azure/ai-services/computer-vision/tutorials/liveness). 
+
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
-You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
+You use the [Detect] API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-library.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detect-faces.md).
 
 ## Face rectangle
 
@@ -31,7 +36,7 @@ Try out the capabilities of face detection quickly and easily using Vision Studi
 
 ## Face ID
 
-The face ID is a unique identifier string for each detected face in an image. Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API call.
+The face ID is a unique identifier string for each detected face in an image. Face ID requires limited access approval, which you can apply for by filling out the [intake form](https://aka.ms/facerecognition). For more information, see the Face [limited access page](/legal/cognitive-services/computer-vision/limited-access-identity?context=%2Fazure%2Fcognitive-services%2Fcomputer-vision%2Fcontext%2Fcontext). You can request a face ID in your [Detect] API call.
 
 ## Face landmarks
 
@@ -47,7 +52,7 @@ The Detection_03 model currently has the most accurate landmark detection. The e
 
 [!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
 
-Attributes are a set of features that can optionally be detected by the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. The following attributes can be detected:
+Attributes are a set of features that can optionally be detected by the [Detect] API. The following attributes can be detected:
 
 * **Accessories**. Indicates whether the given face has accessories. This attribute returns possible accessories including headwear, glasses, and mask, with confidence score between zero and one for each accessory.
 * **Blur**. The blurriness of the face in the image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
@@ -65,24 +70,12 @@ Attributes are a set of features that can optionally be detected by the [Face - 
     >[!NOTE]
     > The availability of each attribute depends on the detection model specified. QualityForRecognition attribute also depends on the recognition model, as it is currently only available when using a combination of detection model detection_01 or detection_03, and recognition model recognition_03 or recognition_04.
 
-> [!IMPORTANT]
-> Face attributes are predicted through the use of statistical algorithms. They might not always be accurate. Use caution when you make decisions based on attribute data.
-
-## Input data
+## Input requirements
 
 Use the following tips to make sure that your input images give the most accurate detection results:
 
-* The supported input image formats are JPEG, PNG, GIF (the first frame), BMP. 
-* The image file size should be no larger than 6 MB.
-* The minimum detectable face size is 36 x 36 pixels in an image that is no larger than 1920 x 1080 pixels. Images with larger than 1920 x 1080 pixels have a proportionally larger minimum face size. Reducing the face size might cause some faces not to be detected, even if they're larger than the minimum detectable face size.
-* The maximum detectable face size is 4096 x 4096 pixels.
-* Faces outside the size range of 36 x 36 to 4096 x 4096 pixels will not be detected.
-* Some faces might not be recognized because of technical challenges, such as:
-  * Images with extreme lighting, for example, severe backlighting.
-  * Obstructions that block one or both eyes.
-  * Differences in hair type or facial hair.
-  * Changes in facial appearance because of age.
-  * Extreme facial expressions.
+[!INCLUDE [identity-input-technical](includes/identity-input-technical.md)]
+[!INCLUDE [identity-input-detection](includes/identity-input-detection.md)]
 
 ### Input data with orientation information:
 
@@ -108,3 +101,5 @@ If you're detecting faces from a video feed, you may be able to improve performa
 Now that you're familiar with face detection concepts, learn how to write a script that detects faces in a given image.
 
 * [Call the detect API](./how-to/identity-detect-faces.md)
+
+[Detect]: /rest/api/face/face-detection-operations/detect

@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
+ms.custom: devx-track-csharp
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [Change feed](../change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 

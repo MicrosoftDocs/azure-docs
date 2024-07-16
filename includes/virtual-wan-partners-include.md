@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 01/27/2023
+ ms.date: 01/23/2024
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -15,9 +15,9 @@ You can check the links in this section for more information about services offe
 |Partners|Configuration/How-to/Deployment Guide|
 |---|---|
 |[Barracuda Networks](https://www.barracuda.com/AzurevWAN)| [Barracuda CloudGen Firewall: Azure Virtual WAN](https://campus.barracuda.com/doc/79463435/)|
-| [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |[Check Point for the Microsoft Azure Virtual WAN Quick Start Guide](https://sc1.checkpoint.com/documents/IaaS/WebAdminGuides/EN/CP_for_Microsoft_Azure_vWAN/Content/Topics/Introduction.htm?tocpath=Introduction%7C_____0)|
-|[Cisco Meraki](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|[Azure Virtual WAN Cisco Meraki Deployment Guide](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|
-| [Citrix](https://www.citrix.com/global-partners/microsoft/sd-wan-for-azure-virtual-wan.html)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
+| [Check Point](https://www.checkpoint.com/solutions/microsoft-azure-virtual-wan/) |[Check Point for the Microsoft Azure Virtual WAN Quick Start Guide](https://sc1.checkpoint.com/documents/IaaS/WebAdminGuides/EN/CP_CloudGuard_Network_for_Azure_vWAN/Content/Topics-Azure-vWAN/Introduction.htm?tocpath=Introduction%7C_____0)|
+|[Cisco Meraki](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|[Azure Virtual WAN Cisco Meraki Deployment Guide](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide) and [vMX and Azure vWAN](https://documentation.meraki.com/MX/Deployment_Guides/vMX_and_Azure_vWAN)|
+| [Citrix](https://www.citrix.com/)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
 | [CloudGenix](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|[CloudGenix Azure Virtual WAN CloudBlade Deployment Guide](https://sd-wan.cloudgenix.com/Q319ConfigurationGuide_Registration.html)|
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[Routing Scenario Blog](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE Aruba](https://www.arubanetworks.com/microsoft-vwan/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|

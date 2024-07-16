@@ -4,23 +4,23 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you get cost data if you have a MOSP pay-as-you-go subscription.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 05/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Get cost details for a pay-as-you-go subscription
 
-If you have an MSDN, Microsoft Online Service Program (MOSP) pay-as-you-go, or Visual Studio Azure subscription, we recommend that you use [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to get cost details data (formerly known as usage details). The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API report isn't supported for your subscription type yet.
+If your subscription is through Microsoft Online Service Program (MOSP) pay-as-you-go, or Visual Studio, we suggest using [Exports](../costs/tutorial-export-acm-data.md) or the [Exports API](../costs/ingest-azure-usage-at-scale.md) to access detailed cost data, previously referred to as usage details. The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API report isn't supported for your subscription type yet.
 
-If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. Instructions about how to use the API are below. 
+If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. To use the API, read the following instructions.
 
 > [!NOTE]
-> The API is deprecated for all customers except those with MSDN, pay-as-you-go and Visual Studio subscriptions. If you're an EA or MCA customer don't use this API. 
+> The API is deprecated for all customers except those with pay-as-you-go and Visual Studio subscriptions. If you're an EA or MCA customer don't use this API.
 
-The date that the API will be turned off is still being determined. The [Cost Details](/rest/api/cost-management/generate-cost-details-report) API will be updated to support MSDN, pay-as-you-go and Visual studio subscriptions prior to the deprecation of the Consumption Usage Details API.
+The exact date for discontinuing the API is undetermined. Before the Consumption Usage Details API is deprecated, the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API will get updates to support both pay-as-you-go and Visual Studio subscriptions.
 
 ## Example Consumption Usage Details API requests
 
@@ -28,7 +28,7 @@ The following example requests are used by Microsoft customers to address common
 
 ### Get usage details for a scope during a specific date range
 
-The data that's returned by the request corresponds to the date when the data was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
+The data that gets returned by the request corresponds to the date when the data got received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
 
 For pay-as-you-go subscriptions, use the following call.
 
@@ -42,7 +42,8 @@ If you need actual costs to show purchases as they're accrued, change the `metri
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
-## Next steps
+
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

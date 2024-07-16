@@ -5,9 +5,9 @@ description: Learn how to use the Execute Python Script model in Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 02/08/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, designer, devx-track-python
@@ -23,7 +23,8 @@ The default execution environment uses the Anacondas distribution of Python. See
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
-[!INCLUDE [machine-learning-missing-ui](../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 ## Execute Python written in the designer
 

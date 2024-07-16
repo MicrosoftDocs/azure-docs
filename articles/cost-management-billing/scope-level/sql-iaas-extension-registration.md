@@ -1,10 +1,9 @@
 ---
 title: SQL IaaS extension registration options for Cost Management administrators
 description: This article explains the SQL IaaS extension registration options available to Cost Management administrators.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2023
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -99,6 +98,6 @@ After you complete either of the preceding automatic registration options, it ca
 
 After you complete the SQL IaaS Extension registration, we recommended you use Azure Hybrid Benefit for centralized management. If you're unsure whether registration is finished, you can use the steps in [Complete the Registration Check](#complete-the-registration-check).
 
-## Next steps
+## Related content
 
 When you're ready, [Create SQL Server license assignments for Azure Hybrid Benefit](create-sql-license-assignments.md). Centrally managed Azure Hybrid Benefit is designed to make it easy to monitor your Azure SQL usage and optimize costs.

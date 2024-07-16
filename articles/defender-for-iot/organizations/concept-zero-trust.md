@@ -1,7 +1,7 @@
 ---
 title: Zero Trust and your OT networks - Microsoft Defender for IoT
 description: Learn about how implementing a Zero Trust security strategy with Microsoft Defender for IoT can protect your operational technology (OT) networks.
-ms.date: 02/15/2023
+ms.date: 05/22/2024
 ms.topic: conceptual
 ms.collection:
   -       zerotrust-services
@@ -73,14 +73,6 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 |**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
 |**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
 
-### Zero Trust and air-gapped environments
-
-If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all connected OT sensors.
-
-> [!NOTE]
-> Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. 
->
-> If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and the on-premises management console to manage locally-managed sensors.
 
 ## Next steps
 
@@ -93,7 +85,6 @@ Use built-in Defender for IoT workbooks and create custom workbooks of your own 
 For more information, see:
 
 - [Create sites and zones when onboarding an OT sensor](onboard-sensors.md)
-- [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md)
 - [Manage site-based access control](manage-users-portal.md#manage-site-based-access-control-public-preview)
 - [Monitor your OT network with Zero Trust principles](monitor-zero-trust.md)
 

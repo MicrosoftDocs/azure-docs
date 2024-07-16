@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 01/05/2024
 ms.author: jburchel
 ---
 
@@ -63,8 +63,9 @@ In the interface, when first configuring it, a suggested counter set will be rec
 
 ## View Events and Performance counter data in Log Analytics
 
-Consult this tutorial on [How to query data in Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
-The two tables where the telemetry is saved are called Perf and Event respectively. The following query will check the row count to see if we have data flowing in. This would confirm if the instrumentation described above is working.
+To learn how to analyze monitoring data in the Azure Monitor Logs / Log Analytics store by using the Kusto query language (KQL), see [Kusto queries](monitor-data-factory.md#kusto-queries).
+
+The two tables where the telemetry is saved are called Perf and Event respectively. The following query checks the row count to see if we have data flowing in. This confirms if the instrumentation described above is working.
 
 ### Sample KQL queries
 
@@ -192,7 +193,7 @@ Perf
 | summarize Value=max(CounterValue) by CounterName, TimeStamps=TimeGenerated
 ```
 
-## Next Steps
+## Related content
 
 - [Review integration runtime concepts in Azure Data Factory.](concepts-integration-runtime.md)
 - Learn how to [create a self-hosted integration runtime in the Azure portal.](create-self-hosted-integration-runtime.md)

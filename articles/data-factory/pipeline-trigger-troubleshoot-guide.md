@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
@@ -269,7 +269,7 @@ Failure type is user configuration issue. String of parameters, instead of Array
 Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*.  Use createArray function to force parameters being passed as an array.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

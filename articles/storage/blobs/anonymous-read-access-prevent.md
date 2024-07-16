@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.date: 09/12/2023
 
 ms.reviewer: nachakra
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ---
 
@@ -175,7 +176,7 @@ The **Microsoft.Storage/storageAccounts/listkeys/action** itself grants data acc
 
 ### Set the storage account's AllowBlobPublicAccess property to False
 
-To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To disallow anonymous access for a storage account, set the account's **AllowBlobPublicAccess** property to **False**.
 
 > [!IMPORTANT]
 > Disallowing anonymous access for a storage account overrides the access settings for all containers in that storage account. When anonymous access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously by following the steps outlined in [Detect anonymous requests from client applications](#detect-anonymous-requests-from-client-applications).
@@ -334,8 +335,6 @@ begin {
 }
 
 process {
-    Write-Host "NOTE: If you are using OAuth authorization on a storage account, disabling public access at the account level may interfere with authorization."
-
     try {
         select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
     } catch {
@@ -381,56 +380,6 @@ process {
 end {
     Write-Host "Script complete"
 }
-```
-
-## Verify that anonymous access has been remediated
-
-To verify that you've remediated anonymous access for a storage account, you can test that anonymous access to a blob isn't permitted, that modifying a container's access setting isn't permitted, and that it's not possible to create a container with anonymous access enabled.
-
-### Verify that anonymous access to a blob isn't permitted
-
-To verify that anonymous access to a specific blob is disallowed, you can attempt to download the blob via its URL. If the download succeeds, then the blob is still publicly available. If the blob isn't publicly accessible because anonymous access has been disallowed for the storage account, then you'll see an error message indicating that anonymous access isn't permitted on this storage account.
-
-The following example shows how to use PowerShell to attempt to download a blob via its URL. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$url = "<absolute-url-to-blob>"
-$downloadTo = "<file-path-for-download>"
-Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
-```
-
-### Verify that modifying the container's access setting isn't permitted
-
-To verify that a container's access setting can't be modified after anonymous access is disallowed for the storage account, you can attempt to modify the setting. Changing the container's access setting fails if anonymous access is disallowed for the storage account.
-
-The following example shows how to use PowerShell to attempt to change a container's access setting. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
-```
-
-### Verify that a container can't be created with anonymous access enabled
-
-If anonymous access is disallowed for the storage account, then you won't be able to create a new container with anonymous access enabled. To verify, you can attempt to create a container with anonymous access enabled.
-
-The following example shows how to use PowerShell to attempt to create a container with anonymous access enabled. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
 
 ### Check the anonymous access setting for multiple accounts

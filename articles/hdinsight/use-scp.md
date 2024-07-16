@@ -3,7 +3,6 @@ title: Use SCP with Apache Hadoop in Azure HDInsight
 description: This document provides information on connecting to HDInsight using the ssh and scp commands.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
 ms.date: 09/14/2023
 ---
 

@@ -6,8 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage 
@@ -145,6 +144,6 @@ Here's the estimated price based on our assumptions:
 - [Copy new and changed files based on LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers by using Azure Data Factory](solution-template-copy-files-multiple-containers.md)

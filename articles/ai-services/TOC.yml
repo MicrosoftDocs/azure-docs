@@ -1,3 +1,4 @@
+items:
 - name: Azure AI services documentation
   href: index.yml
 - name: Overview
@@ -25,16 +26,14 @@
     href: create-account-terraform.md
 - name: Concepts
   items:
-  - name: Azure AI services development options
-    href: cognitive-services-development-options.md
-  - name: Azure AI services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
+  - name: Azure AI services and the ecosystem
+    href: ai-services-and-ecosystem.md 
   - name: Custom subdomains for Azure AI services
     href: cognitive-services-custom-subdomains.md
 - name: How-to
   items:
-  - name: Plan and manage costs 
-    href: plan-manage-costs.md
+  - name: Plan and manage costs
+    href: ../ai-studio/how-to/costs-plan-manage.md?context=/azure/ai-services/context/context
   - name: Increase rate limit
     href: autoscale.md
   - name: Use commitment tier pricing 
@@ -103,6 +102,10 @@
     href: cognitive-services-limited-access.md
 - name: Reference
   items:
+  - name: Azure AI services SDKs
+    href: reference/sdk-package-resources.md
+  - name: Azure AI services REST APIs
+    href: reference/rest-api-resources.md
   - name: REST API
     href: /rest/api/cognitiveservices/accountmanagement/accounts
   - name: .NET

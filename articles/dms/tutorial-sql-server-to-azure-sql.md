@@ -9,17 +9,15 @@ ms.date: 10/10/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
-  - ignite-2022
   - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Database using DMS (classic)
 
-[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
-> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Database by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-azure-sql-database-offline.md).
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Database by using the [Azure SQL migration extension for Azure Data Studio](/data-migration/sql-server/database/database-migration-service).
 >
 > To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
@@ -220,9 +218,9 @@ To migrate the **AdventureWorks2016** schema to a single database or pooled data
 
     ![Deploy Schema](media/tutorial-sql-server-to-azure-sql/dma-schema-deploy.png)
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]   
 
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]   
 
 ## Create a migration project
 

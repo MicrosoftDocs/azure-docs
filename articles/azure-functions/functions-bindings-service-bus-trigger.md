@@ -4,8 +4,9 @@ description: Learn to run an Azure Function when as Azure Service Bus messages a
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/04/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -22,17 +23,7 @@ Service Bus scaling decisions for the Consumption and Premium plans are made bas
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
 ::: zone-end
 
@@ -41,6 +32,8 @@ This article supports both programming models.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -369,6 +362,7 @@ The following table explains the properties you can set using this trigger attri
 |**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**AutoCompleteMessages**| `true` if the trigger should automatically complete the message after a successful invocation. `false` if it should not, such as when you are [handling message settlement in code](#usage). If not explicitly set, the behavior will be based on the [`autoCompleteMessages` configuration in `host.json`][host-json-autoComplete].|
 
 # [In-process model](#tab/in-process)
 
@@ -589,9 +583,16 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 ## PeekLock behavior
 
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). It calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running.
+The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode).
 
-The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [ServiceBusProcessor.MaxAutoLockRenewalDuration](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.maxautolockrenewalduration). The default value of this setting is 5 minutes.
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell"
+ By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete].
+::: zone-end  
+::: zone pivot="programming-language-csharp"  
+ By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete] or through a [property on the trigger attribute](#attributes). You should disable automatic completion if your function code handles message settlement.
+::: zone-end  
+
+If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed as long as the function is running. The `maxAutoRenewDuration` is configurable in *host.json*, which maps to [ServiceBusProcessor.MaxAutoLockRenewalDuration](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.maxautolockrenewalduration). The default value of this setting is 5 minutes.
 
 ::: zone pivot="programming-language-csharp" 
 ## Message metadata
@@ -695,3 +696,4 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 
 [upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
+[host-json-autoComplete]: ./functions-bindings-service-bus.md#hostjson-settings

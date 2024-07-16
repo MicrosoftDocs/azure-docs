@@ -4,7 +4,7 @@ description: Log Analytics workspace data export in Azure Monitor lets you conti
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: yossiy
-ms.date: 06/29/2023
+ms.date: 06/14/2024
 ---
 
 # Log Analytics workspace data export in Azure Monitor
@@ -17,7 +17,7 @@ Data in Log Analytics is available for the retention period defined in your work
 * **Integration with Azure services and other tools:** Export to Event Hubs as data arrives and is processed in Azure Monitor.
 * **Long-term retention of audit and security data:** Export to a Storage Account in the workspace's region. Or you can replicate data to other regions by using any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
 
-After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives.
+After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your Storage Account or Event Hubs as it arrives. Data export traffic is in Azure backbone network and doesn't leave the Azure network.
 
 :::image type="content" source="media/logs-data-export/data-export-overview.png" lightbox="media/logs-data-export/data-export-overview.png" alt-text="Diagram that shows a data export flow.":::
 
@@ -33,7 +33,7 @@ Log Analytics workspace data export continuously exports data that's sent to you
 ## Limitations
 
 - Custom logs created using the [HTTP Data Collector API](./data-collector-api.md) can't be exported, including text-based logs consumed by Log Analytics agent. Custom logs created using [data collection rules](./logs-ingestion-api-overview.md), including text-based logs, can be exported. 
-- Data export will gradually support more tables, but is currently limited to tables specified in the [supported tables](#supported-tables) section.
+- Data export will gradually support more tables, but is currently limited to tables specified in the [supported tables](#supported-tables) section. You can include tables that aren't yet supported in rules, but no data will be exported for them until the tables are supported.
 - You can define up to 10 enabled rules in your workspace, each can include multiple tables. You can create more rules in workspace in disabled state. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - The Storage Account must be unique across rules in the workspace.
@@ -127,6 +127,15 @@ If you've configured your Storage Account to allow access from selected networks
 > [!IMPORTANT]
 > Export destinations have limits and should be monitored to minimize throttling, failures, and latency. For more information, see [Storage Account scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [Event Hubs namespace quotas](../../event-hubs/event-hubs-quotas.md).
 
+The following metrics are available for data export operation and alerts
+
+| Metric name	| Description |
+|:---|:---|
+| Bytes Exported | Total number of bytes exported to destination from Log Analytics workspace within the selected time range. The size of data exported is the number of bytes in the exported JSON formatted data. 1 GB = 10^9 bytes. |
+| Export Failures	| Total number of failed export requests to destination from Log Analytics workspace within the selected time range. This number includes export attempts failures due to destination resource throttling, forbidden access error, or any server error. A retry process handles failed attempts and the number isn’t an indication for missing data. |
+| Records exported | Total number of records exported from Log Analytics workspace within the selected time range. This number counts records for operations that ended with success. |
+
+
 #### Monitor a Storage Account
 
 1. Use a separate Storage Account for export.
@@ -159,12 +168,11 @@ If you've configured your Storage Account to allow access from selected networks
    - Use Premium or Dedicated tiers for higher throughput.
 
 ### Create or update a data export rule
-A data export rule defines the destination and tables for which data is exported. You can create 10 rules in the **Enabled** state in your workspace. More rules are allowed in the **Disabled** state. The Storage Account must be unique across rules in the workspace. Multiple rules can use the same Event Hubs namespace when you're sending to separate Event Hubs.
-
-> [!NOTE]
-> - You can include tables that aren't yet supported in rules, but no data will be exported for them until the tables are supported.
-> - Export to a Storage Account: A separate container is created in the Storage Account for each table.
-> - Export to Event Hubs: If an Event Hub name isn't provided, a separate Event Hub is created for each table. The [number of supported Event Hubs in Basic and Standard namespace tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When you're exporting more than 10 tables to these tiers, either split the tables between several export rules to different Event Hubs namespaces or provide an Event Hub name in the rule to export all tables to it.
+A data export rule defines the destination and tables for which data is exported. The rule provisioning takes about 30 minutes before the export operation initiated. Data export rules considerations:
+- The Storage Account must be unique across rules in the workspace.
+- Multiple rules can use the same Event Hubs namespace when you're sending to separate Event Hubs.
+- Export to a Storage Account: A separate container is created in the Storage Account for each table.
+- Export to Event Hubs: If an Event Hub name isn't provided, a separate Event Hub is created for each table. The [number of supported Event Hubs in Basic and Standard namespace tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). When you're exporting more than 10 tables to these tiers, either split the tables between several export rules to different Event Hubs namespaces or provide an Event Hub name in the rule to export all tables to it.
 
 # [Azure portal](#tab/portal)
 
@@ -172,9 +180,9 @@ A data export rule defines the destination and tables for which data is exported
 
    :::image type="content" source="media/logs-data-export/export-create-1.png" lightbox="media/logs-data-export/export-create-1.png" alt-text="Screenshot that shows the data export entry point.":::
 
-1. Follow the steps, and then select **Create**.
-
-   [<img src="media/logs-data-export/export-create-2.png" alt="Screenshot of export rule configuration." title="Export rule configuration" width="80%"/>](media/logs-data-export/export-create-2.png#lightbox)
+1. Follow the steps, and then select **Create**. Only the tables with data in them are displayed under "Source" tab.
+   <!-- convertborder later -->
+   :::image type="content" source="media/logs-data-export/export-create-2.png" lightbox="media/logs-data-export/export-create-2.png" alt-text="Screenshot of export rule configuration." border="false":::
 
 # [PowerShell](#tab/powershell)
 
@@ -643,13 +651,14 @@ If the data export rule includes an unsupported table, the configuration will su
 ## Supported tables
 
 > [!NOTE]
-> We are in a process of adding support for more tables. Please check this article regularly. 
+> We are in a process of adding support for more tables. Please check this article regularly.
 
 | Table | Limitations |
-|:---|:---|
+|---|---|
 | AACAudit |  |
 | AACHttpRequest |  |
 | AADB2CRequestLogs |  |
+| AADCustomSecurityAttributeAuditLogs |  |
 | AADDomainServicesAccountLogon |  |
 | AADDomainServicesAccountManagement |  |
 | AADDomainServicesDirectoryServiceAccess |  |
@@ -673,6 +682,9 @@ If the data export rule includes an unsupported table, the configuration will su
 | ACSBillingUsage |  |
 | ACSCallAutomationIncomingOperations |  |
 | ACSCallAutomationMediaSummary |  |
+| ACSCallClientMediaStatsTimeSeries |  |
+| ACSCallClientOperations |  |
+| ACSCallClosedCaptionsSummary |  |
 | ACSCallDiagnostics |  |
 | ACSCallRecordingIncomingOperations |  |
 | ACSCallRecordingSummary |  |
@@ -682,6 +694,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | ACSEmailSendMailOperational |  |
 | ACSEmailStatusUpdateOperational |  |
 | ACSEmailUserEngagementOperational |  |
+| ACSJobRouterIncomingOperations |  |
 | ACSNetworkTraversalDiagnostics |  |
 | ACSNetworkTraversalIncomingOperations |  |
 | ACSRoomsIncomingOperations |  |
@@ -719,6 +732,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | ADTModelsOperation |  |
 | ADTQueryOperation |  |
 | ADXCommand |  |
+| ADXIngestionBatching |  |
 | ADXJournal |  |
 | ADXQuery |  |
 | ADXTableDetails |  |
@@ -726,8 +740,11 @@ If the data export rule includes an unsupported table, the configuration will su
 | AegDataPlaneRequests |  |
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
+| AEWAssignmentBlobLogs |  |
 | AEWAuditLogs |  |
 | AEWComputePipelinesLogs |  |
+| AFSAuditLogs |  |
+| AGCAccessLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodFarmManagementLogs |  |
 | AgriFoodFarmOperationLogs |  |
@@ -739,6 +756,9 @@ If the data export rule includes an unsupported table, the configuration will su
 | AgriFoodSensorManagementLogs |  |
 | AgriFoodWeatherLogs |  |
 | AGSGrafanaLoginEvents |  |
+| AGWAccessLogs |  |
+| AGWFirewallLogs |  |
+| AGWPerformanceLogs |  |
 | AHDSDicomAuditLogs |  |
 | AHDSDicomDiagnosticLogs |  |
 | AHDSMedTechDiagnosticLogs |  |
@@ -746,6 +766,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AKSAudit |  |
 | AKSAuditAdmin |  |
 | AKSControlPlane |  |
+| ALBHealthEvent |  |
 | Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
@@ -753,6 +774,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AmlComputeCpuGpuUtilization |  |
 | AmlComputeInstanceEvent |  |
 | AmlComputeJobEvent |  |
+| AmlDataLabelEvent |  |
 | AmlDataSetEvent |  |
 | AmlDataStoreEvent |  |
 | AmlDeploymentEvent |  |
@@ -771,9 +793,14 @@ If the data export rule includes an unsupported table, the configuration will su
 | AMSLiveEventOperations |  |
 | AMSMediaAccountHealth |  |
 | AMSStreamingEndpointRequests |  |
+| AMWMetricsUsageDetails |  |
 | ANFFileAccess |  |
 | Anomalies |  |
+| AOIDatabaseQuery |  |
+| AOIDigestion |  |
+| AOIStorage |  |
 | ApiManagementGatewayLogs |  |
+| ApiManagementWebSocketConnectionLogs |  |
 | AppAvailabilityResults |  |
 | AppBrowserTimings |  |
 | AppCenterError |  |
@@ -784,6 +811,8 @@ If the data export rule includes an unsupported table, the configuration will su
 | AppMetrics |  |
 | AppPageViews |  |
 | AppPerformanceCounters |  |
+| AppPlatformBuildLogs |  |
+| AppPlatformContainerEventLogs |  |
 | AppPlatformIngressLogs |  |
 | AppPlatformLogsforSpring |  |
 | AppPlatformSystemLogs |  |
@@ -791,6 +820,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AppServiceAntivirusScanAuditLogs |  |
 | AppServiceAppLogs |  |
 | AppServiceAuditLogs |  |
+| AppServiceAuthenticationLogs |  |
 | AppServiceConsoleLogs |  |
 | AppServiceEnvironmentPlatformLogs |  |
 | AppServiceFileAuditLogs |  |
@@ -800,14 +830,20 @@ If the data export rule includes an unsupported table, the configuration will su
 | AppServiceServerlessSecurityPluginData |  |
 | AppSystemEvents |  |
 | AppTraces |  |
+| ArcK8sAudit |  |
+| ArcK8sAuditAdmin |  |
+| ArcK8sControlPlane |  |
 | ASCAuditLogs |  |
 | ASCDeviceEvents |  |
 | ASimAuditEventLogs |  |
 | ASimAuthenticationEventLogs |  |
+| ASimDhcpEventLogs |  |
 | ASimDnsActivityLogs |  |
-| ASimNetworkSessionLogs |  |
+| ASimFileEventLogs |  |
 | ASimNetworkSessionLogs |  |
 | ASimProcessEventLogs |  |
+| ASimRegistryEventLogs |  |
+| ASimUserManagementActivityLogs |  |
 | ASimWebSessionLogs |  |
 | ASRJobs |  |
 | ASRReplicatedItems |  |
@@ -815,7 +851,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | AuditLogs |  |
 | AutoscaleEvaluationsLog |  |
 | AutoscaleScaleActionsLog |  |
+| AVNMConnectivityConfigurationChange |  |
+| AVNMIPAMPoolAllocationChange |  |
 | AVNMNetworkGroupMembershipChange |  |
+| AVNMRuleCollectionChange |  |
 | AVSSyslog |  |
 | AWSCloudTrail |  |
 | AWSCloudWatch |  |
@@ -839,6 +878,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AZMSArchiveLogs |  |
 | AZMSAutoscaleLogs |  |
 | AZMSCustomerManagedKeyUserLogs |  |
+| AZMSDiagnosticErrorLogs |  |
 | AZMSHybridConnectionsEvents |  |
 | AZMSKafkaCoordinatorLogs |  |
 | AZMSKafkaUserErrorLogs |  |
@@ -847,8 +887,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | AZMSVnetConnectionEvents |  |
 | AzureAssessmentRecommendation |  |
 | AzureAttestationDiagnostics |  |
+| AzureBackupOperations |  |
 | AzureDevOpsAuditing |  |
 | AzureLoadTestingOperation |  |
+| AzureMetricsV2 |  |
 | BehaviorAnalytics |  |
 | CassandraAudit |  |
 | CassandraLogs |  |
@@ -872,7 +914,9 @@ If the data export rule includes an unsupported table, the configuration will su
 | ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | ContainerAppConsoleLogs |  |
 | ContainerAppSystemLogs |  |
+| ContainerEvent |  |
 | ContainerImageInventory |  |
+| ContainerInstanceLog |  |
 | ContainerInventory |  |
 | ContainerLog |  |
 | ContainerLogV2 |  |
@@ -882,24 +926,33 @@ If the data export rule includes an unsupported table, the configuration will su
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
 | DatabricksAccounts |  |
+| DatabricksBrickStoreHttpGateway |  |
 | DatabricksCapsule8Dataplane |  |
 | DatabricksClamAVScan |  |
+| DatabricksCloudStorageMetadata |  |
 | DatabricksClusterLibraries |  |
 | DatabricksClusters |  |
+| DatabricksDashboards |  |
+| DatabricksDataMonitoring |  |
 | DatabricksDBFS |  |
 | DatabricksDeltaPipelines |  |
 | DatabricksFeatureStore |  |
+| DatabricksFilesystem |  |
 | DatabricksGenie |  |
 | DatabricksGitCredentials |  |
 | DatabricksGlobalInitScripts |  |
 | DatabricksIAMRole |  |
+| DatabricksIngestion |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
+| DatabricksLineageTracking |  |
+| DatabricksMarketplaceConsumer |  |
 | DatabricksMLflowAcledArtifact |  |
 | DatabricksMLflowExperiment |  |
 | DatabricksModelRegistry |  |
 | DatabricksNotebook |  |
 | DatabricksPartnerHub |  |
+| DatabricksPredictiveOptimization |  |
 | DatabricksRemoteHistoryService |  |
 | DatabricksRepos |  |
 | DatabricksSecrets |  |
@@ -909,8 +962,14 @@ If the data export rule includes an unsupported table, the configuration will su
 | DatabricksUnityCatalog |  |
 | DatabricksWebTerminal |  |
 | DatabricksWorkspace |  |
+| DatabricksWorkspaceLogs |  |
 | DataTransferOperations |  |
+| DataverseActivity |  |
+| DCRLogErrors |  |
+| DCRLogTroubleshooting |  |
+| DevCenterBillingEventLogs |  |
 | DevCenterDiagnosticLogs |  |
+| DevCenterResourceOperationLogs |  |
 | DeviceEvents |  |
 | DeviceFileCertificateInfo |  |
 | DeviceFileEvents |  |
@@ -928,23 +987,30 @@ If the data export rule includes an unsupported table, the configuration will su
 | DeviceTvmSoftwareVulnerabilitiesKB |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DNSQueryLogs |  |
 | DSMAzureBlobStorageLogs |  |
 | DSMDataClassificationLogs |  |
 | DSMDataLabelingLogs |  |
-| DynamicEventCollection |  |
 | Dynamics365Activity |  |
 | DynamicSummary |  |
+| EGNFailedMqttConnections |  |
+| EGNFailedMqttPublishedMessages |  |
+| EGNFailedMqttSubscriptions |  |
+| EGNMqttDisconnections |  |
+| EGNSuccessfulMqttConnections |  |
 | EmailAttachmentInfo |  |
 | EmailEvents |  |
 | EmailPostDeliveryEvents |  |
 | EmailUrlInfo |  |
 | EnrichedMicrosoft365AuditLogs |  |
+| ETWEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | Event | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | ExchangeAssessmentRecommendation |  |
 | ExchangeOnlineAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
 | GCPAuditLogs |  |
+| GoogleCloudSCC |  |
 | HDInsightAmbariClusterAlerts |  |
 | HDInsightAmbariSystemMetrics |  |
 | HDInsightGatewayAuditLogs |  |
@@ -985,6 +1051,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | IdentityQueryEvents |  |
 | InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | IntuneAuditLogs |  |
+| IntuneDeviceComplianceOrg |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
 | KubeEvents |  |
@@ -995,23 +1062,43 @@ If the data export rule includes an unsupported table, the configuration will su
 | KubePVInventory |  |
 | KubeServices |  |
 | LAQueryLogs |  |
+| LASummaryLogs |  |
+| LinuxAuditLog |  |
 | LogicAppWorkflowRuntime |  |
 | McasShadowItReporting |  |
 | MCCEventLogs |  |
 | MCVPAuditLogs |  |
 | MCVPOperationLogs |  |
+| MDCFileIntegrityMonitoringEvents |  |
+| MDECustomCollectionDeviceFileEvents |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
+| MicrosoftDataShareShareLog |  |
 | MicrosoftGraphActivityLogs |  |
 | MicrosoftHealthcareApisAuditLogs |  |
 | MicrosoftPurviewInformationProtection |  |
+| MNFDeviceUpdates |  |
+| MNFSystemSessionHistoryUpdates |  |
+| MNFSystemStateMessageUpdates |  |
+| NCBMBreakGlassAuditLogs |  |
+| NCBMSecurityDefenderLogs |  |
+| NCBMSecurityLogs |  |
+| NCBMSystemLogs |  |
+| NCCKubernetesLogs |  |
+| NCCVMOrchestrationLogs |  |
+| NCSStorageAlerts |  |
+| NCSStorageLogs |  |
 | NetworkAccessTraffic |  |
+| NetworkMonitoring |  |
+| NGXOperationLogs |  |
 | NSPAccessLogs |  |
+| NTAInsights |  |
 | NTAIpDetails |  |
 | NTANetAnalytics |  |
 | NTATopologyDetails |  |
 | NWConnectionMonitorDestinationListenerResult |  |
+| NWConnectionMonitorDNSResult |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OEPAirFlowTask |  |
@@ -1032,6 +1119,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | PowerBIDatasetsTenant |  |
 | PowerBIDatasetsWorkspace |  |
 | PowerBIReportUsageWorkspace |  |
+| PowerPlatformAdminActivity |  |
 | PowerPlatformConnectorActivity |  |
 | PowerPlatformDlpActivity |  |
 | ProjectActivity |  |
@@ -1039,16 +1127,18 @@ If the data export rule includes an unsupported table, the configuration will su
 | PurviewScanStatusLogs |  |
 | PurviewSecurityLogs |  |
 | REDConnectionEvents |  |
+| RemoteNetworkHealthLogs |  |
 | ResourceManagementPublicAccessLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
 | SecureScoreControls |  |
 | SecureScores |  |
 | SecurityAlert |  |
+| SecurityAttackPathData |  |
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| SecurityEvent | |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -1056,11 +1146,16 @@ If the data export rule includes an unsupported table, the configuration will su
 | SecurityRegulatoryCompliance |  |
 | SentinelAudit |  |
 | SentinelHealth |  |
+| ServiceFabricOperationalEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| ServiceFabricReliableActorEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| ServiceFabricReliableServiceEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| SfBAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
+| SqlAtpStatus |  |
 | SQLSecurityAuditEvents |  |
 | SqlVulnerabilityAssessmentScanStatus |  |
 | StorageBlobLogs |  |
@@ -1077,8 +1172,13 @@ If the data export rule includes an unsupported table, the configuration will su
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
+| SynapseDXCommand |  |
 | SynapseDXFailedIngestion |  |
+| SynapseDXIngestionBatching |  |
+| SynapseDXQuery |  |
 | SynapseDXSucceededIngestion |  |
+| SynapseDXTableDetails |  |
+| SynapseDXTableUsageStatistics |  |
 | SynapseGatewayApiRequests |  |
 | SynapseIntegrationActivityRuns |  |
 | SynapseIntegrationPipelineRuns |  |
@@ -1092,7 +1192,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| Syslog | |
 | ThreatIntelligenceIndicator |  |
 | TSIIngress |  |
 | UCClient |  |
@@ -1110,8 +1210,10 @@ If the data export rule includes an unsupported table, the configuration will su
 | Usage |  |
 | UserAccessAnalytics |  |
 | UserPeerAnalytics |  |
+| VCoreMongoRequests |  |
 | VIAudit |  |
 | VIIndexing |  |
+| VMConnection | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | W3CIISLog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | WaaSDeploymentStatus |  |
 | WaaSInsiderStatus |  |
@@ -1120,6 +1222,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | WebPubSubConnectivity |  |
 | WebPubSubHttpRequest |  |
 | WebPubSubMessaging |  |
+| Windows365AuditLogs |  |
 | WindowsClientAssessmentRecommendation |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
@@ -1129,13 +1232,16 @@ If the data export rule includes an unsupported table, the configuration will su
 | WUDOAggregatedStatus |  |
 | WUDOStatus |  |
 | WVDAgentHealthStatus |  |
+| WVDAutoscaleEvaluationPooled |  |
 | WVDCheckpoints |  |
+| WVDConnectionGraphicsDataPreview |  |
 | WVDConnectionNetworkData |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDHostRegistrations |  |
 | WVDManagement |  |
+| WVDSessionHostManagement |  |
 
 ## Next steps
 

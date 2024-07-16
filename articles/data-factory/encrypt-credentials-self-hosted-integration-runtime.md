@@ -5,7 +5,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.author: lle
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 You can encrypt and store credentials for any of your on-premises data stores (linked services with sensitive information) on a machine with self-hosted integration runtime.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
 
@@ -64,6 +64,6 @@ Now, use the output JSON file from the previous command containing the encrypted
 Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json"
 ```
 
-## Next steps
+## Related content
 For information about security considerations for data movement, see [Data movement security considerations](data-movement-security-considerations.md).
 

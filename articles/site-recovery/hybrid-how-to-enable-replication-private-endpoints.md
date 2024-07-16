@@ -4,8 +4,8 @@ description: This article describes how to configure replication for on-premises
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/31/2023
+ms.topic: how-to
+ms.date: 04/08/2024
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
@@ -146,7 +146,7 @@ To protect the machines in the on-premises source network, you'll need one priva
 
       Ensure that you choose to create a new DNS zone for every new private endpoint connecting to the same vault. If you choose an existing private DNS zone, the previous CNAME records are overwritten. See [Private endpoint guidance](../private-link/private-endpoint-overview.md#private-endpoint-properties) before you continue.
 
-      If your environment has a hub and spoke model, you need only one private endpoint and only one private DNS zone for the entire setup. This is because all your virtual networks already have peering enabled between them. For more information, see [Private endpoint DNS integration](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server).
+      If your environment has a hub and spoke model, you need only one private endpoint and only one private DNS zone for the entire setup. This is because all your virtual networks already have peering enabled between them. For more information, see [Private endpoint DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-workloads-without-custom-dns-server).
 
       To manually create the private DNS zone, follow the steps in [Create private DNS zones and add DNS records manually](#create-private-dns-zones-and-add-dns-records-manually).
 
@@ -211,7 +211,7 @@ following role permissions, depending on the type of storage account.
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to add a role assignment to your storage account. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Go to the storage account.
 
@@ -251,7 +251,7 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 
 1. Create a private DNS zone.
 
-   1. Search for "private DNS zone" in the **All services** search box and then select **Private DNS
+   1. Search for *private DNS zone* in the **All services** search box and then select **Private DNS
       zone** in the results:
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Screenshot that shows searching for private dns zone on the new resources page in the Azure portal.":::
@@ -266,7 +266,9 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
-   1. If you're using modernized architecture for protection VMware or Physical machines, then create another private DNS zone for **privatelink.prod.migration.windowsazure.com** also. This endpoint will be used by Site Recovery to perform the discovery of on-premises environment. 
+   1. If you're using modernized architecture for protection VMware or Physical machines, ensure to create another private DNS zone for **privatelink.prod.migration.windowsazure.com**. This endpoint is used by Site Recovery to perform the discovery of on-premises environment. 
+        > [!IMPORTANT]
+        > For Azure GOV users, add `privatelink.prod.migration.windowsazure.us` in the DNS zone.
 
 
 1. To link the private DNS zone to your virtual network, follow these steps: 

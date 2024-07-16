@@ -1,12 +1,11 @@
 ---
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/09/2023
-ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 ## Prerequisites
@@ -49,4 +48,3 @@ Generally after training a model you would review its evaluation details. In thi
 ## Clean up resources
 
 [!INCLUDE [Delete project using Language studio](../language-studio/delete-project.md)]
- 

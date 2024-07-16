@@ -13,8 +13,6 @@ ms.subservice: chat
 
 # Enable inline image using UI Library in Teams Interoperability Chat
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 In a Teams Interoperability Chat ("Interop Chat"), we can enable Azure Communication Service end users to receive inline images sent by Teams users. Currently, the Azure Communication Service end user is able to only receive inline images from the Teams user. Refer to [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md) to learn more.
 
 >[!IMPORTANT]
@@ -33,7 +31,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions. Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- Using the UI library version [1.7.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.7.0-beta.1) or the latest.
+- Using the UI library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest.
 - Have a Teams meeting created and the meeting link ready.
 - Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
 
@@ -75,23 +73,20 @@ To be able to start the Composite for meeting chat, we need to pass `TeamsMeetin
 { "meetingLink": "<TEAMS_MEETING_LINK>" }
 ```
 
-Note that meeting link should look something like `https://teams.microsoft.com/l/meetup-join/19%3ameeting_XXXXXXXXXXX%40thread.v2/XXXXXXXXXXX`.
-
-
-And this is all you need! And there's no other setup needed to enable inline image specifically. 
+This is all you need - and there's no other setup needed to enable inline image specifically. 
 
 
 ## Run the code
 
 Let's run `npm run start` then you should be able to access our sample app via `localhost:3000` like the following screenshot: 
 
-![ACS UI library](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a Azure Communication Services UI library.")
+![Screenshot of a Azure Communication Services UI library.](./media/inline-image-tutorial-interop-chat-0.png "Screenshot of a Azure Communication Services UI library.")
 
 Simply click on the chat button located in the bottom to reveal the chat panel and now if Teams user sends an image, you should see something like the following screenshot:
 
-![Teams sending two images](./media/inline-image-tutorial-interop-chat-1.png "Screenshot of a Teams client sending 2 inline images.")
+!["Screenshot of a Teams client sending 2 inline images."](./media/inline-image-tutorial-interop-chat-1.png "Screenshot of a Teams client sending 2 inline images.")
 
-![ACS getting two images](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of Azure Communication Services UI library receiving 2 inline images.")
+![Screenshot of Azure Communication Services UI library receiving two inline images.](./media/inline-image-tutorial-interop-chat-2.png "Screenshot of Azure Communication Services UI library receiving 2 inline images.")
 
 Note that in a Teams Interop Chat, we currently only support Azure Communication Service end user to receive inline images sent by the Teams user. To learn more about what features are supported, refer to the [UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 

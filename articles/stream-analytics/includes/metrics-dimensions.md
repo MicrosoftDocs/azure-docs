@@ -1,7 +1,6 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
 ms.service: stream-analytics
 ms.topic: include
@@ -12,8 +11,6 @@ ms.custom: "include file"
 ---
 
 
-
-Stream Analytics has [many metrics](../stream-analytics-job-metrics.md) available to monitor a job's health. To troubleshoot performance problems with your job, you can split and filter metrics by using the following dimensions. 
 
 | Dimension                 | Definition                               | 
 | ---------------------- | ---------------------------------------- | 

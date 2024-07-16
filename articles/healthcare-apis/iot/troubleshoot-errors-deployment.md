@@ -2,12 +2,12 @@
 title: Troubleshoot MedTech service deployment errors - Azure Health Data Services
 description: Learn how to troubleshoot and fix MedTech service deployment errors.
 services: healthcare-apis
-author: msjasteppe
+author: chachachachami
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 07/21/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Troubleshoot MedTech service deployment errors
@@ -19,7 +19,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 >  
 > [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
-> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+> [How to configure the MedTech service metrics](configure-metrics.md)
 >
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 

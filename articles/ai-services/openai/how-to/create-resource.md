@@ -2,12 +2,12 @@
 title: 'How-to: Create and deploy an Azure OpenAI Service resource'
 titleSuffix: Azure OpenAI
 description: Learn how to get started with Azure OpenAI Service and create your first resource and deploy your first model in the Azure CLI or the Azure portal.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: devx-track-azurecli, build-2023, build-2023-dataai, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 05/20/2024
 zone_pivot_groups: openai-create-resource
 author: mrbullwinkle
 ms.author: mbullwin
@@ -46,3 +46,4 @@ In this article, you review examples for creating and deploying resources in the
 
 - Make API calls and generate text with [Azure OpenAI Service quickstarts](../quickstart.md).
 - Learn more about the [Azure OpenAI Service models](../concepts/models.md).
+- For information on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/)

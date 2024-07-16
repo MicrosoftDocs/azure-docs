@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -24,7 +24,7 @@ This SharePoint Online List connector is supported for the following capabilitie
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources or sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
@@ -46,7 +46,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
-    1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
+    1. Open your SharePoint Online site link.
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `contoso.com`
@@ -267,6 +267,6 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

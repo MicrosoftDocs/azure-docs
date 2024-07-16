@@ -1,15 +1,15 @@
 ---
-title: Set up AutoML for NLP 
+title: Set up AutoML for NLP
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train natural language processing models with the Azure Machine Learning Python SDK or the Azure Machine Learning CLI.
 services: machine-learning
-author: wenxwei
-ms.author: wenxwei
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
-ms.reviewer: ssalgado
+ms.reviewer: wenxwei
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai, devx-track-python
+ms.custom: devplatv2, sdkv2, cliv2, build-2023, build-2023-dataai, devx-track-python
 ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---
@@ -362,7 +362,7 @@ Note that the large models are larger than their base counterparts. They are typ
 
 ## Supported model algorithms - HuggingFace (preview)
 
-With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the HuggingFace Hub for [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers), [Token Classification](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) which is part of the transformers library (such as microsoft/deberta-large-mnli). You may also find a curated list of models in [Azure Machine Learning model registry](concept-foundation-models.md?view=azureml-api-2&preserve-view=true) that have been validated with the pipeline components.
+With the new backend that runs on [Azure Machine Learning pipelines](concept-ml-pipelines.md), you can additionally use any text/token classification model from the HuggingFace Hub for [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&library=transformers), [Token Classification](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) which is part of the transformers library (such as microsoft/deberta-large-mnli). You may also find a curated list of models in [Azure Machine Learning model registry](concept-model-catalog.md?view=azureml-api-2&preserve-view=true) that have been validated with the pipeline components.
 
 Using any HuggingFace model will trigger runs using pipeline components. If both legacy and HuggingFace models are used, all runs/trials will be triggered using components.  
 

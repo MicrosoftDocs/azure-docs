@@ -23,7 +23,7 @@ Your Azure Communication Services resource can be assigned two types of identity
    Your resource can only have one system-assigned identity.
 2. A **User Assigned Identity** which is an Azure resource that can be assigned to your Azure Communication Services resource. This identity isn't deleted when your resource is deleted. Your resource can have multiple user-assigned identities.
 
-To use Managed Identity with ACS, follow these steps:
+To use Managed Identity with Azure Communication Services, follow these steps:
 
 1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
 2. Use the Managed Identity to authenticate with Azure Communication Services. Authentication can be done through the Azure SDKs or REST APIs that support Managed Identity.
@@ -57,7 +57,7 @@ Assigning a user-assigned identity to your Azure Communication Services resource
 
 First, you need to create a user-assigned managed identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](~/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to [these instructions](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 2. In the left navigation for your app's page, scroll down to the **Settings** group.
 
@@ -118,7 +118,7 @@ public async Task CreateResourceWithSystemAssignedManagedIdentity()
         DataLocation = "UnitedStates",
         Identity = identity
     };
-    var communicationServiceLro = await collection.GetCommunicationServiceResources().CreateOrUpdateAsync(WaitUntil.Completed, communicationServiceName, data);
+    var communicationServiceLro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, communicationServiceName, data);
     var resource = communicationServiceLro.Value;
 }
 ```
@@ -161,5 +161,5 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 ## Next steps
 Now that you have learned how to enable Managed Identity with Azure Communication Services. Consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
-- [Managed Identities](~/articles/active-directory/managed-identities-azure-resources/overview.md)
-- [Manage user-assigned managed identities](~/articles/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+- [Managed Identities](/entra/identity/managed-identities-azure-resources/overview)
+- [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)

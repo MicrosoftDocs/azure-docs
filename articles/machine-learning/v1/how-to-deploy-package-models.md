@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 10/21/2021
 ms.topic: how-to
-author: ssalgadodev
-ms.author: bozhlin
-ms.reviewer: larryfr
-ms.custom: UpdateFrequency5, deploy, event-tier1-build-2022
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
+ms.custom: UpdateFrequency5, deploy
 ---
 
 # How to package a registered model with Docker

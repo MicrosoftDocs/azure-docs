@@ -1,20 +1,24 @@
 ---
-title: Onco Phenotype model configuration
-titleSuffix: Project Health Insights
-description: This article provides Onco Phenotype model configuration information.
+title: Onco-Phenotype model configuration
+titleSuffix: Azure AI Health Insights
+description: This article provides Onco-Phenotype model configuration information.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 01/26/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
 
-# Onco Phenotype model configuration
+# Onco-Phenotype model configuration
 
-To interact with the Onco Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses.
+To interact with the Onco-Phenotype model, you can provide several model configurations parameters that modify the outcome of the responses and reflects the preferences of the user.
+
+> [!NOTE]
+> The examples in this article are based on API version: 2023-03-01-preview. For a specific API version, please follow the reference to the REST API to see full description of each API version.
+
 
 > [!IMPORTANT]
 > Model configuration is applied to ALL the patients within a request.
@@ -29,7 +33,7 @@ To interact with the Onco Phenotype model, you can provide several model configu
 ## Case finding
 
 
-The Onco Phenotype model configuration helps you find if any cancer cases exist. The API allows you to explicitly check if a cancer case exists in the provided clinical documents. 
+The Onco-Phenotype model configuration helps you find if any cancer cases exist. The API allows you to explicitly check if a cancer case exists in the provided clinical documents. 
 
 **Check for cancer case** |**Did the model find a case?** |**Behavior** 
 ---------------------- |-----------------------|-------------------
@@ -47,7 +51,7 @@ If a case is found in the provided clinical documents and the model is able to f
 
 ### With case finding 
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` is set to ```true``` and ```includeEvidence``` is set to ```false```. Meaning the model checks for a cancer case but not include the evidence.
 
 Request that contains a case:
 ```json
@@ -196,7 +200,7 @@ false               | No evidence is returned
 
 ## Evidence example
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```true```. Meaning the model checks for a cancer case and include the evidence.
+The following example represents a case finding. The ```checkForCancerCase``` is set to ```true``` and ```includeEvidence``` is set to ```true```. Meaning the model checks for a cancer case and include the evidence.
 
 Request that contains a case:
 ```json 

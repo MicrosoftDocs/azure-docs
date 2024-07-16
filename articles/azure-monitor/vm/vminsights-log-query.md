@@ -9,6 +9,9 @@ ms.date: 09/28/2023
 
 # How to query logs from VM insights
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 VM insights collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../logs/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
@@ -116,7 +119,7 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 |FirstReportedDateTime |The first time the provider reported the indicator. |
 |LastReportedDateTime |The last time the indicator was seen by Interflow. |
 |IsActive |Indicates indicators are deactivated with *True* or *False* value. |
-|ReportReferenceLink |Links to reports related to a given observable. |
+|ReportReferenceLink |Links to reports related to a given observable. To report a false alert or get more details about the malicious IP, open a Support case and provide this link. |
 |AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
 
 ### Ports 

@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: roygal
-ms.date: 06/22/2022
+ms.date: 12/11/2023
 
 ---
 
@@ -20,8 +20,7 @@ You can set the permissions on a query pack when you view it in the Azure portal
 - **Contributor**: Users can modify existing queries and add new queries to the query pack.
 
   > [!IMPORTANT]
-  > When a user needs to modify or add queries, always grant the user the Contributor permission on the `DefaultQueryPack`. Otherwise, the user won't be able to save any queries to the subscription, including in other query packs.
-
+  > When a user needs to create a query pack assign the user Log Analytics Contributor at the Resource Group level.
 ## View query packs
 You can view and manage query packs in the Azure portal from the **Log Analytics query packs** menu. Select a query pack to view and edit its permissions. This article describes how to create a query pack by using the API.
 <!-- convertborder later -->
@@ -39,7 +38,7 @@ When you [create a new query pack](#create-a-query-pack), you can add tags that 
 To add query packs to your Log Analytics workspace: 
 
 1. Open Log Analytics and select **Queries** in the upper-right corner.
-1. In the upper-left corner on the **Queries** dialog, next to **Query packs**, click **0 selected**.
+1. In the upper-left corner on the **Queries** dialog, next to **Query packs**, click **Select query packs** or **0 selected**.
 1. Select the query packs that you want to add to the workspace.
 
 :::image type="content" source="media/query-packs/log-analytics-add-query-pack.png" alt-text="Screenshot that shows the Select query packs page in Log Analytics, where you can add query packs to a Log Analytics workspace." lightbox="media/query-packs/log-analytics-add-query-pack.png":::
@@ -49,6 +48,9 @@ To add query packs to your Log Analytics workspace:
 
 ## Create a query pack
 You can create a query pack by using the REST API or from the **Log Analytics query packs** pane in the Azure portal. To open the **Log Analytics query packs** pane in the portal, select **All services** > **Other**.
+
+> [!NOTE]
+> Queries saved in [query pack](./query-packs.md) aren't encrypted with Customer-managed key. Select **Save as Legacy query** when saving queries instead, to protect them with Customer-managed key.
 
 ### Create a token
 You must have a token for authentication of the API request. There are multiple methods to get a token. One method is to use `armclient`.

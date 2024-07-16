@@ -2,14 +2,12 @@
 title: Speaker recognition overview - Speech service
 titleSuffix: Azure AI services
 description: Speaker recognition provides algorithms that verify and identify speakers by their unique voice characteristics, by using voice biometry. Speaker recognition is used to answer the question “who is speaking?”. This article is an overview of the benefits and capabilities of the speaker recognition feature.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 01/08/2022
+ms.date: 1/21/2024
 ms.author: eur
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: speaker recognition, voice biometry
 ---
 
@@ -20,7 +18,7 @@ Speaker recognition can help determine who is speaking in an audio clip. The ser
 You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification). You can also cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
 
 > [!IMPORTANT]
-> Microsoft limits access to speaker recognition. You can apply for access through the [Azure AI services speaker recognition limited access review](https://aka.ms/azure-speaker-recognition). For more information, see [Limited access for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
+> Microsoft limits access to Speaker Recognition. We have paused all new registrations for the Speaker Recognition Limited Access program at this time.
 
 ## Speaker verification
 
@@ -55,9 +53,9 @@ Enrollment for speaker identification is text-independent. There are no restrict
 
 Speaker enrollment data is stored in a secured system, including the speech audio for enrollment and the voice signature features. The speech audio for enrollment is only used when the algorithm is upgraded, and the features need to be extracted again. The service doesn't retain the speech recording or the extracted voice features that are sent to the service during the recognition phase. 
 
-You control how long data should be retained. You can create, update, and delete enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted. 
+You control how long data should be retained. You can create, update, and delete enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription is also deleted. 
 
-As with all of the Azure AI services resources, developers who use the speaker recognition feature must be aware of Microsoft policies on customer data. You should ensure that you have received the appropriate permissions from the users. You can find more details in [Data and privacy for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Azure AI services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
+As with all of the Azure AI services resources, developers who use the speaker recognition feature must be aware of Microsoft policies on customer data. You should ensure that you received the appropriate permissions from the users. You can find more details in [Data and privacy for speaker recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Azure AI services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
 
 ## Common questions and solutions
 
@@ -73,7 +71,7 @@ As with all of the Azure AI services resources, developers who use the speaker r
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
+An AI system includes not only the technology, but also the people who use it, the people who are affected by it, and the environment in which it's deployed. Read the transparency notes to learn about responsible AI use and deployment in your systems. 
 
 * [Transparency note and use cases](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/ai-services/speech-service/context/context)
 * [Characteristics and limitations](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/ai-services/speech-service/context/context)

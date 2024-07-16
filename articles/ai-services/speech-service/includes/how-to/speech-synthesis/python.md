@@ -19,7 +19,7 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 ```python
 # Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
 speech_config.speech_synthesis_language = "en-US" 
-speech_config.speech_synthesis_voice_name ="en-US-JennyNeural"
+speech_config.speech_synthesis_voice_name ="en-US-AvaMultilingualNeural"
 ```
 
 All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is, "I'm excited to try text to speech," and you select `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent.
@@ -129,7 +129,7 @@ To start using SSML for customization, make a minor change that switches the voi
 
    ```xml
    <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
        When you're on the freeway, it's a good idea to use a GPS.
      </voice>
    </speak>
@@ -153,7 +153,7 @@ To start using SSML for customization, make a minor change that switches the voi
    ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `speech_config.speech_synthesis_voice_name = "en-US-JennyNeural"`.
+> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `speech_config.speech_synthesis_voice_name = "en-US-AvaMultilingualNeural"`.
 
 ## Subscribe to synthesizer events
 
@@ -222,7 +222,7 @@ speech_synthesizer.viseme_received.connect(speech_synthesizer_viseme_received_cb
 speech_synthesizer.synthesis_word_boundary.connect(speech_synthesizer_word_boundary_cb)
 
 # The language of the voice that speaks.
-speech_synthesis_voice_name='en-US-JennyNeural'
+speech_synthesis_voice_name='en-US-AvaMultilingualNeural'
 
 ssml = """<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
     <voice name='{}'>
@@ -247,6 +247,28 @@ elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
 ```
 
 You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Use a custom endpoint
+
+The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
+
+One difference is that the `endpoint_id` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `endpoint_id` and `speech_synthesis_voice_name`.
+
+```Python
+speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+speech_config.endpoint_id = "YourEndpointId"
+speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
+```
+
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="YourCustomVoiceName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
 
 ## Run and use a container
 

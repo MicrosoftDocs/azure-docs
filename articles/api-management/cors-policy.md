@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 11/18/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # CORS
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients. 
 
@@ -59,7 +61,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
+|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port. Do not include quotation marks.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 
 
 ### allowed-methods attributes
@@ -90,7 +92,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
  * You may configure the `cors` policy at more than one scope (for example, at the product scope and the global scope). Ensure that the `base` element is configured at the operation, API, and product scopes to inherit needed policies at the parent scopes. 
@@ -164,6 +166,6 @@ This example demonstrates how to support [preflight requests](https://developer.
 
 ## Related policies
 
-* [API Management cross-domain policies](api-management-cross-domain-policies.md)
+* [Cross-domain](api-management-policies.md#cross-domain)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

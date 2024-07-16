@@ -9,7 +9,7 @@ ms.date: 07/30/2023
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 By using the Azure Monitor [Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
@@ -22,8 +22,6 @@ If you're new to Resource Manager templates, learn about [template deployments](
 - Your subscription must be registered with [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
 - You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](../../cloud-shell/overview.md). 
-
-- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
 
 ## Set up Azure Monitor as a data sink 
 The Azure Diagnostics extension uses a feature called **data sinks** to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new Azure Monitor data sink. 
@@ -251,9 +249,6 @@ To deploy the Resource Manager template, use Azure PowerShell:
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>"
    ```
-
-   > [!NOTE]  
-   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](./metrics-custom-overview.md#supported-regions).
 
 1. Run the following commands to deploy the VM:
 

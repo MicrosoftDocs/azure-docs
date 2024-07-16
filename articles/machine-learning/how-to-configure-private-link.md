@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: devx-track-azurecli, sdkv2, event-tier1-build-2022, ignite-2022
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
-ms.date: 08/29/2022
+ms.custom: devx-track-azurecli, sdkv2
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
+ms.date: 01/02/2024
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -38,8 +38,8 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 * You must have an existing virtual network to create the private endpoint in. 
 
-    > [!IMPORTANT]
-    > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+    > [!WARNING]
+    > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
 * [Disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 
@@ -305,6 +305,8 @@ You can use IP network rules to allow access to your workspace and endpoint from
 > [!WARNING]
 > * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
 > * When you enable this feature, this has an impact to all existing public endpoints associated with your workspace. This may limit access to new or existing endpoints. If you access any endpoints from a non-allowed IP, you get a 403 error.
+> * You can only use IPv4 addresses.
+> * To use this feature with Azure Machine Learning managed virtual network, see [Azure Machine Learning managed virtual network](how-to-managed-network.md#scenario-enable-access-from-selected-ip-addresses).
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
@@ -332,7 +334,7 @@ The following restrictions apply to IP address ranges:
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
-- When this feature is enabled, you can test public endpoints using any client tool such as Postman or others, but the Endpoint Test tool in the portal is not supported.
+- When this feature is enabled, you can test public endpoints using any client tool such as Curl, but the Endpoint Test tool in the portal is not supported.
 
 ## Securely connect to your workspace
 
@@ -389,7 +391,7 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 
 :::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagram of isolated AKS VNet":::
 
-## Next steps
+## Next step
 
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 

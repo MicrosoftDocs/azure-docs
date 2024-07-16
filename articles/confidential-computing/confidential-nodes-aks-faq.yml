@@ -2,11 +2,11 @@
 metadata:
   title: Frequently asked questions for confidential nodes support on Azure Kubernetes Service (AKS)
   description: Find answers to some of the common questions about Azure Kubernetes Service (AKS) & Azure Confidential Computing (ACC) nodes support.
-  author: agowdamsft
+  author: angarg05
   ms.service: confidential-computing
   ms.topic: faq
   ms.date: 05/10/2022
-  ms.author: amgowda
+  ms.author: ananyagarg
 title: Frequently asked questions about Confidential Computing Nodes on Azure Kubernetes Service (AKS)
 summary: |
   This article addresses frequent questions about Intel SGX based confidential computing nodes on Azure Kubernetes Service (AKS). If you have any further questions, email **acconaks@microsoft.com**.

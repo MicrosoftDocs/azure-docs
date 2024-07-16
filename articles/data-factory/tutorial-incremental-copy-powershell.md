@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using PowerShell
@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
@@ -713,7 +713,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     data_source_table | 2017-09-07 09:01:00.000
 
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

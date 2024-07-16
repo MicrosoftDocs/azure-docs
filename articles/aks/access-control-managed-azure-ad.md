@@ -2,16 +2,20 @@
 title: Cluster access control with AKS-managed Microsoft Entra integration
 description: Learn how to access clusters when integrating Microsoft Entra ID in your Azure Kubernetes Service (AKS) clusters.
 ms.topic: article
+ms.subservice: aks-integration
 ms.date: 04/20/2023
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ---
 
 # Cluster access control with AKS-managed Microsoft Entra integration
 
-When you integrate Microsoft Entra ID with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or Privileged Identity Management (PIM) for just-in-time requests to control access to your cluster. This article shows you how to enable Conditional Access and PIM on your AKS clusters.
+When you integrate Microsoft Entra ID with your AKS cluster, you can use [Conditional Access][aad-conditional-access] or [Privileged Identity Management (PIM)][pim-configure] for just-in-time requests to control access to your cluster. This article shows you how to enable Conditional Access and PIM on your AKS clusters.
 
 > [!NOTE]
-> Microsoft Entra Conditional Access and Privileged Identity Management are Microsoft Entra ID P1 or P2 capabilities requiring a Premium P2 SKU. For more on Microsoft Entra ID SKUs, see the [pricing guide][aad-pricing].
+> Microsoft Entra Conditional Access and Privileged Identity Management (PIM) are Microsoft Entra ID P1, P2 or Governance capabilities requiring a Premium P2 SKU. For more on Microsoft Entra ID licenses and SKUs, see [Microsoft Entra ID Governance licensing fundamentals][licensing-fundamentals] and [pricing guide][aad-pricing].
 
 ## Before you begin
 
@@ -91,7 +95,13 @@ When you integrate Microsoft Entra ID with your AKS cluster, you can use [Condit
 6. Create the AKS cluster with AKS-managed Microsoft Entra integration using the [`az aks create`][az-aks-create] command with the `--aad-admin-group-objects-ids` and `--aad-tenant-id parameters` and include the values noted in the steps earlier.
 
     ```azurecli-interactive
-    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-aad \
+        --aad-admin-group-object-ids <object-id> \
+        --aad-tenant-id <tenant-id> \
+        --generate-ssh-keys        
     ```
 
 7. In the Azure portal, select **Activity** > **Privileged Access (Preview)** > **Enable Privileged Access**.
@@ -169,7 +179,10 @@ Make sure the admin of the security group has given your account an *Active* ass
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
+[pim-configure]: /entra/id-governance/privileged-identity-management/pim-configure
+[licensing-fundamentals]: /entra/id-governance/licensing-fundamentals
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group
 [az-aks-create]: /cli/azure/aks#az_aks_create
+

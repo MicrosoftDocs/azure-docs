@@ -1,12 +1,11 @@
 ---
 title: HX-series VM sizes performance and scalability
-description: Learn about performance and scalability of HX-series VM sizes in Azure.  
-services: virtual-machines 
-ms.service: virtual-machines 
+description: Learn about performance and scalability of HX-series VM sizes in Azure.
+services: virtual-machines
+ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
-ms.date: 05/23/2023 
+ms.topic: article
+ms.date: 05/23/2023
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
@@ -77,5 +76,3 @@ NUMA node affinity for InfiniBand NIC is NUMA0.
 - Review the performance and scalability results of HPC applications on the HX VMs at the [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv4-vms/bc-p/2235843).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure HPC Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/bg-p/AzureHighPerformanceComputingBlog).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
-
-

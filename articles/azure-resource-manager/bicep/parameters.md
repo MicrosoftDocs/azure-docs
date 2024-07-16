@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/12/2023
+ms.date: 03/22/2024
 ---
 
 # Parameters in Bicep
@@ -14,7 +14,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You are limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You're limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -50,6 +50,17 @@ param <parameter-name> = <value>
 
 For more information, see [Parameters file](./parameter-files.md).
 
+User-defined type expressions can be used as the type clause of a `param` statement. For example:
+
+```bicep
+param storageAccountConfig {
+  name: string
+  sku: string
+}
+```
+
+For more information, see [User-defined data types](./user-defined-data-types.md#user-defined-data-type-syntax).
+
 ## Default value
 
 You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
@@ -66,7 +77,15 @@ param location string = resourceGroup().location
 
 You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+
+output siteNameOutput string = siteName
+output hostingPlanOutput string = hostingPlanName
+```
+
+However, you can't reference a [variable](./variables.md) as the default value.
 
 ## Decorators
 
@@ -184,7 +203,7 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
-Make sure the text is well-formatted Markdown. Otherwise the text won't be rendered correctly.
+Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered
 
 ### Metadata
 
@@ -201,7 +220,7 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. Consequently, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Use parameter
 
@@ -222,10 +241,57 @@ It can be easier to organize related values by passing them in as an object. Thi
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
 
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Next steps
 
 - To learn about the available properties for parameters, see [Understand the structure and syntax of Bicep files](file.md).
 - To learn about passing in parameter values as a file, see [Create a Bicep parameter file](parameter-files.md).
+- To learn about providing parameter values at deployment, see [Deploy with Azure CLI](./deploy-cli.md), and [Deploy with Azure PowerShell](./deploy-powershell.md).

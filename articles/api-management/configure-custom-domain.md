@@ -3,7 +3,6 @@ title: Configure custom domain name for Azure API Management instance
 titleSuffix: Azure API Management
 description: How to configure a custom domain name and choose certificates for the endpoints of your Azure API Management instance.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
@@ -14,6 +13,8 @@ ms.custom: engagement-fy23
 ---
 
 # Configure a custom domain name for your Azure API Management instance
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 When you create an Azure API Management service instance in the Azure cloud, Azure assigns it a `azure-api.net` subdomain (for example, `apim-service-name.azure-api.net`). You can also expose your API Management endpoints using your own custom domain name, such as **`contoso.com`**. This article shows you how to map an existing custom DNS name to endpoints exposed by an API Management instance.
 
@@ -42,7 +43,6 @@ There are several API Management endpoints to which you can assign a custom doma
 | Endpoint | Default |
 | -------- | ----------- |
 | **Gateway** | Default is: `<apim-service-name>.azure-api.net`. Gateway is the only endpoint available for configuration in the Consumption tier.<br/><br/>The default Gateway endpoint configuration remains available after a custom Gateway domain is added. |
-| **Developer portal (legacy)** | Default is: `<apim-service-name>.portal.azure-api.net` |
 | **Developer portal** | Default is: `<apim-service-name>.developer.azure-api.net` |
 | **Management** | Default is: `<apim-service-name>.management.azure-api.net` |
 | **Configuration API (v2)** | Default is: `<apim-service-name>.configuration.azure-api.net` |
@@ -98,7 +98,7 @@ For more information, see [Use managed identities in Azure API Management](api-m
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!NOTE]
-> The free, managed TLS certificate is available for all API Management service tiers. It is currently in preview.
+> The free, managed TLS certificate is in preview. Currently, it's unavailable in the v2 service tiers. 
 
 #### Limitations
 
@@ -107,6 +107,7 @@ API Management offers a free, managed TLS certificate for your domain, if you do
 * Not supported in the following Azure regions: France South and South Africa West
 * Currently available only in the Azure cloud
 * Does not support root domain names (for example, `contoso.com`). Requires a fully qualified name such as `api.contoso.com`.
+* Supports only public domain names
 * Can only be configured when updating an existing API Management instance, not when creating an instance
 
 

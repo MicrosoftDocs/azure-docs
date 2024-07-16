@@ -4,7 +4,7 @@ description: This article describes how to manage the Azure Site Recovery config
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/27/2022
 ms.author: ankitadutta
 ---
@@ -13,7 +13,7 @@ ms.author: ankitadutta
 
 You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of physical servers to Azure. The configuration server coordinates communications between on-premises machines and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

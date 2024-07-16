@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.reviewer: franksolomon
-ms.author: wibuchan
-author: buchananwp
+ms.author: xunwan
+author: SturgeonMi
 ms.date: 08/08/2023
 ms.topic: how-to
-ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, data4ml, sdkv1
 #Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
@@ -19,6 +19,10 @@ ms.custom: UpdateFrequency5, data4ml, contperf-fy21q2, sdkv1, event-tier1-build-
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn how to monitor data drift and set alerts when drift is high.
+
+> [!NOTE]
+> Azure Machine Learning model monitoring (v2) provides improved capabilities for data drift along with additional functionalities for monitoring signals and metrics. To learn more about the capabilities of model monitoring in Azure Machine Learning (v2), see [Model monitoring with Azure Machine Learning](../concept-model-monitoring.md).
+
 
 With Azure Machine Learning dataset monitors (preview), you can:
 * **Analyze drift in your data** to understand how it changes over time.

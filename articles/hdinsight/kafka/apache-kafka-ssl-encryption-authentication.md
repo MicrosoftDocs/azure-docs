@@ -4,10 +4,10 @@ description: Set up TLS encryption for communication between Kafka clients and K
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/16/2023
+ms.date: 04/08/2024
 ---
 
-# Set up TLS encryption and authentication for Non ESP Apache Kafka cluster in Azure HDInsight
+# Set up TLS encryption and authentication for Non-ESP Apache Kafka cluster in Azure HDInsight
 
 This article shows you how to set up Transport Layer Security (TLS) encryption, previously known as Secure Sockets Layer (SSL) encryption, between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way TLS).
 
@@ -37,11 +37,11 @@ The summary of the broker setup process is as follows:
 1. Once you have all of the certificates, put the certs into the cert store.
 1. Go to Ambari and change the configurations.
 
-Use the following detailed instructions to complete the broker setup:
+    Use the following detailed instructions to complete the broker setup:
 
-> [!Important]
-> In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
-
+    > [!Important]
+    > In the following code snippets wnX is an abbreviation for one of the three worker nodes and should be substituted with `wn0`, `wn1` or `wn2` as appropriate. `WorkerNode0_Name` and `HeadNode0_Name` should be substituted with the names of the respective machines.
+    
 1. Perform initial setup on head node 0, which for HDInsight fills the role of the Certificate Authority (CA).
 
     ```bash
@@ -64,7 +64,7 @@ Use the following detailed instructions to complete the broker setup:
     1. SCP the certificate signing request to the CA (headnode0)
 
     ```bash
-    keytool -genkey -keystore kafka.server.keystore.jks -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -storetype pkcs12
+    keytool -genkey -keystore kafka.server.keystore.jks -keyalg RSA -validity 365 -storepass "MyServerPassword123" -keypass "MyServerPassword123" -dname "CN=FQDN_WORKER_NODE" -ext SAN=DNS:FQDN_WORKER_NODE -storetype pkcs12
     keytool -keystore kafka.server.keystore.jks -certreq -file cert-file -storepass "MyServerPassword123" -keypass "MyServerPassword123"
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
@@ -145,19 +145,28 @@ To complete the configuration modification, do the following steps:
    > 1.	ssl.keystore.password and ssl.truststore.password is the password set for the keystore and truststore. In this case as an example, `MyServerPassword123`
    > 1. ssl.key.password is the key set for the keystore and trust store. In this case as an example, `MyServerPassword123`
 
+1. To Use TLS 1.3 in Kafka 
 
-    For HDI version 4.0 or 5.0
+   Add following configs to the kafka configs in Ambari  
+    > 1. `ssl.enabled.protocols=TLSv1.3`
+    > 1. `ssl.protocol=TLSv1.3`
+    >
+    > [!Important]
+    > 1. TLS 1.3 works with HDI 5.1 kafka version only.
+    > 1. If you use TLS 1.3 at server side, you should use TLS 1.3 configs at client too.
+
+1. For HDI version 4.0 or 5.0
     
    1. If you're setting up authentication and encryption, then the screenshot looks like
 
-      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four." border="true":::
+   :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Editing kafka-env template property in Ambari four." border="true":::
            
-   1. If you are setting up encryption only, then the screenshot looks like   
+   1. If you're setting up encryption only, then the screenshot looks like   
       
-      :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Screenshot showing how to edit kafka-env template property field in Ambari for encryption only." border="true":::
+   :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four-encryption-only.png" alt-text="Screenshot showing how to edit kafka-env template property field in Ambari for encryption only." border="true":::
  
-
 1. Restart all Kafka brokers.
+
 
 ## Client setup (without authentication)
 
@@ -203,15 +212,21 @@ These steps are detailed in the following code snippets.
     keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Create the file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
+1. Create the file `client-ssl-auth.properties` on client machine (hn1). It should have the following lines:
 
     ```config
     security.protocol=SSL
     ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
     ssl.truststore.password=MyClientPassword123
     ```
+    1.  To Use TLS 1.3 add following configs to file `client-ssl-auth.properties`
+   ```config
+   ssl.enabled.protocols=TLSv1.3
+   ssl.protocol=TLSv1.3
+   ``` 
 
 1. Start the admin client with producer and consumer options to verify that both producers and consumers are working on port 9093. Refer to [Verification](apache-kafka-ssl-encryption-authentication.md#verification) section for steps needed to verify the setup using console producer/consumer.
+
 
 ## Client setup (with authentication)
 
@@ -282,7 +297,7 @@ The details of each step are given.
     cd ssl
     ```
 
-1. Create client store with signed cert, and import ca cert into the keystore and truststore on client machine (hn1):
+1. Create client store with signed cert, import CA cert into the keystore, and truststore on client machine (hn1):
 
     ```bash
     keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
@@ -292,7 +307,7 @@ The details of each step are given.
     keytool -keystore kafka.client.keystore.jks -import -file client-signed-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
     ```
 
-1. Create a file `client-ssl-auth.properties` on client machine (hn1) . It should have the following lines:
+1. Create a file `client-ssl-auth.properties` on client machine (hn1). It should have the following lines:
 
     ```bash
     security.protocol=SSL
@@ -302,6 +317,11 @@ The details of each step are given.
     ssl.keystore.password=MyClientPassword123
     ssl.key.password=MyClientPassword123
     ```
+    1.  To Use TLS 1.3 add following configs to file `client-ssl-auth.properties`
+   ```config
+   ssl.enabled.protocols=TLSv1.3
+   ssl.protocol=TLSv1.3
+   ``` 
 
 ## Verification
 

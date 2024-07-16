@@ -6,11 +6,12 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Deprecated] Claroty via Legacy Agent connector for Microsoft Sentinel
 
-The [Claroty](https://claroty.com/) data connector provides the capability to ingest [Continuous Threat Detection](https://claroty.com/resources/datasheets/continuous-threat-detection) and [Secure Remote Access](https://claroty.com/secure-remote-access/) events into Microsoft Sentinel.
+The [Claroty](https://claroty.com/) data connector provides the capability to ingest [Continuous Threat Detection](https://claroty.com/resources/datasheets/continuous-threat-detection) and [Secure Remote Access](https://claroty.com/industrial-cybersecurity/sra) events into Microsoft Sentinel.
 
 ## Connector attributes
 

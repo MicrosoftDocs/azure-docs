@@ -3,15 +3,13 @@ title: 'SAP on Azure: What SAP software is supported on Azure'
 description: Explains what SAP software is supported to be deployed on Azure
 author: msjuergent
 manager: bburns
-tags: azure-resource-manager
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 02/02/2022
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # What SAP software is supported for Azure deployments

@@ -7,10 +7,9 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 10/09/2023
 ms.author: radeltch
-
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
@@ -342,7 +341,7 @@ Assign the custom role `Linux Fence Agent Role` that was created in the last sec
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 Make sure to assign the role for both cluster nodes.
 
@@ -448,14 +447,16 @@ When the cluster health attribute is set for a node, the location constraint tri
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 
    ```bash
-   sudo dnf info resource-agents
+   RHEL 8.x: sudo dnf info resource-agents
+   RHEL 9.x: sudo dnf info resource-agents-cloud
    ```
 
    Minimum version requirements:
    * RHEL 8.4: `resource-agents-4.1.1-90.13`
    * RHEL 8.6: `resource-agents-4.9.0-16.9`
-   * RHEL 8.8 and newer: `resource-agents-4.9.0-40.1`
-   * RHEL 9.0 and newer: `resource-agents-cloud-4.10.0-34.2`
+   * RHEL 8.8: `resource-agents-4.9.0-40.1`
+   * RHEL 9.0: `resource-agents-cloud-4.10.0-9.6`
+   * RHEL 9.2 and newer: `resource-agents-cloud-4.10.0-34.1`
 
 1. **[1]** Configure the resources in Pacemaker.
 
@@ -487,8 +488,10 @@ When the cluster health attribute is set for a node, the location constraint tri
 
    ```bash
    sudo pcs resource create health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   ocf:heartbeat:azure-events-az \
+   op monitor interval=10s timeout=240s \
+   op start timeout=10s start-delay=90s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
    ```
 
 1. Take the Pacemaker cluster out of maintenance mode.

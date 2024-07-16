@@ -3,8 +3,8 @@ title: Mount a virtual file system on a pool
 description: Learn how to mount different kinds of virtual file systems on Batch pool nodes, and how to troubleshoot mounting issues.
 ms.topic: how-to
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-linux
-ms.date: 08/22/2023
+ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
+ms.date: 06/10/2024
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -44,7 +44,7 @@ When you use virtual file mounts with Batch pools in a virtual network, keep the
 
 - **Azure Blob containers** require TCP port 443 to be open for traffic to and from the `storage` service tag. Virtual machines (VMs) must have access to `https://packages.microsoft.com` to download the `blobfuse` and `gpg` packages. Depending on your configuration, you might need access to other URLs.
 
-- **Network File System (NFS)** requires access to port 2049 by default. Your configuration might have other requirements. VMs must have access to the appropriate package manager to download the `nfs-common` (for Debian or Ubuntu) or `nfs-utils` (for CentOS) packages. The URL might vary based on your OS version. Depending on your configuration, you might also need access to other URLs.
+- **Network File System (NFS)** requires access to port 2049 by default. Your configuration might have other requirements. VMs must have access to the appropriate package manager to download the `nfs-common` (for Debian or Ubuntu) packages. The URL might vary based on your OS version. Depending on your configuration, you might also need access to other URLs.
 
   Mounting Azure Blob or Azure Files through NFS might have more networking requirements. For example, your compute nodes might need to use the same virtual network subnet as the storage account.
 
@@ -62,7 +62,7 @@ All mount configuration objects need the following base parameters. Some mount c
 
 - **Relative mount path or source**, the location of the file system to mount on the compute node, relative to the standard *\\fsmounts* directory accessible via `AZ_BATCH_NODE_MOUNTS_DIR`.
 
-  The exact *\\fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*. On a CentOS node, the location maps to *mnt\resources\batch\tasks\fsmounts*.
+  The exact *\\fsmounts* directory location varies depending on node OS. For example, the location on an Ubuntu node maps to *mnt\batch\tasks\fsmounts*.
 
 - **Mount options or BlobFuse options** that describe specific parameters for mounting a file system.
 

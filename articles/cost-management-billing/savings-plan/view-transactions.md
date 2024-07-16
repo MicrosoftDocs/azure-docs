@@ -6,9 +6,8 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -28,6 +27,15 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 6. Set the **Granularity** to **Monthly**.
 7. Set the chart type to **Column (Stacked)**.  
     :::image type="content" source="./media/view-transactions/accumulated-costs-cost-analysis.png" alt-text="Screenshot showing accumulated cost in cost analysis." lightbox="./media/view-transactions/accumulated-costs-cost-analysis.png" :::
+
+
+## View payments made
+
+You can view payments that were made using APIs, usage data, and cost analysis. For savings plans paid for monthly, the frequency value is shown as  **recurring** in the usage data and the Savings Plan Charges API. For savings plans paid up front, the value is shown as **onetime**.
+
+Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only savings plans, apply a filter for **Savings Plan**.
+
+:::image type="content" source="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" alt-text="Screenshot showing saving plan costs in cost analysis." lightbox="./media/buy-savings-plan/cost-analysis-savings-plan-costs.png" :::
 
 ## Need help? Contact us.
 

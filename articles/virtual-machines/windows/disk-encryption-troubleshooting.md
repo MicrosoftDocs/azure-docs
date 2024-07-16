@@ -3,14 +3,11 @@ title: Azure Disk Encryption troubleshooting guide
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: troubleshooting
 ms.author: mbaldwin
-ms.date: 01/04/2023
-
-ms.custom: seodec18
-
+ms.date: 02/20/2024
 ---
 # Azure Disk Encryption troubleshooting guide
 
@@ -39,7 +36,7 @@ When encrypting a VM fails with the error message "Failed to send DiskEncryption
 ### Suggestions
 
 - Make sure the Key Vault exists in the same region and subscription as the Virtual Machine
-- Ensure that you have [set key vault advanced access policies](disk-encryption-key-vault.md#set-key-vault-advanced-access-policies) properly
+- Ensure that you have [set key vault advanced access policies](disk-encryption-key-vault.yml#set-key-vault-advanced-access-policies) properly
 - If you are using KEK, ensure the key exists and is enabled in Key Vault
 - Check VM name, data disks, and keys follow [key vault resource naming restrictions](../../azure-resource-manager/management/resource-name-rules.md#microsoftkeyvault)
 - Check for any typos in the Key Vault name or KEK name in your PowerShell or CLI command

@@ -1,14 +1,14 @@
 ---
 title: Default route injection in spoke virtual networks
 titleSuffix: Azure Route Server
-description: Learn about how Azure Route Server injects routes in virtual networks (VNets).
-services: route-server
+description: Learn how Azure Route Server injects routes in virtual networks (VNets) in different topologies.
 author: halkazwini
-ms.service: route-server
-ms.topic: conceptual
-ms.date: 03/29/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23
+ms.service: route-server
+ms.topic: concept-article
+ms.date: 03/13/2024
+
+#CustomerIntent: As an Azure administrator, I want to use Azure Route Server so it dynamically injects routes in spoke virtual networks (VNets).
 ---
 
 # Default route injection in spoke virtual networks
@@ -62,7 +62,7 @@ The Azure Firewall subnet learns the routes coming from both ExpressRoute and th
 
 ## Traffic symmetry
 
-If multiple NVA instances are used in active/active scenario for better resiliency or scalability, traffic symmetry will be a requirement if the NVAs need to keep the state of the connections. This is, for example, the case of Next Generation Firewalls.
+If multiple NVA instances are used in active/active scenario for better resiliency or scalability, traffic symmetry is a requirement if the NVAs need to keep the state of the connections. This is, for example, the case of Next Generation Firewalls.
 
 - For connectivity from the Azure virtual machines to the public internet, the NVA uses source network address translation (SNAT) so that the egress traffic will be sourced from the NVA's public IP address, hence achieving traffic symmetry.
 - For inbound traffic from the internet to workloads running in virtual machines, additional to destination network address translation (DNAT), the NVAs will require to do source network address translation (SNAT), to make sure that the return traffic from the virtual machines lands at the same NVA instance that processed the first packet.
@@ -91,13 +91,16 @@ The next hop for the `0.0.0.0/0` route is the NVA, so the spoke VNets still need
 
 If traffic from ExpressRoute to the spoke VNets is to be sent to a firewall NVA for inspection, a route table in the GatewaySubnet is still required, otherwise the ExpressRoute virtual network gateway will send packets to the virtual machines using the routes learnt from VNet peering. The routes in this route table should match the spoke prefixes, and the next hop should be the IP address of the firewall NVA (or the load balancer in front of the firewall NVAs, for redundancy). The firewall NVA can be the same as the SDWAN NVA in the diagram above, or it can be a different device such as Azure Firewall, since the SDWAN NVA can advertise routes with the next-hop pointing to other IP addresses. The following diagram shows this design with the addition of Azure Firewall:
 
-:::image type="content" source="./media/scenarios/route-injection-split-route-server-with-firewall.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute, an Azure Firewall and two Route Servers.":::
+> [!NOTE]
+> For any traffic from on-premises destined for Private Endpoints, this traffic will bypass the Firewall NVA or Azure Firewall in the hub. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed.
+
+:::image type="content" source="./media/scenarios/route-injection-split-route-server-with-firewall.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute, an Azure Firewall, and two Route Servers.":::
 
 This design allows automatic injection of routes in spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment, and the addition of firewall NVAs for traffic inspection.
 
-## Next steps
+## Related content
 
-* Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
-* Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md)
+- Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md).
+- Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md).
 
 

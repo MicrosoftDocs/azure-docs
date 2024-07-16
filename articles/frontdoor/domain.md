@@ -5,7 +5,6 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 10/31/2023
 ms.author: jodowns
 ---
@@ -166,7 +165,7 @@ After you've imported your certificate to a key vault, create an Azure Front Doo
 
 Then, configure your domain to use the Azure Front Door secret for its TLS certificate.
 
-For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#using-your-own-certificate).
+For a guided walkthrough of these steps, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md#use-your-own-certificate).
 
 ### Switch between certificate types
 
@@ -185,7 +184,7 @@ For most custom domains, Azure Front Door automatically renews (rotates) managed
 
 However, Azure Front Door won't automatically rotate certificates in the following scenarios:
 
-* The custom domain's CNAME record is pointing to other DNS records.
+* The custom domain's CNAME record is pointing to a DNS record other than your Azure Front Door endpoint's domain.
 * The custom domain points to the Azure Front Door endpoint through a chain. For example, if your DNS record points to Azure Traffic Manager, which in turn resolves to Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`. Azure Front Door can't verify the whole chain.
 * The custom domain uses an A record. We recommend you always use a CNAME record to point to Azure Front Door.
 * The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.

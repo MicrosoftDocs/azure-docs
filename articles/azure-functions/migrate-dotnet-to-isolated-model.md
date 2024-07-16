@@ -1,13 +1,18 @@
 ---
 title: Migrate .NET function apps from the in-process model to the isolated worker model
-description: This article shows you how to upgrade your existing .NET function apps running on the in-process model to the isolated worker model. 
+description: This article shows you how to migrate your existing .NET function apps running on the in-process model to the isolated worker model.
 ms.service: azure-functions
-ms.custom: devx-track-dotnet
-ms.topic: how-to 
-ms.date: 08/2/2023
+ms.custom:
+  - devx-track-dotnet
+  - ignite-2023
+ms.topic: how-to
+ms.date: 01/17/2024
 ---
 
 # Migrate .NET apps from the in-process model to the isolated worker model
+
+> [!IMPORTANT]
+> [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you migrate your apps to the isolated worker model by following the instructions in this article.
 
 This article walks you through the process of safely migrating your .NET function app from the [in-process model](./functions-dotnet-class-library.md) to the [isolated worker model][isolated-guide]. To learn about the high-level differences between these models, see the [execution mode comparison](./dotnet-isolated-in-process-differences.md).
 
@@ -18,7 +23,7 @@ This guide assumes that your app is running on version 4.x of the Functions runt
 
 These host version migration guides will also help you migrate to the isolated worker model as you work through them.
 
-## Identify function apps to upgrade
+## Identify function apps to migrate
 
 Use the following Azure PowerShell script to generate a list of function apps in your subscription that currently use the in-process model.
 
@@ -31,9 +36,9 @@ $AppInfo = @{}
 
 foreach ($App in $FunctionApps)
 {
-     if ($App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"] -eq 'dotnet')
+     if ($App.Runtime -eq 'dotnet')
      {
-          $AppInfo.Add($App.Name, $App.ApplicationSettings["FUNCTIONS_WORKER_RUNTIME"])
+          $AppInfo.Add($App.Name, $App.Runtime)
      }
 }
 
@@ -47,21 +52,23 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 6 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend upgrading to .NET 6 on the isolated worker model.** This provides a quick upgrade path to the fully released version with the longest support window from .NET.
+> **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
+
+This guide doesn't present specific examples for .NET 7 or .NET 6. If you need to target these versions, you can adapt the .NET 8 examples.
 
 ## Prepare for migration
 
-If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-upgrade).
+If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-migrate).
 
-Before you upgrade an app to the isolated worker model, you should thoroughly review the contents of this guide and familiarize yourself with the features of the [isolated worker model][isolated-guide] and the [differences between the two models](./dotnet-isolated-in-process-differences.md).
+Before you migrate an app to the isolated worker model, you should thoroughly review the contents of this guide and familiarize yourself with the features of the [isolated worker model][isolated-guide] and the [differences between the two models](./dotnet-isolated-in-process-differences.md).
 
-To upgrade the application, you will:
+To migrate the application, you will:
 
-1. Complete the steps in [Upgrade your local project](#upgrade-your-local-project) to migrate your local project to the isolated worker model.
+1. Complete the steps in [Migrate your local project](#migrate-your-local-project) to migrate your local project to the isolated worker model.
 1. After migrating your project, fully test the app locally using version 4.x of the [Azure Functions Core Tools](functions-run-local.md). 
-1. [Upgrade your function app in Azure](#upgrade-your-function-app-in-azure) to the isolated model.
+1. [Update your function app in Azure](#update-your-function-app-in-azure) to the isolated model.
 
-## Upgrade your local project
+## Migrate your local project
 
 The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions which match your desired version. These steps assume a local C# project, and if your app is instead using C# script (`.csx` files), you should [convert to the project model](./functions-reference-csharp.md#convert-a-c-script-app-to-a-c-project) before continuing.
 
@@ -70,7 +77,7 @@ The section outlines the various changes that you need to make to your local pro
 
 First, you'll convert the project file and update your dependencies. As you do, you will see build errors for the project. In subsequent steps, you'll make the corresponding changes to remove these errors.
 
-### .csproj file
+### Project file
 
 The following example is a `.csproj` project file that uses .NET 6 on version 4.x:
 
@@ -98,23 +105,17 @@ The following example is a `.csproj` project file that uses .NET 6 on version 4.
 
 Use one of the following procedures to update this XML file to run in the isolated worker model:
 
-# [.NET 6](#tab/net6-isolated)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated](../../includes/functions-dotnet-migrate-project-v4-isolated.md)]
-
-# [.NET 7](#tab/net7)
-
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-2](../../includes/functions-dotnet-migrate-project-v4-isolated-2.md)]
-
 # [.NET 8](#tab/net8)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 [!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net-framework](../../includes/functions-dotnet-migrate-project-v4-isolated-net-framework.md)]
 
 ---
+
+Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in VS Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that may exist outside of your project code, as part of build steps or a CI/CD pipeline.
 
 ### Package references
 
@@ -126,9 +127,11 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 When migrating to run in an isolated worker process, you must add a `Program.cs` file to your project with the following contents:
 
-# [.NET 6 / .NET 7 / .NET 8](#tab/net6-isolated+net7+net8)
+# [.NET 8](#tab/net8)
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
@@ -142,7 +145,9 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [.NET Framework 4.8](#tab/v4)
+This example includes [ASP.NET Core integration] to improve performance and provide a familiar programming model when your app uses HTTP triggers. If you do not intend to use HTTP triggers, you can replace the call to `ConfigureFunctionsWebApplication` with a call to `ConfigureFunctionsWorkerDefaults`. If you do so, you can remove the reference to `Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore` from your project file. However, for the best performance, even for functions with other trigger types, you should keep the `FrameworkReference` to ASP.NET Core.
+
+# [.NET Framework 4.8](#tab/netframework48)
 
 ```csharp
 using Microsoft.Extensions.Hosting;
@@ -171,9 +176,7 @@ namespace Company.FunctionApp
 
 ---
 
-The `Program.cs` file will replace any file that has the `FunctionsStartup` attribute, which is typically a `Startup.cs` file. In places where your `FunctionsStartup` code would reference `IFunctionsHostBuilder.Services`, you can instead add statements within the `.ConfigureServices()` method of the `HostBuilder` in your `Program.cs`. To learn more about working with `Program.cs`, see [Start-up and configuration](./dotnet-isolated-process-guide.md#start-up-and-configuration) in the isolated worker model guide.
-
-Once you have moved everything from any existing `FunctionsStartup` to the `Program.cs` file, you can delete the `FunctionsStartup` attribute and the class it was applied to.
+[!INCLUDE [functions-dotnet-migrate-isolated-program-cs](../../includes/functions-dotnet-migrate-isolated-program-cs.md)]
 
 ### Function signature changes
 
@@ -229,7 +232,7 @@ When you [changed your package references in a previous step](#package-reference
 
 1. Move output bindings out of the function parameter list. If you have just one output binding, you can apply this to the return type of the function. If you have multiple outputs, create a new class with properties for each output, and apply the attributes to those properties. To learn more, see [Multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings).
 
-1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you may need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
+1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you might need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
 1. If your function includes an `IBinder` parameter, remove it. Replace the functionality with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
@@ -252,6 +255,16 @@ When migrating from running in-process to running in an isolated worker process,
 ```
 
 The value you have configured for `AzureWebJobsStorage`` might be different. You do not need to change its value as part of the migration.
+
+### host.json file
+
+No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make additional changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
+
+### Other code changes
+
+This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios.
+
+[!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
 
 ### Example function migrations
 
@@ -283,9 +296,9 @@ namespace Company.Function
 }
 ```
 
-An HTTP trigger for the migrated version might like the following example:
+An HTTP trigger for the migrated version might look like the following example:
 
-# [.NET 6 / .NET 7 / .NET 8](#tab/net6-isolated+net7+net8)
+# [.NET 8](#tab/net8)
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -316,7 +329,7 @@ namespace Company.Function
 }
 ```
 
-# [.NET Framework 4.8](#tab/v4)
+# [.NET Framework 4.8](#tab/netframework48)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -353,18 +366,18 @@ namespace Company.Function
 
 ---
 
-## Upgrade your function app in Azure
+## Update your function app in Azure
 
 Upgrading your function app to the isolated model consists of two steps:
 
-1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to "dotnet-isolated". Make sure that any deployment automation is similarly updated.
-2. Publish your upgraded project to the upgraded function app. 
+1. Change the configuration of the function app to use the isolated model by setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `dotnet-isolated`. Make sure that any deployment automation is similarly updated.
+2. Publish your migrated project to the updated function app. 
 
-When you use Visual Studio to publish an isolated worker model project to an existing function app that uses the in-process model, you're prompted to let Visual Studio upgrade the function app during deployment. This accomplishes both steps at once.
+When you use Visual Studio to publish an isolated worker model project to an existing function app that uses the in-process model, you're prompted to let Visual Studio update the function app during deployment. This accomplishes both steps at once.
 
-If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your upgraded code with your upgraded configuration in Azure. You can then deploy your upgraded app to the production slot through a swap operation.
+If you need to minimize downtime, consider using a [staging slot](functions-deployment-slots.md) to test and verify your migrated code with your updated configuration in Azure. You can then deploy your fully migrated app to the production slot through a swap operation.
 
-Once you've completed these steps, your app has been fully migrated to the isolated model. Congratulations! Repeat the steps from this guide as necessary for [any other apps needing migration](#identify-function-apps-to-upgrade).
+Once you've completed these steps, your app has been fully migrated to the isolated model. Congratulations! Repeat the steps from this guide as necessary for [any other apps needing migration](#identify-function-apps-to-migrate).
 
 ## Next steps
 

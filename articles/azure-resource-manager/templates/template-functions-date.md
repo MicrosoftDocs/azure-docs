@@ -1,9 +1,9 @@
 ---
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 10/12/2023
+ms.date: 01/17/2024
 ---
 
 # Date functions for ARM templates
@@ -35,22 +35,35 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following json shows some examples:
 
 ```json
-"outputs": {
-  "add10YearsOutput": {
-    "type": "string",
-    "value": "[dateTimeAdd('2023-01-31 00:00:00Z', 'P1M')]" //2023-03-02T00:00:00Z
-  },
-  "add1MonthOutput": {
-    "type": "string",
-    "value": "[dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')]" //2024-03-01T00:00:00Z
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "addOneYearNonLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2023-01-01 00:00:00Z', 'P1Y')]"  //2024-01-01T00:00:00Z
+    },
+    "addOneYearLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2024-01-01 00:00:00Z', 'P1Y')]"  //2024-12-31T00:00:00Z
+    },
+    "addOneMonthNonLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2023-02-01 00:00:00Z', 'P1M')]"  //2023-03-03T00:00:00Z
+    },
+    "addOneMonthLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2024-02-01 00:00:00Z', 'P1M')]"  //2024-03-02T00:00:00Z
+    }
   }
 }
 ```
 
-In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
+In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Furthermore, the distinction between leap and non-leap years becomes apparent when adding one month to the first day of February, leading to varying day-of-the-month results.
 
 ### Examples
 

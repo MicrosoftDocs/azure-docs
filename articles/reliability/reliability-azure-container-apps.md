@@ -5,9 +5,9 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
-ms.custom: subject-reliability, references_regions, devx-track-azurepowershell
+ms.custom: subject-reliability, references_regions, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: reliability-article
-ms.date: 08/29/2023
+ms.date: 10/23/2023
 ---
 
 # Reliability in Azure Container Apps
@@ -176,6 +176,35 @@ New-AzContainerAppManagedEnv @EnvArgs
 
 ---
 
+##### Verify zone redundancy with the Azure CLI
+
+> [!NOTE]
+> The Azure Portal does not show whether zone redundancy is enabled.
+
+Use the [`az container app env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command to verify zone redundancy is enabled for your Container Apps environment.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az containerapp env show \
+  --name <CONTAINER_APP_ENV_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  --subscription <SUBSCRIPTION_ID>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+az containerapp env show `
+  --name <CONTAINER_APP_ENV_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME> `
+  --subscription <SUBSCRIPTION_ID>
+```
+
+---
+
+The command returns a JSON response. Verify the response contains `"zoneRedundant": true`.
+
 ### Safe deployment techniques
 
 When you set up [zone redundancy in your container app](#set-up-zone-redundancy-in-your-container-apps-environment), replicas are distributed automatically across the zones in the region. After the replicas are distributed, traffic is load balanced among them. If a zone outage occurs, traffic automatically routes to the replicas in the remaining zone.
@@ -184,7 +213,7 @@ You should still use safe deployment techniques such as [blue-green deployment](
 
 If you have enabled [session affinity](../container-apps/sticky-sessions.md), and a zone goes down, clients for that zone are routed to new replicas because the previous replicas are no longer available. Any state associated with the previous replicas is lost.
 
-### Availability zone redeployment and migration
+### Availability zone migration
 
 To take advantage of availability zones, enable zone redundancy as you create the Container Apps environment. The environment must include a virtual network with an available subnet. You can't migrate an existing Container Apps environment from nonavailability zone support to availability zone support.
 

@@ -2,12 +2,12 @@
 title: Deploy a user-managed glossary in Translator container
 titleSuffix: Azure AI services
 description: How to deploy a user-managed glossary in the Translator container environment.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 07/10/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -100,7 +100,7 @@ There may be times when you're running a container with a multi-layered ingestio
     -e HotfixDataFolder=/usr/local/customhotfix\
     mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 
-   ```
+    ```
 
 ## Learn more
 

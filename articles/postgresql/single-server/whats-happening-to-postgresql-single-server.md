@@ -54,7 +54,7 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. Can I still create a new version 11 Azure Database for PostgreSQL - Single Server after the community EOL date in November 2023?**
 
-**A.** Beginning November 30 2023, you'll no longer be able to create new single server instances for PostgreSQL version 11 through the Azure portal. However, you can still [make them via CLI until November 2024](https://azure.microsoft.com/updates/singlepg11-retirement/). We will continue to support single servers through our [versioning support policy.](/azure/postgresql/single-server/concepts-version-policy) It would be best to start migrating to Azure Database for PostgreSQL - Flexible Server immediately.
+**A.** Beginning November 30 2023, you'll no longer be able to create new single server instances for PostgreSQL version 11 through the Azure portal. However, you can still [make them via CLI until November 2024](https://azure.microsoft.com/updates/singlepg11-retirement/). We will continue to support single servers through our [versioning support policy.](../flexible-server/concepts-version-policy.md) It would be best to start migrating to Azure Database for PostgreSQL - Flexible Server immediately.
 
 **Q. Can I continue running my Azure Database for PostgreSQL - Single Server beyond the sunset date of March 28, 2025?**
 
@@ -223,8 +223,6 @@ The time taken for step #2 depends on the transactions that occur on the source.
 
 **A.** You can get further information in a few different ways.
 - Gett answers from community experts in [Microsoft Q&A](/answers/tags/214/azure-database-postgresql).
-
-- You can contact the [Azure Database for PostgreSQL product team](mailto:AskAzureDBforMySQL@service.microsoft.com?subject=Azure%20Database%20for%20PostgreSQL%20-%20Single%20Server%20retirement).
 
 - If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
     - For Summary, type a description of your issue.

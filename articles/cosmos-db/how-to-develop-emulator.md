@@ -4,10 +4,10 @@ titleSuffix: Azure Cosmos DB
 description: Use the Azure Cosmos DB emulator to develop your applications locally and test then with a working database.
 author: sajeetharan
 ms.author: sasinnat
-ms.reviewer: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 06/20/2024
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
 # CustomerIntent: As a developer, I want to use the Azure Cosmos DB emulator so that I can develop my application against a database during development.
 ---
@@ -18,7 +18,7 @@ A common use case for the emulator is to serve as a development database while y
 
 ## Prerequisites
 
-- [.NET 6 or later](https://dotnet.microsoft.com/download), [Node.js LTS](https://nodejs.org/en/download/), or [Python 3.7 or later](https://www.python.org/downloads/)
+- [.NET 6 or later](https://dotnet.microsoft.com/download), [Node.js v20 or later](https://nodejs.org/en/download/), or [Python 3.7 or later](https://www.python.org/downloads/)
   - Ensure that all required executables are available in your `PATH`.
 - **Windows emulator**
   - 64-bit Windows Server 2016, 2019, Windows 10, or Windows 11.
@@ -44,7 +44,7 @@ To get started, get the Linux-variant of the container image from the [Microsoft
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```bash
     docker images
@@ -60,7 +60,7 @@ To get started, get the Windows-variant of the container image from the [Microso
     docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```powershell
     docker images
@@ -95,7 +95,7 @@ To get started, get the Linux-variant of the container image from the [Microsoft
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```bash
     docker images
@@ -245,13 +245,27 @@ The Docker container variant of the emulator doesn't support the API for Table.
     | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
     | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
+    For Linux systems, use:
+
     ```bash
     docker run \
         --publish 8081:8081 \
         --publish 10250-10255:10250-10255 \
-        --interactive \
-        --tty \
+        --name linux-emulator \
+        --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest    
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @(
+        "--publish", "8081:8081"
+        "--publish", "10250-10255:10250-10255"
+        "--name", "windows-emulator"
+        "--detach"
+    )
+    docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest 
     ```
 
 1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
@@ -266,9 +280,8 @@ The Docker container variant of the emulator doesn't support the API for Table.
     $parameters = @(
         "--publish", "8081:8081"
         "--publish", "10250-10255:10250-10255"
-        "--memory", "2GB"
-        "--interactive"
-        "--tty"
+        "--name", "windows-emulator"
+        "--detach"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
@@ -313,14 +326,29 @@ The Docker container variant of the emulator doesn't support the API for Table.
     | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
     | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
+    For Linux systems, use:
+
     ```bash
     docker run \
         --publish 8081:8081 \
         --publish 10250:10250 \
         --env AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0 \
-        --interactive \
-        --tty \
+        --name linux-emulator \
+        --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @(
+        "--publish", "8081:8081"
+        "--publish", "10250:10250"
+        "--env", "AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0"
+        "--name", "windows-emulator"
+        "--detach"
+    )
+    docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
 
 1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
@@ -351,9 +379,9 @@ The Docker (Windows) container image doesn't support the API for MongoDB.
 
 ::: zone-end
 
-## Export the emulator's TLS/SSL certificate
+## Import the emulator's TLS/SSL certificate
 
-Export the certificate for the emulator to use the emulator with your preferred developer SDK without disable TLS/SSL on the client.
+Import the emulator's TLS/SSL certificate to use the emulator with your preferred developer SDK without disabling TLS/SSL on the client.
 
 ::: zone pivot="api-apache-cassandra,api-apache-gremlin,api-table"
 
@@ -371,11 +399,49 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ### [Docker (Linux container)](#tab/docker-linux)
 
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container. Use `curl` to download the certificate from the running container to your local machine.
+The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container. Use `curl` to download the certificate from the running container to your local machine.
 
-```bash
-curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
-```
+1. Get the certificate from the running container.
+
+    For Linux systems, use:
+
+    ```bash
+    curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @{
+        Uri = 'https://localhost:8081/_explorer/emulator.pem'
+        Method = 'GET'
+        OutFile = 'emulatorcert.crt'
+        SkipCertificateCheck = $True
+    }
+    Invoke-WebRequest @parameters
+    ```
+
+1. Regenerate the certificate bundle by using the appropriate command for your operating system.
+
+    For **Debian-based** Linux systems (for example, Ubuntu), use:
+
+    ```bash
+    sudo update-ca-certificates
+    ```
+
+    For **Red Hat-based** Linux systems (for example, CentOS, Fedora), use:
+
+    ```bash
+    sudo update-ca-trust
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    certutil -f -addstore "Root" ~/emulatorcert.crt
+    ```
+
+    For more detailed instructions, consult the documentation specific to your operating system.
 
 ### [Docker (Windows container)](#tab/docker-windows)
 
@@ -389,14 +455,28 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ::: zone pivot="api-nosql"
 
-### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+### [Docker (Linux container)](#tab/docker-linux)
 
-The certificate for the emulator is available in the `_explorer/emulator.pem` path on the running container.
+The certificate for the emulator is available at the path `/_explorer/emulator.pem` on the running container.
 
-1. Use `curl` to download the certificate from the running container to your local machine.
+1. Download the certificate from the running container to your local machine.
+
+    For Linux systems, use:
 
     ```bash
-    curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @{
+        Uri = 'https://localhost:8081/_explorer/emulator.pem'
+        Method = 'GET'
+        OutFile = 'emulatorcert.crt'
+        SkipCertificateCheck = $True
+    }
+    Invoke-WebRequest @parameters
     ```
 
     > [!NOTE]
@@ -404,8 +484,52 @@ The certificate for the emulator is available in the `_explorer/emulator.pem` pa
 
 1. Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificates/` path.
 
+    For Linux systems, use:
+
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @{
+        FilePath = 'emulatorcert.crt'
+        CertStoreLocation = 'Cert:\CurrentUser\Root'
+    }
+    Import-Certificate @parameters
+    ```
+
+1. For linux systems, regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+
+    For **Debian-based** Linux systems (for example, Ubuntu), use:
+
+    ```bash
+    sudo update-ca-certificates
+    ```
+
+    For **Red Hat-based** Linux systems (for example, CentOS, Fedora), use:
+
+    ```bash
+    sudo update-ca-trust
+    ```
+
+    For more detailed instructions, consult the documentation specific to your operating system.
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+The certificate for the emulator is available at the folder `C:\CosmosDB.Emulator\bind-mount` on the running container. The folder also contains a script to automatically install the certificate.
+
+1. Use `docker cp` to copy the entire folder to your local machine.
+
+    ```powershell
+    docker cp windows-emulator:C:\CosmosDB.Emulator\bind-mount .
+    ```
+
+1. Run the *importcert.ps1* script in the folder.
+
+    ```powershell
+    .\bind-mount\importcert.ps1
     ```
 
 ### [Windows (local)](#tab/windows)
@@ -418,7 +542,7 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ## Connect to the emulator from the SDK
 
-Each SDK includes a client class typically used to connect the SDK to your Azure Cosmos DB account. Using the [emulator's credentials](emulator.md#authentication), you can connect the SDK to the emulator instance instead.
+Each SDK includes a client class typically used to connect the SDK to your Azure Cosmos DB account. By using the [emulator's credentials](emulator.md#authentication), you can connect the SDK to the emulator instance instead.
 
 ::: zone pivot="api-nosql"  
 
@@ -467,7 +591,7 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client's options to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client's options to disable TLS/SSL validation before creating the client:
     >
     > ```csharp
     > CosmosClientOptions options = new ()
@@ -477,7 +601,6 @@ Use the [Azure Cosmos DB API for NoSQL .NET SDK](nosql/quickstart-dotnet.md) to 
     >         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     >     }),
     >     ConnectionMode = ConnectionMode.Gateway,
-    >     LimitToEndpoint = true
     > };
     >
     > using CosmosClient client = new(
@@ -528,7 +651,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you might need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```python
     > import urllib3
@@ -536,6 +659,44 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     > urllib3.disable_warnings()
     > ```
     >
+
+    If you're still facing SSL errors, it's possible that Python is retrieving the certificates from a different certificate store. To determine the path where Python is looking for the certificates, follow these steps:
+    >[!IMPORTANT]
+    >If you are using a Python **virtual environment** (venv) ensure it is **activated** before running the commands!
+    1. Open a terminal
+    1. Start the Python interpreter by typing python or python3, depending on your Python version.
+    1. In the Python interpreter, run the following commands:
+
+        ```python
+        from requests.utils import DEFAULT_CA_BUNDLE_PATH
+        print(DEFAULT_CA_BUNDLE_PATH)
+        ```
+
+        **Inside a virtual environment**, the path might be (at least in Ubuntu):
+
+        ```bash
+        path/to/venv/lib/pythonX.XX/site-packages/certifi/cacert.pem
+        ```
+
+        **Outside of a virtual environment**, the path might be (at least in Ubuntu):
+
+        ```bash
+        /etc/ssl/certs/ca-certificates.crt
+        ```
+
+    1. Once you identified the DEFAULT_CA_BUNDLE_PATH, open a **new terminal** and run the following commands to append the emulator certificate to the certificate bundle:
+        > [!IMPORTANT]
+        > If DEFAULT_CA_BUNDLE_PATH variable points to a **system directory**, you might encounter a **"Permission denied"** error. In this case, you will need to run the commands with elevated privileges (as root). Also, you will need to [update and regenerate the certificate bundle](#import-the-emulators-tlsssl-certificate) after executing the provided commands.
+
+        ```bash
+        # Add a new line to the certificate bundle
+        echo >> /path/to/ca_bundle
+        ```
+
+        ```bash
+        # Append the emulator certificate to the certificate bundle
+        cat /path/to/emulatorcert.crt >> /path/to/ca_bundle
+        ```
 
 ### [JavaScript / Node.js](#tab/javascript+nodejs)
 
@@ -580,7 +741,7 @@ Use the [Azure Cosmos DB API for NoSQL Node.js SDK](nosql/quickstart-nodejs.md) 
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```javascript
     > process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
@@ -716,7 +877,7 @@ Use the [MongoDB Node.js driver](mongodb/quickstart-nodejs.md) to connect to the
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```javascript
     > const client = new MongoClient(
@@ -859,7 +1020,7 @@ Use the [Apache Cassandra Node.js driver](cassandra/manage-data-nodejs.md) to us
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
     >
     > ```javascript
     > const client = new Client({
@@ -1137,7 +1298,7 @@ Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use th
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#export-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
+    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the client to disable TLS/SSL validation:
     >
     > ```javascript
     > const client = TableClient.fromConnectionString(
@@ -1156,7 +1317,7 @@ Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use th
 
 ## Use the emulator in a GitHub Actions CI workflow
 
-Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is preinstalled in the [`windows-latest`](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md) variant of GitHub Action's hosted runners.
+To run a continuous integration workload that automatically validates your application, use the Azure Cosmos DB emulator with a test suite from your framework of choice. The Azure Cosmos DB emulator is preinstalled in the `windows-latest` variant of GitHub Action's hosted runners.
 
 ### [C#](#tab/csharp)
 
@@ -1186,7 +1347,7 @@ Run a test suite using the built-in test driver for .NET and a testing framework
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator
@@ -1227,7 +1388,7 @@ Test your Python application and database operations using [`pytest`](https://py
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator
@@ -1270,7 +1431,7 @@ Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js applicat
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator

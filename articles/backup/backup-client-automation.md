@@ -2,8 +2,8 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 08/29/2021 
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
+ms.date: 08/29/2023
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -14,7 +14,7 @@ This article shows you how to use PowerShell to set up Azure Backup on Windows S
 
 ## Install Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get started, [install the latest PowerShell release](/powershell/azure/install-azure-powershell).
 
@@ -114,7 +114,7 @@ The available options include:
 | /q |Quiet installation |- |
 | /p:"location" |Path to the installation folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | /s:"location" |Path to the cache folder for the Azure Backup agent. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Opt-in to Microsoft Update |- |
+| /m |Opt in to Microsoft Update |- |
 | /nu |Don't Check for updates after installation is complete |- |
 | /d |Uninstalls Microsoft Azure Recovery Services Agent |- |
 | /ph |Proxy Host Address |- |
@@ -242,7 +242,7 @@ At this time, the policy is empty and other cmdlets are needed to define what it
 
 ### Configuring the backup schedule
 
-The first of the three parts of a policy is the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
+The first of the three parts of a policy are the backup schedule, which is created using the [New-OBSchedule](/powershell/module/msonlinebackup/new-obschedule) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
 * **Times of the day** when the backup should run. You can define up to three different times of the day when the backup will be triggered.

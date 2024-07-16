@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Stringify transformation in mapping data flow
@@ -48,7 +48,7 @@ stringify(mydata = body.properties.periods ? string,
 	format: 'json') ~> Stringify1
 ```
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Parse transformation](data-flow-parse.md) to convert complex embedded types to separate columns.

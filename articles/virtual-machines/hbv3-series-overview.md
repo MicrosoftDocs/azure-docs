@@ -1,20 +1,21 @@
 ---
-title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HBv3-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
-ms.custom: devx-track-linux
-ms.service: virtual-machines 
+title: HBv3-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HBv3-series VM size in Azure.
+services: virtual-machines
+ms.custom: linux-related-content
+ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
+ms.topic: article
 ms.date: 04/21/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
-# HBv3-series virtual machine overview 
+# HBv3-series virtual machine overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -54,7 +55,7 @@ Standard_HB120-16rs_v3            | 4            | 4                      | Dual
 > [!NOTE]
 > The constrained cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
-The virtual NUMA mapping of each HBv3 VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology. 
+The virtual NUMA mapping of each HBv3 VM size is mapped to the underlying physical NUMA topology. There is no potentially misleading abstraction of the hardware topology.
 
 The exact topology for the various [HBv3 VM size](hbv3-series.md) appears as follows using the output of [lstopo](https://linux.die.net/man/1/lstopo):
 ```bash
@@ -103,21 +104,21 @@ Two other, larger SSDs are provided as unformatted block NVMe devices via NVMeDi
 
 When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 GB/s writes, and up to 186,000 IOPS (reads) and 201,000 IOPS (writes) for deep queue depths.
 
-## Hardware specifications 
+## Hardware specifications
 
 | Hardware specifications          | HBv3-series VMs              |
 |----------------------------------|----------------------------------|
-| Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
-| CPU                              | AMD EPYC 7V73X                   | 
-| CPU Frequency (non-AVX)          | 3.0 GHz (all cores), 3.5 GHz (up to 10 cores)    | 
-| Memory                           | 448 GB (RAM per core depends on VM size)         | 
-| Local Disk                       | 2 * 960 GB NVMe (block), 480 GB SSD (page file) | 
-| Infiniband                       | 200 Gb/s Mellanox ConnectX-6 HDR InfiniBand | 
-| Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC | 
+| Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               |
+| CPU                              | AMD EPYC 7V73X                   |
+| CPU Frequency (non-AVX)          | 3.0 GHz (all cores), 3.5 GHz (up to 10 cores)    |
+| Memory                           | 448 GB (RAM per core depends on VM size)         |
+| Local Disk                       | 2 * 960 GB NVMe (block), 480 GB SSD (page file) |
+| Infiniband                       | 200 Gb/s Mellanox ConnectX-6 HDR InfiniBand |
+| Network                          | 50 Gb/s Ethernet (40 Gb/s usable) Azure second Gen SmartNIC |
 
-## Software specifications 
+## Software specifications
 
-| Software specifications        | HBv3-series VMs                                            | 
+| Software specifications        | HBv3-series VMs                                            |
 |--------------------------------|-----------------------------------------------------------|
 | Max MPI Job Size               | 36,000 cores (300 VMs in a single Virtual Machine Scale Set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
@@ -125,12 +126,12 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
 | OS Support for SRIOV RDMA      | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+           |
 | Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
-| Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
+| Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      |
 
-> [!NOTE] 
+> [!NOTE]
 > Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps

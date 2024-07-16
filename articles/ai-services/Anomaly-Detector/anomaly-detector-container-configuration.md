@@ -2,12 +2,12 @@
 title: How to configure a container for Anomaly Detector API
 titleSuffix: Azure AI services
 description: The Anomaly Detector API container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 01/18/2024
 ms.author: mbullwin
 ---
 
@@ -45,7 +45,7 @@ This setting can be found in the following place:
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -61,19 +61,19 @@ This setting can be found in the following place:
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## Http proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
-[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 
 ## Mount settings
@@ -103,7 +103,7 @@ Replace value in brackets, `{}`, with your own values:
 | **{API_KEY}** | The endpoint key of the `Anomaly Detector` resource on the Azure `Anomaly Detector` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Anomaly Detector` Overview page.| See [gather required parameters](anomaly-detector-container-howto.md#gather-required-parameters) for explicit examples. |
 
-[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](anomaly-detector-container-howto.md#billing).

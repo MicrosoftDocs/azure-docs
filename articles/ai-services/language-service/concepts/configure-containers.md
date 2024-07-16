@@ -2,14 +2,15 @@
 title: Configure containers - Language service
 titleSuffix: Azure AI services
 description: Language service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
-services: cognitive-services
-author: aahill
+#services: cognitive-services
+author: jboback
 manager: nitinme
-ms.custom: ignite-fall-2021
+ms.custom:
+  - ignite-2023
 ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: aahi
+ms.date: 12/19/2023
+ms.author: jboback
 ---
 
 # Configure Language service docker containers
@@ -20,11 +21,12 @@ Language service provides each container with a common configuration framework, 
 * Language Detection
 * Key Phrase Extraction
 * Text Analytics for Health
-* Summarization 
+* Summarization
+* Named Entity Recognition (NER)
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+[!INCLUDE [Container shared configuration settings table](../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start.
@@ -35,7 +37,7 @@ The `ApiKey` setting specifies the Azure resource key used to track billing info
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -48,19 +50,19 @@ The `Billing` setting specifies the endpoint URI of the _Language_ resource on A
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## Http proxy credentials settings
 
-[!INCLUDE [Container shared configuration proxy settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration proxy settings](../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
-[!INCLUDE [Container shared configuration logging settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Mount settings
 

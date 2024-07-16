@@ -1,17 +1,17 @@
 ---
-title: Windows container considerations in Kubernetes
+title: Windows container considerations in Azure Kubernetes Service
 titleSuffix: Azure Kubernetes Service
-description: See the Windows container considerations in Kubernetes.
-ms.topic: article
-ms.date: 10/05/2023
+description: See the Windows container considerations with Azure Kubernetes Service (AKS).
+ms.topic: overview
+ms.custom: linux-related-content
+ms.date: 01/12/2024
 ms.author: schaffererin
 author: schaffererin
-
 ---
 
-# Windows container considerations in Kubernetes
+# Windows container considerations with Azure Kubernetes Service
 
-When you create deployments that use Windows Server containers on Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, please see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
+When you create deployments that use Windows Server containers on Azure Kubernetes Service (AKS), there are a few differences relative to Linux deployments you should keep in mind. For a detailed comparison of the differences between Windows and Linux in upstream Kubernetes, see [Windows containers in Kubernetes](https://kubernetes.io/docs/concepts/windows/intro/).
 
 Some of the major differences include:
 
@@ -28,7 +28,7 @@ This article covers important considerations to keep in mind when using Windows 
 
 | Feature | Windows considerations |
 |-----------|:-----------|
-| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • AKS Windows clusters have a maximum limit of 10 node pools.<br/> • AKS Windows clusters have a maximum limit of 100 nodes in each node pool.<br/> • The Windows Server node pool name has a limit of six characters. |
+| [Cluster creation][cluster-configuration] | • The first system node pool *must* be Linux.<br/> • The maximum number of nodes per cluster is 5000.<br/> • The Windows Server node pool name has a limit of six characters. |
 | [Privileged containers][privileged-containers] | Not supported. The equivalent is **HostProcess Containers (HPC) containers**. |
 | [HPC containers][hpc-containers] | • HostProcess containers are the Windows alternative to Linux privileged containers. For more information, see [Create a Windows HostProcess pod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/). |
 | [Azure Network Policy Manager (Azure)][azure-network-policy] | Azure Network Policy Manager doesn't support:<br/> • Named ports<br/> • SCTP protocol<br/> • Negative match labels or namespace selectors (all labels except "debug=true")<br/> • "except" CIDR blocks (a CIDR with exceptions)<br/> • Windows Server 2019<br/> |
@@ -36,10 +36,10 @@ This article covers important considerations to keep in mind when using Windows 
 | [AKS Image Cleaner][aks-image-cleaner] | Not supported. |
 | [BYOCNI][byo-cni] | Not supported. |
 | [Open Service Mesh][open-service-mesh] | Not supported. |
-| [GPU][gpu] | Not supported. |
+| [GPU][gpu] | Supported in preview. |
 | [Multi-instance GPU][multi-instance-gpu] | Not supported. |
-| [Generation 2 VMs (preview)][gen-2-vms] | Supported in preview. |
-| [Custom node config][custom-node-config] | • Custom node config has two configurations:<br/> • [kubelet][custom-kubelet-parameters]: Supported in preview.<br/> • OS config: Not supported. |
+| [Generation 2 VMs (preview)][gen-2-vms] | Supported. |
+| [Custom node config][custom-node-config] | • Custom node config has two configurations:<br/> • [kubelet][custom-kubelet-parameters]: Supported.<br/> • OS config: Not supported. |
 
 ## Next steps
 
@@ -50,7 +50,7 @@ For more information on Windows containers, see the [Windows Server containers F
 [comparison-with-linux]: https://kubernetes.io/docs/concepts/windows/intro/#compatibility-linux-similarities
 
 <!-- LINKS - internal -->
-[cluster-configuration]: ../aks/learn/quick-windows-container-deploy-cli.md#limitations
+[cluster-configuration]: quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [privileged-containers]: use-windows-hpc.md#limitations
 [hpc-containers]: use-windows-hpc.md#limitations
 [node-upgrade]: ./manage-node-pools.md#upgrade-a-single-node-pool
@@ -60,8 +60,8 @@ For more information on Windows containers, see the [Windows Server containers F
 [node-image-upgrade]: node-image-upgrade.md
 [byo-cni]: use-byo-cni.md
 [open-service-mesh]: open-service-mesh-about.md
-[gpu]: gpu-cluster.md
+[gpu]: use-windows-gpu.md
 [multi-instance-gpu]: gpu-multi-instance.md
-[gen-2-vms]: cluster-configuration.md#generation-2-virtual-machines
+[gen-2-vms]: generation-2-vm.md
 [custom-node-config]: custom-node-configuration.md
 [custom-kubelet-parameters]: custom-node-configuration.md#kubelet-custom-configuration

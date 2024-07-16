@@ -6,7 +6,7 @@ description: Learn about the features BareMetal Infrastructure offers for NC2 wo
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?

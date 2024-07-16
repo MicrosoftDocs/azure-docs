@@ -1,7 +1,7 @@
 ---
 title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
-ms.date: 11/13/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
@@ -75,25 +75,24 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-update.png" border="false"::: **Sensor update (Preview)** | OT sensors only. <br><br>Run remote updates on OT sensors directly from the Azure portal, or download update packages to update manually. <br><br>For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md). |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-threat-intelligence.png" border="false"::: **Threat intelligence update (Preview)**     | OT sensors only. <br><br>Available for bulk actions from the **Sites and sensors** toolbar, for individual sensors from the **...** options menu, or from a sensor details page.     <br><br>For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).   |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Edit automatic threat intelligence updates**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  <br><br>Select **Edit** and then toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes. |
-|:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-prepare-to-update.png" border="false"::: **Prepare an OT sensor to update to software version 22.x or higher**     |   Individual, OT sensors only. <br><br>Available from the **Sites and sensors** toolbar, the **...** options menu, or a sensor details page. <br><br>For more information, see [Update legacy OT sensor software](update-legacy-ot-software.md#update-legacy-ot-sensor-software).   |
 
 ### Sensor deployment and access
 
 |Task |Description  |
 |---------|---------|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-recover.png" border="false"::: **Recover a OT sensor password**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page. Enter the secret identifier obtained on the sensor's sign-in screen.      |
-| **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
+| **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md). |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Download an activation file**     |   Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.      |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false"::: **Edit a sensor zone**     |    For individual sensors only, from the **...** options menu or a sensor details page.  <br><br>Select **Edit**, and then select a new zone from the **Zone** menu or select **Create new zone**. Select **Submit** to save your changes.    |
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md).|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false":::  **Create an activation command**     | Individual, Enterprise IoT sensors only. <br><br>Available from the **...** options menu or a sensor details page.  Select **Edit** and   then select **Create activation command**. <br><br>For more information, see [Install Enterprise IoT sensor software](eiot-sensor.md#install-enterprise-iot-sensor-software).        |
-|<a name="endpoint"></a> **Download endpoint details** (Public preview) | OT sensors only, with versions 22.x and higher only.<br><br>Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
+|<a name="endpoint"></a> **Download endpoint details** | OT sensors only.<br><br>Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
 
 ### Sensor maintenance and troubleshooting
 
 |Task |Description  |
 |---------|---------|
-| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
@@ -127,17 +126,6 @@ In such cases, do the following steps:
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
 1. [Onboard the sensor again](onboard-sensors.md), registering it with any new settings.
 1. [Upload your new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file).
-
-### Reactivate an OT sensor for upgrades to version 22.x from a legacy version
-
-If you're updating your OT sensor version from a legacy version to 22.1.x or higher, you need a different activation procedure than for earlier releases.
-
-Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
-
-> [!NOTE]
-> After upgrading to version 22.1.x, the new upgrade log is accessible by the *support* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *support* user.
->
-> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 ## Understand sensor health
 

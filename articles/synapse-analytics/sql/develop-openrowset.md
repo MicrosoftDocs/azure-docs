@@ -7,8 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 03/23/2022
 ms.author: fipopovi
-ms.reviewer: sngun
-ms.custom: ignite-fall-2021, contperf-fy22q3
+ms.reviewer: whhender
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
@@ -115,7 +114,9 @@ You have three choices for input files that contain the target data for querying
 
 - 'PARQUET' - Binary file in Parquet format 
 
-- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format 
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format
+
+Values with blank spaces are not valid, e.g. 'CSV  ' is not a valid value. 
 
 **'unstructured_data_path'**
 
@@ -130,7 +131,7 @@ Below you'll find the relevant \<storage account path> values that will link to 
 | Azure Blob Storage         | http[s]  | \<storage_account>.blob.core.windows.net/path/file   |
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
+| Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net/path/file   |
 | Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
@@ -318,6 +319,8 @@ Have in mind that if you are reading number of files at once, the schema will be
 ### Type mapping for Parquet
 
 Parquet and Delta Lake files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+
+<!-- If updating, see also sql-docs docs/relational-databases/polybase/polybase-type-mapping.md -->
 
 | Parquet type | Parquet logical type (annotation) | SQL data type |
 | --- | --- | --- |

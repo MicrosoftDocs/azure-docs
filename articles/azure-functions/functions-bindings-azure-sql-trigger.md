@@ -3,17 +3,25 @@ title: Azure SQL trigger for Functions
 description: Learn to use the Azure SQL trigger in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
-ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 8/04/2023
+ms.custom:
+  - build-2023
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+ms.date: 6/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure SQL trigger for Functions (preview)
+# Azure SQL trigger for Functions
 
 > [!NOTE]
-> The Azure SQL trigger for Functions is currently in preview and requires that a preview extension library or extension bundle is used. In consumption plan functions, automatic scaling is not available for SQL trigger. Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> In consumption plan functions, automatic scaling is not supported for SQL trigger. If the automatic scaling process stops the function, all processing of events will stop and it will need to be manually restarted.
+>
+> Use premium or dedicated plans for [scaling benefits](functions-scale.md) with SQL trigger.
+> 
 
 The Azure SQL trigger uses [SQL change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server) functionality to monitor a SQL table for changes and trigger a function when a row is created, updated, or deleted. For configuration details for change tracking for use with the Azure SQL trigger, see [Set up change tracking](#set-up-change-tracking-required). For information on setup details of the Azure SQL extension for Azure Functions, see the [SQL binding overview](./functions-bindings-azure-sql.md).
 
@@ -107,6 +115,8 @@ namespace AzureSQL.ToDo
 
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 
@@ -211,9 +221,9 @@ public class SqlChangeToDoItem {
     public SqlChangeToDoItem() {
     }
 
-    public SqlChangeToDoItem(ToDoItem item, SqlChangeOperation operation) {
-        this.item = item;
-        this.operation = operation;
+    public SqlChangeToDoItem(ToDoItem Item, SqlChangeOperation Operation) {
+        this.Item = Item;
+        this.Operation = Operation;
     }
 }
 ```
@@ -427,6 +437,29 @@ The SQL trigger binds to a variable `todoChanges`, a list of objects each with t
 
 The following example shows a Python function that is invoked when there are changes to the `ToDo` table.
 
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="ToDoTrigger")
+@app.sql_trigger(arg_name="todo",
+                        table_name="ToDo",
+                        connection_string_setting="SqlConnectionString")
+def todo_trigger(todo: str) -> None:
+    logging.info("SQL Changes: %s", json.loads(todo))
+```
+
+# [v1](#tab/python-v1)
+
+
 The following is binding data in the function.json file:
 
 ```json
@@ -451,6 +484,8 @@ import logging
 def main(changes):
     logging.info("SQL Changes: %s", json.loads(changes))
 ```
+
+---
 
 ::: zone-end
 
@@ -506,16 +541,76 @@ The following table explains the binding configuration properties that you set i
 
 ## Optional Configuration
 
-In addition to the required ConnectionStringSetting [application setting](./functions-how-to-use-azure-function-app-settings.md#settings), the following optional settings can be configured for the SQL trigger:
+The following optional settings can be configured for the SQL trigger for local development or for cloud deployments.
 
-| App Setting | Description|
-|---------|---------|
-|**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
-|**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
-|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
+### host.json
 
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-host-json-section-intro.md)]
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+| Setting | Default| Description|
+|---------|---------|---------|
+|**MaxBatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
+|**PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
+|**MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+
+#### Example host.json file
+
+Here is an example host.json file with the optional settings:
+
+```JSON
+{
+  "version": "2.0",
+  "extensions": {
+      "Sql": {
+        "MaxBatchSize": 300,
+        "PollingIntervalMs": 1000,
+        "MaxChangesPerWorker": 100
+      }
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "logLevel": {
+      "default": "Trace"
+    }
+  }
+}
+```
+
+### local.setting.json
+
+The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
+
+> [!IMPORTANT]  
+> Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Tools that support Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
+
+| Setting | Default| Description|
+|---------|---------|---------|
+|**Sql_Trigger_BatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
+|**Sql_Trigger_PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
+|**Sql_Trigger_MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
+
+#### Example local.settings.json file
+
+Here is an example local.settings.json file with the optional settings:
+
+```JSON
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SqlConnectionString": "",
+    "Sql_Trigger_MaxBatchSize": 300,
+    "Sql_Trigger_PollingIntervalMs": 1000,
+    "Sql_Trigger_MaxChangesPerWorker": 100
+  }
+}
+```
 
 ## Set up change tracking (required)
 
@@ -529,7 +624,7 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON);
     ```
 
-    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database may affect the trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
+    The `CHANGE_RETENTION` option specifies the time period for which change tracking information (change history) is kept.  The retention of change history by the SQL database might affect trigger functionality. For example, if the Azure Function is turned off for several days and then resumed, the database will contain the changes that occurred in past two days in the above setup example.
 
     The `AUTO_CLEANUP` option is used to enable or disable the clean-up task that removes old change tracking information. If a temporary problem that prevents the trigger from running, turning off auto cleanup can be useful to pause the removal of information older than the retention period until the problem is resolved.
 
@@ -566,7 +661,7 @@ Note that these retries are outside the built-in idle connection retry logic tha
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
-If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch may end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows may end up in a different batch that doesn't fail in future invocations.
+If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
 
 ## Next steps
 

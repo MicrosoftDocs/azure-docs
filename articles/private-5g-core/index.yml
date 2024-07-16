@@ -152,7 +152,7 @@ landingContent:
             url: distributed-tracing.md
           - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md
-          - text: Monitor AP5GC UE usage with Event Hubs (preview)
+          - text: Cloud monitoring of UE usage with Event Hubs
             url: ue-usage-event-hub.md
           - text: Monitor packet cores with alerts
             url: monitor-private-5g-core-alerts.md

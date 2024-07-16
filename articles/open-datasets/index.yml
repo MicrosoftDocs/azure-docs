@@ -8,7 +8,7 @@ metadata:
   description: Azure Open Datasets is curated and cleansed data - including weather, census, and holidays - that you can use with minimal preparation to enrich ML models. 
   ms.service: open-datasets
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.date: 11/04/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -42,4 +42,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python API
-            url: /python/api/azureml-opendatasets/
+            url: /python/api/azureml-opendatasets/azureml.opendatasets

@@ -2,7 +2,6 @@
 title: End-to-end security in Azure | Microsoft Docs
 description: The article provides a map of Azure services that help you secure and protect your cloud resources and detect and investigate threats.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,9 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---
@@ -38,8 +35,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
 
 ## Secure and protect
-
-:::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="Diagram showing Azure services that help you secure and protect your cloud resources." border="false":::
 
 | Service | Description |
 |------|--------|
@@ -77,14 +72,12 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Detect threats
 
-:::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="Diagram showing Azure services that detect threats." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. The workload protection dashboard in Defender for Cloud provides visibility and control of the cloud workload protection features for your environment. |
 | [Microsoft Sentinel](../../sentinel/overview.md) | A scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
-| [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
+| [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
 |  | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. |
 |  | [Microsoft Defender for Identity](/defender-for-identity/what-is) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization. |
 | [Microsoft Entra ID Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Sends two types of automated notification emails to help you manage user risk and risk detections: Users at risk detected email and Weekly digest email. |
@@ -98,8 +91,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond
-
-:::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="Diagram showing Azure services that help you investigate and respond to threats." border="false":::
 
 | Service | Description |
 |------|--------|

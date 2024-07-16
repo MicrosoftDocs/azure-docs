@@ -11,21 +11,25 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-## Force calling traffic to be proxied across your own server for Web SDK
+The proxy feature is general available starting in the public version [1.25.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.25.1) of Azure Communication Services Calling SDK. Make sure that you use this SDK or a later version of the SDK when you try to use this feature. This tutorial uses a version of the Calling SDK 1.13.0-beta.1 where this feature became first available on public preview.
 
-In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you would like the traffic to route to. Once enabled all the media traffic (audio/video/screen sharing) travel through the provided TURN servers instead of the Azure Communication Services defaults. This tutorial guides on how to have WebJS SDK calling traffic be proxied to servers that you control.
-
->[!IMPORTANT]
-> The proxy feature is available starting in the public preview version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Please ensure that you use this or a newer SDK when trying to use this feature. This Quickstart uses the Azure Communication Services Calling SDK version greater than `1.13.0`.
-
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 ## Proxy calling media traffic
 
-## What is a TURN server?
-Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of many reasons: firewalls with strict rules, peers sitting behind a private network, or computers are running in a NAT environment. To solve these network connection issues, you can use a TURN server. The term stands for Traversal Using Relays around NAT, and it's a protocol for relaying network traffic STUN and TURN servers are the relay servers here. Learn more about how Azure Communication Services [mitigates](../../concepts/network-traversal.md) network challenges by utilizing STUN and TURN.
+The following sections describe how to proxy call your media traffic.
 
-### Provide your TURN servers details to the SDK
-To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing the `CallClient`. For more information how to setup a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the Quickstart on how to setup Voice and Video.
+### What is a TURN server?
+
+Many times, establishing a network connection between two peers isn't straightforward. A direct connection might not work because of:
+
+- Firewalls with strict rules.
+- Peers sitting behind a private network.
+- Computers running in a network address translation (NAT) environment.
+
+To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers.
+
+### Provide your TURN server details to the SDK
+
+To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up voice and video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -67,24 +71,23 @@ const callClient = new CallClient({
 ```
 
 > [!IMPORTANT]
-> Note that if you have provided your TURN server details while initializing the `CallClient`, all the media traffic will <i>exclusively</i> flow through these TURN servers. Any other ICE candidates that are normally generated when creating a call won't be considered while trying to establish connectivity between peers i.e. only 'relay' candidates will be considered. To learn more about different types of Ice candidates click here [here](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
+> If you provided your TURN server details while you initialized `CallClient`, all the media traffic *exclusively* flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
-> [!NOTE]
-> If the '?transport' query parameter is not present as part of the TURN url or is not one of these values - 'udp', 'tcp', 'tls', the default behaviour will be UDP.
+If the `?transport` query parameter isn't present as part of the TURN URL or isn't one of the `udp`, `tcp`, or `tls` values, the default behavior is UDP.
 
-> [!NOTE]
-> If any of the URLs provided are invalid or don't have one of these schemas - 'turn:', 'turns:', 'stun:', the `CallClient` initialization will fail and will throw errors accordingly. The error messages thrown should help you troubleshoot if you run into issues.
+If any of the URLs provided are invalid or don't have one of the `turn:`, `turns:`, or `stun:` schemas, the `CallClient` initialization fails and throws errors accordingly. The error messages that are thrown should help you troubleshoot if you run into issues.
 
-The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
+For the API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it, see [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
 ### Set up a TURN server in Azure
-You can create a Linux virtual machine in the Azure portal using this [guide](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu), and deploy a TURN server using [coturn](https://github.com/coturn/coturn), a free and open source implementation of a TURN and STUN server for VoIP and WebRTC.
 
-Once you have setup a TURN server, you can test it using the WebRTC Trickle ICE page - [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/).
+You can create a Linux virtual machine in the Azure portal. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu). To deploy a TURN server, use [coturn](https://github.com/coturn/coturn). Coturn is a free and open-source implementation of a TURN and STUN server for VoIP and WebRTC.
+
+After you set up a TURN server, you can test it by using the instructions on the [WebRTC Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/) webpage.
 
 ## Proxy signaling traffic
 
-To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing the `CallClient`. For more details how to setup a call see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web)) for the Quickstart on how to setup Voice and Video.
+To provide the URL of a proxy server, you need to pass it in as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services Web SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-web) for the quickstart on how to set up voice and video.
 
 ```js
 import { CallClient } from '@azure/communication-calling'; 
@@ -102,18 +105,17 @@ const callClient = new CallClient({
 ```
 
 > [!NOTE]
-> If the proxy URL provided is an invalid URL, the `CallClient` initialization will fail and will throw errors accordingly. The error messages thrown will help you troubleshoot if you run into issues.
+> If the proxy URL provided is an invalid URL, the `CallClient` initialization fails and throws errors accordingly. The error messages that are thrown help you troubleshoot if you run into issues.
 
-The API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it can be found here - [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
+For the API reference for the `CallClientOptions` object, and the `networkConfiguration` property within it, see [CallClientOptions](/javascript/api/azure-communication-services/@azure/communication-calling/callclientoptions?view=azure-communication-services-js&preserve-view=true).
 
-### Setting up a signaling proxy middleware in express js
+### Set up a signaling proxy middleware in Express.js
 
-You can also create a proxy middleware in your express js server setup to have all the URLs redirected through it, using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package.
-The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs to have all of our URLs working as expected:
+You can also create a proxy middleware in your Express.js server setup to have all the URLs redirected through it by using the [http-proxy-middleware](https://www.npmjs.com/package/http-proxy-middleware) npm package. The `createProxyMiddleware` function from that package should cover what you need for a simple redirect proxy setup. Here's an example usage of it with some option settings that the SDK needs so that all of our URLs work as expected:
 
 ```js
 const proxyRouter = (req) => {
-    // Your router function if you don't intend to setup a direct target
+    // Your router function if you don't intend to set up a direct target
 
     // An example:
     if (!req.originalUrl && !req.url) {
@@ -129,7 +131,7 @@ const proxyRouter = (req) => {
 }
 
 const myProxyMiddleware = createProxyMiddleware({
-    target: 'https://microsoft.com', // This will be ignore if a router function is provided, but createProxyMiddleware still requires this to be passed in (see it's official docs on the npm page for the most recent changes)
+    target: 'https://microsoft.com', // This will be ignored if a router function is provided, but createProxyMiddleware still requires this to be passed in (see its official docs on the npm page for the most recent changes)
     router: proxyRouter,
     changeOrigin: true,
     secure: false, // If you have proper SSL setup, set this accordingly
@@ -144,12 +146,14 @@ app.use('/proxy', myProxyMiddleware);
 ```
 
 > [!Tip]
-> If you are having SSL issues, check out the [cors](https://www.npmjs.com/package/cors) package.
+> If you're having SSL issues, see the [cors](https://www.npmjs.com/package/cors) package.
 
-### Setting up a signaling proxy server on Azure
-You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it using this guide - [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
+### Set up a signaling proxy server on Azure
 
-Here's an NGINX config that you could make use of for a quick spin up:
+You can create a Linux virtual machine in the Azure portal and deploy an NGINX server on it. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
+
+Here's an NGINX configuration that you can use as a sample:
+
 ```
 events {
     multi_accept       on;

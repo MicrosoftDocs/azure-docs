@@ -168,7 +168,7 @@ The following example demonstrates where to add the properties.
 
 ## Hive/Iceberg/Delta Lake caching
 
-All three connectors share the same set of parameters as described in [Hive caching](https://trino.io/docs/current/connector/hive-caching.html).
+All three connectors share the same set of parameters as described in [Hive](https://trino.io/docs/current/connector/hive.html) caching.
 
 > [!NOTE]
 > Certain parameters are not configurable and always set to their default values: <br>hive.cache.data-transfer-port=8898, <br>hive.cache.bookkeeper-port=8899, <br>hive.cache.location=/etc/trino/cache, <br>hive.cache.disk-usage-percentage=80

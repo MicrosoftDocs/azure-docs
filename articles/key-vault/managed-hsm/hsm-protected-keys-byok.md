@@ -3,17 +3,17 @@ title: How to generate and transfer HSM-protected keys for Azure Key Vault Manag
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM. Also known as bring your own key (BYOK).
 services: key-vault
 author: mbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
 # Import HSM-protected keys to Managed HSM (BYOK)
 
- Azure Key Vault Managed HSM supports importing keys generated in your on-premises hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
+ Azure Key Vault Managed HSM supports importing keys generated in your on-premises hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key (BYOK)*. Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
@@ -26,7 +26,7 @@ For more information, and for a tutorial to get started using Managed HSM, see [
 
 Here's an overview of the process. Specific steps to complete are described later in the article.
 
-* In Managed HSM, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. 
+* In Managed HSM, generate a key (referred to as a *Key Exchange Key (KEK)*). The KEK must be an RSA-HSM key that has only the `import` key operation. 
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
@@ -44,7 +44,7 @@ To use the Azure CLI commands in this article, you must have the following items
 * The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM the [supported HSMs list](#supported-hsms) in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 To sign in to Azure using the CLI, type:
 
@@ -58,7 +58,7 @@ For more information on login options via the CLI, take a look at [sign in with 
 
 |Vendor name|Vendor Type|Supported HSM models|More information|
 |---|---|---|---|
-|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/azurebyok)|[Cryptomathic BYOK tool and documentation](https://www.cryptomathic.com/azurebyok)|
+|Cryptomathic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>See [Cryptomathic site for details](https://www.cryptomathic.com/)||
 |Entrust|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Fortanix|Manufacturer,<br/>HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|

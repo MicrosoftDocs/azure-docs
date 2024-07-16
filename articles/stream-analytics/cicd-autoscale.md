@@ -1,7 +1,6 @@
 ---
 title: Configure autoscale settings for a Stream Analytics job by using the CI/CD tool
 description: This article shows how to configure autoscale settings for a Stream Analytics job by using the CI/CD tool.
-services: stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
@@ -88,27 +87,9 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     ![Screenshot that shows autoscale files generated after configuration of autoscale.](./media/cicd-autoscale/configure-autoscale.png)
 
-    Here's the list of metrics that you can use to define autoscale rules:
+    The following table lists the metrics that you can use to define autoscale rules:
 
-    |Metric                        | Description           |
-    |------------------------------|-------------------|
-    |`ProcessCPUUsagePercentage`      | CPU utilization percentage |
-    |`ResourceUtilization`            | SU or memory utilization percentage |
-    |`OutputWatermarkDelaySeconds`    | Watermark delay |
-    |`InputEventsSourcesBacklogged`   | Backlogged input events |
-    |`DroppedOrAdjustedEvents`        | Out-of-order events |
-    |`Errors`                         | Runtime errors |
-    |`InputEventBytes`                | Input event bytes |
-    |`LateInputEvents`                | Late input events |
-    |`InputEvents`                    | Input events |
-    |`EarlyInputEvents`               | Early input events |
-    |`InputEventsSourcesPerSecond`    | Input sources received |
-    |`OutputEvents`                   | Output events |
-    |`AMLCalloutRequests`             | Function requests |
-    |`AMLCalloutFailedRequests`       | Failed function requests |
-    |`AMLCalloutInputEvents`          | Function events |
-    |`ConversionErrors`               | Data conversion errors |
-    |`DeserializationError`           | Input deserialization error |
+    [!INCLUDE [microsoft-streamanalytics-streamingjobs-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-streamanalytics-streamingjobs-metrics-include.md)]
 
     The default value for all metric thresholds is `70`. If you want to set the metric threshold to another number, open the *\*.AutoscaleSettingTemplate.parameters.json* file and change the `Threshold` value. 
 

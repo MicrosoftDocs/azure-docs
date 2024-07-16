@@ -2,8 +2,8 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 08/23/2023
-ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp, devx-track-linux
+ms.date: 06/27/2024
+ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
 # Create a formula to automatically scale compute nodes in a Batch pool
@@ -113,16 +113,6 @@ You can get the value of these service-defined variables to make adjustments tha
 | Variable | Description |
 | --- | --- |
 | $CPUPercent |The average percentage of CPU usage. |
-| $WallClockSeconds |The number of seconds consumed. Retiring after 2024-Mar-31. |
-| $MemoryBytes |The average number of megabytes used. Retiring after 2024-Mar-31. |
-| $DiskBytes |The average number of gigabytes used on the local disks. Retiring after 2024-Mar-31. |
-| $DiskReadBytes |The number of bytes read. Retiring after 2024-Mar-31. |
-| $DiskWriteBytes |The number of bytes written. Retiring after 2024-Mar-31. |
-| $DiskReadOps |The count of read disk operations performed. Retiring after 2024-Mar-31. |
-| $DiskWriteOps |The count of write disk operations performed. Retiring after 2024-Mar-31. |
-| $NetworkInBytes |The number of inbound bytes. Retiring after 2024-Mar-31. |
-| $NetworkOutBytes |The number of outbound bytes. Retiring after 2024-Mar-31. |
-| $SampleNodeCount |The count of compute nodes. Retiring after 2024-Mar-31. |
 | $ActiveTasks |The number of tasks that are ready to execute but aren't yet executing. This includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies haven't been satisfied are excluded from the `$ActiveTasks` count. For a multi-instance task, `$ActiveTasks` includes the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of `$ActiveTasks` and `$RunningTasks`. |
@@ -131,15 +121,8 @@ You can get the value of these service-defined variables to make adjustments tha
 | $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
 | $CurrentLowPriorityNodes |The current number of Spot compute nodes, including any nodes that have been preempted. |
+| $UsableNodeCount | The number of usable compute nodes. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
-
-> [!WARNING]
-> Select service-defined variables will be retired after **31 March 2024** as noted in the table above. After the retirement
-> date, these service-defined variables will no longer be populated with sample data. Please discontinue use of these variables
-> before this date.
-
-> [!WARNING]
-> `$PreemptedNodeCount` is currently not available and returns `0` valued data.
 
 > [!NOTE]
 > Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
@@ -241,7 +224,7 @@ You can use both resource and task metrics when you define a formula. You adjust
 
 | Metric   | Description  |
 |----------|--------------|
-| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $SampleNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent <br>- $WallClockSeconds <br>- $MemoryBytes <br>- $DiskBytes <br>- $DiskReadBytes <br>- $DiskWriteBytes <br>- $DiskReadOps <br>- $DiskWriteOps <br>- $NetworkInBytes <br>- $NetworkOutBytes |
+| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent |
 | Task     | Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics: <br>- $ActiveTasks <br>- $RunningTasks <br>- $PendingTasks <br>- $SucceededTasks <br>- $FailedTasks |
 
 ## Obtain sample data
@@ -303,7 +286,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Because there might be a delay in sample availability, you should always specify a time range with a look-back start time that's older than one minute. It takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` might not be available. Again, you can use the percentage parameter of `GetSample()` to force a particular sample percentage requirement.
 
 > [!IMPORTANT]
-> We strongly recommend that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it's only a single sample, and it might be an older sample, it might not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
+> We strongly recommend that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you had, no matter how long ago you retrieved it." Since it's only a single sample, and it might be an older sample, it might not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
 
 ## Write an autoscale formula
 
@@ -609,7 +592,7 @@ In Batch .NET, the [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cl
 - [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 - [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-In the REST API, the [Get information about a pool request](/rest/api/batchservice/get-information-about-a-pool) returns information about the pool, which includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
+In the REST API, [information about a pool](/rest/api/batchservice/get-information-about-a-pool) includes the latest automatic scaling run information in the [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool) property.
 
 The following C# example uses the Batch .NET library to print information about the last autoscaling run on pool *myPool*.
 

@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/11/2023
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, mode-api
+ms.custom: mode-api, devx-track-dotnet
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for .NET
@@ -15,7 +15,7 @@ Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying
 
 In this quickstart, you learn how to create a Managed CCF resource using the .NET client management library.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](/dotnet/api/overview/azure/resourcemanager.confidentialledger-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/confidentialledger/Azure.ResourceManager.ConfidentialLedger) | [Package (NuGet)](https://www.nuget.org/packages/Azure.ResourceManager.ConfidentialLedger/1.1.0-beta.2)
 
@@ -23,6 +23,7 @@ In this quickstart, you learn how to create a Managed CCF resource using the .NE
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - .NET versions [supported by the Azure SDK for .NET](https://www.nuget.org/packages/Azure.ResourceManager.ConfidentialLedger/1.1.0-beta.2#dependencies-body-tab).
+- [OpenSSL](https://www.openssl.org/) on a computer running Windows or Linux.
 
 ## Setup
 

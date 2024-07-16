@@ -2,17 +2,21 @@
 title: Monitor Azure AD B2C with Azure Monitor
 titleSuffix: Azure AD B2C
 description: Learn how to log Azure AD B2C events with Azure Monitor by using delegated resource management.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 06/12/2023
+ms.date: 01/11/2024
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor sign-in and auditing logs using Azure Monitor, so that I can route the logs to different monitoring solutions and gain insights into my environment.
+
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -60,7 +64,7 @@ In summary, you'll use Azure Lighthouse to allow a user or group in your Azure A
 
 - An Azure AD B2C account with [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant.
 
--  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](../role-based-access-control/role-assignments-portal-subscription-admin.md). 
+-  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](../role-based-access-control/role-assignments-portal-subscription-admin.yml). 
 
 ## 1. Create or choose resource group
 
@@ -312,7 +316,7 @@ Use the following instructions to create a new Azure Alert, which will send an [
    - Alert logic: Set **Number of results** **Greater than** **0**.
    - Evaluation based on: Select **120** for Period (in minutes) and **5** for Frequency (in minutes)
 
-   ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
+   ![Create an alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
 
 After the alert is created, go to **Log Analytics workspace** and select **Alerts**. This page displays all the alerts that have been triggered in the duration set by **Time range** option.
 
@@ -349,7 +353,7 @@ To stop collecting logs to your Log Analytics workspace, delete the diagnostic s
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose the resource group that contains the Log Analytics workspace. This example uses a resource group named _azure-ad-b2c-monitor_ and a Log Analytics workspace named `AzureAdB2C`.
-1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md#azure-portal).
+1. [Delete the Logs Analytics workspace](../azure-monitor/logs/delete-workspace.md).
 1. Select the **Delete** button to delete the resource group.
 ## Next steps
 

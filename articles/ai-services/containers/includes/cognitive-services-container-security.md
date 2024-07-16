@@ -2,7 +2,7 @@
 title: Container security
 titleSuffix: Azure AI services
 description: Learn how to secure your container
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-services
@@ -39,7 +39,7 @@ The host should allowlist **port 443** and the following domains:
 
 #### Disable deep packet inspection
 
-[Deep packet inspection](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI) is a type of data processing that inspects in detail the data sent over a computer network, and usually takes action by blocking, rerouting, or logging it accordingly.
+[Deep packet inspection (DPI)](https://en.wikipedia.org/wiki/Deep_packet_inspection) is a type of data processing that inspects in detail the data sent over a computer network, and usually takes action by blocking, rerouting, or logging it accordingly.
 
 Disable DPI on the secure channels that the Azure AI containers create to Microsoft servers. Failure to do so will prevent the container from functioning correctly.
 

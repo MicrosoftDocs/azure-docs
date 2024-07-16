@@ -1,20 +1,22 @@
 ---
-title: Azure Table indexer
-titleSuffix: Azure Cognitive Search
-description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure Cognitive Search.
+title: Azure table indexer
+titleSuffix: Azure AI Search
+description: Set up a search indexer to index data stored in Azure Table Storage for full text search in Azure AI Search.
 
 manager: nitinme
-author: mgottein 
+author: mgottein
 ms.author: magottei
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 02/22/2024
 ---
 
 # Index data from Azure Table Storage
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Table Storage and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your entities, in a single table. Output is a search index with searchable content and metadata stored in individual fields.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Table Storage and makes it searchable in Azure AI Search. Inputs to the indexer are your entities, in a single table. Output is a search index with searchable content and metadata stored in individual fields.
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from Azure Table Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
@@ -26,7 +28,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
 
-+ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
++ Use a [REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
 
 ## Define the data source
 
@@ -35,7 +37,7 @@ The data source definition specifies the source data to index, credentials, and 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition:
 
    ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30 
+    POST https://[service name].search.windows.net/datasources?api-version=2023-11-01 
     {
         "name": "my-table-storage-ds",
         "description": null,
@@ -98,7 +100,7 @@ Indexers can connect to a table using the following connections.
 
 ### Partition for improved performance
 
-By default, Azure Cognitive Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+By default, Azure AI Search uses the following internal query filter to keep track of which source entities have been updated since the last run: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
 To avoid a full scan, you can use table partitions to narrow the scope of each indexer job.
 
@@ -121,7 +123,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store content from entities:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30 
+    POST https://[service name].search.windows.net/indexes?api-version=2023-11-01 
     {
       "name" : "my-search-index",
       "fields": [
@@ -161,7 +163,7 @@ Once you have an index and data source, you're ready to create the indexer. Inde
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
     {
         "name" : "my-table-indexer",
         "dataSourceName" : "my-table-storage-ds",
@@ -201,7 +203,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
   Content-Type: application/json  
   api-key: [admin key]
 ```

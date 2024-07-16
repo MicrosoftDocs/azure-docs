@@ -3,12 +3,12 @@ title: Azure Disk Encryption scenarios on Windows VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows VMs for various scenarios
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 07/07/2023
-ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
+ms.date: 05/21/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Azure Disk Encryption scenarios on Windows VMs
@@ -17,7 +17,7 @@ ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 
 Azure Disk Encryption for Windows virtual machines (VMs) uses the BitLocker feature of Windows to provide full disk encryption of the OS disk and data disk. Additionally, it provides encryption of the temporary disk when the VolumeType parameter is All.
 
-Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.md) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
+Azure Disk Encryption is [integrated with Azure Key Vault](disk-encryption-key-vault.yml) to help you control and manage the disk encryption keys and secrets. For an overview of the service, see [Azure Disk Encryption for Windows VMs](disk-encryption-overview.md).
 
 ## Prerequisites
 
@@ -38,6 +38,7 @@ Encrypting or disabling encryption may cause a VM to reboot.
 Azure Disk Encryption does not work for the following scenarios, features, and technology:
 
 - Encrypting basic tier VM or VMs created through the classic VM creation method.
+- All requirements and restrictions of BitLocker, such as requiring NTFS. For more information, see [BitLocker overview](/windows/security/operating-system-security/data-protection/bitlocker/#system-requirements).
 - Encrypting VMs configured with software-based RAID systems.
 - Encrypting VMs configured with Storage Spaces Direct (S2D), or Windows Server versions before 2016 configured with Windows Storage Spaces.
 - Integration with an on-premises key management system.
@@ -56,7 +57,8 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
 - Encryption of [Premium SSD v2 disks](../disks-types.md#premium-ssd-v2-limitations).
-- Encryption of VMs in subscriptions that have the [Secrets should have the specified maximum validity period](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
+- Encryption of VMs in subscriptions that have the [`Secrets should have the specified maximum validity period`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md).
+- Encryption of VMs in subscriptions that have the [`Key Vault secrets should have an expiration date`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) policy enabled with the [DENY effect](../../governance/policy/concepts/effects.md)
 
 ## Install tools and connect to Azure
 
@@ -208,7 +210,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
 
 ## Enable encryption on a newly added data disk
-You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or [through the Azure portal](attach-managed-disk-portal.md).
+You can [add a new disk to a Windows VM using PowerShell](attach-disk-ps.md), or [through the Azure portal](attach-managed-disk-portal.yml).
 
  >[!NOTE]
  > Newly added data disk encryption must be enabled via Powershell, or CLI only. Currently, the Azure portal does not support enabling encryption on new disks.
