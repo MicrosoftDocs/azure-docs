@@ -1036,8 +1036,6 @@
           href: ./v1/how-to-deploy-inferencing-gpus.md
         - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: ./v1/how-to-deploy-fpga-web-service.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: ./v1/how-to-tune-hyperparameters.md
