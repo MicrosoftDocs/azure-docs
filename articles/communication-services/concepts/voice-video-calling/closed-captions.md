@@ -18,7 +18,7 @@ Closed captions are a textual representation of a voice or video conversation th
 ## Common use cases
 
 ### Building accessible experiences
-Accessibility – For people with hearing impairments or who are new to the language to participate in calls and meetings. A key feature requirement in the Telemedical industry is to help patients communicate effectively with their health care providers.
+Accessibility – For people with hearing impairments or who are new to the language to participate in calls and meetings. A key feature requirement in the Telemedical industry is to help patients communicate effectively with their health care providers. This can also be useful when you have scenarios where users might be joining from a PSTN phone number, this will allow your application to receive the captioning data for those users too so that everyone's input is available during these interactions.
 
 ### Teams interoperability 
 Use Teams – Organizations using Azure Communication Services and Teams can use Teams closed captions to improve their applications by providing closed captions capabilities to users. Those organizations can keep using Microsoft Teams for all calls and meetings without third party applications providing this capability. Learn more about how you can use captions in [Teams interoperability](../interop/enable-closed-captions.md) scenarios.
@@ -41,11 +41,6 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
  
 Microsoft indicates to you via the Azure Communication Services API that recording or closed captions has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
-## Billing
-To learn more about 
-
-## Known limitations
-- Closed captions feature isn't supported on Firefox. 
 
 ## Next steps
 
