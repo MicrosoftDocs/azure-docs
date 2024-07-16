@@ -46,6 +46,39 @@ If a different language is being used in the meeting, users can change the spoke
 - There's no default caption language set.
 - Change the caption language by clicking on the Captions Language button after captions have started, if translation to a different language is desired.
 
+#### Supported languages
+
+Azure Communication Services supports a variety of spoken languages for captions. Below is the list of supported language codes that can be used with the `setSpokenLanguage` method to set the desired language for captions:
+
+- Arabic (UAE): `ar-ae`
+- Arabic (Saudi Arabia): `ar-sa`
+- Danish (Denmark): `da-dk`
+- German (Germany): `de-de`
+- English (Australia): `en-au`
+- English (Canada): `en-ca`
+- English (United Kingdom): `en-gb`
+- English (India): `en-IN`
+- English (New Zealand): `en-nz`
+- English (United States): `en-us`
+- Spanish (Spain): `es-es`
+- Spanish (Mexico): `es-mx`
+- Finnish (Finland): `fi-fi`
+- French (Canada): `fr-CA`
+- French (France): `fr-fr`
+- Hindi (India): `hi-in`
+- Italian (Italy): `it-it`
+- Japanese (Japan): `ja-jp`
+- Korean (Korea): `ko-kr`
+- Norwegian Bokmål (Norway): `nb-no`
+- Dutch (Belgium): `nl-be`
+- Dutch (Netherlands): `nl-nl`
+- Polish (Poland): `pl-pl`
+- Portuguese (Brazil): `pt-br`
+- Russian (Russia): `ru-ru`
+- Swedish (Sweden): `sv-se`
+- Chinese (China): `zh-cn`
+- Chinese (Hong Kong): `zh-hk`
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
