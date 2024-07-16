@@ -7,7 +7,7 @@ ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 07/16/2024
 ---
 
 # Download a Linux VHD from Azure
@@ -56,6 +56,9 @@ Your snapshot will be created shortly, and can then be used to download or creat
 ## Generate SAS URL
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+
+> [!IMPORTANT]
+> As of August 15th, the SAS expiration has been limited to 60 days. Attempting to generate a SAS with an expiration date longer than 60 days results in an error. Any existing SAS with expirations longer than 60 days will instead end in 60 days.
 
 # [Portal](#tab/azure-portal)
 

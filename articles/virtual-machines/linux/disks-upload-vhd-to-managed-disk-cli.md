@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 10/17/2023
+ms.date: 07/16/2024
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, linux-related-content
@@ -102,7 +102,10 @@ az role assignment create --assignee "{assignee}" \
 
 Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
-To generate a writable SAS of your empty managed disk, replace `<yourdiskname>`and `<yourresourcegroupname>`, then use the following command:
+> [!IMPORTANT]
+> As of August 15th, the SAS expiration has been limited to 60 days. Attempting to generate a SAS with an expiration date longer than 60 days results in an error. Any existing SAS with expirations longer than 60 days will instead end in 60 days.
+
+To generate a writable SAS of your empty managed disk, replace `<yourdiskname>` and `<yourresourcegroupname>`, then use the following command:
 
 ```azurecli
 az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level Write --duration-in-seconds 86400
