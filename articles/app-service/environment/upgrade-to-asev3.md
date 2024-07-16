@@ -57,9 +57,9 @@ There are two automated migration features available to help you upgrade to App 
 
 ### Why do some customers see performance differences after migrating?
 
-App Service Environment v3 uses newer virtual machines that are based on virtual CPUs (vCPU), not physical cores. One vCPU typically doesn't equate to one physical core in terms of raw CPU performance. As a result, CPU-bound workloads will see a performance difference if attempting to match old-school physical core counts to current vCPU counts.
+App Service Environment v3 uses newer virtual machines that are based on virtual CPUs (vCPU), not physical cores. One vCPU typically doesn't equate to one physical core in terms of raw CPU performance. As a result, CPU-bound workloads might see a performance difference if attempting to match old-school physical core counts to current vCPU counts.
 
-When migrating to App Service Environment v3, we map SKUs as follows: 
+When migrating to App Service Environment v3, we map App Service plan tiers as follows: 
 
 |App Service Environment v2 SKU|App Service Environment v3 SKU|
 |------------------------------|------------------------------|
