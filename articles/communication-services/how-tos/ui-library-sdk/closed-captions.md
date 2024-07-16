@@ -18,66 +18,77 @@ zone_pivot_groups: acs-plat-ios-android
 
 Closed captions play a critical role in video voice calling apps, providing numerous benefits that enhance the accessibility, usability, and overall user experience of these platforms.
 
-In this article, you learn how to enable closed captions scenarios using the UI Library.
+In this article, you learn how to enable closed captions scenarios using the UI Library. There is two main scenarios to enable closed captions: Azure Communication Services video and voice calls and Interop calls.
 
 ## Azure Communication Service Based Captions
 
-Supported by default for calls involving Azure Communication Service users only. Currently, Azure Communication Service captions **do not** support language translation.
+Supported for calls involving Azure Communication Service users only. Currently, Azure Communication Service captions **do not support language translation**.
 
 ## Teams Interop Closed Captions
 
-Also supported by default and included during calls with **one or more** Teams users.
-Translation Support: Unlike Azure Communication Service captions, Teams Interop Closed Captions support translation. Users can opt to have captions translated into a different language through the captions settings.
+Supported during calls with one or more Teams users.
 
-## Activate Closed Captions
+### Translation Support
 
-### User Interaction
+Unlike Azure Communication Service closed captions, Teams Interop closed captions support translation. Users can opt to have closed captions translated into a different language through the captions settings.
 
-The Azure Communication Services UI Library offers the capabilities to enable closed captions in the calling composite and set up the default language, but the end users are always capable to select the language via UI interaction.
+## How to Use Captions
+
+Captions are seamlessly integrated within the `CallingUILibrary`.
+
+1. **Activate Captions**:
+   - During a connected call, navigate to the control bar and click the **more button**.
+   - In the menu pop-up, toggle to turn captions on.
+
+2. **Adjust Spoken Language**:
+   - If a different language is being used in the meeting, users can change the spoken language via the UI. This change applies to all users in the call.
+
+3. **Set Caption Language** (for Teams Interop Closed Captions):
+   - By default, live captions are displayed in the language that’s spoken during the meeting or event. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
+   - Change the caption language by clicking on the **Captions Language button** after captions have started, if translation to a different language is desired.
 
 :::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Closed captions looks like into the UI Library":::
 
-#### Spoken language
+> [!NOTE]
+> Live translated captions in meetings are only available as part of [**Teams Premium**](https://learn.microsoft.com/en-us/> MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings), an add-on license that provides additional features to make Teams meetings more personalized, intelligent, and secure. To get access to Teams Premium, contact your IT admin. More details you can find it [here](../calling-sdk/closed-captions-teams-interop-how-to.md).
 
-If a different language is being used in the meeting, users can change the spoken language via the UI. This change applies to all users in the call.
-
-#### Caption Language
-
-- There's no default caption language set.
-- Change the caption language by clicking on the Captions Language button after captions have started, if translation to a different language is desired.
-
-#### Supported languages
+## Supported languages
 
 Azure Communication Services supports a variety of spoken languages for captions. Below is the list of supported language codes that can be used with the `setSpokenLanguage` method to set the desired language for captions:
 
-- Arabic (UAE): `ar-ae`
-- Arabic (Saudi Arabia): `ar-sa`
-- Danish (Denmark): `da-dk`
-- German (Germany): `de-de`
-- English (Australia): `en-au`
-- English (Canada): `en-ca`
-- English (United Kingdom): `en-gb`
-- English (India): `en-IN`
-- English (New Zealand): `en-nz`
-- English (United States): `en-us`
-- Spanish (Spain): `es-es`
-- Spanish (Mexico): `es-mx`
-- Finnish (Finland): `fi-fi`
-- French (Canada): `fr-CA`
-- French (France): `fr-fr`
-- Hindi (India): `hi-in`
-- Italian (Italy): `it-it`
-- Japanese (Japan): `ja-jp`
-- Korean (Korea): `ko-kr`
-- Norwegian Bokmål (Norway): `nb-no`
-- Dutch (Belgium): `nl-be`
-- Dutch (Netherlands): `nl-nl`
-- Polish (Poland): `pl-pl`
-- Portuguese (Brazil): `pt-br`
-- Russian (Russia): `ru-ru`
-- Swedish (Sweden): `sv-se`
-- Chinese (China): `zh-cn`
-- Chinese (Hong Kong): `zh-hk`
+| Language              | ACS Spoken Code | Teams Spoken Code | Teams Caption Code |
+|-----------------------|-----------------|-------------------|--------------------|
+| Arabic                | ar-ae, ar-sa    | ar-ae, ar-sa      | ar                 |
+| Danish                | da-dk           | da-dk             | da                 |
+| German                | de-de           | de-de             | de                 |
+| English               | en-au, en-ca, en-gb, en-in, en-nz, en-us | en-au, en-ca, en-gb, en-in, en-nz, en-us | en            |
+| Spanish               | es-es, es-mx    | es-es, es-mx      | es                 |
+| Finnish               | fi-fi           | fi-fi             | fi                 |
+| French                | fr-ca, fr-fr    | fr-ca, fr-fr      | fr, fr-ca          |
+| Hindi                 | hi-in           | hi-in             | hi                 |
+| Italian               | it-it           | it-it             | it                 |
+| Japanese              | ja-jp           | ja-jp             | ja                 |
+| Korean                | ko-kr           | ko-kr             | ko                 |
+| Norwegian             | nb-no           | nb-no             | nb                 |
+| Dutch                 | nl-be, nl-nl    | nl-be, nl-nl      | nl                 |
+| Polish                | pl-pl           | pl-pl             | pl                 |
+| Portuguese            | pt-br           | pt-br, pt-pt      | pt, pt-pt          |
+| Russian               | ru-ru           | ru-ru             | ru                 |
+| Swedish               | sv-se           | sv-se             | sv                 |
+| Chinese               | zh-cn, zh-hk    | zh-cn, zh-hk      | zh-Hans, zh-Hant   |
+| Czech                 | —               | cs-cz             | cs                 |
+| Slovak                | —               | sk-sk             | sk                 |
+| Turkish               | —               | tr-tr             | tr                 |
+| Vietnamese            | —               | vi-vn             | vi                 |
+| Thai                  | —               | th-th             | th                 |
+| Hebrew                | —               | he-il             | he                 |
+| Welsh                 | —               | cy-gb             | cy                 |
+| Ukrainian             | —               | uk-ua             | uk                 |
+| Greek                 | —               | el-gr             | el                 |
+| Hungarian             | —               | hu-hu             | hu                 |
+| Romanian              | —               | ro-ro             | ro                 |
+
+Ensure the spoken language selected matches the language used in the call to accurately generate captions.
 
 ## Prerequisites
 

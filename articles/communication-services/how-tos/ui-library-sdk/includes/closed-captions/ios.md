@@ -11,6 +11,20 @@ ms.service: azure-communication-services
 ### Enable closed captions
 
 ```swift
+let captionsOptions = CaptionsOptions(
+    captionsOn: false, 
+    spokenLanguage: "en-US"
+)
+
+let localOptions = LocalOptions(
+    participantViewData: participantViewData,
+    setupScreenViewData: setupScreenViewData,
+    cameraOn: false,
+    microphoneOn: false,
+    skipSetupScreen: false,
+    audioVideoMode: .audioAndVideo,
+    captionsOptions: captionsOptions
+)
 
 ```
 

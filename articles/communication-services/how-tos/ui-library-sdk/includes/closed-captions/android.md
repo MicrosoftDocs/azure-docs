@@ -13,6 +13,12 @@ ms.service: azure-communication-services
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
+val captionsOptions = CallCompositeCaptionsOptions()
+captionsOptions.setCaptionsOn(false)
+captionsOptions.setSpokenLanguage("en-US")
+
+val localOptions = CallCompositeLocalOptions()
+localOptions.setCaptionsOptions(captionsOptions)
 
 ```
 
