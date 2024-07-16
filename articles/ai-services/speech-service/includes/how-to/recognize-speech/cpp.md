@@ -171,7 +171,7 @@ speechRecognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArg
     });
 ```
 
-With everything set up, call [`StopContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
+With everything set up, call [`StartContinuousRecognitionAsync`](/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) to start recognizing:
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -196,9 +196,9 @@ speechConfig->SetSpeechRecognitionLanguage("de-DE");
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-cpp#use-speech-to-text).
 
 ## Use a custom endpoint
 

@@ -6,7 +6,6 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/18/2024
-tags: connectors
 ---
 
 # Connect to Azure Blob Storage from workflows in Azure Logic Apps

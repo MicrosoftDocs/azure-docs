@@ -5,7 +5,6 @@ description: How to get started with onboarding your data feeds to Metrics Advis
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-metrics-advisor
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 01/19/2024
 ms.author: mbullwin

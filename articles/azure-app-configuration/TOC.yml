@@ -17,7 +17,7 @@
       items:
         - name: ASP.NET Core
           href: quickstart-aspnet-core-app.md
-        - name: .NET Core
+        - name: .NET
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
@@ -31,14 +31,22 @@
           href: quickstart-azure-functions-csharp.md
     - name: Feature management
       items:
+        - name: Manage feature flags
+          href: manage-feature-flags.md
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
-        - name: .NET Framework
+        - name: .NET/.NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: .NET Background Service
+          href: quickstart-feature-flag-dotnet-background-service.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Python app
+          href: quickstart-feature-flag-python.md
+        - name: Azure Kubernetes Service
+          href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
       items:
         - name: Azure Kubernetes Service
@@ -49,6 +57,9 @@
           href: quickstart-container-apps.md
     - name: Deployment
       items:
+        - name: Overview
+          href: quickstart-deployment-overview.md
+          displayName: ARM, Resource Manager, Template
         - name: Bicep
           href: quickstart-bicep.md
           displayName: ARM, Resource Manager, Template
@@ -65,21 +76,25 @@
           href: enable-dynamic-configuration-aspnet-core.md
         - name: ASP.NET (.NET Framework)
           href: enable-dynamic-configuration-aspnet-netfx.md
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core.md
         - name: .NET Framework
           href: enable-dynamic-configuration-dotnet.md
+        - name: .NET Background Service
+          href: enable-dynamic-configuration-dotnet-background-service.md
         - name: Azure Functions
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
         - name: Python
           href: enable-dynamic-configuration-python.md
+        - name: JavaScript
+          href: enable-dynamic-configuration-javascript.md
         - name: Azure Kubernetes Service
           href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
       items:
-        - name: .NET Core
+        - name: .NET
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
         - name: Java Spring
           href: enable-dynamic-configuration-java-spring-push-refresh.md
@@ -109,18 +124,36 @@
           href: integrate-kubernetes-deployment-helm.md
     - name: Feature management
       items:
-        - name: Manage feature flags
-          href: manage-feature-flags.md
         - name: Use feature flags
           items:
             - name: ASP.NET Core
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
-        - name: Use conditional feature flags
-          href: howto-feature-filters-aspnet-core.md
-        - name: Enable a feature for specified users/groups
-          href: howto-targetingfilter-aspnet-core.md
+        - name: Enable conditional features with feature filters
+          items:
+            - name: Overview
+              href: howto-feature-filters.md
+            - name: ASP.NET Core
+              href: howto-feature-filters-aspnet-core.md
+            - name: Python
+              href: howto-feature-filters-python.md
+        - name: Enable features on a schedule
+          items:
+            - name: Overview
+              href: howto-timewindow-filter.md
+            - name: ASP.NET Core
+              href: howto-timewindow-filter-aspnet-core.md
+        - name: Roll out features to targeted audience
+          items:
+            - name: Overview
+              href: howto-targetingfilter.md
+            - name: ASP.NET Core
+              href: howto-targetingfilter-aspnet-core.md
+        - name: Run experiments with variant feature flags
+          items:
+            - name: ASP.NET Core
+              href: run-experiments-aspnet-core.md
     - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration
@@ -152,6 +185,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Experimentation
+      href: concept-experimentation.md
     - name: Configuration files
       href: concept-config-file.md
     - name: Event handling
@@ -280,12 +315,24 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
+        - name: Azure SDK for Go
+          href: https://go.microsoft.com/fwlink/?linkid=2270866
     - name: Feature management
       items:
-        - name: .NET Core/.NET Standard
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+        - name: .NET
+          items: 
+            - name: Feature reference
+              href: ./feature-management-dotnet-reference.md
+            - name: API reference
+              href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+          items:
+            - name: API reference
+              href: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - name: Python
+          items:
+            - name: API reference
+              href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
     - name: Deployment
       items:
       - name: ARM template
@@ -321,5 +368,7 @@
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
         - name: Three reasons to use configuration snapshots
           href: https://aka.ms/appconfig/snapshotVideo
+        - name: Five things you might not know about Azure App Configuration
+          href: https://aka.ms/appconfig/fiveThingsVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

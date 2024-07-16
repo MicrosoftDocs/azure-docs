@@ -1,5 +1,5 @@
 ---
-title: How to adapt to Azure Cosmos DB for Apache Cassandra from Apache Cassandra 
+title: How to adapt to Azure Cosmos DB for Apache Cassandra from Apache Cassandra
 description: Learn best practices and ways to successfully use the Azure Cosmos DB for Apache Cassandra with Apache Cassandra applications.
 author: TheovanKraay
 ms.author: thvankra
@@ -8,7 +8,7 @@ ms.subservice: apache-cassandra
 ms.topic: how-to
 ms.date: 03/24/2022
 ms.reviewer: mjbrown
-ms.custom: kr2b-contr-experiment, ignite-2022
+ms.custom: kr2b-contr-experiment
 ---
 
 # How to adapt to Azure Cosmos DB for Apache Cassandra if you are coming from Apache Cassandra

@@ -6,14 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom:
-  - event-tier1-build-2022
-  - ignite-2022
   - engagement-fy23
   - ignite-2023
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 09/12/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -32,17 +30,16 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
     | Resource provider | Why it's needed |
     | ----- | ----- |
     | Microsoft.MachineLearningServices | Creating the Azure Machine Learning workspace.
-    | Microsoft.Storage    Azure | Storage Account is used as the default storage for the workspace.
+    | Microsoft.Storage | Storage Account is used as the default storage for the workspace.
     | Microsoft.KeyVault |Azure Key Vault is used by the workspace to store secrets.
-    | Microsoft.DocumentDB/databaseAccounts | Azure Cosmos DB instance that logs metadata for the workspace.
-    | Microsoft.Search/searchServices | Azure Search provides indexing capabilities for the workspace.
+    | Microsoft.DocumentDB | Azure Cosmos DB instance that logs metadata for the workspace.
+    | Microsoft.Search | Azure AI Search provides indexing capabilities for the workspace.
 
     For information on registering resource providers, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/templates/error-register-resource-provider).
 
-
 ## Limitations
 
-* The customer-managed key for resources the workspace depends on can't be updated after workspace creation.
+* After workspace creation, the customer-managed encryption key for resources that the workspace depends on can only be updated to another key in the original Azure Key Vault resource..
 * Resources managed by Microsoft in your subscription can't transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
 * The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
@@ -168,7 +165,7 @@ This process allows you to encrypt both the Data and the OS Disk of the deployed
 ## Next steps
 
 * [Customer-managed keys with Azure Machine Learning](concept-customer-managed-keys.md)
-* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace) |
-* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key) |
-* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace) |
-* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys) |
+* [Create a workspace with Azure CLI](how-to-manage-workspace-cli.md#customer-managed-key-and-high-business-impact-workspace)
+* [Create and manage a workspace](how-to-manage-workspace.md#use-your-own-data-encryption-key)
+* [Create a workspace with a template](how-to-create-workspace-template.md#deploy-an-encrypted-workspace)
+* [Create, run, and delete Azure Machine Learning resources with REST](how-to-manage-rest.md#create-a-workspace-using-customer-managed-encryption-keys)

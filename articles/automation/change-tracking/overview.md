@@ -3,12 +3,15 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/13/2023
+ms.date: 06/30/2024
 ms.custom: linux-related-content
 ms.topic: conceptual
 ---
 
 # Change Tracking and Inventory overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!Important]
 > - Change Tracking and Inventory using Log Analytics agent will  retire on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
@@ -67,7 +70,7 @@ For limits that apply to Change Tracking and Inventory, see [Azure Automation se
 
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
-To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
 
 ### Python requirement
 
@@ -77,7 +80,7 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 > To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
 
 #### [Python 2](#tab/python-2)
-- Red Hat, CentOS, Oracle:
+- Red Hat, Oracle:
 
 ```bash
    sudo yum install -y python2
@@ -99,7 +102,7 @@ Change Tracking and Inventory now support Python 2 and Python 3. If your machine
 
 #### [Python 3](#tab/python-3)
 
-- Red Hat, CentOS, Oracle:
+- Red Hat, Oracle:
 
 ```bash
    sudo yum install -y python3
@@ -188,7 +191,7 @@ The next table shows the data collection frequency for the types of changes supp
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
+| Windows services | 10 minutes to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |

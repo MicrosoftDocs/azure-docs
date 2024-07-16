@@ -8,7 +8,6 @@ tags: top-support-issue
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
-ms.custom: seodec18
 ---
 
 # Troubleshoot domain and TLS/SSL certificate problems in Azure App Service
@@ -17,7 +16,7 @@ When you set up a domain or TLS/SSL certificate for your web apps in Azure App S
 
 At any point in this article, you can get more help by contacting Azure experts on the [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, to file an Azure support incident, go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Certificate problems
 
@@ -298,7 +297,7 @@ This problem happens for one of the following reasons:
   
 - You're not the subscription owner, so you don't have permission to purchase a domain.
 
-  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
+  **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.yml) to your account. Or, contact the subscription administrator to get permission to purchase a domain.
 
 ### You can't add a host name to an app 
 

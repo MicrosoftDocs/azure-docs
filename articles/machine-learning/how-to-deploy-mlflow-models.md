@@ -5,13 +5,12 @@ description: Learn to deploy your MLflow model to the deployment targets support
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.date: 01/16/2024
 ms.topic: concept-article
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022, update-code
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, update-code
 ms.devlang: azurecli
 ---
 
@@ -224,7 +223,7 @@ In some cases, however, you might want to do some preprocessing or post-processi
 
 #### Customize inference with a scoring script
 
-Although MLflow models don't require a scoring script, you can still provide one, if needed. You can use the scoring script to customize how inference is executed for MLflow models. For more information on how to customize inference, see [Customizing MLflow model deployments (online endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) and [Customizing MLflow model deployments (batch endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
+Although MLflow models don't require a scoring script, you can still provide one, if needed. You can use the scoring script to customize how inference is executed for MLflow models. For more information on how to customize inference, see [Customizing MLflow model deployments (online endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments) and [Customizing MLflow model deployments (batch endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 > [!IMPORTANT]
 > If you choose to specify a scoring script for an MLflow model deployment, you also need to provide an environment for the deployment.
@@ -244,7 +243,7 @@ Each workflow has different capabilities, particularly around which type of comp
 | Scenario | MLflow SDK | Azure Machine Learning CLI/SDK | Azure Machine Learning studio |
 | :- | :-: | :-: | :-: |
 | Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
-| Deploy to managed online endpoints (with a scoring script) | Not supported<sup>3</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tab=studio#customizing-mlflow-model-deployments) |
+| Deploy to managed online endpoints (with a scoring script) | Not supported<sup>3</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customize-mlflow-model-deployments) | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tab=studio#customize-mlflow-model-deployments) |
 | Deploy to batch endpoints | Not supported<sup>3</sup> | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
 | Deploy to batch endpoints (with a scoring script) | Not supported<sup>3</sup> | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) | [See example](how-to-mlflow-batch.md?tab=studio#customizing-mlflow-models-deployments-with-a-scoring-script)  |
 | Deploy to web services (ACI/AKS) | Legacy support<sup>2</sup> | Not supported<sup>2</sup> | Not supported<sup>2</sup> |

@@ -3,12 +3,11 @@ title: Back up a secret, key, or certificate stored in Azure Key Vault | Microso
 description: Use this document to help back up a secret, key, or certificate stored in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---

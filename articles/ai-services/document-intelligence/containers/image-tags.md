@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 12/13/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
@@ -16,12 +16,14 @@ ms.author: lajanuar
 
 <!-- markdownlint-disable MD051 -->
 
-:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
+:::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
 
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` only:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, Invoice, Receipt and ID Document models:
 
-* [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [REST API `2022-08-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)
+* [REST API `2023-07-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.1%20(2023-07-31)&tabs=HTTP&preserve-view=true)
 * [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
+* [SDKs targeting `REST API 2023-07-31 (GA)`](../sdk-overview-v3-1.md)
 
 ✔️ See [**Document Intelligence container image tags**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
 
@@ -48,6 +50,26 @@ The following containers support DocumentIntelligence v3.0 models and features:
 | [**Layout 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/layout/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest`|
 | [**Read 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0:latest`|
 | [**Receipt 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/receipt-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0:latest`|
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)**
+
+## Microsoft container registry (MCR)
+
+Document Intelligence container images can be found within the [**Microsoft Artifact Registry** (also know as Microsoft Container Registry(MCR))](https://mcr.microsoft.com/catalog?search=document%20intelligence), the primary registry for all Microsoft published container images.
+
+The following containers support DocumentIntelligence v3.1 models and features:
+
+| Container name |image |
+|---|---|
+| [**Read 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.1:latest`|
+| [**Layout 3.1**](https://mcr.microsoft.com/en-us/product/azure-cognitive-services/form-recognizer/layout-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.1:latest`|
+| [**Invoice 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/invoice-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.1:latest`|
+| [**ID Document 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/id-document-3.1/tags) |  `mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.1:latest` |
+| [**Receipt 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/receipt-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.1:latest`|
 
 ::: moniker-end
 

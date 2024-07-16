@@ -2,8 +2,8 @@
 title: Control plane metrics in Azure Monitor
 description: Azure Resource Manager metrics in Azure Monitor | Traffic and latency observability for subscription-level control plane requests
 ms.topic: conceptual
-ms.custom: devx-track-arm-template, linux-related-content
-ms.date: 04/26/2023
+ms.custom: devx-track-arm-template
+ms.date: 03/19/2024
 ---
 
 # Azure Resource Manager metrics in Azure Monitor

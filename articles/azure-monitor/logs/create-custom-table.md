@@ -7,7 +7,7 @@ ms.reviewer: adi.biran
 ms.service: azure-monitor
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to 
-ms.date: 10/23/2023
+ms.date: 01/28/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to manage table schemas and be able create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 
@@ -151,11 +151,10 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
+There are several types of tables in Azure Monitor Logs. You can delete any table that's not an Azure table, but what happens to the data when you delete the table is different for each type of table. 
 
-> [!NOTE]
-> - Deleting a restored table doesn't delete the data in the source table.
-> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
+For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-archive.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
+
 
 # [Portal](#tab/azure-portal-2)
 

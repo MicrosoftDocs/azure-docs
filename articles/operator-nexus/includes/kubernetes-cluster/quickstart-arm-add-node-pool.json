@@ -21,13 +21,6 @@
           "description": "The custom location of the Nexus instance"
         }
       },
-      "tags": {
-        "type": "object",
-        "defaultValue": {},
-        "metadata": {
-          "description": "Tags to be associated with the resource"
-        }
-      },
       "adminUsername": {
         "type": "string",
         "defaultValue": "azureuser",
@@ -35,12 +28,20 @@
           "description": "The username for the administrative account on the cluster"
         }
       },
-      "sshPublicKey": {
-        "type": "string",
-        "defaultValue": "",
+      "agentPoolSshKeys": {
+        "type": "array",
         "metadata": {
-          "description": "The SSH public key that will be associated with the 'azureuser' user for secure remote login"
-        }
+          "description": "The agent pool SSH public key that will be associated with the given user for secure remote login"
+        },
+        "defaultValue": []
+        /*
+          {
+            "keyData": "ssh-rsa AAAAA...."
+          },
+          {
+            "keyData": "ssh-rsa BBBBB...."
+          }
+        */
       },
       "agentPoolNodeCount": {
         "type": "int",
@@ -167,7 +168,10 @@
           "type": "CustomLocation"
         },
         "properties": {
-          "administratorConfiguration": {},
+          "administratorConfiguration": {
+            "adminUsername": "[parameters('adminUsername')]",
+            "sshPublicKeys": "[if(empty(parameters('agentPoolSshKeys')), json('null'), parameters('agentPoolSshKeys'))]"
+          },
           "count": "[parameters('agentPoolNodeCount')]",
           "mode": "[parameters('agentPoolMode')]",
           "vmSkuName": "[parameters('agentVmSku')]",

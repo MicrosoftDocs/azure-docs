@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure AI services
 description: Lists Azure Policy Regulatory Compliance controls available for Azure AI services. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 01/22/2024
+ms.date: 02/06/2024
 ms.topic: sample
 author: PatrickFarley
 ms.author: pafarley

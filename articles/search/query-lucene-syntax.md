@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 02/22/2024
 ---
 
 # Lucene query syntax in Azure AI Search
@@ -140,13 +140,15 @@ The following example helps illustrate the differences. Suppose that there's a s
 
  For example, to find documents containing `motel` or `hotel`, specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
-Some tools and languages impose other escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
+Some tools and languages impose extra escape character requirements beyond the [escape rules](#escaping-special-characters) imposed by Azure AI Search. For JSON, strings that include a forward slash are escaped with a backward slash: `microsoft.com/azure/` becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash. 
 
 Two common symbols in regex queries are `.` and `*`. A `.` matches any one character and a `*` matches the previous character zero or more times.  For example, `/be./` matches the terms `bee` and `bet` while `/be*/` would match `be`, `bee`, and `beee` but not `bet`. Together, `.*` allow you to match any series of characters so `/be.*/` would match any term that starts with `be` such as `better`.
 
+If you get syntax errors in your regular expression, review the [escape rules](#escaping-special-characters) for special characters. You might also try a different client to confirm whether the problem is tool-specific.
+
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
-You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix, infix, and suffix matching. 
+You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix and infix matching. Use [regular expression](#bkmk_regex) syntax for suffix matching. 
 
 Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
@@ -161,7 +163,7 @@ You can combine operators in one expression. For example, `980?2*` matches on `9
 Suffix matching requires the regular expression forward slash `/` delimiters. Generally, you can’t use a `*` or `?` symbol as the first character of a term, without the `/`. It's also important to note that the `*` behaves differently when used outside of regex queries. Outside of the regex forward slash `/` delimiter, the `*` is a wildcard character and matches any series of characters much like `.*` in regex. As an example, `search=/non.*al/` produces the same result set as `search=non*al`.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#tune-query-performance).
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md#optimizing-prefix-and-suffix-queries).
 >
 
 ### Effect of an analyzer on wildcard queries
@@ -184,7 +186,7 @@ In some circumstances, you may want to search for a special character, like an '
 
 Analyzers that tokenize special characters include the whitespace analyzer, which takes into consideration any character sequences separated by whitespaces as tokens (so the `❤` string would be considered a token). Also, a language analyzer like the Microsoft English analyzer ("en.microsoft"), would take the "€" string as a token. You can [test an analyzer](/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
-When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.  
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for `❤` would use the escape sequence `%E2%9D%A4+`). Some REST clients do this translation automatically.  
 
 ## Precedence (grouping)
 

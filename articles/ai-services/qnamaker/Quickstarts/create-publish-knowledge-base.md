@@ -8,10 +8,13 @@ author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: mode-other
 ---
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
+
+> [!NOTE]
+> [Azure OpenAI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure OpenAI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 

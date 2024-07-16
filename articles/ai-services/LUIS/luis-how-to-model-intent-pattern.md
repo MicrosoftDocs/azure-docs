@@ -6,7 +6,6 @@ description: Add pattern templates to improve prediction accuracy in Language Un
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to

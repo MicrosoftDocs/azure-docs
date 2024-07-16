@@ -1,13 +1,13 @@
 ---
 title: Set up scheduled maintenance in the Azure portal
 description: Learn how to configure scheduled maintenance settings for Azure Database for MySQL - Flexible server from the Azure portal.
+author: xboxeer
+ms.author: yuzheng1
+ms.reviewer: sunaray, maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: xboxeer
-ms.author: yuzheng1
-ms.reviewer: sunaray
-ms.date: 9/21/2020
 ---
 
 # Manage scheduled maintenance settings for Azure Database for MySQL - Flexible server
@@ -48,6 +48,8 @@ Be aware of the following when using this feature:
 
 - **Demand Constraints:** Your rescheduled maintenance might be canceled due to a high number of maintenance activities occurring simultaneously in the same region.
 - **Lock-in Period:** Rescheduling is unavailable 15 minutes prior to the initially scheduled maintenance time to maintain the reliability of the service.
+
+There's no limitation on how many times a maintenance can be rescheduled, as long as the maintenance hasn't entered into the "In preparation" state, you can always reschedule your maintenance to another time.
 
 ## Notifications about scheduled maintenance events
 

@@ -2,8 +2,8 @@
 title: Reliability in Azure App Service
 description: Find out about reliability in Azure App Service
 author: anaharris-ms 
-ms.author: anaharris
-ms.topic: overview
+ms.author: csudrisforresiliency
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: app-service
 ms.date: 09/26/2023
@@ -40,7 +40,7 @@ To explore how Azure App Service can bolster the reliability and resiliency of y
 ### High availability
  
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **ASP-1 - Deploy zone-redundant App Service plans** 
-To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](/azure/spring-apps/concepts-blue-green-deployment-strategies) approach to failover to the new site.
+To enhance the resiliency and reliability of your business-critical workloads, it's recommended that you deploy your new App Service Plans with zone-redundancy. Follow the steps to [redeploy to availability zone support](#create-a-resource-with-availability-zone-enabled), configure your pipelines to redeploy your WebApp on the new App Services Plan, and then use a [Blue-Green deployment](../spring-apps/enterprise/concepts-blue-green-deployment-strategies.md) approach to failover to the new site.
 
 By distributing your applications across multiple availability zones, you can ensure their continued operation even in the event of a datacenter-level failure. For more information on availability zone support in Azure App Service, see [Availability zone support](#availability-zone-support).
 
@@ -339,7 +339,7 @@ Steps to create an active-active architecture for your web app in App Service ar
 
 1. Deploy code to both the web apps with [continuous deployment](../app-service/deploy-continuous-deployment.md).
 
-[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origin groups in Azure Front Door) give you an *active-active* architecture.
+[Tutorial: Create a highly available multi-region app in Azure App Service](../app-service/tutorial-multi-region-app.md) shows you how to set up an *active-passive* architecture. The same steps with minimal changes (setting priority to “1” for both origins in the origin group in Azure Front Door) give you an active-active architecture.
 
 
 ##### Active-passive architecture

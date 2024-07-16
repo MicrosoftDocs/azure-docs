@@ -5,10 +5,10 @@ author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: event-tier1-build-2022, engagement-fy23
+ms.custom: engagement-fy23
 ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.author: whhender
+ms.reviewer: whhender, wiassaf
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022
@@ -60,6 +60,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. In the **Name** box, enter the name of the linked service of SQL Server 2022.
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-linked-service-new.png" alt-text="Screenshot that shows where to enter the server and database names to connect.":::
+   
+   > [!NOTE]
+   > Only the Linked Service in Legacy version is supported.
 
 1. When you're choosing the integration runtime, select your self-hosted integration runtime. If your Azure Synapse workspace doesn't have an available self-hosted integration runtime, create one.
 

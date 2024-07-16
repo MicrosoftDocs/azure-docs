@@ -15,7 +15,7 @@ ms.date: 01/11/2024
 
 When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**Azure AI multi-service resource**](../ai-services/multi-service-resource.md?pivots=azportal). 
 
-A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these services:
+A multi-service resource references a set of Azure AI services as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/skillsets/create) and allows Microsoft to charge you for using these services:
 
 + [Azure AI Vision](../ai-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
 + [Azure AI Language](../ai-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
@@ -49,10 +49,10 @@ If you leave the property unspecified, your search service attempts to use the f
 
 1. Create an [Azure AI multi-service resource](../ai-services/multi-service-resource.md?pivots=azportal) in the [same region](#same-region-requirement) as your search service.
 
-1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
+1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/skillsets/create):
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2023-11-01
 api-key: [admin key]
 Content-Type: application/json
 {
@@ -140,7 +140,7 @@ Enrichments are billable operations. If you no longer need to call Azure AI serv
 1. Remove the key in the body of the definition, and then send the request:
 
     ```http
-    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
+    PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2023-11-01
     api-key: [admin key]
     Content-Type: application/json
     {
@@ -242,5 +242,5 @@ Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of
 
 + [Azure AI Search pricing page](https://azure.microsoft.com/pricing/details/search/)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/skillsets/create)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

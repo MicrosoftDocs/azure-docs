@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022, references_regions
 ---
 
 # Image captions (version 4.0)
@@ -21,7 +20,7 @@ Caption generates a one-sentence description for all image contents. Dense Capti
 At this time, image captioning is available in English only.
 
 > [!IMPORTANT]
-> Image captioning in Image Analysis 4.0 is only available in the following Azure data center regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US, East Asia. You must use a Vision resource located in one of these regions to get results from Caption and Dense Captions features.
+> Image captioning in Image Analysis 4.0 is only available in certain Azure data center regions: see [Region availability](./overview-image-analysis.md#region-availability). You must use a Vision resource located in one of these regions to get results from Caption and Dense Captions features.
 >
 > If you have to use a Vision resource outside these regions to generate image captions, please use [Image Analysis 3.2](concept-describing-images.md) which is available in all Azure AI Vision regions.  
 
@@ -122,7 +121,7 @@ The following JSON response illustrates what the Analysis 4.0 API returns when g
       }
     ]
   },
-  "modelVersion": "2023-10-01",
+  "modelVersion": "2024-02-01",
   "metadata": {
     "width": 850,
     "height": 567

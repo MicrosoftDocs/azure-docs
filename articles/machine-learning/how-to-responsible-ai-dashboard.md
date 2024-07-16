@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: mithigpe
-author: minthigpen
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.custom: responsible-ml
 ---
 
 # Use the Responsible AI dashboard in Azure Machine Learning studio

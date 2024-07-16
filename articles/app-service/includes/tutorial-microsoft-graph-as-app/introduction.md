@@ -5,7 +5,6 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 08/19/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
@@ -27,7 +26,7 @@ In this tutorial, you learn how to:
 > * Add Microsoft Graph API permissions to a managed identity.
 > * Call Microsoft Graph from a web app by using managed identities.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

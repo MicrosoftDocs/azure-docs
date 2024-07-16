@@ -2,8 +2,7 @@
 title: Design a Log Analytics workspace architecture
 description: The article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 04/05/2023
-
+ms.date: 05/30/2024
 ---
 
 # Design a Log Analytics workspace architecture
@@ -15,7 +14,7 @@ A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be
 
 Here's a video about the fundamentals of Azure Monitor Logs and best practices and design considerations for designing your Azure Monitor Logs deployment:
 
-> [!VIDEO https://www.youtube.com/embed/pqUvZqoQV4o]
+> [!VIDEO https://www.youtube.com/embed/7RBp9j0P_Ao?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Design strategy
 Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number that will match your requirements.
@@ -97,9 +96,9 @@ You can configure default [data retention and archive settings](data-retention-a
 ### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a specific amount of daily data. You might choose to consolidate data in a single workspace to reach the level of a particular tier. This same volume of data spread across multiple workspaces wouldn't be eligible for the same tier, unless you have a dedicated cluster.
 
-If you can commit to daily ingestion of at least 500 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
+If you can commit to daily ingestion of at least 100 GB per day, you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) that provides extra functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
 
-- **If you'll ingest at least 500 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
+- **If you'll ingest at least 100 GB per day across all resources:** Create a dedicated cluster and set the appropriate commitment tier.
 - **If you'll ingest at least 100 GB per day across resources:** Consider combining them into a single workspace to take advantage of a commitment tier.
 
 ### Legacy agent limitations

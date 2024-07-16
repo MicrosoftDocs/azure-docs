@@ -1,27 +1,43 @@
 ---
-title: Azure Storage Extension Preview reference
-description: Azure Storage Extension in Azure Database for PostgreSQL - Flexible Server -Preview reference
+title: Copy data with Azure Storage Extension on Azure Database for PostgreSQL.
+description: Copy, export or read data from Azure Blob Storage with the Azure Storage extension for Azure Database for PostgreSQL - Flexible Server.
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 01/02/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: reference
 ms.custom:
   - ignite-2023
-ms.topic: reference
 ---
 
-# pg_azure_storage extension - Preview
+# pg_azure_storage extension on Azure Database for PostgreSQL - Flexible Server reference
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  
-You can create the extension by running:
+The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  Examples of data export and import using this extension can be found in this [doc](./concepts-storage-extension.md#import-data-from-azure-blob-storage-to-azure-database-for-postgresql-flexible-server)
+
+Before you can enable `azure_storage` on your Azure Database for PostgreSQL flexible server instance, you need to add the extension to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
+
+Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
 ```sql
-SELECT create_extension('azure_storage');
+CREATE EXTENSION azure_storage;
 ```
+
+## Permissions
+
+Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible only by the superuser.
+
+Users granted the `azure_storage_admin` role can interact with this table using the following functions:
+* account_add
+* account_list
+* account_remove
+* account_user_add
+* account_user_remove
+
+The `azure_storage_admin` role is by default granted to the `azure_pg_admin` role.
 
 ## azure_storage.account_add
 
@@ -41,13 +57,13 @@ An Azure blob storage (ABS) account contains all of your ABS objects: blobs, fil
 
 #### account_key_p
 
-Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible by the postgres superuser, azure_storage_admin and all roles granted those admin permissions. To see which storage accounts exist, use the function account_list.
+Your Azure blob storage (ABS) access keys are similar to a root password for your storage account. Always be careful to protect your access keys. Use Azure Key Vault to manage and rotate your keys securely. The account key is stored in a table that is accessible only by the superuser. Users granted the `azure_storage_admin` role can interact with this table via functions. To see which storage accounts exist, use the function account_list.
 
 ## azure_storage.account_remove
 
 Function allows revoking account access to storage account.
 
-```postgresql
+```sql
 azure_storage.account_remove
         (account_name_p text);
 ```
@@ -62,7 +78,7 @@ Azure blob storage (ABS) account contains all of your ABS objects: blobs, files,
 
 The function allows adding access for a role to a storage account.
 
-```postgresql
+```sql
 azure_storage.account_add
         ( account_name_p text
         , user_p regrole);
@@ -82,7 +98,7 @@ Role created by user visible on the cluster.
 
 The function allows removing access for a role to a storage account.
 
-```postgresql
+```sql
 azure_storage.account_remove
         (account_name_p text
         ,user_p regrole);
@@ -102,7 +118,7 @@ Role created by user visible on the cluster.
 
 The function lists the account & role having access to Azure blob storage.
 
-```postgresql
+```sql
 azure_storage.account_list
         (OUT account_name text
         ,OUT allowed_users regrole[]
@@ -128,7 +144,7 @@ TABLE
 
 The function lists the available blob files within a user container with their properties.
 
-```postgresql
+```sql
 azure_storage.blob_list
         (account_name text
         ,container_name text
@@ -175,7 +191,7 @@ Size of file object in bytes.
 
 #### last_modified
 
-When was the file content last modified?
+Describes when the file content was last modified.
 
 #### etag
 
@@ -185,13 +201,13 @@ An ETag property is used for optimistic concurrency during updates. It isn't a t
 
 The Blob object represents a blob, which is a file-like object of immutable, raw data. They can be read as text or binary data, or converted into a ReadableStream so its methods can be used for processing the data. Blobs can represent data that isn't necessarily in a JavaScript-native format.
 
-#### content_encode
+#### content_encoding
 
 Azure Storage allows you to define Content-Encoding property on a blob. For compressed content, you could set the property to be GZIP.  When the browser accesses the content, it automatically decompresses the content.
 
 #### content_hash
 
-This hash is used to verify the integrity of the blob during transport. When this header is specified, the storage service checks the hash that has arrived with the one that was sent. If the two hashes don't match, the operation fails with error code 400 (Bad Request).
+This hash is used to verify the integrity of the blob during transport. When this header is specified, the storage service checks the provided hash with one computed from content. If the two hashes don't match, the operation fails with error code 400 (Bad Request).
 
 ### Return type
 
@@ -201,7 +217,7 @@ SETOF record
 
 The function allows loading the content of file \ files from within the container, with added support on filtering or manipulation of data, prior to import.
 
-```postgresql
+```sql
 azure_storage.blob_get
         (account_name text
         ,container_name text
@@ -215,7 +231,7 @@ RETURNS SETOF record;
 
 There's an overloaded version of function, containing rec parameter that allows you to conveniently define the output format record.
 
-```postgresql
+```sql
 azure_storage.blob_get
         (account_name text
         ,container_name text
@@ -271,7 +287,7 @@ For handling custom headers, custom separators, escape characters etc., `options
 
 ### Return type
 
-SETOF Record / any element
+SETOF Record / `anyelement`
 
 > [!NOTE]  
 > There are four utility functions, called as a parameter within blob_get that help building values for it. Each utility function is designated for the decoder matching its name.
@@ -280,7 +296,7 @@ SETOF Record / any element
 
 The function acts as a utility function called as a parameter within blob_get, which is useful for decoding the csv content.
 
-```postgresql
+```sql
 azure_storage.options_csv_get
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -298,23 +314,23 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the frontline contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the initial line contains the column names from the table.
 
 #### quote
 
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single 1-byte character.
 
 #### escape
 
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single 1-byte character.
 
 #### force_not_null
 
@@ -322,9 +338,9 @@ Don't match the specified columns' values against the null string. In the defaul
 
 #### force_null
 
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if quoted, and if a match is found, set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -336,7 +352,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get.
 
-```postgresql
+```sql
 azure_storage.options_copy
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -355,23 +371,23 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
 #### header
 
-Specifies that the file contains a header line with the names of each column in the file. On output, the frontline contains the column names from the table.
+Specifies that the file contains a header line with the names of each column in the file. On output, the initial line contains the column names from the table.
 
 #### quote
 
-Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single one-byte character.
+Specifies the quoting character to be used when a data value is quoted. The default is double-quote. It must be a single 1-byte character.
 
 #### escape
 
-Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single one-byte character.
+Specifies the character that should appear before a data character that matches the QUOTE value. The default is the same as the QUOTE value (so that the quoting character is doubled if it appears in the data). It must be a single 1-byte character.
 
 #### force_quote
 
@@ -383,9 +399,9 @@ Don't match the specified columns' values against the null string. In the defaul
 
 #### force_null
 
-Match the specified columns' values against the null string, even if it has been quoted, and if a match is found set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
+Match the specified columns' values against the null string, even if quoted, and if a match is found, set the value to NULL. In the default case where the null string is empty, it converts a quoted empty string into NULL.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -397,7 +413,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the tsv content.
 
-```postgresql
+```sql
 azure_storage.options_tsv
         (delimiter text DEFAULT NULL::text
         ,null_string text DEFAULT NULL::text
@@ -410,13 +426,13 @@ Returns jsonb;
 
 #### delimiter
 
-Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single one-byte character.
+Specifies the character that separates columns within each row (line) of the file. The default is a tab character in text format, a comma in CSV format. It must be a single 1-byte character.
 
-#### null_str
+#### null_string
 
 Specifies the string that represents a null value. The default is \N (backslash-N) in text format, and an unquoted empty string in CSV format. You might prefer an empty string even in text format for cases where you don't want to distinguish nulls from empty strings.
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If the option is omitted, the current client encoding is used.
 
@@ -428,7 +444,7 @@ jsonb
 
 The function acts as a utility function called as a parameter within blob_get. It's useful for decoding the binary content.
 
-```postgresql
+```sql
 azure_storage.options_binary
         (content_encoding text DEFAULT NULL::text)
 Returns jsonb;
@@ -436,7 +452,7 @@ Returns jsonb;
 
 ### Arguments
 
-#### content_encode
+#### content_encoding
 
 Specifies that the file is encoded in the encoding_name. If this option is omitted, the current client encoding is used.
 
@@ -444,13 +460,12 @@ Specifies that the file is encoded in the encoding_name. If this option is omitt
 
 jsonb
 
-> [!NOTE]  
-**Permissions**
-Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
-
 ## Examples
 
 The examples used make use of sample Azure storage account `(pgquickstart)` with custom files uploaded for adding to coverage of different use cases. We can start by creating table used across the set of example used.
+
+> [!NOTE]  
+> You can list containers set to Private and Blob access levels for a storage but only as a user with the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 ```sql
 CREATE TABLE IF NOT EXISTS public.events
@@ -634,4 +649,4 @@ LIMIT 5;
 ## Related content
 
 - [overview](concepts-storage-extension.md)
-- [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)
+- [feedback forum](https://aka.ms/pgfeedback)

@@ -5,7 +5,6 @@ description: Get started with the Image Analysis client library for Python with 
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: ignite-2022
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley

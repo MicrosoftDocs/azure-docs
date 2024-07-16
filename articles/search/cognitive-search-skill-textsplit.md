@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 10/25/2023
+ms.date: 02/18/2024
 ---
 
 # Text split cognitive skill
@@ -29,8 +29,8 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | `textSplitMode`    | Either `pages` or `sentences`. Pages have a configurable maximum length, but the skill attempts to avoid truncating a sentence so the actual length might be smaller. Sentences are a string that terminates at sentence-ending punctuation, such as a period, question mark, or exclamation point, assuming the language has sentence-ending punctuation. | 
 | `maximumPageLength` | Only applies if `textSplitMode` is set to `pages`. This parameter refers to the maximum page length in characters as measured by `String.Length`. The minimum value is 300, the maximum is 50000, and the default value is 5000.  The algorithm does its best to break the text on sentence boundaries, so the size of each chunk might be slightly less than `maximumPageLength`. | 
-| `pageOverlapLength` | Only applies if `textSplitMode` is set to `pages`. Each page starts with this number of characters from the end of the previous page. If this parameter is set to 0, there's no overlapping text on successive pages. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP#splitskill&preserve-view=true) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization. This [example](#example-for-chunking-and-vectorization) includes the parameter. |
-| `maximumPagesToTake` | Only applies if `textSplitMode` is set to `pages`. Number of pages to return. The default is 0, which means to return all pages. You should set this value if only a subset of pages are needed. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP#splitskill&preserve-view=true) REST API and in Azure SDK beta packages that have been updated to support integrated vectorization. This [example](#example-for-chunking-and-vectorization) includes the parameter.|
+| `pageOverlapLength` | Only applies if `textSplitMode` is set to `pages`. Each page starts with this number of characters from the end of the previous page. If this parameter is set to 0, there's no overlapping text on successive pages. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP#splitskill&preserve-view=true) and newer preview REST APIs, and in Azure SDK beta packages that have been updated to support integrated vectorization. This [example](#example-for-chunking-and-vectorization) includes the parameter. |
+| `maximumPagesToTake` | Only applies if `textSplitMode` is set to `pages`. Number of pages to return. The default is 0, which means to return all pages. You should set this value if only a subset of pages are needed. This parameter is supported in [2023-10-01-Preview](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP#splitskill&preserve-view=true) and newer preview REST APIs, and in Azure SDK beta packages that have been updated to support integrated vectorization. This [example](#example-for-chunking-and-vectorization) includes the parameter.|
 | `defaultLanguageCode`	| (optional) One of the following language codes: `am, bs, cs, da, de, en, es, et, fr, he, hi, hr, hu, fi, id, is, it, ja, ko, lv, no, nl, pl, pt-PT, pt-BR, ru, sk, sl, sr, sv, tr, ur, zh-Hans`. Default is English (en). A few things to consider: <ul><li>Providing a language code is useful to avoid cutting a word in half for nonwhitespace languages such as Chinese, Japanese, and Korean.</li><li>If you don't know the language  in advance (for example, if you're using the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to detect language), we recommend the `en` default. </li></ul>  |
 
 ## Skill Inputs
@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| `textItems`	| An array of substrings that were extracted. |
+| `textItems` | Output is an array of substrings that were extracted. `textItems` is the default name of the output. `targetName` is optional, but if you have multiple Text Split skills, make sure to set `targetName` so that you don't overwrite the data from the first skill with the second one. If `targetName` is set, use it in output field mappings or in downstream skills that use the skill output.|
 
 ## Sample definition
 
@@ -135,7 +135,9 @@ This example is for integrated vectorization, currently in preview. It adds prev
 
 This definition adds `pageOverlapLength` of 100 characters and `maximumPagesToTake` of one. 
 
-Assuming the `maximumPageLength` is 5000 characters (the default), then `"maximumPagesToTake": 1` processes the first 5000 characters of each source document. 
+Assuming the `maximumPageLength` is 5,000 characters (the default), then `"maximumPagesToTake": 1` processes the first 5,000 characters of each source document.
+
+This example sets `textItems` to `myPages` through `targetName`. Because `targetName` is set, `myPages` is the value you should use to select the output from the Text Split skill. Use `/document/mypages/*` in downstream skills, indexer [output field mappings](cognitive-search-concept-annotations-syntax.md), [knowledge store projections](knowledge-store-projection-overview.md), and [index projections](index-projections-concept-intro.md).
 
 ```json
 {

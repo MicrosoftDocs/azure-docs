@@ -17,7 +17,7 @@ ms.custom: subject-rbac-steps
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Data Factory.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 
@@ -27,6 +27,8 @@ There are two types of supported managed identities:
 
 - **System-assigned:** You can enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the creation of the service, an identity is created in Microsoft Entra tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Microsoft Entra ID. So when the resource is deleted, Azure automatically deletes the identity for you.  
 - **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
+>[!NOTE]
+> [Trusted bypass](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993) cannot utilize user-assigned managed identities. It can only employ system-assigned managed identities for connecting to Azure Storage and Azure Key Vault. 
 
 Managed identity provides the below benefits:
 
@@ -175,7 +177,7 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Select **Access control (IAM)**.
 

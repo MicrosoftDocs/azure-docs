@@ -14,15 +14,15 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-arm-t
 
 # Quickstart: Configure Azure Network Watcher NSG flow logs using an Azure Resource Manager (ARM) template
 
-In this quickstart, you learn how to enable NSG flow logs using an Azure Resource Manager (ARM) template and Azure PowerShell. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [NSG flow logs overview](network-watcher-nsg-flow-logging-overview.md).
+In this quickstart, you learn how to enable NSG flow logs using an Azure Resource Manager (ARM) template and Azure PowerShell. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 We start with an overview of the properties of the NSG flow log object. We provide sample templates. Then, we use a local Azure PowerShell instance to deploy the template.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnetworkwatcher-flowLogs-create%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnetworkwatcher-flowLogs-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -75,13 +75,13 @@ You can delete Azure resources by using complete deployment mode. To delete a fl
 
 You can also disable or delete a flow log in the Azure portal:
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
 1. In **Network Watcher | Flow logs**, select the checkbox of the flow log that you want to delete.
 
-1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logging.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logging.md#delete-a-flow-log).
+1. Select **Disable** or **Delete**. For more information, see [Disable a flow log](nsg-flow-logs-portal.md#disable-a-flow-log) or [Delete a flow log](nsg-flow-logs-portal.md#delete-a-flow-log).
 
 ## Related content
 

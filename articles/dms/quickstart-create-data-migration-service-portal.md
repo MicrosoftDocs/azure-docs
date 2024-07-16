@@ -9,7 +9,6 @@ ms.date: 01/29/2021
 ms.service: dms
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - mode-ui
   - sql-migration-content
 ---
@@ -28,10 +27,10 @@ From a web browser, sign in to the [Azure portal](https://portal.azure.com). The
 > You can create up to 10 instances of DMS per subscription per region. If you require a greater number of instances, please create a support ticket.
 
 <!--- Register the resource provider -->
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
 <!--- Create an instance of the service -->
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]  
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]  
 
 ## Clean up resources
 

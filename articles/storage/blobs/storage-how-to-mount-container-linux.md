@@ -7,7 +7,6 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
-ms.reviewer: tamram
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -26,9 +25,9 @@ This guide shows you how to use BlobFuse v1 and mount a Blob Storage container o
 
 ## Install BlobFuse v1 on Linux
 
-BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentOS, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
+BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
+BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
 
 ```bash
 cat /etc/*-release
@@ -48,16 +47,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 ```
 
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
-
-# [CentOS](#tab/CentOS)
-
-As an example, on a CentOS 8 distribution:
-
-```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
-```
-
-Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
 
 # [Ubuntu](#tab/Ubuntu)
 
@@ -81,11 +70,6 @@ sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-p
 ### Install BlobFuse v1
 
 # [RHEL](#tab/RHEL)
-
-```bash
-sudo yum install blobfuse
-```
-# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse

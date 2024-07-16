@@ -4,7 +4,7 @@ description: Learn about Service Connector internals, the architecture, the conn
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022, engagement-fy23
+ms.custom: engagement-fy23
 ms.topic: conceptual
 ms.date: 01/17/2023
 ---

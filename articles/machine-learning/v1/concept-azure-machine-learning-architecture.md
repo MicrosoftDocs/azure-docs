@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: balapv 
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, seoapril2019, seodec18, ignite-2022
+ms.custom: UpdateFrequency5
 monikerRange: 'azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
@@ -204,7 +204,7 @@ An endpoint is an instantiation of your model into a web service that can be hos
 
 #### Web service endpoint
 
-When deploying a model as a web service, the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image, which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+When deploying a model as a web service, the endpoint can be deployed on Azure Container Instances or Azure Kubernetes Service. You create the service from your model, script, and associated files. These are placed into a base container image, which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
 You can enable Application Insights telemetry or model telemetry to monitor your web service. The telemetry data is accessible only to you.  It's stored in your Application Insights and storage account instances. If you've enabled automatic scaling, Azure automatically scales your deployment.
 

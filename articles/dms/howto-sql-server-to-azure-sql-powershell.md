@@ -9,7 +9,6 @@ ms.date: 02/20/2020
 ms.service: dms
 ms.topic: how-to
 ms.custom:
-  - seo-lt-2019
   - devx-track-azurepowershell
   - sql-migration-content
 ---

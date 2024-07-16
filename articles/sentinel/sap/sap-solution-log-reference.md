@@ -4,7 +4,7 @@ description: Learn about the SAP logs, tables, and functions available from the 
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 01/15/2024
 ---
 
@@ -296,7 +296,7 @@ The **SAPAuditLogConfigRecommend** is a helper function designed to offer recomm
 
 ### SAPUsersGetVIP
 
-The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function to exclude users from triggering alerts by specifying SAP user roles, SAP user functions, or tags that represent those users.
+The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function to exclude users from triggering alerts by specifying SAP user roles, SAP user functions, or tags that represent those users. For more information, see [Handle false positives in Microsoft Sentinel](../false-positives.md#example-manage-exceptions-for-the-microsoft-sentinel-solution-for-sap-applications).
 
 Tags specified as input for the *SAPUsersGetVIP* function exclude all users with a tag listed in the *SAP_User_Config* watchlist. The same functionality is extended to work with wildcards, allowing you to assign a single tag to a group of users with the same naming syntax.
 

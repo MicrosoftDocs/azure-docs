@@ -2,14 +2,13 @@
 metadata:
   title: FAQ - Azure Synapse Analytics
   description: FAQ for Azure Synapse Analytics
-  author: saveenr
+  author: whhender
   ms.service: synapse-analytics
   ms.topic: faq
   ms.subservice: overview
-  ms.custom: event-tier1-build-2022, ignite-2022
   ms.date: 11/16/2022
-  ms.author: saveenr
-  ms.reviewer: sngun, wiassaf
+  ms.author: whhender
+  ms.reviewer: whhender, wiassaf
 title: Azure Synapse Analytics frequently asked questions
 summary: In this guide, you'll find the most frequently asked questions for Azure Synapse Analytics.
 

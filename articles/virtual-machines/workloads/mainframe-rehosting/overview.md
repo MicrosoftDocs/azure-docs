@@ -3,10 +3,10 @@ title: Mainframe rehosting on Azure virtual machines
 description: Rehost your mainframe workloads such as IBM Z-based systems using virtual machines (VMs) on Microsoft Azure.
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-author: njray
+author: johnjrayborn
 manager: edprice
 editor: edprice
-ms.author: larryme
+ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
 ---
@@ -94,9 +94,7 @@ Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-azur
 
 ### Backup and recovery
 
-Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for
-[backup](../../../backup/backup-overview.md), [recovery](../../../site-recovery/site-recovery-overview.md), and [redundancy](../../../storage/common/storage-redundancy.md)
-at local or regional levels, or via geo-redundancy.
+Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for [backup](../../../backup/backup-overview.md), [recovery](../../../site-recovery/site-recovery-overview.md), and [redundancy](../../../storage/common/storage-redundancy.md) at local or regional levels, or via geo-redundancy.
 
 ## Azure Government for mainframe migrations
 

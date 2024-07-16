@@ -5,12 +5,12 @@ description: Learn how to train and register a Keras deep neural network classif
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
-ms.author: balapv
-author: balapv
-ms.reviewer: mopeakande
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 

@@ -6,6 +6,7 @@ ms.date: 07/14/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Azure resource providers and types

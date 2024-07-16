@@ -1,9 +1,9 @@
 ---
 title: App Service Access restrictions
-description: This article provides an overview of the access restriction features in App Service
+description: This article provides an overview of the access restriction features in App Service.
 author: madsd
 ms.topic: overview
-ms.date: 01/03/2024
+ms.date: 02/13/2024
 ms.author: madsd
 ms.custom: UpdateFrequency3
 ---
@@ -24,11 +24,17 @@ You have the option of configuring a set of access restriction rules for each si
 
 ## App access
 
-App access allows you to configure if access is available through the default (public) endpoint. If the setting isn't configured, the default behavior is to enable access unless a private endpoint exists which changes the implicit behavior to disable access. You have the ability to explicitly configure this behavior to either enabled or disabled even if private endpoints exist.
+App access allows you to configure if access is available through the default (public) endpoint. You configure this behavior to either be `Disabled` or `Enabled`. When access is enabled, you can add [Site access](#site-access) restriction rules to control access from select virtual networks and IP addresses.
+
+If the setting isn't set (the property is `null`), the default behavior is to enable access unless a private endpoint exists which changes the behavior to disable access. In the Azure portal, when the property isn't set, the radio button is also not set and you're then using default behavior.
 
 :::image type="content" source="media/overview-access-restrictions/app-access-portal.png" alt-text="Screenshot of app access option in Azure portal.":::
 
-In the Azure Resource Manager API, app access is called `publicNetworkAccess`. For ILB App Service Environment, the default entry point for apps is always internal to the virtual network. Enabling app access (`publicNetworkAccess`) doesn't grant direct public access to the web application; instead, it allows access from the default entry point, which corresponds to the internal IP address of the App Service Environment. If you disable app access on an ILB App Service Environment, you can only access the apps through private endpoints added to the individual apps.
+In the Azure Resource Manager API, the property controlling app access is called `publicNetworkAccess`. For internal load balancer (ILB) App Service Environment, the default entry point for apps is always internal to the virtual network. Enabling app access (`publicNetworkAccess`) doesn't grant direct public access to the apps; instead, it allows access from the default entry point, which corresponds to the internal IP address of the App Service Environment. If you disable app access on an ILB App Service Environment, you can only access the apps through private endpoints added to the individual apps.
+
+> [!NOTE]
+> For Linux sites, changes to the `publicNetworkAccess` property trigger app restarts. 
+> 
 
 ## Site access
 
@@ -87,7 +93,7 @@ You can't create these rules in the portal, but you can modify an existing servi
 
 For any rule, regardless of type, you can add http header filtering. Http header filters allow you to further inspect the incoming request and filter based on specific http header values. Each header can have up to eight values per rule. The following lists the supported http headers:
 
-* **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
+* **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid IP addresses.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
 * **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the reverse proxy instance. Azure Front Door sends a guid identifying the instance, but it can also be used for non-Microsoft proxies to identify the specific instance. Accepts any string up to 64 characters in length.
 * **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the health probe of the reverse proxy. Azure Front Door sends "1" to uniquely identify a health probe request. The header can also be used for non-Microsoft proxies to identify health probes. Accepts any string up to 64 characters in length.
@@ -98,7 +104,7 @@ Some use cases for http header filtering are:
 
 ## Diagnostic logging
 
-App Service can [send various logging categories to Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor). One of those categories is called *IPSecurity Audit logs* and represent the activities in access restrictions. All requests that match a rule (except the unmatched rule), both allow and deny, is logged and can be used to validate configuration of access restrictions. The logging capability is also a powerful tool when troubleshooting rules configuration.
+App Service can [send various logging categories to Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor). One of those categories is called `IPSecurity Audit logs` and represent the activities in access restrictions. All requests that match a rule (except the unmatched rule), both allow and deny, is logged and can be used to validate configuration of access restrictions. The logging capability is also a powerful tool when troubleshooting rules configuration.
 
 ## Advanced use cases
 

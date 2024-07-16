@@ -7,10 +7,8 @@ services: genomics
 author: vigunase
 ms.author: vigunase
 ms.service: genomics
-ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-
 ---
 # Troubleshooting guide
 

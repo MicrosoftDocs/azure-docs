@@ -9,7 +9,6 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Gen1 environment

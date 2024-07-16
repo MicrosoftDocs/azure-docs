@@ -1,14 +1,14 @@
 ---
 title: Translator Translate Method
 titleSuffix: Azure AI services
-description: Understand the parameters, headers, and body messages for the Translate method of Azure AI Translator to translate text.
+description: Understand the parameters, headers, and body messages for the Azure AI Translator to translate text method.
 #services: cognitive-services
 author: laujan
 manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 06/06/2024
 ms.author: lajanuar
 ---
 
@@ -41,13 +41,10 @@ Request parameters passed on the query string are:
 
 | Query parameter | Description |
 | --- | --- |
-
-| Query parameter | Description |
-| --- | --- |
 | from | _Optional parameter_.  <br>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](../reference/v3-0-languages.md) using the `translation` scope. If the `from` parameter isn't specified, automatic language detection is applied to determine the source language.  <br>  <br>You must use the `from` parameter rather than autodetection when using the [dynamic dictionary](../dynamic-dictionary.md) feature. **Note**: the dynamic dictionary feature is case-sensitive. |
 | textType | _Optional parameter_.  <br>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: `plain` (default) or `html`. |
-| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). Add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to this parameter to use your deployed customized system. Default value is: `general`. |
-| profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked` or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
+| category | _Optional parameter_.  <br>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../custom-translator/concepts/customization.md). To use your deployed customized system, add the Category ID from your Custom Translator [project details](../custom-translator/how-to/create-manage-project.md) to the category parameter. Default value is: `general`. |
+| profanityAction | _Optional parameter_.  <br>Specifies how profanities should be treated in translations. Possible values are: `NoAction` (default), `Marked`, or `Deleted`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | profanityMarker | _Optional parameter_.  <br>Specifies how profanities should be marked in translations. Possible values are: `Asterisk` (default) or `Tag`. To understand ways to treat profanity, see [Profanity handling](#handle-profanity). |
 | includeAlignment | _Optional parameter_.  <br>Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false` (default). |
 | includeSentenceLength | _Optional parameter_.  <br>Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false` (default). |
@@ -60,9 +57,9 @@ Request headers include:
 
 | Headers | Description |
 | --- | --- |
-| Authentication header(s) | _Required request header_.  <br>See [available options for authentication](./v3-0-reference.md#authentication). |
+| Authentication headers | _Required request header_.  <br>See [available options for authentication](./v3-0-reference.md#authentication). |
 | Content-Type | _Required request header_.  <br>Specifies the content type of the payload.  <br>Accepted value is `application/json; charset=UTF-8`. |
-| Content-Length | _Required request header_.  <br>The length of the request body. |
+| Content-Length | _Optional_.  <br>The length of the request body. |
 | X-ClientTraceId | _Optional_.  <br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body
@@ -87,7 +84,7 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-    The `detectedLanguage` property is only present in the result object when language autodetection is requested.
+  The `detectedLanguage` property is only present in the result object when language autodetection is requested.
 
 * `translations`: An array of translation results. The size of the array matches the number of target languages specified through the `to` query parameter. Each element in the array includes:
 
@@ -95,25 +92,25 @@ A successful response is a JSON array with one result for each string in the inp
 
   * `text`: A string giving the translated text.
 
-* `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
+  * `transliteration`: An object giving the translated text in the script specified by the `toScript` parameter.
 
-  * `script`: A string specifying the target script.
+    * `script`: A string specifying the target script.
 
-  * `text`: A string giving the translated text in the target script.
+    * `text`: A string giving the translated text in the target script.
 
     The `transliteration` object isn't included if transliteration doesn't take place.
 
-    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  The colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
+    * `alignment`: An object with a single string property named `proj`, which maps input text to translated text. The alignment information is only provided when the request parameter `includeAlignment` is `true`. Alignment is returned as a string value of the following format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`. The colon separates start and end index, the dash separates the languages, and space separates the words. One word can align with zero, one, or multiple words in the other language, and the aligned words can be noncontiguous. When no alignment information is available, the alignment element is empty. See [Obtain alignment information](#obtain-alignment-information) for an example and restrictions.
 
-* `sentLen`: An object returning sentence boundaries in the input and output texts.
+  * `sentLen`: An object returning sentence boundaries in the input and output texts.
 
-  * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `srcSentLen`: An integer array representing the lengths of the sentences in the input text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
-  * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
+    * `transSentLen`:  An integer array representing the lengths of the sentences in the translated text. The length of the array is the number of sentences, and the values are the length of each sentence.
 
     Sentence boundaries are only included when the request parameter `includeSentenceLength` is `true`.
 
-* `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script.
+* `sourceText`: An object with a single string property named `text`, which gives the input text in the default script of the source language. `sourceText` property is present only when the input is expressed in a script that's not the usual script for the language. For example, if the input were Arabic written in Latin script, then `sourceText.text` would be the same Arabic text converted into Arab script`.`
 
 Examples of JSON responses are provided in the [examples](#examples) section.
 
@@ -121,7 +118,7 @@ Examples of JSON responses are provided in the [examples](#examples) section.
 
 | Headers | Description |
 | --- | --- |
-| X-requestid | Value generated by the service to identify the request. It's used for troubleshooting purposes. |
+| X-requestid | Value generated by the service to identify the request used for troubleshooting purposes. |
 | X-mt-system | Specifies the system type that was used for translation for each 'to' language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:  </br></br>*Custom - Request includes a custom system and at least one custom system was used during translation.*</br> Team - All other requests |
 | X-metered-usage |Specifies consumption (the number of characters for which the user is charged) for the translation job request. For example, if the word "Hello" is translated from English (en) to French (fr), this field returns the value `5`.|
 
@@ -134,9 +131,9 @@ The following are the possible HTTP status codes that a request returns.
 |200 | Success. |
 |400 |One of the query parameters is missing or not valid. Correct request parameters before retrying. |
 |401 | The request couldn't be authenticated. Check that credentials are specified and valid. |
-|403 | The request isn't authorized. Check the details error message. This status code often indicates that all free translations provided with a trial subscription have been used up. |
+|403 | The request isn't authorized. Check the details error message. This status code often indicates that you used all the free translations provided with a trial subscription. |
 |408 | The request couldn't be fulfilled because a resource is missing. Check the details error message. When the request includes a custom category, this status code often indicates that the custom translation system isn't yet available to serve requests. The request should be retried after a waiting period (for example, 1 minute). |
-|429 | The server rejected the request because the client has exceeded request limits. |
+|429 | The server rejected the request because the client exceeded request limits. |
 |500 |  An unexpected error occurred. If the error persists, report it with: date and time of the failure, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId. |
 |503 |Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId. |
 
@@ -264,9 +261,9 @@ The response body is:
 
 ### Handle profanity
 
-Normally, the Translator service retains profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language may be amplified or reduced.
+Normally, the Translator service retains profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language can be amplified or reduced.
 
-If you want to avoid getting profanity in the translation, regardless of the presence of profanity in the source text, you can use the profanity filtering option. The option allows you to choose whether you want to see profanity deleted, marked with appropriate tags (giving you the option to add your own post-processing), or with no action taken. The accepted values of `ProfanityAction` are `Deleted`, `Marked` and `NoAction` (default).
+If you want to avoid getting profanity in the translation, regardless of the presence of profanity in the source text, you can use the profanity filtering option. The option allows you to choose whether you want to see profanity deleted, marked with appropriate tags (giving you the option to add your own post-processing), or with no action taken. The accepted values of `ProfanityAction` are `Deleted`, `Marked`, and `NoAction` (default).
 
 
 | ProfanityAction | Action |
@@ -311,7 +308,7 @@ That last request returns:
 ]
 ```
 
-### Translate content with markup and decide what's translated
+### Translate content that includes markup
 
 It's common to translate content that includes markup such as content from an HTML page or content from an XML document. Include query parameter `textType=html` when translating content with tags. In addition, it's sometimes useful to exclude specific content from translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element isn't translated, while the content in the second `div` element is translated.
 
@@ -346,7 +343,7 @@ Alignment is returned as a string value of the following format for every word o
 
 Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be noncontiguous. When no alignment information is available, the Alignment element is empty. The method returns no error in that case.
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word can align with zero, one, or multiple words in the other language, and the aligned words can be noncontiguous. When no alignment information is available, the Alignment element is empty. The method returns no error in that case.
 
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
@@ -374,15 +371,15 @@ The alignment information starts with `0:2-0:1`, which means that the first thre
 
 #### Limitations
 
-Obtaining alignment information is an experimental feature that we've enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this feature in the future. Here are some of the notable restrictions where alignments aren't supported:
+Obtaining alignment information is an experimental feature that we enabled for prototyping research and experiences with potential phrase mappings. Here are some of the notable restrictions where alignments aren't supported:
 
 * Alignment isn't available for text in HTML format that is, textType=html
 * Alignment is only returned for a subset of the language pairs:
-  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
-  * from Japanese to Korean or from Korean to Japanese.
-  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese.
-  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified.
-* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you` and other high frequency sentences.
+  * English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic)
+  * from Japanese to Korean or from Korean to Japanese
+  * from Japanese to Chinese Simplified and Chinese Simplified to Japanese
+  * from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified
+* You don't alignment if the sentence is a canned translation. Example of a canned translation is `This is a test`, `I love you`, and other high frequency sentences
 * Alignment isn't available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries

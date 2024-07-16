@@ -71,7 +71,7 @@ The solution architecture comprises the following components:
 - [FSLogix Profile](/fslogix/overview-what-is-fslogix) [Containers](/fslogix/concepts-container-types#profile-container) to connect each AVD user to their assigned profile on the ANQ storage as part of the sign-in process.
 - [Microsoft Entra Domain Services](/azure/active-directory-domain-services/overview) to provide user authentication and manage access to Azure-based resources.
 - [Azure Virtual Networking](/azure/virtual-network/virtual-networks-overview)
-- [VNet Injection](/azure/spring-apps/how-to-deploy-in-azure-virtual-network?tabs=azure-portal) to connect each region’s ANQ instance to the customer’s own Azure subscription resources.
+- [VNet Injection](../../spring-apps/enterprise/how-to-deploy-in-azure-virtual-network.md?tabs=azure-portal) to connect each region’s ANQ instance to the customer’s own Azure subscription resources.
 
 ## Considerations
 

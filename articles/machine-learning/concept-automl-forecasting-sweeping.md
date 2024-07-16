@@ -3,13 +3,13 @@ title: Model sweeping and selection for forecasting in AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML searches for and selects forecasting models
 services: machine-learning
-author: ctian-msft
-ms.author: chuantian
-ms.reviewer: ssalgado 
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: chuantian
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 12/15/2022
 ---
 

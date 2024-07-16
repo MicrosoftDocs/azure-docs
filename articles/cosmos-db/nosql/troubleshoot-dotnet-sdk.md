@@ -8,7 +8,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -17,6 +17,7 @@ ms.custom: devx-track-dotnet, ignite-2022
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
+> * [Python SDK](troubleshoot-python-sdk.md)
 > 
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [.NET SDK](sdk-dotnet-v2.md) with Azure Cosmos DB for NoSQL accounts.
@@ -92,7 +93,6 @@ If you encounter the following error: `Unable to load DLL 'Microsoft.Azure.Cosmo
 * Learn about Performance guidelines for the [.NET SDK](performance-tips-dotnet-sdk-v3.md)
 * Learn about the best practices for the [.NET SDK](best-practice-dotnet.md)
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

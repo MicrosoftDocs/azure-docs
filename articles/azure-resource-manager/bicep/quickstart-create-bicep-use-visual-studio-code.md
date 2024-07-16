@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-ms.date: 11/30/2023
+ms.date: 03/20/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -179,7 +179,7 @@ When finished, you have:
 @maxLength(24)
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: 'exampleVNet'
   location: resourceGroup().location
   properties: {
@@ -205,7 +205,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: 'eastus'
   sku: {

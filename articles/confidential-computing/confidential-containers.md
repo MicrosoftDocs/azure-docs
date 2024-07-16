@@ -6,9 +6,8 @@ author: angarg05
 ms.topic: article
 ms.date: 9/12/2023
 ms.author: ananyagarg
-ms.service: virtual-machines 
+ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.custom: ignite-fall-2021
 ---
 
 # Confidential containers on Azure

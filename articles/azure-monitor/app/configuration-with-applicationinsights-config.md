@@ -2,7 +2,7 @@
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules and add performance counters and other parameters.
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: mmcc
@@ -186,7 +186,7 @@ See connection string [code samples](sdk-connection-string.md#code-samples).
 
 ## InstrumentationKey
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 This setting determines the Application Insights resource in which your data appears. Typically, you create a separate resource, with a separate key, for each of your applications.
 

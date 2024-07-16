@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/29/2022
-ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, tracking-python, references_regions, build-2023
 ---
 
 # Secure an Azure Machine Learning training environment with virtual networks (SDKv1)

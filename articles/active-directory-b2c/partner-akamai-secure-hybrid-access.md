@@ -12,6 +12,9 @@ ms.date: 11/23/2022
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
+
 ---
 
 # Configure Azure Active Directory B2C with Akamai Enterprise Application Access for SSO and secure hybrid access
@@ -215,45 +218,46 @@ Akamai Enterprise Application Access supports SAML federation with cloud IdPs li
    ```xml
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <TrustFrameworkPolicy
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-    PolicySchemaVersion="0.3.0.0"
-    TenantId="fabrikam.onmicrosoft.com"
-    PolicyId="B2C_1A_signup_signin_saml"
-    PublicPolicyUri="http://fabrikam.onmicrosoft.com/B2C_1A_signup_signin_saml">
-    <BasePolicy>
-      <TenantId>fabrikam.onmicrosoft.com</TenantId>
-      <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
-    </BasePolicy>
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+     PolicySchemaVersion="0.3.0.0"
+     TenantId="fabrikam.onmicrosoft.com"
+     PolicyId="B2C_1A_signup_signin_saml"
+     PublicPolicyUri="http://fabrikam.onmicrosoft.com/B2C_1A_signup_signin_saml">
+     <BasePolicy>
+       <TenantId>fabrikam.onmicrosoft.com</TenantId>
+       <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
+     </BasePolicy>
 
-    <UserJourneys>
-      <UserJourney Id="SignUpOrSignIn">
-        <OrchestrationSteps>
-          <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="AkamaiSaml2AssertionIssuer"/>
-        </OrchestrationSteps>
-      </UserJourney>
-    </UserJourneys>
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="SAML2"/>
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName" />
-          <OutputClaim ClaimTypeReferenceId="givenName" />
-          <OutputClaim ClaimTypeReferenceId="surname" />
-          <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
-          <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="" />
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true"/>
-      </TechnicalProfile>
-    </RelyingParty>
-    </TrustFrameworkPolicy>
-    ```
-  >[!NOTE]
-  >You can follow this same process to implement other types of flows, for example, sign-in, password reset, or profile editing flows.
+     <UserJourneys>
+       <UserJourney Id="SignUpOrSignIn">
+         <OrchestrationSteps>
+           <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="AkamaiSaml2AssertionIssuer"/>
+         </OrchestrationSteps>
+       </UserJourney>
+     </UserJourneys>
+     <RelyingParty>
+       <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+       <TechnicalProfile Id="PolicyProfile">
+         <DisplayName>PolicyProfile</DisplayName>
+         <Protocol Name="SAML2"/>
+         <OutputClaims>
+           <OutputClaim ClaimTypeReferenceId="displayName" />
+           <OutputClaim ClaimTypeReferenceId="givenName" />
+           <OutputClaim ClaimTypeReferenceId="surname" />
+           <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
+           <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="" />
+           <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId"/>
+         </OutputClaims>
+         <SubjectNamingInfo ClaimType="objectId" ExcludeAsClaim="true"/>
+       </TechnicalProfile>
+     </RelyingParty>
+   </TrustFrameworkPolicy>
+   ```
+
+   >[!NOTE]
+   >You can follow this same process to implement other types of flows, for example, sign-in, password reset, or profile editing flows.
 
 ### Step 4 - Upload your policy
 

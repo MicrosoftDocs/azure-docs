@@ -43,7 +43,7 @@ Non-string fields and non-searchable string fields don't undergo lexical analysi
 
 ## Add text translation
 
-This article assumes translated strings alreach exist. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during indexing. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure AI Search. 
+This article assumes translated strings already exist. If that's not the case, you can attach Azure AI services to an [enrichment pipeline](cognitive-search-concept-intro.md), invoking text translation during indexing. Text translation takes a dependency on the indexer feature and Azure AI services, but all setup is done within Azure AI Search. 
 
 To add text translation, follow these steps:
 
@@ -114,7 +114,7 @@ By default, a search returns all fields that are marked as retrievable. As such,
 #### Example in REST
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01
 {
     "search": "animaux acceptés",
     "searchFields": "Tags, Description_fr",
@@ -181,6 +181,6 @@ POST /indexes/hotels/docs/search?api-version=2023-11-01
 
 + [Add a language analyzer](index-add-language-analyzers.md)
 + [How full text search works in Azure AI Search](search-lucene-query-architecture.md)
-+ [Search Documents REST API](/rest/api/searchservice/search-documents)
++ [Search Documents REST API](/rest/api/searchservice/documents/search-post)
 + [AI enrichment overview](cognitive-search-concept-intro.md)
 + [Skillsets overview](cognitive-search-working-with-skillsets.md)

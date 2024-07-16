@@ -4,13 +4,11 @@ description: Instructions and information on how to connect using TLS/SSL in Azu
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: event-tier1-build-2022
 ms.devlang: csharp
-# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections
@@ -60,7 +58,7 @@ The following example shows how to connect to your server using the mysql comman
 ```
 
 > [!IMPORTANT]
-> Setting the require_secure_transport to OFF doesn't mean encrypted connections aren't supported on the server side. If you set require_secure_transport to OFF on the Azure Database for MySQL flexible server instance, but if the client connects with the encrypted connection, it still is accepted. The following connection using mysql client to a Azure Database for MySQL flexible server instance configured with require_secure_transport=OFF also works as shown below.
+> Setting the require_secure_transport to OFF doesn't mean encrypted connections aren't supported on the server side. If you set require_secure_transport to OFF on the Azure Database for MySQL flexible server instance, but if the client connects with the encrypted connection, it still is accepted. The following connection using mysql client to an Azure Database for MySQL flexible server instance configured with require_secure_transport=OFF also works as shown below.
 
 ```bash
  mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=REQUIRED
@@ -382,4 +380,3 @@ conn.connect(function(err) {
 - [Create and manage Azure Database for MySQL flexible server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).
 - Learn more about [networking in Azure Database for MySQL flexible server](./concepts-networking.md)
 - Understand more about [Azure Database for MySQL flexible server firewall rules](./concepts-networking-public.md#public-access-allowed-ip-addresses)
-

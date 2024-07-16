@@ -50,7 +50,7 @@ items:
       - name: View the members
         href: how-to-view-members.md
       - name: Azure Managed CCF REST API reference
-        href: /rest/api/confidentialledger/managed-ccf
+        href: /rest/api/resource-manager/confidentialledger/managed-ccf
   - name: Resources
     items:
       - name: Build your skills with Microsoft Learn training

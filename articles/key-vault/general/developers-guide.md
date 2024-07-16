@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/17/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -145,7 +145,7 @@ For certificates, you can use:
 For secrets, you can use:
 
 - Key Vault secrets with App Service application settings. For more information, see [Use Key Vault references for App Service and Azure Functions](../../app-service/app-service-key-vault-references.md).
-- Key Vault secrets with the App Configuration service for applications hosted in an Azure VM. For more information, see [Configure applications with App Configuration and Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/).
+- Key Vault references with Azure App Configuration to streamline your application's access to configuration and secrets. For more information, see [Use Key Vault references in Azure App Configuration](../../azure-app-configuration/use-key-vault-references-dotnet-core.md).
 
 ## Code examples
 
@@ -166,7 +166,7 @@ The following articles and scenarios provide task-specific guidance for working 
 The following services and scenarios use or integrate with Key Vault:
 
 - [Encryption at rest](../../security/fundamentals/encryption-atrest.md) allows the encoding (encryption) of data when it's persisted. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
-- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manage your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also called *bring your own key* (BYOK).
+- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manage your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also called *bring your own key (BYOK)*.
 - [Azure Private Link](private-link-service.md) enables you to access Azure services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure-hosted customer/partner services over a private endpoint in your virtual network.
 - Key Vault integration with [Azure Event Grid](../../event-grid/event-schema-key-vault.md) allows users to be notified when the status of a secret stored in Key Vault has changed. You can distribute new versions of secrets to applications or rotate near-expiration secrets to prevent outages.
 - Protect your [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.

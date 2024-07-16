@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Check HTTP header
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `check-header` policy  to enforce that a request has a specified HTTP header. You can optionally check to see if the header has a specific value or one of a range of allowed values. If the check fails, the policy terminates request processing and returns the HTTP status code and error message specified by the policy.
 
@@ -48,7 +50,7 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 - **[Policy sections:](./api-management-howto-policies.md#sections)** inbound
 - **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -60,6 +62,6 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

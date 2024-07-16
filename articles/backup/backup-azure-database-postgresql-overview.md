@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 06/19/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -137,6 +137,10 @@ END LOOP;
 END;
 $do$
 ```
+ )
+
+ > [!NOTE]  
+  > If a database for which backup was already configured is failing with **UserErrorMissingDBPermissions** Please refer to this [troubleshooting guide](backup-azure-database-postgresql-troubleshoot.md) for assistance in resolving the issue.
 
 ## Use the PG admin tool
 

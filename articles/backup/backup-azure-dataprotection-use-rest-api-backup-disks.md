@@ -2,11 +2,11 @@
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 05/27/2024
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API
@@ -19,35 +19,36 @@ For information on the Azure Disk backup region availability, supported scenario
 
 ## Prerequisites
 
+Before you back up disks, ensure that you:
+
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
 - [Create a disk backup policy](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md)
 
 ## Configure backup
 
-### Key entities involved
+Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure blobs within a storage account.
+
+- Key entities
+- Permissions
+
+### Key entities
 
 Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure Disk.
 
-#### Disk to be protected
+- **Disk to be protected**: Note the ARM ID and the location of the disk to be protected. This will serve as the identifier of the disk.
 
-Note the ARM ID and the location of the disk to be protected. This will serve as the identifier of the disk.
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup"
+  ```
 
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-DiskBackup/providers/Microsoft.Compute/disks/msdiskbackup"
-```
+- **Snapshot resource group**: The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend creating a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots.
 
-#### Snapshot resource group
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/snapshot-rg"
+  ```
 
-The disk snapshots are stored in a resource group within your subscription. As a guideline, we recommend creating a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. Having a dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Note the ARM ID for the resource group where you wish to place the disk snapshots.
-
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/snapshot-rg"
-```
-
-#### Backup vault
-
-The Backup vault requires permissions on the disk to enable backups. The system-assigned managed identity of the vault is used for assigning such permissions.
+- **Backup vault**: The Backup vault requires permissions on the disk to enable backups. The system-assigned managed identity of the vault is used for assigning such permissions.
 
 ### Assign permissions
 
@@ -55,7 +56,7 @@ You need to assign a few permissions via RBAC to the vault (represented by vault
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section where the snapshot resource group is provided as one of the policy parameters.
+Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the `datasourceinfo` section and the policy information is present in the `policyinfo` section where the snapshot resource group is provided as one of the policy parameters.
 
 ```json
 {

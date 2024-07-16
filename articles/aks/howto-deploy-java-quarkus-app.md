@@ -6,29 +6,28 @@ ms.author: edburns
 ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 07/26/2023
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-aks, devx-track-extended-java, devx-track-azurecli
+ms.subservice: aks-developer
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-aks, devx-track-extended-java, devx-track-azurecli
 # external contributor: danieloh30
 ---
 
 # Deploy a Java application with Quarkus on an Azure Kubernetes Service cluster
 
-This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes Service (AKS) with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to AKS.
+This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes Service (AKS) with a simple CRUD application. The application is a "to do list" with a JavaScript front end and a REST endpoint. Azure Database for PostgreSQL Flexible Server provides the persistence layer for the app. The article shows you how to test your app locally and deploy it to AKS.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Azure Cloud Shell has all of these prerequisites preinstalled. For more, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
-- If you're running the commands in this guide locally (instead of using Azure Cloud Shell), complete the following steps:
-  - Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-  - Install a Java SE implementation (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-  - Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
-  - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
-  - Install [jq](https://jqlang.github.io/jq/download/).
-  - Install [cURL](https://curl.se/download.html).
-  - Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling).
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+- Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+- Install [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
+- Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
+- Install [jq](https://jqlang.github.io/jq/download/).
+- Install [cURL](https://curl.se/download.html).
+- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
-  - [!INCLUDE [azure-cli-login](../../includes/azure-cli-login.md)]
-  - This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+  - [!INCLUDE [azure-cli-login](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
+  - This article requires at least version 2.61.0 of Azure CLI.
 
 ## Create the app project
 
@@ -37,7 +36,7 @@ Use the following command to clone the sample Java project for this article. The
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
 cd quarkus-azure
-git checkout 2023-07-17
+git checkout 2024-07-08
 cd aks-quarkus
 ```
 
@@ -51,7 +50,7 @@ Quarkus supports the automatic provisioning of unconfigured services in developm
 
 Make sure your container environment, Docker or Podman, is running and use the following command to enter Quarkus dev mode:
 
-```azurecli-interactive
+```bash
 quarkus dev
 ```
 
@@ -59,7 +58,7 @@ Instead of `quarkus dev`, you can accomplish the same thing with Maven by using 
 
 You may be asked if you want to send telemetry of your usage of Quarkus dev mode. If so, answer as you like.
 
-Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don’t want the debugger at all, you can use `-Ddebug=false`.
+Quarkus dev mode enables live reload with background compilation. If you modify any aspect of your app source code and refresh your browser, you can see the changes. If there are any issues with compilation or deployment, an error page lets you know. Quarkus dev mode listens for a debugger on port 5005. If you want to wait for the debugger to attach before running, pass `-Dsuspend` on the command line. If you don't want the debugger at all, you can use `-Ddebug=false`.
 
 The output should look like the following example:
 
@@ -88,7 +87,7 @@ Try selecting a few todo items in the todo list. The UI indicates selection with
 
 Access the RESTful API (`/api`) to get all todo items that store in the local PostgreSQL database:
 
-```azurecli-interactive
+```bash
 curl --verbose http://localhost:8080/api | jq .
 ```
 
@@ -153,71 +152,75 @@ Press <kbd>q</kbd> to exit Quarkus dev mode.
 
 The steps in this section show you how to create the following Azure resources to run the Quarkus sample app:
 
-- Azure Database for PostgreSQL
+- Azure Database for PostgreSQL Flexible Server
 - Azure Container Registry (ACR)
 - Azure Kubernetes Service (AKS)
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". Use the following commands to define some environment variables to use later:
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values `UNIQUE_VALUE`, `LOCATION`, and `DB_PASSWORD` with your own values and then run the following commands in your terminal:
 
-```azurecli-interactive
+```bash
 export UNIQUE_VALUE=<your unique value, such as ejb010717>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
-export LOCATION=<your desired Azure region for deploying your resources. For example, eastus>
+export LOCATION=<your desired Azure region for deploying your resources - for example, northeurope>
 export REGISTRY_NAME=${UNIQUE_VALUE}reg
 export DB_SERVER_NAME=${UNIQUE_VALUE}db
+export DB_NAME=demodb
+export DB_ADMIN=demouser
+export DB_PASSWORD='<your desired password for the database server - for example, Secret123456>'
 export CLUSTER_NAME=${UNIQUE_VALUE}aks
 export AKS_NS=${UNIQUE_VALUE}ns
 ```
 
-### Create an Azure Database for PostgreSQL
+### Create an Azure Database for PostgreSQL Flexible Server
 
-Azure Database for PostgreSQL is a managed service to run, manage, and scale highly available PostgreSQL databases in the Azure cloud. This section directs you to a separate quickstart that shows you how to create a single Azure Database for PostgreSQL server and connect to it. However, when you follow the steps in the quickstart, you need to use the settings in the following table to customize the database deployment for the sample Quarkus app. Replace the environment variables with their actual values when filling out the fields in the Azure portal.
+Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
 
-| Setting        | Value                    | Description                                                                                                                                |
-|:---------------|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Resource group | `${RESOURCE_GROUP_NAME}` | Select **Create new**. The deployment creates this new resource group.                                                                     |
-| Server name    | `${DB_SERVER_NAME}`      | This value forms part of the hostname for the database server.                                                                             |
-| Location       | `${LOCATION}`            | Select a location from the dropdown list. Take note of the location. You must use this same location for other Azure resources you create. |
-| Admin username | *quarkus*                | The sample code assumes this value.                                                                                                        |
-| Password       | *Secret123456*           | The sample code assumes this value.                                                                                                        |
+First, create a resource group to contain the database server and other resources by using the following command:
 
-With these value substitutions in mind, follow the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal) up to the "Configure a firewall rule" section. Then, in the "Configure a firewall rule" section, be sure to select **Yes** for **Allow access to Azure services**, then select **Save**. If you neglect to do this, your Quarkus app can't access the database and simply fails to ever start.
-
-After you complete the steps in the quickstart through the "Configure a firewall rule" section, including the step to allow access to Azure services, return to this article.
-
-### Create a Todo database in PostgreSQL
-
-The PostgreSQL server that you created earlier is empty. It doesn't have any database that you can use with the Quarkus application. Create a new database called `todo` by using the following command:
-
-```azurecli-interactive
-az postgres db create \
-    --resource-group ${RESOURCE_GROUP_NAME} \
-    --name todo \
-    --server-name ${DB_SERVER_NAME}
+```azurecli
+az group create \
+    --name $RESOURCE_GROUP_NAME \
+    --location $LOCATION
 ```
 
-You must use `todo` as the name of the database because the sample code assumes that database name.
+Next, create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
-If the command is successful, the output looks similar to the following example:
+```azurecli
+az postgres flexible-server create \
+    --name $DB_SERVER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --admin-user $DB_ADMIN \
+    --admin-password $DB_PASSWORD \
+    --database-name $DB_NAME \
+    --public-access 0.0.0.0 \
+    --yes
+```
+
+It takes a few minutes to create the server, database, admin user, and firewall rules. If the command is successful, the output looks similar to the following example:
 
 ```output
 {
-  "charset": "UTF8",
-  "collation": "English_United States.1252",
-  "id": "/subscriptions/REDACTED/resourceGroups/ejb010718rg/providers/Microsoft.DBforPostgreSQL/servers/ejb010718db/databases/todo",
-  "name": "todo",
-  "resourceGroup": "ejb010718rg",
-  "type": "Microsoft.DBforPostgreSQL/servers/databases"
+  "connectionString": "postgresql://<DB_ADMIN>:<DB_PASSWORD>@<DB_SERVER_NAME>.postgres.database.azure.com/<DB_NAME>?sslmode=require",
+  "databaseName": "<DB_NAME>",
+  "firewallName": "AllowAllAzureServicesAndResourcesWithinAzureIps_2024-7-5_14-39-45",
+  "host": "<DB_SERVER_NAME>.postgres.database.azure.com",
+  "id": "/subscriptions/REDACTED/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<DB_SERVER_NAME>",
+  "location": "North Europe",
+  "password": "<DB_PASSWORD>",
+  "resourceGroup": "<RESOURCE_GROUP_NAME>",
+  "skuname": "Standard_D2s_v3",
+  "username": "<DB_ADMIN>",
+  "version": "13"
 }
 ```
 
-### Create a Microsoft Azure Container Registry instance
+### Create an Azure Container Registry instance
 
 Because Quarkus is a cloud native technology, it has built-in support for creating containers that run in Kubernetes. Kubernetes is entirely dependent on having a container registry from which it finds the container images to run. AKS has built-in support for Azure Container Registry (ACR).
 
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named with the value of your environment variable `${REGISTRY_NAME}`:
 
-```azurecli-interactive
+```azurecli
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
@@ -238,7 +241,7 @@ After a short time, you should see JSON output that contains the following lines
 
 Sign in to the ACR instance. Signing in lets you push an image. Use the following commands to verify the connection:
 
-```azurecli-interactive
+```azurecli
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --query 'loginServer' \
@@ -265,15 +268,14 @@ If you've signed into the ACR instance successfully, you should see `Login Succe
 
 Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named with the value of your environment variable `${CLUSTER_NAME}` with one node. The cluster is connected to the ACR instance you created in a preceding step. This command takes several minutes to complete.
 
-```azurecli-interactive
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
     --name $CLUSTER_NAME \
     --attach-acr $REGISTRY_NAME \
     --node-count 1 \
-    --generate-ssh-keys \
-    --enable-managed-identity
+    --generate-ssh-keys
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following output:
@@ -287,9 +289,9 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
+To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 
@@ -297,7 +299,7 @@ For more information about `kubectl`, see [Command line tool (kubectl)](https://
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command, as shown in the following example. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -313,13 +315,13 @@ Merged "ejb010718aks-admin" as current context in /Users/edburns/.kube/config
 
 You might find it useful to alias `k` to `kubectl`. If so, use the following command:
 
-```azurecli-interactive
+```bash
 alias k=kubectl
 ```
 
 To verify the connection to your cluster, use the `kubectl get` command to return a list of the cluster nodes, as shown in the following example:
 
-```azurecli-interactive
+```bash
 kubectl get nodes
 ```
 
@@ -327,14 +329,14 @@ The following example output shows the single node created in the previous steps
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
-aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.23.8
+aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.28.9
 ```
 
 ### Create a new namespace in AKS
 
 Use the following command to create a new namespace in your Kubernetes service for your Quarkus app:
 
-```azurecli-interactive
+```bash
 kubectl create namespace ${AKS_NS}
 ```
 
@@ -344,13 +346,31 @@ The output should look like the following example:
 namespace/<your namespace> created
 ```
 
+### Create a secret for database connection in AKS
+
+Create secret `db-secret` in the AKS namespace to store the database connection information. Use the following command to create the secret:
+
+```bash
+kubectl create secret generic db-secret \
+    -n ${AKS_NS} \
+    --from-literal=jdbcurl=jdbc:postgresql://${DB_SERVER_NAME}.postgres.database.azure.com:5432/${DB_NAME}?sslmode=require \
+    --from-literal=dbusername=${DB_ADMIN} \
+    --from-literal=dbpassword=${DB_PASSWORD}
+```
+
+The output should look like the following example:
+
+```output
+secret/db-secret created
+```
+
 ### Customize the cloud native configuration
 
 As a cloud native technology, Quarkus offers the ability to automatically configure resources for standard Kubernetes, Red Hat OpenShift, and Knative. For more information, see the [Quarkus Kubernetes guide](https://quarkus.io/guides/deploying-to-kubernetes#kubernetes), [Quarkus OpenShift guide](https://quarkus.io/guides/deploying-to-kubernetes#openshift) and [Quarkus Knative guide](https://quarkus.io/guides/deploying-to-kubernetes#knative). Developers can deploy the application to a target Kubernetes cluster by applying the generated manifests.
 
 To generate the appropriate Kubernetes resources, use the following command to add the `quarkus-kubernetes` and `container-image-jib` extensions in your local terminal:
 
-```azurecli-interactive
+```bash
 quarkus ext add kubernetes container-image-jib
 ```
 
@@ -379,16 +399,17 @@ The `prod.` prefix indicates that these properties are active when running in th
 
 #### Database configuration
 
-Add the following database configuration variables. Replace the values of `<DB_SERVER_NAME_VALUE>` with the actual values of the `${DB_SERVER_NAME}` environment variable.
+Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` read values from the environment variables `DB_JDBC_URL`, `DB_USERNAME`, and `DB_PASSWORD`, respectively. These environment variables map to secret values that store the database connection information for security reasons, which is described in the next section.
 
 ```yaml
 # Database configurations
 %prod.quarkus.datasource.db-kind=postgresql
-%prod.quarkus.datasource.jdbc.url=jdbc:postgresql://<DB_SERVER_NAME_VALUE>.postgres.database.azure.com:5432/todo
 %prod.quarkus.datasource.jdbc.driver=org.postgresql.Driver
-%prod.quarkus.datasource.username=quarkus@<DB_SERVER_NAME_VALUE>
-%prod.quarkus.datasource.password=Secret123456
+%prod.quarkus.datasource.jdbc.url=${DB_JDBC_URL}
+%prod.quarkus.datasource.username=${DB_USERNAME}
+%prod.quarkus.datasource.password=${DB_PASSWORD}
 %prod.quarkus.hibernate-orm.database.generation=drop-and-create
+%prod.quarkus.hibernate-orm.sql-load-script=import.sql
 ```
 
 #### Kubernetes configuration
@@ -396,10 +417,19 @@ Add the following database configuration variables. Replace the values of `<DB_S
 Add the following Kubernetes configuration variables. Make sure to set `service-type` to `load-balancer` to access the app externally.
 
 ```yaml
-# AKS configurations
+# Kubernetes configurations
 %prod.quarkus.kubernetes.deployment-target=kubernetes
 %prod.quarkus.kubernetes.service-type=load-balancer
+%prod.quarkus.kubernetes.env.secrets=db-secret
+%prod.quarkus.kubernetes.env.mapping.DB_JDBC_URL.from-secret=db-secret
+%prod.quarkus.kubernetes.env.mapping.DB_JDBC_URL.with-key=jdbcurl
+%prod.quarkus.kubernetes.env.mapping.DB_USERNAME.from-secret=db-secret
+%prod.quarkus.kubernetes.env.mapping.DB_USERNAME.with-key=dbusername
+%prod.quarkus.kubernetes.env.mapping.DB_PASSWORD.from-secret=db-secret
+%prod.quarkus.kubernetes.env.mapping.DB_PASSWORD.with-key=dbpassword
 ```
+
+The other Kubernetes configurations specify the mapping of the secret values to the environment variables in the Quarkus application. The `db-secret` secret contains the database connection information. The `jdbcurl`, `dbusername`, and `dbpassword` keys in the secret map to the `DB_JDBC_URL`, `DB_USERNAME`, and `DB_PASSWORD` environment variables, respectively.
 
 #### Container image configuration
 
@@ -418,7 +448,7 @@ As a cloud native technology, Quarkus supports generating OCI container images c
 
 Now, use the following command to build the application itself. This command uses the Kubernetes and Jib extensions to build the container image.
 
-```azurecli-interactive
+```bash
 quarkus build --no-tests
 ```
 
@@ -437,12 +467,12 @@ You can verify whether the container image is generated as well using `docker` o
 
 ```output
 docker images | grep todo
-<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aks   1.0       b13c389896b7   18 minutes ago   420MB
+<LOGIN_SERVER_VALUE>/<USER_NAME_VALUE>/todo-quarkus-aks   1.0       b13c389896b7   18 minutes ago   424MB
 ```
 
 Push the container images to ACR by using the following command:
 
-```azurecli-interactive
+```bash
 export TODO_QUARKUS_TAG=$(docker images | grep todo-quarkus-aks | head -n1 | cut -d " " -f1)
 echo ${TODO_QUARKUS_TAG}
 docker push ${TODO_QUARKUS_TAG}:1.0
@@ -471,7 +501,7 @@ The steps in this section show you how to run the Quarkus sample app on the Azur
 
 Deploy the Kubernetes resources using `kubectl` on the command line, as shown in the following example:
 
-```azurecli-interactive
+```bash
 kubectl apply -f target/kubernetes/kubernetes.yml -n ${AKS_NS}
 ```
 
@@ -483,19 +513,19 @@ deployment.apps/quarkus-todo-demo-app-aks created
 
 Verify the app is running by using the following command:
 
-```azurecli-interactive
+```bash
 kubectl -n $AKS_NS get pods
 ```
 
 If the value of the `STATUS` field shows anything other than `Running`, troubleshoot and resolve the problem before continuing. It may help to examine the pod logs by using the following command:
 
-```azurecli-interactive
+```bash
 kubectl -n $AKS_NS logs $(kubectl -n $AKS_NS get pods | grep quarkus-todo-demo-app-aks | cut -d " " -f1)
 ```
 
 Get the `EXTERNAL-IP` to access the Todo application by using the following command:
 
-```azurecli-interactive
+```bash
 kubectl get svc -n ${AKS_NS}
 ```
 
@@ -508,7 +538,7 @@ quarkus-todo-demo-app-aks   LoadBalancer   10.0.236.101   20.12.126.200   80:309
 
 You can use the following command to save the value of `EXTERNAL-IP` to an environment variable as a fully qualified URL:
 
-```azurecli-interactive
+```bash
 export QUARKUS_URL=http://$(kubectl get svc -n ${AKS_NS} | grep quarkus-todo-demo-app-aks | cut -d " " -f10)
 echo $QUARKUS_URL
 ```
@@ -519,7 +549,7 @@ Open a new web browser to the value of `${QUARKUS_URL}`. Then, add a new todo it
 
 Access the RESTful API (`/api`) to get all todo items stored in the Azure PostgreSQL database, as shown in the following example:
 
-```azurecli-interactive
+```bash
 curl --verbose ${QUARKUS_URL}/api | jq .
 ```
 
@@ -583,15 +613,15 @@ Open Azure Cloud Shell in the Azure portal by selecting the **Cloud Shell** icon
 
 Run the following command locally and paste the result into Azure Cloud Shell:
 
-```azurecli-interactive
-echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=quarkus@${DB_SERVER_NAME} --dbname=todo
+```bash
+echo psql --host=${DB_SERVER_NAME}.postgres.database.azure.com --port=5432 --username=${DB_ADMIN} --dbname=${DB_NAME}
 ```
 
 When asked for the password, use the value you used when you created the database.
 
 Use the following query to get all the todo items:
 
-```azurecli-interactive
+```psql
 select * from todo;
 ```
 
@@ -607,7 +637,7 @@ Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
 
 To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
-```azurecli-interactive
+```azurecli
 git reset --hard
 docker rmi ${TODO_QUARKUS_TAG}:1.0
 docker rmi postgres

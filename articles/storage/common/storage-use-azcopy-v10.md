@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: contperf-fy21q2, ai-video-demo
+ms.custom: ai-video-demo
 ai-usage: ai-assisted
 ---
 
@@ -43,7 +43,7 @@ These files are compressed as a zip file (Windows and Mac) or a tar file (Linux)
 For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
 ## Run AzCopy
 

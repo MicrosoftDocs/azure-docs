@@ -73,7 +73,6 @@ ms.date: 01/11/2024
 | Desktop size | `desktop size id:i:*value*` | ✔ | ✔ | Specifies the dimensions of the remote session desktop from a set of predefined options. This setting is overridden if `desktopheight` and `desktopwidth` are specified. | `0`: 640×480<br /><br />`1`: 800×600<br /><br />`2`: 1024×768<br /><br />`3`: 1280×1024<br /><br />`4`: 1600×1200 | *Match the local computer*. |
 | Desktop height | `desktopheight:i:*value*` | ✔ | ✔ | Specifies the resolution height (in pixels) of the remote session. | Numerical value between `200` and `8192`. | *Match the local computer*. |
 | Desktop width | `desktopwidth:i:*value*` | ✔ | ✔ | Specifies the resolution width (in pixels) of the remote session. | Numerical value between `200` and `8192`. | *Match the local computer*. |
-| Desktop scale factor | `desktopscalefactor:i:*value*` | ✔ | ✔ | Specifies the scale factor of the remote session to make the content appear larger. | Numerical value from the following list:<br />`100`<br />`125`<br />`150`<br />`175`<br />`200`<br />`250`<br />`300`<br />`400`<br />`500`. | *Match the local computer*. |
 
 ## RemoteApp
 

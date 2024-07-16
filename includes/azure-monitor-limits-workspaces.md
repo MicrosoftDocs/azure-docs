@@ -3,9 +3,8 @@ title: "include file"
 description: "include file" 
 services: azure-monitor
 author: rboucher
-tags: azure-service-management
 ms.topic: "include"
-ms.date: 02/07/2019
+ms.date: 04/23/2024
 ms.author: robb
 ms.custom: "include file"
 ---
@@ -65,6 +64,15 @@ ms.custom: "include file"
 | Maximum connector timeout | 110 second | |
 | Maximum query timeout | 100 second | |
 | Charts | | The Logs page and the connector use different charting libraries for visualization. Some functionality isn't currently available in the connector. |
+
+**Summary rules**
+
+| Category | Limit |
+|:---|:---|
+| Maximum number of active rules in a workspace | 30 |
+| Maximum number of results per bin | 500,000 |
+| Maximum results set volume | 100 MB |
+| Query time-out for bin processing | 10 minutes |
 
 **General workspace limits**
 

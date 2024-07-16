@@ -30,7 +30,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 | Version | Path |
 |-----------|------------|
 | Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest`<br/><br/>The `latest` tag pulls the `en-US` locale and `en-us-arianeural` voice. |
-| 3.0.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:3.0.0-amd64-mr-in` |
+| 3.1.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:3.1.0-amd64-en-us-arianeural` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
 
@@ -44,11 +44,17 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 {
   "name": "azure-cognitive-services/speechservices/neural-text-to-speech",
   "tags": [
-    "1.10.0-amd64-cs-cz-antoninneural",
-    "1.10.0-amd64-cs-cz-vlastaneural",
-    "1.10.0-amd64-de-de-conradneural",
-    "1.10.0-amd64-de-de-katjaneural",
-    "1.10.0-amd64-en-au-natashaneural",
+    <--redacted for brevity-->
+    "3.1.0-amd64-en-us-arianeural",
+    "3.1.0-amd64-en-us-guyneural",
+    "3.1.0-amd64-en-us-jennymultilingualneural",
+    "3.1.0-amd64-en-us-jennyneural",
+    "3.1.0-amd64-en-us-michelleneural",
+    "3.1.0-amd64-es-es-alvaroneural",
+    "3.1.0-amd64-es-es-elviraneural",
+    "3.1.0-amd64-es-mx-candelaneural",
+    "3.1.0-amd64-es-mx-dalianeural",
+    "3.1.0-amd64-es-mx-jorgeneural",
     <--redacted for brevity-->
     "latest"
   ]
@@ -56,7 +62,9 @@ The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-
 ```
 
 > [!IMPORTANT]
-> We retired the standard speech synthesis voices and standard [text to speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/text-to-speech/tags) container on August 31, 2021. You should use neural voices with the [neural-text to speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) container instead. For more information on updating your application, see [Migrate from standard voice to prebuilt neural voice](./how-to-migrate-to-prebuilt-neural-voice.md).
+> We retired the standard speech synthesis voices and standard [text to speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/text-to-speech/tags) container on August 31, 2021. You should use neural voices with the [neural-text-to-speech](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) container version 3.0 and higher instead. 
+>
+> Starting from February 29, 2024, the text to speech and neural text to speech container versions 2.19 and earlier aren't supported. For more information on updating your application, see [Migrate from standard voice to prebuilt neural voice](./how-to-migrate-to-prebuilt-neural-voice.md).
 
 ## Get the container image with docker pull
 

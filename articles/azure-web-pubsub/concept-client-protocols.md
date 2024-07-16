@@ -23,11 +23,25 @@ The Web PubSub service provides two types of endpoints for clients to connect to
 
 Clients connect to the service with a JSON Web Token (JWT). The token can be in either the query string, as `/client/?hub={hub}&access_token={token}`, or the `Authorization` header, as `Authorization: Bearer {token}`.
 
-Here is a general authorization workflow:
+Here's a general authorization workflow:
 
 1. The client negotiates with your application server. The application server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The application server returns the JWT and the service URL to the client.
-1. The client tries to connect to the Web PubSub service by using the URL and the JWT that's returned from the application server.
+1. The client tries to connect to the Web PubSub service by using the URL and the JWT token returned from the application server.
+
+### Supported claims
+You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT token:
+
+| Description | Claim type | Claim value | Notes |
+| --- | --- | --- | --- |
+| The `userId` for the client connection | `sub` | the userId | Only one `sub` claim is allowed. |
+| The lifetime of the token | `exp` | the expiration time | The `exp` (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing. |
+| The [permissions](#permissions) the client connection initially has | `role` | the role value defined in [permissions](#permissions) | Specify multiple `role` claims if the client has multiple permissions. |
+| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | the group to join | Specify multiple `group` claims if the client joins multiple groups. |
+
+You could also add custom claims into the access token, and these values are preserved as the `claims` property in [connect upstream request body](./reference-cloud-events.md#system-connect-event).
+
+[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for the clients. 
 
 <a name="simple_client"></a>
 
@@ -47,7 +61,7 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 
 ## The PubSub WebSocket client
 
-A **PubSub WebSocket client**, is the WebSocket client using subprotocols defined by the Azure Web PubSub service:
+A **PubSub WebSocket client** is the WebSocket client using subprotocols defined by the Azure Web PubSub service:
 
 * `json.webpubsub.azure.v1`
 * `protobuf.webpubsub.azure.v1`
@@ -112,13 +126,13 @@ The **PubSub WebSocket Client** supports `ackId` property for `joinGroup`, `leav
 
 #### Behavior when No `ackId` specified
 
-If `ackId` is not specified, it's fire-and-forget. Even there're errors when brokering messages, you have no way to get notified.
+If `ackId` isn't specified, it's fire-and-forget. Even there are errors when brokering messages, you have no way to get notified.
 
 #### Behavior when `ackId` specified
 
 ##### Idempotent publish
 
-`ackId` is a uint64 number and should be unique within a client with the same connection id. Web PubSub Service records the `ackId` and messages with the same `ackId` will be treated as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive an ack response with `ackId=5`, then the client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason, the service will reject the retry and response an ack response with `Duplicate` reason.
+`ackId` is a uint64 number and should be unique within a client with the same connection ID. Web PubSub Service records the `ackId` and messages with the same `ackId` are treated as the same message. The service refuses to broker the same message more than once, which is useful in retry to avoid duplicated messages. For example, if a client sends a message with `ackId=5` and fails to receive an ack response with `ackId=5`, then the client retries and sends the same message again. In some cases, the message is already brokered and the ack response is lost for some reason. The service rejects the retry and response an ack response with `Duplicate` reason.
 
 #### Ack Response
 
@@ -139,7 +153,7 @@ Format:
 
 * The `ackId` associates the request.
 
-* `success` is a bool and indicate whether the request is successfully processed by the service. If it is `false`, clients need to check the `error`.
+* `success` is a bool and indicate whether the request is successfully processed by the service. If it's `false`, clients need to check the `error`.
 
 * `error` only exists when `success` is `false` and clients should have different logic for different `name`. You should suppose there might be more type of `name` in future.
     - `Forbidden`: The client doesn't have the permission to the request. The client needs to be added relevant roles.
@@ -163,7 +177,7 @@ The permission of a client can be granted in several ways:
 
 #### 1. Assign the role to the client when generating the access token
 
-Client can connect to the service using a JWT token, the token payload can carry information such as the `role` of the client. When signing the JWT token to the client, you can grant permissions to the client by giving the client specific roles.
+Client can connect to the service using a JWT token. The token payload can carry information such as the `role` of the client. When signing the JWT token to the client, you can grant permissions to the client by giving the client specific roles.
 
 For example, let's sign a JWT token that has the permission to send messages to `group1` and `group2`: 
 

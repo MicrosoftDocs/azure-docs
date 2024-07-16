@@ -7,7 +7,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.date: 01/05/2024
 ---
 

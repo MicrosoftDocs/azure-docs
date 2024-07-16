@@ -3,14 +3,14 @@ title: Authentication secrets
 titleSuffix: Azure Machine Learning
 description: Learn how to pass secrets to training jobs in secure fashion using Azure Key Vault.
 services: machine-learning
-author: rastala
-ms.author: roastala
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: roastala
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 01/19/2024
 ms.topic: how-to
-ms.custom: sdkv2, ignite-2022
+ms.custom: sdkv2
 ---
 
 # Use authentication credential secrets in Azure Machine Learning jobs

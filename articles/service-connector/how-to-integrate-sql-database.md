@@ -5,14 +5,17 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/26/2023
-ms.custom: event-tier1-build-2022, engagement-fy23
+ms.custom: engagement-fy23
+ms.date: 02/02/2024
 ---
+
 # Integrate Azure SQL Database with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You might still be able to connect to Azure SQL Database using other methods. This page also shows default environment variable names and values you get when you create the service connection.
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure SQL Database:
 
 - Azure App Service
 - Azure Functions
@@ -21,7 +24,7 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported authentication types and clients
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure SQL Database using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -35,6 +38,8 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Python - Django    |                No                |               No               |            Yes           |         No        |
 | Ruby               |                No                |               No               |            Yes           |         No        |
 | None               |                Yes               |               Yes              |            Yes           |        Yes        |
+
+This table indicates that the Secret/connection string method is supported for all client types. The System-assigned managed identity, User-assigned managed identity, and Service principal methods are supported for .NET, Java, Java - Spring Boot, Node.js, Python, and None client types. These methods are not supported for Go, PHP, Django, and Ruby client types.
 
 > [!NOTE]
 > System-assigned managed identity,User-assigned managed identity and Service principal are only supported on Azure CLI.
@@ -283,7 +288,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CLIENTID`                | Your client ID                    | `<client-ID>`                                           |
 > | `AZURE_SQL_CLIENTSECRET`            | Your client secret                | `<client-secret>`                                       |
 > | `AZURE_SQL_TENANTID`                | Your tenant ID                    | `<tenant-ID>`                                           |
-> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Password=asdfghwerty;Authentication=ActiveDirectoryServicePrincipal` |
+> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=<client-Id>;Password=<client-secret>;Authentication=ActiveDirectoryServicePrincipal` |
 
 #### [Java](#tab/sql-me-id-java)
 

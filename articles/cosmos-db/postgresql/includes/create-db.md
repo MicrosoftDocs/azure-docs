@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/06/2023
  ms.author: jonels
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.

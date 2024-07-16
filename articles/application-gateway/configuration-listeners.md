@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Application Gateway listener configuration
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 A listener is a logical entity that checks for incoming connection requests by using the port, protocol, host, and IP address. When you configure the listener, you must enter values for these that match the corresponding values in the incoming request on the gateway.
 
@@ -36,7 +36,7 @@ For the v2 SKU, multi-site listeners are processed before basic listeners, unles
 Choose the frontend IP address that you plan to associate with this listener. The listener will listen to incoming requests on this IP.
 
   > [!NOTE]
-  > Application Gateway frontend supports dual-stack IP addresses (Public Preview). You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+  > Application Gateway frontend supports dual-stack IP addresses. You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 
 ## Frontend port

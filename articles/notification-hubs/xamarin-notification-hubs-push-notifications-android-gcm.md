@@ -3,21 +3,16 @@ title: Send push notifications to Xamarin.Android apps using Azure Notification 
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application.
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-documentationcenter: xamarin
-
-ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 08/27/2021
-ms.author: matthewp
-ms.reviewer: jowargo
-ms.lastreviewed: 08/01/2019
+ms.date: 02/06/2024
+ms.author: sethm
+ms.reviewer: heathertian
+ms.lastreviewed: 02/06/2024
 ---
 
 # Tutorial: Send push notifications to Xamarin.Android apps using Notification Hubs
@@ -25,6 +20,9 @@ ms.lastreviewed: 08/01/2019
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## Overview
+
+> [!NOTE]
+> For information about Firebase Cloud Messaging deprecation and migration steps, see [Google Firebase Cloud Messaging migration](notification-hubs-gcm-to-fcm.md).
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You create a blank Xamarin.Android app that receives push notifications by using Firebase Cloud Messaging (FCM). You use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) sample.
 

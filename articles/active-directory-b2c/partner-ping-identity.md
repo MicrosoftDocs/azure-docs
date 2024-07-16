@@ -2,16 +2,16 @@
 title: Tutorial to configure Azure Active Directory B2C with Ping Identity
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Ping Identity
-
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: B2C
+
+# Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
 
 # Tutorial: Configure Ping Identity with Azure Active Directory B2C for secure hybrid access

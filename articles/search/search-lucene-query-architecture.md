@@ -15,7 +15,7 @@ ms.date: 10/09/2023
 
 # Full text search in Azure AI Search
 
-Full text search is an approach in information retrieval that matches on plain text content stored in an index. For example, given a query string "hotels in San Diego on the beach", the search engine looks for content containing those terms. To make scans more efficient, query strings undergo lexical analysis: lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. When matching terms are found, the search engine retrieves documents, ranks them in order of relevance, and returns the top results.
+Full text search is an approach in information retrieval that matches on plain text stored in an index. For example, given a query string "hotels in San Diego on the beach", the search engine looks for tokenized strings based on those terms. To make scans more efficient, query strings undergo lexical analysis: lower-casing all terms, removing stop words like "the", and reducing terms to primitive root forms. When matching terms are found, the search engine retrieves documents, ranks them in order of relevance, and returns the top results.
 
 Query execution can be complex. This article is for developers who need a deeper understanding of how full text search works in Azure AI Search. For text queries, Azure AI Search seamlessly delivers expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that produce the desired outcome. 
 
@@ -51,7 +51,7 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure AI Search using the [REST API](/rest/api/searchservice/search-documents).  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+POST /indexes/hotels/docs/search?api-version=2023-11-01
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -303,7 +303,7 @@ For the **description** field, the index is as follows:
 
 **Matching query terms against indexed terms**
 
-Given the inverted indices above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
+Given the inverted indexes above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
 
  ![Conceptual diagram of a boolean query with analyzed terms.][4]
 

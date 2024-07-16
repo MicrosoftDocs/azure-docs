@@ -8,7 +8,7 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure Time Series Insights Gen2 environment using the Azure CLI
@@ -17,7 +17,7 @@ ms.custom: seodec18, devx-track-azurecli
 
 This document will guide you through creating a new Time Series Insights Gen2 Environment.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 

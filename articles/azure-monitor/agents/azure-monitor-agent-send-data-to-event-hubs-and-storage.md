@@ -34,7 +34,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 - Linux:
    - Syslog – to eventhub and storage
    - Perf counters – to eventhub and storage
-   - Custom Logs / Log files – to eventhub and storage
+   - Custom Logs / Log files – to storage
 
 ### Operating systems
 
@@ -53,7 +53,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 ## Prerequisites
 
-A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
+A managed identity (either system or user) associated with the resources below. We highly recommend using [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for better scalability and performance.
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
@@ -602,7 +602,6 @@ Use custom template deployment to create the DCR association and AMA deployment.
             "settings": {
             "authentication": {
                 "managedIdentity": {
-                "identifier-type": "mi_res_id",
                 "identifier-name": "mi_res_id",
                 "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
                 }
@@ -680,7 +679,6 @@ Use custom template deployment to create the DCR association and AMA deployment.
             "settings": {
             "authentication": {
                 "managedIdentity": {
-                "identifier-type": "mi_res_id",
                 "identifier-name": "mi_res_id",
                 "identifier-value": "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('identityName'))]"
                 }
@@ -741,4 +739,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
+- For more information on creating a data collection rule, see [Collect data from virtual machines using Azure Monitor Agent](./azure-monitor-agent-data-collection.md).

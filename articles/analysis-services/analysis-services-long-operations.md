@@ -1,11 +1,11 @@
 ---
 title: Learn about best practices for long running operations in Azure Analysis Services | Microsoft Docs
 description: This article describes best practices for long running operations.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 01/27/2023
-ms.author: owend
+ms.author: kfollis
 
 ---
 # Best practices for long running operations

@@ -41,6 +41,7 @@ To complete this quickstart, you need:
   - Microsoft 365 Business Premium
   - Microsoft 365 Education Student Use Benefit
 - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+- Register the *Microsoft.DevCenter* resource provider. For more information, see [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
 
 ## Create a dev center
 
@@ -66,8 +67,9 @@ Use the following steps to create a dev center so you can manage your dev box re
    | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a name for your dev center. |
    | **Location** | Select the location or region where you want the dev center to be created. |
+   | **Attach a quick start catalog** | Clear both checkboxes. |
 
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-basics.png":::
+   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png":::
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
@@ -229,7 +231,7 @@ To assign roles:
 
 1. On the command bar, select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    |---|---|

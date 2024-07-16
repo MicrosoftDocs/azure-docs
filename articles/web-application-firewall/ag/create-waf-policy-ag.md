@@ -22,6 +22,8 @@ If your Application Gateway has an associated policy, and then you associate a d
 
 All new Web Application Firewall's WAF settings (custom rules, managed ruleset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings may still exist in your WAF config. For steps on how to move to the new WAF Policy, see [Upgrade your WAF Config to a WAF Policy](#upgrade) later in this article. 
 
+WAF policies need to be in the enabled state to inspect request traffic, log events and take action on requests. WAF policies in detection mode will log events when WAF rules are triggered but won't take any other action. Policies in prevention mode will take action on requests as well as log the event in the logs.
+
 ## Create a policy
 
 First, create a basic WAF policy with a managed Default Rule Set (DRS) using the Azure portal.
@@ -51,7 +53,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
 
 ## Configure WAF rules (optional)
 
-When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the CRS Ruleset you selected are blocked and/or logged in the WAF logs.
+When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the Microsoft Managed Rulesets you selected are blocked and/or logged in the WAF logs.
 
 ## Managed rules
 

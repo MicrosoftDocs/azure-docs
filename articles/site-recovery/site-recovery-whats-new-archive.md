@@ -10,6 +10,9 @@ ms.date: 12/27/2023
 
 # Archive for What's new in Site Recovery
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 This article contains information on older features and updates in the Azure Site Recovery service. The primary [What's new in Azure Site Recovery](./site-recovery-whats-new.md) article contains the latest updates. 
 
 ## Updates (November 2021)

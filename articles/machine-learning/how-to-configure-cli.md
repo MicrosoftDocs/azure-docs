@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 01/08/2024
-ms.reviewer: larryfr
-ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022, ignite-2022
+ms.reviewer: balapv
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install and set up the CLI (v2)

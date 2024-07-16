@@ -6,12 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2
 
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 12/18/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ---
 
 # CLI (v2) Azure Files datastore YAML schema

@@ -6,15 +6,14 @@ cloud: gov
 
 ms.service: azure-government
 ms.topic: article
-ms.workload: azure-government
-ms.date: 08/31/2021 
+ms.date: 08/31/2021
 ---
 
 # Azure Government Marketplace images
 
 Microsoft Azure Government Marketplace provides a similar experience as Azure Marketplace. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This approach gives you the flexibility to deploy your own standardized images if needed.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Images
 

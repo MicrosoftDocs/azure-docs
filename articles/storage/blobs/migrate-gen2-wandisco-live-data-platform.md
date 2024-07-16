@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
 
-The platform consists of two services. [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure) migrates actively used data from on-premises environments to Azure storage, and [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure) ensures that all modified or ingested data is replicated consistently.
+The platform consists of two services. [LiveData Migrator for Azure](https://cirata.com/products/data-integration) migrates actively used data from on-premises environments to Azure storage, and [LiveData Plane for Azure](https://cirata.com/products/data-integration) ensures that all modified or ingested data is replicated consistently.
 
 > [!div class="mx-imgBorder"]
 > ![Live Data Platform Overview illustration](./media/migrate-gen2-wandisco-live-data-platform/live-data-platform-overview.png)
@@ -69,7 +69,7 @@ Key features of the platform include the following:
 
 ## Migrate big data faster without risk
 
-The first service included in WANdisco LiveData Platform for Azure is [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure), which migrates data from on-premises environments to Azure Storage. Once you've deployed LiveData Migrator to your on-premises Hadoop cluster, it will automatically create the best configuration for your file system. From there, supply the Kerberos details for the system. LiveData Migrator for Azure will then be ready to migrate data to Azure Storage.
+The first service included in WANdisco LiveData Platform for Azure is [LiveData Migrator for Azure](https://cirata.com/products/data-integration), which migrates data from on-premises environments to Azure Storage. Once you've deployed LiveData Migrator to your on-premises Hadoop cluster, it will automatically create the best configuration for your file system. From there, supply the Kerberos details for the system. LiveData Migrator for Azure will then be ready to migrate data to Azure Storage.
 
 > [!div class="mx-imgBorder"]
 > ![LiveData Migrator for Azure Architecture](./media/migrate-gen2-wandisco-live-data-platform/live-data-migrator-architecture-1.png)
@@ -109,7 +109,7 @@ Monitor your migration progress through standard Azure tooling including the Azu
 
 ## Bidirectionally replicate data under active change with LiveData Plane for Azure
 
-The second service included in the LiveData Platform is [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure). LiveData Plane uses WANdisco's coordination engine to keep data consistent across many on-premises Hadoop clusters and Azure Storage by intelligently applying changes to data on all systems, removing the risk of data conflicts at different points of use.
+The second service included in the LiveData Platform is [LiveData Plane for Azure](https://cirata.com/products/data-integration). LiveData Plane uses WANdisco's coordination engine to keep data consistent across many on-premises Hadoop clusters and Azure Storage by intelligently applying changes to data on all systems, removing the risk of data conflicts at different points of use.
 
 > [!div class="mx-imgBorder"]
 > ![LiveData Plane for Azure Architecture](./media/migrate-gen2-wandisco-live-data-platform/live-data-plane-architecture.png)

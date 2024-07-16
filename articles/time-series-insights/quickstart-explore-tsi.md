@@ -7,7 +7,7 @@ ms.author: shresha
 manager: cnovak
 ms.reviewer: orspodek
 ms.topic: quickstart
-ms.custom: mvc seodec18, mode-other
+ms.custom: mvc, mode-other
 ms.date: 03/01/2021
 ---
 

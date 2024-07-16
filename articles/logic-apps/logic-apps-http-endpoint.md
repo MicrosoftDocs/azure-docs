@@ -2,11 +2,10 @@
 title: Create callable or nestable workflows
 description: Create workflows that receive inbound requests over HTTPS in Azure Logic Apps.
 services: logic-apps
-ms.workload: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/09/2024
+ms.date: 02/13/2024
 ---
 
 # Create workflows that you can call, trigger, or nest using HTTPS endpoints in Azure Logic Apps
@@ -26,6 +25,8 @@ This guide shows how to create a callable endpoint for your workflow by adding t
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A logic app workflow where you want to use the request-based trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
+
+* To test the URL for the callable endpoint that you create, you'll need a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
 
 ## Create a callable endpoint
 
@@ -93,17 +94,13 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 1. Save your workflow.
 
-   The **HTTP POST URL** box now shows the generated callback URL that other services can use to call and trigger your logic app. This URL includes query parameters that specify a Shared Access Signature (SAS) key, which is used for authentication.
+   The **HTTP POST URL** box now shows the generated callback URL that other services can use to call and trigger your logic app workflow. This URL includes query parameters that specify a Shared Access Signature (SAS) key, which is used for authentication.
 
    ![Screenshot shows Standard workflow, Request trigger, and generated callback URL for endpoint.](./media/logic-apps-http-endpoint/endpoint-url-standard.png)
 
 1. To copy the callback URL, you have these options:
 
    * To the right of the **HTTP POST URL** box, select **Copy URL** (copy files icon).
-
-   * Make this call by using the method that the Request trigger expects. This example uses the `POST` method:
-
-     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
    * Copy the callback URL from your workflow's **Overview** page.
 
@@ -112,6 +109,12 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
      1. On the **Overview** page, under **Workflow URL**, move your pointer over the URL, and select **Copy to clipboard**:
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-standard.png" alt-text="Screenshot shows Standard workflow and Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-standard.png":::
+
+1. To test the callback URL that you now have for the Request trigger, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/), and send the request using the method that the Request trigger expects.
+
+   This example uses the `POST` method:
+
+   `POST https://{logic-app-name}.azurewebsites.net:443/api/{workflow-name}/triggers/{trigger-name}/invoke?api-version=2022-05-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
 ### [Consumption](#tab/consumption)
 
@@ -175,17 +178,13 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 1. Save your workflow.
 
-   The **HTTP POST URL** box now shows the generated callback URL that other services can use to call and trigger your logic app. This URL includes query parameters that specify a Shared Access Signature (SAS) key, which is used for authentication.
+   The **HTTP POST URL** box now shows the generated callback URL that other services can use to call and trigger your logic app workflow. This URL includes query parameters that specify a Shared Access Signature (SAS) key, which is used for authentication.
 
    ![Screenshot shows Consumption workflow, Request trigger, and generated callback URL for endpoint.](./media/logic-apps-http-endpoint/endpoint-url-consumption.png)
 
 1. To copy the callback URL, you have these options:
 
    * To the right of the **HTTP POST URL** box, select **Copy Url** (copy files icon).
-
-   * Make this call by using the method that the Request trigger expects. This example uses the `POST` method:
-
-     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
    * Copy the callback URL from your logic app's **Overview** page.
 
@@ -194,6 +193,12 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
      1. On the **Overview** page, under **Workflow URL**, move your pointer over the URL, and select **Copy to clipboard**:
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png" alt-text="Screenshot shows Consumption logic app Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png":::
+
+1. To test the callback URL that you now have for the Request trigger, use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/), and send the request using the method that the Request trigger expects.
+
+   This example uses the `POST` method:
+
+   `POST https://{server-name}.{region}.logic.azure.com/workflows/{workflow-ID}/triggers/{trigger-name}/paths/invoke/?api-version=2016-10-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
 ---
 

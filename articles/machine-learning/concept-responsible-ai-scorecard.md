@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
 ms.topic:  conceptual
-ms.author: mesameki
-author: mesameki
-ms.reviewer: lagayhar
-ms.date: 11/09/2022
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mesameki
+ms.date: 02/27/2024
 ms.custom: responsible-ml, build-2023, build-2023-dataai
 ---
 

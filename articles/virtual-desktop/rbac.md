@@ -4,7 +4,7 @@ description: An overview of built-in Azure RBAC roles for Azure Virtual Desktop 
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/23/2024
+ms.date: 01/25/2024
 ---
 
 # Built-in Azure RBAC roles for Azure Virtual Desktop
@@ -142,7 +142,7 @@ The Desktop Virtualization Power On Contributor role is used to allow the Azure 
 
 | Action type | Permissions |
 |--|--|
-| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li></ul> |
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/start/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/stop/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/restart/action</li><li>Microsoft.HybridCompute/machines/read</li><li>Microsoft.HybridCompute/operations/read</li><li>Microsoft.HybridCompute/locations/operationresults/read</li><li>Microsoft.HybridCompute/locations/operationstatus/read</li></ul> |
 | notActions | None |
 | dataActions | None |
 | notDataActions | None |
@@ -153,7 +153,7 @@ The Desktop Virtualization Power On Off Contributor role is used to allow the Az
 
 | Action type | Permissions |
 |--|--|
-| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Insights/eventtypes/values/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li></ul> |
+| actions | <ul><li>Microsoft.Compute/virtualMachines/start/action</li><li>Microsoft.Compute/virtualMachines/read</li><li>Microsoft.Compute/virtualMachines/instanceView/read</li><li>Microsoft.Compute/virtualMachines/deallocate/action</li><li>Microsoft.Compute/virtualMachines/restart/action</li><li>Microsoft.Compute/virtualMachines/powerOff/action</li><li>Microsoft.Insights/eventtypes/values/read</li><li>Microsoft.Authorization/\*/read</li><li>Microsoft.Insights/alertRules/\*</li><li>Microsoft.Resources/deployments/\*</li><li>Microsoft.Resources/subscriptions/resourceGroups/read</li><li>Microsoft.DesktopVirtualization/hostpools/read</li><li>Microsoft.DesktopVirtualization/hostpools/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/write</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read</li><li>Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/read</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/start/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/stop/action</li><li>Microsoft.AzureStackHCI/virtualMachineInstances/restart/action</li><li>Microsoft.HybridCompute/machines/read</li><li>Microsoft.HybridCompute/operations/read</li><li>Microsoft.HybridCompute/locations/operationresults/read</li><li>Microsoft.HybridCompute/locations/operationstatus/read</li></ul> |
 | notActions | None |
 | dataActions | None |
 | notDataActions | None |

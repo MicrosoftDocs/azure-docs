@@ -1,17 +1,20 @@
 ---
 title: 'How to use the Codex models to work with code'
 titleSuffix: Azure OpenAI Service
-description: Learn how to use the Codex models on Azure OpenAI to handle a variety of coding tasks
+description: Learn how to use the Codex models on Azure OpenAI to handle a variety of coding tasks.
 #services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 06/24/2022
-author: ChrisHMSFT
-ms.author: chrhoder
+ms.date: 02/15/2024
+author: mrbullwinkle
+ms.author: mbullwin
 ---
 
 # Codex models and Azure OpenAI Service
+
+> [!NOTE]
+> This article was authored and tested against the [legacy code generation models](/azure/ai-services/openai/concepts/legacy-models). These models use the completions API, and its prompt/completion style of interaction. If you wish to test the techniques described in this article verbatim we recommend using the `gpt-35-turbo-instruct` model which allows access to the completions API. However, for code generation the chat completions API and the latest GPT-4 models will generally yield the best results, but the prompts would need to be converted to the conversational style specific to interacting with those models.
 
 The Codex model series is a descendant of our GPT-3 series that's been trained on both natural language and billions of lines of code. It's most capable in Python and proficient in over a dozen languages including C#, JavaScript, Go, Perl, PHP, Ruby, Swift, TypeScript, SQL, and even Shell.
 
@@ -113,7 +116,7 @@ Codex understands dozens of different programming languages. Many share similar 
 
 ### Prompt Codex with what you want it to do
 
-If you want Codex to create a webpage, placing the first line of code in an HTML document (`<!DOCTYPE html>`) after your comment tells Codex what it should do next. The same method works for creating a function from a comment (following the comment with a new line starting with func or def).
+If you want Codex to create a webpage, placing the initial line of code in an HTML document (`<!DOCTYPE html>`) after your comment tells Codex what it should do next. The same method works for creating a function from a comment (following the comment with a new line starting with func or def).
 
 ```html
 <!-- Create a web page with the title 'Kat Katman attorney at paw' -->
@@ -178,7 +181,7 @@ animals  = [ {"name": "Chomper", "species": "Hamster"}, {"name":
 
 ### Lower temperatures give more precise results
 
-Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3 models, where a higher temperature can provide useful creative and random results, higher temperatures with Codex models may give you really random or erratic responses.
+Setting the API temperature to 0, or close to zero (such as 0.1 or 0.2) tends to give better results in most cases. Unlike GPT-3 models, where a higher temperature can provide useful creative and random results, higher temperatures with Codex models might produce random or erratic responses.
 
 In cases where you need Codex to provide different potential results, start at zero and then increment upwards by 0.1 until you find suitable variation.
 

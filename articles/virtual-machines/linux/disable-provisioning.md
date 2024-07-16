@@ -6,7 +6,6 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
-ms.workload: infrastructure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 04/11/2023
 ms.author: danis

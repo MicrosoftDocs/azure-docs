@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.reviewer: poojaa
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 03/28/2023
+ms.date: 05/31/2024
 ---
 
 # Manage an Azure Monitor workspace
@@ -14,7 +14,7 @@ ms.date: 03/28/2023
 This article shows you how to create and delete an Azure Monitor workspace. When you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
 
 > [!NOTE]
-> When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form `<azure-monitor-workspace-name>` will automatically be created in a resource group in the form `MA_<azure-monitor-workspace-name>_<location>_managed`.
+> When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form `<azure-monitor-workspace-name>` will automatically be created in a resource group in the form `MA_<azure-monitor-workspace-name>_<location>_managed`. In case there are any Azure policies with restrictions on resource or resource group names, [create an exemption](../../governance/policy/concepts/exemption-structure.md) to exempt these resources from evaluation.
 
 ## Create an Azure Monitor workspace
 ### [Azure portal](#tab/azure-portal)
@@ -35,7 +35,7 @@ Use the following command to create an Azure Monitor workspace using Azure CLI.
 az monitor account create --name <azure-monitor-workspace-name> --resource-group <resource-group-name> --location <location>
 ```
 
-For more details, visit [Azure CLI for Azure Monitor Workspace](https://learn.microsoft.com/cli/azure/monitor/account?view=azure-cli-latest)
+For more details, visit [Azure CLI for Azure Monitor Workspace](/cli/azure/monitor/account)
 
 ### [Resource Manager](#tab/resource-manager)
 Use one of the following Resource Manager templates with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
@@ -104,7 +104,7 @@ For example:
   az monitor account delete --name <azure-monitor-workspace-name> --resource-group <resource-group-name>
 ```
 
-For more details, visit [Azure CLI for Azure Monitor Workspace](https://learn.microsoft.com/cli/azure/monitor/account?view=azure-cli-latest)
+For more details, visit [Azure CLI for Azure Monitor Workspace](/cli/azure/monitor/account)
 
 ### [Resource Manager](#tab/resource-manager)
 For information on deleting resources and Azure Resource Manager, see [Azure Resource Manager resource group and resource deletion](../../azure-resource-manager/management/delete-resource-group.md)

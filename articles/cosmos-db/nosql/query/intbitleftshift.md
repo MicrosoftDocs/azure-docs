@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Shifts the left-hand operator left by the number of bits defined by its right-ha
 
 ## Syntax
 
-```sql
+```nosql
 IntBitLeftShift(<int_expr_1>, <int_expr_2>)
 ```
 
@@ -42,7 +43,7 @@ Returns a 64-bit integer.
 
 This example tests the function with various static values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/intbitleftshift/query.novalidate.sql" highlight="2-3":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/intbitleftshift/query.novalidate.sql" highlight="2-3":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/intbitleftshift/result.novalidate.json":::
 

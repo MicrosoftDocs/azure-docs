@@ -5,10 +5,9 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: overview
-ms.workload: infrastructure-services
-ms.date: 11/08/2023
+ms.date: 04/26/2024
 ms.author: abell
-ms.custom: ignite-2022, references_regions
+ms.custom: references_regions
 ---
 
 # What is Azure DDoS Protection?
@@ -17,7 +16,7 @@ Distributed denial of service (DDoS) attacks are some of the largest availabilit
 
 Azure DDoS Protection, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes.
 
-:::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for an Azure DDoS protected PaaS web application.":::
+:::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for an Azure DDoS protected PaaS web application." lightbox="./media/ddos-best-practices/ddos-protection-overview-architecture.png":::
 
 Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
 
@@ -100,4 +99,3 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 * [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
 * [Learn module: Introduction to Azure DDoS Protection](/training/modules/introduction-azure-ddos-protection/)
 * [Learn more about Azure network security](../networking/security/index.yml)
-

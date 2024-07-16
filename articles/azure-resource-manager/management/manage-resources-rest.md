@@ -3,9 +3,9 @@ title: Manage resources - REST
 description: Use REST operations with Azure Resource Manager to manage your resources. Shows how to read, deploy, and delete resources. 
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.author: jehunte
-ms.date: 04/26/2023
+ms.date: 03/19/2024
 ---
+
 # Manage Azure resources by using the REST API
 
 Learn how to use the REST API for [Azure Resource Manager](overview.md) to manage your Azure resources. For a comprehensive reference of how to structure Azure REST calls, see [Getting Started with REST](/rest/api/azure/). View the [Resource Management REST API reference](/rest/api/resources/) for more details on the available operations.
@@ -13,7 +13,7 @@ Learn how to use the REST API for [Azure Resource Manager](overview.md) to manag
 ## Obtain an access token
 To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the "Authorization" header and setting the value to "Bearer {access-token}".
 
-If you need to programatically retrieve new tokens as part of your application, you can obtain an access token by [Registering your client application with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
+If you need to programmatically retrieve new tokens as part of your application, you can obtain an access token by [Registering your client application with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
 
 If you are getting started and want to test Azure REST APIs using your individual token, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 

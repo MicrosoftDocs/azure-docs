@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 02/14/2024
 ms.author: pafarley
 ---
 
-# Shelf Product Recognition - Custom Model (preview)
+# Shelf product recognition - custom model (preview)
 
 You can train a custom model to recognize specific retail products for use in a Product Recognition scenario. The out-of-box [Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
 
@@ -41,12 +41,12 @@ When you go through the labeling workflow, create labels for each of the product
 
 ## Analyze shelves with a custom model
 
-When your custom model is trained and ready (you've completed the steps in the [Model customization guide](./model-customization.md)), you can use it through the Shelf Analyze operation. Set the _PRODUCT_CLASSIFIER_MODEL_ URL parameter to the name of your custom model (the _ModelName_ value you used in the creation step).
+When your custom model is trained and ready (you've completed the steps in the [Model customization guide](./model-customization.md)), you can use it through the Shelf Analyze operation. 
 
 The API call will look like this:
 
 ```bash
-curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/productrecognition/ms-pretrained-product-detection/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
+curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/productrecognition/<your_model_name>/runs/<your_run_name>?api-version=2023-04-01-preview" -d "{
     'url':'<your_url_string>'
 }"
 ```
@@ -54,7 +54,8 @@ curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: app
 1. Make the following changes in the command where needed:
     1. Replace the `<subscriptionKey>` with your Vision resource key.
     1. Replace the `<endpoint>` with your Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
-    2. Replace the `<your_run_name>` with your unique test run name for the task queue. It is an async API task queue name for you to be able retrieve the API response later. For example, `.../runs/test1?api-version...`
+    1. Replace `<your_model_name>` with the name of your custom model (the _ModelName_ value you used in the creation step).
+    1. Replace the `<your_run_name>` with your unique test run name for the task queue. It is an async API task queue name for you to be able retrieve the API response later. For example, `.../runs/test1?api-version...`
     1. Replace the `<your_url_string>` contents with the blob URL of the image
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
@@ -67,3 +68,4 @@ In this guide, you learned how to use a custom Product Recognition model to bett
 > [Planogram matching](shelf-planogram.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

@@ -4,7 +4,7 @@ description: Learn how to migrate from in-tree persistent volume to the Containe
 ms.topic: article
 ms.date: 01/11/2024
 author: mgoedtel
-
+ms.subservice: aks-storage
 ---
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
@@ -515,7 +515,7 @@ Migration from in-tree to CSI is supported by creating a static volume:
 - Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster
+[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-cluster-access
 [azure-resource-locks]: ../azure-resource-manager/management/lock-resources.md
 [csi-driver-overview]: csi-storage-drivers.md
 [aks-storage-backups-best-practices]: operator-best-practices-storage.md

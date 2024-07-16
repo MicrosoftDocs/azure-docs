@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: include
-ms.custom: include file, ignite-fall-2021
+ms.custom: include file
 ms.date: 01/19/2024
 ---
 

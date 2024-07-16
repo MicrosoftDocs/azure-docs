@@ -6,7 +6,6 @@ services: network-watcher
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/28/2023
 ms.author: halkazwini
 ms.custom: template-how-to, engagement-fy23
@@ -20,8 +19,6 @@ ms.custom: template-how-to, engagement-fy23
 Customers are often faced with the challenge of verifying the security posture of their infrastructure. This challenge is no different for their VMs in Azure. It's important to have a similar security profile based on the Network Security Group (NSG) rules applied. Using the Security Group View, you can now get the list of rules applied to a VM within an NSG. You can define a golden NSG security profile and initiate Security Group View on a weekly cadence and compare the output to the golden profile and create a report. This way you can identify with ease all the VMs that don't conform to the prescribed security profile.
 
 To learn more about network security groups, see [Network security groups overview](../virtual-network/network-security-groups-overview.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 

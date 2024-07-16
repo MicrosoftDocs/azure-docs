@@ -4,7 +4,6 @@ description: Table of all topics for the Azure service named SQL Server Stretch 
 services: sql-server-stretch-database
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
-ms.workload: sql-server-stretch-database
 ms.topic: article
 ms.date: 10/05/2016
 author: blazem-msft

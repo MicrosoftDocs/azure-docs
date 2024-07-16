@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/08/2024
+ms.date: 03/07/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more.
+Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more. By default, data is written to Lakehouse Table in V-Order, and you can go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order) for more information.
 
 This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse and use Data Flow to transform data in Microsoft Fabric Lakehouse. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
@@ -24,13 +24,13 @@ This article outlines how to use Copy activity to copy data from and to Microsof
 
 This Microsoft Fabric Lakehouse connector is supported for the following capabilities:
 
-| Supported capabilities|IR | Managed private endpoint|
-|---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |- |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
-|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ |
+| Supported capabilities|IR | 
+|---------| --------| 
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
@@ -88,6 +88,9 @@ To use service principal authentication, follow these steps.
         :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
     
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
+
+       >[!Note]
+       > The service principal will not appear in the **Add people** list unless the Power BI tenant settings [enable service principals access to Fabric APIs](/power-bi/developer/embedded/embed-service-principal#step-3---enable-the-power-bi-service-admin-settings).
     
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
         
@@ -470,6 +473,9 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The **type** property of the Copy Activity source must be set to **LakehouseTableSink**. | Yes      |
 
+>[!Note]
+> Data is written to Lakehouse Table in V-Order by default. For more information, go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order).
+
 **Example:**
 
 ```json
@@ -524,6 +530,8 @@ Microsoft Fabric Lakehouse connector supports the following file formats. Refer 
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)
+  
+To use Fabric Lakehouse file-based connector in inline dataset type, you need to choose the right Inline dataset type for your data. You can use DelimitedText, Avro, JSON, ORC, or Parquet depending on your data format.
 
 ### Microsoft Fabric Lakehouse Table in mapping data flow
 
@@ -579,6 +587,19 @@ sink(allowSchemaDrift: true,
     skipDuplicateMapOutputs: true) ~> CustomerTable
 
 ```
+For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 
 ## Related content
 

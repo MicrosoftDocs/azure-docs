@@ -82,7 +82,7 @@
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Metrics
-    href: concept-metrics.md
+    href: monitor-signalr-reference.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication
@@ -159,10 +159,12 @@
           href: signalr-howto-work-with-apim.md
   - name: Monitor
     items:
+    - name: Monitor
+      href: monitor-signalr.md
     - name: Use diagnostic logs to monitor SignalR Service
       href: signalr-howto-diagnostic-logs.md
-    - name: Monitor SignalR service data reference
-      href: signalr-howto-monitor-reference.md
+    - name: Monitoring data reference
+      href: monitor-signalr-reference.md
     - name: Audit compliance using Azure Policy
       href: signalr-howto-azure-policy.md
   - name: Troubleshooting

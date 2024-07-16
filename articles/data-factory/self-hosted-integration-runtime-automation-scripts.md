@@ -6,8 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.custom: seo-lt-2019
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Automating self-hosted integration runtime installation using local PowerShell scripts

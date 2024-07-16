@@ -8,8 +8,8 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/20/2023
-ms.custom: seo-python-october2019, devx-track-python, mode-api
+ms.date: 05/15/2024
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

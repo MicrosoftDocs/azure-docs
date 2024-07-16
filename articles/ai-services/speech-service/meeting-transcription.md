@@ -8,7 +8,7 @@ ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 1/21/2024
 ms.author: eur
-ms.custom: cogserv-non-critical-speech, ignite-fall-2021, references_regions
+ms.custom: cogserv-non-critical-speech, references_regions
 ---
 
 # What is meeting transcription? (Preview)

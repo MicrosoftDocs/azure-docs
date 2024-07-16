@@ -1,75 +1,132 @@
 ---
-title: Create an Azure AI project in Azure AI Studio
+title: Create an Azure AI Studio project in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: This article describes how to create an Azure AI Studio project.
+description: This article describes how to create an Azure AI Studio project from an Azure AI Studio hub that was previously created.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 5/21/2024
 ms.reviewer: deeikele
 ms.author: sgilley
 author: sdgilley
+# customer intent: As a developer, I want to create an Azure AI Studio project so I can work with generative AI.
 ---
 
-# Create an Azure AI project in Azure AI Studio
+# Create a project in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+This article describes how to create an Azure AI Studio project. A project is used to organize your work and save state while building customized AI apps. 
 
-This article describes how to create an Azure AI project in Azure AI Studio. A project is used to organize your work and save state while building customized AI apps. 
+Projects are hosted by an Azure AI Studio hub that provides enterprise-grade security and a collaborative environment. For more information about the projects and resources model, see [Azure AI Studio hubs](../concepts/ai-resources.md).
 
-Projects are hosted by an Azure AI resource that provides enterprise-grade security and a collaborative environment. For more information about the Azure AI projects and resources model, see [Azure AI resources](../concepts/ai-resources.md).
+## Create a project
 
-You can create a project in Azure AI Studio in more than one way. The most direct way is from the **Build** tab.
-1. Select the **Build** tab at the top of the page.
-1. Select **+ New project**.
+Use the following tabs to select the method you plan to use to create a project:
 
-    :::image type="content" source="../media/how-to/projects-create-new.png" alt-text="Screenshot of the Build tab of the Azure AI Studio with the option to create a new project visible." lightbox="../media/how-to/projects-create-new.png":::
+# [Azure AI Studio](#tab/ai-studio)
 
-1. Enter a name for the project.
-1. Select an Azure AI resource from the dropdown to host your project. If you don't have access to an Azure AI resource yet, select **Create a new resource**.
+[!INCLUDE [Create Azure AI Studio project](../includes/create-projects.md)]
 
-    :::image type="content" source="../media/how-to/projects-create-details.png" alt-text="Screenshot of the project details page within the create project dialog." lightbox="../media/how-to/projects-create-details.png":::
+# [Python SDK](#tab/python)
 
-    > [!NOTE]
-    > To create an Azure AI resource, you must have **Owner** or **Contributor** permissions on the selected resource group. It's recommended to share an Azure AI resource with your team. This lets you share configurations like data connections with all projects, and centrally manage security settings and spend.
+[!INCLUDE [SDK setup](../includes/development-environment-config.md)]
 
-1. If you're creating a new Azure AI resource, enter a name.
+8. Use the following code to create a project from a hub you or your administrator created previously. Replace example string values with your own values:
 
-    :::image type="content" source="../media/how-to/projects-create-resource.png" alt-text="Screenshot of the create resource page within the create project dialog." lightbox="../media/how-to/projects-create-resource.png":::
+    ```Python
+    from azure.ai.ml.entities import Project
 
-1. Select your **Azure subscription** from the dropdown. Choose a specific Azure subscription for your project for billing, access, or administrative reasons. For example, this grants users and service principals with subscription-level access to your project.
+    my_project_name = "myexampleproject"
+    my_location = "East US"
+    my_display_name = "My Example Project"
+    hub_id = "" # Azure resource manager ID of the hub
 
-1. Leave the **Resource group** as the default to create a new resource group. Alternatively, you can select an existing resource group from the dropdown.
+    my_project = Project(name=my_hub_name, 
+                    location=my_location,
+                    display_name=my_display_name,
+                    hub_id=created_hub.id)
 
-    > [!TIP]
-    > Especially for getting started it's recommended to create a new resource group for your project. This allows you to easily manage the project and all of its resources together. When you create a project, several resources are created in the resource group, including an Azure AI resource, a container registry, and a storage account.
+    created_project = ml_client.workspaces.begin_create(workspace=my_hub).result() 
+    ```
 
-1. Enter the **Location** for the Azure AI resource and then select **Next**. The location is the region where the Azure AI resource is hosted. The location of the Azure AI resource is also the location of the project. Azure AI services availability differs per region. For example, certain models might not be available in certain regions.
-1. Review the project details and then select **Create a project**. 
+# [Azure CLI](#tab/azurecli)
 
-    :::image type="content" source="../media/how-to/projects-create-review-finish.png" alt-text="Screenshot of the review and finish page within the create project dialog." lightbox="../media/how-to/projects-create-review-finish.png":::
+1. If you don't have the Azure CLI and machine learning extension installed, follow the steps in the [Install and set up the machine learning extension](/azure/machine-learning/how-to-configure-cli) article.
 
-Once a project is created, you can access the **Tools**, **Components**, and **Settings** assets in the left navigation panel. Tools and assets listed under each of those subheadings can vary depending on the type of project you've selected. For example, if you've selected a project that uses Azure OpenAI, you see the **Playground** navigation option under **Tools**. 
+1. To authenticate to your Azure subscription from the Azure CLI, use the following command:
 
-## Project details
+    ```azurecli
+    az login
+    ```
 
-In the project details page (select **Build** > **Settings**), you can find information about the project, such as the project name, description, and the Azure AI resource that hosts the project. You can also find the project ID, which is used to identify the project in the Azure AI Studio API.
+    For more information on authenticating, see [Authentication methods](/cli/azure/authenticate-azure-cli).
 
-- Project name: The name of the project corresponds to the selected project in the left panel. The project name is also referenced in the *Welcome to the YOUR-PROJECT-NAME project* message on the main page. You can change the name of the project by selecting the edit icon next to the project name.
-- Project description: The project description (if set) is shown directly below the *Welcome to the YOUR-PROJECT-NAME project* message on the main page. You can change the description of the project by selecting the edit icon next to the project description.
-- Azure AI resource: The Azure AI resource that hosts the project. 
-- Location: The location of the Azure AI resource that hosts the project. Azure AI resources are supported in the same regions as Azure OpenAI. 
-- Subscription: The subscription that hosts the Azure AI resource that hosts the project.
-- Resource group: The resource group that hosts the Azure AI resource that hosts the project.
-- Container registry: The container for project files. Container registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments.
-- Storage account: The storage account for the project.
+1. Once the extension is installed and authenticated to your Azure subscription, use the following command to create a new Azure AI project from an existing Azure AI hub:
 
-Select the Azure AI resource, subscription, resource group, container registry, or storage account to navigate to the corresponding resource in the Azure portal.
+    ```azurecli
+    az ml workspace create --kind project --hub-id {my_hub_ARM_ID} --resource-group {my_resource_group} --name {my_project_name}
+    ```
+
+---
+
+## Project settings
+
+# [Azure AI Studio](#tab/ai-studio)
+
+On the project **Settings** page you can find information about the project, such as the project name, description, and the hub that hosts the project. You can also find the project ID, which is used to identify the project via SDK or API.
+
+:::image type="content" source="../media/how-to/projects/project-settings.png" alt-text="Screenshot of an AI Studio project settings page." lightbox = "../media/how-to/projects/project-settings.png":::
+
+- Name: The name of the project corresponds to the selected project in the left panel. 
+- Hub: The hub that hosts the project. 
+- Location: The location of the hub that hosts the project. For supported locations, see [Azure AI Studio regions](../reference/region-support.md).
+- Subscription: The subscription that hosts the hub that hosts the project.
+- Resource group: The resource group that hosts the hub that hosts the project.
+
+Select **Manage in the Azure portal** to navigate to the project resources in the Azure portal.
+
+# [Python SDK](#tab/python)
+
+To manage or use the new project, include it in the `MLClient`:
+
+```python
+ml_client = MLClient(workspace_name=my_project_name, resource_group_name=my_resource_group, subscription_id=my_subscription_id,credential=DefaultAzureCredential())
+```
+
+# [Azure CLI](#tab/azurecli)
+
+To view settings for the project, use the `az ml workspace show` command. For example:
+
+```azurecli
+az ml workspace show --name {my_project_name} --resource-group {my_resource_group}
+```
+
+---
+
+## Project resource access
+
+Common configurations on the hub are shared with your project, including connections, compute instances, and network access, so you can start developing right away.
+
+In addition, a number of resources are only accessible by users in your project workspace:
+
+1. Components including datasets, flows, indexes, deployed model API endpoints (open and serverless).
+1. Connections created by you under 'project settings'.
+1. Azure Storage blob containers, and a fileshare for data upload within your project. Access storage using the following connections:
+   
+   | Data connection | Storage location | Purpose |
+   | --- | --- | --- |
+   | workspaceblobstore | {project-GUID}-blobstore | Default container for data upload |
+   | workspaceartifactstore | {project-GUID}-blobstore | Stores components and metadata for your project such as model weights |
+   | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
+
+> [!NOTE]
+> Storage connections are not created directly with the project when your storage account has public network access set to disabled. These are created instead when a first user accesses AI studio over a private network connection. [Troubleshoot storage connections](troubleshoot-secure-connection-project.md#troubleshoot-missing-storage-connections)
+
 
 ## Next steps
 
-- [Quickstart: Generate product name ideas in the Azure AI Studio playground](../quickstarts/playground-completions.md)
+- [Deploy an enterprise chat web app](../tutorials/deploy-chat-web-app.md)
 - [Learn more about Azure AI Studio](../what-is-ai-studio.md)
-- [Learn more about Azure AI resources](../concepts/ai-resources.md)
+- [Learn more about hubs](../concepts/ai-resources.md)

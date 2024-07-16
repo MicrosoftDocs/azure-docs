@@ -563,7 +563,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
-## Suspend instance (preview)
+## Suspend instance
 
 Suspends a running orchestration instance.
 
@@ -592,7 +592,7 @@ Several possible status code values can be returned.
 
 The responses for this API do not contain any content.
 
-## Resume instance (preview)
+## Resume instance
 
 Resumes a suspended orchestration instance.
 

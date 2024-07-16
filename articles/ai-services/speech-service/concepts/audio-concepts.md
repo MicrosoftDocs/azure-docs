@@ -2,12 +2,13 @@
 title: Audio concepts in Azure AI Speech
 titleSuffix: Azure AI services
 description: An overview of audio concepts in Azure AI Speech.
-author: mswellsi
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 12/12/2023
-ms.author: wellsi
+ms.date: 2/24/2024
+ms.reviewer: wellsi
+ms.author: eur
+author: eric-urban
 ---
 
 # Audio concepts in Azure AI Speech

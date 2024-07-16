@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/app-service/security-recommendations.md",
+            "redirect_url": "/security/benchmark/azure/baselines/app-service-security-baseline",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/scenario-secure-app-authentication-app-service-as-user.md",
             "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service",
             "redirect_document_id": false
@@ -686,13 +691,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/deploy-content-sync.md",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-web/app-service-deploy-content-sync.md",
-            "redirect_url": "/azure/app-service/deploy-content-sync",
+            "redirect_url": "/azure/app-service/deploy-continuous-deployment",
             "redirect_document_id": false
         },
         {
@@ -1240,6 +1250,11 @@
             "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/app-service/quickstart-golang.md",
+            "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+            "redirect_document_id": false
+        },        
         {
             "source_path_from_root": "/articles/app-service/app-service-web-get-started-dotnet.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore",
@@ -1833,6 +1848,16 @@
         {
             "source_path_from_root": "/articles/app-service-web/scripts/app-service-powershell-scale-manual.md",
             "redirect_url": "/azure/app-service/scripts/powershell-scale-manual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/get-resource-events.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/overview-monitoring.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
             "redirect_document_id": false
         },
         {
@@ -2639,6 +2664,26 @@
             "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
             "redirect_url": "/aspnet/core/security/authorization/secure-data",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+            "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/quickstart-arm-template-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-arm-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/app-service/quickstart-dotnetcore-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/app-service/quickstart-java-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-java",
+            "redirect_document_id": true
         }
     ]
 }

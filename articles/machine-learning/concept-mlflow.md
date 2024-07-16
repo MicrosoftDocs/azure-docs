@@ -3,14 +3,14 @@ title: MLflow and Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning uses MLflow to log metrics and artifacts from machine learning models, and to deploy your machine learning models to an endpoint.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 01/10/2024
 ms.topic: conceptual
-ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2, sdkv2
 ---
 
 # MLflow and Azure Machine Learning

@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.date: 03/25/2023
+ms.date: 01/31/2024
 ---
 
 # Quickstart: Create an Azure Payment HSM with the Azure CLI
@@ -19,7 +19,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -48,7 +48,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
   az account set --subscription <subscription-id>
   ```
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
 
 ## Create a resource group
 
@@ -68,7 +68,7 @@ Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/
 az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
+To verify that the virtual network and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
 
 ```azurecli-interactive
 az network vnet show -n "myVNet" -g "myResourceGroup"

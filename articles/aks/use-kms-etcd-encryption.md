@@ -2,8 +2,9 @@
 title: Use Key Management Service etcd encryption in Azure Kubernetes Service 
 description: Learn how to use Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 01/04/2024
+ms.date: 06/26/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -15,7 +16,7 @@ This article shows you how to turn on encryption at rest for your Azure Kubernet
 * Provide encryption at rest for secrets that are stored in etcd.
 * Rotate the keys in a key vault.
 
-For more information on using KMS, see [Encrypting Secret Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
+For more information on using KMS, see [Using a KMS provider for data encryption](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/).
 
 ## Prerequisites
 
@@ -23,8 +24,10 @@ For more information on using KMS, see [Encrypting Secret Data at Rest](https://
 * Azure CLI version 2.39.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install the Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> KMS supports Konnectivity or [API Server VNet Integration (preview)][api-server-vnet-integration].
+> KMS supports Konnectivity or [API Server VNet Integration (preview)][api-server-vnet-integration] for public key vault.
 >
+> KMS only supports [API Server VNet Integration (preview)][api-server-vnet-integration] for private key vault.
+> 
 > You can use `kubectl get po -n kube-system` to verify the results and show that a konnectivity-agent pod is running. If a pod is running, the AKS cluster is using Konnectivity. When you use API Server VNet Integration, you can run the `az aks show -g -n` command to verify that the `enableVnetIntegration` setting is set to `true`.
 
 ## Limitations
@@ -33,11 +36,11 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Deleting the key, the key vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy must be set before the feature is turned on. System-assigned managed identity isn't available until after the cluster is created. Consider the cycle dependency.
-* Azure Key Vault with a firewall to allow public access isn't supported because it blocks traffic from the KMS plugin to the key vault.
+* Azure Key Vault with a firewall setting "allow public access from specific virtual networks and IP addresses" or "disable public access" isn't supported because it blocks traffic from the KMS plugin to the key vault.
 * The maximum number of secrets that are supported by a cluster that has KMS turned on is 2,000. However, it's important to note that [KMS v2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure key vault from another tenant isn't supported.
 * With KMS turned on, you can't change the associated key vault mode (public versus private). To [update a key vault mode][update-a-key-vault-mode], you must first turn off KMS, and then turn it on again.
-* If a cluster has KMS turned on, has a private key vault, and isn't using the API Server VNet integration tunnel, you can't stop and then start the cluster.
+* If a cluster has KMS turned on and has a private key vault, it must use the [API Server VNet Integration (preview)][api-server-vnet-integration] tunnel. Konnectivity isn't supported.
 * Using the Virtual Machine Scale Sets API to scale the nodes in the cluster down to zero deallocates the nodes. The cluster then goes down and becomes unrecoverable.
 * After you turn off KMS, you can't destroy the keys. Destroying the keys causes the API server to stop working.
 
@@ -88,7 +91,7 @@ export KEYVAULT_RESOURCE_ID=$(az keyvault create --name MyKeyVault --resource-gr
 Assign yourself permissions to create a key:
 
 ```azurecli-interactive
-az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id --out tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
+az role assignment create --role "Key Vault Crypto Officer" --assignee-object-id $(az ad signed-in-user show --query id -o tsv) --assignee-principal-type "User" --scope $KEYVAULT_RESOURCE_ID
 ```
 
 Use `az keyvault key create` to create a key:
@@ -141,7 +144,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create an Azure key vault policy.
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC public key vault
@@ -157,7 +160,14 @@ az role assignment create --role "Key Vault Crypto User" --assignee-object-id $I
 To turn on KMS etcd encryption, create an AKS cluster by using the [az aks create][az-aks-create] command. You can use the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access`, and `--azure-keyvault-kms-key-id` parameters with `az aks create`.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $KEY_ID
+az aks create \
+    --name myAKSCluster \
+    --resource-group MyResourceGroup \
+    --assign-identity $IDENTITY_RESOURCE_ID \
+    --enable-azure-keyvault-kms \
+    --azure-keyvault-kms-key-vault-network-access "Public" \
+    --azure-keyvault-kms-key-id $KEY_ID \
+    --generate-ssh-keys
 ```
 
 ### Update an existing AKS cluster to turn on KMS etcd encryption for a public key vault
@@ -181,7 +191,7 @@ After you change the key ID (including changing either the key name or the key v
 > [!WARNING]
 > Remember to update all secrets after key rotation. If you don't update all secrets, the secrets are inaccessible if the keys that were created earlier don't exist or no longer work.
 >
-> After you rotate the key, the previous key (key1) is still cached and shouldn't be deleted. If you want to delete the previous key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without affecting the existing cluster.
+> KMS uses 2 keys at the same time. After the first key rotation, you need to ensure both the old and new keys are valid (not expired) until the next key rotation. After the second key rotation, the oldest key can be safely removed/expired
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
@@ -196,6 +206,9 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ## Turn on KMS for a private key vault
 
 If you turn on KMS for a private key vault, AKS automatically creates a private endpoint and a private link in the node resource group. The key vault is added a private endpoint connection with the AKS cluster.
+
+> [!WARNING]
+> KMS only supports [API Server VNet Integration (preview)][api-server-vnet-integration] for private key vault.
 
 ### Create a private key vault and key
 
@@ -250,7 +263,7 @@ The following sections describe how to assign decrypt and encrypt permissions fo
 If your key vault is not set with  `--enable-rbac-authorization`, you can use `az keyvault set-policy` to create a key vault policy in Azure:
 
 ```azurecli-interactive
-az keyvault set-policy -n MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
+az keyvault set-policy --name MyKeyVault --key-permissions decrypt encrypt --object-id $IDENTITY_OBJECT_ID
 ```
 
 #### Assign permissions for an RBAC private key vault
@@ -274,7 +287,15 @@ az role assignment create --role "Key Vault Contributor" --assignee-object-id $I
 To turn on KMS etcd encryption for a private key vault, create an AKS cluster by using the [az aks create][az-aks-create] command. You can use the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access`, and `--azure-keyvault-kms-key-vault-resource-id` parameters with `az-aks-create`.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
+az aks create \
+    --name myAKSCluster \
+    --resource-group MyResourceGroup \
+    --assign-identity $IDENTITY_RESOURCE_ID \
+    --enable-azure-keyvault-kms \
+    --azure-keyvault-kms-key-id $KEY_ID \
+    --azure-keyvault-kms-key-vault-network-access "Private" \
+    --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID \
+    --generate-ssh-keys
 ```
 
 ### Update an existing AKS cluster to turn on KMS etcd encryption for a private key vault
@@ -315,7 +336,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 > [!NOTE]
 > To change a different key vault with a different mode (whether public or private), you can run `az aks update` directly. To change the mode of an attached key vault, you must first turn off KMS, and then turn it on again by using the new key vault IDs.
 
-The following sections describe how to migrate an attached public key vault to private mode.
+The following sections describe how to migrate an attached public key vault to private mode.  These steps can also be used for migrating from private to public.
 
 ### Turn off KMS on the cluster
 
@@ -332,6 +353,8 @@ Update the key vault from public to private:
 ```azurecli-interactive
 az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disabled
 ```
+
+To migrate from private to public set `--public-network-access` to `Enabled` in the command above.
 
 ### Turn on KMS for the cluster by using the updated key vault
 
@@ -369,7 +392,7 @@ Beginning in AKS version 1.27, turning on the KMS feature configures KMS v2. Wit
 
 ### Migrate to KMS v2
 
-If your cluster version is later than 1.27 and you already turned on KMS, the upgrade to KMS 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
+If your cluster version is older than 1.27 and you already turned on KMS, the upgrade to cluster version 1.27 or later is blocked. Use the following steps to migrate to KMS v2:
 
 1. Turn off KMS on the cluster.
 1. Perform the storage migration.
@@ -424,6 +447,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [turn-on-kms-for-a-public-key-vault]: #turn-on-kms-for-a-public-key-vault
+[azure-keyvault-firewall]:../key-vault/general/how-to-azure-key-vault-network-security.md
 [turn-on-kms-for-a-private-key-vault]: #turn-on-kms-for-a-private-key-vault
 [update-a-key-vault-mode]: #update-a-key-vault-mode
 [api-server-vnet-integration]: api-server-vnet-integration.md

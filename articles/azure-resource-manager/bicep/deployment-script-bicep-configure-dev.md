@@ -1,8 +1,8 @@
 ---
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
-ms.topic: conceptual
-ms.date: 12/13/2023
+ms.topic: how-to
+ms.date: 07/11/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.devlang: azurecli
 ---
@@ -237,7 +237,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -249,7 +249,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-01-01' = {
+resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount

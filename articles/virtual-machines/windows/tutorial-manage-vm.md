@@ -4,7 +4,6 @@ description: In this tutorial, you learn how to use Azure PowerShell to create a
 author: ju-shim
 ms.service: virtual-machines
 ms.topic: tutorial
-ms.workload: infrastructure
 ms.date: 03/29/2022
 ms.author: jushiman
 ms.collection: windows

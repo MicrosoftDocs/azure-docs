@@ -1,13 +1,11 @@
 ---
-title: HBv4-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs 
-description: Learn about the HBv4-series VM size in Azure.  
-services: virtual-machines 
-tags: azure-resource-manager 
-ms.service: virtual-machines 
+title: HBv4-series VM overview, architecture, topology - Azure Virtual Machines | Microsoft Docs
+description: Learn about the HBv4-series VM size in Azure.
+services: virtual-machines
+ms.service: virtual-machines
 ms.subservice: hpc
-ms.workload: infrastructure-services 
-ms.topic: article 
-ms.date: 05/23/2023
+ms.topic: article
+ms.date: 06/10/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas
@@ -143,5 +141,3 @@ When paired in a striped array, the NVMe SSD provides up to 12 GB/s reads and 7 
 
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
-
-

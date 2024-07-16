@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 09/18/2023
 ms.author: schaffererin
 author: schaffererin
+ms.subservice: aks-developer
 ---
 
 # Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
@@ -27,7 +28,7 @@ In this article, you learn how to secure access to Azure OpenAI from Azure Kuber
 * This article builds on [Deploy an application that uses OpenAI on AKS](./open-ai-quickstart.md). You should complete that article before you begin this one.
 * You need a custom domain name enabled on your Azure OpenAI account to use for Microsoft Entra authorization. For more information, see [Custom subdomain names for Azure AI services](../ai-services/cognitive-services-custom-subdomains.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 <a name='enable-azure-ad-workload-identity-on-an-aks-cluster'></a>
 
@@ -226,8 +227,8 @@ To use Microsoft Entra Workload ID on AKS, you need to make a few changes to the
                 cpu: 20m
                 memory: 50Mi
               limits:
-                cpu: 30m
-                memory: 85Mi
+                cpu: 50m
+                memory: 128Mi
     EOF
     ```
 
@@ -291,3 +292,4 @@ For more information on Microsoft Entra Workload ID, see [Microsoft Entra Worklo
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl-describe-pod]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+

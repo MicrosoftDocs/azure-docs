@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 12/05/2023
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Send and receive messages from an Azure Service Bus queue (.NET)
