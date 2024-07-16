@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2024
+
+* [Azure  NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
+
 ## June 2024
 
 * [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
