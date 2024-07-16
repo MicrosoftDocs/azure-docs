@@ -146,7 +146,7 @@ Status code: 202 accepted.
 
 To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` parameter, must end with *_SRCH*.
 
-For example:
+**Example**
 
 ```azurecli
 az monitor log-analytics workspace table search-job create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --search-query 'Heartbeat | where ComputerIP has "00.000.00.000"' --limit 1500 --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z" --no-wait
@@ -154,22 +154,12 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 
 ### [PowerShell](#tab/powershell-1)
 
+To run a search job, run the [New-AzOperationalInsightsSearchTable](/powershell/module/az.operationalinsights/new-azoperationalinsightssearchtable?view=azps-12.0.0) command. The name of the results table, which you set using the `TableName` parameter, must end with *_SRCH*.
+
+**Example**
+
 ```powershell
-New-AzOperationalInsightsSearchTable
-   [-ResourceGroupName] <String>
-   [-WorkspaceName] <String>
-   [-TableName] <String>
-   [[-RetentionInDays] <Int32>]
-   [-TotalRetentionInDays <Int32>]
-   -SearchQuery <String>
-   -StartSearchTime <String>
-   -EndSearchTime <String>
-   [-Limit <Int32>]
-   [-AsJob]
-   [-DefaultProfile <IAzureContextContainer>]
-   [-WhatIf]
-   [-Confirm]
-   [<CommonParameters>]
+New-AzOperationalInsightsSearchTable -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName HeartbeatByIp_SRCH -SearchQuery "Heartbeat" -StartSearchTime "01-01-2022 00:00:00" -EndSearchTime "01-01-2022 00:00:00"
 ```
 
 ---
@@ -252,7 +242,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 To check the status and details of a search job table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
-For example:
+**Example**
 
 ```azurecli
 az monitor log-analytics workspace table show --subscription ContosoSID --resource-group ContosoRG --workspace-name ContosoWorkspace --name HeartbeatByIp_SRCH --output table \
@@ -260,14 +250,16 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ### [PowerShell](#tab/powershell-2)
 
+To check the status and details of a search job table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-12.0.0) command.
+
+**Example**
+
 ```powershell
-Get-AzOperationalInsightsTable
-   [-ResourceGroupName] <String>
-   [-WorkspaceName] <String>
-   [[-TableName] <String>]
-   [-DefaultProfile <IAzureContextContainer>]
-   [<CommonParameters>]
+Get-AzOperationalInsightsTable -ResourceGroupName "ContosoRG" -WorkspaceName "ContosoWorkspace" -tableName "HeartbeatByIp_SRCH"
 ```
+
+> [!NOTE]
+> When "-TableName" is not provided, the command will instead list all tables associated with a workspace.
 
 ---
 
