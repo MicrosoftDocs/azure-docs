@@ -118,7 +118,23 @@ For more information about the types of loops you can use with variables, see [I
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variableswithfunction.bicep" highlight="4,7,15" :::
+```bicep
+param rgLocation string
+param storageNamePrefix string = 'STG'
+
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
+resource demoAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageName
+  location: rgLocation
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+output stgOutput string = storageName
+```
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
@@ -126,7 +142,27 @@ Because storage account names must use lowercase letters, the `storageName` vari
 
 You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**. Pass in one of these values during deployment.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
+```bicep
+@allowed([
+  'test'
+  'prod'
+])
+param environmentName string
+
+var environmentSettings = {
+  test: {
+    instanceSize: 'Small'
+    instanceCount: 1
+  }
+  prod: {
+    instanceSize: 'Large'
+    instanceCount: 4
+  }
+}
+
+output instanceSize string = environmentSettings[environmentName].instanceSize
+output instanceCount int = environmentSettings[environmentName].instanceCount
+```
 
 ## Next steps
 

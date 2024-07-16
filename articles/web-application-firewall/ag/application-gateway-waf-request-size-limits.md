@@ -6,7 +6,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 03/05/2024
 ms.author: victorh
-ms.topic: conceptual 
+ms.topic: concept-article
 ---
 
 # Web Application Firewall request and file upload size limits

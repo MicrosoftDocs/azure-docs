@@ -10,7 +10,7 @@ ms.date: 07/01/2024
 
 # What are distance functions?
 
-Distance functions are mathematical formulas used to measure the similarity or dissimilarity between vectors (see [vector search](vector-search-overview.md)). Common examples include Manhattan distance, Euclidean distance, cosine similarity, and dot product. These measurements are crucial for determining how closely related two pieces of data.
+Distance functions are mathematical formulas used to measure the similarity or dissimilarity between vectors (see [vector search](vector-search-overview.md)). Common examples include Manhattan distance, Euclidean distance, cosine similarity, and dot product. These measurements are crucial for determining how closely related two pieces of data are.
 
 ## Manhattan distance
 

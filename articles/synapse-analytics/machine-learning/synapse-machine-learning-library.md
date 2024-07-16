@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 08/31/2022
-ms.author: sngun
+ms.author: whhender
 ---
 
 # What is SynapseML?

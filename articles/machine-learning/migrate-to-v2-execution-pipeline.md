@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: cloga
-ms.author: lochen
+author: sdgilley
+ms.author: sgilley
 ms.date: 09/16/2022
-ms.reviewer: sgilley
+ms.reviewer: lochen
 ms.custom:
   - migration
   - ignite-2023

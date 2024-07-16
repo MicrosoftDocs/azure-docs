@@ -224,6 +224,10 @@ items:
       href: /legal/cognitive-services/openai/customer-copyright-commitment?context=/azure/ai-services/openai/context/context
 - name: Reference
   items:
+    - name: Inference GA API reference
+      href: reference.md
+    - name: Inference preview API reference
+      href: reference-preview.md
     - name: Assistants API Reference
       items:
         - name: Python/REST
@@ -276,8 +280,6 @@ items:
       href: /javascript/api/@azure/openai/?view=azure-node-preview&preserve-view=true
     - name: .NET 
       href: /dotnet/api/azure.ai.openai?view=azure-dotnet-preview&preserve-view=true
-    - name: REST API (completions & embeddings)
-      href: reference.md
     - name: REST API (fine-tuning)
       href: /rest/api/azureopenai/fine-tuning?view=rest-azureopenai-2024-03-01-preview&preserve-view=true 
     - name: REST API (resource creation & deployment)

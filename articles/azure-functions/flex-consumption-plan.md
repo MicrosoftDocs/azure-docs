@@ -132,7 +132,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**:
   + Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
-  + There is a temporary limitation in West US 3. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." in that region please raise a support ticket so that your app can be unblocked.
+  + There is a temporary limitation where App Service quota limits for creating new apps are also being applied to Flex Consumption apps. If you see the following error "This region has quota of 0 instances for your subscription. Try selecting different region or SKU." please raise a support ticket so that your app creation can be unblocked.
 + **Deployments**: These deployment-related features aren't currently supported:
   + Deployment slots
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)

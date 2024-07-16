@@ -9,9 +9,9 @@ ms.custom:
   - engagement-fy23
   - ignite-2023
 ms.topic: conceptual
-ms.author: deeikele  
-author: deeikele  
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 09/12/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---

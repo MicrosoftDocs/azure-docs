@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ahughes-msft
-ms.author: alehughes
+author: msakande
+ms.author: mopeakande
 ms.date: 04/15/2024
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: alehughes
 ms.custom: devplatv2, build-2023
 ---
 

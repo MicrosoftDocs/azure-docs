@@ -7,23 +7,22 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 04/29/2024
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.custom: [references_regions]
 #This functionality is also available in Azure AI Studio: /azure/ai-studio/how-to/deploy-models-mistral.md
 ---
 # How to deploy Mistral models with Azure Machine Learning studio
 
-In this article, you learn how to use Azure Machine Learning studio to deploy the Mistral family of models as a service with pay-as-you-go billing.
+In this article, you learn how to use Azure Machine Learning studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 
-Mistral AI offers two categories of models in Azure Machine Learning studio:
+Mistral AI offers two categories of models in Azure Machine Learning studio. These models are available in the [model catalog](concept-model-catalog.md).
 
-- __Premium models__: Mistral Large and Mistral Small. These models are available with pay-as-you-go token based billing with Models as a Service in the studio model catalog. 
-- __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models are also available in the studio model catalog and can be deployed to dedicated VM instances in your own Azure subscription with managed online endpoints.
-   
-You can browse the Mistral family of models in the [model catalog](concept-model-catalog.md) by filtering on the Mistral collection. 
+- __Premium models__: Mistral Large and Mistral Small. These models can be deployed as serverless APIs with pay-as-you-go token-based billing.
+- __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models can be deployed to managed computes in your own Azure subscription.
+
+You can browse the Mistral family of models in the model catalog by filtering on the Mistral collection.
 
 ## Mistral family of models
 
@@ -37,7 +36,7 @@ Additionally, Mistral Large is:
 - __Strong in coding.__ Code generation, review, and comments. Supports all mainstream coding languages.
 - __Multi-lingual by design.__ Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 - __Responsible AI compliant.__ Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
- 
+
 # [Mistral Small](#tab/mistral-small)
 
 Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can be used on any language-based task that requires high efficiency and low latency.
@@ -54,19 +53,27 @@ Mistral Small is:
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Deploy Mistral family of models with pay-as-you-go
+## Deploy Mistral family of models as a serverless API
 
-Certain models in the model catalog can be deployed as a service with pay-as-you-go. Pay-as-you-go deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large** and **Mistral Small** are eligible to be deployed as a service with pay-as-you-go and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+**Mistral Large** and **Mistral Small** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+
 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
+- An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one. The serverless API model deployment offering for eligible models in the Mistral family is only available in workspaces created in these regions:
 
-    > [!IMPORTANT]
-    > The pay-as-you-go model deployment offering for eligible models in the Mistral family is only available in workspaces created in the **East US 2** and **Sweden Central** regions.
+    - East US
+    - East US 2
+    - North Central US
+    - South Central US
+    - West US
+    - West US 3
+    - Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -77,24 +84,23 @@ The following steps demonstrate the deployment of Mistral Large, but you can use
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
-1. Choose the model (Mistral-large) that you want to deploy from the [model catalog](https://ml.azure.com/model/catalog).
+1. Select the workspace in which you want to deploy your model. To use the serverless API model deployment offering, your workspace must belong to one of the regions listed in the [prerequisites](#prerequisites).
+1. Choose the model you want to deploy, for example Mistral-large, from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
-1. On the model's overview page in the model catalog, select **Deploy** and then **Pay-as-you-go**.
+1. On the model's overview page in the model catalog, select **Deploy** to open a serverless API deployment window for the model.
+1. Select the checkbox to acknowledge the Microsoft purchase policy.
 
-    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-serverless-api.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-serverless-api.png":::
 
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. 
-1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
+1. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
 1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (for example, Mistral-large). This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a workspace.
-
-    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-marketplace-terms.png":::
 
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select.
 
-    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-pay-as-you-go-project.png":::
+    :::image type="content" source="media/how-to-deploy-models-mistral/mistral-deploy-serverless-api-project.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-mistral/mistral-deploy-serverless-api-project.png":::
 
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
@@ -105,7 +111,7 @@ To create a deployment:
 1. Select the **Test** tab to start interacting with the model.  
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
-To learn about billing for Mistral models deployed with pay-as-you-go, see [Cost and quota considerations for Mistral family of models deployed as a service](#cost-and-quota-considerations-for-mistral-family-of-models-deployed-as-a-service).
+To learn about billing for Mistral models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Mistral family of models deployed as a service](#cost-and-quota-considerations-for-mistral-family-of-models-deployed-as-a-service).
 
 ### Consume the Mistral family of models as a service
 
@@ -118,7 +124,7 @@ You can consume Mistral Large by using the chat API.
 
 For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
 
-### Reference for Mistral family of models deployed as a service
+## Reference for Mistral family of models deployed as a service
 
 Mistral models accept both the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`. 
 
@@ -126,7 +132,7 @@ Mistral models accept both the [Azure AI Model Inference API](reference-model-in
 
 The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
 
-#### Mistral Chat API
+### Mistral Chat API
 
 Use the method `POST` to send the request to the `/v1/chat/completions` route:
 
@@ -161,7 +167,7 @@ The `messages` object has the following fields:
 | `role`    | `string` | The role of the message's author. One of `system`, `user`, or `assistant`. |
 
 
-#### Example
+#### Request example
 
 __Body__
 
@@ -227,7 +233,7 @@ The `logprobs` object is a dictionary with the following fields:
 | `tokens`         | `array` of `string`     | Selected tokens.   |
 | `top_logprobs`   | `array` of `dictionary` | Array of dictionary. In each dictionary, the key is the token and the value is the prob. |
 
-#### Example
+#### Response example
 
 The following JSON is an example response:
 
@@ -284,5 +290,6 @@ Models deployed as a service with pay-as-you-go are protected by Azure AI conten
 ## Related content
 
 - [Model Catalog and Collections](concept-model-catalog.md)
+- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Plan and manage costs for Azure AI Studio](concept-plan-manage-cost.md)
