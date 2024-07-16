@@ -51,7 +51,7 @@ This section gives an overview of methods provided by the Azure Storage client m
 
 The following methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and begin an asynchronous copy of data from the source blob:
 
-- [start_copy_from_url](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-start-copy-from-url)
+- [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#BlobClient.StartCopyFromURL)
 
 The `start_copy_from_url` returns a dictionary containing *copy_status* and *copy_id*. The *copy_status* property is **success** if the copy completed synchronously or **pending** if the copy has been started asynchronously.
 
