@@ -52,7 +52,6 @@
       href: remove-scvmm-from-azure-arc.md
     - name: Perform recovery operations for Arc resource bridge
       href: disaster-recovery.md
-
 - name: Reference
   items:
   - name: Azure CLI
@@ -61,4 +60,13 @@
       href: /cli/azure/scvmm
     - name: Azure Arc resource bridge
       href:  /cli/azure/arcappliance
+  - name: Azure PowerShell
+    items:
+    - name: Azure Arc-enabled System Center VMM
+      href: /powershell/module/az.connectedscvmm/
+  - name: REST API
+    items:
+    - name: Azure Arc-enabled SCVMM REST API reference
+      href: /rest/api/azure-arc-scvmm/
+
 
