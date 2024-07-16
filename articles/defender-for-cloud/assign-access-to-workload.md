@@ -32,7 +32,7 @@ Permissions for security connectors are managed through Azure role-based access 
 
 1. Assign permissions to the workload owners with All resources or the Azure Resource Graph option in the Azure portal.
 
-### [All resources](#tab/all-resources)
+    ### [All resources](#tab/all-resources)
 
     1. Search for and select **All resources**.
 
@@ -52,7 +52,7 @@ Permissions for security connectors are managed through Azure role-based access 
 
     1. Select the relevant resource connector.
 
-### [Azure Resource Graph](#tab/azure-resource-graph)
+    ### [Azure Resource Graph](#tab/azure-resource-graph)
 
     1. Search for and select **Resource Graph Explorer**.
 
@@ -60,7 +60,7 @@ Permissions for security connectors are managed through Azure role-based access 
 
     1. Copy and paste the following query to locate the security connector:
 
-### [AWS](#tab/aws)
+        ### [AWS](#tab/aws)
 
         ```bash
         resources 
@@ -70,7 +70,7 @@ Permissions for security connectors are managed through Azure role-based access 
         | project name, subscriptionId, resourceGroup, accountId = properties.hierarchyIdentifier, cloud = properties.environmentName  
         ```
 
-### [GCP](#tab/gcp)
+        ### [GCP](#tab/gcp)
 
         ```bash
         resources 
