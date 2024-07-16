@@ -14,26 +14,26 @@ ms.author: thvankra
 
 Retrieval Augmented Generation (RAG) combines the power of large language models (LLMs) with robust information retrieval systems to create more accurate and contextually relevant responses. Unlike traditional generative models that rely solely on pre-trained data, RAG architectures enhance an LLM's capabilities by integrating real-time information retrieval. This augmentation ensures responses are not only generative but also grounded in the most relevant, up-to-date data available. 
 
-Azure Cosmos DB, an operational database that supports vector search, stands out as an excellent platform for implementing RAG. Its ability to handle both operational and analytical workloads in a single database, along with advanced features such as multi-tenancy and hierarchical partition keys, provides a solid foundation for building sophisticated generative AI applications.
+Azure Cosmos DB, an operational database that supports vector search, stands out as an excellent platform for implementing RAG. Its ability to handle both operational and analytical workloads in a single database, along with advanced features such as multitenancy and hierarchical partition keys, provides a solid foundation for building sophisticated generative AI applications.
 
 ## Key Advantages of Using Azure Cosmos DB
 
-### 1. Unified Data Storage and Retrieval
+### Unified data storage and retrieval
 Azure Cosmos DB enables seamless integration of [vector search](../nosql/vector-search.md) capabilities within a unified database system. This means that your operational data and vectorized data coexist, eliminating the need for separate indexing systems. 
 
-### 2. Real-Time Data Ingestion and Querying
-Azure Cosmos DB supports real-time ingestion and querying, making it ideal for applications that require up-to-the-minute information. This is crucial for RAG architectures, where the freshness of data can significantly impact the relevance of generated responses.
+### Real-Time data ingestion and querying
+Azure Cosmos DB supports real-time ingestion and querying, making it ideal for AI applications. This is crucial for RAG architectures, where the freshness of data can significantly impact the relevance of generated responses.
 
-### 3. Scalability and Global Distribution
-Designed for large-scale applications, Azure Cosmos DB offers global distribution and automatic scaling. This ensures that your RAG-enabled application can handle high query volumes and deliver consistent performance irrespective of user location.
+### Scalability and global distribution
+Designed for large-scale applications, Azure Cosmos DB offers global distribution and [instant autoscale](../../cosmos-db/provision-throughput-autoscale.md). This ensures that your RAG-enabled application can handle high query volumes and deliver consistent performance irrespective of user location.
 
-### 4. High Availability and Reliability
+### High availability and reliability
 Azure Cosmos DB offers comprehensive SLAs for throughput, latency, and [availability](../../reliability/reliability-cosmos-db-nosql.md). This reliability ensures that your RAG system is always available to generate responses with minimal downtime.
 
-### 5. Multi-Tenancy with Hierarchical Partition Keys
-Azure Cosmos DB supports [multi-tenancy](../nosql/multi-tenancy-vector-search.md) through various performance and security isolation models, making it easier to manage data for different clients or user groups within the same database. This feature is particularly useful for SaaS applications where separation of tenant data is crucial for security and compliance.
+### Multitenancy with hierarchical partition keys
+Azure Cosmos DB supports [multitenancy](../nosql/multi-tenancy-vector-search.md) through various performance and security isolation models, making it easier to manage data for different clients or user groups within the same database. This feature is particularly useful for SaaS applications where separation of tenant data is crucial for security and compliance.
 
-### 6. Comprehensive Security Features
+### Comprehensive security features
 With built-in features such as end-to-end encryption, role-based access control (RBAC), and virtual network (VNet) integration, Azure Cosmos DB ensures that your data remains secure. These security measures are essential for enterprise-grade RAG applications that handle sensitive information.
 
 
@@ -62,4 +62,4 @@ Here's a streamlined process for building a RAG application with Azure Cosmos DB
 - Vector [embeddings](vector-embeddings.md)
 - [Distance functions](distance-functions.md)
 - [kNN vs ANN vector search algorithms](knn-vs-ann.md)
-- [Multi-tenancy for Vector Search](../nosql/multi-tenancy-vector-search.md)
+- [Multitenancy for Vector Search](../nosql/multi-tenancy-vector-search.md)

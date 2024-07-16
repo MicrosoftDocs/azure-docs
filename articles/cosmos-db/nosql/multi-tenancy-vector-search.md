@@ -1,6 +1,6 @@
 ---
 
-title: Multi-tenancy in Azure Cosmos DB
+title: Multitenancy in Azure Cosmos DB
 description: Learn concepts for building multitenant gen-ai apps in Azure Cosmos DB
 author: TheovanKraay
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.author: thvankra
 
 ---
 
-# Multi-tenancy for vector search in Azure Cosmos DB
+# Multitenancy for vector search in Azure Cosmos DB
 
 > "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." 
 > — Satya Nadella
@@ -81,9 +81,9 @@ For maximum isolation, the account-per-tenant model is preferable. Each tenant g
 Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multitenant environments.
 
 **Steps to Implement:**
-1. **Set Up Azure Key Vault:** Securely store your encryption keys.
-2. **Link to Cosmos DB:** Associate your Key Vault with your Cosmos DB account.
-3. **Rotate Keys Regularly:** Enhance security by routinely updating your keys.
+- **Set Up Azure Key Vault:** Securely store your encryption keys.
+- **Link to Cosmos DB:** Associate your Key Vault with your Cosmos DB account.
+- **Rotate Keys Regularly:** Enhance security by routinely updating your keys.
 
 Using customer-managed keys ensures each tenant's data is encrypted uniquely, providing robust security and compliance.
 
@@ -137,51 +137,51 @@ When designing a multitenant system with Cosmos DB, consider these factors:
 ### Practical implementation in Azure Cosmos DB
 
 **Partition Key-Per-Tenant:**
-1. **Assign Partition Keys:** Unique keys for each tenant ensure logical separation.
-2. **Store Data:** Tenant data is confined to respective partition keys.
-3. **Optimize Queries:** Use partition keys for efficient, targeted queries.
+- **Assign Partition Keys:** Unique keys for each tenant ensure logical separation.
+- **Store Data:** Tenant data is confined to respective partition keys.
+- **Optimize Queries:** Use partition keys for efficient, targeted queries.
 
 **Hierarchical Partitioning:**
-1. **Create Multi-Level Keys:** Further organize data within tenant partitions.
-2. **Targeted Queries:** Enhance performance with precise sub-partition targeting.
-3. **Manage Resources:** Distribute workloads evenly to prevent bottlenecks.
+- **Create Multi-Level Keys:** Further organize data within tenant partitions.
+- **Targeted Queries:** Enhance performance with precise sub-partition targeting.
+- **Manage Resources:** Distribute workloads evenly to prevent bottlenecks.
 
 **Account-Per-Tenant:**
-1. **Provide Separate Accounts:** Each tenant gets a dedicated Cosmos DB account.
-2. **Customize Resources:** Tailor performance and SLAs to tenant requirements.
-3. **Ensure Security:** Physical data isolation offers robust security and compliance.
+- **Provide Separate Accounts:** Each tenant gets a dedicated Cosmos DB account.
+- **Customize Resources:** Tailor performance and SLAs to tenant requirements.
+- **Ensure Security:** Physical data isolation offers robust security and compliance.
 
 ## Best practices for using Azure Cosmos DB with vector search
 
 Azure Cosmos DB's support for DiskANN vector index capability makes it an excellent choice for applications that require fast, high-dimensional searches, such as AI-assisted research platforms like ResearchHub. Here’s how you can leverage these capabilities:
 
-**1. Efficient Storage and Retrieval:**
+**Efficient Storage and Retrieval:**
    - **Vector Indexing:** Use the DiskANN vector index to efficiently store and retrieve high-dimensional vectors. This is useful for applications that involve similarity searches in large datasets, such as image recognition or document similarity.
    - **Performance Optimization:** DiskANN’s vector search capabilities enable quick, accurate searches, ensuring low latency and high performance, which is critical for maintaining a good user experience.
 
-**2. Scaling Across Tenants:**
+**Scaling Across Tenants:**
    - **Partition Key-Per-Tenant:** Utilize partition keys to logically isolate tenant data while benefiting from Cosmos DB’s scalable infrastructure.
    - **Hierarchical Partitioning:** Implement hierarchical partitioning to further segment data within each tenant’s partition, improving query performance and resource distribution.
 
-**3. Security and Compliance:**
+**Security and Compliance:**
    - **Customer-Managed Keys:** Implement customer-managed keys for data encryption at rest, ensuring each tenant’s data is securely isolated.
    - **Regular Key Rotation:** Enhance security by regularly rotating encryption keys stored in Azure Key Vault.
 
 ### Real-world example: implementing ResearchHub
 
 **Partition Key-Per-Tenant:**
-1. **Assign Partition Keys:** Each organization (tenant) is assigned a unique partition key.
-2. **Data Storage:** All researchers’ data for a tenant is stored within its partition, ensuring logical separation.
-3. **Query Optimization:** Queries are executed using the tenant's partition key, enhancing performance by isolating data access.
+- **Assign Partition Keys:** Each organization (tenant) is assigned a unique partition key.
+- **Data Storage:** All researchers’ data for a tenant is stored within its partition, ensuring logical separation.
+- **Query Optimization:** Queries are executed using the tenant's partition key, enhancing performance by isolating data access.
 
 **Hierarchical Partitioning:**
-1. **Multi-Level Partition Keys:** Data within a tenant’s partition is further segmented by "DepartmentId" and "ResearcherId" or other relevant attributes.
-2. **Granular Data Management:** This hierarchical approach allows ResearchHub to manage and query data more efficiently, reducing latency, and improving response times.
+- **Multi-Level Partition Keys:** Data within a tenant’s partition is further segmented by "DepartmentId" and "ResearcherId" or other relevant attributes.
+- **Granular Data Management:** This hierarchical approach allows ResearchHub to manage and query data more efficiently, reducing latency, and improving response times.
 
 **Account-Per-Tenant:**
-1. **Separate Cosmos DB Accounts:** High-profile clients or those with sensitive data are provided individual Cosmos DB accounts.
-2. **Custom Configurations:** Resources and SLAs are tailored to meet the specific needs of each tenant, ensuring optimal performance and security.
-3. **Enhanced Data Security:** Physical separation of data with customer-managed encryption keys ensures robust security compliance.
+- **Separate Cosmos DB Accounts:** High-profile clients or those with sensitive data are provided individual Cosmos DB accounts.
+- **Custom Configurations:** Resources and SLAs are tailored to meet the specific needs of each tenant, ensuring optimal performance and security.
+- **Enhanced Data Security:** Physical separation of data with customer-managed encryption keys ensures robust security compliance.
 
 ## Conclusion
 
