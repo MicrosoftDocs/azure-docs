@@ -408,8 +408,6 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
 
-### Add role assignments for your managed identity
-
 1. On your storage account, add the necessary role assignments for your user-assigned identity:
 
    1. On the storage account menu, select **Access control (IAM)**.
@@ -425,9 +423,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
-### Set up your Standard logic app
-
-1. On your Standard logic app, enable runtime scale monitoring by following these steps:
+1. On your Standard logic app, enable runtime scale monitoring:
 
    1. On the logic app menu, under **Settings**, select **Configuration**.
 
@@ -435,31 +431,33 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. On the **Configuration** toolbar, select **Save**.
 
-1. On the logic app menu, select **Overview**.
+1. On your Standard logic app, set up the resource ID and service URIs:
 
-1. On the **Overview** page toolbar, select **Stop**.
+   1. On the logic app menu, select **Overview**.
 
-1. On the logic app menu, under **Settings**, select **Environment variables**.
+   1. On the **Overview** page toolbar, select **Stop**.
 
-1. On the **App settings** tab, select **Add** to add the following app settings and values:
+   1. On the logic app menu, under **Settings**, select **Environment variables**.
 
-   | App setting | Value |
-   |-------------|-------|
-   | **AzureWebJobsStorage__managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
-   | **AzureWebJobsStorage__blobServiceUri** | The Blob service URI for your storage account |
-   | **AzureWebJobsStorage__queueServiceUri** | The Queue service URI for your storage account |
-   | **AzureWebJobsStorage__tableServiceUri** | The Table service URI for your storage account |
-   | **AzureWebJobsStorage__credential** | **managedIdentity** |
+   1. On the **App settings** tab, select **Add** to add the following app settings and values:
 
-1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
+      | App setting | Value |
+      |-------------|-------|
+      | **AzureWebJobsStorage__managedIdentityResourceId** | The resource ID for your user-assigned managed identity |
+      | **AzureWebJobsStorage__blobServiceUri** | The Blob service URI for your storage account |
+      | **AzureWebJobsStorage__queueServiceUri** | The Queue service URI for your storage account |
+      | **AzureWebJobsStorage__tableServiceUri** | The Table service URI for your storage account |
+      | **AzureWebJobsStorage__credential** | **managedIdentity** |
 
-1. When you finish, select **Apply**, which saves your changes and restarts your logic app.
+   1. On the **App settings** tab, delete the app setting named **AzureWebJobsStorage**, which is set to the connection string associated with your storage account.
 
-   Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
+   1. When you finish, select **Apply**, which saves your changes and restarts your logic app.
 
-   The following message might appear, but it isn't an error and doesn't affect your logic app:
+      Your changes might take several moments to take effect. If necessary, on your logic app menu, select **Overview**, and on the toolbar, select **Refresh**.
 
-   **"AzureWebjobsStorage" app setting is not present.**
+      The following message might appear, but it isn't an error and doesn't affect your logic app:
+
+      **"AzureWebjobsStorage" app setting is not present.**
 
 <a name="enable-run-history-stateless"></a>
 
