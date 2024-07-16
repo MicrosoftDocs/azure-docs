@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 05/16/2024
+ms.date: 07/16/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -219,7 +219,7 @@ public HttpResponseMessage run(
 
 #### Read POJO body from a POST request
 
-Here is the code for the `ToDoItem` class, referenced in this example:
+Here's the code for the `ToDoItem` class, referenced in this example:
 
 ```java
 
@@ -292,7 +292,7 @@ The following example shows an HTTP trigger [TypeScript function](functions-refe
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -536,7 +536,7 @@ For Python v2 functions defined using a decorator, the following properties for 
 
 | Property    | Description |
 |-------------|-----------------------------|
-| `route` | Route for the http endpoint. If None, it will be set to function name if present or user defined python function name. |
+| `route` | Route for the http endpoint. If None, it will be set to function name if present or user-defined python function name. |
 | `trigger_arg_name` | Argument name for HttpRequest. The default value is 'req'. |
 | `binding_arg_name` | Argument name for HttpResponse. The default value is '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |
@@ -656,7 +656,7 @@ The trigger input type is declared as one of the following types:
 | [HttpRequestData] | A projection of the request object. |
 | A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
 
-When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to other parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). This is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you'll need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -778,7 +778,7 @@ As an example, the following TypeScript code defines a `route` property for an H
 
 #### [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -914,7 +914,7 @@ https://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 This configuration allows the function code to support two parameters in the address, _category_ and _ID_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
-By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+By default, all function routes are prefixed with `api`. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the `api` route prefix by using an empty string for the prefix in the *host.json* file.
 
 ```json
 {
@@ -962,7 +962,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 
 #### [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 ::: zone-end
@@ -1047,7 +1047,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 }
 ```
 
-Alternatively, the ClaimsPrincipal can simply be included as an additional parameter in the function signature:
+Alternatively, the ClaimsPrincipal can simply be included as an extra parameter in the function signature:
 
 ```csharp
 using System.Net;
@@ -1108,9 +1108,9 @@ Most HTTP trigger templates require an access key in the request. So your HTTP r
 https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 ```
 
-The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
+The key can be included in a query string variable named `code`, as mentioned earlier. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
-You can allow anonymous requests, which do not require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. 
+You can allow anonymous requests, which don't require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. 
 
 > [!NOTE]
 > When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-container-registry.md#build-the-container-image-and-verify-locally).
@@ -1120,7 +1120,7 @@ You can allow anonymous requests, which do not require keys. You can also requir
 > [!NOTE]
 > Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x and higher.
 
-In version 1.x, webhook templates provide additional validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
+In version 1.x, webhook templates provide another validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
 
 #### WebHook type
 
