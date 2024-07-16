@@ -83,7 +83,7 @@ The **Recreate my problem** option provides us with crucial information. This op
 
 Attach the Azure VPN Client **log files**. It's best if you attach the file after you recreate the problem to make sure the problem is included in the log file. To attach the client log files:
 
-1.Select **Attach a file** and locate the log files for the Azure VPN client. Log files are stored locally in the following folder: **%localappdata%\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState\LogFiles**.
+1. Select **Attach a file** and locate the log files for the Azure VPN client. Log files are stored locally in the following folder: **%localappdata%\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState\LogFiles**.
 
 1. From the LogFiles folder, select **Azure VPNClient.log** and **Azure VpnCxn.log**.
 
