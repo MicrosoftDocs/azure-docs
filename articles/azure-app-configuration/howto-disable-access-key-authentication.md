@@ -45,7 +45,7 @@ To verify if access key authentication is enabled, check if you're able to get a
 
 # [Azure portal](#tab/portal)
 
-To verify access key authentication is enabled for an Azure App Configuration resource in the Azure portal, follow these steps:
+To check if access key authentication is enabled for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 2. Locate the **Access settings** setting under **Settings**.
