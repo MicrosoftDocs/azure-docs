@@ -103,7 +103,7 @@ Before you send the request, replace the placeholders between the `<>` brackets 
 
 ```json
 {
-  "type": "Microsoft.Apps/sessionPools",
+  "type": "Microsoft.App/sessionPools",
   "apiVersion": "2024-02-02-preview",
   "name": "my-session-pool",
   "location": "westus2",
