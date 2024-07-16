@@ -17,6 +17,8 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 > [!div class="checklist"]
 > * Create an Azure SQL Database resource
 > * Create a connection between the AKS cluster and the database with Service Connector.
+> * Update your container
+> * Update your application code
 > * Clean up Azure resources.
 
 ## Prerequisites
@@ -37,9 +39,11 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 
 1. Follow these [instructions to create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart.md#create-a-single-database) in the resource group you created. Note your server name, database name, and the database credentials. You will need them later on.
 
-## Register the Service Connector resource provider
+## Create a service connection in AKS with Service Connector (preview)
 
-1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
+### Register the Service Connector resource provider
+
+If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
    ```azurecli
    az provider register -n Microsoft.ServiceLinker
@@ -50,15 +54,13 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 
 <!-- check if registering RP is still necessary-->
 
-## Create a service connection in AKS with Service Connector (preview)
-
 ### Create a new connection
 
 Create a service connection between your AKS cluster and your SQL database in the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
-Refer to the [AKS service connection quickstart](quickstart-portal-aks-connection.md) for instructions to create a new connection and fill in the settings referring to the examples in the following table. Leave all other settings with their default values.
+Open your AKS cluster in the Azure portal, and select **Settings** > **Service Connector (Preview)** in the left menu. Select **Create** and select or enter information following the instructions and examples below. Leave all other settings with their default values.
 
 1. Basics tab:
 
@@ -72,9 +74,11 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
 | **SQL database**         | *sql_db*          | Select your SQL database.                                                                |
 | **Client type**          | *Python*          | The code language or framework you use to connect to the target service.                 |
 
-1. In the authentication tab, the connection string authentication method is selected by default as it's the only method currently supported. Enter your database username and password.
+    :::image type="content" source="media/tutorial-ask-sql/create-connection.png" alt-text="Screenshot of the Azure portal showing the form to create a new connection to a SQL database in AKS.":::
 
-1. Select **Next** until you reach the **Review + Create** tab, that lists a summary of the configuration entered for the connection. If you're satisfied with the configuration, select **Create**.
+1. In the authentication tab, the connection string authentication method is selected by default, as it's the only method currently supported. Enter your database username and password.
+
+1. Select **Next** until you reach the **Review + Create** tab that lists a summary of the configuration entered for the connection. If you're satisfied with the configuration, select **Create**.
 
 1. Once the deployment is successful, you can view information about the new connection in the **Service Connector** pane.
 
@@ -96,7 +100,7 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
     az aks connection create sql
     ```
     
-    - or run a command following the example below. Replace the placeholders `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>` with your own information .
+    - or run a command following the example below. Replace the placeholders `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>` with your own information.
     
     ```azurecli
     az aks connection create sql \
@@ -106,18 +110,23 @@ Refer to the [AKS service connection quickstart](quickstart-portal-aks-connectio
 
 ---
 
-### Update the connection's Yaml snippet (preview)
+### Update your container
 
-Now that the connection between your AKS cluster and the database is created, set the secret resource as environment variables in your container.
+Now that the connection between your AKS cluster and the database is created, retrieve the connection secrets and deploy them in your container.
 
-1. In the **Service Connector (Preview)** menu, select the new connection using the checkbox button, and select **Yaml snippet**. A new panel is displayed, showing a sample YAML file generated by Service Connector.
-1. To set the secret resource as environment variables in your container, you have two options:
-   - Create a deployment using the YAML sample code displayed on screen. In the sample, you can see highlighted code showing the secret object that will be injected as env variables. Select **Apply** to use this option.
-   - Select **Kubernetes Workload** and choose an existing workload to set the secret object of your new workload to be the environment variables of the selected workload. Select **Apply** to use this option, allowing your deployment to access these env variables.
+1. In the **Service Connector (Preview)** menu, select the newly created connection using the checkbox. Then, select **Yaml snippet**. This action opens a panel displaying a sample YAML file generated by Service Connector.
+1. To set the connection secrets as environment variables in your container, you have two options:
+   - Directly create a deployment using the YAML sample code snippet provided. The snippet includes highlighted sections showing the secret object that will be injected as the environment variables. Select **Apply** to proceed with this method.
 
-### Update your code
+        :::image type="content" source="media/tutorial-ask-sql/sample-yaml-snippet.png" alt-text="Screenshot of the Azure portal showing the sample YAML snippet to create a new connection to a SQL database in AKS.":::
 
-As a final step, you update the code to use your environment variables.
+   - Alternatively, under **Resource Type**, select **Kubernetes Workload** and select an existing Kubernetes workload. This action sets the secret object of your new connection as the environment variables for the selected workload. After selecting the workload, select **Apply** to use this method.
+
+        :::image type="content" source="media/tutorial-ask-sql/kubernetes-snippet.png" alt-text="Screenshot of the Azure portal showing the Kubernetes snippet to create a new connection to a SQL database in AKS.":::
+
+### Update your application code
+
+As a final step, update your application code to use your environment variables, [following these instructions](how-to-integrate-sql-database.md#connection-string).
 
 ## Clean up resources
 
