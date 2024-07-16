@@ -154,7 +154,7 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 
 ### [PowerShell](#tab/powershell-1)
 
-To run a search job, run the [New-AzOperationalInsightsSearchTable](/powershell/module/az.operationalinsights/new-azoperationalinsightssearchtable?view=azps-12.0.0) command. The name of the results table, which you set using the `TableName` parameter, must end with *_SRCH*.
+To run a search job, run the [New-AzOperationalInsightsSearchTable](/powershell/module/az.operationalinsights/new-azoperationalinsightssearchtable) command. The name of the results table, which you set using the `TableName` parameter, must end with *_SRCH*.
 
 **Example**
 
@@ -250,7 +250,7 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ### [PowerShell](#tab/powershell-2)
 
-To check the status and details of a search job table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable?view=azps-12.0.0) command.
+To check the status and details of a search job table, run the [Get-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/get-azoperationalinsightstable) command.
 
 **Example**
 
