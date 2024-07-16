@@ -68,7 +68,7 @@ To see all resource providers, and the registration status for your subscription
 
 1. Find the resource provider you want to register.
 
-   :::image type="content" source="./media/resource-providers-and-types/find-resource-providers.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
+   :::image type="content" source="./media/resource-providers-and-types/find-resource-providers.png" alt-text="Screenshot of finding resource providers in the Azure portal.":::
 
 1. Select the resource provider to see the details of the resource provider.
 
@@ -100,9 +100,6 @@ To see information for a particular resource provider:
     :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of expanding the Providers section in the Azure Resource Explorer.":::
 
 1. Expand a resource provider and resource type that you want to view.
-
-    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of expanding a resource provider and resource type in the Azure Resource Explorer.":::
-
 1. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
     :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of displaying valid locations for a resource type in the Azure Resource Explorer.":::
