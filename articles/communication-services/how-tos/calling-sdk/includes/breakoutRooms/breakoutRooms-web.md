@@ -49,7 +49,7 @@ const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMovePartici
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
 ```
-- `call` : breakout room call object. This is returned when the user joins the breakout room call automatically or by calling breakoutRoom.join().
+- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object.
 
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
