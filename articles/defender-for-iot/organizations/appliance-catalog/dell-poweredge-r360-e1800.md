@@ -1,7 +1,7 @@
 ---
 title: Dell PowerEdge R360 for operational technology (OT) monitoring - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R360 appliance's configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 03/14/2024
+ms.date: 07/16/2024
 ms.topic: reference
 ---
 
