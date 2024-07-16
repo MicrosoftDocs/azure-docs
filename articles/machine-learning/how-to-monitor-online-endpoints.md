@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.reviewer: mopeakande
-author: dem108
-ms.author: sehan
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.subservice: mlops
 ms.date: 10/24/2023
 ms.topic: conceptual
@@ -67,20 +67,31 @@ Depending on the resource that you select, the metrics that you see will be diff
 
 #### Metrics at endpoint scope
 
-- Request Latency
-- Request Latency P50 (Request latency at the 50th percentile)
-- Request Latency P90 (Request latency at the 90th percentile)
-- Request Latency P95 (Request latency at the 95th percentile)
-- Requests per minute
-- New connections per second
-- Active connection count
-- Network bytes
+- __Traffic__
 
-Split on the following dimensions:
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| RequestsPerMinute | Count | The number of requests sent to Endpoint within a minute | Average | Deployment, ModelStatusCode, StatusCode, StatusCodeClass | Alert me when I have <= 0 transactions in the system |
+| RequestLatency | Milliseconds | The complete interval of time taken for a request to be responded | Average | Deployment | Alert me when average latency > 2 sec |
+| RequestLatency_P50 | Milliseconds | The request latency at the 50th percentile aggregated by all request latency values collected over a period of 60 seconds | Average | Deployment | Alert me when average latency > 2 sec |
+| RequestLatency_P90 | Milliseconds | The request latency at the 90th percentile aggregated by all request latency values collected over a period of 60 seconds | Average | Deployment | Alert me when average latency > 2 sec |
+| RequestLatency_P95 | Milliseconds | The request latency at the 95th percentile aggregated by all request latency values collected over a period of 60 seconds | Average | Deployment | Alert me when average latency > 2 sec |
+| RequestLatency_P99 | Milliseconds | The request latency at the 99th percentile aggregated by all request latency values collected over a period of 60 seconds | Average | Deployment | Alert me when average latency > 2 sec |
 
-- Deployment
-- Status Code
-- Status Code Class
+- __Network__
+
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| NetworkBytes | Bytes per second | The bytes per second served for the endpoint | Average | - | - |
+| ConnectionsActive | Count | The total number of concurrent TCP connections active from clients | Average | - | - |
+| NewConnectionsPerSecond | Count | The average number of new TCP connections per second established from clients | Average | - | - |
+
+- __Model Data Collection__
+
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| DataCollectionEventsPerMinute | Count | The number of data collection events processed per minute | Average | Deployment, Type | - |
+| DataCollectionErrorsPerMinute | Count | The number of data collection events dropped per minute | Average | Deployment, Type, Reason | - |
 
 For example, you can split along the deployment dimension to compare the request latency of different deployments under an endpoint. 
 
@@ -93,16 +104,39 @@ For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-en
 
 #### Metrics at deployment scope
 
-- CPU Utilization Percentage
-- Deployment Capacity (the number of instances of the requested instance type)
-- Disk Utilization
-- GPU Memory Utilization (only applicable to GPU instances)
-- GPU Utilization (only applicable to GPU instances)
-- Memory Utilization Percentage
+- __Saturation__
 
-Split on the following dimension:
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| CpuUtilizationPercentage | Percent | How much percentage of CPU was utilized | Minimun, Maximum, Average | InstanceId | Alert me when % Capacity Used > 75% |
+| CpuMemoryUtilizationPercentage | Percent | How much percent of Memory was utilized | Minimun, Maximum, Average | InstanceId |  |
+| DiskUtilization | Percent | How much disk space was utilized | Minimun, Maximum, Average | InstanceId, Disk |  |
+| GpuUtilizationPercentage  | Percent | Percentage of GPU utilization on an instance - Utilization is reported at one minute intervals | Minimun, Maximum, Average | InstanceId |  |
+| GpuMemoryUtilizationPercentage | Percent | Percentage of GPU memory utilization on an instance - Utilization is reported at one minute intervals | Minimun, Maximum, Average | InstanceId |  |
+| GpuEnergyJoules | Joule | Interval energy in Joules on a GPU node - Energy is reported at one minute intervals | Minimun, Maximum, Average | InstanceId |  |
 
-- Instance Id
+- __Availability__
+
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| DeploymentCapacity | Count | The number of instances in the deployment | Minimum, Maximum, Average | InstanceId, State | Alert me when the % Availability of my service drops below 100% |
+
+- __Traffic__
+
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| RequestsPerMinute | Count | The number of requests sent to online deployment within a minute | Average | StatusCode | Alert me when I have <= 0 transactions in the system |
+| RequestLatency_P50 | Milliseconds | The average P50 request latency aggregated by all request latency values collected over the selected time period | Average | - | Alert me when average latency > 2 sec |
+| RequestLatency_P90 | Milliseconds | The average P90 request latency aggregated by all request latency values collected over the selected time period | Average | - | Alert me when average latency > 2 sec |
+| RequestLatency_P95 | Milliseconds | The average P95 request latency aggregated by all request latency values collected over the selected time period | Average | - | Alert me when average latency > 2 sec |
+| RequestLatency_P99 | Milliseconds | The average P99 request latency aggregated by all request latency values collected over the selected time period | Average | - | Alert me when average latency > 2 sec |
+
+- __Model Data Collection__
+
+| Metric ID | Unit | Description | Aggregate Method | Splittable By | Example Metric Alerts |
+| ---- | --- | --- | --- | --- | --- |
+| DataCollectionEventsPerMinute | Count | The number of data collection events processed per minute | Average | InstanceId, Type | - |
+| DataCollectionErrorsPerMinute | Count | The number of data collection events dropped per minute | Average | InstanceId, Type, Reason | - |
 
 For instance, you can compare CPU and/or memory utilization between difference instances for an online deployment. 
 
@@ -132,6 +166,9 @@ You can also create custom alerts to notify you of important status updates to y
 
 For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
+### Enable autoscale based on metrics
+
+You can enable autoscale of deployments using metrics using UI or code. When you use code (either CLI or SDK), you can use Metrics IDs listed in the table of [available metrics](#available-metrics) in condition for triggering autoscaling. For more information, see [Autoscaling online endpoints](how-to-autoscale-endpoints.md).
 
 ## Logs
 

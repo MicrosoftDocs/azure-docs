@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The COVID-19 Data Lake contains COVID-19 related datasets from various sources. It covers testing and patient outcome tracking data, social distancing policy, hospital capacity, mobility, and so on.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 The COVID-19 Data Lake is hosted in Azure Data Lake Storage in the East US region. For each dataset, modified versions in csv, json, json-lines, and parquet formats are available. The raw data is also available as ingested.
 

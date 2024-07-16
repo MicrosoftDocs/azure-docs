@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-ms.date: 06/14/2023
+ms.service: backup
+ms.date: 06/25/2024
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Troubleshoot problems while backing up Azure file shares
@@ -289,7 +291,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
 
-## Common modify policy errors
+## Common policy modification errors
 
 ### BMSUserErrorConflictingProtectionOperation- Another configure protection operation is in progress for this item
 

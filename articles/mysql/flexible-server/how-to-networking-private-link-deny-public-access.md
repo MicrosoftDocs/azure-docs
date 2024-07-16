@@ -4,7 +4,7 @@ description: Learn how to configure public network access for Azure Database for
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/11/2023
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to

@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 02/14/2024
+ms.date: 06/06/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, references_regions
 ---
@@ -40,14 +40,15 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 
 - An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Install the latest version of the [Azure CLI][install-cli].
-- If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
-- Make sure you have [an Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
+- An existing [AKS cluster][deploy-cluster] or connected [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
+- [An Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
 
 Select how you'd like to install, deploy, and configure the Dapr extension.
 
 # [Azure CLI](#tab/cli)
+## Before you begin
 
-### Set up the Azure CLI extension for cluster extensions
+### Add the Azure CLI extension for cluster extensions
 
 Install the `k8s-extension` Azure CLI extension by running the following commands:
 
@@ -81,6 +82,26 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.KubernetesConfiguration
+```
+
+### Register the `ExtenstionTypes` feature to your Azure subscription
+
+The `ExtensionTypes` feature needs to be registered to your Azure subscription. In the terminal, verify you're in the correct subscription:
+
+```azurecli
+az account set --subscription <YOUR-AZURE-SUBSCRIPTION-ID>
+```
+
+Register the `ExtenstionTypes` feature.
+
+```azurecli
+az feature registration create --namespace Microsoft.KubernetesConfiguration --name ExtensionTypes
+```
+
+Feature registration may take some time. After a few minutes, check the registration status using the following command:
+
+```azurecli
+az feature show --namespace Microsoft.KubernetesConfiguration --name ExtensionTypes
 ```
 
 ## Create the extension and install Dapr on your AKS or Arc-enabled Kubernetes cluster
@@ -153,6 +174,7 @@ For example:
 ```
 
 # [Bicep](#tab/bicep)
+## Before you begin
 
 ### Register the `KubernetesConfiguration` resource provider
 
@@ -174,6 +196,26 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.KubernetesConfiguration
+```
+
+### Register the `ExtenstionTypes` feature to your Azure subscription
+
+The `ExtensionTypes` feature needs to be registered to your Azure subscription. In the terminal, verify you're in the correct subscription:
+
+```azurecli
+az account set --subscription <YOUR-AZURE-SUBSCRIPTION-ID>
+```
+
+Register the `ExtenstionTypes` feature.
+
+```azurecli
+az feature registration create --namespace Microsoft.KubernetesConfiguration --name ExtensionTypes
+```
+
+Feature registration may take some time. After a few minutes, check the registration status using the following command:
+
+```azurecli
+az feature show --namespace Microsoft.KubernetesConfiguration --name ExtensionTypes
 ```
 
 ## Deploy the Dapr extension on your AKS or Arc-enabled Kubernetes cluster
@@ -309,6 +351,7 @@ Or simply remove the Bicep template.
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az-provider-list
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md

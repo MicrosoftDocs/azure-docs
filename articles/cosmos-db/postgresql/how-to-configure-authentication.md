@@ -153,7 +153,7 @@ export PGPASSWORD=<TOKEN value from the previous step>
 You can also combine the previous two steps together using command substitution. The token retrieval can be encapsulated into a variable and passed directly as a value for `PGPASSWORD` environment variable:
 
 ```bash
-export PGPASSWORD=$(az account get-access-token --resource-type oss-rdbms --query "[accessToken]" -o tsv)
+export PGPASSWORD=$(az account get-access-token --resource https://token.postgres.cosmos.azure.com --query "[accessToken]" -o tsv)
 ```
 
 

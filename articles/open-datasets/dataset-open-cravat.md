@@ -12,7 +12,7 @@ OpenCRAVAT is a Python package that performs genomic variant interpretation incl
 
 For more information on the data, see the [OpenCravat](https://opencravat.org/).
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

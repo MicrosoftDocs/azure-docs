@@ -19,7 +19,7 @@ For more information about sidecars, see [Sidecar pattern](/azure/architecture/p
 > [!NOTE]
 > For the preview period, sidecar support must be enabled at app creation. There's currently no way to enable sidecar support for an existing app.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## 1. Set up the needed resources
 

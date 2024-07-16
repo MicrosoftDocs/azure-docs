@@ -4,8 +4,8 @@ titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer.
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: conceptual
-ms.date: 05/03/2023
+ms.topic: concept-article
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---

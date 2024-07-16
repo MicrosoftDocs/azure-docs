@@ -2,7 +2,7 @@
 title: Sample data collection rules (DCRs) in Azure Monitor
 description: Sample data collection rule for different Azure Monitor data collection scenarios.
 ms.topic: sample
-ms.date: 11/15/2023
+ms.date: 03/14/2024
 ms.custom: references_region
 ms.reviewer: jeffwo
 
@@ -11,8 +11,11 @@ ms.reviewer: jeffwo
 # Sample data collection rules (DCRs) in Azure Monitor
 This article includes sample [data collection rules (DCRs)](./data-collection-rule-overview.md) for different scenarios. For descriptions of each of the properties in these DCRs, see [Data collection rule structure](./data-collection-rule-structure.md).
 
+> [!NOTE]
+> These samples provide the source JSON of a DCR if you're using an ARM template or REST API to create or modify a DCR. After creation, the DCR will have additional properties as described in [Structure of a data collection rule in Azure Monitor](data-collection-rule-structure.md).
+
 ## Azure Monitor agent - events and performance data
-The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for virtual machines with [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md) and has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for virtual machines with [Azure Monitor agent](../agents/azure-monitor-agent-data-collection.md) and has the following details:
 
 - Performance data
   - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.
@@ -27,7 +30,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
   - Sends all data to a Log Analytics workspace named centralWorkspace.
 
 > [!NOTE]
-> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
+> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries).
 
 
 ```json
@@ -147,7 +150,6 @@ The sample data collection rule below is used to collect [text logs using Azure 
 {
     "location": "eastus",
     "properties": {
-        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyLogFileFormat": {
                 "columns": [
@@ -227,7 +229,6 @@ The sample data collection rule below is used to collect [data from an event hub
 {
     "location": "eastus",
     "properties": {
-        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyEventHubStream": {
                 "columns": [
@@ -285,12 +286,13 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
 - Applies a [transformation](../essentials//data-collection-transformations.md) to the incoming data.
 
+> [!NOTE]
+> Logs ingestion API requires the [logsIngestion](../essentials/data-collection-rule-structure.md#endpoints) property which includes the URL of the endpoint. This property is added to the DCR after it's created.
 
 ```json
 {
     "location": "eastus",
     "properties": {
-        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyTable": {
                 "columns": [

@@ -62,58 +62,14 @@ The [Integrated Vector Database in vCore-based Azure Cosmos DB for MongoDB](/azu
 
 For some data sources such as uploading files from your local machine (preview) or data contained in a blob storage account (preview), Azure AI Search is used. When you choose the following data sources, your data is ingested into an Azure AI Search index.
 
->[!TIP]
->If you use Azure Cosmos DB (except for its vCore-based API for MongoDB), you may be eligible for the [Azure AI Advantage offer](/azure/cosmos-db/ai-advantage), which provides the equivalent of up to $6,000 in Azure Cosmos DB throughput credits.
-
-|Data source  | Description  |
+|Data ingested through Azure AI Search  | Description  |
 |---------|---------|
 | [Azure AI Search](/azure/search/search-what-is-azure-search)  | Use an existing Azure AI Search index with Azure OpenAI On Your Data.      |
-| [Azure Cosmos DB](/azure/cosmos-db/introduction)  | Azure Cosmos DB's API for Postgres and vCore-based API for MongoDB offer natively integrated vector indexing; therefore, they don't require Azure AI Search. However, its other APIs do require Azure AI Search for vector indexing. Azure Cosmos DB for NoSQL's natively integrated vector database debuts in mid-2024.     |
 |Upload files (preview)      | Upload files from your local machine to be stored in an Azure Blob Storage database, and ingested into Azure AI Search.         |
 |URL/Web address (preview)        | Web content from the URLs is stored in Azure Blob Storage.         |
 |Azure Blob Storage (preview) | Upload files from Azure Blob Storage to be ingested into an Azure AI Search index.         |
 
 :::image type="content" source="../media/use-your-data/azure-databases-and-ai-search.png" lightbox="../media/use-your-data/azure-databases-and-ai-search.png" alt-text="Diagram of vector indexing services.":::
-
-# [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
-
-### Prerequisites
-* [vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/introduction) account
-* A deployed [embedding model](../concepts/understand-embeddings.md)
-
-### Limitations
-* Only vCore-based Azure Cosmos DB for MongoDB is supported.
-* The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
-* This implementation works best on unstructured and spatial data.
-
-  
-### Data preparation
-
-Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation) to prepare your data.
-
-<!--### Add your data source in Azure OpenAI Studio
-
-To add vCore-based Azure Cosmos DB for MongoDB as a data source, you'll need an existing Azure Cosmos DB for MongoDB index containing your data, and a deployed Azure OpenAI Ada embeddings model that will be used for vector search.
-
-1. In the [Azure OpenAI portal](https://oai.azure.com/portal) chat playground, select **Add your data**. In the panel that appears, select ** vCore-based Azure Cosmos DB for MongoDB** as the data source. 
-1. Select your Azure subscription and database account, then connect to your Azure Cosmos DB account by providing your Azure Cosmos DB account username and password.
-    
-    :::image type="content" source="../media/use-your-data/add-mongo-data-source.png" alt-text="A screenshot showing the screen for adding Mongo DB as a data source in Azure OpenAI Studio." lightbox="../media/use-your-data/add-mongo-data-source.png":::
-
-1. **Select Database**. In the dropdown menus, select the database name, database collection, and index name that you want to use as your data source. Select the embedding model deployment you would like to use for vector search on this data source, and acknowledge that you'll incur charges for using vector search. Then select **Next**.
-
-    :::image type="content" source="../media/use-your-data/select-mongo-database.png" alt-text="A screenshot showing the screen for adding Mongo DB settings in Azure OpenAI Studio." lightbox="../media/use-your-data/select-mongo-database.png":::
--->
-
-### Index field mapping
-
-When you add your vCore-based Azure Cosmos DB for MongoDB data source, you can specify data fields to properly map your data for retrieval.
-
-* Content data (required): One or more provided fields to be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
-* File name/title/URL: Used to display more information when a document is referenced in the chat.
-* Vector fields (required): Select the field in your database that contains the vectors.
-
-:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
 
 # [Azure AI Search](#tab/ai-search)
 
@@ -122,7 +78,9 @@ You might want to consider using an Azure AI Search index when you either want t
 * Reuse an index created before by ingesting data from other data sources.
 
 > [!NOTE]
-> To use an existing index, it must have at least one searchable field.
+> * To use an existing index, it must have at least one searchable field.
+> * Set the CORS **Allow Origin Type** option to `all` and the **Allowed origins** option to `*`. 
+
 
 ### Search types
 
@@ -179,6 +137,34 @@ If you want to implement additional value-based criteria for query execution, yo
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
+
+# [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
+
+### Prerequisites
+* [vCore-based Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/introduction) account
+* A deployed [embedding model](../concepts/understand-embeddings.md)
+
+### Limitations
+* Only vCore-based Azure Cosmos DB for MongoDB is supported.
+* The search type is limited to [Integrated Vector Database in Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/vcore/vector-search) with an Azure OpenAI embedding model.
+* This implementation works best on unstructured and spatial data.
+
+  
+### Data preparation
+
+Use the script provided on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts#data-preparation) to prepare your data.
+
+### Index field mapping
+
+When you add your vCore-based Azure Cosmos DB for MongoDB data source, you can specify data fields to properly map your data for retrieval.
+
+* Content data (required): One or more provided fields to be used to ground the model on your data. For multiple fields, separate the values with commas, with no spaces.
+* File name/title/URL: Used to display more information when a document is referenced in the chat.
+* Vector fields (required): Select the field in your database that contains the vectors.
+
+:::image type="content" source="../media/use-your-data/mongo-index-mapping.png" alt-text="A screenshot showing the index field mapping options for Mongo DB." lightbox="../media/use-your-data/mongo-index-mapping.png":::
+
 # [Azure Blob Storage (preview)](#tab/blob-storage)
 
 You might want to use Azure Blob Storage as a data source if you want to connect to existing Azure Blob Storage and use files stored in your containers.
@@ -186,8 +172,7 @@ You might want to use Azure Blob Storage as a data source if you want to connect
 ## Schedule automatic index refreshes
 
 > [!NOTE] 
-> * Automatic index refreshing is supported for Azure Blob Storage only.
-> * If a document is deleted from input blob container, the corresponding chunk index records won't be removed by the scheduled refresh.
+> Automatic index refreshing is supported for Azure Blob Storage only.
 
 To keep your Azure AI Search index up-to-date with your latest data, you can schedule an automatic index refresh rather than manually updating it every time your data is updated. Automatic index refresh is only available when you choose **Azure Blob Storage** as the data source. To enable an automatic index refresh:
 
@@ -220,6 +205,8 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
+
 # [Upload files (preview)](#tab/file-upload)
 
 Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data. You also have the option to create a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
@@ -227,6 +214,8 @@ Using Azure OpenAI Studio, you can upload files from your machine to try Azure O
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -241,6 +230,10 @@ You can paste URLs and the service will store the webpage content, using it when
 <!--:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::-->
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to Azure Blob Storage with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
+
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [Elasticsearch (preview)](#tab/elasticsearch)
 
@@ -365,7 +358,7 @@ It's possible for the model to return `"TYPE":"UNCITED_REFERENCE"` instead of `"
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../references/on-your-data.md).
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `role_information` [parameter in the API](../references/on-your-data.md).
 
 :::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/system-message.png":::
 
@@ -481,7 +474,7 @@ If the policy above doesn't meet your need, please consider other options, for e
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
-Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) is a service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
 As part of this RAG pipeline, there are three steps at a high-level: 
 
@@ -599,35 +592,24 @@ Each user message can translate to multiple search queries, all of which get sen
 
 ## Regional availability and model support
 
-You can use Azure OpenAI On Your Data with an Azure OpenAI resource in the following regions:
-* Australia East
-* Brazil South
-* Canada East
-* East US
-* East US 2
-* France Central
-* Japan East
-* North Central US
-* Norway East
-* South Africa North
-* South Central US
-* South India
-* Sweden Central
-* Switzerland North
-* UK South
-* West Europe
-* West US
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`\*\* | `gpt-4 (turbo-2024-04-09)` |
+|------|---|---|---|---|---|----|----|----|
+| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | 
+| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
+| East US | ✅ |   |   |  |✅  |  | ✅ |  |
+| East US 2 | ✅ |  |  |✅ |  |  |✅ | ✅|
+| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
+| Japan East | ✅ |   |   |  |   |   |  | | 
+| North Central US | ✅ |   |   | |✅  |   |✅  | |
+| Norway East | ✅ |   |   |✅ |   |  |  | | 
+| South Central US |  |   |   | | ✅ |   | ✅ |  |
+| South India |  | ✅ |   |✅ |   |    |  | |  
+| Sweden Central | ✅ | ✅ | ✅ |✅ |    | ✅ | | ✅|
+| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | | 
+| UK South | ✅ | ✅ | |✅ |✅  |  |  | |
+| West US  |  |✅ | |✅|   |   | ✅ | |
 
-### Supported models
-
-* `gpt-4` (0314)
-* `gpt-4` (0613)
-* `gpt-4` (0125)
-* `gpt-4-32k` (0314)
-* `gpt-4-32k` (0613)
-* `gpt-4` (1106-preview)
-* `gpt-35-turbo-16k` (0613)
-* `gpt-35-turbo` (1106)
+\*\*This is a text-only implementation
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 

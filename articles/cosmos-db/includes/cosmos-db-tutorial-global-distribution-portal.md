@@ -33,28 +33,10 @@ For delivering low-latency to end users, it is recommended that you deploy both 
 
 For BCDR, it is recommended to add regions based on the region pairs described in the [Cross-region replication in Azure: Business continuity and disaster recovery](../../availability-zones/cross-region-replication-azure.md) article.
 
-<!--
-
-## <a id="selectwriteregion"></a>Select the write region
-
-While all regions associated with your Azure Cosmos DB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
-
-
-1. In the **Azure Cosmos DB** blade, select the database account to modify.
-2. In the account blade, click **Replicate data globally** from the menu.
-3. In the **Replicate data globally** blade, click **Manual Failover** from the top bar.
-    ![Change the write region under Azure Cosmos DB Account > Replicate data globally > Manual Failover][2]
-4. Select a read region to become the new write region, click the checkbox to confirm triggering a failover, and click OK
-    ![Change the write region by selecting a new region in list under Azure Cosmos DB Account > Replicate data globally > Manual Failover][3]
-
---->
-
-<!--Image references-->
 [1]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-add-region.png
 [2]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-1.png
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [consistency]: ../consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/

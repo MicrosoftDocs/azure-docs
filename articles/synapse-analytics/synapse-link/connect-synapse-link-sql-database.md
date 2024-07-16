@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.author: whhender
+ms.reviewer: whhender, wiassaf
 ---
 
 # Get started with Azure Synapse Link for Azure SQL Database
@@ -86,6 +86,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
      * To use SQL authentication instead, if you know the username and password to use, select **SQL Authentication**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Screenshot that shows how to enter the server and database details to create a new linked service.":::
+
+   > [!NOTE]
+   > Only the Linked Service in Legacy version is supported.
 
 1. Select **Test connection** to ensure that the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL database.
 

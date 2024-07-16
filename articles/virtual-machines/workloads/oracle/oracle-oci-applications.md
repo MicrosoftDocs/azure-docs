@@ -2,8 +2,7 @@
 title: Architectures for Oracle applications with Azure Virtual Machines with database on OCI
 description: Architectures for Oracle applications with Azure Virtual Machines with database on OCI.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 08/18/2023

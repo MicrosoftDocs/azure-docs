@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 06/24/2024
 ms.author: normesta
 
 ---
@@ -67,8 +67,6 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - To access the storage account using SFTP, your network must allow traffic on port 22.
  
 - Static IP addresses aren't supported for storage accounts. This isn't an SFTP specific limitation.
-  
-- Internet routing isn't supported. Use Microsoft network routing.
 
 - There's a 2-minute time out for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically.
 
@@ -80,9 +78,11 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
-- Maximum file upload size via the SFTP endpoint is 100 GB. 
+- Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- To change the storage account's redundancy/replication settings or initiate account failover, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
+- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#azure-data-lake-storage-gen2).
+
+- To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 
@@ -123,8 +123,6 @@ To see how each Blob Storage feature is supported in accounts that have SFTP sup
   - Public network access is `Enabled from all networks` or `Enabled from selected virtual networks and IP addresses`.
   
   - The client IP address is allowed by the firewall.
-  
-  - Network Routing is set to `Microsoft network routing`.
 
 ## See also
 

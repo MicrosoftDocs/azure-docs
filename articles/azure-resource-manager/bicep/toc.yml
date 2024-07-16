@@ -377,6 +377,8 @@
       href: operators-numeric.md
     - name: Safe-dereference operator
       href: operator-safe-dereference.md
+    - name: Spread 
+      href: operator-spread.md
 - name: How to
   items:
   - name: Author
@@ -398,6 +400,9 @@
       - name: Access private virtual networks
         displayName: deployment script
         href: deployment-script-vnet.md
+      - name: Use over private Endpoint
+        displayName: deployment script
+        href: deployment-script-vnet-private-endpoint.md
       - name: Create script development environments
         displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
@@ -409,6 +414,8 @@
       items:
       - name: Kubernetes provider
         href: ./bicep-extensibility-kubernetes-provider.md
+      - name: Microsoft Graph provider
+        href: https://aka.ms/graphbicep
     - name: Patterns
       items:
       - name: Configuration set
@@ -542,6 +549,9 @@
       - name: Use resource symbol reference
         displayName: linter
         href: linter-rule-use-resource-symbol-reference.md
+      - name: Use secure value for secure inputs
+        displayName: linter
+        href: linter-rule-use-secure-value-for-secure-inputs.md
       - name: Use stable resource identifier
         displayName: linter
         href: linter-rule-use-stable-resource-identifier.md
@@ -589,5 +599,31 @@
     displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
   - name: Azure PowerShell
     href: /powershell/module/az.resources/
+  - name: Bicep warnings and errors 
+    items:
+    - name: All codes
+      href: bicep-error-codes.md
+    - name: BCP033
+      href: bicep-error-bcp033.md
+    - name: BCP035
+      href: bicep-error-bcp035.md
+    - name: BCP036
+      href: bicep-error-bcp036.md
+    - name: BCP040
+      href: bicep-error-bcp040.md
+    - name: BCP037
+      href: bicep-error-bcp037.md
+    - name: BCP072
+      href: bicep-error-bcp072.md
+    - name: BCP073
+      href: bicep-error-bcp073.md
+    - name: BCP327
+      href: bicep-error-bcp327.md
+    - name: BCP328
+      href: bicep-error-bcp328.md
+    - name: BCP332
+      href: bicep-error-bcp332.md
+    - name: BCP333
+      href: bicep-error-bcp333.md
   - name: Azure CLI
     href: /cli/azure/resource

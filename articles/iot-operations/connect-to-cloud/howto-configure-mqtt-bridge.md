@@ -3,11 +3,11 @@ title: Connect MQTT bridge cloud connector to other MQTT brokers
 description: Bridge Azure IoT MQ to another MQTT broker.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 04/22/2024
 
 #CustomerIntent: As an operator, I want to bridge Azure IoT MQ to another MQTT broker so that I can integrate Azure IoT MQ with other messaging systems.
 ---
@@ -58,7 +58,7 @@ metadata:
 spec:
   image: 
     repository: mcr.microsoft.com/azureiotoperations/mqttbridge 
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
     pullPolicy: IfNotPresent
   protocol: v5
   bridgeInstances: 1
@@ -407,7 +407,7 @@ If using managed identity isn't possible, keep the per-connection limits for Eve
 
 ## Bridge from another broker to Azure IoT MQ Preview
 
-Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with the appropriate authentication and authorization credentials. For example, see MQTT bridge documentation for [HiveMQ](https://www.hivemq.com/docs/bridge/4.8/enterprise-bridge-extension/bridge-extension.html), [VerneMQ](https://docs.vernemq.com/configuring-vernemq/bridge), [EMQX](https://www.emqx.io/docs/en/v5/data-integration/data-bridge-mqtt.html), and [Mosquitto](https://mosquitto.org/man/mosquitto-conf-5.html).
+Azure IoT MQ is a compliant MQTT broker and other brokers can bridge to it with the appropriate authentication and authorization credentials. For example, see MQTT bridge documentation for [HiveMQ](https://www.hivemq.com/docs/bridge/4.8/enterprise-bridge-extension/bridge-extension.html), [VerneMQ](https://docs.vernemq.com/configuring-vernemq/bridge), [EMQX](https://docs.emqx.com/en/enterprise/latest/data-integration/data-bridge-mqtt.html), and [Mosquitto](https://mosquitto.org/man/mosquitto-conf-5.html).
 
 ## Related content
 

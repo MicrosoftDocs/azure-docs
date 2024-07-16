@@ -7,7 +7,6 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
-ms.reviewer: tamram
 ---
 
 # BlobFuse2 completion bash command

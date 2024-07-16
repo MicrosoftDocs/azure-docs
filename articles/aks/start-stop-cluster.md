@@ -2,7 +2,7 @@
 title: Stop and start an Azure Kubernetes Service (AKS) cluster
 description: Learn how to stop and start an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/14/2023
+ms.date: 07/01/2024
 author: palma21
 ---
 
@@ -100,7 +100,7 @@ When using the cluster stop/start feature, the following conditions apply:
 ## Start an AKS cluster
 
 > [!CAUTION]
-> Don't repeatedly stop and start your clusters. This can result in errors. Once your cluster is stopped, you should wait at least 15-30 minutes before starting it again.
+> After utilizing the start/stop feature on AKS, it is essential to wait 15-30 minutes before restarting your AKS cluster. This waiting period is necessary because it takes several minutes for the relevant services to fully stop. Attempting to restart your cluster during this process can disrupt the shutdown process and potentially cause issues with the cluster or its workloads.
 
 ### [Azure CLI](#tab/azure-cli)
 

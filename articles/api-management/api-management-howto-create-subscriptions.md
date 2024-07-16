@@ -17,6 +17,9 @@ When you publish APIs through Azure API Management, it's easy and common to secu
 
 This article walks through the steps for creating subscriptions in the Azure portal.
 
+> [!IMPORTANT]
+> The **Allow tracing** setting in subscriptions to enable debug traces is deprecated. To improve security, tracing can now be enabled for specific API requests to API Management. [Learn more](api-management-howto-api-inspector.md#enable-tracing-for-an-api)
+
 ## Prerequisites
 
 To take the steps in this article, the prerequisites are as follows:
@@ -31,12 +34,6 @@ To take the steps in this article, the prerequisites are as follows:
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com).
 1. In the left menu, under **APIs**, select **Subscriptions** > **Add subscription**.
 1. Provide a **Name** and optional **Display name** of the subscription.
-1. Optionally, select **Allow tracing** to enable tracing for debugging and troubleshooting APIs. [Learn more](api-management-howto-api-inspector.md)
-
-    [!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
-
-    [!INCLUDE [api-management-availability-tracing-v2-tiers](../../includes/api-management-availability-tracing-v2-tiers.md)]
-
 1. Select a **Scope** of the subscription from the dropdown list. [Learn more](api-management-subscriptions.md#scope-of-subscriptions)
 1. Optionally, choose if the subscription should be associated with a **User** and whether to send a notification for use with the developer portal.
 1. Select **Create**.

@@ -78,10 +78,18 @@ The following two types of errors are classified as **user errors**:
 |Memory size usage per namespace| No | Memory Usage | Percent | The percentage memory usage of the namespace. | Replica |
 
 ### Error metrics
+
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
 | ------------------- | ----------------- | --- | --- | --- | --- | 
 |Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/><br/>Operation Result |
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
+
+### Geo-Replication metrics
+
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+| ------------------- | ----------------- | --- | --- | --- | --- | 
+|Replication Lag Duration| No | Seconds | Max | The offset in seconds between the latest action on the primary and the secondary regions. | |
+|Replication Lag Count | No | Count | Max | The offset in number of operations between the latest action on the primary and the secondary regions. | |
 
 ## Metric dimensions
 
@@ -117,7 +125,7 @@ Operational log entries include elements listed in the following table:
 | `Status` | Operation status | Yes | Yes|
 | `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
 | `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
-|  `Type 	`| Type of logs emitted | No | Yes|
+|  `Type`| Type of logs emitted | No | Yes|
 | `Category`| Log Category | Yes | No|
 
 Here's an example of an operational log JSON string:
@@ -183,20 +191,20 @@ The following management operations are captured in operational logs:
 ### Virtual network and IP filtering logs
 Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
 
-| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table) 
-| ---  | ----------- |---| ---| 
-| `SubscriptionId` | Azure subscription ID | Yes | Yes
-| `NamespaceName` | Namespace name | Yes | Yes
-| `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes 
-| `AddressIP` | IP address of client connecting to service bus | Yes | Yes
-| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes 
-| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. | Yes | Yes 
-| `Reason` | Provides a reason why the action was done | Yes | Yes
-| `Count` | Number of occurrences for the given action | Yes | Yes
-| `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
-| `Category` |  Log Category | Yes | No
-| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
-|  `Type`  | Type of Logs Emitted | No | Yes
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table)  |
+| ---  | ----------- |---| ---|
+| `SubscriptionId` | Azure subscription ID | Yes | Yes |
+| `NamespaceName` | Namespace name | Yes | Yes |
+| `IPAddress` | IP address of a client connecting to the Service Bus service | Yes | Yes  |
+| `AddressIP` | IP address of client connecting to service bus | Yes | Yes |
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | Yes | Yes  |
+| `Action` | Action done by the Service Bus service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. | Yes | Yes  |
+| `Reason` | Provides a reason why the action was done | Yes | Yes |
+| `Count` | Number of occurrences for the given action | Yes | Yes |
+| `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes |
+| `Category` |  Log Category | Yes | No |
+| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes  |
+|  `Type`  | Type of Logs Emitted | No | Yes |
 
 > [!NOTE] 
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
@@ -239,24 +247,24 @@ Runtime audit logs capture aggregated diagnostic information for various data pl
 
 Runtime audit logs include the elements listed in the following table:
 
-Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAuditLogs (Resource specific table)
-------- | -------| ---|---| 
-`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
-`ActivityName` | Runtime operation name.  | Yes | Yes
-`ResourceId` | Resource associated with the activity. | Yes | Yes
-`Timestamp` | Aggregation time. | Yes | No
-`time Generated (UTC)` | Aggregated time | No | Yes
-`Status` | Status of the activity (success or failure).| Yes | Yes
-`Protocol` | Type of the protocol associated with the operation. | Yes | Yes
-`AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes
-`AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes
-`NetworkType` | Type of the network access: `Public` or`Private`. | yes | Yes
-`ClientIP` | IP address of the client application. | Yes | Yes
-`Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes
-`Properties` | Metadata that is specific to the data plane operation. | yes | Yes
-`Category` | Log category | Yes | No
- `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
- `Type`  | Type of Logs emitted | No | Yes
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSRuntimeAuditLogs (Resource specific table)|
+| ------- | -------| ---|---|
+| `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes|
+| `ActivityName` | Runtime operation name.  | Yes | Yes|
+| `ResourceId` | Resource associated with the activity. | Yes | Yes|
+| `Timestamp` | Aggregation time. | Yes | No|
+| `time Generated (UTC)` | Aggregated time | No | Yes|
+| `Status` | Status of the activity (success or failure).| Yes | Yes|
+| `Protocol` | Type of the protocol associated with the operation. | Yes | Yes|
+| `AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes|
+| `AuthKey` | Microsoft Entra application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes|
+| `NetworkType` | Type of the network access: `Public` or`Private`. | yes | Yes|
+| `ClientIP` | IP address of the client application. | Yes | Yes|
+| `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes|
+| `Properties` | Metadata that is specific to the data plane operation. | yes | Yes|
+| `Category` | Log category | Yes | No|
+| `Provider` |Name of Service emitting the logs e.g., ServiceBus | No | Yes |
+| `Type`  | Type of Logs emitted | No | Yes|
 
 Here's an example of a runtime audit log entry:
 
@@ -303,21 +311,21 @@ Diagnostic error logs capture error messages for any client side, throttling and
 
 Diagnostic Error Logs include elements listed in below table:
 
-Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table)
----|---|---|---|
-`ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes
-`ActivityName` | Operation name  | Yes | Yes
-`NamespaceName` | Name of Namespace | Yes | yes
-`EntityType` | Type of Entity | Yes | Yes 
-`EntityName` | Name of Entity | Yes | Yes  
-`OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes
-`ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes 
-`ErrorMessage` | Detailed Error Message | Yes | Yes 
-`Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes 
-`Time Generated (UTC)` | Operation time | No | Yes
-`EventTimestamp` | Operation Time | Yes | No
-`Category` | Log category | Yes | No
-`Type`  | Type of Logs emitted | No | Yes
+| Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table) |
+| ---|---|---|---|
+| `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes |
+| `ActivityName` | Operation name  | Yes | Yes |
+| `NamespaceName` | Name of Namespace | Yes | yes |
+| `EntityType` | Type of Entity | Yes | Yes  |
+| `EntityName` | Name of Entity | Yes | Yes   |
+| `OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes |
+| `ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes  |
+| `ErrorMessage` | Detailed Error Message | Yes | Yes  |
+| `Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes  |
+| `Time Generated (UTC)` | Operation time | No | Yes |
+| `EventTimestamp` | Operation Time | Yes | No |
+| `Category` | Log category | Yes | No |
+| `Type`  | Type of Logs emitted | No | Yes |
 
 Here's an example of Diagnostic error log entry:
 

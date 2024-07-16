@@ -132,7 +132,7 @@ The first time you do this step, you're asked to configure a link to your Azure 
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-add-modify.md?tabs=java#logs). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
@@ -230,7 +230,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, validate you have [access](resources-roles-access-control.md).
+* If these components are separate Application Insights resources, validate you have [access](../roles-permissions-security.md).
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the feedback channel in the upper-right corner.
 
 ### I see duplicate rows for the dependencies. Is this behavior expected?

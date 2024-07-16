@@ -87,10 +87,11 @@ Configure the facilities you want to collect and their severities.
  3. Select New.
  4.  Enter a unique name in the Format Name field.
  5. Click the radio button for  **Custom format string**  and paste the following string into the field.
- <p><code>1 $(date) $(time) $(time-taken) $(c-ip) $(cs-userdn) $(cs-auth-groups) $(x-exception-id) $(sc-filter-result) $(cs-categories) $(quot)$(cs(Referer))$(quot) $(sc-status) $(s-action) $(cs-method) $(quot)$(rs(Content-Type))$(quot) $(cs-uri-scheme) $(cs-host) $(cs-uri-port) $(cs-uri-path) $(cs-uri-query) $(cs-uri-extension) $(quot)$(cs(User-Agent))$(quot) $(s-ip) $(sr-bytes) $(rs-bytes) $(x-virus-id) $(x-bluecoat-application-name) $(x-bluecoat-application-operation) $(cs-uri-port) $(x-cs-client-ip-country) $(cs-threat-risk)</code></p>
- 6. Click the **OK** button. 
- 7. Click the **Apply** button. 
- 8. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address
+
+    `1 $(date) $(time) $(time-taken) $(c-ip) $(cs-userdn) $(cs-auth-groups) $(x-exception-id) $(sc-filter-result) $(cs-categories) $(quot)$(cs(Referer))$(quot) $(sc-status) $(s-action) $(cs-method) $(quot)$(rs(Content-Type))$(quot) $(cs-uri-scheme) $(cs-host) $(cs-uri-port) $(cs-uri-path) $(cs-uri-query) $(cs-uri-extension) $(quot)$(cs(User-Agent))$(quot) $(s-ip) $(sr-bytes) $(rs-bytes) $(x-virus-id) $(x-bluecoat-application-name) $(x-bluecoat-application-operation) $(cs-uri-port) $(x-cs-client-ip-country) $(cs-threat-risk)`
+ 7. Click the **OK** button. 
+ 8. Click the **Apply** button. 
+ 9. [Follow these instructions](https://knowledge.broadcom.com/external/article/166529/sending-access-logs-to-a-syslog-server.html) to enable syslog streaming of **Access** Logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address
 
 
 

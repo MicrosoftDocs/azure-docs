@@ -2,7 +2,7 @@
 title: Dapr extension for Azure Kubernetes Service (AKS) overview
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
-ms.topic: article
+ms.topic: overview
 ms.date: 04/22/2024
 ---
 
@@ -62,6 +62,30 @@ Microsoft provides best-effort support for [the latest version of Dapr and two p
 - 1.13.x 
 - 1.12.x 
 - 1.11.x 
+
+You can run Azure CLI commands to retreive a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
+
+To view a list of the stable Dapr versions available to your managed AKS cluster, run the following command:
+
+```azurecli
+az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
+```
+
+To see the latest stable Dapr version available to your managed AKS cluster, run the following:
+
+```azurecli
+az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
+```
+
+To view a list of the stable Dapr versions available _by location_:
+1. [Make sure you've registered the `ExtenstionTypes` feature to your Azure subscription.](./dapr.md#register-the-extenstiontypes-feature-to-your-azure-subscription)
+1. Run the following command.
+
+```azurecli
+az k8s-extension extension-types list-versions-by-location --location westus --extension-type microsoft.dapr
+```
+
+### Runtime support
 
 The Dapr extension support varies depending on how you manage the runtime.
 
