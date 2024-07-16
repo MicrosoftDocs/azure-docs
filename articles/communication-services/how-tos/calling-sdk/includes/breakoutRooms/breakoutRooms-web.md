@@ -158,12 +158,34 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 If the assigned breakout room doesn't have enabled property `autoMoveParticipantToBreakoutRoom` and the `state` of breakout room is set to `opened`, then explicitly call the `join` method on object `breakoutRoom` to join the breakout room.
 ```js
 const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
-
-const breakoutRoomCall = await breakoutRoom.join();
+if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRoom) {
+  const breakoutRoomCall = await breakoutRoom.join();
+}
 ```
 To retreive all the breakoutRooms created in the Teams main meeting by the Organizer / Co-organizer use the following code. These breakout rooms are available only to the Organizer / Co-Organizer of the meeting.
 ```js
 const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
+```
+
+Use the below code to leave the breakout room and join the main meeting call
+```js
+ const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
+ if(breakoutRoom.Call != null){
+    breakoutRoom.Call.hangUp();
+    const mainMeetingCall = callAgent.calls.filter(x => x.id == mainMeetingCall.Id);
+    mainMeetingCall.resume();
+ }
+```
+
+Use the below code to get the participants of the breakout room
+```js
+const breakoutRoomCall = breakoutRoomsFeature.assignedBreakoutRoom.Call;
+const breakoutRoomParticipants = [breakoutRoomCall.remoteParticipants.values()].map((p: SDK.RemoteParticipant) => {
+            return {
+                identifier: p.identifier,                
+                displayName: p.displayName
+            };
+    });
 ```
 
 Use the following to stop receiving breakoutRooms events
