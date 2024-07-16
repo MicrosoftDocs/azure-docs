@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau 
 ---
