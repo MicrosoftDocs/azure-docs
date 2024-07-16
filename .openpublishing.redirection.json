@@ -1,6 +1,20 @@
 {
     "redirections": [
     {
+      "source_path": "articles/networking/connectivity-interoperability-configuration.md",
+      "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-add-gateway-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-add-gateway-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
+    },
+    {
       "source_path": "articles/digital-twins/how-to-integrate-maps.md",
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
       "redirect_document_id": false
@@ -3686,6 +3700,16 @@
         {
             "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-identify-databases.md",
             "redirect_url": "/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
             "redirect_document_id": false
         },
         {
