@@ -27,6 +27,8 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Isolation](#network-isolation)                                 | Network disruption                                  |
+
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
 | Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
