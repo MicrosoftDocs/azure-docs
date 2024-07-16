@@ -8,7 +8,7 @@ ms.date: 07/16/2024
 
 # Gain end-user context for AI alerts
 
-Microsoft Defender for Cloud's threat protection for AI workloads allows you to enhance the actionability and security value of the generated AI alerts by providing insights to threats that might affect your generative AI applications.
+Microsoft Defender for Cloud's threat protection for AI workloads allows you to enhance the actionability and security value of the generated AI alerts by providing end-user context. With end user-context, investigations can be more in depth and allows you to protect your provide generative AI applications from external threats.
 
 By adding parameters to your Azure OpenAI API calls, you enable your Azure AI to pass critical end-user context to Defender for Cloud's AI alerts. This addition of end-user context provides greater visibility on end-users and leads to better investigations and results. For example, you can block a specific user or correlate incidents and alerts by end-user.
 
@@ -25,8 +25,6 @@ By adding parameters to your Azure OpenAI API calls, you enable your Azure AI to
 To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` parameters to your [Azure OpenAI API](../ai-services/openai/reference.md) calls.
 
 All of the fields in the `SecurityContext` are optional, but we recommended, at a minimum, passing the `EndUserId` and `SourceIP` fields. The `EndUserId` and `SourceIP` fields provide Security Operations Center (SOC) analysts the ability to investigate security incidents that involve AI resources and generative AI applications. For examples, see the [SecurityContext schema](#securitycontext-schema).
-
-The Azure OpenAI API call will be successful 
 
 If a field’s name is misspelled, the Azure OpenAI API call will still succeed. No validation of the `SecurityContext` schema is required to pass through the Azure OpenAI user field. Application developers should ensure that a valid JSON is passed to the `user` field in every request made by the application to Azure OpenAI.
 
@@ -64,7 +62,7 @@ We recommend adding all of the parameters provided in this document to your gene
 
     :::image type="content" source="media/gain-end-user-context-ai/sample-code-security-context.png" alt-text="Screenshot of the sample code provided from GitHub." lightbox="media/gain-end-user-context-ai/sample-code-security-context.png":::
 
-1. Add the code to your generative AI application's code. where Azure OpenAI API is called.
+1. Add the code to your generative AI application's code where Azure OpenAI API is called.
 
 1. Alter the code parameters to match your requirements.  
 
