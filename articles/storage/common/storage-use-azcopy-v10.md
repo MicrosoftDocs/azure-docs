@@ -45,6 +45,129 @@ For detailed information on AzCopy releases, see the [AzCopy release page](https
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
+## Install on Linux
+
+This article explains how to install the AzCopy V10 on Linux. Select the appropriate package manager for your distribution from the options at the top of the page.
+Using a Linux distribution's package manager is recommended, for more details refer to [Linux Software Repository for Microsoft Products](/linux/packages).
+
+### [dnf](#tab/dnf)
+
+Install with the `dnf install` command.
+
+1. Download the repo config package:
+
+  > [!IMPORTANT]
+  > Make sure to replace the distribution and version with the appropriate strings.
+
+  ```bash
+  curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+  ```
+
+2. Install the repo config package:
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ````
+
+3. Delete the repo config package after installing:
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ````
+
+4. Update package index files:
+
+   ```bash
+   sudo dnf update
+   ```
+5. Install AzCopy
+
+   ```bash
+   sudo dnf install azcopy
+
+
+### [zypper](#tab/zypper)
+
+Install with the `zypper install` command.
+
+1. Download the repo config package:
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+   ```
+2. Install the repo config package:
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ```
+
+3. Delete the repo config package after installing:
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ```
+
+4. Update package index files:
+
+   ```bash
+   sudo dnf update
+   ```
+
+5. Install AzCopy
+   
+   ```bash
+   sudo zypper install -y azcopy
+   ```
+
+### [apt](#tab/apt)
+
+Install with the `apt-get install` command.
+
+1. Download the repo config package:
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
+   ```
+
+2. Install the repo config package:
+   
+   ```bash
+   sudo dpkg -i packages-microsoft-prod.deb
+   ```
+
+3. Delete the repo config package after installing:
+
+   ```bash
+   rm packages-microsoft-prod.deb
+   ```
+
+4. Update package index files:
+
+   ```bash
+   sudo apt-get update
+   ```
+
+5. Install AzCopy
+   
+   ```bash
+   sudo apt-get install azcopy
+   ```
+
+# [tdnf](#tab/tdnf)
+
+Install with the `tdnf install` command.
+
+```bash
+sudo tdnf install azcopy
+```
+
+---
+
+
 ## Run AzCopy
 
 For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
