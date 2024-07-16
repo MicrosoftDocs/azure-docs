@@ -3,7 +3,7 @@ title: Quickstart - Deploy your first deidentification service
 description: Get up and running quickly with the deidentification service in Azure Health Data Services.
 author: jovinson-ms
 ms.service: healthcare-apis
-ms.subservice: deidentification-service
+ms.subservice: workspace
 ms.topic: quickstart
 ms.date: 7/16/2024
 ms.author: jovinson
@@ -31,15 +31,18 @@ To deploy an instance of the Deidentification service, start at the Azure portal
 In the _Basics_ tab, you provide basic information for your Deidentification service.
 
 1. Fill in the **Project Details** section:
-    |Setting  |Action   |
-    |---------|---------|
-    |Subscription   |Select your Azure subscription. |
-    |Resource group |Select **Create new** and enter **my-deid**. |
-1. Fill in the **Instance details** section:
-    |Setting  |Action   |
-    |---------|---------|
-    |Name   |Name your Deidentification service. |
-    |Location |Select a supported Azure region. |
+
+   | Setting        | Action                                       |
+   |----------------|----------------------------------------------|
+   | Subscription   | Select your Azure subscription.              |
+   | Resource group | Select **Create new** and enter **my-deid**. |
+
+ 1. Fill in the **Instance details** section:
+ 
+   | Setting        | Action                                       |
+   |----------------|----------------------------------------------|
+   | Name           | Name your Deidentification service.          |
+   | Location       | Select a supported Azure region. |
 
 ## Complete the Tags tab (optional)
 
@@ -49,10 +52,9 @@ For more information, see [Use tags to organize your Azure resources](/azure/azu
 
 ## Complete the Managed Identity tab (ptional)
 
-In the _Managed Identity_ tab, you can assign a managed identity to your Deidentification service. Learn more about 
-[managed identities](managed-identities.md).
+In the _Managed Identity_ tab, you can assign a managed identity to your Deidentification service. Learn more about [managed identities](managed-identities.md).
 
-1. To create a system-assigned managed identity, select **On** under _Status_.
+1. To create a system-assigned managed identity, select **On** under **Status**.
 1. To add a user-assigned managed identity, select **Add** to use the selection pane to choose an existing identity to assign.
 
 ## Review and create
