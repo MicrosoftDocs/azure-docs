@@ -96,7 +96,7 @@ A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypte
 
 ### Why can't I specify policy-based and route-based VPN types?
 
-As of October 1, 2023, you can't create a policy-based VPN gateway through the Azure portal. All new VPN gateways are automatically created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Azure Powershell or the Azure CLI to create the policy-based gateways.
+As of October 1, 2023, you can't create a policy-based VPN gateway through the Azure portal. All new VPN gateways are automatically created as route-based. If you already have a policy-based gateway, you don't need to upgrade your gateway to route-based. You can use Azure PowerShell or the Azure CLI to create the policy-based gateways.
 
 Previously, the older gateway product tiers (SKUs) didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 
@@ -130,7 +130,7 @@ When you create the gateway subnet, you specify the number of IP addresses that 
 
 Some configurations require more IP addresses to be allocated to the gateway services than do others. Make sure that your gateway subnet contains enough IP addresses to accommodate future growth and possible new connection configurations.
 
-Although you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26, /25, and so on). Verify that your existing gateway subnet will meet the requirements for the configuration that you want to create.
+Although you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26, /25, and so on). Verify that your existing gateway subnet meets the requirements for the configuration that you want to create.
 
 ### Can I deploy virtual machines or role instances to my gateway subnet?
 

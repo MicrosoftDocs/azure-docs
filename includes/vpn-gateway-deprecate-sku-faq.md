@@ -32,7 +32,7 @@ You can't migrate gateways from a deprecated SKU to an AZ SKU. However, all gate
 * Standard to VpnGw1AZ
 * High Performance to VpnGw2AZ
 
-After your gateways are automatically migrated and upgraded to the AZ SKUs, youu can then resize within that SKU family if necessary. For AZ SKU pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/). For throughput information by SKU, see [About gateway SKUs](https://go.microsoft.com/fwlink/?linkid=2256302).
+After your gateways are automatically migrated and upgraded to the AZ SKUs, you can then resize within that SKU family if necessary. For AZ SKU pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/). For throughput information by SKU, see [About gateway SKUs](https://go.microsoft.com/fwlink/?linkid=2256302).
 
 ### Will there be any pricing difference for my gateways after migration?
 

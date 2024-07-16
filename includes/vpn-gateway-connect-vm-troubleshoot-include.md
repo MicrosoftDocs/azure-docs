@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 10/18/2023
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: Include file
 ---
 If you're having trouble connecting to a virtual machine over your VPN connection, check the following items:
 

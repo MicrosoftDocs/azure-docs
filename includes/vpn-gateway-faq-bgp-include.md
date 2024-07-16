@@ -1,5 +1,5 @@
 ---
- title: include file
+ title: Include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.date: 10/18/2023
@@ -39,7 +39,7 @@ The useable ranges of private ASNs are:
 
 * 64512-65514 and 65521-65534
 
-These ASNs aren't reserved by IANA or Azure, so you can assign them to your VPN gateway.
+Neither IANA nor Azure reserves these ASNs, so you can assign them to your VPN gateway.
 
 ### What address does Azure VPN Gateway use for BGP peer IP?
 
@@ -51,7 +51,7 @@ If your on-premises VPN routers use Automatic Private IP Addressing (APIPA) IP a
 
 ### What are the requirements for the BGP peer IP addresses on my VPN device?
 
-Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the virtual network address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address).
+Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the VNet address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address).
 
 If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your VPN gateway, as described in [Configure BGP for Azure VPN Gateway](../articles/vpn-gateway/bgp-howto.md). Specify these addresses in the corresponding local network gateway that represents the location.
 
@@ -74,7 +74,7 @@ Azure VPN gateways have a default ASN of 65515 assigned, whether BGP is enabled 
 
 The gateways advertise the following routes to your on-premises BGP devices:
 
-* Your virtual network address prefixes
+* Your VNet address prefixes
 * Address prefixes for each local network gateway connected to the VPN gateway
 * Routes learned from other BGP peering sessions connected to the VPN gateway, except for the default route or routes that overlap with any virtual network prefix
 
@@ -84,11 +84,11 @@ Azure VPN Gateway supports up to 4,000 prefixes. The BGP session is dropped if t
 
 ### Can I advertise the default route (0.0.0.0/0) to VPN gateways?
 
-Yes. Keep in mind that advertising the default route forces all virtual network egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as RDP or SSH from the internet to the VMs.
+Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as RDP or SSH from the internet to the VMs.
 
 ### Can I advertise the exact prefixes as my virtual network prefixes?
 
-No. Azure blocks or filters advertisement of the same prefixes as any one of your virtual network address prefixes. You can, however, advertise a prefix that's a superset of what you have inside your virtual network.
+No. Azure blocks or filters advertisement of the same prefixes as any one of your VNet address prefixes. You can, however, advertise a prefix that's a superset of what you have inside your virtual network.
 
 For example, if your virtual network uses the address space 10.0.0.0/16, you can advertise 10.0.0.0/8. But you can't advertise 10.0.0.0/16 or 10.0.0.0/24.
 

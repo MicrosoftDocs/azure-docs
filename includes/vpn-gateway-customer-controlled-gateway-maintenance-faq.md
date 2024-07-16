@@ -38,7 +38,7 @@ At this time, you need to configure a daily maintenance window.
 
 Customer-controlled maintenance supports guest OS and service updates. These updates account for most of the maintenance items that cause concern for customers. Some other types of updates, including host updates, are outside the scope of customer-controlled maintenance.
 
-If a high-severity security issue might endanger customers, Azure might need to override customer control of the maintenance window and push a change. These changes are rare occurrences that we use only in in extreme cases.
+If a high-severity security issue might endanger customers, Azure might need to override customer control of the maintenance window and push a change. These changes are rare occurrences that we use only in extreme cases.
 
 ### Do maintenance configuration resources need to be in the same region as the gateway resource?
 

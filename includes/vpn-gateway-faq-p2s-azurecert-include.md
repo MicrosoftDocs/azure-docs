@@ -1,5 +1,5 @@
 ---
- title: include file
+ title: Include file
  author: cherylmc
  ms.service: vpn-gateway
  ms.date: 10/18/2023
@@ -9,7 +9,7 @@
 
 ### What should I do if I get a certificate mismatch when connecting through certificate authentication?
 
-Clear the **Verify the server's identity by validating the certificate** checkbox. Or, add the server fully qualified domain name (FQDN) along with the certificate when you're creating a profile manually. You can do this by running `rasphone` from a command prompt and selecting the profile from the dropdown list.
+Clear the **Verify the server's identity by validating the certificate** checkbox. Or, add the server's fully qualified domain name (FQDN) along with the certificate when you're creating a profile manually. You can do this by running `rasphone` from a command prompt and selecting the profile from the dropdown list.
 
 We don't recommend bypassing validation of server identity in general. But with Azure certificate authentication, the same certificate is used for server validation in the VPN tunneling protocol (IKEv2/SSTP) and the Extensible Authentication Protocol (EAP). Because the VPN tunneling protocol is already validating the server certificate and FQDN, it's redundant to validate them again in EAP.
 

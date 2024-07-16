@@ -40,7 +40,7 @@ Yes, you can use BGP with NAT. Here are some important considerations:
 
 * To ensure that the learned routes and advertised routes are translated to post-NAT address prefixes (external mappings) based on the NAT rules associated with the connections, select **Enable BGP Route Translation** on the configuration page for NAT rules. The on-premises BGP routers must advertise the exact prefixes as defined in the **IngressSNAT** rules.
 
-* If the on-premises VPN router uses a regular, non-APIPA address and it collides with the virtual network address space or other on-premises network spaces, ensure that the **IngressSNAT** rule will translate the BGP peer IP to a unique, non-overlapped address. Put the post-NAT address in the **BGP peer IP address** field of the local network gateway.
+* If the on-premises VPN router uses a regular, non-APIPA address and it collides with the VNet address space or other on-premises network spaces, ensure that the **IngressSNAT** rule will translate the BGP peer IP to a unique, non-overlapped address. Put the post-NAT address in the **BGP peer IP address** field of the local network gateway.
 * NAT isn't supported with BGP APIPA addresses.
 
 ### Do I need to create the matching DNAT rules for the SNAT rule?
@@ -49,7 +49,7 @@ No. A single source network address translation (SNAT) rule defines the translat
 
 * An **IngressSNAT** rule defines the translation of the source IP addresses coming into the  VPN gateway from the on-premises network. It also handles the translation of the destination IP addresses leaving from the virtual network to the same on-premises network.
 
-* An **EgressSNAT** rule defines the translation of the virtual network source IP addresses leaving the VPN gateway to on-premises networks. It also handles the translation of the destination IP addresses for packets coming into the virtual network via those connections with the **EgressSNAT** rule.
+* An **EgressSNAT** rule defines the translation of the VNet source IP addresses leaving the VPN gateway to on-premises networks. It also handles the translation of the destination IP addresses for packets coming into the virtual network via those connections with the **EgressSNAT** rule.
 
 In either case, you don't need destination network address translation (DNAT) rules.
 
@@ -60,7 +60,7 @@ You need to create one NAT rule for each prefix, because each NAT rule can inclu
 * **IngressSNAT** rule 1: Map 10.0.1.0/24 to 100.0.1.0/24.
 * **IngressSNAT** rule 2: Map 10.0.2.0/25 to 100.0.2.0/25.
 
-The two rules must match the prefix lengths of the corresponding address prefixes. The same guideline applies to **EgressSNAT** rules for the virtual network address space.
+The two rules must match the prefix lengths of the corresponding address prefixes. The same guideline applies to **EgressSNAT** rules for the VNet address space.
 
 > [!IMPORTANT]
 > If you link only one rule to the preceding connection, the other address space won't be translated.
@@ -79,7 +79,7 @@ Yes. You typically use the same **IngressSNAT** rule when the connections are fo
 
 ### Do I need both ingress and egress rules on a NAT connection?
 
-You need both ingress and egress rules on the same connection when the on-premises network address space overlaps with the virtual network address space. If the virtual network address space is unique among all connected networks, you don't need the **EgressSNAT** rule on those connections. You can use the ingress rules to avoid address overlap among the on-premises networks.
+You need both ingress and egress rules on the same connection when the on-premises network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you don't need the **EgressSNAT** rule on those connections. You can use the ingress rules to avoid address overlap among the on-premises networks.
 
 ### What do I choose as the IP configuration ID?
 

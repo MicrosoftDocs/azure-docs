@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  services: vpn-gateway
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 02/14/2019
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: Include file
 ---
 
 Depending on the VPN device that you have, you might be able to download a VPN device configuration script. For more information, see [Download VPN device configuration scripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
