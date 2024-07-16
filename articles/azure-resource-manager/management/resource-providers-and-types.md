@@ -62,14 +62,19 @@ To see all resource providers, and the registration status for your subscription
    :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of searching for subscriptions in the Azure portal.":::
 
 1. Select the subscription you want to view.
-
-   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of selecting a subscription in the Azure portal.":::
-
 1. On the left menu, under **Settings**, select **Resource providers**.
 
    :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
 
-1. Find the resource provider you want to register, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
+1. Find the resource provider you want to register.
+
+   :::image type="content" source="./media/resource-providers-and-types/find-resource-providers.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
+
+1. Select the resource provider to see the details of the resource provider.
+
+   :::image type="content" source="./media/resource-providers-and-types/show-resource-provider-details.png" alt-text="Screenshot of Resource provider details in the Azure portal.":::
+
+1. Select the resource provider, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Screenshot of registering a resource provider in the Azure portal.":::
 
