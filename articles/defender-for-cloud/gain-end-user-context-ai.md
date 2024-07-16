@@ -14,7 +14,7 @@ When AI threat protection is enabled you gain threat protection for AI workloads
 
 :::image type="content" source="media/gain-end-user-context-ai/before-code.png" alt-text="Screenshot of the Defender XDR portal that shows the threat protection alerts provided." lightbox="media/gain-end-user-context-ai/before-code.png":::
 
-By adding the code provided on this page, your AI models gain the ability to pass critical end-user context to Defender for Cloud's AI alerts. The addition of the end-user context allows the security alerts to contain more details and lead to more actionable alerts. For example, you can improve real-time threat detection and incident response.
+By adding the code provided on this page, your generative AI applications gain the ability to pass critical end-user context to Defender for Cloud's AI alerts. The addition of the end-user context allows the security alerts to contain more details and leads to more actionable alerts so that you can improve real-time threat detection and incident response.
 
 :::image type="content" source="media/gain-end-user-context-ai/after-code.png" alt-text="Screenshot of the Defender XDR portal that shows all of the additional benefits gained by adding the code." lightbox="media/gain-end-user-context-ai/after-code.png":::
 
@@ -30,7 +30,7 @@ By adding the code provided on this page, your AI models gain the ability to pas
 
 ## Add security parameters to your Azure OpenAI call
 
-To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` code to your [Azure OpenAI API](../ai-services/openai/reference.md) calls. Defender for Cloud uses the `SecurityContext` code to create security alerts that contain the user context, for example an incident that involves a malicious end-user. 
+To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` code to your [Azure OpenAI API](../ai-services/openai/reference.md) calls. Defender for Cloud enhances AI security alerts by using the `SecurityContext` code to incorporate the user context, for example detailing incidents that involve a malicious end-user. 
 
 Application developers should ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
 
@@ -60,7 +60,7 @@ The provided code consists of the `SecurityContext` field which contains several
 
 ## Add the SecurityContext code to your application
 
-We recommend adding all of the code samples provided in this document to your generative AI application's code.
+We recommend reviewing and referencing the code samples provided in this document to your generative AI application's code.
 
 1. Select one of these examples:
 
@@ -72,7 +72,7 @@ We recommend adding all of the code samples provided in this document to your ge
 
     :::image type="content" source="media/gain-end-user-context-ai/sample-code-security-context.png" alt-text="Screenshot of the sample code provided from GitHub." lightbox="media/gain-end-user-context-ai/sample-code-security-context.png":::
 
-1. Add the code to your generative AI application's code.
+Add the code in the relevant Azure OpenAI API call of your generative AI application's code.
 
 1. Alter the code parameters to match your requirements.  
 
