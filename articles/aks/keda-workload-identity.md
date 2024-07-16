@@ -339,11 +339,21 @@ Now that we have published messages to the Azure Service Bus queue, we will depl
     Normal   KEDAJobsCreated     10m   scale-handler  Created 10 jobs
     ```
 
+## Clean up resources
+
+After you verify that the deployment is successful, you can clean up the resources to avoid incurring Azure costs.
+
+1. Delete the Azure resource group and all resources in it using the [`az group delete`][az-group-delete] command.
+
+    ```azurecli-interactive
+    az group delete --name $RG_NAME --yes --no-wait
+    ```
+
 ## Next steps
 
 This article showed you how to securely scale your applications using the KEDA add-on and workload identity in AKS.
 
-With the KEDA add-on installed on your cluster, you can [deploy a sample application][keda-sample] to start scaling apps. For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
+For information on KEDA troubleshooting, see [Troubleshoot the Kubernetes Event-driven Autoscaling (KEDA) add-on][keda-troubleshoot].
 
 To learn more about KEDA, see the [upstream KEDA docs][keda].
 
