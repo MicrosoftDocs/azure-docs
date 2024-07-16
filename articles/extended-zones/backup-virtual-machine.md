@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: tutorial
-ms.date: 06/26/2024
+ms.date: 07/16/2024
 
 ---
 
@@ -21,12 +21,13 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a Recovery Services vault.
-> - Apply a backup policy to a virtual machine.
+> - Apply a backup policy to an Extended Zone VM.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure VM in an Extended Zone.
+
+- An Azure virtual machine (VM) in an Extended Zone. For more information, see [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md).
 
 ## Create a Recovery Services vault
 
