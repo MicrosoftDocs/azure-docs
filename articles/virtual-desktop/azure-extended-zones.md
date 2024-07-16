@@ -31,7 +31,7 @@ Unlike Azure regions, Azure Extended Zones doesn't have any default outbound con
 
 To deploy Azure Virtual Desktop in Azure Extended Zone locations, you'll need to explicitly register your subscription with the respective Azure Extended Zone using an account that is a subscription owner. By default, this capability isn't enabled. Registration of an Azure Extended Zone is always scoped to a specific subscription, ensuring control and management over the resources deployed in these locations. Once the subscription is registered with the Azure Extended Zone, you can deploy and manage your virtual desktop and applications within that specific Azure Extended Zone.
 
-For more information, see....
+For more information, see [Request access to an Azure Extended Zone](/azure/extended-zones/request-access).
 
 
 ## Limitations
