@@ -943,6 +943,8 @@
           href: eks-edw-prepare.md
         - name: Deploy to Azure
           href: eks-edw-deploy.md
+- name: FAQ
+  href: faq.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -982,8 +984,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-container-service
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-    - name: FAQ
-      href: faq.md
 - name: Support and troubleshooting
   items:
     - name: Support options for AKS
