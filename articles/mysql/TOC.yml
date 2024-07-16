@@ -160,6 +160,9 @@
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
+      - name: Threat protection with Microsoft Defender for Cloud
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+
   - name: Integrations
     items:
     - name: Automation tasks
@@ -481,8 +484,6 @@
         items:
         - name: Configuring SSL
           href: single-server/concepts-ssl-connection-security.md
-      - name: Threat protection with Microsoft Defender for Cloud
-        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
         - name: Data encryption
