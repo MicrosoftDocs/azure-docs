@@ -1,23 +1,20 @@
 ---
-title: "Batch de-identify data in Azure Blob Storage"
-description: "Learn how to de-identify data in Azure Blob Storage using batch jobs."
+title: Deidentify data in Azure Blob Storage with batch processing in Azure Health Data Services
+description: Learn how to efficiently deidentify large datasets in Azure Blob Storage with batch processing in Azure Health Data Services.
 author: jovinson-ms
 ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: how-to
-ms.date: [07/12/2024]
-
-#customer intent: As a software engineer or researcher, I want to de-identify a large amount of data in Azure Blob Storage.
-
+ms.date: 7/16/2024
 ---
 
-# Batch de-identify data in Azure Blob Storage
+# Deidentify data in Azure Blob Storage with batch jobs
 
-To de-identify large amounts of data that may be stored across multiple files, you can create a batch job to process data in Azure Blob Storage. If you choose to surrogate the data,
-each batch will be consistently surrogated, meaning that replacement identifiers and shifts will match across all documents processed in the batch.
+To de-identify large amounts of data that may be stored across multiple files, you can create a batch job to process data in Azure Blob Storage. If you choose to surrogate the data, each batch will be consistently surrogated, meaning that replacement identifiers and shifts will match across all documents processed in the batch.
 
 ## Prerequisites
+
 - A de-identification service in your Azure subscription. If you don't have a de-identification service yet, you can follow the steps in [Quickstart: Deploy your first de-identification service](quickstart.md).
 - An Azure role assignment with a scope that includes the de-identification service and with permissions to manage batch jobs, such as **DeID Batch Owner** and **DeID Data Owner**. To assign a role, you can follow [Use Azure role-based access control with the de-identification service](how-to-rbac.md).
 
