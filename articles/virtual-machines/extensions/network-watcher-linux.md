@@ -15,9 +15,6 @@ ms.custom: devx-track-arm-template, linux-related-content
 
 # Manage Network Watcher Agent virtual machine extension for Linux
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](../workloads/centos/centos-end-of-life.md).
-
 The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
 
 In this article, you learn how to install and uninstall Network Watcher Agent for Linux. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. If the virtual machine is deployed by an Azure service, check the documentation of the service to determine whether or not it permits installing extensions in the virtual machine.
