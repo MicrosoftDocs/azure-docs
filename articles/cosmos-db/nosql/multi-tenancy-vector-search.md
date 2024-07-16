@@ -16,11 +16,11 @@ ms.author: thvankra
 > "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." 
 > — Satya Nadella
 
-Azure Cosmos DB stands out as the world's first serverless vector search database, offering unparalleled scalability and performance. By using Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for multitenant applications. 
+Azure Cosmos DB stands out as the world's first full-featured serverless operational database with vector search, offering unparalleled scalability and performance. By using Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for multitenant applications. 
 
-Multi-tenancy enables a single instance of a database to serve multiple customers, or tenants, simultaneously. This approach efficiently shares infrastructure and operational overhead, resulting in cost savings and simplified management. It's a crucial design consideration for SaaS applications and some internal enterprise solutions.
+Multitenancy enables a single instance of a database to serve multiple customers, or tenants, simultaneously. This approach efficiently shares infrastructure and operational overhead, resulting in cost savings and simplified management. It's a crucial design consideration for SaaS applications and some internal enterprise solutions.
 
-Multi-tenancy introduces complexity. Your system must scale efficiently to maintain high performance across all tenants, who may have unique workloads, requirements, and service-level agreements (SLAs). 
+Multitenancy introduces complexity. Your system must scale efficiently to maintain high performance across all tenants, who may have unique workloads, requirements, and service-level agreements (SLAs). 
 
 Imagine a fictional AI-assisted research platform called ResearchHub. Serving thousands of companies and individual researchers, ResearchHub manages varying user bases, data scales, and SLAs. Ensuring low query latency and high performance is vital for sustaining an excellent user experience.
 
@@ -32,7 +32,7 @@ In Azure Cosmos DB, we recommend two primary approaches to managing multi-tenanc
 
 ### 1. Partition key-per-tenant
 
-For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data. This strategy works best when each tenant has roughly the same workload volume. If there is significant skew, customers should consider isolating those tenants in their own account. Additionally, if a single tenant has more than 20GB of data, [hierarchical partition keys (HPK)](#hierarchical-partitioning-enhanced-data-organization) should be used.
+For a higher density of tenants and lower isolation, the partition key-per-tenant model is effective. Each tenant is assigned a unique partition key within a given container, allowing logical separation of data. This strategy works best when each tenant has roughly the same workload volume. If there is significant skew, customers should consider isolating those tenants in their own account. Additionally, if a single tenant has more than 20GB of data, [hierarchical partition keys (HPK)](#hierarchical-partitioning-enhanced-data-organization) should be used. For vector search in particular, quantizedFlat index may perform very well if vector search queries can be focused to a particular partition or sets of partitions.
 
 **Benefits:**
 - **Cost Efficiency:** Sharing a single Cosmos DB account across multiple tenants reduces overhead.
@@ -42,7 +42,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 
 **Drawbacks:**
 - **Resource Contention:** Shared resources can lead to contention during peak usage.
-- **Limited Isolation:** Logical but not physical isolation, which may not meet stringent security needs.
+- **Limited Isolation:** Logical but not physical isolation, which may not meet strict isolation requirements.
 - **Less Flexibility:** Reduced flexibility per tenant for enabling account-level features like geo-replication, point-in-time restore (PITR), and customer-managed keys (CMK).
 
 ### Hierarchical partitioning: enhanced data organization
@@ -193,7 +193,7 @@ Azure Cosmos DB provides the tools necessary to build a robust, secure, and scal
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](../ai-advantage.md)
+[Multitenancy and Azure Cosmos DB](https://aka.ms/CosmosMultitenancy)
 
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)

@@ -40,7 +40,7 @@
           href: gen-ai/knn-vs-ann.md
         - name: Multi-tenancy for vector search
           href: nosql/multi-tenancy-vector-search.md
-    - name: Generative AI
+    - name: AI Applications
       expanded: true
       items:
         - name: Quickstart - build a RAG chatbot

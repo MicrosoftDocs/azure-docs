@@ -48,6 +48,26 @@ Install the necessary Python packages to interact with Azure Cosmos DB and other
 
 Populate `sample_env_file.env` with the appropriate credentials for Azure Cosmos DB and Azure OpenAI.
 
+```env
+cosmos_uri = "https://<replace with cosmos db account name>.documents.azure.com:443/"
+cosmos_key = "<replace with cosmos db account key>"
+cosmos_database_name = "database"
+cosmos_collection_name = "vectorstore"
+cosmos_vector_property_name = "vector"
+cosmos_cache_database_name = "database"
+cosmos_cache_collection_name = "vectorcache"
+openai_endpoint = "<replace with azure openai endpoint>"
+openai_key = "<replace with azure openai key>"
+openai_type = "azure"
+openai_api_version = "2023-05-15"
+openai_embeddings_deployment = "<replace with azure openai embeddings deployment name>"
+openai_embeddings_model = "<replace with azure openai embeddings model - e.g. text-embedding-3-large"
+openai_embeddings_dimensions = "1536"
+openai_completions_deployment = "<replace with azure openai completions deployment name>"
+openai_completions_model = "<replace with azure openai completions model - e.g. gpt-35-turbo>"
+storage_file_url = "https://cosmosdbcosmicworks.blob.core.windows.net/fabcondata/movielens_dataset.json"
+```
+
 ```python
 # Import the required libraries
 import time
