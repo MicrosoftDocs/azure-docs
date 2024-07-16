@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 07/06/2024
+ms.date: 07/16/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -33,11 +33,20 @@ The template code required depends on the desired hosting options for your funct
 
 When using this article, keep these considerations in mind:
 
-+ There's no canonical way to structure an ARM template. 
++ There's no canonical way to structure an ARM template.
+ 
 + A Bicep deployment can be modularized into multiple Bicep files. 
-+ This article assumes that you have a basic understanding of [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). 
-+ Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
 
++ This article assumes that you have a basic understanding of [creating Bicep files](../azure-resource-manager/bicep/file.md) or [authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). 
+:::zone pivot="premium-plan,dedicated-plan,consumption-plan"  
++ Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
+::: zone-end  
+:::zone pivot="flex-consumption-plan"  
++ Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these Flex Consumption app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%20flex%22&products=azure-resource-manager). 
+::: zone-end  
+:::zone pivot="container-app,azure-arc"  
++ Examples are shown as individual sections for specific resources.  
+::: zone-end  
 ## Required resources  
 :::zone pivot="premium-plan,dedicated-plan,flex-consumption-plan" 
 You must create or configure these resources for an Azure Functions-hosted deployment:
@@ -88,7 +97,7 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 ## Prerequisites  
 
 + The examples are designed to execute in the context of an existing resource group.
-+ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-resource-manager#create-a-workspace). 
++ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
 :::zone pivot="container-apps" 
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 :::zone-end  
@@ -107,21 +116,26 @@ This example section creates a Standard general purpose v2 storage account:
 ### [Bicep](#tab/bicep)
 
 ```bicep
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+resource storageAccountName 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'
   sku: {
-    name: storageAccountType
+    name: 'Standard_LRS'
   }
   properties: {
     supportsHttpsTrafficOnly: true
     defaultToOAuthAuthentication: true
+    allowBlobPublicAccess: false
   }
 }
 ```
-
+:::zone pivot="premium-plan,dedicated-plan,consumption-plan"
 For more context, see the complete [main.bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep#L37) file in the templates repository.
+::: zone-end  
+:::zone pivot="flex-consumption-plan"
+For more context, see the complete [storage-account.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/starters/http/dotnet/infra/core/storage/storage-account.bicep#L11) file in the sample repository.
+::: zone-end  
 
 ### [ARM template](#tab/json)
 
@@ -129,16 +143,17 @@ For more context, see the complete [main.bicep](https://github.com/Azure-Samples
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-05-01",
+    "apiVersion": "2023-05-01",
     "name": "[parameters('storageAccountName')]",
     "location": "[parameters('location')]",
     "kind": "StorageV2",
     "sku": {
-      "name": "[parameters('storageAccountType')]"
+      "name": "Standard_LRS"
     },
     "properties": {
       "supportsHttpsTrafficOnly": true,
-      "defaultToOAuthAuthentication": true
+      "defaultToOAuthAuthentication": true,
+      "allowBlobPublicAccess": false
     }
   }
 ]
@@ -152,6 +167,32 @@ You need to set the connection string of this storage account as the `AzureWebJo
 
 <!---{{todo: MI/KeyVault info/links here}} -->
 
+:::zone pivot="flex-consumption-plan"  
+### Deployment container
+
+Deployments to an app running in the Flex Consumption plan require a container in Azure Blob Storage as the deployment source. You can use either the default storage account or you can specify a separate storage account. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings). 
+
+This deployment account must already be configured when you create your app, including the specific container used for deployments. To learn more about configuring deployments, see [Deployment sources](#deployment-sources-2).
+
+This example shows how to create a container in the storage account:
+
+### [Bicep](#tab/bicep)
+
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/storage/storage-account.bicep" range="46-57" :::
+
+For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/storage/storage-account.bicep#L46).
+
+### [ARM template](#tab/json)
+
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="117-135" :::
+
+For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L117).
+
+---
+
+Other deployment settings are [configured with the app itself](#deployment-sources-2). 
+
+::: zone-end  
 ### Enable storage logs
 
 Because the storage account is used for important function app data, you should monitor the account for modification of that content. To monitor your storage account, you need to configure Azure Monitor resource logs for Azure Storage. In this example section, a Log Analytics workspace named `myLogAnalytics` is used as the destination for these logs. 
@@ -286,11 +327,13 @@ For more context, see the complete [function.bicep](https://github.com/Azure-Sam
 
 ### [ARM Template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="129-142" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="136-149" :::
 
-For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L129) file in the templates repository.
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L136) file in the templates repository.
 
 ---   
+
+Because the Flex Consumption plan currently only supports Linux, you must also set the `reserved` property to `true`.
 ::: zone-end  
 :::zone pivot="premium-plan" 
 The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and extra capabilities. To learn more, see [Azure Functions Premium Plan](functions-premium-plan.md).
@@ -1168,17 +1211,33 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 :::zone pivot="flex-consumption-plan"  
 ## Deployment sources
 
-In the Flex Consumption plan, your project code is deployed from a zip-compressed package published to a Blob storage container. For more information, see [Deployment](flex-consumption-plan.md#deployment). The specific storage account and container used for deployments and the authentication method and credential  is set in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container must exist when the app is created.
+In the Flex Consumption plan, your project code is deployed from a zip-compressed package published to a Blob storage container. For more information, see [Deployment](flex-consumption-plan.md#deployment). The specific storage account and container used for deployments, the authentication method, and credentials are set in the `functionAppConfig.deployment.storage` element of the `properties` for the site. The container and any application settings must exist when the app is created. For an example of how to create the storage container, see [Deployment container](#deployment-container).
 
 This example uses a system assigned managed identity to access the specified blob storage container, which is created elsewhere in the deployment:
 
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="58-65" :::
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="58-66" :::
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="155-162" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="162-170" :::
+
+---
+
+When using managed identities, you must also enable the function app to access the storage account using the identity, as shown in this example:
+
+ ### [Bicep](#tab/bicep)
+
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="81-90" :::
+
+For a complete reference example, see [this Bicep file](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep).
+
+### [ARM template](#tab/json)
+
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="199-212" :::
+
+For a complete reference example, see [this ARM template](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json).
 
 ---
 
@@ -1190,7 +1249,7 @@ When using a connection string instead of managed identities, you need to instea
 Your Bicep file or ARM template can optionally also define a deployment for your function code using a [zip deployment package](./deployment-zip-push.md).  
 :::zone-end  
 :::zone pivot="dedicated-plan,premium-plan,consumption-plan" 
-To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In most examples, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child `sourcecontrols/web` resource is applied. Although it's possible to configure these settings in the child-level `config/appSettings` resource, in some cases your function app must be deployed *before* `config/appSettings` is applied. 
+To successfully deploy your application by using Azure Resource Manager, it's important to understand how resources are deployed in Azure. In most examples, top-level configurations are applied by using `siteConfig`. It's important to set these configurations at a top level, because they convey information to the Functions runtime and deployment engine. Top-level information is required before the child `sourcecontrols/web` resource is applied. Although it's possible to configure these settings in the child-level `config/appSettings` resource, in some cases your function app must be deployed _before_ `config/appSettings` is applied. 
 
 ## Zip deployment package
 
@@ -1839,7 +1898,7 @@ Keep the following considerations in mind when working with slot deployments:
 You can create your function app in a deployment where one or more of the resources have been secured by integrating with virtual networks. Virtual network integration for your function app is defined by a `Microsoft.Web/sites/networkConfig` resource. This integration depends on both the referenced function app and virtual network resources. Your function app might also depend on other private networking resources, such as private endpoints and routes. For more information, see [Azure Functions networking options](functions-networking-options.md). 
 ::: zone-end  
 :::zone pivot="flex-consumption-plan" 
-These projects provide both Bicep and ARM template examples of how to deploy your function apps in a virtual network, including with network access restrictions:
+These projects provide Bicep-based examples of how to deploy your function apps in a virtual network, including with network access restrictions:
 
 + [High-scale HTTP triggered function connects to an event hub secured by a virtual network](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/HTTP-VNET-EH/README.md): An HTTP triggered function (.NET isolated worker mode) accepts calls from any source and then sends the body of those HTTP calls to a secure event hub running in a virtual network by using virtual network integration.
 + [Function is triggered by a Service Bus queue secured in a virtual network](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/README.md): A Python function is triggered by a Service Bus queue secured in a virtual network. The queue is accessed in the virtual network using private endpoint. A virtual machine in the virtual network is used to send messages.  
@@ -1859,24 +1918,17 @@ These projects provide both Bicep and ARM template examples of how to deploy you
 | [Create a function app and storage account that both use private endpoints](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-private-endpoints-storage-private-endpoints) | Your created function app can only be accessed by using private endpoints, and it uses private endpoints to access storage resources. For more information, see [Private endpoints](functions-networking-options.md#private-endpoints). |
 
 ::: zone-end  
-:::zone pivot="flex-consumption-plan,premium-plan,dedicated-plan" 
+:::zone pivot="premium-plan,dedicated-plan" 
 ### Restricted network settings
 
 You might also need to use these settings when your function app has network restrictions:
-::: zone-end  
-:::zone pivot="premium-plan,dedicated-plan" 
+
 | Setting | Value |  Description |
 | ---- |  ---- | ---- |
 | [`WEBSITE_CONTENTOVERVNET`](functions-app-settings.md#website_contentovervnet) | `1` | Application setting that enables your function app to scale when the storage account is restricted to a virtual network. For more information, see [Restrict your storage account to a virtual network](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).|
 | [`vnetrouteallenabled`](functions-app-settings.md#vnetrouteallenabled) | `1` | Site setting that forces all traffic from the function app to use the virtual network. For more information, see [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). This site setting supersedes the application setting [`WEBSITE_VNET_ROUTE_ALL`](./functions-app-settings.md#website_vnet_route_all). |
 
-::: zone-end  
-:::zone pivot="flex-consumption-plan"
-| Setting | Value |  Description |
-| ---- |  ---- | ---- |
-| [`vnetrouteallenabled`](functions-app-settings.md#vnetrouteallenabled) | `1` | Site setting that forces all traffic from the function app to use the virtual network. For more information, see [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). This site setting supersedes the application setting [`WEBSITE_VNET_ROUTE_ALL`](./functions-app-settings.md#website_vnet_route_all). |
-
-::: zone-end  
+::: zone-end   
 :::zone pivot="flex-consumption-plan,premium-plan,dedicated-plan" 
 ### Considerations for network restrictions
 
