@@ -473,8 +473,10 @@ items:
         href: containers/container-insights-transition-solution.md
     - name: Configure Container Insights (logs)
       items:
-      - name: Collect and filter logs
+      - name: Collect logs
         href: containers/container-insights-data-collection-configure.md
+      - name: Filter logs
+        href: containers/container-insights-data-collection-filter.md
       - name: Container log schema
         href: containers/container-insights-logs-schema.md
       - name: Data transformations

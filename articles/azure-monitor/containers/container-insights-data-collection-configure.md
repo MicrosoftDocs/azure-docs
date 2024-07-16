@@ -6,7 +6,7 @@ ms.date: 05/14/2024
 ms.reviewer: aul
 ---
 
-# Configure and filter log collection in Container insights
+# Configure log collection in Container insights
 
 This article provides details on how to configure data collection in Azure Monitor Container insights for your Kubernetes cluster, including how to filter data that you don't require. Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. 
 
@@ -36,15 +36,11 @@ The following table describes the different configuration tasks you can perform 
 | Enable dashboard |  | | Install the Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. This installation is performed from Grafana. |
 
 
-
-
 ## Configure data collection using DCR
-The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. Rather than directly modifying the DCR, you should use one of the methods described below to configure data collection.
+The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. While you can directly modify the DCR for particular customizations, you can perform most of configuration using the methods described here.
 
 > [!IMPORTANT]
 > AKS clusters must use either a system-assigned or user-assigned managed identity. If cluster is using a service principal, you must update the cluster to use a [system-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
-
-
 
 
 
@@ -80,7 +76,7 @@ Using the Azure portal, you can select from multiple preset configurations for d
     |:---|:---|
     | Collection frequency | Determines how often the agent collects data.  Valid values are 1m - 30m in 1m intervals The default value is 1m.|
     | Namespace filtering | *Off*: Collects data on all namespaces.<br>*Include*: Collects only data from the values in the *namespaces* field.<br>*Exclude*: Collects data from all namespaces except for the values in the *namespaces* field.<br><br>Array of comma separated Kubernetes namespaces to collect inventory and perf data based on the _namespaceFilteringMode_. For example, *namespaces = ["kube-system", "default"]* with an _Include_ setting collects only these two namespaces. With an _Exclude_ setting, the agent collects data from all other namespaces except for _kube-system_ and _default_.  |
-    | Collected Data | An array of container insights table streams. See the supported streams above to table mapping. |
+    | Collected Data | Defines which Container insights tables to collect. The tables are grouped by the most common scenarios. |
     | Enable ContainerLogV2 | Boolean flag to enable [ContainerLogV2 schema](./container-insights-logs-schema.md). If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
     | Enable Syslog collection | Enables Syslog collection from the cluster. |
     
@@ -271,9 +267,6 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-KubeServices | KubeServices |
 | Microsoft-Perf | Perf |
 
-
-## Use a single DCR with multiple clusters
-If you're monitoring multiple clusters with Container insights, you will often want to apply the same logic 
 
 ## Configure data collection using ConfigMap
 

@@ -46,6 +46,28 @@ The snippet below shows the `Microsoft-ContainerInsights-Group-Default` stream. 
 }
 ```
 
+### Streams
+When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
+
+> [!NOTE]
+> If you're familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
+
+| Stream | Container insights table |
+| --- | --- |
+| Microsoft-ContainerInventory | ContainerInventory |
+| Microsoft-ContainerLog | ContainerLog |
+| Microsoft-ContainerLogV2 | ContainerLogV2 |
+| Microsoft-ContainerNodeInventory | ContainerNodeInventory |
+| Microsoft-InsightsMetrics | InsightsMetrics |
+| Microsoft-KubeEvents | KubeEvents |
+| Microsoft-KubeMonAgentEvents | KubeMonAgentEvents |
+| Microsoft-KubeNodeInventory | KubeNodeInventory |
+| Microsoft-KubePodInventory | KubePodInventory |
+| Microsoft-KubePVInventory | KubePVInventory |
+| Microsoft-KubeServices | KubeServices |
+| Microsoft-Perf | Perf |
+
+
 ## Data flows
 The [dataFlows section of the DCR](../essentials/data-collection-rule-structure.md#dataflows) matches streams with destinations. The streams that don't require a transformation can be grouped together in a single entry that includes only the workspace destination. Create a separate entry for streams that require a transformation that includes the workspace destination and the `transformKql` property.
 
@@ -64,10 +86,6 @@ The snippet below shows the `dataFlows` section for a single stream with a trans
     }
 ]
 ```
-
-## Send data to multiple tables
-
-
 
 ## Example
 
