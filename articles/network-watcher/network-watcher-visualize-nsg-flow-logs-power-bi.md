@@ -44,7 +44,7 @@ You must also have the Power BI Desktop client installed on your machine, and en
 
 ### Steps
 
-1. Download and open the following Power BI template in the Power BI Desktop Application [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/blob/main/nw-public-docs-artifacts/nsg-flow-logs/PowerBI_FlowLogs_Storage_Template.pbit)
+1. Download and open the following Power BI template in the Power BI Desktop application [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/raw/main/nw-public-docs-artifacts/nsg-flow-logs/PowerBI_FlowLogs_Storage_Template.pbit)
 1. Enter the required Query parameters
    1. **StorageAccountName** – Specifies to the name of the storage account containing the NSG flow logs that you would like to load and visualize.
    1. **NumberOfLogFiles** – Specifies the number of log files that you would like to download and visualize in Power BI. For example, if 50 is specified, the 50 latest log files. If we have 2 NSGs enabled and configured to send NSG flow logs to this account, then the past 25 hours of logs can be viewed.
