@@ -68,7 +68,7 @@ az appconfig credential list \
 
 If access key authentication is enabled, then read access keys and read-write access keys will be returned.
 
-```
+```azurecli-interactive
 C:\Users\User>az appconfig credential list -g <resource-group> -n <app-configuration-name>
 []
 ```
