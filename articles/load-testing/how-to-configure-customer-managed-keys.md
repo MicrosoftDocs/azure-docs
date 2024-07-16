@@ -52,7 +52,7 @@ Make sure to configure the following key vault settings when you use customer-ma
 If you restricted access to your Azure key vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
 
 > [!IMPORTANT]
-> Retrieving customer-managed keys from a private Azure key vault that has access restrictions is currently not enabled in **US Gov Virginia** region.
+> Retrieving customer-managed keys from a private Azure key vault that has access restrictions is currently not supported in **US Gov Virginia** region.
 
 ### Configure soft delete and purge protection
 
