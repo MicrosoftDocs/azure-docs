@@ -31,7 +31,7 @@ The following types of metadata operations are included in the **Other IOPS** me
 
 **NFSv3** 
 
-Summary of NFSv3 metadata calls included in **Other IOPS** as covered in [RFC-1813](https://www.rfc-editor.org/rfc/rfc1813): 
+NFSv3 metadata calls included in **Other IOPS** as covered in [RFC-1813](https://www.rfc-editor.org/rfc/rfc1813): 
 
 - Procedure 0: NULL - Do nothing 
 - Procedure 1: GETATTR - Get file attributes 
@@ -56,7 +56,7 @@ Summary of NFSv3 metadata calls included in **Other IOPS** as covered in [RFC-18
 
 **NFSv4.1** 
 
-Summary of NFSv4.1 metadata calls included in **Other IOPS** as covered in [RFC-7530](https://www.rfc-editor.org/rfc/rfc7530): 
+NFSv4.1 metadata calls included in **Other IOPS** as covered in [RFC-7530](https://www.rfc-editor.org/rfc/rfc7530): 
 
 - Procedure 0: NULL – Do nothing 
 - Procedure 1: COMPOUND – Combining multiple NFS operations into a single request 
@@ -97,7 +97,7 @@ Summary of NFSv4.1 metadata calls included in **Other IOPS** as covered in [RFC-
 
 **SMB (includes SMB2 and SMB3.x)** 
 
-SMB commands listed in other ops with opcode value: 
+SMB commands included in **Other IOPS** with opcode value: 
 
 | SMB command | Opcode value | 
 | - | - |
@@ -107,16 +107,16 @@ SMB commands listed in other ops with opcode value:
 | SMB2 TREE_CONNECT | 0x0003 |
 | SMB2 TREE_DISCONNECT | 0x0004 |
 | SMB2 CREATE | 0x0005 |
-| SMB2 CLOSE  | 0x0006 |
+| SMB2 CLOSE | 0x0006 |
 | SMB2 FLUSH | 0x0007 |
 | SMB2 LOCK | 0x000A |
 | SMB2 IOCTL | 0x000B |
 | SMB2 CANCEL | 0x000C |
 | SMB2 ECHO | 0x000D |
 | SMB2 QUERY_DIRECTORY | 0x000E |
-| SMB2 CHANGE_NOTIFY |   0x000F | 
+| SMB2 CHANGE_NOTIFY | 0x000F | 
 | SMB2 QUERY_INFO | 0x0010 |
-| SMB2 SET_INFO |  0x0011 |
+| SMB2 SET_INFO | 0x0011 |
 | SMB2 OPLOCK_BREAK | 0x0012 | 
 
 ## Ways to access metrics 
