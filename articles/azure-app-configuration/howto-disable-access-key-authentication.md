@@ -41,7 +41,7 @@ The capability to enable access key authentication using the Azure CLI is in dev
 
 ### Verify that access key authentication is enabled
 
-To verify that if access key authentication is available, a request can be made to list the access keys for the Azure App Configuration resource. If access key authentication is enables, you wil get a list of ready access keys and read-write access keys.
+To verify if access key authentication is enabled, check if you're able to get a list of read and read-write access keys. This list will only exist if access key authentication is enabled.
 
 # [Azure portal](#tab/portal)
 
