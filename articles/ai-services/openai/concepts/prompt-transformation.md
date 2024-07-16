@@ -16,7 +16,7 @@ Prompt transformation is a process that applies a safety and quality system mess
 
 Prompt transformation is applied to all Azure OpenAI DALL-E 3 requests by default. There may be scenarios in which your scenario requires a lower level of enrichment. To generate images that use prompts that more closely resemble your original prompt, append this text to your prompt: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`. This will ensure there is minimal prompt transformation. Evaluating your system with this prompt will help you better understand the impact and value of prompt transformation. 
 
-After prompt transformation is applied to the original prompt, content filtering is applied as a secondary step prior to image generation; see [Content filtering](tbd) for more information.
+After prompt transformation is applied to the original prompt, content filtering is applied as a secondary step prior to image generation; see [Content filtering](./content-filter.md) for more information.
 
 Learn more about image generation prompting in OpenAI’s [DALL·E documentation](tbd).
 
