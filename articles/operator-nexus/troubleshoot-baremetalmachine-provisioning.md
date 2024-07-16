@@ -41,7 +41,8 @@ Name          ResourceGroup                  DetailedStatus    DetailedStatusMes
 BMM_NAME      CLUSTER_MRG                    STATUS            STATUS_MSG
 ```
 
-`STATUS` goes through the following phases throughout the BareMetal Machine provisioning process:
+Where `STATUS` goes through the following phases through the BareMetal Machine provisioning process (see [BMM Status in Azure Operator Nexus Compute Concepts](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-compute#bmm-status)):
+
 `Registering` -> `Preparing` -> `Inspecting` -> `Available` -> `Provisioning` -> `Provisioned`
 
 These phases are defined as follows:
@@ -137,8 +138,8 @@ az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{nam
 ```
 
 Verify the MAC address data against the BMC through the WEB UI: 
-`BMC` -> `Dashboard` # Shows BMC MAC Address
-`BMC` -> `System Info` -> `Network` -> `Embedded.1-1-1` # Shows Boot MAC Address
+`BMC` -> `Dashboard` - Shows BMC MAC Address
+`BMC` -> `System Info` -> `Network` -> `Embedded.1-1-1` - Shows Boot MAC Address
 
 Verify the MAC address using `racadm` from a Jumpbox that has access to the BMC network:
 ```bash
