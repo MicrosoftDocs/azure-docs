@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 ### Enable closed captions
 
+The method `setCaptionsOn` is configured to start captions by default.
+
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin

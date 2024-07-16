@@ -18,7 +18,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 Closed captions play a critical role in video voice calling apps, providing numerous benefits that enhance the accessibility, usability, and overall user experience of these platforms.
 
-In this article, you learn how to enable closed captions scenarios using the UI Library. There is two main scenarios to enable closed captions: Azure Communication Services video and voice calls and Interop calls.
+In this article, you learn how to enable closed captions scenarios using the UI Library. There's two main scenarios to enable closed captions: Azure Communication Services video and voice calls and Interop calls.
 
 ## Azure Communication Service Based Captions
 
@@ -38,13 +38,13 @@ Captions are seamlessly integrated within the `CallingUILibrary`.
 
 1. **Activate Captions**:
    - During a connected call, navigate to the control bar and click the **more button**.
-   - In the menu pop-up, toggle to turn captions on.
+   - In the menu pop-up, toggle to turn on captions.
 
 2. **Adjust Spoken Language**:
    - If a different language is being used in the meeting, users can change the spoken language via the UI. This change applies to all users in the call.
 
 3. **Set Caption Language** (for Teams Interop Closed Captions):
-   - By default, live captions are displayed in the language that’s spoken during the meeting or event. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
+   - By default, live captions are displayed in the language that's spoken during the meeting or event. Live translated captions allow users to see captions translated into the language they’re most comfortable with.
    - Change the caption language by clicking on the **Captions Language button** after captions have started, if translation to a different language is desired.
 
 :::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Closed captions looks like into the UI Library":::
@@ -54,7 +54,7 @@ Captions are seamlessly integrated within the `CallingUILibrary`.
 
 ## Supported languages
 
-Azure Communication Services supports a variety of spoken languages for captions. Below is the list of supported language codes that can be used with the `setSpokenLanguage` method to set the desired language for captions:
+Azure Communication Services supports various spoken languages for captions. Below is the list of supported language codes that can be used with the `setSpokenLanguage` method to set the desired language for captions:
 
 | Language              | ACS Spoken Code | Teams Spoken Code | Teams Caption Code |
 |-----------------------|-----------------|-------------------|--------------------|

@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 ### Enable closed captions
 
+The method `captionsOn` is configured to start captions by default.
+
 ```swift
 let captionsOptions = CaptionsOptions(
     captionsOn: true, 
