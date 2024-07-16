@@ -23,9 +23,9 @@ The following table lists the metrics available for the Microsoft.ServiceBus/Nam
 
 [!INCLUDE [Microsoft.ServiceBus/Namespaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-servicebus-namespaces-metrics-include.md)]
 
-### Metric types
+The following sections provide more detailed descriptions for metrics presented in the previous section.
 
-This section provides more detailed descriptions for metrics presented in the previous section.
+### Request metrics
 
 *Request metrics* count the number of data and management operations requests.
 
@@ -41,6 +41,8 @@ The following two types of errors are classified as *user errors*:
 
 - Client-side errors (In HTTP that would be 400 errors).
 - Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
+
+### Message metrics
 
 The following metrics are *message metrics*.
 
@@ -60,11 +62,14 @@ The following metrics are *message metrics*.
 > [!NOTE]
 > When a client tries to get the info about a queue or topic, the Service Bus service returns some static information such as name, last updated time, created time, and requires session or not. Some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
 
+### Connection metrics
 The following metrics are *connection metrics*.
 
 - **Active Connections** The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.
 - **Connections Opened** The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
 - **Connections Closed** The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
+
+### Resource usage metrics
 
 The following *resource metrics* are available only with the **premium** tier.
 
@@ -75,15 +80,19 @@ The important metrics to monitor for any outages for a premium tier namespace ar
 
 The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
+### Error metrics
+
 The following metrics are *error metrics*.
 
 - **Server Errors** The number of requests not processed because of an error in the Service Bus service over a specified period.
 - **User Errors** The number of requests not processed because of user errors over a specified period.
 
+### Geo-Replication metrics
+
 The following metrics are geo-replication metrics:
 
-**Replication Lag Duration** The offset in seconds between the latest action on the primary and the secondary regions.
-**Replication Lag Count** The offset in number of operations between the latest action on the primary and the secondary regions.
+- **Replication Lag Duration** The offset in seconds between the latest action on the primary and the secondary regions.
+- **Replication Lag Count** The offset in number of operations between the latest action on the primary and the secondary regions.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -102,8 +111,6 @@ The following metrics are geo-replication metrics:
 ### Supported resource logs for Microsoft.ServiceBus/Namespaces
 
 [!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-servicebus-namespaces-logs-include.md)]
-
-## Resource logs
 
 This section lists the types of resource logs you can collect for Azure Service Bus.
 
@@ -382,10 +389,7 @@ Resource specific table entry:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
-
-## Azure Monitor Logs tables
 
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 
@@ -396,7 +400,7 @@ Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
 - [AZMSOperationalLogs](/azure/azure-monitor/reference/tables/azmsoperationallogs#columns)
 - [AZMSVnetConnectionEvents](/azure/azure-monitor/reference/tables/azmsvnetconnectionevents#columns)
-- [AZMSRunTimeAuditLogs](/azure/azure-monitor/reference/tables/azmsrunrimeauditlogs#columns)
+- [AZMSRunTimeAuditLogs](/azure/azure-monitor/reference/tables/azmsruntimeauditlogs#columns)
 - [AZMSApplicationMetricLogs](/azure/azure-monitor/reference/tables/azmsapplicationmetricLogs#columns)
 - [AZMSDiagnosticErrorLogs](/azure/azure-monitor/reference/tables/azmsdiagnosticerrorlogs#columns)
 
