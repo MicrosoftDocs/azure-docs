@@ -77,7 +77,9 @@ The image version must meet the following requirements:
 When you create a generalized VM to capture to an image, the following issues can affect provisioning and startup times:
 
 1. Create the image by using these three sysprep options: `/generalize /oobe /mode:vm`. 
-    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).1. Enable the Read/Write cache on the OS disk.
+    - These options prevent a lengthy search for and installation of drivers during the first boot. For more information, see [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
+ 
+1. Enable the Read/Write cache on the OS disk.
     - To verify the cache is enabled, open the Azure portal and navigate to the image. Select **JSON view**, and make sure `properties.storageProfile.osDisk.caching` value is `ReadWrite`.
 
 1.  Enable nested virtualization in your base image:
