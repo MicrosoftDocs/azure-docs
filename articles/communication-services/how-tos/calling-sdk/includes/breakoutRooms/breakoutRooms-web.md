@@ -66,7 +66,7 @@ const mainMeetingUrl : string = breakoutRoom.mainMeetingUrl;
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMeeting;
 ```
-- `disableReturnToMainMeeting` : disable participants to return to the main meeting from the breakout room call.
+- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call.
 
 ```js
 const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
