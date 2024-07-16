@@ -8,7 +8,7 @@ ms.reviewer: viviandiec
 
 # Optimize monitoring costs for Container insights
 
-Kubernetes clusters generate a large amount of data that's collected by Container insights. Since you're charged for the ingestion and retention of this data, you want to configure your environment to optimize your costs. You can significantly reduce your monitoring costs by filtering out data that you don't need and also by optimizing the configDefuration of the Log Analytics workspace where you're storing your data.
+Kubernetes clusters generate a large amount of data that's collected by Container insights. Since you're charged for the ingestion and retention of this data, you want to configure your environment to optimize your costs. You can significantly reduce your monitoring costs by filtering out data that you don't need and also by optimizing the configuration of the Log Analytics workspace where you're storing your data.
 
 Once you've analyzed your collected data and determined if there's any data that you're collecting that you don't require, there are several options to filter any data that you don't want to collect. This ranges from selecting from a set of predefined cost configurations to leveraging different features to filter data based on specific criteria. This article provides a walkthrough of guidance on how to analyze and optimize your data collection for Container insights. 
 

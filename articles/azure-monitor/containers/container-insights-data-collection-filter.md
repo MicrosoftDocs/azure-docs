@@ -1,6 +1,6 @@
 ---
 title: Configure Container insights data collection and filtering
-description: Details on configuring data collection in Azure Monitor Container insights including filtering data you don't require.
+description: Options for filtering Container insights data that you don't require.
 ms.topic: conceptual
 ms.date: 05/14/2024
 ms.reviewer: aul
@@ -8,10 +8,13 @@ ms.reviewer: aul
 
 # Filtering log collection in Container insights
 
-This article provides details on how to configure data collection in Azure Monitor Container insights for your Kubernetes cluster, including how to filter data that you don't require. Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. 
+Kubernetes clusters generate a large amount of data that's collected by Container insights. Since you're charged for the ingestion and retention of this data, you want to configure your environment, you can significantly reduce your monitoring costs by filtering out data that you don't need.
+
+This article describes the different filtering options available in Container insights. See [Configure log collection in Container insights](container-insights-data-collection-configure.md) for details 
 
 
 ## Namespace filtering
+
 
 ## Filter container logs
 
