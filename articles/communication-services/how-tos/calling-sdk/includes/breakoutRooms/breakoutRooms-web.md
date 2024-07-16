@@ -168,7 +168,3 @@ Use the following to stop receiving breakoutRooms events
 ```js
 breakoutRoomsFeature.off('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
-### Key things to note about using BreakoutRooms:
-- For Microsoft Teams interoperability scenarios, the functionality of the feature depends on the meeting policy for the breakout room capability.
-- BreakoutRooms are supported in the Web Calling SDK.
-- BreakoutRooms are not currently supported in the Native SDKs.
