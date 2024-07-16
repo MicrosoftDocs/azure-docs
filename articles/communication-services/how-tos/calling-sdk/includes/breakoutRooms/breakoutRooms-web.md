@@ -61,7 +61,7 @@ const invitees : Invitee[] = breakoutRoom.invitees;
 ```js
 const mainMeetingUrl : string = breakoutRoom.mainMeetingUrl;
 ```
-- `mainMeetingUrl` : main meeting url of the Teams meeting.
+- `mainMeetingUrl` : Main meeting URL of the Teams meeting.
 
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMeeting;
