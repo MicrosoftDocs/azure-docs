@@ -206,6 +206,8 @@ Following are sample queries that you can use to help you monitor your Azure Ser
   | summarize by NamespaceInfo, AuthKey, ActivityName
    ```
 
+---
+
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Service Bus alert rules

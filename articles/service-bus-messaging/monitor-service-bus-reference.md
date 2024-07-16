@@ -89,7 +89,7 @@ The following metrics are *error metrics*.
 
 ### Geo-Replication metrics
 
-The following metrics are geo-replication metrics:
+The following metrics are *geo-replication* metrics:
 
 - **Replication Lag Duration** The offset in seconds between the latest action on the primary and the secondary regions.
 - **Replication Lag Count** The offset in number of operations between the latest action on the primary and the secondary regions.
@@ -165,7 +165,6 @@ Resource specific table entry:
 ```json
 
 {
-
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
   "EventName": "Retrieve Queue",
   "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
@@ -176,7 +175,6 @@ Resource specific table entry:
   "Caller": "ServiceBus Client",
   "type": "AZMSOperationalLogs",
   "Provider" : "SERVICEBUS"
-
 }
 
 ```
@@ -188,7 +186,7 @@ Operational logs capture all management operations that are performed on the Azu
 > [!NOTE]
 > To help you better track data operations, we recommend using client-side tracing.
 
-The following management operations are captured in operational logs: 
+The following management operations are captured in operational logs:
 
 | Scope | Operation |
 |-------|-----------|
@@ -243,15 +241,15 @@ Resource specific table entry:
 
 ```json
 {
-    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
-    "NamespaceName": "namespace-name",
-    "AddressIp": "1.2.3.4",
-    "Action": "Accept Connection",
-    "Message": "IP is accepted by IPAddress filter.",
-    "Count": 1,
-    "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
-    "Provider" : "SERVICEBUS",
-    "Type": "AZMSVNetConnectionEvents"
+  "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+  "NamespaceName": "namespace-name",
+  "AddressIp": "1.2.3.4",
+  "Action": "Accept Connection",
+  "Message": "IP is accepted by IPAddress filter.",
+  "Count": 1,
+  "ResourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+  "Provider" : "SERVICEBUS",
+  "Type": "AZMSVNetConnectionEvents"
 }
 ```
 
@@ -289,41 +287,39 @@ AzureDiagnostics:
 
 ```json
 {
-    "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
-    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
-    "Time": "1/1/2021 8:40:06 PM +00:00",
-    "Status": "Success | Failure",
-    "Protocol": "AMQP | HTTP | SBMP", 
-    "AuthType": "SAS | AAD", 
-    "AuthKey": "<AAD Application Name| SAS policy name>",
-    "NetworkType": "Public | Private", 
-    "ClientIp": "x.x.x.x",
-    "Count": 1, 
-    "Category": "RuntimeAuditLogs"
- }
-
+  "ActivityId": "<activity id>",
+  "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
+  "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+  "Time": "1/1/2021 8:40:06 PM +00:00",
+  "Status": "Success | Failure",
+  "Protocol": "AMQP | HTTP | SBMP", 
+  "AuthType": "SAS | AAD", 
+  "AuthKey": "<AAD Application Name| SAS policy name>",
+  "NetworkType": "Public | Private", 
+  "ClientIp": "x.x.x.x",
+  "Count": 1, 
+  "Category": "RuntimeAuditLogs"
+}
 ```
 
 Resource specific table entry:
 
 ```json
 {
-    "ActivityId": "<activity id>",
-    "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
-    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
-    "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
-    "Status": "Success | Failure",
-    "Protocol": "AMQP | HTTP | SBMP", 
-    "AuthType": "SAS | AAD", 
-    "AuthKey": "<AAD Application Name| SAS policy name>",
-    "NetworkType": "Public | Private", 
-    "ClientIp": "x.x.x.x",
-    "Count": 1, 
-    "Provider": "SERVICEBUS",
-    "Type"   : "AZMSRuntimeAuditLogs"
- }
-
+  "ActivityId": "<activity id>",
+  "ActivityName": "ConnectionOpen | Authorization | SendMessage | ReceiveMessage | PeekLockMessage",
+  "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<Service Bus namespace>/servicebus/<service bus name>",
+  "TimeGenerated (UTC)": "1/1/2021 8:40:06 PM +00:00",
+  "Status": "Success | Failure",
+  "Protocol": "AMQP | HTTP | SBMP", 
+  "AuthType": "SAS | AAD", 
+  "AuthKey": "<AAD Application Name| SAS policy name>",
+  "NetworkType": "Public | Private", 
+  "ClientIp": "x.x.x.x",
+  "Count": 1, 
+  "Provider": "SERVICEBUS",
+  "Type"   : "AZMSRuntimeAuditLogs"
+}
 ```
 
 ## Diagnostic Error Logs
@@ -352,39 +348,37 @@ Here's an example of Diagnostic error log entry:
 
 ```json
 {
-    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
-    "SubscriptionId": "<Azure Subscription Id",
-    "NamespaceName": "Name of Service Bus Namespace",
-    "EntityType": "Queue",
-    "EntityName": "Name of Service Bus Queue",
-    "ActivityName": "SendMessage",
-    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
-    "OperationResult": "ClientError",
-    "ErrorCount": 1,
-    "EventTimestamp": "3/27/2024 1:02:29.126 PM +00:00",
-    "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
-    "category": "DiagnosticErrorLogs"
- }
-
+  "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+  "SubscriptionId": "<Azure Subscription Id",
+  "NamespaceName": "Name of Service Bus Namespace",
+  "EntityType": "Queue",
+  "EntityName": "Name of Service Bus Queue",
+  "ActivityName": "SendMessage",
+  "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
+  "OperationResult": "ClientError",
+  "ErrorCount": 1,
+  "EventTimestamp": "3/27/2024 1:02:29.126 PM +00:00",
+  "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
+  "category": "DiagnosticErrorLogs"
+}
 ```
 
 Resource specific table entry:
 
 ```json
 {
-    "ActivityId": "0000000000-0000-0000-0000-00000000000000",
-    "NamespaceName": "Name of Service Bus Namespace",
-    "EntityType": "Queue",
-    "EntityName": "Name of Service Bus Queue",
-    "ActivityName": "SendMessage",
-    "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
-    "OperationResult": "ClientError",
-    "ErrorCount": 1,
-    "TimeGenerated [UTC]": "1/27/2024 4:02:29.126 PM +00:00",
-    "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
-    "Type": "AZMSDiagnosticErrorLogs"
- }
-
+  "ActivityId": "0000000000-0000-0000-0000-00000000000000",
+  "NamespaceName": "Name of Service Bus Namespace",
+  "EntityType": "Queue",
+  "EntityName": "Name of Service Bus Queue",
+  "ActivityName": "SendMessage",
+  "ResourceId": "/SUBSCRIPTIONS/xxx/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<service bus namespace name>",,
+  "OperationResult": "ClientError",
+  "ErrorCount": 1,
+  "TimeGenerated [UTC]": "1/27/2024 4:02:29.126 PM +00:00",
+  "ErrorMessage": "the sessionid was not set on a message, and it cannot be sent to the entity. entities that have session support enabled can only receive messages that have the sessionid set to a valid value.",
+  "Type": "AZMSDiagnosticErrorLogs"
+}
 ```
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
