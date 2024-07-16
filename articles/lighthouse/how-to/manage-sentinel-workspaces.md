@@ -30,7 +30,7 @@ This model of centralized management has the following advantages:
 - Ensures data isolation, since data for multiple customers isn't stored in the same workspace.
 - Prevents data exfiltration from the managed tenants, helping to ensure data compliance.
 - Related costs are charged to each managed tenant, rather than to the managing tenant.
-- Data from all data sources and data connectors that are integrated with Microsoft Sentinel (such as Microsoft Entra Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
+- Data from all data sources and data connectors that are integrated with Microsoft Sentinel (such as Microsoft Entra Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) remains within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
 - Able to use a multi-workspace view when working through Azure Lighthouse.
@@ -51,7 +51,7 @@ When creating your authorizations, you can assign Microsoft Sentinel built-in ro
 - [Microsoft Sentinel Responder](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder)
 - [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)
 
-You may also want to assign additional built-in roles to perform additional functions. For information about specific roles that can be used with Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
+You may also want to assign other built-in roles to perform additional functions. For information about specific roles that can be used with Microsoft Sentinel, see [Roles and permissions in Microsoft Sentinel](../../sentinel/roles.md).
 
 After you onboard your customers, designated users can log into your managing tenant and [directly access the customer's Microsoft Sentinel workspace](../../sentinel/multiple-tenants-service-providers.md#how-to-access-microsoft-sentinel-in-managed-tenants) with the roles that were assigned.
 
@@ -60,7 +60,7 @@ After you onboard your customers, designated users can log into your managing te
 If you work with Microsoft Sentinel resources for multiple customers, you can view and manage incidents in multiple workspaces across different tenants at once. For more information, see [Work with incidents in many workspaces at once](../../sentinel/multiple-workspace-view.md) and [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md).
 
 > [!NOTE]
-> Be sure that the users in your managing tenant have been assigned both read and write permissions on all of the manage workspaces. If a user only has read permissions on some workspaces, warning messages may appear when selecting incidents in those workspaces, and the user won't be able to modify those incidents or any others selected along with them (even if the user has write permissions for the others).
+> Be sure that the users in your managing tenant have been assigned both read and write permissions on all of the managed workspaces. If a user only has read permissions on some workspaces, warning messages may appear when selecting incidents in those workspaces, and the user won't be able to modify those incidents or any others selected along with them (even if the user has write permissions for the others).
 
 ## Configure playbooks for mitigation
 
@@ -86,7 +86,7 @@ You can use automation to manage multiple Microsoft Sentinel workspaces and conf
 
 ## Monitor security of Office 365 environments
 
-Use Azure Lighthouse in conjunction with Microsoft Sentinel to monitor the security of Office 365 environments across tenants. First, enable out-of-the box [Office 365 data connectors](../../sentinel/data-connectors/office-365.md) in the managed tenant. Information about user and admin activities in Exchange and SharePoint (including OneDrive) can then be ingested to a Microsoft Sentinel workspace within the managed tenant. This information includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with details about the users who performed those actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
+Use Azure Lighthouse with Microsoft Sentinel to monitor the security of Office 365 environments across tenants. First, enable out-of-the-box [Office 365 data connectors](../../sentinel/data-connectors/office-365.md) in the managed tenant. Information about user and admin activities in Exchange and SharePoint (including OneDrive) can then be ingested to a Microsoft Sentinel workspace within the managed tenant. This information includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with details about the users who performed those actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
 
 The [Microsoft Defender for Cloud Apps connector](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md) lets you stream alerts and Cloud Discovery logs into Microsoft Sentinel. This connector offers visibility into cloud apps, provides sophisticated analytics to identify and combat cyberthreats, and helps you control how data travels. Activity logs for Defender for Cloud Apps can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
@@ -94,7 +94,7 @@ After setting up Office 365 data connectors, you can use cross-tenant Microsoft 
 
 ## Protect intellectual property
 
-When working with customers, you may want to protect the intellectual property you've developed in Microsoft Sentinel, such as Microsoft Sentinel analytics rules, hunting queries, playbooks, and workbooks. There are different methods you can use to ensure that customers don't have complete access to the code used in these resources.
+When working with customers, you might want to protect intellectual property developed in Microsoft Sentinel, such as Microsoft Sentinel analytics rules, hunting queries, playbooks, and workbooks. There are different methods you can use to ensure that customers don't have complete access to the code used in these resources.
 
 For more information, see [Protecting MSSP intellectual property in Microsoft Sentinel](../../sentinel/mssp-protect-intellectual-property.md).
 
