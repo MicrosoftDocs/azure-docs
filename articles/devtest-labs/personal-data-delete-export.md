@@ -40,64 +40,80 @@ You can export personal and lab usage data by using the Azure PowerShell. The da
 
 ```powershell
 Param (
-    [Parameter (Mandatory=$true, HelpMessage="The storage account name where to store usage data")]
-    [string] $storageAccountName,
+    [Parameter (Mandatory=$true, HelpMessage="The resource group name of the storage account")]
+[string] $resourceGroupName,
+	
+	[Parameter (Mandatory=$true, HelpMessage="The subscription id of the storage account and DTL")]    
+[string] $subscriptionId,
 
-    [Parameter (Mandatory=$true, HelpMessage="The storage account key")]
-    [string] $storageKey,
+    [Parameter (Mandatory=$true, HelpMessage="The storage account name")]
+[string] $storageAccountName,
 
-    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab name to get usage data from")]
-    [string] $labName,
+    [Parameter (Mandatory=$true, HelpMessage="Expire time of the SAS Token")]
+[string] $expiryTime,
 
-    [Parameter (Mandatory=$true, HelpMessage="The DevTest Lab subscription")]
-    [string] $labSubscription
-    )
+    [Parameter (Mandatory=$true, HelpMessage="Date to pull data from")][string] $startTime,
 
-#Login
-Login-AzureRmAccount
+    [Parameter (Mandatory=$true, HelpMessage="Name of the lab to export")]
+[string] $labName,
 
-# Set the subscription for the lab
-Get-AzureRmSubscription -SubscriptionId $labSubscription  | Select-AzureRmSubscription
+    [Parameter (Mandatory=$true, HelpMessage="The desired SKU")]
+[string] $desiredSKU,
 
-# DTL will create this container in the storage when invoking the action, cannot be changed currently
-$containerName = "labresourceusage"
+    [Parameter (Mandatory=$true, HelpMessage="Protocol for SAS token generation")]
+[string] $protocol,
 
-# Get the storage context
-$Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey 
-$SasToken = New-AzureStorageAccountSASToken -Service Blob, File -ResourceType Container, Service, Object -Permission rwdlacup -Protocol HttpsOnly -Context $Ctx
+    [Parameter (Mandatory=$true, HelpMessage="Permissions given for SAS token")]
+[string] $permissions
 
-# Generate the storage blob uri
-$blobUri = $Ctx.BlobEndPoint + $SasToken
+# Log in 
+Connect-AzAccount -UseDeviceAuthentication
+ 
+# Set your subscription
+Set-AzContext -SubscriptionId $subscriptionId
+ 
+ 
+# Create a resource group and storage account
+  New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+                     -Name $storageAccountName `
+                     -Location $location `
+                     -SkuName $desiredSKU
+ 
+# Get storage account context
+$storageAccountContext = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
+$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+ 
+$Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKeys[0].Value
 
-# blobStorageAbsoluteSasUri and usageStartDate are required
+# Create blob container
+$containerName = "exportLabResources"
+New-AzStorageContainer -Name $containerName `
+                       -Context $Ctx `
+                       -Permission Off
+
+# Get SAS token
+$sasToken = New-AzStorageContainerSASToken `
+-Context $Ctx `
+-Name $containerName `
+-StartTime (Get-Date) `
+-ExpiryTime $expiryTime `
+-Permission $permissions `
+-Protocol $protocol
+
+# Make blob endpoint
+$blobEndpointWithSas = $storageAccountContext.Context.BlobEndPoint + $containerName+ "?" + $sasToken
+
+# Invoke Export Job
 $actionParameters = @{
-    'blobStorageAbsoluteSasUri' = $blobUri    
+    'blobStorageAbsoluteSasUri' = $blobEndpointWithSas    
 }
-
-$startdate = (Get-Date).AddDays(-7)
 
 $actionParameters.Add('usageStartDate', $startdate.Date.ToString())
-
-# Get the lab resource group
-$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $labName}).ResourceGroupName
-    
-# Create the lab resource id
-$resourceId = "/subscriptions/" + $labSubscription + "/resourceGroups/" + $resourceGroupName + "/providers/Microsoft.DevTestLab/labs/" + $labName + "/"
-
-# !!!!!!! this is the new resource action to get the usage data.
-$result = Invoke-AzureRmResourceAction -Action 'exportLabResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
  
-# Finish up cleanly
-if ($result.Status -eq "Succeeded") {
-    Write-Output "Telemetry successfully downloaded for " $labName
-    return 0
-}
-else
-{
-    Write-Output "Failed to download lab: " + $labName
-    Write-Error $result.toString()
-    return -1
-}
+$resourceId = "/subscriptions/" + $subscriptionId + "/resourceGroups/" + $resourceGroupName + "/providers/Microsoft.DevTestLab/labs/" + $labName + "/"
+ 
+$result = Invoke-AzureRmResourceAction -Action 'ExportResourceUsage' -ResourceId $resourceId -Parameters $actionParameters -Force
+
 ```
 
 The key components in the above sample are:
