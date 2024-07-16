@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/08/2024
+ms.date: 07/16/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -408,6 +408,8 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    1. Copy and save the URIs for **Blob service**, **Queue service**, and **Table service**.
 
+### Add role assignments for your managed identity
+
 1. On your storage account, add the necessary role assignments for your user-assigned identity:
 
    1. On the storage account menu, select **Access control (IAM)**.
@@ -423,7 +425,17 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
-1. Go to your Standard logic app. On the logic app menu, select **Overview**.
+### Set up your Standard logic app
+
+1. On your Standard logic app, enable runtime scale monitoring by following these steps:
+
+   1. On the logic app menu, under **Settings**, select **Configuration**.
+
+   1. On the **Workflow runtime settings** tab, for **Runtime Scale Monitori...**, select **On**.
+
+   1. On the **Configuration** toolbar, select **Save**.
+
+1. On the logic app menu, select **Overview**.
 
 1. On the **Overview** page toolbar, select **Stop**.
 
