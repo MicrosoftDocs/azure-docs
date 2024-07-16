@@ -65,4 +65,4 @@ Text models in the Azure OpenAI Service can take in and generate both text and c
 | Profanity                                         | Prompts                | N/A                 |
 
 
-In addition to the above safety configurations, Azure OpenAI DALL-E also comes with Prompt Transformation by default. This transformation occurs on all prompts to enhance the safety of your original prompt, specifically in the risk categories of diversity, deceptive generation of political candidates, depictions of public figures, protected material, and others. 
+In addition to the above safety configurations, Azure OpenAI DALL-E also comes with [prompt transformation](./prompt-transformation.md) by default. This transformation occurs on all prompts to enhance the safety of your original prompt, specifically in the risk categories of diversity, deceptive generation of political candidates, depictions of public figures, protected material, and others. 
