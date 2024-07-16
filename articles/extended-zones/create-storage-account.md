@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 07/16/2024
 
 ---
 
@@ -20,6 +20,8 @@ In this article, you learn how to create an Azure storage account in Los Angeles
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
 ## Sign in to Azure
 
