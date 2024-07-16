@@ -30,7 +30,7 @@ This tutorial provides a high-level overview for working with Automated ML in th
 
 - An Azure subscription. You can create a [free or paid account](https://azure.microsoft.com/free/) for Azure Machine Learning.
 
-- An Azure Machine Learning workspace or compute instance. To prepare these resources, see [Quickstart: Get started with Azure Machine Learning](./quickstart-create-resources.md).
+- An Azure Machine Learning workspace or compute instance. To prepare these resources, see [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).
 
 - The data asset to use for the Automated ML training job. This tutorial describes how to select an existing data asset or create a data asset from a data source, such as a local file, web url, or datastore. For more information, see [Create and manage data assets](how-to-create-data-assets.md).
 
@@ -188,7 +188,7 @@ You can select the **View featurization settings** option to see actions to perf
 
 The **Featurization** page shows default featurization techniques for your data columns. You can enable/disable automatic featurization and customize the automatic featurization settings for your experiment. 
 
-:::image type="content" source="media/how-to-use-automated-ml-for-ml-models/view-featurization.png" border="false" alt-text="Screenshot that shows the Select task type dialog box with View featurization settings called out." lightbox="media/how-to-use-automated-ml-for-ml-models/view-featurization.png":::
+:::image type="content" source="media/how-to-use-automated-ml-for-ml-models/view-featurization.png" alt-text="Screenshot that shows the Select task type dialog box with View featurization settings called out." lightbox="media/how-to-use-automated-ml-for-ml-models/view-featurization.png":::
 
 1. Select the **Enable featurization** option to allow configuration.
    
@@ -202,7 +202,7 @@ The **Featurization** page shows default featurization techniques for your data 
    | **Feature type** | Change the value type for the selected column. |
    | **Impute with**  | Select what value to impute missing values with in your data. |
 
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/updated-featurization.png" border="false" alt-text="Screenshot that shows custom featurization in the Azure Machine Learning studio." lightbox="media/how-to-use-automated-ml-for-ml-models/updated-featurization.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/updated-featurization.png" alt-text="Screenshot that shows custom featurization in the Azure Machine Learning studio." lightbox="media/how-to-use-automated-ml-for-ml-models/updated-featurization.png":::
 
 The featurization settings don't affect the input data needed for inferencing. If you exclude columns from training, the excluded columns are still required as input for inferencing on the model. 
 
@@ -246,7 +246,7 @@ The **Validate and test** section provides the following configuration options:
 
    - **Forecasting** jobs don't support train/test split.
    
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/validate-and-test.png" border="false" alt-text="Screenshot that shows how to select validation data and test data in the studio." lightbox="media/how-to-use-automated-ml-for-ml-models/validate-and-test.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/validate-and-test.png" alt-text="Screenshot that shows how to select validation data and test data in the studio.":::
 
 ### Configure the compute
 
@@ -324,7 +324,7 @@ Follow these steps to view the test job metrics of the recommended model:
 
 1. Select the job you want, and view the **Metrics** tab:
 
-   :::image type="content" source="./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png" border="false" alt-text="Screenshot that shows the test results tab for the automatically tested, recommended model." lightbox="./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png":::
+   :::image type="content" source="./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png" alt-text="Screenshot that shows the test results tab for the automatically tested, recommended model.":::
 
 View the test predictions used to calculate the test metrics by following these steps:
 
@@ -365,7 +365,7 @@ If you want to test a different Automated ML generated model, and not the recomm
 
 1. To view the results of the test job, open the **Details** page and follow the steps in the [View remote test job results (preview)](#view-remote-test-job-results-preview) section. 
 
-   :::image type="content" source="./media/how-to-use-automated-ml-for-ml-models/test-model-form.png" border="false" alt-text="Screenshot that shows the Test model form." lightbox="./media/how-to-use-automated-ml-for-ml-models/test-model-form.png":::
+   :::image type="content" source="./media/how-to-use-automated-ml-for-ml-models/test-model-form.png" alt-text="Screenshot that shows the Test model form.":::
 
 ## Responsible AI dashboard (preview)
 
@@ -377,19 +377,19 @@ Generate a Responsible AI dashboard for a particular model by following these st
    
 1. On the **Additional configuration** page, select the **Explain best model** option:
 
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png" border="false" alt-text="Screenshot showing the Automated ML job configuration page with Explain best model selected." lightbox="media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/best-model-selection-updated.png" alt-text="Screenshot showing the Automated ML job configuration page with Explain best model selected.":::
 
 1. Switch to the **Compute** tab, and select the **Serverless** option for your compute:
 
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/compute-serverless.png" border="false" alt-text="Screenshot hat shows the Serverless compute selection." lightbox="media/how-to-use-automated-ml-for-ml-models/compute-serverless.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/compute-serverless.png" alt-text="Screenshot hat shows the Serverless compute selection.":::
 
 1. After the operation completes, browse to the **Models** page of your Automated ML job, which contains a list of your trained models. Select the **View Responsible AI dashboard** link: 
 
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png" border="false" alt-text="Screenshot that shows the View dashboard page within an Automated ML job." lightbox="media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png" alt-text="Screenshot that shows the View dashboard page within an Automated ML job." lightbox="media/how-to-use-automated-ml-for-ml-models/view-responsible-ai.png":::
 
    The Responsible AI dashboard appears for the selected model:
 
-   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png" border="false" alt-text="Screenshot that shows the Responsible AI dashboard." lightbox="media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png":::
+   :::image type="content" source="media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png" alt-text="Screenshot that shows the Responsible AI dashboard." lightbox="media/how-to-use-automated-ml-for-ml-models/responsible-ai-dashboard.png":::
 
    In the dashboard, you see four components activated for your Automated ML best model: 
 
