@@ -82,10 +82,6 @@ procedureSection:
         
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
-> [!NOTE]  
-> Regardless of the scope, the evaluation of alert is always performed on the individual resource level, so for example, if you scope an alert at e.g. subscription level, its underlying resource groups and resources can trigger the alert. Also, if you set up separate alert rules on different scopes that monitor the same condition, then they'll always fire independently, even if the alert rules are stateful.
-      
-
   - title: |
       Configure the alert rule conditions
     summary: |
