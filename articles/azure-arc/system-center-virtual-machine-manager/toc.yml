@@ -59,7 +59,7 @@
     - name: Azure Arc-enabled System Center VMM
       href: /cli/azure/scvmm
     - name: Azure Arc resource bridge
-      href:  /cli/azure/arcappliance
+      href: /cli/azure/arcappliance
   - name: REST API
     items:
     - name: Azure Arc-enabled SCVMM REST API reference
