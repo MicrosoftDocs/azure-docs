@@ -28,48 +28,54 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 ## Specifications
 
 |Component| Technical specifications|
-|:----|:----|
-|Chassis| 1U rack server|
-|Dimensions| Height: 1.68 in / 42.8 mm <br>Width: 18.97 in / 482.0 cm<br>Depth: 23.04 in / 585.3 mm (without bezel) 23.57 in / 598.9 mm (with bezel)|
-|Processor| Intel Xeon E-2434 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo, HT (55 W) DDR5-4800|
-|Memory|32 GB |
-|Storage| 2.4 TB Hard Drive |
-|Network controller| - PowerEdge R360 Motherboard with with Broadcom 5720 Dual Port 1Gb On-Board LOM, <br>- PCIe Blank Filler, Low Profile. <br>- Intel Ethernet i350 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile, V2|
-|Management|iDRAC Group Manager, Disabled|
-|Rack support| ReadyRails Sliding Rails With Cable Management Arm|
+|----|----|
+|Chassis| 1U rack server |
+|Dimensions| Height: 60 mm <br>Width: 162 cm<br>Depth: 108 mm |
+|Processor| Intel Atom x6425RE |
+|Memory|16 GB |
+|Storage| 500 GB Hard Drive |
+|Network controller| Ports: 2* 1GbE RJ45 |
+|Management|iDRAC Group Manager, Disabled |
+|Rack support| Wall mount/ DIN rail support |
 
 ## Dell Edge Gateway 3200 - Bill of Materials
 
-|Quantity|PN|Description|
-|----|---|----|
-|1| 210-BJTR | Base PowerEdge R360 Server|
-|1| 461-AAIG | Trusted Platform Module 2.0 V3 |
-|1| 321-BKHP | 2.5" Chassis with up to 8 Hot Plug Hard Drives, Front PERC |
-|1| 338-CMRB | Intel Xeon E-2434 3.4G, 4C/8T, 8M Cache, Turbo, HT (55 W) DDR5-4800 |
-|1| 412-BBHK | Heatsink |
-|1| 370-AAIP | Performance Optimized |
-|1| 370-BBKS | 4800 MT/s UDIMMs |
-|2| 370-BBKF | 16 GB UDIMM, 4800 MT/s ECC |
-|1| 780-BCDQ | RAID 10 |
-|1| 405-ABCQ | PERC H355 Controller Card |
-|1| 750-ACFR | Front PERC Mechanical Parts, front load |
-|4| 400-BEFU | 1.2 TB Hard Drive SAS 12 Gbps 10k 512n 2.5in Hot Plug |
-|1| 384-BBBH | Power Saving BIOS Settings |
-|1| 387-BBEY | No Energy Star |
-|1| 384-BDML | Standard Fan |
-|1| 528-CTIC | iDRAC9, Enterprise 16G |
-|2| 450-AADY | C13 to C14, PDU Style, 10 AMP, 6.5 Feet (2m), Power Cord |
-|1| 330-BCMK | Riser Config 2, Butterfly Gen4 Riser (x8/x8) |
-|1| 329-BJTH | PowerEdge R360 Motherboard with with Broadcom 5720 Dual Port 1Gb On-Board LOM |
-|1| 414-BBJB | PCIe Blank Filler, Low Profile |
-|1| 540-BDII | Intel Ethernet i350 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile, V2, FIRMWARE RESTRICTIONS APPLY |
-|1| 379-BCRG | iDRAC, Factory Generated Password, No OMQR |
-|1| 379-BCQX | iDRAC Service Module (ISM), NOT Installed |
-|1| 325-BEVH | PowerEdge 1U Standard Bezel |
-|1| 350-BCTP | Dell Luggage Tag R360 |
-|1| 379-BCQY | iDRAC Group Manager, Disabled |
-|1| 470-AFBU | BOSS Blank |
-|1| 770-BCWN | ReadyRails Sliding Rails With Cable Management Arm |
+|type|Description|
+|----|----|
+| Processor | Intel Atom® x6425RE |
+|TDP | 12 W |
+|# of Cores | 4 |
+|Base Freq. | 1.9 Ghz |
+|Max. Turbo Freq.| - |
+|PCH | Elkhart Lake SoC   |
+|Memory | 16 GB |
+|Display | 2x DP++ |
+|Ethernet | 1x 2.5 GbE, 1x GbE (1 GHz) |
+|Serial ports| COM1/2: RS-232/422/485   |
+|DI/O | 6-ch DI and 6-ch DO |
+|USB | 4x external USB 3.1 Gen1 |
+|Audio | Line-out, mic-in  |
+|Mini PCIe   | 1x full size 3050 |
+|M.2 | Socket 1: for module with A/A+E key<br>Socket 2: for module with B/B+M key <br>Socket 3: for module with M key   |
+|Sensor Suite  | Accelerometer, humidity, pressure, temperature |
+|Wafer | 1x (signal: 2x I2C, 1x USB 2.0) |
+|USIM   | 2x nanoSIM slot |
+|TPM   | TPM 2.0 |
+|Disk| 1x M.2 SSD on M.2 Socket 3 |
+|Dimensions   | 162 mm (W) x 108 mm (D) x 60 mm (H) |
+|Weight   | Net: 1.2 kg; gross: 1.7 kg  |
+|Mounting | Wall mount / DIN rail supported |
+|DC Input | 9–36 V (±10% tolerance)   |
+|AC Input | Optional: 120 W, 60 W (for PoE) AC-to-DC adapter |
+|Operating temperature | –20°C to 60°C (with airflow 0.6 m/s) |
+|Storage temperature | –40°C to 85°C (excluding storage devices) |
+|Altitude | Operational (maximum, unpressurized): -15.20 m to 5,000m<br> Note: The maximum temperature is derated 1C/305m above sea level altitude  |
+|Humidity| ~95% at 40C (non-condensing) |
+|Vibration| MIL-STD-810G METHOD 514.6 category 4 - common carrier (US highway truck vibration exposure) |
+|Shock| 1. IEC 60068-2-27, half-sine pulse test parameters<br>2. 20G, MIL-STD-810G 516.6 Table 516.6-II, sawtooth pulse test parameters |
+|IP rating | IP40 |
+|EMC | CE, FCC, and EN61000-6-4/-6-2 |
+| Safety | UL, CB by UL  |
 
 ## Install Defender for IoT software on the Dell Edge Gateway 3200
 
