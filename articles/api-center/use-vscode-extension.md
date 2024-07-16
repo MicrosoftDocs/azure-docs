@@ -113,7 +113,7 @@ You can view the documentation for an API definition in your API center and try 
     > Depending on the API, you might need to provide authorization credentials or an API key to try the API.
 
     > [!TIP]
-    > You can also use the extension to generate Markdown documentation from the API definition. Right-click on the definition, and select **Generate Markdown**.
+    > You can also use the extension to generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
 
 ## Generate HTTP file
 
