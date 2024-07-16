@@ -185,7 +185,8 @@ Notice that the workflow status is marked as completed.
 
 ## Next steps
 
-[Learn how to add configuration settings to the Dapr extension on your AKS cluster][dapr-config].
+- [Configure the Dapr extension on your AKS cluster][dapr-config].
+- [Determine if you need to migrate from Dapr open source to the Dapr extension][dapr-migration].
 
 <!-- Links Internal -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
@@ -194,6 +195,7 @@ Notice that the workflow status is marked as completed.
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-resource-provider
 [dapr-config]: ./dapr-settings.md
+[dapr-migration]: ./dapr-migration.md
 [az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
 [kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl
 

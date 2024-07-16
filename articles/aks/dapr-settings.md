@@ -374,8 +374,8 @@ The Dapr extension requires the following outbound URLs on `https://:443` to fun
 
 ## Next Steps
 
-> [!div class="nextstepaction"]
-> [Walk through the tutorial for deploying Dapr Workflow via the extension][dapr-workflow]
+- [Walk through the tutorial for deploying Dapr Workflow via the extension][dapr-workflow]
+- [Determine if you need to migrate from Dapr open source to the Dapr extension][dapr-migration].
 
 
 <!-- LINKS INTERNAL -->
