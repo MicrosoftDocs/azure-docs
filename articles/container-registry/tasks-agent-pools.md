@@ -108,7 +108,10 @@ Customers basing their deployments with MCR can refer to [MCR/MAR firewall rules
 
 #### Advanced Network Configuration
 
-If the standard Firewall/NSG rules are too permissive and fine-grained control is required for outbound connections or if routing tables and network appliances are configured with the subnet, than the alternative is to enable service endpoints on the agent pool subnet in order to allow the agent pool access to its service dependencies. Outbound Firewall/NSG rules are still required in order for the Virtual Network to switch the source IP from a public to private IP in addition to the service endpoints being enabled.
+If the standard Firewall/NSG (Network Security Group) rules are deemed too permissive, and more fine-grained control is required for outbound connections, consider the following approach:
+
+- Enable service endpoints on the agent pool subnet. This grants the agent pool access to its service dependencies while maintaining a secure network posture.
+- It's important to note that outbound Firewall/NSG rules are still necessary. These rules facilitate the Virtual Network's ability to switch the source IP from public to private, which is an additional step beyond enabling service endpoints.
  
 More information on service endpoints is documented [here][az-vnet-svc-ep].
  
