@@ -256,7 +256,7 @@ To maintain least privileges in your subscription, only register those resource 
 az provider register --namespace Microsoft.Batch
 ```
 
-The command returns a message that registration is on-going.
+The command returns a message that registration is ongoing.
 
 To see information for a particular resource provider, use:
 
