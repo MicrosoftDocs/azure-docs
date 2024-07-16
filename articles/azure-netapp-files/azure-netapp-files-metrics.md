@@ -30,7 +30,9 @@ When monitoring the Azure NetApp Files volume, read and write operations are sel
 The following types of metadata operations are included in the Other IOPS metric: 
 
 **NFSv3** 
-- A summary of NFSv3 metadata calls included in “Other IOPS” as covered in RFC-1813: 
+
+Summary of NFSv3 metadata calls included in Other IOPS as covered in [RFC-1813](https://www.rfc-editor.org/rfc/rfc1813): 
+
 - Procedure 0: NULL - Do nothing 
 - Procedure 1: GETATTR - Get file attributes 
 - Procedure 2: SETATTR - Set file attributes 
@@ -53,43 +55,45 @@ The following types of metadata operations are included in the Other IOPS metric
 - Procedure 21: COMMIT - Commit cached data on a server to stable storage 
 
 **NFSv4.1** 
-A summary of NFSv4.1 metadata calls included in “Oother IOPSops” as covered in RFC-7530: 
+
+Summary of NFSv4.1 metadata calls included in Other IOPs as covered in [RFC-7530](https://www.rfc-editor.org/rfc/rfc7530): 
+
 - Procedure 0: NULL – Do nothing 
 - Procedure 1: COMPOUND – Combining multiple NFS operations into a single request 
 - Operation 3: ACCESS – Check access rights 
 - Operation 4: CLOSE – Close file 
 - Operation 5: COMMIT – Commit cached data 
-- Operation 6: CREATE - Create a Non-regular File Object 
-- Operation 7: DELEGPURGE - Purge Delegations Awaiting Recovery 
-- Operation 8: DELEGRETURN - Return Delegation 
-- Operation 9: GETATTR - Get Attributes 
-- Operation 10: GETFH - Get Current Filehandle 
-- Operation 11: LINK - Create Link to a File 
-- Operation 12: LOCK - Create Lock 
+- Operation 6: CREATE - Create a non-regular file object 
+- Operation 7: DELEGPURGE - Purge delegations awaiting recovery 
+- Operation 8: DELEGRETURN - Return delegation 
+- Operation 9: GETATTR - Get attributes 
+- Operation 10: GETFH - Get current filehandle 
+- Operation 11: LINK - Create link to a file 
+- Operation 12: LOCK - Create lock 
 - Operation 13: LOCKT - Test for Lock 
-- Operation 14: LOCKU - Unlock File 
-- Operation 15: LOOKUP - Look Up Filename 
-- Operation 16: LOOKUPP - Look Up Parent Directory 
-- Operation 17: NVERIFY - Verify Difference in Attributes 
-- Operation 18: OPEN - Open a Regular File 
-- Operation 19: OPENATTR - Open Named Attribute Directory 
-- Operation 20: OPEN_CONFIRM - Confirm Open 
-- Operation 21: OPEN_DOWNGRADE - Reduce Open File Access 
-- Operation 22: PUTFH - Set Current Filehandle 
-- Operation 23: PUTPUBFH - Set Public Filehandle 
-- Operation 24: PUTROOTFH - Set Root Filehandle 
-- Operation 26: READDIR - Read Directory 
-- Operation 27: READLINK - Read Symbolic Link 
-- Operation 28: REMOVE - Remove File System Object 
-- Operation 29: RENAME - Rename Directory Entry 
-- Operation 30: RENEW - Renew a Lease 
-- Operation 32: SAVEFH - Save Current Filehandle 
-- Operation 33: SECINFO - Obtain Available Security 
-- Operation 34: SETATTR - Set Attributes 
-- Operation 35: SETCLIENTID - Negotiate Client ID 
-- Operation 36: SETCLIENTID_CONFIRM - Confirm Client ID 
-- Operation 37: VERIFY - Verify Same Attributes 
-- Operation 39: RELEASE_LOCKOWNER – Release Lock-Owner State 
+- Operation 14: LOCKU - Unlock file 
+- Operation 15: LOOKUP - Look Up filename 
+- Operation 16: LOOKUPP - Look Up parent directory 
+- Operation 17: NVERIFY - Verify difference in attributes 
+- Operation 18: OPEN - Open a regular file 
+- Operation 19: OPENATTR - Open named attribute directory 
+- Operation 20: OPEN_CONFIRM - Confirm open 
+- Operation 21: OPEN_DOWNGRADE - Reduce open file access 
+- Operation 22: PUTFH - Set current filehandle 
+- Operation 23: PUTPUBFH - Set public filehandle 
+- Operation 24: PUTROOTFH - Set root filehandle 
+- Operation 26: READDIR - Read directory 
+- Operation 27: READLINK - Read symbolic link 
+- Operation 28: REMOVE - Remove file system object 
+- Operation 29: RENAME - Rename directory entry 
+- Operation 30: RENEW - Renew a lease 
+- Operation 32: SAVEFH - Save current filehandle 
+- Operation 33: SECINFO - Obtain available security 
+- Operation 34: SETATTR - Set attributes 
+- Operation 35: SETCLIENTID - Negotiate client ID 
+- Operation 36: SETCLIENTID_CONFIRM - Confirm client ID 
+- Operation 37: VERIFY - Verify aame attributes 
+- Operation 39: RELEASE_LOCKOWNER – Release lock-owner state 
 
 **SMB (includes SMB2 and SMB3.x)** 
 
