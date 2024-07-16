@@ -12,13 +12,16 @@ manager: nitinme
 
 # What is prompt transformation?
 
-Prompt transformation is a process that applies a safety and quality system message to your original prompt via a large language model (LLM) call prior to being sent to the model for image generation. This system message enriches your original prompt with the goal of generating more diverse and higher-quality images, while maintaining intent.
+Prompt transformation is a process in DALL-E 3 image generation that applies a safety and quality system message to your original prompt using a large language model (LLM) call before being sent to the model for image generation. This system message enriches your original prompt with the goal of generating more diverse and higher-quality images, while maintaining intent.
 
-Prompt transformation is applied to all Azure OpenAI DALL-E 3 requests by default. There may be scenarios in which your scenario requires a lower level of enrichment. To generate images that use prompts that more closely resemble your original prompt, append this text to your prompt: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`. This will ensure there is minimal prompt transformation. Evaluating your system with this prompt will help you better understand the impact and value of prompt transformation. 
+Prompt transformation is applied to all Azure OpenAI DALL-E 3 requests by default. There may be scenarios in which your use case requires a lower level of enrichment. To generate images that use prompts that more closely resemble your original prompt, append this text to your prompt: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`. This will ensure there is minimal prompt transformation. Evaluating your system behavior with and without this prompt will help you better understand the impact and value of prompt transformation. 
 
 After prompt transformation is applied to the original prompt, content filtering is applied as a secondary step prior to image generation; see [Content filtering](./content-filter.md) for more information.
 
-Learn more about image generation prompting in OpenAI’s [DALL·E documentation](tbd).
+> [!TIP]
+> Learn more about image generation prompting in OpenAI's [DALL·E documentation](https://platform.openai.com/docs/guides/images/language-specific-tips).
+
+## Prompt transformation example
 
 
 | **Example text prompt** | **Example generated image without prompt transformation** | **Example generated image with prompt transformation** |
@@ -26,19 +29,23 @@ Learn more about image generation prompting in OpenAI’s [DALL·E documentation
 |"Watercolor painting of the Seattle skyline" | ![Watercolor painting of the Seattle skyline (simple).](../media/how-to/generated-seattle.png) | ![Watercolor painting of the Seattle skyline, with more detail and structure.](../media/how-to/generated-seattle-prompt-transformed.png) |
 
 
-## Why is Prompt Transformation needed?
+## Why is prompt transformation needed?
 
-Prompt transformation is essential to responsible and high-quality generations. Not only does prompt transformation enhance the safety of your generated image, but it also enriches your prompt in a more descriptive manner, leading to higher quality and descriptive imagery. 
+Prompt transformation is essential for responsible and high-quality generations. Not only does prompt transformation improve the safety of your generated image, but it also enriches your prompt in a more descriptive manner, leading to higher quality and descriptive imagery.
 
-Default prompt transformation in Azure OpenAI DALL-E 3 contains safety enhancements that steer the model away from generating images of Copyright Studio Characters and Artwork, Public Figures, and other harmful content such as sexual, hate and unfairness, violence, and self-harm content. 
+Default prompt transformation in Azure OpenAI DALL-E 3 contains safety enhancements that steer the model away from generating images of Copyright Studio characters and artwork, public figures, and other harmful content such as sexual, hate and unfairness, violence, and self-harm content.
 
-## How do I use Prompt Transformation?
+## How do I use prompt transformation?
 
-Prompt transformation is applied by default to all Azure OpenAI DALL-E 3 requests. No additional set-up is required to benefit from prompt transformation enhancements. 
-Like image generation, prompt transformation is non-deterministic due to the nature of large language models. A single original prompt may lead to a a variety of image variants.
-Your revised or transformed prompt will be visible in the response object as shown below, in the `revised_prompt` field. 
+Prompt transformation is applied by default to all Azure OpenAI DALL-E 3 requests. No additional setup is required to benefit from prompt transformation enhancements.
 
-### Example response
+Like image generation, prompt transformation is non-deterministic due to the nature of large language models. A single original prompt may lead to a number of image variants.
+
+
+## View prompt transformations
+
+Your revised or transformed prompt will be visible in the API response object as shown below, in the `revised_prompt` field. 
+
 
 ```json
 Input Content:
@@ -64,7 +71,11 @@ Output Content:
 }
 ```
 
+> [!NOTE]
+> Azure OpenAI Service does not offer configurability for prompt transformation at this time. To bypass prompt transformation, prepend the following to any request: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
+> 
+> While this addition will encourage the revised prompt to be more representative of your original prompt, the system may alter specific details.
 
-The Azure OpenAI Service does not offer configurability for prompt transformation at this time. To bypass prompt transformation, prepend the following to any request: `I NEED to test how the tool works with extremely simple prompts. DO NOT add any detail, just use it AS-IS:`.
+## Next steps
 
-While this addition will encourage the revised prompt to be more representative of your original prompt, the system may alter specific details. 
+* [DALL-E quickstart](/azure/ai-services/openai/dall-e-quickstart)
