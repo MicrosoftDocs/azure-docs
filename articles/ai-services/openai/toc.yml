@@ -50,6 +50,10 @@ items:
       href: ./concepts/abuse-monitoring.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Default safety policies
+      href: ./concepts/default-safety-policies.md
+    - name: Prompt transformations
+      href: ./concepts/prompt-transformations.md
     - name: Customizing Large Language Models (LLMs)
       href: ./concepts/customizing-llms.md
     - name: Embeddings
