@@ -217,15 +217,17 @@ Having issues? Refer first to the [Troubleshooting guide](./configure-language-p
 
 ## 4 - Configure startup script
 
-Based on the presence of certain files in your deployment, App Service automatically detects whether your app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder. For details on how App Service runs Python apps, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
+Based on the presence of certain files in a deployment, App Service automatically detects whether an app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder.
+
+To learn more about how App Service runs Python apps and how you can configure and customize its behavior with your app, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
 
 ### [Azure CLI](#tab/azure-cli/flask)
 
-App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
 
 ### [Azure CLI](#tab/azure-cli/django)
 
-App Service automatically detects the presence of a Django app. No additional configuration is needed.
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
 
 ### [Azure CLI](#tab/azure-cli/fastapi)
 
@@ -250,11 +252,11 @@ az webapp restart \
 
 ### [VS Code](#tab/vscode-aztools/flask)
 
-App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
 
 ### [VS Code](#tab/vscode-aztools/django)
 
-App Service automatically detects the presence of a Django app. No additional configuration is needed.
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
 
 ### [VS Code](#tab/vscode-aztools/fastapi)
 
@@ -262,11 +264,11 @@ Use Azure CLI or the Azure portal to configure the startup command.
 
 ### [Azure portal](#tab/azure-portal/flask)
 
-App Service automatically detects the presence of a Flask app. No additional configuration is needed.
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
 
 ### [Azure portal](#tab/azure-portal/django)
 
-App Service automatically detects the presence of a Django app. No additional configuration is needed.
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
 
 #### [Azure portal](#tab/azure-portal/fastapi)
 
