@@ -61,6 +61,22 @@ If using Microsoft managed shipping, follow these steps.
 
 ### US & Canada
 
+Microsoft uses two shipping partners for returning Data Box Disk devices to Azure Data Centers. Microsoft's Canadian and US Government customers use UPS; Microsoft's US public cloud customers are serviced by FedEx. 
+
+#### [US and Canada Government - UPS](#tab/ups)
+
+Take the following steps if you are a US or Canada Governement customer returning a Data Box Disk device in the US or Canada.
+
+<!--- Content here  -->
+
+#### [US Public Cloud - FedEx](#tab/fedex)
+
+Take the following steps if you are a US Public Cloud customer returning a Data Box Disk device in the US or Canada.
+
+<!--- Content here  -->
+
+--- 
+
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
 ::: zone-end
