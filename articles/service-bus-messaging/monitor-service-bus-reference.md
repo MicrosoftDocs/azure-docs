@@ -1,105 +1,110 @@
 ---
-title: Monitoring Azure Service Bus data reference
-description: Important reference material needed when you monitor Azure Service Bus. 
+title: Monitoring data reference for Azure Service Bus
+description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
+ms.date: 07/17/2024
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-ms.custom: subject-monitoring
-ms.date: 10/11/2022
+author: spelluru
+ms.author: spelluru 
+ms.service: service-bus-messaging
 ---
+# Azure Service Bus monitoring data reference
 
-# Monitoring Azure Service Bus data reference
-See [Monitoring Azure Service Bus](monitor-service-bus.md) for details on collecting and analyzing monitoring data for Azure Service Bus.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-> [!NOTE]
-> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
 
-## Metrics
-This section lists all the automatically collected platform metrics collected for Azure Service Bus. The resource provider for these metrics is **Microsoft.ServiceBus/namespaces**.
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-### Request metrics
-Counts the number of data and management operations requests.
+### Supported metrics for Microsoft.ServiceBus/Namespaces
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-| Incoming Requests| Yes | Count | Total | The number of requests made to the Service Bus service over a specified period. | EntityName | 
-|Successful Requests| No | Count | Total | The number of successful requests made to the Service Bus service over a specified period. | Entity name<br/>OperationResult|
-|[Server Errors](service-bus-messaging-exceptions.md#exception-categories)| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
-|[User Errors](service-bus-messaging-exceptions.md#exception-categories) | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
-|Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
-| Pending Checkpoint Operations Count | No | count | Average | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. | MessagingErrorSubCode | 
-| Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
+The following table lists the metrics available for the Microsoft.ServiceBus/Namespaces resource type.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
+[!INCLUDE [Microsoft.ServiceBus/Namespaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-servicebus-namespaces-metrics-include.md)]
 
-The following two types of errors are classified as **user errors**:
+### Metric types
 
-1. Client-side errors (In HTTP that would be 400 errors).
-2. Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
+This section provides more detailed descriptions for metrics presented in the previous section.
 
+*Request metrics* count the number of data and management operations requests.
 
-### Message metrics
+- **Incoming Requests** The number of requests made to the Service Bus service over a specified period.
+- **Successful Requests** The number of successful requests made to the Service Bus service over a specified period.
+- [Server Errors](service-bus-messaging-exceptions.md#exception-categories) The number of requests not processed because of an error in the Service Bus service over a specified period.
+- [User Errors](service-bus-messaging-exceptions.md#exception-categories) The number of requests not processed because of user errors over a specified period.
+- **Throttled Requests** The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p>
+- **Pending Checkpoint Operations Count** The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier.
+- **Server Send Latency** The time taken by the Service Bus service to complete the request.
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming auto-forwarded messages are included in this metric. And, for the premium tier, they aren't included.  | Entity name|
-|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. The outgoing auto-forwarded messages aren't included in this metric. | Entity name|
-| Messages | No | Count | Average | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. | Entity name |
-| Active Messages| No | Count | Average | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. | Entity name |
-| Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
-| Scheduled messages| No | Count | Average | Count of scheduled messages in a queue/topic. | Entity name |
-|Completed Messages| Yes | Count | Total | The number of messages completed over a specified period. | Entity name|
-| Abandoned Messages| Yes | Count | Total | The number of messages abandoned over a specified period. | Entity name|
-| Size | No | Bytes | Average | Size of an entity (queue or topic) in bytes. | Entity name | 
+The following two types of errors are classified as *user errors*:
+
+- Client-side errors (In HTTP that would be 400 errors).
+- Errors that occur while processing messages, such as [MessageLockLostException](/dotnet/api/azure.messaging.servicebus.servicebusfailurereason).
+
+The following metrics are *message metrics*.
+
+- **Incoming Messages** The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included.
+- **Outgoing Messages** The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric.
+- **Messages** Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc.
+- **Active Messages** Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received.
+- **Dead-lettered messages** Count of dead-lettered messages in a queue/topic.
+- **Scheduled messages** Count of scheduled messages in a queue/topic.
+- **Completed Messages** The number of messages completed over a specified period.
+- **Abandoned Messages** The number of messages abandoned over a specified period.
+- **Size** Size of an entity (queue or topic) in bytes.
 
 > [!IMPORTANT]
-> Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.
 
 > [!NOTE]
-> When a client tries to get the info about a queue or topic, the Service Bus service returns some static information like name, last updated time, created time, requires session or not etc., and some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
+> When a client tries to get the info about a queue or topic, the Service Bus service returns some static information such as name, last updated time, created time, and requires session or not. Some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
 
-### Connection metrics
+The following metrics are *connection metrics*.
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-|Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
-|Connections Opened | No | Count | Average | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
-|Connections Closed | No | Count | Average | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. | Entity name|
+- **Active Connections** The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.
+- **Connections Opened** The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
+- **Connections Closed** The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
 
-### Resource usage metrics
+The following *resource metrics* are available only with the **premium** tier.
 
-> [!NOTE] 
-> The following metrics are available only with the **premium** tier. 
-> 
-> The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
-> 
-> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
+- **CPU usage per namespace** The percentage CPU usage of the namespace.
+- **Memory size usage per namespace** The percentage memory usage of the namespace.
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-|CPU usage per namespace| No | CPU | Percent | The percentage CPU usage of the namespace. | Replica |
-|Memory size usage per namespace| No | Memory Usage | Percent | The percentage memory usage of the namespace. | Replica |
+The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
 
-### Error metrics
+The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
-| ------------------- | ----------------- | --- | --- | --- | --- | 
-|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/><br/>Operation Result |
-|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
+The following metrics are *error metrics*.
 
-### Geo-Replication metrics
+- **Server Errors** The number of requests not processed because of an error in the Service Bus service over a specified period.
+- **User Errors** The number of requests not processed because of user errors over a specified period.
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
-| ------------------- | ----------------- | --- | --- | --- | --- | 
-|Replication Lag Duration| No | Seconds | Max | The offset in seconds between the latest action on the primary and the secondary regions. | |
-|Replication Lag Count | No | Count | Max | The offset in number of operations between the latest action on the primary and the secondary regions. | |
+The following metrics are geo-replication metrics:
 
-## Metric dimensions
+**Replication Lag Duration** The offset in seconds between the latest action on the primary and the secondary regions.
+**Replication Lag Count** The offset in number of operations between the latest action on the primary and the secondary regions.
 
-Azure Service Bus supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level. 
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-|Dimension name|Description|
-| ------------------- | ----------------- |
-|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will have a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.|
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+
+- **EntityName** Service Bus supports messaging entities under the namespace. With the Incoming Requests metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your queues and topics. This value represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.
+- **MessagingErrorSubCode**
+- **OperationResult**
+- **Replica**
+
+> [!NOTE]
+> Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, or Azure Monitor Logs.
+
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+
+### Supported resource logs for Microsoft.ServiceBus/Namespaces
+
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-servicebus-namespaces-logs-include.md)]
 
 ## Resource logs
+
 This section lists the types of resource logs you can collect for Azure Service Bus.
 
 - Operational logs
@@ -111,6 +116,7 @@ Azure Service Bus now has the capability to dispatch logs to either of two desti
 :::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
 ### Operational logs
+
 Operational log entries include elements listed in the following table:
 
 | Name | Description | Supported in AzureDiagnostics | Supported in AZMSOperationalLogs (Resource Specific table)|
@@ -124,7 +130,7 @@ Operational log entries include elements listed in the following table:
 | `EventProperties` | Operation properties | Yes | Yes|
 | `Status` | Operation status | Yes | Yes|
 | `Caller` | Caller of operation (the Azure portal or management client) | Yes | Yes|
-| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes|
+| `Provider`|Name of Service emitting the logs, such as ServiceBus | No | Yes|
 |  `Type`| Type of logs emitted | No | Yes|
 | `Category`| Log Category | Yes | No|
 
@@ -145,9 +151,8 @@ AzureDiagnostics:
   "Caller": "ServiceBus Client",
   "category": "OperationalLogs"
 }
-
-
 ```
+
 Resource specific table entry:
 
 ```json
@@ -170,6 +175,7 @@ Resource specific table entry:
 ```
 
 ### Events and operations captured in operational logs
+
 Operational logs capture all management operations that are performed on the Azure Service Bus namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Service Bus.
 
 > [!NOTE]
@@ -184,12 +190,12 @@ The following management operations are captured in operational logs:
 | Topic | - Create Topic<br>- Update Topic<br>- Delete Topic<br>- AutoDelete Delete Topic<br>- Retrieve Topic |
 | Subscription | - Create Subscription<br>- Update Subscription<br>- Delete Subscription<br>- AutoDelete Delete Subscription<br>- Retrieve Subscription |
 
-
 > [!NOTE]
 > Currently, *Read* operations aren't tracked in the operational logs.
 
 ### Virtual network and IP filtering logs
-Service Bus virtual network (VNet) connection event JSON includes elements listed in the following table:
+
+Service Bus virtual network connection event JSON includes elements listed in the following table:
 
 | Name | Description | Supported in Azure Diagnostics | Supported in AZMSVnetConnectionEvents (Resource specific table)  |
 | ---  | ----------- |---| ---|
@@ -203,15 +209,16 @@ Service Bus virtual network (VNet) connection event JSON includes elements liste
 | `Count` | Number of occurrences for the given action | Yes | Yes |
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes |
 | `Category` |  Log Category | Yes | No |
-| `Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes  |
+| `Provider`|Name of Service emitting the logs such as ServiceBus | No | Yes  |
 |  `Type`  | Type of Logs Emitted | No | Yes |
 
-> [!NOTE] 
+> [!NOTE]
 > Virtual network logs are generated only if the namespace allows access from selected networks or from specific IP addresses (IP filter rules).
 
 Here's an example of a virtual network log JSON string:
 
-AzureDiagnostics;
+AzureDiagnostics:
+
 ```json
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
@@ -224,7 +231,9 @@ AzureDiagnostics;
     "Category": "ServiceBusVNetConnectionEvent"
 }
 ```
+
 Resource specific table entry:
+
 ```json
 {
     "SubscriptionId": "0000000-0000-0000-0000-000000000000",
@@ -240,9 +249,10 @@ Resource specific table entry:
 ```
 
 ## Runtime audit logs
+
 Runtime audit logs capture aggregated diagnostic information for various data plane access operations (such as send or receive messages) in Service Bus.  
 
-> [!NOTE] 
+> [!NOTE]
 > Runtime audit logs are currently available only in the **premium** tier.  
 
 Runtime audit logs include the elements listed in the following table:
@@ -263,12 +273,13 @@ Runtime audit logs include the elements listed in the following table:
 | `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes|
 | `Properties` | Metadata that is specific to the data plane operation. | yes | Yes|
 | `Category` | Log category | Yes | No|
-| `Provider` |Name of Service emitting the logs e.g., ServiceBus | No | Yes |
+| `Provider` |Name of Service emitting the logs, such as ServiceBus | No | Yes |
 | `Type`  | Type of Logs emitted | No | Yes|
 
 Here's an example of a runtime audit log entry:
 
 AzureDiagnostics:
+
 ```json
 {
     "ActivityId": "<activity id>",
@@ -286,7 +297,9 @@ AzureDiagnostics:
  }
 
 ```
+
 Resource specific table entry:
+
 ```json
 {
     "ActivityId": "<activity id>",
@@ -307,9 +320,10 @@ Resource specific table entry:
 ```
 
 ## Diagnostic Error Logs
-Diagnostic error logs capture error messages for any client side, throttling and Quota exceeded errors. They provide detailed diagnostics for error identification.
 
-Diagnostic Error Logs include elements listed in below table:
+Diagnostic error logs capture error messages for any client side, throttling, and Quota exceeded errors. They provide detailed diagnostics for error identification.
+
+Diagnostic Error Logs include elements listed in this table:
 
 | Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table) |
 | ---|---|---|---|
@@ -346,7 +360,9 @@ Here's an example of Diagnostic error log entry:
  }
 
 ```
+
 Resource specific table entry:
+
 ```json
 {
     "ActivityId": "0000000000-0000-0000-0000-00000000000000",
@@ -364,11 +380,31 @@ Resource specific table entry:
 
 ```
 
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ## Azure Monitor Logs tables
+
 Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
 
-## Next steps
-- For details on monitoring Azure Service Bus, see [Monitoring Azure Service Bus](monitor-service-bus.md).
-- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
+### Service Bus Microsoft.ServiceBus/namespaces
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+- [AZMSOperationalLogs](/azure/azure-monitor/reference/tables/azmsoperationallogs#columns)
+- [AZMSVnetConnectionEvents](/azure/azure-monitor/reference/tables/azmsvnetconnectionevents#columns)
+- [AZMSRunTimeAuditLogs](/azure/azure-monitor/reference/tables/azmsrunrimeauditlogs#columns)
+- [AZMSApplicationMetricLogs](/azure/azure-monitor/reference/tables/azmsapplicationmetricLogs#columns)
+- [AZMSDiagnosticErrorLogs](/azure/azure-monitor/reference/tables/azmsdiagnosticerrorlogs#columns)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+- [Integration resource provider operations](/azure/role-based-access-control/resource-provider-operations#integration)
+
+## Related content
+
+- See [Monitor Azure Service Bus](monitor-service-bus.md) for a description of monitoring Service Bus.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
