@@ -45,7 +45,7 @@ Models deployed to [serverless API endpoints](how-to-deploy-models-serverless.md
 > * [Meta Llama 3 instruct](how-to-deploy-models-llama.md) family of models
 > * [Mistral-Small](how-to-deploy-models-mistral.md)
 > * [Mistral-Large](how-to-deploy-models-mistral.md)
-> * [Jais](how-to-deploy-jais-models.md) family of models
+> * [Jais](deploy-jais-models.md) family of models
 > * [Jamba](how-to-deploy-models-jamba.md) family of models
 > * [Phi-3](how-to-deploy-models-phi-3.md) family of models
 
@@ -189,7 +189,7 @@ print(response.choices[0].message.content)
 ```
 
 > [!TIP]
-> When using Azure AI Inference SDK, using passing extra parameters using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
+> When using Azure AI Inference SDK, using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
