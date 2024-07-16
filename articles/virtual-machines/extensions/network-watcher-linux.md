@@ -95,9 +95,9 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 
 <sup>1</sup> CentOS Linux reached its end-of-life (EOL) on June 30, 2024. For more information, see the [CentOS End Of Life guidance](../workloads/centos/centos-end-of-life.md).
 
-<sup>2</sup>[Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
+<sup>2</sup> [Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
 
-<sup>3</sup>[Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+<sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 
 ## Extension schema
 
