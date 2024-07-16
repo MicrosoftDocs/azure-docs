@@ -262,8 +262,8 @@ Follow these steps and configure the compute:
    
    - **Compute cluster** or **Compute instance**: Choose from the following options:
    
-      - Use the **Select Automated ML compute** dropdown list to select an existing compute for your workspace, and then select **Next**. Continue to the [Run experiment and view results](#run-experiment-and-view-results) section
-      
+      - Use the **Select Automated ML compute** dropdown list to select an existing compute for your workspace, and then select **Next**. Continue to the [Run experiment and view results](#run-experiment-and-view-results) section.
+
       - Select **New** to create a new compute instance or cluster. This option opens the **Create compute** page. Continue to the next step for descriptions of the settings to configure.
 
 1. For a serverless compute or a new compute, configure any required (**\***) settings:
