@@ -70,7 +70,7 @@ The default DPD timeout is 45 seconds on VPN gateways. You can specify a differe
 
 ### Does a custom IPsec or IKE policy work on ExpressRoute connections?
 
-No. An IPsec or IKE policy works only on site-to-site VPN and VNet-to-VNet connections via the VPN gateways.
+No. An IPsec or IKE policy works only on S2S VPN and VNet-to-VNet connections via the VPN gateways.
 
 ### How do I create connections with the IKEv1 or IKEv2 protocol type?
 

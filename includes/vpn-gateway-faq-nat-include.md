@@ -9,7 +9,7 @@
 
 NAT is supported on VpnGw2 to VpnGw25 and on VpnGw2AZ to VpnGw5AZ.
 
-### Can I use NAT on VNet-to-VNet or point-to-site connections?
+### Can I use NAT on VNet-to-VNet or P2S connections?
 
 No.
 

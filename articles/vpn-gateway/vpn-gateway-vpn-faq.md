@@ -1,6 +1,6 @@
 ---
 title: Azure VPN Gateway FAQ
-description: Learn about frequently asked questions for VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network gateways. This FAQ contains comprehensive information about point-to-site, site-to-site, and VNet-to-VNet configuration settings.
+description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
@@ -10,13 +10,13 @@ ms.author: cherylmc
 
 # VPN Gateway FAQ
 
-This article answers frequently asked questions about Azure VPN Gateway connections and configuration settings.
+This article answers frequently asked questions about Azure VPN Gateway cross-premises connections, hybrid configuration connections, and virtual network (VNet) gateways. It contains comprehensive information about point-to-site (P2S), site-to-site (S2S), and VNet-to-VNet configuration settings.
 
 ## <a name="connecting"></a>Connecting to virtual networks
 
 ### Can I connect virtual networks in different Azure regions?
 
-Yes. There's no region constraint. One virtual network (VNet) can connect to another virtual network in the same region or in a different Azure region.
+Yes. There's no region constraint. One virtual network can connect to another virtual network in the same region or in a different Azure region.
 
 ### Can I connect virtual networks in different subscriptions?
 
@@ -24,7 +24,7 @@ Yes.
 
 ### Can I specify private DNS servers in my VNet when configuring a VPN gateway?
 
-If you specified a DNS server or servers when you created your virtual network, the VPN gateway uses the DNS servers that you specified. If you specify a DNS server, verify that your DNS server can resolve the domain names needed for Azure.
+If you specify a Domain Name System (DNS) server or servers when you create your virtual network, the VPN gateway uses those DNS servers. Verify that your specified DNS servers can resolve the domain names needed for Azure.
 
 ### Can I connect to multiple sites from a single virtual network?
 
@@ -36,10 +36,10 @@ No. However, costs for any additional public IPs are charged accordingly. See [I
 
 ### What are my cross-premises connection options?
 
-The following cross-premises virtual network gateway connections are supported:
+Azure VPN Gateway supports the following cross-premises VNet gateway connections:
 
-* **Site-to-site (S2S)**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
-* **Point-to-site (P2S)**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* **Site-to-site**: VPN connection over IPsec (IKEv1 and IKEv2). This type of connection requires a VPN device or Windows Server Routing and Remote Access. For more information, see [Create a site-to-site VPN connection in the Azure portal](./tutorial-site-to-site-portal.md).
+* **Point-to-site**: VPN connection over Secure Socket Tunneling Protocol (SSTP) or IKEv2. This connection doesn't require a VPN device. For more information, see [Configure server settings for point-to-site VPN Gateway certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * **VNet-to-VNet**: This type of connection is the same as a site-to-site configuration. VNet-to-VNet is a VPN connection over IPsec (IKEv1 and IKEv2). It doesn't require a VPN device. For more information, see the [Configure a VNet-to-VNet VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * **Azure ExpressRoute**: ExpressRoute is a private connection to Azure from your wide area network, not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
@@ -214,7 +214,7 @@ The Standard and High Performance SKUs will be deprecated on September 30, 2025.
 
 We've validated a set of standard site-to-site VPN devices in partnership with device vendors. You can find a list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specifications in the [About VPN devices](vpn-gateway-about-vpn-devices.md) article.
 
-All devices in the device families listed as known compatible should work with Azure Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to the appropriate device family.
+All devices in the device families listed as known compatible should work with virtual networks. To help configure your VPN device, refer to the device configuration sample or link that corresponds to the appropriate device family.
 
 ### Where can I find VPN device configuration settings?
 

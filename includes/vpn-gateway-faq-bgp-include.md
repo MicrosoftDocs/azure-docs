@@ -114,17 +114,17 @@ For example, if you have two redundant tunnels between your Azure VPN gateway an
 
 Yes, but at least one of the virtual network gateways must be in an active-active configuration.
 
-### Can I use BGP for site-to-site VPN in an Azure ExpressRoute and site-to-site VPN coexistence configuration?
+### Can I use BGP for an S2S VPN in an Azure ExpressRoute and S2S VPN coexistence configuration?
 
 Yes.
 
 ### What should I add to my on-premises VPN device for the BGP peering session?
 
-Add a host route of the Azure BGP peer IP address on your VPN device. This route points to the IPsec site-to-site VPN tunnel.
+Add a host route of the Azure BGP peer IP address on your VPN device. This route points to the IPsec S2S VPN tunnel.
 
 For example, if the Azure VPN peer IP is 10.12.255.30, you add a host route for 10.12.255.30 with a next-hop interface of the matching IPsec tunnel interface on your VPN device.
 
-### Does the virtual network gateway support BFD for site-to-site connections with BGP?
+### Does the virtual network gateway support BFD for S2S connections with BGP?
 
 No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime more quickly than you can by using standard BGP *keepalive* intervals. BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or WAN connections.
 

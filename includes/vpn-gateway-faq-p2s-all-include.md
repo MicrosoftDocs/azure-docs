@@ -74,7 +74,7 @@ After you change the authentication type, current clients might not be able to c
 
 ### When do I need to generate a new configuration package for the VPN client profile?
 
-When you make changes to the configuration settings for the point-to-site VPN gateway, such as adding a tunnel type or changing an authentication type, you need to generate a new configuration package for the VPN client profile. The new package includes the updated settings that VPN clients need for connecting to the point-to-site gateway. After you generate the package, use the settings in the files to update the VPN clients.
+When you make changes to the configuration settings for the P2S VPN gateway, such as adding a tunnel type or changing an authentication type, you need to generate a new configuration package for the VPN client profile. The new package includes the updated settings that VPN clients need for connecting to the P2S gateway. After you generate the package, use the settings in the files to update the VPN clients.
 
 ### Does Azure support IKEv2 VPN with Windows?
 
@@ -106,23 +106,23 @@ The traffic selector limit in Windows determines the maximum number of address s
 
 The traffic selector limit for OpenVPN is 1,000 routes.
 
-### What happens when I configure both SSTP and IKEv2 for point-to-site VPN connections?
+### What happens when I configure both SSTP and IKEv2 for P2S VPN connections?
 
 When you configure both SSTP and IKEv2 in a mixed environment that consists of Windows and Mac devices, the Windows VPN client always tries the IKEv2 tunnel first. The client falls back to SSTP if the IKEv2 connection isn't successful. MacOS connects only via IKEv2.
 
 When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool is statically split between the two, so clients that use different protocols are IP addresses from either subrange. The maximum number of SSTP clients is always 128, even if the address range is larger than /24. The result is a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic selectors that the gateway uses might not include the point-to-site address range CIDR but include the two subrange CIDRs.
 
-### Which platforms does Azure support for point-to-site VPN?
+### Which platforms does Azure support for P2S VPN?
 
-Azure supports Windows, Mac, and Linux for point-to-site VPN.
+Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have a VPN gateway deployed. Can I enable RADIUS or IKEv2 VPN on it?
 
 Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
 
-### <a name="removeconfig"></a>How do I remove the configuration of a point-to-site connection?
+### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 
-You can remove a point-to-site configuration by using the following Azure PowerShell or Azure CLI commands.
+You can remove a P2S configuration by using the following Azure PowerShell or Azure CLI commands.
 
 #### Azure PowerShell
 
