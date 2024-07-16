@@ -4,7 +4,6 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN virtual hub routing using Azure PowerShell.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to

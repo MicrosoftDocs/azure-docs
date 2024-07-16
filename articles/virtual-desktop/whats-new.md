@@ -63,9 +63,9 @@ You can granularly control how RDP Shortpath is used by configuring the networki
 
 For more information, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md). 
 
-### Adding and managing app attach and MSIX app attach applications in Azure Virtual Desktop are now available 
+### Adding and managing app attach applications in Azure Virtual Desktop is now available 
 
-MSIX app attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with MSIX app attach also gives you greater control over which applications your users can access in a remote session. 
+App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session. 
 
 For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
 
