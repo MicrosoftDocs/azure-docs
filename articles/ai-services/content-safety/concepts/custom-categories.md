@@ -61,7 +61,7 @@ Then, you collect a balanced dataset with **positive** and (optionally) **negati
 
 ### Step 2: Model training
  
-After preparing your dataset and defining categories, the Azure AI Content Safety service trains a new machine learning model. This model utilizes your definitions and uploaded dataset to perform data augmentation using a Large Language Model. As a result, the training dataset is enriched, becoming larger and of higher quality. During training, the AI analyzes the data and learns to differentiate between content that aligns with the specified category and content that does not.
+After you prepare your dataset and define categories, the Azure AI Content Safety service trains a new machine learning model. This model uses your definitions and uploaded dataset to perform data augmentation using a large language model. As a result, the training dataset is made larger and of higher quality. During training, the AI model analyzes the data and learns to differentiate between content that aligns with the specified category and content that does not.
 
 ### Step 3: Model inferencing
  
