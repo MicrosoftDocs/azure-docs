@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Deploy a virtual machine in an Extended Zone - Azure portal"
-description: Learn how to deploy a virtual machine in an Azure Extended Zone using the Azure portal.
+description: Learn how to deploy a virtual machine (VM) in an Azure Extended Zone using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart
-ms.date: 06/26/2024
+ms.date: 07/16/2024
 
 ---
   
@@ -15,13 +15,15 @@ ms.date: 06/26/2024
 > Azure Extended Zones service is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this quickstart, you use the Azure portal to deploy a virtual machine in an Azure Extended Zone. 
+In this quickstart, you use the Azure portal to deploy a virtual machine (VM) in Los Angeles Extended Zone 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - An Azure account with an active subscription
+
+- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
 ## Sign in to Azure
 
