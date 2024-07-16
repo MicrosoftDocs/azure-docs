@@ -47,13 +47,13 @@ There are different types of analysis available from this service. The following
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
-| [Prompt Shields](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
-| [Groundedness detection](/rest/api/cognitiveservices/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
-| [Protected material text detection](/rest/api/cognitiveservices/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for [known text content](./concepts/protected-material.md) (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
+| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
+| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for [known text content](./concepts/protected-material.md) (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
 | Custom categories API (preview)    | Lets you create and train your own [custom content categories](./concepts/custom-categories.md) and scan text for matches. [Quickstart](./quickstart-custom-categories.md) |
 | Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
-| [Analyze text](/rest/api/cognitiveservices/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| [Analyze image](/rest/api/cognitiveservices/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
+| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
 
 
 ## Content Safety Studio
