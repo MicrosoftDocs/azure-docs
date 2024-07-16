@@ -7,6 +7,7 @@ ms.service: virtual-machines
 ms.topic: reference
 ms.date:     04/30/2024
 ms.subservice: sizes
+ms.reviewer: wwilliams
 ---
 
 # Dlsv6 and Dldsv6-series (Preview)
