@@ -1,15 +1,15 @@
 ---
-title: Frequently asked questions (FAQ) for Azure Files
-description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
+title: Azure Files frequently asked questions (FAQ)
+description: Get answers to frequently asked questions (FAQ) about Azure Files and Azure File Sync. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 01/26/2024
+ms.date: 06/24/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
 
-# Frequently asked questions (FAQ) about Azure Files
+# Frequently asked questions (FAQ) about Azure Files and Azure File Sync
 
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
@@ -33,7 +33,7 @@ ms.topic: conceptual
     - The file existed in the Azure file share and server endpoint location prior to the server endpoint creation. If the file size and/or last modified time is different between the file on the server and Azure file share when the server endpoint is created, a conflict file is created.  
     - Sync database was recreated due to corruption or knowledge limit reached. Once the database is recreated, sync enters a mode called reconciliation. If the file size and/or last modified time is different between the file on the server and Azure file share when reconciliation occurs, a conflict file is created. 
   
-    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
+    Once the initial upload to the Azure file share is complete, Azure File Sync doesn't overwrite any files in your sync group. Instead, it uses a simple conflict-resolution strategy: it keeps both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -205,7 +205,7 @@ ms.topic: conceptual
 ### Clean up share snapshots
 * <a id="delete-share-keep-snapshots"></a>
 **Can I delete my share but not delete my share snapshots?**  
-    If you have active share snapshots on your share, you can't delete your share. You can use an API to delete share snapshots, along with the share. You also can delete both the share snapshots and the share in the Azure portal.
+    No. The delete file share workflow will automatically delete the snapshots when you delete the share.
 
 ## Billing and pricing
 

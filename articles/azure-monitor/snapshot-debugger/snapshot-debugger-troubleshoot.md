@@ -80,7 +80,7 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the *ApplicationInsights.config* file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## <a id="SSL"></a>Check TLS/SSL client settings (ASP.NET)
 

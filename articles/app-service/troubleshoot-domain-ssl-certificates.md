@@ -16,7 +16,7 @@ When you set up a domain or TLS/SSL certificate for your web apps in Azure App S
 
 At any point in this article, you can get more help by contacting Azure experts on the [Microsoft Q & A and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, to file an Azure support incident, go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get Support**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Certificate problems
 

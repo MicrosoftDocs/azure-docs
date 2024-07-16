@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 07/03/2024
 ms.author: banders
 ---
 
@@ -21,37 +21,25 @@ This article applies to you if you are:
 
 If you signed up for Azure through a Microsoft representative, then your default payment method is already set to *wire transfer*, so these steps aren't needed.
 
-When you switch to pay by wire transfer, you must pay your bill within 30 days of the invoice date by wire transfer.
+When you switch to pay by wire transfer:
+- Specify the invoice ID that you want to pay on your wire transfer.
+- Send the wire payment to the designated bank as is stated on your monthly invoice.
+- Send the exact amount per the invoice.
+- Pay the bill by the due date.
 
-Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer.
+## Prerequisites
 
-Customers who have a Microsoft Online Services Program (pay-as-you-go) account can use the Azure portal to [request to pay by wire transfer](#request-to-pay-by-wire-transfer).
+Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer. Any user with access to the Microsoft Online Services Program (pay-as-you-go) billing profile can submit the request to pay by wire transfer.
+
+Currently, customers who have a Microsoft Online Services Program (pay-as-you-go) account must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer. Any user with access to the Microsoft Customer Agreement billing profile can submit the request to pay by wire transfer.
 
 > [!IMPORTANT]
 > * Pay by wire transfer is only available for customers using Azure on behalf of a company.
 > * Pay all outstanding charges before switching to pay by wire transfer.
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by wire transfer, you must change your default payment method to wire transfer after you've been approved.
 > * Currently, payment by wire transfer isn't supported for Global Azure in China.
-> * For Microsoft Online Services Program accounts, if you switch to pay by wire transfer, you can't switch back to paying by credit or debit card.
-> * Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer. Support for other regions is being evaluated. 
-
-## Request to pay by wire transfer
-
-> [!NOTE]
-> - Currently only customers in the United States can get automatically approved to change their payment method to wire transfer and use the following procedure. Support for other regions is being evaluated. If you are not in the United States, you must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to change your payment method.
-> - After you're approved to pay by wire transfer, you can't switch back to credit card except for one-time payments.
-
-1. Sign in to the Azure portal.
-    - If you have a pay-as-you-go subscription, navigate to **Subscriptions** and then select the one that you want to set up wire transfer for.
-    - If you have a Microsoft Customer Agreement, navigate to **Cost Management + Billing** and then select **Billing profiles**. Select the billing profile that you want to set up wire transfer for.
-1. In the left menu, select **Payment methods**.
-1. On the Payment methods page, select **Pay by wire transfer**.
-1. On the **Pay by wire transfer** page, you see a message stating that you can request to use wire transfer instead of automatic payment using a credit or debit card. Select **Continue** to start the check.
-1. Depending on your approval status:
-    - If you're automatically approved, the page shows a message stating that you're approved to pay by wire transfer. Enter your **Company name** and then select **Save**.  
-    - If the request couldn't be processed or if you're not approved, you need to follow the steps in the next section [Submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer).
-1. If you're approved, on the Payment methods page under **Other payment methods**, to the right of **Wire transfer**, select the ellipsis (**...**) symbol and then select **Make default**.  
-    You're all set to pay by wire transfer.
+> * If you switch to pay by wire transfer, you can't switch back to paying by credit or debit card, except for one-time payments.
+> * As of September 30, 2023 Microsoft no longer accepts checks as a payment method.
 
 ## Submit a request to set up pay by wire transfer
 

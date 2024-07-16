@@ -28,8 +28,9 @@ Get started with facial recognition using the Face client library for Python. Fo
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
+## Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../face-environment-variables.md)]
 
 ## Identify and verify faces
 

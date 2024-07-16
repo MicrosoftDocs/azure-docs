@@ -11,7 +11,7 @@ ms.author: jushiman
 ---
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This article provides guidance for a new class of silicon based micro-architectural and speculative execution side-channel vulnerabilities that affect many modern processors and operating systems. This includes Intel, AMD, and ARM. Specific details for these silicon-based vulnerabilities can be found in the following security advisories and CVEs:
 - [ADV180002 - Guidance to mitigate speculative execution side-channel vulnerabilities](https://msrc.microsoft.com/update-guide/vulnerability/ADV180002)
@@ -29,9 +29,9 @@ The disclosure of these CPU vulnerabilities has resulted in questions from custo
 
 Microsoft has deployed mitigations across all our cloud services. The infrastructure that runs Azure and isolates customer workloads from each other is protected. This means that a potential attacker using the same infrastructure can't attack your application using these vulnerabilities.
 
-Azure is using [memory preserving maintenance](../articles/virtual-machines/maintenance-and-updates.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
+Azure is using [memory preserving maintenance](/azure/virtual-machines/maintenance-and-updates?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json%252c%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json%253ftoc%253d%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
 
-More information about how security is integrated into every aspect of Azure is available on the [Azure Security Documentation](../articles/security/index.yml) site.
+More information about how security is integrated into every aspect of Azure is available on the [Azure Security Documentation](/azure/security/index) site.
 
 > [!NOTE]
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes.
@@ -49,7 +49,7 @@ While an OS update isn't required to isolate your applications running on Azure 
 
 | Offering | Recommended Action  |
 |----------|---------------------|
-| Azure Cloud Services  | Enable [auto update](../articles/cloud-services/cloud-services-how-to-configure-portal.md) or ensure you're running the newest Guest OS. |
+| Azure Cloud Services  | Enable [auto update](/azure/cloud-services/cloud-services-how-to-configure-portal) or ensure you're running the newest Guest OS. |
 | Azure Linux Virtual Machines | Install updates from your operating system provider. For more information, see [Linux](#linux) later in this document. |
 | Azure Windows Virtual Machines  | Install the latest security rollup.
 | Other Azure PaaS Services | There's no action needed for customers using these services. Azure automatically keeps your OS versions up-to-date. |
@@ -102,7 +102,7 @@ If protections aren't enabled, please [contact Azure Support](https://aka.ms/mic
 
 #### Option 2
 
-**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](../articles/virtual-machines/acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, refer to the below script using the Windows command line from within the VM.
+**Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM might choose to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](/azure/virtual-machines/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the following command to view the amount of physical and logical processors on the VM.
 
@@ -123,7 +123,7 @@ For [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2
 Enabling the set of extra security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider's documentation for further instructions
 
 
-**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](../articles/virtual-machines/acu.md) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you're running a hyper-threaded VM, run the `lscpu` command in the Linux VM.
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](/azure/virtual-machines/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you're running a hyper-threaded VM, run the `lscpu` command in the Linux VM.
 
 If `Thread(s) per core = 2`, then hyper-threading has been enabled.
 
@@ -162,4 +162,4 @@ When a hyper-threaded VM is created, Azure allocates 2 threads per core - these 
 
 ## Next steps
 
-For more information about how security is integrated into every aspect of Azure, see [Azure Security Documentation](../articles/security/index.yml).
+For more information about how security is integrated into every aspect of Azure, see [Azure Security Documentation](/azure/security/index).

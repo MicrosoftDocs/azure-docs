@@ -809,8 +809,8 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | Microsoft.ContainerService/managedClusters/livez/poststarthook/start-kube-apiserver-admission-initializer/read | Reads start-kube-apiserver-admission-initializer |
 > | Microsoft.ContainerService/managedClusters/logs/read | Reads logs |
 > | Microsoft.ContainerService/managedClusters/metrics/read | Reads metrics |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes |
-> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/nodes/read | Reads nodes metrics |
+> | Microsoft.ContainerService/managedClusters/metrics.k8s.io/pods/read | Reads pods metrics |
 > | Microsoft.ContainerService/managedClusters/namespaces/read | Reads namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/write | Writes namespaces |
 > | Microsoft.ContainerService/managedClusters/namespaces/delete | Deletes namespaces |

@@ -24,8 +24,8 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files backup | Public preview | No |
-| Azure NetApp Files large volumes | Public preview | Public preview [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
+| Azure NetApp Files customer-managed keys | Generally available (GA) | No | 
+| Azure NetApp Files large volumes | Generally available (GA) | Generally available [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
 
 ## Portal access
 

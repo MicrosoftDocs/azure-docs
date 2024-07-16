@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: how-to
-author: tinaem
-ms.author: timanghn
-ms.reviewer: ssalgadodev
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: timanghn
 ms.date: 12/15/2023
 ---
 

@@ -378,7 +378,7 @@ The extension **doesn't require additional outbound access** to any URLs, IP add
 [aks-rm-template]: /azure/templates/microsoft.containerservice/2022-09-01/managedclusters
 [nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
 [aks-windows-limitations]: ./windows-faq.md
-[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
+[reservation-discounts]: /azure/cost-management-billing/reservations/save-compute-costs-reservations
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./create-node-pools.md
 [availability-zones]: ./availability-zones.md

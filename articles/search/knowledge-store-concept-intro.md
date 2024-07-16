@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 06/25/2024
 ---
 
 # Knowledge store in Azure AI Search
@@ -75,7 +75,7 @@ The type of projection you specify in this structure determines the type of stor
 
 To create knowledge store, use the portal or an API. 
 
-You'll need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you'll also need to provide an index definition.
+You need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you also need to provide an index definition.
 
 Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
@@ -97,10 +97,8 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 [**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store).
 
-REST API version `2020-06-30` and higher can be used to create a knowledge store through additions to a skillset.
-
-+ [Create Skillset](/rest/api/searchservice/create-skillset)
-+ [Update Skillset](/rest/api/searchservice/update-skillset)
++ [Create Skillset](/rest/api/searchservice/skillsets/create)
++ [Create or Update Skillset](/rest/api/searchservice/indexers/create-or-update)
 
 Within the skillset:
 

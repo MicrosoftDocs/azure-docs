@@ -67,10 +67,6 @@ landingContent:
   # Card
   - title: Deploy Azure Kubernetes Service
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Complete the prerequisite tasks for Azure Kubernetes Services deployment
-            url: quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md
       - linkListType: concept
         links:
           - text: Deployment order for clusters, network functions, and observability components

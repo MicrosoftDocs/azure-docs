@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to set up Azure Database for PostgreSQL flexible server alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 

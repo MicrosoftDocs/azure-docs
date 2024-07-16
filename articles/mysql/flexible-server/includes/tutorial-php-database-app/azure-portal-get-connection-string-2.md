@@ -1,8 +1,9 @@
 ---
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.topic: include
-ms.date: 06/19/2023
 ---
 
 In the **Application settings** tab of the **Configuration** page, for each of the following settings, click on **Edit**, update the **Name** field with new values and click on **OK**.

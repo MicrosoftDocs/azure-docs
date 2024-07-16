@@ -29,6 +29,11 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+- name: Plan
+  expanded: true
+  items:
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
 - name: Configure resources
   items:
   - name: Manage a dev center
@@ -41,6 +46,8 @@ items:
     href: how-to-manage-dev-box-definitions.md
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
+  - name: Display names for a project or pool
+    href: how-to-add-project-pool-display-name.md
   - name: Limit number of dev boxes per project
     href: tutorial-dev-box-limits.md      
   - name: Configure Visual Studio caches
@@ -58,10 +65,14 @@ items:
   items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
+  - name: Connect with Windows App
+    href: /windows-app/get-started-connect-devices-desktops-apps?pivots=dev-box&tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc?context=/azure/dev-box/context/context
   - name: Connect with Remote Desktop App
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
@@ -93,6 +104,8 @@ items:
     href: how-to-hibernate-your-dev-box.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
+  - name: Configure stop on disconnect
+    href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
 - name: Reference

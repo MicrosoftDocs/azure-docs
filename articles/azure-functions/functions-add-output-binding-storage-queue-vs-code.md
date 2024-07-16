@@ -5,7 +5,7 @@ ms.date: 04/25/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---

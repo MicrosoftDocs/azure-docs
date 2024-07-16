@@ -9,7 +9,7 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: tutorial
-ms.reviewer: ssalgado
+ms.reviewer: None
 author: ssalgadodev
 ms.author: ssalgado
 ms.date: 10/20/2023

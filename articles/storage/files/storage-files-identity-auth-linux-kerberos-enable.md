@@ -1,11 +1,11 @@
 ---
-title: Use on-premises Active Directory Domain Services or Microsoft Entra Domain Services to authorize access to Azure Files over SMB for Linux clients using Kerberos authentication
-description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services
+title: Use Kerberos authentication for Linux clients with Azure Files
+description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 05/10/2024
 ms.author: kendownie
 ---
 
@@ -18,12 +18,13 @@ For more information on supported options and considerations, see [Overview of A
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
 
-In order to use the first option (AD DS), you must sync your AD DS to Microsoft Entra ID using Microsoft Entra Connect.
+In order to use AD DS, you must sync your AD DS to Microsoft Entra ID using Microsoft Entra Connect.
 
-> [!Note]
+> [!NOTE]
 > This article uses Ubuntu for the example steps. Similar configurations will work for RHEL and SLES machines, allowing you to mount Azure file shares using Active Directory.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes, this article applies to standard SMB Azure file shares LRS/ZRS.](../media/icons/yes-icon.png) | ![No, this article doesn't apply to NFS Azure file shares.](../media/icons/no-icon.png) |
@@ -38,9 +39,9 @@ You can't use identity-based authentication to mount Azure File shares on Linux 
 
 Before you enable AD authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
 
-- A Linux VM (Ubuntu 18.04+ or an equivalent RHEL or SLES VM) running on Azure. The VM must have at least one network interface on the VNET containing the Microsoft Entra Domain Services, or an on-premises Linux VM with AD DS synced to Microsoft Entra ID.
+- A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. If running on Azure, the VM must have at least one network interface on the VNET containing Microsoft Entra Domain Services. If using an on-premises VM, your AD DS must be synced to Microsoft Entra ID.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
-- The Linux VM must not have joined any AD domain. If it's already a part of a domain, it needs to first leave that domain before it can join this domain.
+- The Linux VM must not have joined any AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
 - A Microsoft Entra tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
@@ -519,7 +520,7 @@ For detailed mounting instructions, see [Mount the Azure file share on-demand wi
 
 Use the following additional mount option with all access control models to enable Kerberos security: `sec=krb5`
 
-> [!Note]
+> [!NOTE]
 > This feature only supports a server-enforced access control model using NT ACLs with no mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.
 
 ### Other mount options
@@ -547,7 +548,7 @@ Performance is important, even if file attributes aren't always accurate. The de
 
 For newer kernels, consider setting the **actimeo** features more granularly. You can use **acdirmax** for directory entry revalidation caching and **acregmax** for caching file metadata, for example **acdirmax=60,acregmax=5**.
 
-## Next steps
+## Next step
 
 For more information on how to mount an SMB file share on Linux, see:
 

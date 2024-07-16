@@ -1,16 +1,16 @@
 ---
 description: Overview of features in Azure Cloud Shell
 ms.contributor: jahelmic
-ms.date: 02/15/2024
-ms.topic: article
+ms.date: 06/05/2024
+ms.topic: overview
 tags: azure-resource-manager
 title: Azure Cloud Shell features
 ---
 # Features & tools for Azure Cloud Shell
 
 Azure Cloud Shell is a browser-based terminal that provides an authenticated, preconfigured shell
-experience for managing Azure resources without the overhead of installing and maintaining a machine
-yourself.
+experience for managing Azure resources. Cloud Shell comes with the tools you need, already
+installed.
 
 Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for cloud infrastructure
 edge products and services. You can choose Bash or PowerShell as your default shell.
@@ -30,8 +30,8 @@ Azure PowerShell, and other cloud management tools.
 
 When you start Cloud Shell for the first time, you have the option of using Cloud Shell with or
 without an attached storage account. Choosing to continue without storage is the fastest way to
-start using Cloud Shell. In Cloud Shell, this is known as an _ephemeral session_. When you close the
-Cloud Shell window, all files you saved are deleted and don't persist across sessions.
+start using Cloud Shell. Using Cloud Shell without storage is known as an _ephemeral session_. When
+you close the Cloud Shell window, all files you saved are deleted and don't persist across sessions.
 
 To persist files across sessions, you can choose to mount a storage account. Cloud Shell
 automatically attaches your storage (mounted as `$HOME\clouddrive`) for all future sessions.
@@ -46,9 +46,9 @@ store and retrieve your keys. For more information, see [Manage Key Vault using 
 
 PowerShell in Cloud Shell provides the Azure drive (`Azure:`). You can switch to the Azure drive
 with `cd Azure:` and back to your home directory with `cd  ~`. The Azure drive enables easy
-discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to
-filesystem navigation. You can continue to use the familiar [Azure PowerShell cmdlets][09] to manage
-these resources regardless of the drive you are in.
+discovery and filesystem-like navigation of Azure resources such as Compute, Network, Storage, and
+others. You can continue to use the familiar [Azure PowerShell cmdlets][09] to manage these
+resources regardless of the drive you are in.
 
 > [!NOTE]
 > Any changes made to the Azure resources, either made directly in Azure portal or through Azure
@@ -66,9 +66,13 @@ and Chef InSpec. For more information, see the following articles:
 
 ## Preinstalled tools
 
-The most commonly used tools are preinstalled in Cloud Shell. If you're using PowerShell, use the
-`Get-PackageVersion` command to see a more complete list of tools and versions. If you're using
-Bash, use the `tdnf list` command.
+The most commonly used tools are preinstalled in Cloud Shell. This curated collection of tools is
+updated monthly. Use the following commands to see the current list of tools and versions.
+
+- In PowerShell, use the `Get-Module -ListAvailable` command to get a list of installed module
+- In Bash or PowerShell
+  - Use the `tdnf list` command to list the TDNF packages that are installed
+  - Use the `pip3 list` command to list the Python packages that are installed
 
 ### Azure tools
 
@@ -78,10 +82,7 @@ Cloud Shell comes with the following Azure command-line tools preinstalled:
 - [Azure PowerShell][09]
 - [Az.Tools.Predictor][10]
 - [AzCopy][07]
-- [Azure Functions CLI][01]
 - [Service Fabric CLI][06]
-- [Batch Shipyard][17]
-- [blobxfer][18]
 
 ### Other Microsoft services
 
@@ -129,7 +130,7 @@ Text editors
 - [Puppet Bolt][29]
 - [HashiCorp Packer][19]
 
-## Developer tools
+### Developer tools
 
 Build tools
 
@@ -152,13 +153,19 @@ Database tools
 
 Programming languages
 
-- .NET Core 7.0
+- .NET 7.0
 - PowerShell 7.4
 - Node.js
 - Java
 - Python 3.9
 - Ruby
 - Go
+
+## Installing your own tools
+
+If you configured Cloud Shell to use a storage account, you can install your own tools. You can
+install any tool that doesn't require root permissions. For example, you can install Python modules,
+PowerShell modules, Node.js packages, and most packages that can be installed with `wget`.
 
 ## Next steps
 

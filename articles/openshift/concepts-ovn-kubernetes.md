@@ -34,4 +34,4 @@ For more information about OVN-Kubernetes CNI network provider, see [About the O
 
 ## Recommended content
 
-[Tutorial: Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md)
+[Tutorial: Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md)

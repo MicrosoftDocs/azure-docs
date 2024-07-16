@@ -46,9 +46,6 @@ Here are a few scenarios where you should scale-out automatically:
 
 __Maximum burst__ is the highest number of instances that your App Service Plan can increase to based on incoming HTTP requests. For Premium v2 & v3 plans, you can set a maximum burst of up to 30 instances. The maximum burst must be equal to or greater than the number of workers specified for the App Service Plan.
 
-> [!IMPORTANT]
-> [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
->
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -172,6 +169,12 @@ If your web app returns a 5xx status, these endpoint pings may result in intermi
 ## How do I track the number of scaled-out instances during the Automatic Scaling event?
  
 **AutomaticScalingInstanceCount** metric will report the number of virtual machines on which the app is running including the prewarmed instance if it is deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an Automatic Scaling event. This metric is available only for the apps that have Automatic Scaling enabled.
+
+## How does ARR Affinity affect Automatic Scaling?
+
+Azure App Service uses Application Request Routing cookies known as an ARR Affinity. ARR Affinity cookies restrict scaling because they send requests only to servers associated with the cookie, rather than any available instance. For apps that store state, it's better to scale up (increase resources on a single instance). For stateless apps, scaling out (adding more instances) offers more flexibility and scalability. ARR Affinity cookies are enabled by default on App Service. Depending on your application needs, you may choose to disable ARR affinity cookies when using Automatic scaling.
+
+To disable ARR Affinity cookies: select your App Service app, and under **Settings**, select **Configuration**. Next select the **General settings** tab. Under **ARR affinity**, select **Off** and then select the **save** button.
 
 <a name="Next Steps"></a>
 

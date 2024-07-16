@@ -56,7 +56,7 @@ var client = new HttpClient();
 // Request headers
 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");
 
-var addPersonUri = "https:// {endpoint}/face/v1.0-preview/persons";
+var addPersonUri = "https://{endpoint}/face/v1.0-preview/persons";
 
 HttpResponseMessage response;
 
@@ -113,10 +113,7 @@ Stopwatch s = Stopwatch.StartNew();
 string status = "notstarted";
 do
 {
-    if (status == "succeeded")
-    {
-        await Task.Delay(500);
-    }
+    await Task.Delay(500);
 
     var operationResponseMessage = await client.GetAsync(operationLocation);
 

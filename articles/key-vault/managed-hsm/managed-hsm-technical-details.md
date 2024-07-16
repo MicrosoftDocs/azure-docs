@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune
 ms.author: davinune
-ms.date: 02/20/2024
+ms.date: 06/24/2024
 ---
 
 # Key sovereignty, availability, performance, and scalability in Managed HSM
@@ -46,7 +46,7 @@ The TLS certificates that are used for TEE-to-TEE communication are self-issued 
 
 ## Offer availability SLAs with full customer-managed key control
 
-To ensure high availability, the HFC service creates three pools in the customer-selected Azure region.
+To ensure high availability, the HFC service creates three HSM instances in the customer-selected Azure region.
 
 ### Managed HSM pool creation
 

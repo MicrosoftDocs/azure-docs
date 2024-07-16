@@ -17,14 +17,17 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 The following Azure Storage Mover agent versions are supported:
 
-| Milestone                    | Version number | Release date       | Status                                                            |
-|------------------------------|----------------|--------------------|-------------------------------------------------------------------|
-| Important security release   | 3.0.412        | November 30, 2023  | Current                                                           |
-| Major refresh release        | 2.0.358        | November 6, 2023   | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Refresh release              | 2.0.287        | August 5, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Refresh release              | 1.1.256        | June 14, 2023      | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| General availability release | 1.0.229        | April 17, 2023     | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
-| Public preview release       | 0.1.116        | September 15, 2022 | No longer supported. Decommision and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Milestone                                     | Version number | Release date       | Status                                        |
+|-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
+| Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | Current                                       |
+| Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Agent registration and private networking improvements | 3.0.500| April 2, 2024     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Important security release                    | 3.0.412        | November 30, 2023  | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Major refresh release                         | 2.0.358        | November 6, 2023   | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release                               | 2.0.287        | August 5, 2023     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Refresh release                               | 1.1.256        | June 14, 2023      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| General availability release                  | 1.0.229        | April 17, 2023     | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
+| Public preview release                        | 0.1.116        | September 15, 2022 | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 
 ### Azure Storage Mover update policy
 
@@ -36,21 +39,60 @@ The automatic agent update doesn't affect running migration jobs. Running jobs a
 > [!TIP]
 > Always download the latest agent version from Microsoft Download Center. [https://aka.ms/StorageMover/agent](https://aka.ms/StorageMover/agent). Redistributing previously downloaded images may no longer be supported (check the [Supported agent versions](#supported-agent-versions) table), or they need to update themselves prior to being ready for use. Speed up your deployments by always obtaining a the latest image from Microsoft Download Center.
 
-#### Major vs. minor versions
-
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 1.0.0
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 1.1.0
-
 #### Lifecycle and change management guarantees
 
 Azure Storage Mover is a hybrid service, which continuously introduces new features and improvements. Azure Storage Mover agent versions can only be supported for a limited time. Agents automatically update themselves to the latest version. There's no need to manage any part of the self-update process. However, agents need to be running and connected to the internet to check for updates. To facilitate updates to agents that haven't been running for a while:
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Agent versions that have expired, might still be able to update themselves to a supported version but there are no guarantees.
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions, might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent cannot update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+
+## 2024 July 10
+
+Major refresh release notes for:
+
+- Service version: July 2, 2024
+- Agent version: 3.1.613
+
+### What's new
+
+- Supports WAN link bandwidth management schedules. ([see documentation](bandwidth-management.md))
+- Performance optimizations.
+- Security improvements and bug fixes.
+
+## 2024 June 16
+
+Refresh release notes for:
+
+- Service version: June 10, 2024
+- Agent version: 3.1.593
+
+### What's new
+
+- You can now collect support bundles from the agent VM even if a part of it isn't running.
+- The agent can now handle data migration from SMB shares that don't support *INodes*.
+- Improved agent registration reliability.
+- Security improvements and bug fixes.
+
+## 2024 April 2
+
+Refresh release notes for:
+
+- Service version: April 2, 2024
+- Agent version: 3.0.500
+
+## What's new
+
+- Improved agent registration: You can now add tags to the ARC machine that the agent creates.
+- Improved network connectivity testing: The Storage Mover agent now utilizes the Azure ARC CLI tool (azcmagent) and a curl GET command to verify the ARC and Storage Mover endpoints with the 'Test Network Connectivity' option in the agent console. 
+- A new option, 'Test Network Connectivity Verbosely' can help diagnose local network problems more easily.
+- Improved user experience to error conditions during agent registration and unregistration processes.
+- Storage Mover depends on Azure ARC and a Managed Identity. Extra safeguards were added that ensure seamless registration: The ARC *Hybrid Compute* resource is now created in the same region as the storage mover resource, as well as the Azure Arc Private Link Scope (if applicable).
+- Improved instructions during agent registration when using private networking.
+- Security improvements and bug fixes.
 
 ## 2023 December 1
 
@@ -59,7 +101,7 @@ Major refresh release notes for:
 - Service version: December 1, 2023
 - Agent version: 3.0.412
 
-### Agent
+### What's new
 
 - Extended support to the SMB 2.0 protocol (vs. previously SMB 2.1+)
 - Security improvements and bug fixes.
@@ -77,20 +119,20 @@ Major refresh release notes for:
 - Agent version: 2.0.358
 
 ### Migration scenarios
-- Migrating your SMB shares to Azure file shares has become generally available.
+- Migrating your SMB shares to Azure file shares became generally available.
 - The Storage Mover agent is now supported on VMware ESXi 6.7 hypervisors, as a public preview.
 - Migrating NFS shares to Azure Data Lake Gen2 storage is now available as a public preview.
 
 ### Service
 
-- Migrations from NFS shares to Azure storage accounts with the hierarchical namespace service feature (HNS) enabled, are now supported and automatically leverage the ADLS Gen2 REST APIs for migration. This allows the migration of files and folders in a Data Lake compliant way. Full fidelity is preserved in just the same way as with the previously existing blob container migration path. 
-- [Error codes and messages](status-code.md) have been improved.
+- Migrations from NFS shares to Azure storage accounts with the hierarchical namespace service feature (HNS) enabled, are now supported and automatically apply the ADLS Gen2 REST APIs for migration. This API allows the migration of files and folders in a Data Lake compliant way. Full fidelity is preserved in just the same way as with the previously existing blob container migration path. 
+- [Error codes and messages](status-code.md) were improved.
 
 ### Agent
 
 - Changes required for the previously mentioned migration paths.
 - Improved handling and logging of files that fail migration when they contain invalid characters or are in use during a migration.
-- Added support for file and folder security descriptors larger than 8KiB. (ACLs)
+- Added support for file and folder security descriptors larger than 8 KiB. (ACLs)
 - Avoid a job error condition when the source is an empty SMB share.
 - Improvements to agent-local network configuration like applying a static IP to the agent, or an error listing certain network configuration.
 - Security improvements.
@@ -113,8 +155,8 @@ Azure Storage mover can migrate your SMB share to Azure file shares (in public p
 
 ### Service
 
-- [Two new endpoints](endpoint-manage.md) have been introduced.
-- [Error messages](status-code.md) have been improved.
+- [Two new endpoints](endpoint-manage.md) were introduced.
+- [Error messages](status-code.md) were improved.
 
 ### Agent
 
@@ -123,8 +165,8 @@ Azure Storage mover can migrate your SMB share to Azure file shares (in public p
 
 ### Limitations
 
-- Folder ACLs are not updated on incremental transfers.
-- Last modified dates on folders are not preserved.
+- Folder ACLs aren't updated on incremental transfers.
+- Last modified dates on folders aren't preserved.
 
 ## 2023 June 14
 
@@ -139,8 +181,8 @@ Existing migration scenarios from the GA release remain unchanged. This release 
 ### Service
 
 - Fixed a corner-case issue where the *mirror* copy mode may miss changes made in the source since the job was last ran.
-- When moving the storage mover resource in your resource group, an issue was fixed where some properties may have been left behind.
-- Error messages have been improved.
+- Fixed an issue when moving a Storage Mover resource to a different resource group. It was possible for some properties to be left behind.
+- Improved error messages.
 
 ### Agent
 
@@ -213,5 +255,5 @@ To access copy logs on the agent:
 [!INCLUDE [agent-shell-connect](includes/agent-shell-connect.md)]
 1. Select option `3) Service and job status`
 1. Select option `2) Job summary`
-1. A list of jobs that have run on the agent is shown. Copy the ID in the format `Job definition id: Job run id` that represents the job you want to retrieve the copy logs for. You can confirm you've selected the right job by looking at the details of your selected job by pasting it into menu option `3) Job details`
+1. A list of jobs that previously ran on the agent is shown. Copy the ID in the format `Job definition id: Job run id` that represents the job you want to retrieve the copy logs for. You can confirm the selection of the correct job by looking at the details of your selected job by pasting it into menu option `3) Job details`
 1. Retrieve the copy logs by selecting option `4) Job copylogs` and providing the same ID from the previous step.

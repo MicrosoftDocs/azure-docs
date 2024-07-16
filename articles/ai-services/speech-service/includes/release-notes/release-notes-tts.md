@@ -7,6 +7,39 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### June 2024 release
+
+#### Prebuilt neural voice
+
+- Introducing 6 new voices in public preview available in specific regions: East Asia, Southeast Asia, East US, West US, and Central India.
+  
+  | Locale | Language    | Text to speech voices  |
+  |--------|-----------------|-------------------------|
+  | `or-IN`  | Oriya (India)   | `or-IN-SubhasiniNeural` (Female) |
+  | `or-IN`  | Oriya (India)   | `or-IN-SukantNeural` (Male)      | 
+  | `pa-IN`  | Punjabi (India) | `pa-IN-VaaniNeural` (Female)     |
+  | `pa-IN`  | Punjabi (India) | `pa-IN-OjasNeural` (Male)        | 
+  | `as-IN`  | Assamese (India)| `as-IN-YashicaNeural` (Female)   | 
+  | `as-IN`  | Assamese (India)| `as-IN-PriyomNeural` (Male)      |
+
+  See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+#### Text to speech avatar
+
+- Text to speech avatar now supports the following regions: Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2. For more information, see [Speech service regions](../../regions.md#speech-service).
+
+### May 2024 release
+
+#### Personal voice (GA)
+
+Personal voice is now generally available. With personal voice, you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales. For more information, see the [personal voice overview](../../personal-voice-overview.md).
+
+#### Prebuilt neural voice
+
+- Introduce 8 new multilingual voices in public preview: `en-GB-AdaMultilingualNeural`, `en-GB-OllieMultilingualNeural`, `es-ES-ArabellaMultilingualNeural`, `es-ES-IsidoraMultilingualNeural`, `it-IT-AlessioMultilingualNeural`, `it-IT-IsabellaMultilingualNeural`, `it-IT-MarcelloMultilingualNeural`, and `pt-BR-ThalitaMultilingualNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+- Introduce 2 new `en-US` voices optimized for Call Center scenario in public preview: `en-US-LunaNeural` and `en-US-KaiNeural`. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
 ### April 2024 release
 
 #### Text to speech avatar
@@ -30,7 +63,7 @@ ms.custom: references_regions
 #### Text to speech avatar
 
 - Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
-- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service [regions](../../regions.md#speech-service) where the feature is available.
 
 ### February 2024 release
 

@@ -58,7 +58,7 @@ Messages are delivered in **pull** mode, only delivering messages when requested
 
 You can also use **topics** to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish-subscribe scenarios.
 
-:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-queue.png" alt-text="Diagram that shows a Service Bus topic with one sender and multiple receivers.":::
+:::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Diagram that shows a Service Bus topic with one sender and multiple receivers.":::
 
 Topics can have multiple, independent subscriptions, which attach to the topic and otherwise work exactly like queues from the receiver side. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities. Subscriptions are durable by default, but can be configured to expire and then be automatically deleted. Via the Java Message Service (JMS) API, Service Bus Premium also allows you to create volatile subscriptions that exist for the duration of the connection.
 
@@ -116,8 +116,11 @@ Subscribers can define which messages they want to receive from a topic. These m
 
 If an error occurs that causes the client to have any doubt about the outcome of a send operation, duplicate detection takes the doubt out of these situations by enabling the sender to resend the same message, and the queue or topic discards any duplicate copies. For more information, see [Duplicate detection](duplicate-detection.md).
 
+## Batch delete of Messages
+Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired , or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
+
 ### Security
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports security protocols such as [Shared Access Signatures (SAS)](service-bus-sas.md), [Role Based Access Control (RBAC)](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](service-bus-amqp-overview.md) and [HTTP/REST](/rest/api/servicebus/) protocols.
 

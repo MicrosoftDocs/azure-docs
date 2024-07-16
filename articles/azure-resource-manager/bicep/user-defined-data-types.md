@@ -3,12 +3,12 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 12/06/2023
+ms.date: 06/14/2024
 ---
 
 # User-defined data types in Bicep
 
-Learn how to use user-defined data types in Bicep.
+Learn how to use user-defined data types in Bicep. For system-defined data types, see [Data types](./data-types.md).
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
@@ -191,7 +191,7 @@ param storageAccountName string
 ])
 param storageAccountSKU string = 'Standard_LRS'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -215,7 +215,7 @@ type storageAccountConfigType = {
 
 param storageAccountConfig storageAccountConfigType
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -227,7 +227,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Declare tagged union type
 
-To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declartion. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
 
 ```bicep
 @discriminator('<propertyName>')
@@ -258,7 +258,7 @@ output config object = serviceConfig
 
 The parameter value is validated based on the discriminated property value.  In the preceding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
 
-## Import types between Bicep files (Preview)
+## Import types between Bicep files
 
 [Bicep CLI version 0.21.X or higher](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
 

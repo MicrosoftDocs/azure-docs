@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
@@ -234,7 +234,7 @@ Finally, create and run the pipeline.
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --name Adfv2QuickStartPipeline \
-       --pipeline @Adfv2QuickStartPipeline.json
+       --pipeline Adfv2QuickStartPipeline.json
    ```
 
 1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create-run) command:

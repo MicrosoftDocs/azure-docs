@@ -43,10 +43,6 @@ landingContent:
         links:
           - text: Create a web application using Azure Maps
             url: quick-demo-map-app.md
-          - text: Create an Android app using Azure Maps
-            url: quick-android-map.md
-          - text: Create an iOS app using Azure Maps
-            url: quick-iOS-app.md  
       - linkListType: concept
         links:
           - text: Choose the right pricing tier for Maps account
@@ -95,8 +91,6 @@ landingContent:
             url: creator-qgis-plugin.md
           - text: Create dataset using GeoJson package
             url: how-to-dataset-geojson.md
-          - text: Create a feature stateset
-            url: how-to-creator-feature-stateset.md
       - linkListType: reference
         links:
             - text: Drawing package requirements
