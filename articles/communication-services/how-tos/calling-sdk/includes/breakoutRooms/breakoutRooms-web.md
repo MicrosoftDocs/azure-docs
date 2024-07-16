@@ -140,7 +140,7 @@ switch(event.type) {
       break;
     case "assignedBreakoutRoom":
       const assignedRoom = event.data;
-      console.log(`event.data is a breakout room named: ${assignedRoom.displayName}`);      
+      console.log(`You are assigned to breakout room named: ${assignedRoom.displayName}`);      
       break;
     case "breakoutRoomSettings":
       const breakoutRoomSettings = event.data;
