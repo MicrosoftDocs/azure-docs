@@ -1,12 +1,12 @@
 ---
-title: Dapr extension for Azure Kubernetes Service (AKS) overview
+title: Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 description: Learn more about using Dapr on your Azure Kubernetes Service (AKS) cluster to develop applications.
 ms.author: nickoman
 ms.topic: overview
 ms.date: 04/22/2024
 ---
 
-# Dapr
+# Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Distributed Application Runtime (Dapr)][dapr-docs] offers APIs that help you write and implement simple, portable, resilient, and secured microservices. Dapr APIs run as a sidecar process in tandem with your applications and abstract away common complexities you may encounter when building distributed applications, such as:
 - Service discovery
@@ -19,7 +19,7 @@ Dapr is incrementally adoptable. You can use any of the API building blocks as n
 
 ## Capabilities and features
 
-[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
+[Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster][dapr-create-extension] eliminates the overhead of:
 - Downloading Dapr tooling
 - Manually installing and managing the Dapr runtime on your AKS cluster
 
@@ -221,7 +221,9 @@ If you install Dapr through the AKS extension, our recommendation is to continue
 
 ## Next Steps
 
-After learning about Dapr and some of the challenges it solves, try [Deploying an application with the Dapr cluster extension][dapr-quickstart].
+> [!div class="nextstepaction"]
+> [Walk through the Dapr extension quickstart to demo how it works][dapr-quickstart]
+
 
 <!-- Links Internal -->
 [csi-secrets-store]: ./csi-secrets-store-driver.md
@@ -231,6 +233,7 @@ After learning about Dapr and some of the challenges it solves, try [Deploying a
 [dapr-migration]: ./dapr-migration.md
 [aks-msi]: ./use-managed-identity.md
 [dapr-configuration-options]: ./dapr-settings.md
+[dapr-create-extension]: ./dapr.md
 
 <!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
