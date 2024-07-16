@@ -52,7 +52,7 @@ To check if access key authentication is enabled for an Azure App Configuration 
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
-3. Verify there are access keys displayed and the toggled state of **Enable access keys** is enabled.
+1. Check if there are access keys displayed and if the toggled state of **Enable access keys** is enabled.
 
     :::image type="content" border="true" source="./media/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource":::
 
