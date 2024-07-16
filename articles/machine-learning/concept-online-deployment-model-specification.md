@@ -18,7 +18,7 @@ ms.custom: how-to, devplatv2, cliv2, sdkv2
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you learn to specify the model that you wish to deploy when creating the deployment configuration for an online endpoint. When deploying your model to an Azure Machine Learning online endpoint, you need to specify the model one of two ways:
+In this article, you learn to use the deployment configuration to specify models that you want to use in online deployments. When deploying a model to an Azure Machine Learning online endpoint, you need to specify the model one of two ways:
 
 - Provide the path to the model's location on your local computer
 - Provide a reference to a versioned model that is already registered in your workspace.
@@ -27,7 +27,7 @@ In Azure Machine Learning, after you create your deployment, the environment var
 
 ## Deployment configurations with models that are stored locally
 
-We use the following local folder structure to illustrate how you can specify models that are available locally on your machine in an online deployment.
+The following local folder structure illustrates how you can specify models that are available locally on your machine for use in an online deployment.
 
 :::image type="content" source="media/concept-online-deployment-model-specification/multi-models-1.png" alt-text="A screenshot showing a local folder structure containing multiple models." lightbox="media/concept-online-deployment-model-specification/multi-models-1.png":::
 
