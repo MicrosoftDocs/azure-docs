@@ -935,13 +935,13 @@
           href: ../store-credentials-key-vault.md
     - name: Monitor
       items:
-        - name: Monitor Cosmos DB
+        - name: Monitor Azure Cosmos DB
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Cosmos DB insights
               href: ../insights-overview.md
-            - name: Scenarios to monitor
+            - name: Monitor and debug using metrics
               href: ../use-metrics.md
             - name: Monitor server-side latency
               href: ../monitor-server-side-latency.md
