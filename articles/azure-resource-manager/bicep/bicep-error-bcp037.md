@@ -49,7 +49,7 @@ param foo storageAccountConfigType = {
 }
 ```
 
-The following example raises the error because `obj` is a sealed type and does not define a `baz` property.
+The following example raises the error because `obj` is a sealed type and doesn't define a `baz` property.
 
 ```bicep
 @sealed()
@@ -65,7 +65,7 @@ param p obj = {
 }
 ```
 
-You can fix teh issue by removing the property:
+You can fix the issue by removing the property:
 
 ```bicep
 @sealed()
