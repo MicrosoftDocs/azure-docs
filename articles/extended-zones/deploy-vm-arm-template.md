@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart-arm
-ms.date: 07/10/2024
+ms.date: 07/16/2024
 ms.custom: subject-armqs, devx-track-azurecli
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.
@@ -17,7 +17,7 @@ ms.custom: subject-armqs, devx-track-azurecli
 > Azure Extended Zones service is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this quickstart, you learn how to deploy a virtual machine (VM) in an Azure Extended Zone using an Azure Resource Manager template (ARM template).
+In this quickstart, you learn how to deploy a virtual machine (VM) in Los Angeles Extended Zone using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,9 +29,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure account with an active subscription.
 
-- Bash environment in [Azure Cloud Shell](https://shell.azure.com) or the Azure CLI installed locally. To learn more about using Bash in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md). 
+- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
-	- If you choose to install and use Azure CLI locally, this article requires the Azure CLI version 2.26 or later. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run [az login](/cli/azure/reference-index#az-login) command to sign in to Azure.
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.26 or higher. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ## Review the template
 
