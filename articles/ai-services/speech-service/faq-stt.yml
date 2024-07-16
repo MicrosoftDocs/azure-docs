@@ -157,7 +157,7 @@ sections:
           
           In general, Speech service processes approximately 10 hours of audio data per day in regions that have dedicated hardware. Training with text only is faster and ordinarily finishes within minutes.
           
-          Use one of the regions where dedicated hardware is available for training. The Speech service uses up to 20 hours of audio for training in these regions. 
+          Use one of the regions where dedicated hardware is available for training. The Speech service uses up to 100 hours of audio for training in these regions. 
           
   - name: Accuracy testing
     questions:

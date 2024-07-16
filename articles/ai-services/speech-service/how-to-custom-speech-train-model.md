@@ -25,7 +25,7 @@ You can use a custom model for a limited time after it was trained. You must per
 > [!IMPORTANT]
 > If you will train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. After a model is trained, you can [copy it to a Speech resource](#copy-a-model) in another region as needed. 
 > 
-> In regions with dedicated hardware for custom speech training, the Speech service will use up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
+> In regions with dedicated hardware for custom speech training, the Speech service will use up to 100 hours of your audio training data, and can process about 10 hours of data per day. See footnotes in the [regions](regions.md#speech-service) table for more information.  
 
 ## Create a model
 
