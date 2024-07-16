@@ -34,7 +34,7 @@ const displayName : string = breakoutRoom.displayName;
 ```js
 const threadId : string = breakoutRoom.threadId;
 ```
-- `threadId` : threadId of the breakout room used for chat
+- `threadId` : You can use chat thread ID to join chat of the breakout room.
 
 ```js
 const state : BreakoutRoomState = breakoutRoom.state;
