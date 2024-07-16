@@ -58,7 +58,7 @@ To check if access key authentication is enabled for an Azure App Configuration 
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify access key authentication is enabled for an Azure App Configuration resource in the Azure portal, use the following command. The command will list the access keys for an Azure App Configuration resource.
+To check if access key authentication is enabled for an Azure App Configuration resource in the Azure portal, use the following command. The command will list the access keys for an Azure App Configuration resource.
 
 ```azurecli-interactive
 az appconfig credential list \
