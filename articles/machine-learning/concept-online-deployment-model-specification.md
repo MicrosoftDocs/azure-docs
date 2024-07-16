@@ -137,6 +137,14 @@ def init():
     model = joblib.load(model_path) 
 ```
 
+## Deployment configuration for models that are available in the model catalog
+
+@seokjin To add here
+
+## Deployment configuration for models that are available in your organization's registry
+
+@seokjin To add here
+
 ## Related content
 
 [Online endpoints and deployments for real-time inference](concept-endpoints-online.md)
