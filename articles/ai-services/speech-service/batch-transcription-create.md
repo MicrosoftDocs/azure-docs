@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 7/16/2024
 zone_pivot_groups: speech-cli-rest
 ms.custom: devx-track-csharp
 # Customer intent: As a user who implements audio transcription, I want create transcriptions in bulk so that I don't have to submit audio content repeatedly.
@@ -22,8 +22,7 @@ With batch transcriptions, you submit [audio data](batch-transcription-audio-dat
 
 ## Prerequisites
 
-- The [Speech SDK](quickstarts/setup-platform.md) installed.
-- A standard (S0) Speech resource. Free resources (F0) aren't supported.
+You need a standard (S0) Speech resource. Free resources (F0) aren't supported.
 
 ## Create a transcription job
 
@@ -63,19 +62,19 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
       ],
     }
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/db474955-ab85-4c6c-ba6e-3bfe63d041ba/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -94,9 +93,9 @@ You should receive a response body in the following format:
       ]
     }
   },
-  "lastActionDateTime": "2022-10-21T14:18:06Z",
+  "lastActionDateTime": "2024-05-21T14:18:06Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-10-21T14:18:06Z",
+  "createdDateTime": "2024-05-21T14:18:06Z",
   "locale": "en-US",
   "displayName": "My Transcription"
 }
@@ -129,12 +128,12 @@ You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/7f4232d5-9873-47a7-a6f7-4a3f00d00dc0/files"
   },
   "properties": {
     "diarizationEnabled": false,
@@ -146,9 +145,9 @@ You should receive a response body in the following format:
     "punctuationMode": "DictatedAndAutomatic",
     "profanityFilterMode": "Masked"
   },
-  "lastActionDateTime": "2022-10-21T14:21:59Z",
+  "lastActionDateTime": "2024-05-21T14:21:59Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-10-21T14:21:59Z",
+  "createdDateTime": "2024-05-21T14:21:59Z",
   "locale": "en-US",
   "displayName": "My Transcription",
   "description": ""
@@ -220,12 +219,12 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
   },
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions"
 ```
 
 ::: zone-end
@@ -233,7 +232,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/5988d691-0893-472c-851e-8e36a0fe7aaf"
 ```
 
 ::: zone-end
@@ -333,7 +332,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "locale": "en-US",
   "displayName": "My Transcription",
   "model": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950"
   },
   "properties": {
     "wordLevelTimestampsEnabled": true,
@@ -346,7 +345,7 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli
-spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/d9cbeee6-582b-47ad-b5c1-6226583c92b6" --api-version v3.2
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/e418c4a9-9937-4db7-b2c9-8afbff72d950" --api-version v3.2
 ```
 
 ::: zone-end
