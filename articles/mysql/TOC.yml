@@ -17,7 +17,6 @@
     href: concepts-version-policy.md
   - name: Supported versions
     href: flexible-server/concepts-supported-versions.md
-
 - name: Azure Database for MySQL - Flexible Server
   items:
   - name: Overview
@@ -161,8 +160,7 @@
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
       - name: Threat protection with Microsoft Defender for Cloud
-        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
-
+        href: ../defender-for-cloud/defender-for-databases-introduction?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
   - name: Integrations
     items:
     - name: Automation tasks
@@ -484,6 +482,8 @@
         items:
         - name: Configuring SSL
           href: single-server/concepts-ssl-connection-security.md
+      - name: Threat protection with Microsoft Defender for Cloud
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
         - name: Data encryption
