@@ -27,13 +27,13 @@ To retain data in the same table beyond the interactive retention period, extend
 :::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows interactive and long-term retention in Azure Monitor Logs.":::
 
 
-## How do retention modifications work?
+## How retention modifications work
 
-When you shorten a table's total retention, Azure Monitor waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. You can [purge data](../logs/personal-data-mgmt.md#delete) immediately from tables with the Analytics and Basic data plans, if needed. You can't purge data from tables with the Auxiliary plan.
+When you shorten a table's total retention, Azure Monitor Logs waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. 
 
-When you increase total retention, the new retention period applies to all data was already ingested into the table and wasn't yet purged or removed.   
+When you increase total retention, the new retention period applies to all data that was already ingested into the table and wasn't yet or removed.   
 
-When you change the long-term retention settings of a table with existing data, the change is effective immediately. 
+When you change the long-term retention settings of a table with existing data, the change takes effect immediately. 
 
 ***Example***: 
 
@@ -50,8 +50,6 @@ When you change the long-term retention settings of a table with existing data, 
 | Get retention setting by table for a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/tables/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 
 ## Configure the default interactive retention period of Analytics tables
-
-By default, all tables have an interactive retention period of 30 days. 
 
 > [!IMPORTANT]
 > Workspaces with 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
