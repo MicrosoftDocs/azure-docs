@@ -155,7 +155,7 @@ switch(event.type) {
 }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
-If the assigned breakoutroom doesnot have auto Move participants to BreakoutRooms set to true, then explicitly call the "Join" api to join the breakout room when the breakout room is opened.
+If the assigned breakout room doesn't have enabled property `autoMoveParticipantToBreakoutRoom` and the `state` of breakout room is set to `opened`, then explicitly call the `join` method on object `breakoutRoom` to join the breakout room.
 ```js
 const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
 
