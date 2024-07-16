@@ -6,7 +6,8 @@ author: greg-lindsay
 ms.service: dns
 ms.date: 06/07/2024
 ms.author: greglin
-ms.topic: conceptual
+ms.topic: concept-article
+
 ---
 
 # Delegation of DNS zones with Azure DNS
