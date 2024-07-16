@@ -22,7 +22,7 @@ Configuring the gateway using a frontend private IP address is useful for intern
 
 This article guides you through the steps to configure a Standard v2 Application Gateway with an ILB using the Azure portal.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Sign in to Azure
 

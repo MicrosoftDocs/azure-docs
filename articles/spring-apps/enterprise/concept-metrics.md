@@ -4,7 +4,7 @@ description: Learn how to review metrics in Azure Spring Apps
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---

@@ -6,12 +6,12 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 06/25/2024
 ms.author: anfdocs
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
-This article describes error messages and resolutions that can help you troubleshoot Azure NetApp Files volumes.
+If a volume CRUD operation is performed on a volume that is not in a terminal state, then the operation will fail. Automation workflows and portal users should check for the terminal state of the volume before executing another asynchronous operation on the volume.
 
 ## Errors for SMB and dual-protocol volumes
 

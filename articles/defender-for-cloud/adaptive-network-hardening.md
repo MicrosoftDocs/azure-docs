@@ -57,9 +57,9 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 1. Optionally, edit the rules:
 
-    - [Modify a rule](#modify-rule)
-    - [Delete a rule](#delete-rule)
-    - [Add a rule](#add-rule)
+    - [Modify a rule](#modify-a-rule)
+    - [Delete a rule](#delete-a-rule)
+    - [Add a rule](#add-a-new-rule)
 
 1. Select the rules that you want to apply on the NSG, and select **Enforce**.
 
@@ -71,7 +71,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
       > [!NOTE]
       > The enforced rules are added to the NSG(s) protecting the VM. (A VM could be protected by an NSG that is associated to its NIC, or the subnet in which the VM resides, or both)
 
-## Modify a rule  <a name ="modify-rule"> </a>
+## Modify a rule
 
 You might want to modify the parameters of a rule that has been recommended. For example, you might want to change the recommended IP ranges.
 
@@ -83,7 +83,7 @@ Some important guidelines for modifying an adaptive network hardening rule:
 
     Creating and modifying "deny" rules is done directly on the NSG. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
 
-- A **Deny all traffic** rule is the only type of "deny" rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-rule)). To learn about this type of rule, see the common questions entry [When should I use a "Deny all traffic" rule?](faq-defender-for-servers.yml).
+- A **Deny all traffic** rule is the only type of "deny" rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-a-rule)). To learn about this type of rule, see the common questions entry [When should I use a "Deny all traffic" rule?](faq-defender-for-servers.yml).
 
 To modify an adaptive network hardening rule:
 
@@ -102,7 +102,7 @@ To modify an adaptive network hardening rule:
 
     ![enforce rule.](./media/adaptive-network-hardening/enforce-hard-rule.png)
 
-## Add a new rule <a name ="add-rule"> </a>
+## Add a new rule
 
 You can add an "allow" rule that was not recommended by Defender for Cloud.
 
@@ -124,7 +124,7 @@ To add an adaptive network hardening rule:
 
     ![enforce rule.](./media/adaptive-network-hardening/enforce-hard-rule.png)
 
-## Delete a rule <a name ="delete-rule"> </a>
+## Delete a rule
 
 When necessary, you can delete a recommended rule for the current session. For example, you might determine that applying a suggested rule could block legitimate traffic.
 

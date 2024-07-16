@@ -8,6 +8,8 @@ ms.date: 03/22/2024
 
 # Upgrade your HDInsight on AKS clusters and cluster pools
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Learn how to update your HDInsight on AKS clusters and cluster pools to the latest AKS patches, security updates, cluster patches, and cluster hotfixes with in-place upgrade.
 
 ## Why to upgrade

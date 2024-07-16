@@ -14,7 +14,7 @@ ms.author: v-abhmallick
 
 This article provides troubleshooting steps that can help you resolve Azure Backup errors related to communication with the VM agent and extension.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Step-by-step guide to troubleshoot backup failures
 

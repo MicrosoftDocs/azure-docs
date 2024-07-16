@@ -987,6 +987,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-app-service-sqldb-dotnetcore",
+      "url": "https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
