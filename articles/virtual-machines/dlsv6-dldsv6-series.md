@@ -5,7 +5,7 @@ author:      misha-bansal
 ms.author:   mishabansal
 ms.service: virtual-machines
 ms.topic: reference
-ms.date:     04/30/2024
+ms.date:     07/16/2024
 ms.subservice: sizes
 ms.reviewer: wwilliams
 ---
@@ -71,7 +71,7 @@ Data disks can operate in cached or uncached modes. For cached data disk operati
 
 To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](https://learn.microsoft.com/azure/virtual-machines/disks-performance).
 
-**Expected network bandwidth** is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-machine-network-throughput).
+**Expected network bandwidth** is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../virtual-network/virtual-machine-network-throughput.md).
 
 Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](https://learn.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth). To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](https://learn.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing)
 
