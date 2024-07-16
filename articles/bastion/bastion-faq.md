@@ -3,7 +3,7 @@ title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 04/01/2024
 ms.author: cherylmc
 ms.custom: references_regions
