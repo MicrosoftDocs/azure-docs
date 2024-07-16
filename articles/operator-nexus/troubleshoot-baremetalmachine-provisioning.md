@@ -14,7 +14,7 @@ ms.author: bpinto
 As part of Cluster deploy action, BareMetal machines (BMM) are provisioned with required roles to participate in the Nexus Cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure Portal, and the server Baseboard Management Controller (BMC). For the Operator Nexus Platform, the underlying Dell server hardware uses Integrated Dell Remote Access Controller (iDRAC) as the BMC.
 
 ## Prerequisites
-1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
+1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md)
 2. Gather the following information:
   - Subscription ID (SUBSCRIPTION)
   - Cluster name (CLUSTER), Resource Group (CLUSTER_RG), and Managed Resource Group (CLUSTER_MRG)
@@ -41,7 +41,7 @@ Name          ResourceGroup                  DetailedStatus    DetailedStatusMes
 BMM_NAME      CLUSTER_MRG                    STATUS            STATUS_MSG
 ```
 
-Where `STATUS` goes through the following phases through the BareMetal Machine provisioning process (see [BMM Status in Azure Operator Nexus Compute Concepts](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-compute#bmm-status)):
+Where `STATUS` goes through the following phases through the BareMetal Machine provisioning process (see [BMM Status in Azure Operator Nexus Compute Concepts](concepts-compute.md)):
 
 `Registering` -> `Preparing` -> `Inspecting` -> `Available` -> `Provisioning` -> `Provisioned`
 
