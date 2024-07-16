@@ -62,8 +62,8 @@ Create a service connection between your AKS cluster and your SQL database in th
 
 Open your AKS cluster in the Azure portal, and select **Settings** > **Service Connector (Preview)** in the left menu. Select **Create** and select or enter information following the instructions and examples below. Leave all other settings with their default values.
 
-   1. Basics tab:
-
+1. Basics tab:
+    
     | Setting                  | Example value     | Description                                                                              |
     |--------------------------|-------------------|------------------------------------------------------------------------------------------|
     | **Kubernetes namespace** | *default*         | The Kubernetes service namespace.                                                        |
