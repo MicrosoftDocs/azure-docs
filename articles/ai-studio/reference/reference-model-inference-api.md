@@ -116,6 +116,8 @@ model = ChatCompletionsClient(
 )
 ```
 
+Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
+
 # [JavaScript](#tab/javascript)
 
 Install the package `@azure-rest/ai-inference` using npm:
@@ -149,6 +151,8 @@ const client = new ModelClient(
     new AzureDefaultCredential()
 );
 ```
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
 
 # [REST](#tab/rest)
 
@@ -190,7 +194,7 @@ print(response.choices[0].message.content)
 ```
 
 > [!TIP]
-> When using Azure AI Inference SDK, using passing extra parameters using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
+> When using Azure AI Inference SDK, using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
@@ -255,9 +259,9 @@ The following example shows the response for a chat completion request indicatin
 # [Python](#tab/python)
 
 ```python
+import json
 from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletionsResponseFormat
 from azure.core.exceptions import HttpResponseError
-import json
 
 try:
     response = model.complete(
@@ -371,6 +375,7 @@ The following example shows the response for a chat completion request that has 
 
 ```python
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
