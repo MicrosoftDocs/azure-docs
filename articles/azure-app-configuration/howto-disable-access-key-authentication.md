@@ -35,7 +35,14 @@ To allow/disallow access key authentication for an Azure App Configuration resou
 
 # [Azure CLI](#tab/azure-cli)
 
-The capability to enable access key authentication using the Azure CLI is in development.
+To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to "false" for enable local auth. 
+
+```azurecli-interactive
+az appconfig update \
+    --name <app-configuration-name> \
+    --resource-group <resource-group> \
+    --disable-local-auth false
+```
 
 ---
 
@@ -58,19 +65,13 @@ To check if access key authentication is enabled for an Azure App Configuration 
 
 # [Azure CLI](#tab/azure-cli)
 
-To check if access key authentication is enabled for an Azure App Configuration resource in the Azure portal, use the following command. The command will list the access keys for an Azure App Configuration resource.
+To check if access key authentication is enabled for an Azure App Configuration resource, use the following command. The command will list the access keys for an Azure App Configuration resource.
+If access key authentication is enabled, then read access keys and read-write access keys will be returned.
 
 ```azurecli-interactive
 az appconfig credential list \
     --name <app-configuration-name> \
     --resource-group <resource-group>
-```
-
-If access key authentication is enabled, then read access keys and read-write access keys will be returned.
-
-```azurecli-interactive
-az appconfig credential list -g <resource-group> -n <app-configuration-name>
-[]
 ```
 
 ---
@@ -94,7 +95,14 @@ To disallow access key authentication for an Azure App Configuration resource in
 
 # [Azure CLI](#tab/azure-cli)
 
-The capability to disable access key authentication using the Azure CLI is in development.
+To disable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to "true" for disable local auth. 
+
+```azurecli-interactive
+az appconfig update \
+    --name <app-configuration-name> \
+    --resource-group <resource-group> \
+    --disable-local-auth true
+```
 
 ---
 
@@ -117,19 +125,12 @@ To verify access key authentication is disabled for an Azure App Configuration r
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify access key authentication is disabled for an Azure App Configuration resource in the Azure portal, use the following command. The command will list the access keys for an Azure App Configuration resource and if access key authentication is disabled the list will be empty.
+To verify access key authentication is disabled for an Azure App Configuration resource, use the following command. The command will list the access keys for an Azure App Configuration resource and if access key authentication is disabled the list will be empty.
 
 ```azurecli-interactive
 az appconfig credential list \
     --name <app-configuration-name> \
     --resource-group <resource-group>
-```
-
-If access key authentication is disabled, then an empty list will be returned.
-
-```
-C:\Users\User>az appconfig credential list -g <resource-group> -n <app-configuration-name>
-[]
 ```
 
 ---
