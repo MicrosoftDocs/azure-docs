@@ -53,8 +53,6 @@ Code Optimizations analyzes the profiling data collected by the Application Insi
 
 Code Optimizations are generated automatically after [Application Insights Profiler is enabled](../profiler/profiler-overview.md#sampling-rate-and-overhead). It incurs no extra cost to you as it analyzes performance issues and generates performance recommendations. Some features (such as code-level fix suggestions) require [Copilot for GitHub](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) and/or [Copilot for Azure](../../copilot/overview.md). 
 
-[Regarding sampling rates and overhead, refer to the Profiler documentation.](../profiler/profiler-overview.md#sampling-rate-and-overhead)
-
 ## Supported regions
 
 Code Optimizations is available in the same regions as Application Insights. You can check the available regions using the following command:
