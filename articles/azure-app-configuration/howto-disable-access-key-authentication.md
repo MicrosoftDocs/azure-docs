@@ -163,7 +163,7 @@ You can rotate keys using the following procedure:
 1. If you're using both keys in production, change your code so that only one key is in use. In this guide, assume it's key 1.
 This is a necessary step because once a key is regenerated, the older version of that key stops working immediately. This would cause clients using the older key to get 401 access denied errors.
 
-2. Once you have only key 1 in use, you can regenerate key 2. Go to your resource's page on the Azure portal, select the Keys and Endpoint tab, and select the Regenerate Key 2 button at the top of the page.
+1. Once the primary key is the only key in use, you can regenerate the secondary key. Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
 3. Next, update your code to use the newly generated key 2.
 It helps to have logs or availability to check that users of the key have successfully swapped from using key 1 to key 2 before you proceed.
