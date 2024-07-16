@@ -34,7 +34,7 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 |Processor| Intel Atom x6425RE |
 |Memory|16 GB |
 |Storage| 500 GB Hard Drive |
-|Network controller| Ports: 2* 1GbE RJ45 |
+|Network controller| Ports: 2* 1 GbE RJ45 |
 |Management|iDRAC Group Manager, Disabled |
 |Rack support| Wall mount/ DIN rail support |
 
@@ -69,7 +69,7 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 |AC Input | Optional: 120 W, 60 W (for PoE) AC-to-DC adapter |
 |Operating temperature | –20°C to 60°C (with airflow 0.6 m/s) |
 |Storage temperature | –40°C to 85°C (excluding storage devices) |
-|Altitude | Operational (maximum, unpressurized): -15.20 m to 5,000m<br> Note: The maximum temperature is derated 1C/305m above sea level altitude  |
+|Altitude | Operational (maximum, unpressurized): -15.20 m to 5,000 m<br> Note: The maximum temperature is derated 1C/305m above sea level altitude  |
 |Humidity| ~95% at 40C (non-condensing) |
 |Vibration| MIL-STD-810G METHOD 514.6 category 4 - common carrier (US highway truck vibration exposure) |
 |Shock| 1. IEC 60068-2-27, half-sine pulse test parameters<br>2. 20G, MIL-STD-810G 516.6 Table 516.6-II, sawtooth pulse test parameters |
