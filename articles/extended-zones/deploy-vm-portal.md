@@ -15,7 +15,7 @@ ms.date: 07/16/2024
 > Azure Extended Zones service is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this quickstart, you use the Azure portal to deploy a virtual machine (VM) in Los Angeles Extended Zone 
+In this quickstart, you learn how to deploy a virtual machine (VM) in Los Angeles Extended Zone using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
