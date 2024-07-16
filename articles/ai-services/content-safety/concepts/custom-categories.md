@@ -61,7 +61,7 @@ Then, you collect a balanced dataset with **positive** and (optionally) **negati
 
 ### Step 2: Model training
  
-Once your dataset is ready, the Azure AI Content Safety service uses it to train a new machine learning model. During training, the AI analyzes the data and learns to distinguish between content that matches the category and content that doesn't.
+After you prepare your dataset and define categories, the Azure AI Content Safety service trains a new machine learning model. This model uses your definitions and uploaded dataset to perform data augmentation using a large language model. As a result, the training dataset is made larger and of higher quality. During training, the AI model analyzes the data and learns to differentiate between content that aligns with the specified category and content that does not.
 
 ### Step 3: Model inferencing
  
@@ -69,7 +69,7 @@ After training, you need to evaluate the model to ensure it meets your accuracy 
 
 ### Step 4: Model usage
 
-You use the **analyzeCustomCategory** API to analyze text content and determine whether it matches the custom category you've defined. The service will return a score indicating the likelihood that the content matches the category.
+You use the **analyzeCustomCategory** API to analyze text content and determine whether it matches the custom category you've defined. The service will return a Boolean indicating whether the content aligns with the specified category
 
 #### [Custom categories (rapid) API](#tab/rapid)
 
@@ -95,12 +95,11 @@ See the following table for the input limitations of the custom categories (stan
 | Object           | Limitation   |
 | ---------------- | ------------ |
 | Supported languages | English only |
-|  Number of categories per user     |         5     |
-|  Number of versions per category   |        5      |
+|  Number of categories per user     |         3     |
+|  Number of versions per category   |        3      |
 |  Number of concurrent builds (processes) per category      |       1       |
-|  Inference operations per second           |    10          |
-|  Number of custom categories in one text analyze request          |       5  |
-|  Number of samples in a category version          |        minimum 50, maximum 10K (no duplicate samples allowed)      |
+|  Inference operations per second           |    5         |
+|  Number of samples in a category version          |        Positive samples(required):minimum 50, maximum 5K<br>In total (both negative and positive samples): 10K<br>No duplicate samples allowed.      |
 | Sample file size       |     maximum 128000 bytes         |
 | Length of a text sample           |          maximum 125K characters   |
 | Length of a category definition          |       maximum 1000 chars     |

@@ -124,11 +124,15 @@ See the following list for the input requirements for each feature.
 - **Protected material detection (preview)**: 
   - Default maximum length: 1K characters.
   - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
+- **Custom categories (standard)**:
+  - Maximum inference input length: 1K characters.
 
 
 ### Language support
 
 Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
+
+Custom Categories currently only works well in English. You can try to use other languages with your own dataset, but the quality might vary across languages.
 
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
@@ -139,20 +143,20 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 |Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) | Blocklists |
 |---|---|---|---|---|---|---|--|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅|✅ |
-| East US 2 | ✅ | | | ✅ | | |✅|
+| East US 2 | ✅ | | | ✅ |✅ | |✅|
 | West US | | | | | ✅ | | |
-| West US 2 | ✅ | | | |  | |✅ |
+| West US 2 | ✅ | | | |✅  | |✅ |
 | Central US | ✅ | | | | | |✅ |
-| North Central US | ✅ | | | | | | ✅|
-| South Central US | ✅ | | | | | |✅ |
-| Canada East | ✅ | | | | | | ✅|
-| Switzerland North | ✅ | | | | | | ✅|
+| North Central US | ✅ | | | |✅ | | ✅|
+| South Central US | ✅ | | | | ✅| |✅ |
+| Canada East | ✅ | | | | ✅| | ✅|
+| Switzerland North | ✅ | | | |✅ | ✅ | ✅|
 | Sweden Central | ✅ | | |✅ |✅ | | ✅|
-| UK South | ✅ | | | | | |✅ |
-| France Central | ✅ | | | | | | ✅|
-| West Europe | ✅ | ✅ |✅ | | | |✅ |
-| Japan East | ✅ | | | | | |✅ |
-| Australia East| ✅ | ✅ | | | | | ✅|
+| UK South | ✅ | | | | ✅| |✅ |
+| France Central | ✅ | | | |✅ | | ✅|
+| West Europe | ✅ | ✅ |✅ | |✅ | |✅ |
+| Japan East | ✅ | | | |✅ | |✅ |
+| Australia East| ✅ | ✅ | | |✅ | ✅| ✅|
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
