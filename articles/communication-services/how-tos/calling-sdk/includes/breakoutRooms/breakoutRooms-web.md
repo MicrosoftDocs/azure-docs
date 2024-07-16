@@ -54,7 +54,7 @@ const call : Call | TeamsCall = breakoutRoom.call;
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
-- `invitees` : the list of invitees who are assigned to the breakout room.
+- `invitees` : The list of invitees who are assigned to the breakout room.
 
 ### Breakout room  settings
 
