@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Customize the API Management developer portal on WordPress
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 This article shows how to configure an open-source developer portal plugin (preview) to customize the API Management developer portal on WordPress. With the plugin, turn any WordPress site into a developer portal. Take advantage of site capabilities in WordPress to customize and add features to your developer portal including localization, collapsible and expandable menus, custom stylesheets, file downloads, and more. 
 
