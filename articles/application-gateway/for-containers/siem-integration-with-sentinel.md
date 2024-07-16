@@ -12,9 +12,16 @@ ms.author: greglin
 
 # Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
 
-In this QuickStart guide, you set up Microsoft Sentinel alongside Application Gateway for Container Access Log to monitor and examine any potential threats and alerts generated from logs. Additionally, you integrate a solution from the content hub. Following that, you configure a data connector to begin importing AGCAccessLog into Microsoft Sentinel. Finally, you establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
+By creating a SIEM integration with Application Gateway for Containers with Azure Sentinel, you can streamline the security data collection across your digital environment but also ensures that your metrics are under vigilant security oversight. By following our QuickStart guide, you’ll effortlessly set up Microsoft Sentinel to work in tandem with the Application Gateway for Container Access Logs.  This setup allows you to monitor, detect, and examine potential threats and alerts generated from logs with precision. Additionally, by incorporating a solution from the content hub and configuring a data connector, you’ll start importing access logs into Microsoft Sentinel without a hitch. To cap it off, you’ll establish analytical rules, conduct test alerts, and utilize visualization tools for alerts, ensuring comprehensive oversight of your security landscape. 
 
-Sentinel reviews the logs from log analytics service and is an add-on service to your subscription. Both have a unified billing system for a comprehensive threat intelligence automation system.
+In this QuickStart guide, you set up: 
+- Microsoft Sentinel alongside Application Gateway for Container Access Log to monitor and examine any potential threats and alerts generated from logs.
+- Integrate a solution from the content hub. 
+- Configure a data connector to begin importing access logs into Microsoft Sentinel.
+- Establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
+
+![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel.drawio.png)
+
 
 ## Prerequisites
 
@@ -33,7 +40,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
         - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
       
-        ![A screenshot of AGC Log Settings.](./media/siem-integration-with-sentinel/logging-agc.png)
+        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logging-agc.png)
 
      > [!NOTE]
      > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
@@ -41,8 +48,8 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     - a In **Search resources, service, and docs**, type **Azure Sentinel**.
     - b. Go to your selected Sentinel Resource.
     - c. Select **Logs**.
-    - d. On the left-side bar, go to **Tables** where a section called **LogManagement** appear with digested AGCAccessLogs.
-    - e. Preview all logs by hovering over AGCAccessLogs and click **Run**.
+    - d. On the left-side bar, go to **Tables** where a section called **LogManagement** appear with digested access logs. 
+    - e. Preview all logs by hovering over access logs and click **Run**.
       ![A screenshot of Log Management.](./media/siem-integration-with-sentinel/log-management.png)
 4. Create test analytical rule:
     - a In **Search resources, service, and docs**, type **Azure Sentinel**.
@@ -50,7 +57,7 @@ Sentinel reviews the logs from log analytics service and is an add-on service to
     - c. Select **Analytics** under **Configuration**.
     - d. Click **Create** and Select **Schedule Query Rule**.
     - e. Enter name, description, and leave rest as default and go to next page.
-    - f. Create rule query based on your AGCAccessLogs:
+    - f. Create rule query based on your access logs:
         - a. Example Scenario: A user sends encrypted data through a specific URL.
         - b. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
         - c. Create query:
