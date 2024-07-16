@@ -129,7 +129,7 @@ All OT sensor users can view a currently configured list of domains in a [data m
 
 1. In the **Edit configuration** pane > **Fqdn allowlist** field, enter one or more domain names. Separate multiple domain names with commas. Your sensor won't generate alerts for unauthorized internet connectivity attempts on the configured domains.
 
-    You can use the `*` wildcard at any place in the domain name to easily add subdomains to the allowlist without having to input each one, for example, `*.microsoft.com` or `teams@microsoft.*`.
+    You can use the `*` wildcard at any place in the domain name to easily add subdomains to the allowlist without having to input each one, for example, `*.microsoft.com` or `teams.microsoft.*`.
 
 1. Select **Submit** to save your changes.
 
