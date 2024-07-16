@@ -140,9 +140,9 @@ To learn how to deploy online endpoints using the CLI, SDK, studio, and ARM temp
 
 [!INCLUDE [quota-allocation-online-deployment](includes/quota-allocation-online-deployment.md)]
 
-Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
+Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. For some models in the model catalog (such as Llama models), when you use the studio for model deployment to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time.
 
-To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
+For models in the model catalog, such as _Llama-2-70b_ or _Llama-2-70b-chat_, you must have an [Enterprise Agreement subscription](../cost-management-billing/manage/create-enterprise-subscription.md) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#shared-quota).
 
 For more information on quotas and limits for resources in Azure Machine Learning, see [Manage and increase quotas and limits for resources with Azure Machine Learning](how-to-manage-quotas.md).
 
