@@ -170,7 +170,7 @@ It helps to have logs or availability to check that users of the key have succes
 
 1. Now you can regenerate the primary key using the same process.
 
-5. Finally, update your code to use the new key 1.
+1. Finally, update your code to use the new primary key.
 
 ## Next steps
 
