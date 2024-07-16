@@ -33,16 +33,12 @@ To complete this tutorial, you need the following resources:
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
-    --cluster-type connectedClusters \ 
-    --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
-    --name myconnectedregistry \ 
+    --cluster-type connectedClusters \
+    --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \
+    --name myconnectedregistry \
     --resource-group myresourcegroup \ 
-    --config service.clusterIP=192.100.100.1 \
-    --config trustDistribution.enabled=true \ 
-    --config trustDistribution.skipNodeSelector=true \
-    --config cert-manager.enabled=false \
-    --config cert-manager.install=false HttpsEnabled=false \ 
-    --config-protected-file <JSON file path> \
+    --config service.clusterIP=192.100.100.1 \ 
+    --config-protected-file protected-settings-extension.json  
     --auto-upgrade-minor-version true
     ```
 
@@ -64,9 +60,9 @@ To complete this tutorial, you need the following resources:
     --config trustDistribution.skipNodeSelector=true \
     --config cert-manager.enabled=false \
     --config cert-manager.install=false \
-    --config HttpsEnabled=false \ 
+    --config httpEnabled=false \ 
     --config-protected-file <JSON file path> \
-    --auto-upgrade-minor-version false \
+    --auto-upgrade-minor-version true \
     --version 0.6.0 
     ```
 
@@ -79,6 +75,7 @@ To complete this tutorial, you need the following resources:
     --cluster-type connectedClusters \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
+    --auto-upgrade-minor-version false \
     --version 0.6.1 
     ```
 

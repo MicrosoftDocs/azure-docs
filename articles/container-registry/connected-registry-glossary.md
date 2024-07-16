@@ -21,7 +21,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 - **Definition:** Automatic extension upgrade is available for Azure Arc-enabled clusters.
 - **Accepted Values:** `true`, `false`
 - **Default Value:** `false`
-- **Note:** Azure Connected Machine agent manages the upgrade process and automatic rollback in issues.
+- **Note:** [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) manages the upgrade process and automatic rollback.
 
 ### Bring Your Own Certificate (BYOC)
 
@@ -83,7 +83,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### Data-endpoint-enabled
 
-- **Definition:** Enables a dedicated data endpoint for client firewall configuration.
+- **Definition:** Enables a [dedicated data endpoint](/azure/container-registry/container-registry-dedicated-data-endpoints) for client firewall configuration.
 - **Accepted Values:** `true`, `false`
 - **Default Value:** `false`
 
@@ -175,7 +175,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 - **Label:** `containerd-configured-by=connected-registry`
 - **Command:** `kubectl label node/[node name] containerd-configured-by=connected-registry`
 
-### httpsEnabled
+### httpEnabled
 
 - **Definition:** Enables TLS encryption for secure communication between the connected registry and the client nodes within the cluster.
 - **Accepted Values:** `true`, `false`

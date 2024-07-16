@@ -113,6 +113,8 @@ Deploy the Connected registry arc extension to integrate the registry with your 
 
 - The [az k8s-extension create][az-k8s-extension-create] command deploys the Connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
 - It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for Transport Layer Security (TLS) encryption.
+- The `service.clusterIP` parameter specifies the IP address of the Connected registry service within the cluster. The `service.clusterIP` must be set within the range of valid service IPs for the Kubernetes (k8s) cluster. It is crucial to ensure that the IP address specified for `service.clusterIP` falls within the designated service IP range defined during the cluster's initial configuration. This range is typically found in the cluster's networking settings. If the `service.clusterIP` is not within this range, it must be updated to an IP address that is both within the valid range and not currently in use by another service.
+
 
 ### Verify the Connected registry extension deployment
 

@@ -85,7 +85,8 @@ Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string var
 
     ```json
     { 
-    
+
+    "connectionString": "[connection string here]",
     "tls.secret": “k8secret” 
     
     } 
@@ -118,10 +119,13 @@ Follow the [quickstart][quickstart] and add the public certificate and private k
 > [!NOTE]
 > The public certificate and private key pair must be encoded in base64 format and added to the protected settings file.
     
-```json
-        { 
+```json   
+        {
+
+        "connectionString": "[connection string here]",
         "tls.crt": "public-cert",
         "tls.key": "private-key"
+
         } 
 ```
 
@@ -171,7 +175,7 @@ With these parameters, cert-manager isn't installed or enabled, additionally, th
 
 The Connected registry extension deployment can be further secured with HTTP and no TLS encryption.
 
-1. Follow the [quickstart][quickstart], and edit the [az-k8s-extension-create][az-k8s-extension-create] command with`add httpsEnabled=false`. You must also set both `cert-manager.enabled` and `cert-manager.install` values to false. These parameters disable TLS encryption and cert-manager. However trust must establish between the Connected registry nodes and the client nodes.  
+1. Follow the [quickstart][quickstart], and edit the [az-k8s-extension-create][az-k8s-extension-create] command with`add httpEnabled=false`. You must also set both `cert-manager.enabled` and `cert-manager.install` values to false. These parameters disable TLS encryption and cert-manager. However trust must establish between the Connected registry nodes and the client nodes.  
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster 
@@ -184,7 +188,7 @@ The Connected registry extension deployment can be further secured with HTTP and
     --config trustDistribution.skipNodeSelector=true \
     --config cert-manager.enabled=false \
     --config cert-manager.install=false \
-    --config HttpsEnabled=false \ 
+    --config httpEnabled=false \ 
     --config-protected-file <JSON file path>
     ```
 
