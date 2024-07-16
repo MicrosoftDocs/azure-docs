@@ -120,7 +120,8 @@ Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic
 
 - See [Troubleshoot issues with diagnostics queries](monitor-logs-basic-queries.md) for simple queries to help troubleshoot issues with your Azure Cosmos DB.
 - See [Troubleshoot issues with advanced diagnostics queries with Azure Cosmos DB for NoSQL](nosql/diagnostic-queries.md) for more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to Azure Diagnostics (legacy) and resource-specific (preview) tables.
-- Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos DB resources. 
+
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos DB resources. 
 
 ### [Resource-specific table](#tab/resource-specific-diagnostics)
 
