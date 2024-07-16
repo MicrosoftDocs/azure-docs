@@ -3,7 +3,7 @@ title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 07/16/2024
 ---
 
 # Data types in Bicep
@@ -103,6 +103,19 @@ param exampleInt int = 1
 ```
 
 In Bicep, integers are 64-bit integers. When passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+
+You can use an integer as a specific integer type. In the following example, the first line is valid and defines an integer type with the value 1. The second line, however, results in a BCP033 error - Expected a value of type "2" but the provided value is of type "1".
+
+```bicep
+output foo 1 = 1
+output bar 2 = 1
+```
+
+The following example, shows using specific integer types with a [union type](#union-types):
+
+```bicep
+output bar 1 | 2 | 3 = 3
+```
 
 Floating point, decimal or binary formats aren't currently supported.
 
@@ -267,6 +280,18 @@ comments // are included
 var myVar6 = '''interpolation
 is ${blocked}'''
 ```
+
+## Union types
+
+In Bicep, a union type represents one of several specified values within the same data type. 
+
+```bicep
+output color 'Red' | 'Blue' | 'White' = 'White'
+output foo 'true' | 'false' = 'false'
+output bar 1 | 2 | 3 = 3
+```
+
+The union type syntax can also be used in [user-defined data types](./user-defined-data-types.md).
 
 ## Secure strings and objects
 
