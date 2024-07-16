@@ -14,7 +14,7 @@ services: azure-maps
 
 This article explains how to migrate the Bing Maps [Get Imagery Metadata] API to the Azure Maps [Get Map Tile] API.
 
-The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, weather radar or indoor map tiles (generated using [Azure Maps Creator]).  
+The Azure Maps Get Map Tile API provides map tiles in vector or raster formats to be used in the [Azure Maps Web SDK] or 3rd party map controls. Some example tiles that can be requested are Azure Maps road, satellite/aerial, or weather radar.  
 
 ## Prerequisites
 
@@ -155,7 +155,6 @@ For more Azure Maps Render APIs see:
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Creator]: about-creator.md
 [Azure Maps Product Terms]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure Maps Supported Languages]: supported-languages.md

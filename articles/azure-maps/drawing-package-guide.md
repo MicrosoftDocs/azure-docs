@@ -226,13 +226,7 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
 > [Creator for indoor maps]
-
-> [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
 
 :::zone-end
 
@@ -354,13 +348,8 @@ When finished, select the **Create + Download** button to download a copy of the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
-> [!div class="nextstepaction"]
-> [Create indoor map with the onboarding tool]
 
 :::zone-end
 
@@ -368,16 +357,12 @@ When finished, select the **Create + Download** button to download a copy of the
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
 [Manifest file requirements]: drawing-requirements.md#manifest-file-requirements-1
 [Drawing Package Requirements]: drawing-requirements.md
-[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
-
 <!--------------------- Drawing Package v2 links--------------------------------------------------->
 [Conversion service]: https://aka.ms/creator-conversion
 [sample drawing package v2]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0
-[Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
+[Azure Maps Creator onboarding tool]: creator-onboarding-tool.md
 [manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
-[Create indoor map with the onboarding tool]: creator-onboarding-tool.md
 
-[What is Azure Maps Creator?]: about-creator.md
 [Creator for indoor maps]: creator-indoor-maps.md

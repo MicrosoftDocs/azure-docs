@@ -1190,6 +1190,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps/",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/about-creator.md",
+            "redirect_url": "/azure/azure-maps/",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
