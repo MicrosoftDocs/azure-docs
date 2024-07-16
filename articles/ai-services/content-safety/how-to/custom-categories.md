@@ -86,7 +86,7 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/<your_category_name>?
 
 ### Start the category build process:
 
-Replace `<your_api_key>` and `<your_endpoint>` with your own values. Allow enough time for model training: the end-to-end execution of custom category training can take from around five hours to ten hours. Plan your moderation pipeline accordingly. After receiving the response, ensure that you store the operation ID (referred to as `id`) somewhere like your notebook. This ID will be necessary for retrieving the build status using the ‘get status’ API in the next section.
+After you receive the response, store the operation ID (referred to as `id`) in a temporary. You need this ID to retrieve the build status using the **Get status** API.
 
 ```bash
 curl -X POST "<your_endpoint>/contentsafety/text/categories/<your_category_name>:build?api-version=2024-02-15-preview&version={version}" \
