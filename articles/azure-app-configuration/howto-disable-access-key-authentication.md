@@ -29,7 +29,7 @@ To allow/disallow access key authentication for an Azure App Configuration resou
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
-3. Set the **Enable access keys** toggle to **Enabled**.
+1. Set the **Enable access keys** toggle to **Enabled**.
 
     :::image type="content" border="true" source="./media/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration":::
 
