@@ -14,7 +14,7 @@ Vector search is a method that helps you find similar items based on their data 
 
 This [interactive visualization](https://openai.com/index/introducing-text-and-code-embeddings/#_1Vr7cWWEATucFxVXbW465e) shows some examples of closeness and distance between vectors.
 
-Two popular types of vector search algorithms are [k-nearest neighbors (kNN) and approximate nearest neighbor (ANN)](knn-vs-ann.md). Some well-known vector search algorithms belonging to these categories include Inverted File (IVF), Hierarchical Navigable Small World (HNSW), and the state-of-the-art DiskANN.
+Two major types of vector search algorithms are k-nearest neighbors (kNN) and approximate nearest neighbor (ANN). Between [kNN and ANN](knn-vs-ann.md), the latter offers a balance between accuracy and efficiency, making it better suited for large-scale applications. Some well-known ANN algorithms include Inverted File (IVF), Hierarchical Navigable Small World (HNSW), and the state-of-the-art DiskANN.
 
 Using an integrated vector search feature in a fully featured database ([as opposed to a pure vector database](../vector-database.md#integrated-vector-database-vs-pure-vector-database)) offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 

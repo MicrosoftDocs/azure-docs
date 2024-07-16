@@ -7,16 +7,13 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.topic: how-to
-ms.date: 03/31/2024
+ms.date: 07/16/2024
 ms.custom: devx-track-arm-template, linux-related-content
 
 #CustomerIntent: As an Azure administrator, I want to install Network Watcher Agent VM extension and manage it so that I can use Network watcher features to diagnose and monitor my Linux virtual machines (VMs).
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Linux
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](../workloads/centos/centos-end-of-life.md).
 
 The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
 
@@ -87,18 +84,20 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 |---|---|
 | AlmaLinux  | 9.2 |
 | Azure Linux | 2.0 |
-| CentOS | 6.10 and 7 |
+| CentOS <sup>1</sup> | 6.10 and 7 |
 | Debian | 7 and 8 |
 | OpenSUSE Leap | 42.3+ |
-| Oracle Linux | 6.10, 7 and 8+ |
-| Red Hat Enterprise Linux (RHEL) | 6.10, 7, 8 and 9.2 |
+| Oracle Linux | 6.10 <sup>2</sup>, 7 and 8+ |
+| Red Hat Enterprise Linux (RHEL) | 6.10 <sup>3</sup>, 7, 8 and 9.2 |
 | Rocky Linux | 9.1 |
 | SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3, and SP4) |
 | Ubuntu | 16+ |
 
-> [!NOTE]
-> - Red Hat Enterprise Linux 6.X and Oracle Linux 6.x have reached their end-of-life (EOL). RHEL 6.10 has available [extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) through [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
-> - Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) through [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
+<sup>1</sup> CentOS Linux reached its end-of-life (EOL) on June 30, 2024. For more information, see the [CentOS End Of Life guidance](../workloads/centos/centos-end-of-life.md).
+
+<sup>2</sup> [Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
+
+<sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 
 ## Extension schema
 

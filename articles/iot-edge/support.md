@@ -57,7 +57,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 
 [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) is the recommended way to run IoT Edge on Windows devices.
 
-| Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
 | Debian 11 (Bullseye) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
 | Red Hat Enterprise Linux 9 | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
@@ -68,7 +68,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 | Windows Server 2019/2022 | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) | | | See [Azure IoT EFLOW](iot-edge-for-linux-on-windows.md#prerequisites) for supported Windows OS versions. |
 
 > [!NOTE]
-> When a *Tier 1* operating system reaches its end of support date, it's removed from the *Tier 1* supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
+> When a *Tier 1* operating system reaches its end of standard support date, it's removed from the *Tier 1* supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 #### Windows containers
 
@@ -83,7 +83,7 @@ The systems listed in the following table are considered compatible with Azure I
 
 ::: moniker range="=iotedge-1.4"
 
-| Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
 | [CentOS-7](https://docs.centos.org/en-US/docs/) | ![CentOS + AMD64](./media/support/green-check.png) | ![CentOS + ARM32v7](./media/support/green-check.png) | ![CentOS + ARM64](./media/support/green-check.png) | [June 2024](https://www.redhat.com/en/topics/linux/centos-linux-eol) |
 | [Debian 10 <sup>1</sup>](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/support/green-check.png) | ![Debian 10 + ARM32v7](./media/support/green-check.png) | ![Debian 10 + ARM64](./media/support/green-check.png) | [June 2024](https://wiki.debian.org/LTS) |
@@ -108,7 +108,7 @@ The systems listed in the following table are considered compatible with Azure I
 
 ::: moniker range=">=iotedge-1.5"
 
-| Operating System | AMD64 | ARM32v7 | ARM64 | End of support |
+| Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
 | [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
@@ -127,7 +127,7 @@ The systems listed in the following table are considered compatible with Azure I
 ::: moniker-end
 
 > [!NOTE]
-> When a *Tier 2* operating system reaches its end of support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
+> When a *Tier 2* operating system reaches its end of standard support date, it's removed from the supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a *Tier 1* supported platform.
 
 ## Releases
 

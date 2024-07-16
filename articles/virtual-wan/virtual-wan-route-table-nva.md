@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell

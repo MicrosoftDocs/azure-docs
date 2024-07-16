@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/22/2022
 ms.author: mesrivas
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 # Understand the roles required to perform common tasks in Azure Synapse
 

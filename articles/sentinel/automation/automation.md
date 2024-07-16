@@ -64,8 +64,8 @@ After onboarding your Microsoft Sentinel workspace to the unified security opera
 | **Active playbooks tab** | After onboarding to the unified security operations platform, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the subscription filter.  <br><br>For more information, see [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md). |
 | **Running playbooks manually on demand** | The following procedures aren't currently supported in the unified security operations platform:  <br><li>[Run a playbook manually on an alert](run-playbooks.md#run-a-playbook-manually-on-an-alert)<br><li>[Run a playbook manually on an entity](run-playbooks.md#run-a-playbook-manually-on-an-entity)    |
 | **Running playbooks on incidents requires Microsoft Sentinel sync** | If you try to run a playbook on an incident from the unified security operations platform and see the message *"Can't access data related to this action. Refresh the screen in a few minutes."* message, this means that the incident isn't yet synchronized to Microsoft Sentinel. <br><br>Refresh the incident page after the incident is synchronized to run the playbook successfully. |
-
-
+| **Incidents: Adding alerts to incidents / <br>Removing alerts from incidents** | Since adding alerts to, or removing alerts from incidents isn't supported after onboarding your workspace to the unified security operations platform, these actions are also not supported from within playbooks. For more information, see [Capability differences between portals](../microsoft-sentinel-defender-portal.md#capability-differences-between-portals). |
+ 
 ## Related content
 
 - [Automate threat response in Microsoft Sentinel with automation rules](../automate-incident-handling-with-automation-rules.md)
