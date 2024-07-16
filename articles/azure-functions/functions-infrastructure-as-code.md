@@ -1733,8 +1733,12 @@ These configurations are maintained in `functionAppConfig`:
 
 The Flex Consumption plan also supports these application settings:
 
-+ [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
-+ [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
++ Connection string-based settings:
+    + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
+    + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) (connection string)
++ Managed identity-based settings:
+    + [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](functions-app-settings.md#applicationinsights_authentication_string)
+    + [`AzureWebJobsStorage__accountName`](functions-app-settings.md#azurewebjobsstorage__accountname)
 
 ::: zone-end
 :::zone pivot="consumption-plan,premium-plan,dedicated-plan,container-apps,azure-arc"  
