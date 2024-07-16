@@ -2,19 +2,15 @@
 title: Gain end-user context for AI alerts
 description: Learn how to enhance the security of your AI workloads by adding user context for AI alerts with Microsoft Defender for Cloud threat protection for AI workloads.
 ms.topic: how-to
-ms.date: 07/15/2024
+ms.date: 07/16/2024
 #Customer intent: I want to learn how to enhance the security of my AI workloads by adding end-user context for AI alerts with Microsoft Defender for Cloud threat protection for AI workloads.
 ---
 
 # Gain end-user context for AI alerts
 
-Microsoft Defender for Cloud allows you to enhance the security of your AI workloads by incorporating the code samples provided in this document, into your generative AI application's code 
+Microsoft Defender for Cloud's threat protection for AI workloads allows you to enhance the actionability and security value of the generated AI alerts by providing insights to threats that might affect your generative AI applications.
 
-When AI threat protection is enabled you gain threat protection for AI workloads on your Azure subscription which provide  insights to threats that might affect your generative AI applications.
-
-:::image type="content" source="media/gain-end-user-context-ai/before-code.png" alt-text="Screenshot of the Defender XDR portal that shows the threat protection alerts provided." lightbox="media/gain-end-user-context-ai/before-code.png":::
-
-By adding the code provided on this page, your AI models gain the ability to pass critical end-user context to Defender for Cloud's AI alerts. The addition of the end-user context allows the security alerts to contain more details and lead to more actionable alerts. For example, you can improve real-time threat detection and incident response.
+By adding parameters to your Azure OpenAI API calls, you enable your Azure AI to pass critical end-user context to Defender for Cloud's AI alerts. This addition of end-user context provides greater visibility on end-users and leads to better investigations and results. For example, you can block a specific user or correlate incidents and alerts by end-user.
 
 :::image type="content" source="media/gain-end-user-context-ai/after-code.png" alt-text="Screenshot of the Defender XDR portal that shows all of the additional benefits gained by adding the code." lightbox="media/gain-end-user-context-ai/after-code.png":::
 
@@ -22,30 +18,24 @@ By adding the code provided on this page, your AI models gain the ability to pas
 
 - Read up on [Overview - AI threat protection](ai-threat-protection.md).
 
-- You need a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
-
-- You must [enable Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
-
 - [Enable threat protection for AI workloads (preview)](ai-onboarding.md) on an AI application, with Azure OpenAI as its underlying model.
 
 ## Add security parameters to your Azure OpenAI call
 
-To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` code to your [Azure OpenAI API](../ai-services/openai/reference.md) calls. Defender for Cloud uses the `SecurityContext` code to create security alerts that contain the user context, for example an incident that involves a malicious end-user. 
+To receive AI security alerts with more context, you can add any or all of the following sample `SecurityContext` parameters to your [Azure OpenAI API](../ai-services/openai/reference.md) calls.
 
-Application developers should ensure that a valid JSON is passed to the 'user' field in every request made by the application to Azure OpenAI.
+All of the fields in the `SecurityContext` are optional, but we recommended, at a minimum, passing the `EndUserId` and `SourceIP` fields. The `EndUserId` and `SourceIP` fields provide Security Operations Center (SOC) analysts the ability to investigate security incidents that involve AI resources and generative AI applications. For examples, see the [SecurityContext schema](#securitycontext-schema).
 
-All the fields in the `SecurityContext` are optional. We recommended passing the `EndUserId` and `SourceIP` fields at least, to allow Security Operations Center (SOC) analysts the ability to investigate security incidents that involve AI resources and generative AI applications. For examples, see the [SecurityContext schema](#securitycontext-schema) section.
-
-If a field’s name is misspelled, the Azure OpenAI API call will still succeed. No validation of the `SecurityContext` schema is required to pass through the Azure OpenAI user field. 
+If a field’s name is misspelled, the Azure OpenAI API call will still succeed. No validation of the `SecurityContext` schema is required to pass through the Azure OpenAI user field. Application developers should ensure that a valid JSON is passed to the `user` field in every request made by the application to Azure OpenAI.
 
 ## SecurityContext schema
 
-The provided code consists of the `SecurityContext` field which contains several components that describe the application itself, and the end user that interacts with the application. These fields assist your security operations teams to investigate and mitigate security incidents by providing a comprehensive approach to protecting your AI applications.
+The provided schema consists of the `SecurityContext` object which contains several parameters that describe the application itself, and the end user that interacts with the application. These fields assist your security operations teams to investigate and mitigate security incidents by providing a comprehensive approach to protecting your AI applications.
 
 - End used ID
 - End user type
-- End user tenat's ID
-- the source IP address.
+- End user tenant's ID
+- Source IP address.
 - Source request headers
 - Application name
 
@@ -58,9 +48,9 @@ The provided code consists of the `SecurityContext` field which contains several
 | SourceRequestHeaders  | Dictionary<string, string> | Captures a subset of end user's request headers that are added by proxies or load balancers. Headers like X-Forwarded-For, X-Real-IP, or Forwarded are used by Microsoft Defender for Cloud to get the original client's IP address. User-Agent header will provide context about the client software initiating the API request. <br><br> Recommended header names include: User-Agent, X-Forwarded-For, X-Real-IP, Forwarded, CF-Connecting-IP, True-Client-IP, X-Client-IP, X-Forwarded, Forwarded-For | Yes | - |
 | ApplicationName | string | The name of the application, used for identification and UI purposes. | Yes | Contoso HR Copilot, Customer sales chat bot. |
 
-## Add the SecurityContext code to your application
+## Add the SecurityContext to your application
 
-We recommend adding all of the code samples provided in this document to your generative AI application's code.
+We recommend adding all of the parameters provided in this document to your generative AI application's API calls to Azure OpenAI.
 
 1. Select one of these examples:
 
@@ -72,7 +62,7 @@ We recommend adding all of the code samples provided in this document to your ge
 
     :::image type="content" source="media/gain-end-user-context-ai/sample-code-security-context.png" alt-text="Screenshot of the sample code provided from GitHub." lightbox="media/gain-end-user-context-ai/sample-code-security-context.png":::
 
-1. Add the code to your generative AI application's code.
+1. Add the code to your generative AI application's code. where Azure OpenAI API is called.
 
 1. Alter the code parameters to match your requirements.  
 
@@ -83,4 +73,4 @@ Once you have added the code and saved your changes, ensure that a valid JSON is
 ## Next step
 
 > [!div class="nextstepaction"]
-> 
+> [Overview - AI threat protection](ai-threat-protection.md)
