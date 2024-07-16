@@ -37,7 +37,7 @@ AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/r
 
 AKS initiates auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS automatically upgrades the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
 
-For example, kubernetes v1.25 upgrades to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
+For example, Kubernetes v1.25 upgrades to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
 
 ### Can I run Windows Server containers on AKS?
 
@@ -177,7 +177,7 @@ Yes. There are two options for limiting access to the API server:
 
 ### Are security updates applied to AKS agent nodes?
 
-AKS patches CVEs that have a "vendor fix" every week. CVEs without a fix are waiting on a "vendor fix" before it can be remediated. The AKS images are automatically updated inside of 30 days. We recommend you apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current. You can do this using one of the following methods:
+AKS patches CVEs that have a "vendor fix" every week. CVEs without a fix are waiting on a "vendor fix" before they can be remediated. The AKS images are automatically updated inside of 30 days. We recommend you apply an updated Node Image on a regular cadence to ensure that latest patched images and OS patches are all applied and current. You can do this using one of the following methods:
 
 - Manually, through the Azure portal or the Azure CLI.
 - By upgrading your AKS cluster. The cluster upgrades [cordon and drain nodes][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
@@ -193,9 +193,9 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 No, all data is stored in the cluster's region.
 
-### How to avoid permission ownership setting slow issues when the volume has numerous files?
+### How to avoid permission ownership setting slow issues when the volume has numerous files
 
-Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod's security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail in [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+Traditionally if your pod is running as a nonroot user (which you should), you must specify a `fsGroup` inside the pod's security context so the volume can be readable and writable by the Pod. This requirement is covered in more detail [here](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 A side effect of setting `fsGroup` is that each time a volume is mounted, Kubernetes must recursively `chown()` and `chmod()` all the files and directories inside the volume (with a few exceptions noted below). This scenario happens even if group ownership of the volume already matches the requested `fsGroup`. It can be expensive for larger volumes with lots of small files, which can cause pod startup to take a long time. This scenario has been a known problem before v1.20, and the workaround is setting the Pod run as root:
 
@@ -374,11 +374,11 @@ No, delete/remove any nodes in a failed state or otherwise from the cluster befo
 
 Most commonly, this error arises if you have one or more Network Security Groups (NSGs) still in use that are associated with the cluster. Remove them and attempt the delete again.
 
-### I ran an upgrade, but now my pods are in crash loops, and readiness probes fail?
+### I ran an upgrade, but now my pods are in crash loops, and readiness probes fail
 
 Confirm your service principal hasn't expired. See: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
-### My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.?
+### My cluster was working, but suddenly can't provision LoadBalancers, mount PVCs, etc.
 
 Confirm your service principal hasn't expired. See: [AKS service principal](./kubernetes-service-principal.md) and [AKS update credentials](./update-credentials.md).
 
