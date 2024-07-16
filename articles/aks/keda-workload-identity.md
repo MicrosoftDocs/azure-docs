@@ -274,6 +274,10 @@ At this point everything is configured for scaling with KEDA and Microsoft Entra
     EOF
     ````
 
+## Consume messages from Azure Service Bus
+
+Now that we have published messages to the Azure Service Bus queue, we will deploy a ScaledJob to consume the messages. This ScaledJob will use the KEDA TriggerAuthentication resource to authenticate against the Azure Service Bus queue using the workload identity and scale out every 10 messages.
+
 1. Deploy a ScaledJob resource to consume the messages. The scale trigger will be configured to scale out every 10 messages. The KEDA scaler will create 10 jobs to consume the 100 messages.
 
     ```azurecli-interactive
