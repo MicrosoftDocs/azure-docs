@@ -1,6 +1,21 @@
 {
     "redirections": [
     {
+      "source_path": "articles/storage/files/storage-files-migration-storsimple-1200.md",
+      "redirect_url": "/previous-versions/azure/storage/files/storage-files-migration-storsimple-1200",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/storage-files-migration-storsimple-8000.md",
+      "redirect_url": "/previous-versions/azure/storage/files/storage-files-migration-storsimple-8000",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/file-sync/file-sync-storsimple-cost-comparison.md",
+      "redirect_url": "/previous-versions/azure/storage/file-sync/file-sync-storsimple-cost-comparison",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/networking/connectivity-interoperability-configuration.md",
       "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
       "redirect_document_id": false
