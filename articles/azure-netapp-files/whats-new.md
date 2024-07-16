@@ -20,11 +20,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 
 * [Metrics enhancement:](azure-netapp-files-metrics.md) New performance metrics for volumes
+
     New counters have been added to Azure NetApp Files performance metrics to increase visibility into your volumes' workloads:
-    - Other IOPS – Other IOPS include any operations that are not read or write operations.
-    - Total IOPS – Total IOPS are a summation of all IOPS (read + write + other)
-    - Other throughput – Other throughput include any operations that are not read or write operations.
-    - Total throughput: Total throughput is a summation of all throughput (read, write + other)
+
+    - Other IOPS: any operations other than read or write.
+    - Total IOPS: a summation of all IOPS (read, write, and other)
+    - Other throughput: any operations other than read or write.
+    - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
 
 ## June 2024
 
