@@ -13,7 +13,7 @@ ms.date: 07/15/2024
 
 Azure Service Fabric offers two types of clusters: the **classic cluster, also known as Service Fabric Resource Provider (SFRP)**, and the **managed cluster, also referred to as Service Fabric Managed Clusters (SFMC)**.
 
-Classic clusters don't manage the underlying resource providers, like network resource provider and storage resource provider. The user administrator of the classic cluster controls these resources in a more hands-on experience. Also, SFRP doesn't manage the underlying virtual machine scale set from which the cluster is composed. Again, the user administrator of the classic cluster must directly control the scale set in the SFRP scenario.
+Classic clusters don't manage the underlying resource providers, like network resource provider and storage resource provider. The user administrator of the classic cluster controls these resources through a more involved process. Also, SFRP doesn't manage the underlying virtual machine scale set from which the cluster is composed. Again, the user administrator of the classic cluster must directly control the scale set in the SFRP scenario.
 
 Managed clusters manage the underlying resource providers. In this way, SFMC clusters act as coordinator services, abstracting direct management of the underlying resources away from the user administrator for a more streamlined experience. The managed cluster also handles communication with the cluster's underlying virtual machine scale set, removing the user administrator's need to communicate with the scale set as a distinct resource.
 
