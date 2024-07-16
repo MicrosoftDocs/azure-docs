@@ -27,7 +27,7 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 * An application deployed to Azure Kubernetes Service.
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## Create an Azure SQL database
+## Create an Azure SQL Database
 
 1. Create a resource group for this tutorial, where you'll store your Azure resources.
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
         --location eastus
     ```
 
-1. Follow these [instructions to create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart.md#create-a-single-database) in the resource group you created. Note your server name, database name, and the database credentials. You will need them later on.
+1. Follow these instructions to [create an Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) in the resource group you created. Note your server name, database name, and the database credentials. You will need them later on.
 
 ## Create a service connection in AKS with Service Connector (preview)
 
@@ -62,18 +62,18 @@ Create a service connection between your AKS cluster and your SQL database in th
 
 Open your AKS cluster in the Azure portal, and select **Settings** > **Service Connector (Preview)** in the left menu. Select **Create** and select or enter information following the instructions and examples below. Leave all other settings with their default values.
 
-1. Basics tab:
+   1. Basics tab:
 
-| Setting                  | Example value     | Description                                                                              |
-|--------------------------|-------------------|------------------------------------------------------------------------------------------|
-| **Kubernetes namespace** | *default*         | The Kubernetes service namespace.                                                        |
-| **Service type**         | *SQL Database*    | Select the target service type you want to connect your.                                 |
-| **Connection name**      | *sql_connection*  | Use the connection name provided by Service Connector or enter your own connection name. |
-| **Subscription**         | *My Subscription* | Select the subscription that includes the Azure SQL Database service.                    |
-| **SQL server**           | *sql_server*      | Select your SQL server.                                                                  |
-| **SQL database**         | *sql_db*          | Select your SQL database.                                                                |
-| **Client type**          | *Python*          | The code language or framework you use to connect to the target service.                 |
-
+    | Setting                  | Example value     | Description                                                                              |
+    |--------------------------|-------------------|------------------------------------------------------------------------------------------|
+    | **Kubernetes namespace** | *default*         | The Kubernetes service namespace.                                                        |
+    | **Service type**         | *SQL Database*    | Select the target service type you want to connect your.                                 |
+    | **Connection name**      | *sql_connection*  | Use the connection name provided by Service Connector or enter your own connection name. |
+    | **Subscription**         | *My Subscription* | Select the subscription that includes the Azure SQL Database service.                    |
+    | **SQL server**           | *sql_server*      | Select your SQL server.                                                                  |
+    | **SQL database**         | *sql_db*          | Select your SQL database.                                                                |
+    | **Client type**          | *Python*          | The code language or framework you use to connect to the target service.                 |
+    
     :::image type="content" source="media/tutorial-ask-sql/create-connection.png" alt-text="Screenshot of the Azure portal showing the form to create a new connection to a SQL database in AKS.":::
 
 1. In the authentication tab, the connection string authentication method is selected by default, as it's the only method currently supported. Enter your database username and password.
