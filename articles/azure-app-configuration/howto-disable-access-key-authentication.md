@@ -111,7 +111,7 @@ To verify access key authentication is disabled for an Azure App Configuration r
 
     :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
-3. Verify if there are no access keys displayed and the toggled state of **Enable access keys**.
+1. Check that there are no access keys displayed and the toggled state of **Enable access keys** is off.
 
     :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing access keys being disabled for an Azure App Configuration resource":::
 
