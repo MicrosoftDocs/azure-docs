@@ -3,7 +3,7 @@ title: Monitor Apache Spark applications with Azure Log Analytics
 description: Learn how to enable the Synapse Studio connector for collecting and sending the Apache Spark application metrics and logs to your Log Analytics workspace.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
