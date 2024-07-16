@@ -38,8 +38,6 @@ You can easily integrate Azure Application Insights with Azure API Management. A
         * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     
     1. Assign the identity the **Monitoring Metrics Publisher** role, scoped to the Application Insights resource. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
-
-* To integrate Application Insights with a workspace in API Management, you need to be assigned the **API Management Workplace Contributor** role or equivalent permissions at the workspace scope to complete the configuration. For more information, see [Create and manage a workspace in Azure API Management](how-to-create-workspace.md). 
     
 ## Scenario overview
 

@@ -1,11 +1,11 @@
 ---
-title: Azure API Management workspaces - virtual network integration - network resources
+title: Azure API Management workspace gateways - VNet integration - network resources
 description: Learn about requirements for network resources when you integrate your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 07/15/2024
 ms.author: danlep
 ---
 
@@ -34,14 +34,14 @@ For information about networking options in API Management, see [Use a virtual n
 
 ## Subnet delegation
 
-The subnet must be delegated as follows to enable the desired inbound and outbound access. The subnet can't have another delegation configured.
+The subnet must be delegated as follows to enable the desired inbound and outbound access. 
 
 For information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 #### [Public/Private](#tab/external)
 
 
-For external mode, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+For Public/Private mode, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
@@ -50,7 +50,7 @@ For external mode, the subnet needs to be delegated to the **Microsoft.Web/serve
 
 #### [Private/Private](#tab/internal)
 
-For internal mode, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
+For Private/Private mode, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
 
@@ -81,7 +81,7 @@ A network security group (NSG) must be attached to the subnet to explicitly allo
 
 ---
 
-## DNS settings
+## DNS settings for Private/Private configuration
 
 In the Private/Private network configuration, you have to manage your own DNS to enable inbound access to your workspace gateway. 
 
@@ -95,7 +95,7 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 
 ### Access on default hostname
 
-When you create an API Management workspace, the workspace gateway is assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>.gateway.<region>.azure-api.net`.
+When you create an API Management workspace, the workspace gateway is assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>-<random hash>.gateway.<region>-<number>.azure-api.net`. Example: `team-workspace-123456abcdef.gateway.uksouth-01.azure-api.net`.
 
 > [!NOTE]
 > The workspace gateway only responds to requests to the hostname configured on its endpoint, not its private VIP address. 

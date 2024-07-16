@@ -38,7 +38,7 @@ Follow the steps in this article to:
 
 1. In the left menu, under **APIs**, select **Workspaces** > **+ Add**.
 
-1. On the **Basics** tab, enter a descriptive **Display name**, resource **Name**, and optional **Description** for the workspace. Select **Save**.
+1. On the **Basics** tab, enter a descriptive **Display name**, resource **Name**, and optional **Description** for the workspace. Select **Next**.
 
 1. On the **Gateway** tab, configure settings for the workspace gateway:
 
@@ -47,13 +47,13 @@ Follow the steps in this article to:
     * In **Network**, select a **Network configuration** for your workspace gateway. 
 
         > [!IMPORTANT]
-        > Plan your workspace's network configuration carefully. You can't change the network configuration or the associated network settings after you create the workspace.
+        > Plan your workspace's network configuration carefully. You can't change the network configuration after you create the workspace.
 
     * If you select a network configuration that includes private inbound or private outbound network access, select a **Virtual network** and **Subnet** to isolate the workspace gateway, or create a new one. For network requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
 
-1. Select **Review + create**. After validation completes, select **Create**.
+1. Select **Next**. After validation completes, select **Create**.
 
-It can take from several minutes to up to 3 hours or more to create the workspace, workspace gateway, and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
+It can take from several minutes to up to several hours to create the workspace, workspace gateway, and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
 
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 
