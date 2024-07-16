@@ -49,13 +49,13 @@ No. A single source network address translation (SNAT) rule defines the translat
 
 * An **IngressSNAT** rule defines the translation of the source IP addresses coming into the  VPN gateway from the on-premises network. It also handles the translation of the destination IP addresses leaving from the virtual network to the same on-premises network.
 
-* An **EgressSNAT** rule defines the translation of the VNet source IP addresses leaving the VPN gateway to on-premises networks. It also handles the translation of the destination IP addresses for packets coming into the virtual network via those connections with the **EgressSNAT** rule.
+* An **EgressSNAT** rule defines the translation of the VNet source IP addresses leaving the VPN gateway to on-premises networks. It also handles the translation of the destination IP addresses for packets coming into the virtual network via the connections that have the **EgressSNAT** rule.
 
 In either case, you don't need destination network address translation (DNAT) rules.
 
 ### What do I do if my VNet or local network gateway address space has two or more prefixes? Can I apply NAT to all of them or just a subset?
 
-You need to create one NAT rule for each prefix, because each NAT rule can include only one address prefix for NAT. For example, if the local network gateway address space consists of 10.0.1.0/24 and 10.0.2.0/25, you can create two rules:
+You need to create one NAT rule for each prefix, because each NAT rule can include only one address prefix for NAT. For example, if the address space for the local network gateway consists of 10.0.1.0/24 and 10.0.2.0/25, you can create two rules:
 
 * **IngressSNAT** rule 1: Map 10.0.1.0/24 to 100.0.1.0/24.
 * **IngressSNAT** rule 2: Map 10.0.2.0/25 to 100.0.2.0/25.

@@ -6,7 +6,7 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-### Can I create a new gateway by using the Standard or High Performance SKU after the deprecation date of November 30, 2023?
+### Can I create a new gateway by using the Standard or High Performance SKU after the deprecation announcement on November 30, 2023?
   
 No. As of December 1, 2023, you can't create gateways by using the Standard or High Performance SKU. You can create gateways by using VpnGw1 and VpnGw2 for the same price as the Standard and High Performance SKUs, listed respectively on the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
@@ -32,7 +32,7 @@ You can't migrate gateways from a deprecated SKU to an AZ SKU. However, all gate
 * Standard to VpnGw1AZ
 * High Performance to VpnGw2AZ
 
-After your gateways are automatically migrated and upgraded to the AZ SKUs, you can then resize within that SKU family if necessary. For AZ SKU pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/). For throughput information by SKU, see [About gateway SKUs](https://go.microsoft.com/fwlink/?linkid=2256302).
+After your gateways are automatically migrated and upgraded to the AZ SKUs, you can resize within that SKU family if necessary. For AZ SKU pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/). For throughput information by SKU, see [About gateway SKUs](https://go.microsoft.com/fwlink/?linkid=2256302).
 
 ### Will there be any pricing difference for my gateways after migration?
 

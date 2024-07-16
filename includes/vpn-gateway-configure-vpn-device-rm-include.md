@@ -20,7 +20,7 @@ The following links provide more configuration information:
 
 - For links to device configuration settings, see [Validated VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). We provide the device configuration links on a best-effort basis, but it's always best to check with your device manufacturer for the latest configuration information.
 
-  The list shows the versions that we tested. If your OS isn't on the list, it's still possible that the version is compatible. Check with your device manufacturer to verify that the OS version for your VPN device is compatible.
+  The list shows the versions that we tested. If the OS version for your VPN device isn't on the list, it still might be compatible. Check with your device manufacturer.
 
 - For basic information about VPN device configuration, see [Overview of partner VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
@@ -28,7 +28,7 @@ The following links provide more configuration information:
 
 - For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
 
-- For information about parameter information that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman (DH) group, authentication method, encryption and hashing algorithms, security association (SA) lifetime, Perfect Forward Secrecy (PFS), and Dead Peer Detection (DPD).
+- For information about parameters that you need to complete your configuration, see [Default IPsec/IKE parameters](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). The information includes IKE version, Diffie-Hellman (DH) group, authentication method, encryption and hashing algorithms, security association (SA) lifetime, perfect forward secrecy (PFS), and Dead Peer Detection (DPD).
 
 - For IPsec/IKE policy configuration steps, see [Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
 

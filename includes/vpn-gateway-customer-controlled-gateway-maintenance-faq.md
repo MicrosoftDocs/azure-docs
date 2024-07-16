@@ -46,7 +46,7 @@ Yes.
 
 ### Which gateway SKUs can I configure to use customer-controlled maintenance?
 
-All gateway SKUs (except the Basic SKU for VPN Gateway) can be configured to use customer-controlled maintenance.
+All the Azure VPN Gateway SKUs (except the Basic SKU) can be configured to use customer-controlled maintenance.
 
 ### How long does it take for a maintenance configuration policy to become effective after it's assigned to the gateway resource?
 

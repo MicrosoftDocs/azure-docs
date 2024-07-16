@@ -84,7 +84,7 @@ Azure VPN Gateway supports up to 4,000 prefixes. The BGP session is dropped if t
 
 ### Can I advertise the default route (0.0.0.0/0) to VPN gateways?
 
-Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as RDP or SSH from the internet to the VMs.
+Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as Remote Desktop Protocol (RDP) or Secure Shell (SSH) from the internet to the VMs.
 
 ### Can I advertise the exact prefixes as my virtual network prefixes?
 
@@ -102,13 +102,13 @@ Yes, you can mix both BGP and non-BGP connections for the same Azure VPN gateway
 
 ### Does Azure VPN Gateway support BGP transit routing?
 
-Yes. BGP transit routing is supported, with the exception that Azure VPN gateways don't advertise default routes to other BGP peers. To enable transit routing across multiple VPN gateways, you must enable BGP on all intermediate connections between virtual networks. For more information, see [About BGP and VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
+Yes. BGP transit routing is supported, with the exception that VPN gateways don't advertise default routes to other BGP peers. To enable transit routing across multiple VPN gateways, you must enable BGP on all intermediate connections between virtual networks. For more information, see [About BGP and VPN Gateway](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### Can I have more than one tunnel between a VPN gateway and my on-premises network?
 
 Yes, you can establish more than one site-to-site VPN tunnel between a VPN gateway and your on-premises network. All these tunnels are counted against the total number of tunnels for your Azure VPN gateways, and you must enable BGP on both tunnels.
 
-For example, if you have two redundant tunnels between your Azure VPN gateway and one of your on-premises networks, they consume two tunnels out of the total quota for your VPN gateway.
+For example, if you have two redundant tunnels between your VPN gateway and one of your on-premises networks, they consume two tunnels out of the total quota for your VPN gateway.
 
 ### Can I have multiple tunnels between two Azure virtual networks with BGP?
 
@@ -126,7 +126,7 @@ For example, if the Azure VPN peer IP is 10.12.255.30, you add a host route for 
 
 ### Does the virtual network gateway support BFD for S2S connections with BGP?
 
-No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime more quickly than you can by using standard BGP *keepalive* intervals. BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or WAN connections.
+No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime more quickly than you can by using standard BGP keepalive intervals. BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or WAN connections.
 
 For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause BGP to dampen routes.
 
@@ -134,4 +134,4 @@ As an alternative, you can configure your on-premises device with timers lower t
 
 ### Do VPN gateways initiate BGP peering sessions or connections?
 
-VPN gateways initiate BGP peering sessions to the on-premises BGP peer IP addresses specified in the local network gateway resources by using the private IP addresses on the VPN gateways. This process is irrespective of whether the on-premises BGP IP addresses are in the APIPA range or are regular private IP addresses. If your on-premises VPN devices use APIPA addresses as BGP IP, you need to configure your BGP speaker to initiate the connections.
+VPN gateways initiate BGP peering sessions to the on-premises BGP peer IP addresses specified in the local network gateway resources by using the private IP addresses on the VPN gateways. This process is irrespective of whether the on-premises BGP IP addresses are in the APIPA range or are regular private IP addresses. If your on-premises VPN devices use APIPA addresses as the BGP IP, you need to configure your BGP speaker to initiate the connections.

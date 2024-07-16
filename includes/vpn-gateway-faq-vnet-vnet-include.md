@@ -6,7 +6,7 @@
  ms.author: cherylmc
 
 ---
-The VNet-to-VNet FAQ applies to VPN gateway connections. For information about VNet peering, see [Virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md).
+The VNet-to-VNet information in this section applies to VPN gateway connections. For information about VNet peering, see [Virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### Does Azure charge for traffic between VNets?
 
@@ -56,7 +56,7 @@ No. VNet-to-VNet supports connecting virtual networks. It doesn't support connec
 
 ### Can a cloud service or a load-balancing endpoint span VNets?
 
-No. A cloud service or a load-balancing endpoint can't span across virtual networks, even if they're connected together.
+No. A cloud service or a load-balancing endpoint can't span virtual networks, even if they're connected together.
 
 ### Can I use a policy-based VPN type for VNet-to-VNet or multi-site connections?
 
@@ -68,7 +68,7 @@ No. Both virtual networks must use route-based (previously called *dynamic routi
 
 ### Do VPN tunnels share bandwidth?
 
-Yes. All VPN tunnels of the virtual network share the available bandwidth on the VPN gateway and the same SLA for VPN gateway uptime in Azure.
+Yes. All VPN tunnels of the virtual network share the available bandwidth on the VPN gateway and the same service-level agreement for VPN gateway uptime in Azure.
 
 ### Are redundant tunnels supported?
 

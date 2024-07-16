@@ -5,9 +5,9 @@
  ms.date: 10/18/2023
  ms.author: cherylmc
 ---
-### Is a custom IPsec or IKE policy supported on all Azure VPN Gateway SKUs?
+### Is a custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
 
-A custom IPsec or IKE policy is supported on all Azure VPN Gateway SKUs except the Basic SKU.
+A custom IPsec/IKE policy is supported on all Azure VPN Gateway SKUs except the Basic SKU.
 
 ### How many policies can I specify on a connection?
 
@@ -35,23 +35,23 @@ The following table lists the corresponding Diffie-Hellman groups that the custo
 
 For more information, refer to [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 
-### Does the custom policy replace the default IPsec or IKE policy sets for VPN gateways?
+### Does the custom policy replace the default IPsec/IKE policy sets for VPN gateways?
 
 Yes. After you specify a custom policy on a connection, Azure VPN Gateway uses only that policy on the connection, both as IKE initiator and IKE responder.
 
-### If I remove a custom IPsec or IKE policy, does the connection become unprotected?
+### If I remove a custom IPsec/IKE policy, does the connection become unprotected?
 
-No, IPsec or IKE still helps protect the connection. After you remove the custom policy from a connection, the VPN gateway reverts to the [default list of IPsec or IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#RouteBasedOffers) and restarts the IKE handshake with your on-premises VPN device.
+No, IPsec/IKE still helps protect the connection. After you remove the custom policy from a connection, the VPN gateway reverts to the [default list of IPsec/IKE proposals](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#RouteBasedOffers) and restarts the IKE handshake with your on-premises VPN device.
 
-### Would adding or updating an IPsec or IKE policy disrupt my VPN connection?
+### Would adding or updating an IPsec/IKE policy disrupt my VPN connection?
 
 Yes. It could cause a small disruption (a few seconds) as the VPN gateway tears down the existing connection and restarts the IKE handshake to reestablish the IPsec tunnel with the new cryptographic algorithms and parameters. Ensure that your on-premises VPN device is also configured with the matching algorithms and key strengths to minimize the disruption.
 
 ### Can I use different policies on different connections?
 
-Yes. A custom policy is applied on a per-connection basis. You can create and apply different IPsec or IKE policies on different connections.
+Yes. A custom policy is applied on a per-connection basis. You can create and apply different IPsec/IKE policies on different connections.
 
-You can also choose to apply custom policies on a subset of connections. The remaining ones use the Azure default IPsec or IKE policy sets.
+You can also choose to apply custom policies on a subset of connections. The remaining ones use the Azure default IPsec/IKE policy sets.
 
 ### Can I use a custom policy on VNet-to-VNet connections?
 
@@ -68,9 +68,9 @@ The default DPD timeout is 45 seconds on VPN gateways. You can specify a differe
 > [!NOTE]
 > Setting the timeout to shorter periods causes IKE to rekey more aggressively. The connection can then appear to be disconnected in some instances. This situation might not be desirable if your on-premises locations are farther away from the Azure region where the VPN gateway resides, or if the physical link condition could incur packet loss. We generally recommend that you set the timeout to *between 30 and 45* seconds.
 
-### Does a custom IPsec or IKE policy work on ExpressRoute connections?
+### Does a custom IPsec/IKE policy work on ExpressRoute connections?
 
-No. An IPsec or IKE policy works only on S2S VPN and VNet-to-VNet connections via the VPN gateways.
+No. An IPsec/IKE policy works only on S2S VPN and VNet-to-VNet connections via the VPN gateways.
 
 ### How do I create connections with the IKEv1 or IKEv2 protocol type?
 
@@ -82,7 +82,7 @@ For information about SKU types and support for IKEv1 and IKEv2, see [Connect a 
 
 ### Is transit between IKEv1 and IKEv2 connections allowed?
 
-Yes. Transit between IKEv1 and IKEv2 connections is supported.
+Yes.
 
 ### Can I have IKEv1 site-to-site connections on the Basic SKU for the route-based VPN type?
 

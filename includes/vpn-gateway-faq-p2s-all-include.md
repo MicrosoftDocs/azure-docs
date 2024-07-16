@@ -34,7 +34,7 @@ Azure supports three types of point-to-site VPN options:
 
 * **OpenVPN**: A SSL-based solution that can penetrate firewalls because most firewalls open the outbound TCP port that 443 SSL uses.
 
-* **IKEv2 VPN**: A standards-based IPsec VPN solution that uses outbound UDP ports 500 and 4500 and IP protocol number 50. Firewalls don't always open these ports, so there's a possibility that IKEv2 VPN can't traverse proxies and firewalls.
+* **IKEv2 VPN**: A standards-based IPsec VPN solution that uses outbound UDP ports 500 and 4500, along with IP protocol number 50. Firewalls don't always open these ports, so there's a possibility that IKEv2 VPN can't traverse proxies and firewalls.
 
 ### If I restart a client computer that I configured for point-to-site, will the VPN automatically reconnect?
 
@@ -58,7 +58,7 @@ Yes. Point-to-site client connections to a virtual network gateway deployed in a
 
 ### How much throughput can I expect through site-to-site or point-to-site connections?
 
-It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the internet.
+It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. The latency and bandwidth between your premises and the internet can also limit throughput.
 
 For a VPN gateway with only IKEv2 point-to-site VPN connections, the total throughput that you can expect depends on the gateway SKU. For more information on throughput, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
@@ -110,7 +110,7 @@ The traffic selector limit for OpenVPN is 1,000 routes.
 
 When you configure both SSTP and IKEv2 in a mixed environment that consists of Windows and Mac devices, the Windows VPN client always tries the IKEv2 tunnel first. The client falls back to SSTP if the IKEv2 connection isn't successful. MacOS connects only via IKEv2.
 
-When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool is statically split between the two, so clients that use different protocols are IP addresses from either subrange. The maximum number of SSTP clients is always 128, even if the address range is larger than /24. The result is a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic selectors that the gateway uses might not include the point-to-site address range CIDR but include the two subrange CIDRs.
+When you have both SSTP and IKEv2 enabled on the gateway, the point-to-site address pool is statically split between the two, so clients that use different protocols are IP addresses from either subrange. The maximum number of SSTP clients is always 128, even if the address range is larger than /24. The result is a larger number of addresses available for IKEv2 clients. For smaller ranges, the pool is equally halved. Traffic selectors that the gateway uses might not include the Classless Inter-Domain Routing (CIDR) block for the point-to-site address range but include the CIDR block for the two subranges.
 
 ### Which platforms does Azure support for P2S VPN?
 
@@ -122,17 +122,13 @@ Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enab
 
 ### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 
-You can remove a P2S configuration by using the following Azure PowerShell or Azure CLI commands.
-
-#### Azure PowerShell
+You can remove a P2S configuration by using the following Azure PowerShell or Azure CLI commands:
 
 ```azurepowershell-interactive
 $gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
 $gw.VPNClientConfiguration = $null`  
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
 ```
-
-#### Azure CLI
 
 ```azurecli-interactive
 az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"

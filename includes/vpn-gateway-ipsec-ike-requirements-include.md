@@ -24,7 +24,7 @@ ms.topic: include
   * IKE corresponds to Main Mode or Phase 1.
   * IPsec corresponds to Quick Mode or Phase 2.
   * DH group specifies the Diffie-Hellman group used in Main Mode or Phase 1.
-  * PFS Group specifies the Diffie-Hellman group used in Quick Mode or Phase 2.
+  * PFS group specifies the Diffie-Hellman group used in Quick Mode or Phase 2.
 
 * IKE Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 
