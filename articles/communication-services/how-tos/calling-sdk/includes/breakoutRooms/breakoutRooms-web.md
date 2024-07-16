@@ -7,8 +7,6 @@ ms.author: insravan
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Azure Communication Services or Microsoft 365 users can leave or join breakout rooms only in Teams meeting scenarios. Microsoft 365 Users will be able to manage the breakout rooms when they are having Co-Organizer role.
-
 BreakoutRooms is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
@@ -26,7 +24,7 @@ Breakout rooms have the following properties :
 ```js
 const url : string = breakoutRoom.url;
 ```
-- `url` : Url of the breakout room.
+- `url` : URL of the breakout room.
 
 ```js
 const displayName : string = breakoutRoom.displayName;
