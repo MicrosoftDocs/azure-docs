@@ -6785,7 +6785,6 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
             "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-data-collection-endpoint.md",
             "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-network-configuration",
             "redirect_document_id": false
@@ -6806,12 +6805,5 @@
             "redirect_document_id": false
         }
     ]
-=======
-            "source_path_from_root": "/articles/azure-monitor/logs/data-retention-archive.md",
-            "redirect_url": "/azure/azure-monitor/logs/data-retention-configure",
-            "redirect_document_id": false
-        }          
-    ]     
->>>>>>> 15617583c0f9 (updated retention image and md file name)
 }
 
