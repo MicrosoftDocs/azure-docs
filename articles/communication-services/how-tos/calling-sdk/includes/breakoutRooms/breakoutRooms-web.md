@@ -44,7 +44,7 @@ const state : BreakoutRoomState = breakoutRoom.state;
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom;
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the room is opened by the Organizer.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `Open`.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
