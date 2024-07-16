@@ -168,7 +168,7 @@ This is a necessary step because once a key is regenerated, the older version of
 1. Next, update your code to use the newly generated secondary key.
 It helps to have logs or availability to check that users of the key have successfully swapped from using the primary key to the secondary key before you proceed.
 
-4. Now you can regenerate key 1 using the same process.
+1. Now you can regenerate the primary key using the same process.
 
 5. Finally, update your code to use the new key 1.
 
