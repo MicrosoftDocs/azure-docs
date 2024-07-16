@@ -15,7 +15,7 @@ Every request to an Azure App Configuration resource must be authenticated. By d
 
 ## Enable access key authentication
 
-Access key is enabled by default, you could use access keys in your code to auth requests.
+Access key is enabled by default, you can use access keys in your code to authenticate requests.
 
 > [!WARNING]
 > If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
