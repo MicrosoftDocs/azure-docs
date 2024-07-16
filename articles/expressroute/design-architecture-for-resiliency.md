@@ -25,7 +25,7 @@ Users of ExpressRoute rely on the availability and performance of edge sites, WA
 There are three ExpressRoute resiliency architectures that can be utilized to ensure high availability and resiliency in your network connections between on-premises and Azure. These architecture designs include:
 
 * [Maximum resiliency](#maximum-resiliency)
-* [High resiliency](#high-resiliency-in-preview)
+* [High resiliency](#high-resiliency---in-preview)
 * [Standard resiliency](#standard-resiliency)
 
 ### Maximum resiliency
