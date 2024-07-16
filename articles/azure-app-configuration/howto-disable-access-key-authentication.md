@@ -165,7 +165,7 @@ This is a necessary step because once a key is regenerated, the older version of
 
 1. Once the primary key is the only key in use, you can regenerate the secondary key. Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
-3. Next, update your code to use the newly generated key 2.
+1. Next, update your code to use the newly generated secondary key.
 It helps to have logs or availability to check that users of the key have successfully swapped from using key 1 to key 2 before you proceed.
 
 4. Now you can regenerate key 1 using the same process.
