@@ -12,7 +12,7 @@ author: msangapu-msft
 # Troubleshoot an app in Azure App Service using Visual Studio
 
 > [!NOTE]
-> This article is for Visual Studio 2019. For troubleshooting in Visual Studio 2022, see [Remote Debug ASP.NET Core on Azure App Service.](/visualstudio/debugger/remote-debugging-azure-app-service.md?view=vs-2022)
+> This article is for Visual Studio 2019. For troubleshooting in Visual Studio 2022, see [Remote Debug ASP.NET Core on Azure App Service.](/visualstudio/debugger/remote-debugging-azure-app-service.md)
 >
 
 ## Overview
