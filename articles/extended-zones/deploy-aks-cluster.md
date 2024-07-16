@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 07/16/2024
 
 ---
 
@@ -15,13 +15,15 @@ ms.date: 06/26/2024
 > Azure Extended Zones service is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you learn how to create an AKS cluster in Los Angeles Extended Zone.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - An Azure account with an active subscription.
+
+- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 
 ## Sign in to Azure
 
