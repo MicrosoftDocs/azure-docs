@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ```swift
 let captionsOptions = CaptionsOptions(
-    captionsOn: false, 
+    captionsOn: true, 
     spokenLanguage: "en-US"
 )
 

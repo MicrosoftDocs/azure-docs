@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 ```kotlin
 val captionsOptions = CallCompositeCaptionsOptions()
-captionsOptions.setCaptionsOn(false)
+captionsOptions.setCaptionsOn(true)
 captionsOptions.setSpokenLanguage("en-US")
 
 val localOptions = CallCompositeLocalOptions()
@@ -25,5 +25,10 @@ localOptions.setCaptionsOptions(captionsOptions)
 #### [Java](#tab/java)
 
 ```java
+CallCompositeCaptionsOptions captionsOptions = new CallCompositeCaptionsOptions();
+captionsOptions.setCaptionsOn(true);
+captionsOptions.setSpokenLanguage("en-us");
 
+CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions();
+localOptions.setCaptionsOptions(captionsOptions);
 ```
