@@ -23,7 +23,7 @@ In this article, you learn how to implement Microsoft Teams breakout rooms with 
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-Only Microsoft 365 Users with Organizer or Co-Organizer roles can manage the breakout rooms.
+Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager roles can manage the breakout rooms.
 
 ## BreakoutRooms
 ::: zone pivot="platform-web"
