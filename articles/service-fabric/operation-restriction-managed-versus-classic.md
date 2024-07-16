@@ -1,6 +1,6 @@
 ---
 title: Operation restrictions in managed and classic clusters
-description: Learn about the differences in how operations are restricted between managed clusters and classic clusters.
+description: Learn about how operations are restricted in managed clusters and classic clusters.
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
@@ -19,28 +19,31 @@ Managed clusters manage the underlying resource providers. In this way, SFMC clu
 
 Due to its function as a coordinator service, SFMC puts limitations on user administrator interface with the underlying resources of an SFMC. This article explores those limitations as compared to an SFRP scenario for context.
 
-## Differences in using SFMC and SFRP
+## Manage resources
 
-### Only use ARM and ARM-backed processes for SFMC
+Both classic clusters and managed clusters are composed of underlying resources. When you create these resources through Azure Resource Manager (ARM) or ARM-backed utilities, you should manage them with ARM and ARM-backed utilities for their entire lifetime. Continually using an ARM-based workflow in this way reduces the risk of desynchronization of cluster state during operations like updating and deleting resources.
 
-The most important difference between SFMC and SFRP is that *calls to managed clusters should be made through Azure Resource Manager (ARM) or ARM-backed processes*. Calls to classic clusters may be made through whatever utility you prefer. For more information, see the following table.
+While direct resource creation is abstracted from the user administrator for SFMC, it's important to know that ARM is used for cluster operations. For SFMC, you shouldn't use utilities that aren't ARM or ARM-backed to interface with your cluster.
 
-| Utility | Use for SFMC? | Use for SFRP? |
-| - | - | - |
-| ARM and ARM templates | Yes | Yes |
-| Azure portal | Yes | Yes |
-| Azure CLI | Yes | Yes |
-| AzSF PowerShell | **No** | Yes |
-| Bicep | Yes | Yes |
-| sfctl | **No** | Yes |
+The classic cluster scenario is more nuanced. If the utilities you used to create your resources in the first place weren't ARM or ARM-backed, you can continue to use those utilities. However, classic cluster resources that were created using ARM should continue to use ARM, just like in the SFMC scenario.
 
-### Managing the underlying virtual machine scale set
+For more information on what utilities are ARM-backed, see the following table.
+
+| Utility | ARM or ARM-backed |
+| - | - |
+| [ARM and ARM templates](/templates/microsoft.servicefabric/clusters?pivots=deployment-language-arm-template) | Yes |
+| [Bicep](/templates/microsoft.servicefabric/clusters?pivots=deployment-language-bicep) | Yes |
+| [Azure portal](https://portal.azure.com) | Yes |
+| [Azure CLI](/cli/azure/sf?view=azure-cli-latest) | Yes |
+| [Azure PowerShell](/powershell/module/az.servicefabric/?view=azps-12.1.0) | Yes |
+| [Service Fabric PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps) | **No** |
+| [sfctl](service-fabric-sfctl.md) | **No** |
+
+### Manage the underlying virtual machine scale set
 
 In managed clusters, SFMC manages the underlying virtual machine scale set. *User administrators of managed clusters shouldn't directly interface with their cluster's scale set*.
 
 In classic clusters, the underlying virtual machine scale set is independent of SFRP. User administrators who want to, for example, add a node type to their cluster, should go through their scale set to do so.
-
-## User access policies
 
 ## Next steps
 
