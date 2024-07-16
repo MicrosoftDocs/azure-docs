@@ -77,7 +77,7 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-See [See service limits](/azure/azure-monitor/service-limits#alerts) for limitations for alerts limitations, including limitations for stateful log alerts.
+See [service limits](/azure/azure-monitor/service-limits#alerts) for alerts limitations, including limitations for stateful log alerts.
 
 This table describes when a stateful alert is considered resolved:
 
