@@ -13,9 +13,6 @@ services: azure-maps
 
 Azure Maps Creator enables users to import their indoor map data in GeoJSON format with [Facility Ontology 2.0], which can then be used to create a [dataset].
 
-> [!NOTE]
-> This article explains how to create a dataset from a GeoJSON package. For information on additional steps required to complete an indoor map, see [Next steps].
-
 ## Prerequisites
 
 - An [Azure Maps account]
@@ -72,8 +69,6 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 1. In the Header of the HTTP response, copy the value of the unique identifier contained in the `Resource-Location` key.
 
     > `https://us.atlas.microsoft.com/datasets/**c9c15957-646c-13f2-611a-1ea7adc75174**?api-version=2023-03-01-preview`
-
-See [Next steps] for links to articles to help you complete your indoor map.
 
 ## Add data to an existing dataset
 
@@ -140,7 +135,6 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [How to create data registry]: how-to-create-data-registries.md
 [level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
 [line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement
-[Next steps]: #next-steps
 [openings]: creator-facility-ontology.md?pivots=facility-ontology-v2#opening
 [point]: creator-facility-ontology.md?pivots=facility-ontology-v2#pointelement
 [RFC 7946]: https://www.rfc-editor.org/rfc/rfc7946.html
