@@ -44,7 +44,7 @@ When using this article, keep these considerations in mind:
 :::zone pivot="flex-consumption-plan"  
 + Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these Flex Consumption app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%20flex%22&products=azure-resource-manager). 
 ::: zone-end  
-:::zone pivot="container-app,azure-arc"  
+:::zone pivot="container-apps,azure-arc"  
 + Examples are shown as individual sections for specific resources.  
 ::: zone-end  
 ## Required resources  

@@ -19,7 +19,7 @@ While access keys provide some mitigation against unwanted access, you should co
 + [Deploy your function app to a virtual network](security-concepts.md#deploy-your-function-app-to-a-virtual-network)
 + [Deploy your function app in isolation](security-concepts.md#deploy-your-function-app-in-isolation)
  
-Access keys provide the basis for HTTP authorization in HTTP triggered functions. For more information, see [Authorization level](./functions-bindings-http-webhook-trigger.md#auth-level).
+Access keys provide the basis for HTTP authorization in HTTP triggered functions. For more information, see [Authorization level](./functions-bindings-http-webhook-trigger.md#http-auth).
 
 ## Understand keys
 
