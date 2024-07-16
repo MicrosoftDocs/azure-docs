@@ -12,12 +12,11 @@ ms.author: greglin
 
 # Configure Application Gateway for Containers for SIEM integration with Azure Sentinel
 
-By creating a SIEM integration with Application Gateway for Containers with Azure Sentinel, you can streamline the security data collection across your digital environment but also ensures that your metrics are under vigilant security oversight. By following our QuickStart guide, you’ll effortlessly set up Microsoft Sentinel to work in tandem with the Application Gateway for Container Access Logs.  This setup allows you to monitor, detect, and examine potential threats and alerts generated from logs with precision. Additionally, by incorporating a solution from the content hub and configuring a data connector, you’ll start importing access logs into Microsoft Sentinel without a hitch. To cap it off, you’ll establish analytical rules, conduct test alerts, and utilize visualization tools for alerts, ensuring comprehensive oversight of your security landscape. 
+By creating a SIEM integration with Application Gateway for Containers and Azure Sentinel, you streamline the security data collection across your digital environment. By following our QuickStart guide, you effortlessly set up Microsoft Sentinel to work in tandem with the Application Gateway for Container Access Logs. This setup allows you to monitor, detect, and examine potential threats and alerts generated from logs with precision. Additionally, by incorporating a solution from the content hub and configuring a data connector, you start importing access logs into Microsoft Sentinel without a hitch. To cap it off, you establish analytical rules, conduct test alerts, and utilize visualization tools for alerts, ensuring comprehensive oversight of your security landscape. 
 
 In this QuickStart guide, you set up: 
-- Microsoft Sentinel alongside Application Gateway for Container Access Log to monitor and examine any potential threats and alerts generated from logs.
-- Integrate a solution from the content hub. 
-- Configure a data connector to begin importing access logs into Microsoft Sentinel.
+- Integrate a log analytics workspace 
+- Configure a data connector into Microsoft Sentinel.
 - Establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
 
 ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel.drawio.png)
