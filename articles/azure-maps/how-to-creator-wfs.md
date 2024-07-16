@@ -16,7 +16,7 @@ This article describes how to query Azure Maps Creator [datasets] using [Web Fea
 
 ## Prerequisites
 
-* A `datasetId`.
+* A [dataset]
 
 
 >[!IMPORTANT]
@@ -105,6 +105,7 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
+[dataset]: creator-indoor-maps.md#datasets
 [datasets]: /rest/api/maps-creator/dataset
 [WFS API]: /rest/api/maps-creator/wfs
 [Web Feature Service (WFS)]: /rest/api/maps-creator/wfs

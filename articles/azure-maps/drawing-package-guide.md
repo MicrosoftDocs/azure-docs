@@ -350,7 +350,8 @@ When finished, select the **Create + Download** button to download a copy of the
 > [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
-
+> [!div class="nextstepaction"]
+> [Create indoor map with the onboarding tool]
 :::zone-end
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->

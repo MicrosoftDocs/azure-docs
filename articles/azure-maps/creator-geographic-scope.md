@@ -26,3 +26,5 @@ The following table describes the mapping between geography and supported Azure 
 |------------------------|----------------------|-------------|
 | Europe| West Europe, North Europe | eu.atlas.microsoft.com |
 |United States | West US 2, East US 2 | us.atlas.microsoft.com |
+
+[Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies

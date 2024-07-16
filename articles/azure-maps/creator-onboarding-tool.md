@@ -17,7 +17,7 @@ This article demonstrates how to create an indoor map using the Azure Maps Creat
 
 ## Prerequisites
 
-- A basic understanding of Creator. For an overview, see [Creator for indoor maps]
+- A basic understanding of Creator. For an overview, see [Creator for indoor maps].
 - A drawing package. For more information, see [Drawing package requirements].
 
 > [!NOTE]

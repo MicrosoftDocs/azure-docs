@@ -18,7 +18,8 @@ The [Azure Maps QGIS plugin] is used to view and edit [datasets] in [QGIS]. It e
 
 ## Prerequisites
 
-- Understanding of [Creator concepts].
+- Understanding of [Creator concepts]
+- A  [dataset]
 - A basic working knowledge of [QGIS]
 
 ## Get started
