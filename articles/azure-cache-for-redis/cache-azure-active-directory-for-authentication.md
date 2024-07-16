@@ -57,6 +57,26 @@ To use the ACL integration, your client application must assume the identity of 
 
 For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
 
+## Disable access keys based authentication on your cache
+
+Using Microsoft Entra ID is the secure way to authenticate your cache. We recommend using Microsoft Entra ID and disabling access keys. If you have a cache where access keys are used, and you want to disable access keys, follow this procedure.
+
+When disable access key Authentication for a cache, all existing client connections are terminated on the server side by Redis Launch, whether they use access keys or Microsoft Entra ID auth-based. You are advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
+
+1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to disable access keys.
+
+1. Select **Authentication** from the Resource menu.
+
+1. In the working pane, select **Access keys**.
+
+1. Select **Disable Access Keys Authentication**. Then, select **Save**.
+
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with a red box around Disable Access Key Authentication. ":::
+
+1. You are asked to confirm that you want to update your configuration. Select **Yes**.
+
+When the "Disable Access Key Authentication" setting is updated for a cache, all existing client connections, regardless of whether they connect using access key or Microsoft Entra IDauth-based, are terminated on the server side by Redis Launch. Customers are advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
+
 ## Using data access configuration with your cache
 
 If you would like to use a custom access policy instead of Redis Data Owner, go to the **Data Access Configuration** on the Resource menu. For more information, see [Configure a custom data access policy for your application](cache-configure-role-based-access-control.md#configure-a-custom-data-access-policy-for-your-application).
