@@ -192,7 +192,7 @@ Application Gateway Subnet is the subnet within the Virtual Network where the Ap
 
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration that is associated to a listener and rule) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
