@@ -156,7 +156,7 @@ Be careful to restrict assignment of these roles only to those users who require
 ## Rotate access key
 Microsoft recommends that you rotate your access keys periodically to help keep your resource secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
 
-Each Azure App Configuration resource has two access keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked. The recommended rotate cycle is 90 days.
+Each Azure App Configuration resource has two access keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked. The recommended rotation cycle is 90 days.
 
 You can rotate keys using the following procedure:
 
