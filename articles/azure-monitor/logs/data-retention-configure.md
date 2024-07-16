@@ -14,7 +14,7 @@ A Log Analytics workspace retains data in two states:
 * **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics, based on the [table plan](../logs/logs-table-plans.md).
 * **Long-term retention**: In this low-cost state, data isn't available for table plan features, but can be accessed through [search jobs](../logs/search-jobs.md). 
 
-This article explains how Log Analytics workspaces retain data and how to modify the default data retention of tables in your workspace.
+This article explains how Log Analytics workspaces retain data and how to manage data retention of tables in your workspace.
 
 ## Interactive, long-term, and total retention
 
