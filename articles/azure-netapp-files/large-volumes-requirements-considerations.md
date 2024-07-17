@@ -34,6 +34,10 @@ The following requirements and considerations apply to large volumes. For perfor
     
 * Large volumes aren't currently supported with standard storage with cool access.
 
+## About 64-bit file IDs
+
+Whereas regular volume use 32-bit file IDs, large volumes employ 64-bit file IDs. File IDs are unique identifiers that allow Azure NetApp Files to keep track of files in the file system. 64-bit IDs are utilized to increase the number of files allowed in a single volume, enabling a large volume able to hold more files than a regular volume. 
+
 ## Supported regions
 
 Support for Azure NetApp Files large volumes is available in the following regions:
