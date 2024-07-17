@@ -55,7 +55,7 @@ Update Manager offers many new features and provides enhanced and native functio
       
 
 ## Next steps
-
+- [How Update Manager works](workflow-update-manager.md)
 - [Prerequisites of Update Manager](prerequisites.md)
 - [View updates for a single machine](view-updates.md).
 - [Deploy updates now (on-demand) for a single machine](deploy-updates.md).

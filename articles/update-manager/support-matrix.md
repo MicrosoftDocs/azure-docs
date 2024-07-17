@@ -265,7 +265,7 @@ China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> Chi
 ---
 
 ### Supported update sources
-Refer to supported update sources here 
+For more information, see the  supported [update sources](workflow-update-manager.md#update-source). 
 
 ### Supported update types
 The following types of updates are supported.
@@ -290,25 +290,25 @@ Use one of the following options to perform the settings change at scale:
 
 •	For all Windows Servers running on an earlier operating system than Windows Server 2016, run the following PowerShell script on the server you want to change:
 
-    ```azurepowershell-interactive
+   ```azurepowershell-interactive
     
     $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
     $ServiceManager.Services
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.AddService2($ServiceId,7,"")
-    ```
+   ```
 
 •	For servers running Windows Server 2016 or later, you can use Group Policy to control this process by downloading and using the latest Group Policy Administrative template files.
 
 > [!NOTE]
 > Run the following PowerShell script on the server to disable Microsoft applications updates:
 
-    ```azurepowershell-interactive
+   ```azurepowershell-interactive
     $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
     $ServiceManager.Services
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.RemoveService($ServiceId)
-    ```
+   ```
 
 #### Third party application updates
 

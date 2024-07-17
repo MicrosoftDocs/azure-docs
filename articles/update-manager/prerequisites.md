@@ -27,13 +27,13 @@ To manage machines from Azure Update Manager, see roles and permissions.
 
 ### VM extensions
 
-Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure and Arc-enabled machine respectively for Azure Update Manager to work. But separate installation is not required as the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see the [VM extensions] that are pushed on the machines
+Azure VM extensions and Azure Arc-enabled VM extensions are required to run on the Azure and Arc-enabled machine respectively for Azure Update Manager to work. But separate installation is not required as the extensions are automatically pushed on the VM the first time you trigger any Update Manager operation on the VM. For more information, see the [VM extensions](workflow-update-manager.md#update-manager-vm-extensions) that are pushed on the machines
 
 ### Network planning
 
 To prepare your network to support Update Manager, you might need to configure some infrastructure components. For more information, see the [network requirements for Arc-enabled servers](../azure-arc/servers/network-requirements.md).
 
-For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](https://learn.microsoft.com/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](https://learn.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](https://learn.microsoft.com/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](https://learn.microsoft.com/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers)for required endpoints. For other Linux distributions, see your provider documentation.
 
