@@ -26,7 +26,7 @@ Private clouds are installed and managed within an Azure subscription. The numbe
 
 The following diagram describes the architectural components of the Azure VMware Solution.
 
-:::image type="content" source="media/concepts/nc2-on-azure-architecture.png" alt-text="Diagram illustrating the NC2 on Azure architecutural overview." border="false"  lightbox="media/concepts/nc2-on-azure-architecture.png":::
+:::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architecutural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
 
 Each NC2 on Azure architectural component has the following function:
 
@@ -70,6 +70,46 @@ The image in this section shows one example of an NC2 on Azure deployment.
 Connecting from cloud to on-premises is supported by two traditional products: Express Route and VPN Gateway.
 One example deployment is to have a VPN gateway in the Hub virtual network.
 This virtual network is peered with both the PC virtual network and Cluster Management virtual network, providing connectivity across the network and to your on-premises site.
+
+## Supported topologies
+
+The following table describes the network topologies supported by each network features configuration of NC2 on Azure.
+
+|Topology |Supported |
+| :------------------- |:---------------:|
+|Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
+|Connectivity to BMI in a peered VNet (Same region)|Yes |
+|Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
+|Connectivity to BM in a peered VNet* (Cross region or global peering)* without VWAN| No|
+|On-premises connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
+|ExpressRoute (ER) FastPath |No |
+|Connectivity from on-premises to BMI in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
+|On-premises connectivity to Delegated Subnet via VPN GW| Yes |
+|Connectivity from on-premises to BMI in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
+|Connectivity over Active/Passive VPN gateways| Yes |
+|Connectivity over Active/Active VPN gateways| No |
+|Connectivity over Active/Active Zone Redundant gateways| No |
+|Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
+|On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
+|On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
+|Connectivity from UVMs on NC2 nodes to Azure resources|Yes|
+
+\* You can overcome this limitation by setting Site-to-Site VPN.
+
+## Constraints
+
+The following table describes what’s supported for each network features configuration:
+
+|Features |Basic network features |
+| :------------------- | -------------------: |
+|Delegated subnet per VNet |1|
+|[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
+|VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
+[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| No|
+|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
+|Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
+|Load balancers for NC2 on Azure traffic|No|
+|Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
 ## Next steps
 
