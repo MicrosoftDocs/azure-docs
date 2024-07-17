@@ -31,7 +31,7 @@ This guide provides a brief overview, considerations, and information about how 
 
 Availability zone support is available for Standard logic apps, which are powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions?](../reliability/reliability-functions.md#availability-zone-support).
 
-* You can enable this capability only when you create a Standard logic app in a [supported Azure region](../reliability/reliability-functions.md##regional-availability) or in an [App Service Environment v3 (ASE v3) - Windows plans only](../app-service/environment/overview-zone-redundancy.md).
+* You can enable this capability only when you create a Standard logic app in a [supported Azure region](../reliability/reliability-functions.md#regional-availability) or in an [App Service Environment v3 (ASE v3) - Windows plans only](../app-service/environment/overview-zone-redundancy.md).
 
 * You can enable this capability *only for new* Standard logic apps. You can't enable availability zone support for existing Standard logic app workflows.
 
