@@ -9,7 +9,7 @@ ms.date: 7/16/2024
 ms.author: jovinson
 ---
 
-# Quickstart - Deploy the Deidentification service
+# Quickstart: Deploy the Deidentification service
 
 In this quickstart, you deploy an instance of the Deidentification service in your Azure subscription.
 
