@@ -9,10 +9,10 @@ ms.date: 7/15/2024
 ms.author: alvinhan
 ms.custom: 
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java-js-python
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Quickstart: Subscribing to audio streams from an ongoing call
+# Quickstart: Server-side Audio Streaming
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
@@ -28,11 +28,11 @@ Functionality described in this quickstart is currently in public preview.
 [!INCLUDE [Audio Streaming with Java](./includes/audio-streaming-quickstart-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-JS"
+::: zone pivot="programming-language-js"
 [!INCLUDE [Audio Streaming with JavaScript](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-Python"
+::: zone pivot="programming-language-python"
 [!INCLUDE [Audio Streaming with Python](./includes/audio-streaming-quickstart-python.md)]
 ::: zone-end
 
@@ -68,7 +68,7 @@ Example of audio data being streamed:
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 - Learn more about [Audio Streaming](../../concepts/call-automation/audio-streaming-concept.md).
