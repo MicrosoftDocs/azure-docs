@@ -5,6 +5,10 @@ items:
   items:
   - name: About Azure Update Manager
     href: overview.md
+- name: Getting started
+  items:
+  - name: Prerequisites
+    href: prerequisites.md
   - name: Support matrix
     href: support-matrix.md
   - name: What's New 

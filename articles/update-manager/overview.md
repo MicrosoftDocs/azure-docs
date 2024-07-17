@@ -12,9 +12,10 @@ ms.topic: overview
 # About Azure Update Manager
 
 > [!Important]
-> On 31 August 2024, both Azure Automation Update Management and the Log Analytics agent it uses will be retired. Therefor, if you are using the Azure Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+> On 31 August 2024, both Azure Automation Update Management and the Log Analytics agent it uses [will be retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Azure Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
 
-For more information, see the [FAQs on retirement](update-manager-faq.md). You can sign up for monthly live sessions on migration including Q&A sessions.
+For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement). You can [sign up](https://developer.microsoft.com/reactor/?search=Azure+Update+Manager&page=1) for monthly live sessions on migration including Q&A sessions.
+
 
 Update Manager is a unified service to help manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your machines in Azure and on-premises/on other cloud platforms (connected by [Azure Arc](https://learn.microsoft.com/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
@@ -26,7 +27,7 @@ You can use Update Manager in Azure to:
     - [Customer-defined maintenance schedules](https://aka.ms/umc-scheduled-patching) for both Azure and Arc-connected machines.
     - [Automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](https://learn.microsoft.com/azure/automanage/automanage-hotpatch) for Azure VMs.
 - Build custom reporting dashboards for reporting update status and [configure alerts](https://aka.ms/aum-alerts) on certain conditions.
-- Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments (connected by [Azure Arc](../azure-arc/includes/azure-arc.md)) through a single pane. The different types of machines that can be managed are:
+- Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](../azure-arc/includes/azure-arc.md) through a single pane. The different types of machines that can be managed are:
     - [Hybrid machines](https://learn.microsoft.com/azure/azure-arc/servers/)
     - [VMWare machines](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/)
     - [SCVMM machines](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/)
@@ -56,6 +57,7 @@ Update Manager offers many new features and provides enhanced and native functio
 
 ## Next steps
 
+- [Prerequisites of Update Manager](prerequisites.md)
 - [View updates for a single machine](view-updates.md).
 - [Deploy updates now (on-demand) for a single machine](deploy-updates.md).
 - [Enable periodic assessment at scale using policy](https://aka.ms/aum-policy-support).
