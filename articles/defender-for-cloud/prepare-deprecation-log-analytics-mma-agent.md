@@ -6,6 +6,14 @@ ms.date: 03/13/2024
 # customer intent: As a user, I want to understand how to prepare for the retirement of the Log Analytics agent in Microsoft Defender for Cloud.
 ---
 
+---
+title: Prepare for retirement of the Log Analytics agent 
+description: Learn how to prepare for the deprecation of the Log Analytics (MMA) agent in Microsoft Defender for Cloud.
+ms.topic: how-to
+ms.date: 03/13/2024
+# customer intent: As a user, I want to understand how to prepare for the retirement of the Log Analytics agent in Microsoft Defender for Cloud.
+---
+
 # Prepare for retirement of the Log Analytics agent
 
 The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [is retiring in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, the Defender for Servers and Defender for SQL on machines plans in Microsoft Defender for Cloud will be updated, and features that rely on the Log Analytics agent will be redesigned.
@@ -71,8 +79,8 @@ The following table summarizes the timetable for recommendations being deprecate
 
 | Recommendation | Agent | Supported resources | Deprecation date | Replacement recommendation |
 |----|----|----|----|----|
-| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | Azure & non-Azure (Windows & Linux) | March 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations) |
-| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | Azure  (Windows) | March 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations) |
+| [Endpoint protection should be installed on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) (public) | MMA/AMA | Azure & non-Azure (Windows & Linux) | July 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations) |
+| [Endpoint protection health issues should be resolved on your machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) (public)| MMA/AMA | Azure  (Windows) | July 2024 | [New agentless recommendation](upcoming-changes.md#changes-in-endpoint-protection-recommendations) |
 | [Endpoint protection health failures on virtual machine scale sets should be resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/e71020c2-860c-3235-cd39-04f3f8c936d2) | MMA | Azure Virtual Machine Scale Sets |  August 2024 | No replacement |
 | [Endpoint protection solution should be installed on virtual machine scale sets](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/21300918-b2e3-0346-785f-c77ff57d243b) | MMA | Azure Virtual Machine Scale Sets |  August 2024 | No replacement |
 | [Endpoint protection solution should be on machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) | MMA | Non-Azure resources (Windows)| August 2024 | No replacement |
@@ -137,7 +145,8 @@ After you disable the file events collection using one of the methods above:
 
 If you currently use FIM over the Log Analytics Agent (MMA):
 
-- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated in October 2024.
+- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated in end of November 2024.
+
 - Microsoft Defender for Cloud recommends disabling FIM over MMA, and onboarding your environment to the new FIM version based on Defender for Endpoint upon release.
 
 #### Disabling FIM over MMA
