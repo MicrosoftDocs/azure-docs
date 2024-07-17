@@ -19,7 +19,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 ## Microsoft Azure Storage resiliency
 
-Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Serive Level Agreements) as other native Azure storage.
+Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs (Virtual Hard Disk) in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Serive Level Agreements) as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
@@ -43,7 +43,7 @@ Persisted storage is needed in SAP workload in various components of the stack t
 - Persistent the base VHD of your VM that holds the operating system and other software you install in that disk. This disk/VHD is the root of your VM. Any changes made to it, need to be persisted. So, that the next time, you stop and restart the VM, all the changes made before still exist. Especially in cases where the VM is getting deployed by Azure onto another host than it was running originally
 - Persisted data disks. These disks are VHDs you attach to store application data in. This application data could be data and log/redo files of a database, backup files, or software installations. Means any disk beyond your base VHD that holds the operating system
 - File shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
-- The /sapmnt directory or common file shares for EDI processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
+- The /sapmnt directory or common file shares for EDI (Electronic Data Interchange) processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 
 In the next few sections, the different Azure storage types and their usability for the four SAP workload scenarios gets discussed. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md). The recommendations for using the different Azure storage types for SAP workload aren't going to be majorly different.
 
@@ -310,7 +310,7 @@ The capability matrix for SAP workload looks like:
 | Latency | Very low | Typically less than 1 ms |
 | IOPS SLA | Yes | - |
 | IOPS linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
-| Throughput SLA | Yes | Sizing recommendations are available in the SAP on Azure NetApp FIles TCO Esti |
+| Throughput SLA | Yes | Sizing recommendations are available in the SAP on Azure NetApp FIles TCO Estimator |
 | Throughput linear to capacity | Linear with auto QoS; independent with Manual QoS | Three [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md) available |
 | HANA certified | Yes | - |
 | Disk snapshots possible | Yes | - |
@@ -349,7 +349,7 @@ As preferences for allocating NFS volumes based on Azure NetApp Files for databa
 SAP scenarios supported on Azure Premium Files list like: 
 
 - Providing SMB or NFS shares for SAP's global transport directory
-- Usage as share for interfaces to SAP systems
+- Usage as share for interfaces to SAP systems and EDI processes
 - The share sapmnt in high availability scenarios as documented in:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md)
 	- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md)
