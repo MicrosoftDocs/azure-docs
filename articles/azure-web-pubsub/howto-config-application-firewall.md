@@ -99,7 +99,7 @@ Deploy the Bicep file using Azure CLI
 
 ## Configure access token
 
-The application firewall rules only take effect when the access token contains the corresponding claim. A rule will be **skipped** if the connection does not have the corresponding claim. *userId" and *roles* are currently supported claims in the SDK.
+The application firewall rules only take effect when the access token contains the corresponding claim. A rule is **skipped** if the connection does not have the corresponding claim. *userId" and *roles* are currently supported claims in the SDK.
 
 Below is an example to add userId and insert a unique placeholder in the access token:
 

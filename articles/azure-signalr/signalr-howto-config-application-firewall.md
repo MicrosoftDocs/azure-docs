@@ -47,7 +47,7 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
 
    #### ThrottleByJwtCustomClaimRule
 
-   More advanced, connections could be grouped into different groups according to custom claim. Connections with the same claim will be aggregated to do the check.  For example, you could add a *ThrottleByJwtCustomClaimRule* to allow 5 concurrent connections for those with custom claim key "freeUser".
+   More advanced, connections could be grouped into different groups according to custom claim. Connections with the same claim are aggregated to do the check. For example, you could add a *ThrottleByJwtCustomClaimRule* to allow 5 concurrent connections for those with custom claim key "freeUser".
 
    **Key point**: The rule applies to all claims with a certain claim name. The connection count aggregation is on the same claim (including claim name and claim value). The *ThrottleByUserIdRule* is a special case of this rule, applying to all connections with the userIdentity claim.
    
@@ -119,7 +119,7 @@ Deploy the Bicep file using Azure CLI
 
 
 ## Configure access token
-The application firewall rules only take effect when the access token contains the corresponding claim. A rule will be **skipped** if the connection does not have the corresponding claim. 
+The application firewall rules only take effect when the access token contains the corresponding claim. A rule is **skipped** if the connection does not have the corresponding claim. 
 
 Below is an example to add userId or custom claim in the access token in **Default Mode**:
 
