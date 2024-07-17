@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 05/08/2024
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL

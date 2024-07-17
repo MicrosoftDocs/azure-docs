@@ -10,6 +10,7 @@ ms.devlang: csharp
 ms.service: app-service
 ms.custom: devx-track-csharp, mvc, cli-validate, devdivchpfy22, service-connector, devx-track-dotnet, AppServiceConnectivity
 zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
