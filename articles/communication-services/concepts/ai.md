@@ -1,7 +1,7 @@
---
+---
 title: AI in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services AI concpets
+description: Learn about Communication Services AI concepts
 author: chpalm
 manager: sundraman
 services: azure-communication-services
@@ -10,21 +10,20 @@ ms.author: chpalm
 ms.date: 07/10/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: calling
-
---
+ms.subservice: ai
+---
 
 # AI overview
 
 Artificial intelligence (AI) technologies can be useful for a wide variety of communication experiences. This concept page summarizes availability of AI and AI-adjacent features in Azure Communication Services. Broadly AI features can be split into three categories:
 
-1.  *Accessors.* APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
-2.  *Transformers.* APIs that provide a built-in transformation of communication data using a machine learning or language model.
-3.  *Bots.* APIs that implement that directly communicate with end-users, typically blending structured programs with language models.
+1.  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
+2.  **Transformers.** APIs that provide a built-in transformation of communication data using a machine learning or language model.
+3.  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
 
 Typical communication scenarios involving these capabilities:
 
--Transforming a corpus of text chat and meeting transcriptions into summaries. This may involve a generative AI interface, where a user asks “summarize all conversations between me and user Joe.”
+-Transforming a corpus of text chat and meeting transcriptions into summaries. This may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
 -Transforming audio speech content into text transcriptions
 -Transforming a video feed to blur the user's background
 -Operating a chat or voice bot that responds to human conversation
@@ -45,7 +44,7 @@ The patterns for integrating AI into the voice and video system are summarized b
 
 |  | Accessor | Transformer | Bot ||
 |--|--|--|--|--|
-| [Call Automation REST APIs and SDKs](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The recognize APIs integrate Azure Bot Services to transform users’ audio content into text for easier processing by your service.The most common scenario for these APIs is implementing voice bots, sometimes called interactive voice response (IVR).  |
+| [Call Automation REST APIs and SDKs](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The `recognize` APIs integrate Azure Bot Services to transform users’ audio content into text for easier processing by your service. The most common scenario for these APIs is implementing voice bots, sometimes called interactive voice response (IVR).  |
 | [Client Raw Audio and Video](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/media-access)  | ✅ | |  | The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, detecting the human speaker and their background, and customizing that background. |
 | [Client Background effects](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-video-effects?pivots=platform-web)| | ✅ |  | The Calling client SDKs provides APIs for blurring or replacing a user’s background. This is an application of the raw media APIs noted earlier.  |
 | [Client Captions](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/closed-captions) | | ✅ |  | The Calling client SDK provides APIs for real-time closed captions. These internally integrate Azure Cognitive Services to transform audio content from the call into text in real-time. |
