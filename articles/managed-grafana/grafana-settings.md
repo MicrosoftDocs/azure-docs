@@ -34,7 +34,7 @@ The **External Enabled** setting controls the public sharing of snapshots. This 
 
 With this option enabled, users can publish a snapshot of a dashboard to an external URL by opening a dashboard, selecting **Share** > **Snapshot**, and then **Publish to snapshots.raintanks.io**.
 
-However, you can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** and toggle off the **External Enabled** setting.
+You can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** and toggle off the **External Enabled** setting.
 
 ## Related content
 
