@@ -7,7 +7,7 @@ author: flang-msft
 ms.custom: references_regions
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 07/17/2024
 ms.author: franlanglois
 
 ---
@@ -61,9 +61,9 @@ For information on using Microsoft Entra ID with Azure CLI, see the [references 
 
 Using Microsoft Entra ID is the secure way to connect your cache. We recommend using Microsoft Entra ID and disabling access keys.
 
-When you disable access key Authentication for a cache, all existing client connections are terminated on the server side by Redis Launch, whether they use access keys or Microsoft Entra ID auth-based. You're advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
+When you disable access key Authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra ID auth-based. You're advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
 
-Before you disable access keys: 
+Before you disable access keys:
 
 - Before you disable access keys, Microsoft Entra ID authorization must be enabled.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
@@ -84,9 +84,7 @@ If you have a cache where access keys are used, and you want to disable access k
 1. You're asked to confirm that you want to update your configuration. Select **Yes**.
 
 > [!IMPORTANT]
-> When the **Disable Access Key Authentication**" setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra ID, are terminated on the server side by Redis Launch. You should follow the recommended best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any. For more information, see [Connection resilience](cache-best-practices-connection.md).
-
-<!-- are we sure we want to call out Redis Launch here? Readers might not know what it is. Does it matter that it is Redis Launch -->
+> When the **Disable Access Key Authentication**" setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra ID, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections. For more information, see [Connection resilience](cache-best-practices-connection.md).
 
 ## Using data access configuration with your cache
 
