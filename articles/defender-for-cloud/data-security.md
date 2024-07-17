@@ -90,7 +90,7 @@ Customers can access Defender for Cloud related data from the following data str
 
 ## Data retention
 
-When the cloud security graph collects data from Azure and multicloud environments and other data source, it retains the data for a 14 day period. After 14 days, the data is deleted. This information is collected in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
+When the cloud security graph collects data from Azure and multicloud environments and other data source, it retains the data for a 14 day period. After 14 days, the data is deleted. Calculated data, such as the data collected to created attack paths, might be kept for an additional 14 days. This information is collected in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
 ## Defender for Cloud and Microsoft Defender 365 Defender integration
 
