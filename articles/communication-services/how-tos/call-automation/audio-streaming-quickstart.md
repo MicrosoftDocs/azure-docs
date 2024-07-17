@@ -28,7 +28,7 @@ Functionality described in this quickstart is currently in public preview.
 [!INCLUDE [Audio Streaming with Java](./includes/audio-streaming-quickstart-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-js"
+::: zone pivot="programming-language-javascript"
 [!INCLUDE [Audio Streaming with JavaScript](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
