@@ -64,7 +64,7 @@
           displayName: access, control
           href: plan-multicloud-security-determine-access-control-requirements.md
         - name: Determine multicloud dependencies
-          displayName: dependencies, cspm, cwpp, agents,
+          displayName: dependencies, cspm, cwpp, agents, multicloud
           href: plan-multicloud-security-determine-multicloud-dependencies.md
         - name: Automate connector deployment
           displayName: rest api
