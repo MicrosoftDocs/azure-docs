@@ -95,6 +95,10 @@ var successfulFileUploadCompletionNotification = new FileUploadCompletionNotific
 await _deviceClient.CompleteFileUploadAsync(successfulFileUploadCompletionNotification);
 ```
 
+### SDK file upload sample
+
+The SDK includes this [file upload sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
+
 ## Receive a file upload notification in a backend application
 
 You can create a backend service to receive file upload notification messages from IoT hub.
@@ -133,7 +137,3 @@ while (true)
     await notificationReceiver.CompleteAsync(fileUploadNotification);
 }
 ```
-
-### SDK file upload sample
-
-The SDK includes this [file upload sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/FileUploadSample/FileUploadSample.cs).
