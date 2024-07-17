@@ -20,6 +20,8 @@ This how-to contains two sections:
 
 ## Upload a file from a device application
 
+This section describes how to upload a file from a device to an IoT hub using the [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class in the Azure IoT SDK for .NET.
+
 Follow this procedure to upload a file from a device to IoT hub:
 
 * Connect to IoT hub
@@ -29,7 +31,7 @@ Follow this procedure to upload a file from a device to IoT hub:
 
 ### Connect to IoT hub
 
-Supply the IoT hub primary connection string to [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
+Supply the IoT hub primary connection string as described in prerequisites to [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method. `AMQP` is the default transport protocol.
 
 ``` csharp
 static string connectionString = "{IoT hub primary connection string}";

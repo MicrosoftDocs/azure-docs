@@ -28,12 +28,13 @@ In some scenarios, you can't easily map the data your devices send into the rela
 
 These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
+This article is meant to complement a runnable SDK samples that are referenced from within this article.
+
 For more information, see:
 
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
 * [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md)
 * [Introduction to Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
-* [Azure Blob Storage API reference](../storage/blobs/reference.md)
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
@@ -44,7 +45,7 @@ For more information, see:
 
 * **A registered device**. Register one in the [Azure portal](create-connect-device.md).
 
-* IoT Hub **Service Connect**  permission - To receive file upload notification messages, your backend service needs the **Service Connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information, see [Create an IoT hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal?#shared-access-policies).
+* IoT Hub **Service Connect**  permission - To receive file upload notification messages, your backend service needs the **Service Connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information, see [Connect to an IoT hub](/azure/iot-hub/create-hub?&tabs=portal#connect-to-an-iot-hub).
 
 * Configure file upload in your IoT hub by linking an **Azure Storage account** and **Azure Blob Storage container** associated with IoT Hub. You can configure these using the [Azure portal](/azure/iot-hub/iot-hub-configure-file-upload), [Azure CLI](/azure/iot-hub/iot-hub-configure-file-upload-cli), or [Azure PowerShell](/azure/iot-hub/iot-hub-configure-file-upload-powershell).
 
