@@ -102,7 +102,7 @@ az monitor data-collection rule create --location 'eastus' --resource-group 'my-
 Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) cmdlet to create the DCR from your JSON file using PowerShell as shown in the following example.
 
 ```powershell
-New-AzDataCollectionRule -Location 'east-us' -ResourceGroupName 'my-resource-group' -RuleName 'myDCRName' -RuleFile 'C:\MyNewDCR.json' -Description 'This is my new DCR'
+New-AzDataCollectionRule -Name 'myDCRName' -ResourceGroupName 'my-resource-group' -JsonFilePath 'C:\MyNewDCR.json'
 ```
 
 **Data collection rules**
