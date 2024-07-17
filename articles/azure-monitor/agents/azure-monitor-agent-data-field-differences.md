@@ -16,7 +16,7 @@ Customer intent: As an azure administrator, I want to understand which Log Analy
 
 Each of the data changes was carefully considered and the rational for each change is provided in the table. If you encounter a data field that isn't in the tables file a support request. Your help keeping the tables current and complete is appreciated.
 
-## Log Analytics Workspace Tables
+## Log analytics workspace tables
 ### W3CIISLog Table for Internet Information Services (IIS)
 This table collects log data from the Internet Information Service on Window systems.
 
