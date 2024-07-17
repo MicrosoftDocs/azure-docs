@@ -1,5 +1,5 @@
 ---
-title: Monitor metrics in Azure Cosmos DB for MongoDB 
+title: Monitor metrics in Azure Cosmos DB for MongoDB (vCore)
 description: Discover how to monitor memory or CPU usage for operations in Azure Cosmos DB. Account owners can identify resource-intensive operations.
 ms.service:  cosmos-db
 ms.topic: how-to
@@ -8,10 +8,10 @@ author: KhelanModi
 ms.date: 07/02/2024
 ---
 
-# Explore Azure Monitor in vCore-based Azure Cosmos DB for MongoDB
+# Explore Azure Monitor in vCore-based Azure Cosmos DB for MongoDB (vCore)
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, however this feature is only accessible to M40 and above cluster tiers. The **CPU  percent** metric is used to get the consumption for different types of operations. Later you can analyze which operations used most of the committed memory. By default, the consumption data is aggregated at five-minute interval. However, you can change the aggregation unit by changing the time granularity option.
+Azure Monitor for vCore-based Azure Cosmos DB for MongoDB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, however this feature is only accessible to M40 and above cluster tiers. The **CPU  percent** metric is used to get the consumption for different types of operations. Later you can analyze which operations used most of the committed memory. By default, the consumption data is aggregated at five-minute interval. However, you can change the aggregation unit by changing the time granularity option.
 
 ## Introduction
 
@@ -19,8 +19,8 @@ Before you begin, you should understand how information is presented and visuali
 
 It delivers:
 
-* **At-scale perspective** of your Azure Cosmos DB resources across all your subscriptions in a single location. You can selectively scope to only the subscriptions and resources that you're interested in evaluating.
-* **Drill-down analysis** of a particular Azure Cosmos DB resource. You can diagnose issues or perform detailed analysis by using the categories of utilization, failures, capacity, and operations. Selecting any one of the options provides an in-depth view of the relevant Azure Cosmos DB metrics.
+* **At-scale perspective** of your Azure Cosmos DB for MongoDB (vCore) resources across all your subscriptions in a single location. You can selectively scope to only the subscriptions and resources that you're interested in evaluating.
+* **Drill-down analysis** of a particular Azure Cosmos DB for MongoDB (vCore) resource. You can diagnose issues or perform detailed analysis by using the categories of utilization, failures, capacity, and operations. Selecting any one of the options provides an in-depth view of the relevant Azure Cosmos DB for MongoDB (vCore) metrics.
 * **Customizable** experience built on top of Azure Monitor workbook templates. You can change what metrics are displayed, modify or set thresholds that align with your limits, and then save into a custom workbook. Charts in the workbooks can then be pinned to Azure dashboards.
 
 ## Metrics available today
@@ -33,7 +33,7 @@ It delivers:
 1. **Storage percent:** Displays the available storage percentage on a shard. 
 1. **Storage used**: Represents the actual amount of storage used on a shard. This metric is crucial for understanding the storage consumption trends and managing storage resources.
    - **Monitoring and Management**: If storage utilization increases above 80%, users should monitor this more closely. It is recommended to increase the SKU size of the disk to manage storage more effectively.
-   - **Performance Optimization**: If write performance is not at the desired level, particularly during high-scale operations, increasing the disk size can enhance write performance.
+   - **Performance Optimization**: If write performance is not at the desired level, particularly when running at scale, increasing the disk size can enhance write performance.
 1. **IOPS:** Measures the disk IO operations per second on a shard. It provides insights into the read and write performance of the storage system, helping to optimize disk usage.
    - **Write Heavy Workloads**: IOPS is particularly important for write-heavy workloads, especially when operating at scale. If write performance needs to be improved, it is recommended to upgrade the storage disk SKU size rather than increasing the cluster tier.
 
@@ -54,7 +54,7 @@ It delivers:
 
    :::image type="content" source="./media/monitor/monitor-metrics-blade.png" alt-text="Metrics blade in Azure Cosmos DB":::
 
-1. Next select the **Monogo request duration** metric from the list of available metrics. In this example, let's select **Mongo request duration** and **Max** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
+1. Next select the **Monogo request duration** metric from the list of available metrics. In this example, let's select **Mongo request duration** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
    :::image type="content" source="./media/monitor/monitor-metric-mongo-request-duration.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
@@ -69,3 +69,7 @@ It delivers:
 ## Next steps
 
 * Configure [metric alerts](../../../azure-monitor/alerts/alerts-metric.md) to set up automated alerting to aid in detecting issues.
+* [Migrate your data](./migration-options.md) to vCore-based Azure Cosmos DB for MongoDB
+
+
+
