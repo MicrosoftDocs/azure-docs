@@ -23,7 +23,7 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 
 ## About storage performance operation metrics 
 
-An operation in Azure NetApp Files is defined as _something_ that happens during a client/server conversation. For instance, when a client requests a file to be read from an Azure NetApp Files, read and other operations are sent and received between the client and server.  
+An operation in Azure NetApp Files is defined as _something_ that happens during a client/server conversation. For instance, when a client requests a file to be read from Azure NetApp Files, read and other operations are sent and received between the client and server.  
 
 When monitoring the Azure NetApp Files volume, read and write operations are self-explanatory. Also included in the metrics is a metric called **Other IOPS**, meaning any operation that isn't a read or write. **Other IOPS** encompasses operations such as metadata, which is present alongside most read and write operations.
 
