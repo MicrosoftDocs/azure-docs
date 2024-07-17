@@ -17,7 +17,6 @@ items:
     href: prerequisites.md
   - name: Support matrix
     href: support-matrix.md
- 
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
