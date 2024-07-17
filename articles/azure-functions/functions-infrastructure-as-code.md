@@ -1670,47 +1670,7 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 
 ---
 
-::: zone-end
-## Function access keys
-
-Host-level [function access keys](function-keys-how-to.md) are defined as Azure resources. This means that you can create and manage host keys in your ARM templates and Bicep files. A host key is defined as a resource of type `Microsoft.Web/sites/host/functionKeys`. This example creates a host-level access key named `my_custom_key` when the function app is created:
-
-### [Bicep](#tab/bicep)
-
-```bicep
-resource functionKey 'Microsoft.Web/sites/host/functionKeys@2022-09-01' = {
-  name: '${parameters('name')}/default/my_custom_key'
-  properties: {
-    name: 'my_custom_key'
-  }
-  dependsOn: [
-    resourceId('Microsoft.Web/Sites', parameters('name'))
-  ]
-}
-```
-
-### [ARM template](#tab/json)
-
-```json
-{  
-	"type": "Microsoft.Web/sites/host/functionKeys",
-	"apiVersion": "2022-09-01",
-	"name": "[concat(parameters('name'), '/default/my_custom_key')]",
-	"properties": {
-		"name": "my_custom_key"
-	},
-	"dependsOn": [
-		"[resourceId('Microsoft.Web/Sites', parameters('name'))]"
-	]
-}
-```
-
----
-
-In this example, the `name` parameter is the name of the new function app. You must include a `dependsOn` setting to guarantee that the key is created with the new function app. Finally, the `properties` object of the host key can also include a `value` property that can be used to set a specific key. 
-
-When you don't set the `value` property, Functions automatically generates a new key for you when the resource is created, which is recommended. To learn more about access keys, including security best practices for working with access keys, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
-
+::: zone-end  
 :::zone pivot="flex-consumption-plan"  
 ## Application configuration
 
@@ -1735,7 +1695,7 @@ The Flex Consumption plan also supports these application settings:
 
 + Connection string-based settings:
     + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
-    + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) (connection string)
+    + [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage)
 + Managed identity-based settings:
     + [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](functions-app-settings.md#applicationinsights_authentication_string)
     + [`AzureWebJobsStorage__accountName`](functions-app-settings.md#azurewebjobsstorage__accountname)
@@ -1938,6 +1898,46 @@ You might also need to use these settings when your function app has network res
 
 When you're restricting access to the storage account through the private endpoints, you aren't able to access the storage account through the portal or any device outside the virtual network. You can give access to your secured IP address or virtual network in the storage account by [Managing the default network access rule](../storage/common/storage-network-security.md#change-the-default-network-access-rule).
 ::: zone-end
+## Function access keys
+
+Host-level [function access keys](function-keys-how-to.md) are defined as Azure resources. This means that you can create and manage host keys in your ARM templates and Bicep files. A host key is defined as a resource of type `Microsoft.Web/sites/host/functionKeys`. This example creates a host-level access key named `my_custom_key` when the function app is created:
+
+### [Bicep](#tab/bicep)
+
+```bicep
+resource functionKey 'Microsoft.Web/sites/host/functionKeys@2022-09-01' = {
+  name: '${parameters('name')}/default/my_custom_key'
+  properties: {
+    name: 'my_custom_key'
+  }
+  dependsOn: [
+    resourceId('Microsoft.Web/Sites', parameters('name'))
+  ]
+}
+```
+
+### [ARM template](#tab/json)
+
+```json
+{  
+	"type": "Microsoft.Web/sites/host/functionKeys",
+	"apiVersion": "2022-09-01",
+	"name": "[concat(parameters('name'), '/default/my_custom_key')]",
+	"properties": {
+		"name": "my_custom_key"
+	},
+	"dependsOn": [
+		"[resourceId('Microsoft.Web/Sites', parameters('name'))]"
+	]
+}
+```
+
+---
+
+In this example, the `name` parameter is the name of the new function app. You must include a `dependsOn` setting to guarantee that the key is created with the new function app. Finally, the `properties` object of the host key can also include a `value` property that can be used to set a specific key. 
+
+When you don't set the `value` property, Functions automatically generates a new key for you when the resource is created, which is recommended. To learn more about access keys, including security best practices for working with access keys, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
+
 ## Create your template
 
 Experts with Bicep or ARM templates can manually code their deployments using a simple text editor. For the rest of us, there are several ways to make the development process easier:
@@ -2000,16 +2000,16 @@ You can also create a test resource group to find [preflight](../azure-resource-
 
 You can use any of the following ways to deploy your Bicep file and template:
 
+### [Bicep](#tab/bicep)
+
+- [Azure CLI](../azure-resource-manager/bicep/deploy-cli.md)
+- [PowerShell](../azure-resource-manager/bicep/deploy-powershell.md)
+
 ### [ARM template](#tab/json)
 
 - [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 - [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
 - [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-
-### [Bicep](#tab/bicep)
-
-- [Azure CLI](../azure-resource-manager/bicep/deploy-cli.md)
-- [PowerShell](../azure-resource-manager/bicep/deploy-powershell.md)
 
 ---
 
@@ -2036,20 +2036,6 @@ Here's an example that uses HTML:
 
 The following PowerShell commands create a resource group and deploy a Bicep file or ARM template that creates a function app with its required resources. To run locally, you must have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed. Run [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) to sign in.
 
-#### [ARM template](#tab/json)
-
-```powershell
-# Register Resource Providers if they're not already registered
-Register-AzResourceProvider -ProviderNamespace "microsoft.web"
-Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
-
-# Create a resource group for the function app
-New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
-
-# Deploy the template
-New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile azuredeploy.json  -Verbose
-```
-
 #### [Bicep](#tab/bicep)
 
 ```powershell
@@ -2062,6 +2048,20 @@ New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
 
 # Deploy the template
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile main.bicep  -Verbose
+```
+
+#### [ARM template](#tab/json)
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile azuredeploy.json  -Verbose
 ```
 
 ---
