@@ -4,7 +4,7 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/13/2023
+ms.date: 07/17/2024
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -80,6 +80,16 @@ This article assumes that you use a machine running Windows as your development 
 
 The IoT Edge project template in Visual Studio creates a solution to deploy to IoT Edge devices. First, you create an Azure IoT Edge solution. Then, you create a module in that solution. Each IoT Edge solution can contain more than one module.
 
+> [!WARNING]
+> The Azure IoT Edge tools for Visual Studio extension is missing the project templates for C and C# modules. We are working to resolve the issue. If you can't create IoT Edge modules using the extension, use the following workaround.
+>
+> Download the following files and place them in the listed Visual Studio template directory:
+> 
+> | Template file | Add to directory |
+> |---------------|------------------|
+> | [azureiotedgemodule-v0.0.4.zip](https://github.com/Azure/iot-edge-visual-studio-templates/raw/master/templates/vs2022/CSharp/azureiotedgemodule-v0.0.4.zip) | `%userprofile%\Documents\Visual Studio 2022\Templates\ProjectTemplates\Visual C#` |
+> | [azureiotedgevcmodulevs17-v0.0.9.zip](https://github.com/Azure/iot-edge-visual-studio-templates/raw/master/templates/vs2022/vc/azureiotedgevcmodulevs17-v0.0.9.zip) | `%userprofile%\Documents\Visual Studio 2022\Templates\ProjectTemplates\Visual C++ Project` |
+
 In our solution, we're going to build three projects. The main module that contains *EdgeAgent* and *EdgeHub*, in addition to the temperature sensor module. Next, you add two more IoT Edge modules.
 
 > [!IMPORTANT]
@@ -90,8 +100,6 @@ In our solution, we're going to build three projects. The main module that conta
 1. In Visual Studio, create a new project.
 
 1. In **Create a new project**, search for **Azure IoT Edge**. Select the project that matches the platform and architecture for your IoT Edge device, and select **Next**.
-
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-project.png" alt-text="Create New Project":::
 
 1. In **Configure your new project**, enter a name for your project, specify the location, and select **Create**.
 
@@ -118,11 +126,11 @@ The module project folder contains a file for your module code named either `Pro
 
 The deployment manifest you edit is named `deployment.debug.template.json`. This file is a template of an IoT Edge deployment manifest that defines all the modules that run on a device along with how they communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). 
 
-If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/main/edge-modules/SimulatedTemperatureSensor).
 
 ### Set IoT Edge runtime version
 
-Currently, the latest stable runtime version is 1.4. You should update the IoT Edge runtime version to the latest stable release or the version you want to target for your devices.
+Currently, the latest stable runtime version is 1.5. You should update the IoT Edge runtime version to the latest stable release or the version you want to target for your devices.
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -132,17 +140,17 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
-    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
        "edgeAgent": {
         //...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.4"
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.5"
         //...
        "edgeHub": {
        //...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
        //...
     ```
     
@@ -153,17 +161,17 @@ Currently, the latest stable runtime version is 1.4. You should update the IoT E
 ::: zone pivot="iotedge-dev-cli"
 
 1. Open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
         //...
         "edgeHub": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
         //...
     ```
 
@@ -242,9 +250,6 @@ Typically, you want to test and debug each module before running it within an en
       IoT Hub module client initialized.
       Received message: 1, Body: [hello world]
       ```
-
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 

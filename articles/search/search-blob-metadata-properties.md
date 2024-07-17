@@ -20,11 +20,11 @@ Several of the indexer-supported data sources, including Azure Blob Storage, Azu
 
 Azure AI Search supports blob indexing and SharePoint document indexing for the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Properties by document format
 
-The following table summarizes processing for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint indexer.
+The following table summarizes processing for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint Online indexer.
 
 | Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |

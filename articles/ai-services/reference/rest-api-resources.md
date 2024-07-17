@@ -1,19 +1,19 @@
 ---
-title: Azure AI REST API reference
+title: Azure AI services REST API reference
 titleSuffix: Azure AI services
-description: Provides an overview of available Azure AI REST APIs with links to reference documentation.
+description: Provides an overview of available Azure AI services REST APIs with links to reference documentation.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: reference
-ms.date: 03/07/2024
+ms.date: 05/15/2024
 ms.author: lajanuar
 ---
 
-# Azure AI REST API reference
+# Azure AI services REST API reference
 
 
-This article provides an overview of available Azure AI REST APIs with links to service and feature level reference documentation.
+This article provides an overview of available Azure AI services REST APIs with links to service and feature level reference documentation.
 
 ## Available Azure AI services
 
@@ -26,15 +26,15 @@ Select a service from the table to learn how it can help you meet your developme
 | ![Azure AI Search icon](../media/service-icons/search.svg) [Azure AI Search](../../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps | [Azure AI Search API](/rest/api/searchservice) |
 | ![Azure OpenAI Service icon](../media/service-icons/azure.svg) [Azure OpenAI](../openai/index.yml) | Perform a wide variety of natural language tasks | **Azure OpenAI APIs**<br>&bullet; [resource creation & deployment](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update) </br>&bullet; [completions & embeddings](../openai/reference.md)</br>&bullet; [fine-tuning](/rest/api/azureopenai/fine-tuning) |
 | ![Bot service icon](../media/service-icons/bot-services.svg) [Bot Service](/composer/) | Create bots and connect them across channels | [Bot Service API](/azure/bot-service/rest-api/bot-framework-rest-connector-api-reference?view=azure-bot-service-4.0&preserve-view=true) |
-| ![Content Safety icon](../media/service-icons/content-safety.svg) [Content Safety](../content-safety/index.yml) | An AI service that detects unwanted contents | [Content Safety API](https://westus.dev.cognitive.microsoft.com/docs/services/content-safety-service-2023-10-15-preview/operations/TextBlocklists_AddOrUpdateBlocklistItems) |
+| ![Content Safety icon](~/reusable-content/ce-skilling/azure/media/ai-services/content-safety.svg) [Content Safety](../content-safety/index.yml) | An AI service that detects unwanted contents | [Content Safety API](https://westus.dev.cognitive.microsoft.com/docs/services/content-safety-service-2023-10-15-preview/operations/TextBlocklists_AddOrUpdateBlocklistItems) |
 | ![Custom Vision icon](../media/service-icons/custom-vision.svg) [Custom Vision](../custom-vision-service/index.yml) | Customize image recognition for your business applications. |**Custom Vision APIs**<br>&bullet; [prediction](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)<br>&bullet; [training](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddebd)|
-| ![Document Intelligence icon](../media/service-icons/document-intelligence.svg) [Document Intelligence](../document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions | [Document Intelligence API](/rest/api/aiservices/document-models?view=rest-aiservices-2023-07-31&preserve-view=true) |
-| ![Face icon](../media/service-icons/face.svg) [Face](../computer-vision/overview-identity.md) | Detect and identify people and emotions in images | [Face API](../computer-vision/identity-api-reference.md) |
-| ![Language icon](../media/service-icons/language.svg) [Language](../language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities | [REST API](/rest/api/language/) |
-| ![Speech icon](../media/service-icons/speech.svg) [Speech](../speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition | **Speech APIs**<br>&bullet; [speech to text](../speech-service/rest-speech-to-text.md)<br>&bullet; [text to speech](../speech-service/rest-text-to-speech.md) |
-| ![Translator icon](../media/service-icons/translator.svg) [Translator](../translator/index.yml) | Translate more than 100 in-use, at-risk, and endangered languages and dialects | **Translator APIs**<br>&bullet; [text translation](../translator/reference/rest-api-guide.md) <br>&bullet; [batch translation](../translator/document-translation/reference/rest-api-guide.md) <br>&bullet; [synchronous translation](../translator/document-translation/reference/synchronous-rest-api-guide.md)|
+| ![Document Intelligence icon](~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg) [Document Intelligence](../document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions | [Document Intelligence API](/rest/api/aiservices/document-models?view=rest-aiservices-2023-07-31&preserve-view=true) |
+| ![Face icon](~/reusable-content/ce-skilling/azure/media/ai-services/face.svg) [Face](../computer-vision/overview-identity.md) | Detect and identify people and emotions in images | [Face API](../computer-vision/identity-api-reference.md) |
+| ![Language icon](~/reusable-content/ce-skilling/azure/media/ai-services/language.svg) [Language](../language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities | [REST API](/rest/api/language/) |
+| ![Speech icon](~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg) [Speech](../speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition | **Speech APIs**<br>&bullet; [speech to text](../speech-service/rest-speech-to-text.md)<br>&bullet; [text to speech](../speech-service/rest-text-to-speech.md) |
+| ![Translator icon](~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg) [Translator](../translator/index.yml) | Translate more than 100 in-use, at-risk, and endangered languages and dialects | **Translator APIs**<br>&bullet; [text translation](../translator/reference/rest-api-guide.md) <br>&bullet; [document translation](../translator/document-translation/reference/rest-api-guide.md)|
 | ![Video Indexer icon](../media/service-icons/video-indexer.svg) [Video Indexer](/azure/azure-video-indexer) | Extract actionable insights from your videos | [Video Indexer API](/rest/api/videoindexer/accounts?view=rest-videoindexer-2024-01-01&preserve-view=true) |
-| ![Vision icon](../media/service-icons/vision.svg) [Vision](../computer-vision/index.yml) | Analyze content in images and videos | [Vision API](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2024-02-01/operations/61d65934cd35050c20f73ab6) |
+| ![Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg) [Vision](../computer-vision/index.yml) | Analyze content in images and videos | [Vision API](https://eastus.dev.cognitive.microsoft.com/docs/services/Cognitive_Services_Unified_Vision_API_2024-02-01/operations/61d65934cd35050c20f73ab6) |
 
 ## Deprecated services
 

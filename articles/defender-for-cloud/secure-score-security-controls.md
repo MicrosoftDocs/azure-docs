@@ -49,7 +49,7 @@ Defender for Cloud calculates each control every eight hours for each Azure subs
 
 ### Example scores for a control
 
-The following example focuses on secure score recommendations for enabling multifactor authentication (MFA).
+The following example focuses on secure score recommendations for **Remediate vulnerabilities**.
 
 :::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Screenshot that shows secure score recommendations for multifactor authentication." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control.png":::
 
@@ -59,8 +59,8 @@ This example illustrates the following fields in the recommendations.
 --- | ---
 **Remediate vulnerabilities** | A grouping of recommendations for discovering and resolving known vulnerabilities.
 **Max score** |  The maximum number of points that you can gain by completing all recommendations within a control.<br/><br/> The maximum score for a control indicates the relative significance of that control and is fixed for every environment.<br/><br/>Use the values in this column to determine which issues to work on first.
-**Current score** | The current score for this control.<br/><br/> Current score = [Score per resource] * [Number of healthy resources]<br/><br/>Each control contributes to the total score. In this example, the control is contributing 2.00 points to current total score.
-**Potential score increase** | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score increases by 9%.<br/><br/> Potential score increase = [Score per resource] * [Number of unhealthy resources]
+**Current score** | The current score for this control.<br/><br/> Current score = [Score per resource] * [Number of healthy resources]<br/><br/>Each control contributes to the total score. In this example, the control is contributing 3.33 points to current total score.
+**Potential score increase** | The remaining points available to you within the control. If you remediate all the recommendations in this control, your score increases by 4%.<br/><br/> Potential score increase = [Score per resource] * [Number of unhealthy resources]
 **Insights** | Extra details for each recommendation, such as:<br/><br/>  - :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false"::: **Preview recommendation**: This recommendation affects the secure score only when it's generally available.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: **Fix**: Resolve this issue.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: **Enforce**: Automatically deploy a policy to fix this issue whenever someone creates a noncompliant resource.<br/><br/> - :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: **Deny**: Prevent new resources from being created with this issue.
 
 ## Score calculation equations
@@ -86,7 +86,7 @@ The equation for determining the secure score for a single subscription or conne
 :::image type="content" source="./media/secure-score-security-controls/secure-score-equation-single-sub.png" alt-text="Screenshot of the equation for calculating a subscription's secure score." lightbox="media/secure-score-security-controls/secure-score-equation-single-sub.png":::
 
 In the following example, there's a single subscription or connector with all security controls available (a potential maximum score of 60 points).
-The score shows 28 points out of a possible 60. The remaining 32 points are reflected in the **Potential score increase** figures of the security controls.
+The score shows 29 points out of a possible 60. The remaining 31 points are reflected in the **Potential score increase** figures of the security controls.
 
 :::image type="content" source="./media/secure-score-security-controls/secure-score-example-single-sub.png" alt-text="Screenshot of a single-subscription secure score with all controls enabled." lightbox="media/secure-score-security-controls/secure-score-example-single-sub.png":::
 

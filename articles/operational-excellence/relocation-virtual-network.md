@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 03/13/2024
 ms.service: virtual-network
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
@@ -69,6 +69,11 @@ To learn how to move your virtual network using Resource Mover, see [Move Azure 
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
 
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 
 ## Plan

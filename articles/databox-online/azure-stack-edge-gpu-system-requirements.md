@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/02/2023
+ms.date: 06/26/2024
 ms.author: alkohli
 ms.custom: devx-track-arm-template
 ---

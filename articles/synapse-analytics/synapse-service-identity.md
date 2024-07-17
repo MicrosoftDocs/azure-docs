@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 
 This article helps you understand managed identity (formerly known as Managed Service Identity/MSI) and how it works in Azure Synapse.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 
@@ -192,7 +192,7 @@ You can find the managed identity information from Azure portal -> your Synapse 
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. Select **Access control (IAM)**.
 

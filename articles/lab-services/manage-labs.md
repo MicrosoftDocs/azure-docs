@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Manage labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes how a lab plan owner or administrator can view and delete all the labs associated with a lab plan.
 
 Lab plans and labs are sibling resources contained in a resource group. Administrators can use existing tools in the Azure portal to manage labs.

@@ -6,7 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 05/30/2024
+
+#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
 
 # Manage NSG flow logs using the Azure portal
@@ -27,9 +29,9 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 ## Register Insights provider
 
-*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, check its status:
+*Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, you can check its status by following these steps:
 
-1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** in the search results.
+1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -45,7 +47,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 Create a flow log for your network security group. This NSG flow log is saved in an Azure storage account.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -79,7 +81,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
 
 Create a flow log for your network security group and enable traffic analytics. The NSG flow log is saved in an Azure storage account.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -126,7 +128,7 @@ Create a flow log for your network security group and enable traffic analytics. 
 
 You can change the properties of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -147,7 +149,7 @@ You can change the properties of a flow log after you create it. For example, yo
 
 You can list all flow logs in a subscription or a group of subscriptions. You can also list all flow logs in a region.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -159,7 +161,7 @@ You can list all flow logs in a subscription or a group of subscriptions. You ca
 
 You can view the details of a flow log in a subscription or a group of subscriptions. You can also list all flow logs in a region.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -185,7 +187,7 @@ For information about the structure of a flow log, see [Log format of NSG flow l
 
 You can temporarily disable an NSG flow log without deleting it. Disabling a flow log stops flow logging for the associated network security group. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured network security group.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -202,7 +204,7 @@ You can temporarily disable an NSG flow log without deleting it. Disabling a flo
 
 You can permanently delete an NSG flow log. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same network security group, you must create a new flow log for it.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -215,7 +217,7 @@ You can permanently delete an NSG flow log. Deleting a flow log deletes all its 
 > [!NOTE]
 > Deleting a flow log does not delete the flow log data from the storage account. Flow logs data stored in the storage account follows the configured retention policy or stays stored in the storage account until manually deleted (in case no retention policy is configured).
 
-## Next steps
+## Related content
 
 - To learn how to use Azure built-in policies to audit or deploy NSG flow logs, see [Manage NSG flow logs using Azure Policy](nsg-flow-logs-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).

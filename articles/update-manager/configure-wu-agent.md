@@ -80,6 +80,13 @@ If your machine is patched using Azure Update Manager, and has Automatic updates
 
    :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/configure-wu-agent/configure-updates-group-policy-expanded.png":::
 
+For Windows Server 2022:
+
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Configure Automatic Updates**.
+1. Select **Configure Automatic Updates**.
+1. Select or deselect the **Install updates for other Microsoft products** option.
+
+   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-windows.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products in Windows Server 2022.":::
 
 ## Make WSUS configuration settings
 

@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [load-balancer-create-virtual-machine-zonal](../../includes/load-balancer-create-virtual-machine-zonal.md)]
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 [!INCLUDE [load-balancer-install-iis](../../includes/load-balancer-install-iis.md)]
 

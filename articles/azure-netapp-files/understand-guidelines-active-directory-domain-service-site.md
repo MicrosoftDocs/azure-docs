@@ -37,29 +37,31 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Peered virtual network topologies with AD DS domain controllers must have peering configured correctly to support Azure NetApp Files to AD DS domain controller network connectivity.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
-* Ensure that the latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
+* Ensure that the network latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
+
+For more information on Microsoft Active Directory requirements for network latency over a WAN, see
+[Creating a Site Design](/windows-server/identity/ad-ds/plan/creating-a-site-design).
 
 The required network ports are as follows:
 
-| Service | Port | Protocol |
+| Service | Ports | Protocols |
 | -- | - | - |
-|AD Web Services | 9389 | TCP |
-| DNS* | 53 | TCP |
-| DNS* | 53 | UDP |
-| ICMPv4 | N/A | Echo Reply |
-| Kerberos | 464 | TCP |
-| Kerberos | 464 | UDP |
-| Kerberos | 88 | TCP |
-| Kerberos | 88 | UDP |
-| LDAP | 389 | TCP |
-| LDAP | 389 | UDP |
-| LDAP | 389 | TLS | 
-| LDAP | 3268 | TCP |
-| NetBIOS name | 138 | UDP |
-| SAM/LSA | 445 | TCP |
-| SAM/LSA | 445 | UDP |
+| ICMPv4 (ping) | N/A | Echo Reply |
+| DNS* | 53 | TCP, UDP |
+| Kerberos | 88 | TCP, UDP |
+| NetBIOS Datagram Service | 138 | UDP |
+| NetBIOS | 139 | UDP | 
+| LDAP** | 389 | TCP, UDP | 
+| SAM/LSA/SMB | 445 | TCP, UDP |
+| Kerberos (kpasswd) | 464 | TCP, UDP |
+| Active Directory Global Catalog | 3268 | TCP |
+| Active Directory Secure Global Catalog | 3269 | TCP |
+| Active Directory Web Service | 9389 | TCP |
 
-*DNS running on AD DS domain controller
+\* Active Directory DNS only 
+
+
+\*\* LDAP over SSL (port 636) isn't currently supported. Instead, use [LDAP over StartTLS](configure-ldap-over-tls.md) (port 389) to encrypt LDAP traffic.
 
 ### DNS requirements 
 
@@ -72,13 +74,14 @@ Ensure that you meet the following requirements about the DNS configurations:
     * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
-* Ensure that the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers.
+* Ensure the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers in the same domain as your Azure NetApp Files configuration.
 * Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
 When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
 If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.
 * Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
 * If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
 * For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](#ad-ds-ldap-discover).  
+* If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
 
 ### Time source requirements 
 

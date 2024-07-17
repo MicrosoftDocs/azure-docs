@@ -4,7 +4,7 @@ description: Learn about recommendations for helping keep your Azure Virtual Des
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/09/2024
+ms.date: 06/03/2024
 ---
 
 # Security recommendations for Azure Virtual Desktop
@@ -72,7 +72,7 @@ The following table summarizes our recommendations for each scenario.
 
 | Trust level scenario                                 | Recommended solution                |
 |------------------------------------------------------|-------------------------------------|
-| Users from one organization with standard privileges | Use a Windows Enterprise multi-session OS. |
+| Users from one organization with standard privileges | Use a Windows Enterprise multi-session operating system (OS). |
 | Users require administrative privileges             | Use a personal host pool and assign each user their own session host.         |
 | Users from different organizations connecting        | Separate Azure tenant and Azure subscription         |
 
@@ -182,7 +182,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Restrict Windows Explorer access by hiding local and remote drive mappings. This prevents users from discovering unwanted information about system configuration and users.
 
-- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.md) access to limit the potential attack surface on a session host.
+- Avoid direct RDP access to session hosts in your environment. If you need direct RDP access for administration or troubleshooting, enable [just-in-time](../defender-for-cloud/just-in-time-access-usage.yml) access to limit the potential attack surface on a session host.
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
@@ -190,40 +190,40 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Trusted launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+Trusted launch are Azure VMs with enhanced security features aimed to protect against persistent attack techniques such as bottom-of-the-stack threats through attack vectors such as rootkits, boot kits, and kernel-level malware. It allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers, and also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
-### Enable trusted launch as default
+When you add session hosts using the Azure portal, the default security type is **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
 
-Trusted launch protects against advanced and persistent attack techniques. This feature also allows for secure deployment of VMs with verified boot loaders, OS kernels, and drivers. Trusted launch also protects keys, certificates, and secrets in the VMs. Learn more about trusted launch at [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+## Azure confidential computing virtual machines
 
-When you add session hosts using the Azure portal, the security type automatically changes to **Trusted virtual machines**. This ensures that your VM meets the mandatory requirements for Windows 11. For more information about these requirements, see [Virtual machine support](/windows/whats-new/windows-11-requirements#virtual-machine-support).
+Azure Virtual Desktop support for [Azure confidential computing](../confidential-computing/overview.md) virtual machines ensures a user's virtual desktop is encrypted in memory, protected in use, and backed by a hardware root of trust.
 
-## Azure Confidential computing virtual machines
+Deploying confidential virtual machines with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the CPU that can't be read from software. For more information, including the VM sizes available, see the [Azure confidential computing overview](../confidential-computing/overview.md).
 
-Azure Virtual Desktop support for Azure Confidential computing virtual machines ensures a user’s virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust. Azure Confidential computing VMs for Azure Virtual Desktop are compatible with [supported operating systems](prerequisites.md#operating-systems-and-licenses). Deploying confidential VMs with Azure Virtual Desktop gives users access to Microsoft 365 and other applications on session hosts that use hardware-based isolation, which hardens isolation from other virtual machines, the hypervisor, and the host OS. These virtual desktops are powered by the latest Third-generation (Gen 3) Advanced Micro Devices (AMD) EPYC™ processor with Secure Encrypted Virtualization Secure Nested Paging (SEV-SNP) technology. Memory encryption keys are generated and safeguarded by a dedicated secure processor inside the AMD CPU that can't be read from software. For more information, see the [Azure Confidential computing overview](../confidential-computing/overview.md).
+The following operating systems are supported for use as session hosts with confidential virtual machines on Azure Virtual Desktop, for versions that are in active support. For support dates, see [Microsoft Lifecycle Policy](/lifecycle/).
 
-The following operating systems are supported for use as session hosts with confidential VMs on Azure Virtual Desktop:
-
-- Windows 11 Enterprise, version 22H2
-- Windows 11 Enterprise multi-session, version 22H2
+- Windows 11 Enterprise
+- Windows 11 Enterprise multi-session
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
 - Windows Server 2022
 - Windows Server 2019
 
-You can create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
+You can create session hosts using confidential virtual machines when you [deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
 
-### OS disk encryption
+## Operating system disk encryption
 
-Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the Confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
+Encrypting the operating system disk is an extra layer of encryption that binds disk encryption keys to the confidential computing VM's Trusted Platform Module (TPM). This encryption makes the disk content accessible only to the VM. Integrity monitoring allows cryptographic attestation and verification of VM boot integrity and monitoring alerts if the VM didn’t boot because attestation failed with the defined baseline. For more information about integrity monitoring, see [Microsoft Defender for Cloud Integration](../virtual-machines/trusted-launch.md#microsoft-defender-for-cloud-integration). You can enable confidential compute encryption when you create session hosts using confidential VMs when you [create a host pool](create-host-pool.md) or [add session hosts to a host pool](add-session-hosts-host-pool.md).
 
-### Secure Boot
+## Secure Boot
 
 Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed operating systems and drivers to boot. 
 
-### Monitor boot integrity using Remote Attestation
+## Monitor boot integrity using Remote Attestation
 
 Remote attestation is a great way to check the health of your VMs. Remote attestation verifies that Measured Boot records are present, genuine, and originate from the Virtual Trusted Platform Module (vTPM). As a health check, it provides cryptographic certainty that a platform started up correctly. 
 
-### vTPM
+## vTPM
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
@@ -232,15 +232,15 @@ We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enab
 > [!NOTE]
 > BitLocker shouldn't be used to encrypt the specific disk where you're storing your FSLogix profile data.
 
-### Virtualization-based Security
+## Virtualization-based Security
 
 Virtualization-based Security (VBS) uses the hypervisor to create and isolate a secure region of memory that's inaccessible to the OS. Hypervisor-Protected Code Integrity (HVCI) and Windows Defender Credential Guard both use VBS to provide increased protection from vulnerabilities. 
 
-#### Hypervisor-Protected Code Integrity
+### Hypervisor-Protected Code Integrity
 
 HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mode processes against injection and execution of malicious or unverified code.
 
-#### Windows Defender Credential Guard
+### Windows Defender Credential Guard
 
 Enable Windows Defender Credential Guard. Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks. For more information, see [Credential Guard overview](/windows/security/identity-protection/credential-guard/).
 

@@ -3,7 +3,7 @@ title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
 description: Learn how to use Flink/Delta Connector.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/25/2024
 ---
 
 # How to use Flink/Delta Connector
@@ -38,7 +38,6 @@ Connector's version	    Flink's version
 0.7.0	                X >= 1.16.1         --- We use this in Flink 1.17.0
 ```
 
-For more information, see [Flink/Delta Connector](https://github.com/delta-io/connectors/blob/master/flink/README.md).
 
 ## Prerequisites
 
@@ -90,7 +89,6 @@ import org.apache.hadoop.conf.Configuration;
     }
 ```
 
-For other continuous model example, see [Data Source Modes](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
 
 ## Writing to Delta sink
 
@@ -140,7 +138,7 @@ public static DataStream<RowData> createDeltaSink(
         return stream;
     }
 ```
-For other Sink creation example, see [Data Sink Metrics](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
+
 
 ## Full code
 
@@ -316,19 +314,27 @@ public class DeltaSourceExample {
     </build>
 </project>
 ```
+
 ## Package the jar and submit it to Flink cluster to run
 
-### Submit the jar on WebSSH pod
+1. Upload the jar to ABFS.
+    :::image type="content" source="./media/use-flink-delta-connector/app-mode-jar.png" alt-text="Screenshot showing App mode jar files." lightbox="./media/use-flink-delta-connector/app-mode-jar.png":::
 
-:::image type="content" source="./media/use-flink-delta-connector/webssh-pod.png" alt-text="Screenshot showing how to submit the jar on WebSSH pod." lightbox="./media/use-flink-delta-connector/webssh-pod.png":::
+1. Pass the job jar information in AppMode cluster.
 
-### Check Job on Flink UI
+    :::image type="content" source="./media/use-flink-delta-connector/cluster-configuration.png" alt-text="Screenshot showing cluster configuration." lightbox="./media/use-flink-delta-connector/cluster-configuration.png":::
 
-:::image type="content" source="./media/use-flink-delta-connector/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check the job on Flink UI." lightbox="./media/use-flink-delta-connector/check-job-on-flink-ui.png":::
+    > [!NOTE]
+    > Always enable `hadoop.classpath.enable` while reading/writing to ADLS.
 
-### Check the delta output on Azure portal
+1. Submit the cluster, you should be able to see the job in Flink UI.
 
-:::image type="content" source="./media/use-flink-delta-connector/delta-output.png" alt-text="Screenshot showing the delta output." lightbox="./media/use-flink-delta-connector/delta-output.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/flink-dashboard.png" alt-text="Screenshot showing Flink dashboard." lightbox="./media/use-flink-delta-connector/flink-dashboard.png":::
+
+1. Find Results in ADLS.
+
+    :::image type="content" source="./media/use-flink-delta-connector/output.png" alt-text="Screenshot showing the output." lightbox="./media/use-flink-delta-connector/output.png":::
+
 
 ## Power BI integration
 
@@ -345,14 +351,12 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
     :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot shows ADLS Gen2-details.":::
 
-1. Create M-query for the source and invoke the function, which queries the data from storage account. Refer [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
+2. Create M-query for the source and invoke the function, which queries the data from storage account.
 
-1. Once the data is readily available, you can create reports.
+3. Once the data is readily available, you can create reports.
 
     :::image type="content" source="./media/use-flink-delta-connector/create-reports.png" alt-text="Screenshot shows how to create reports.":::
 
 ## References
 
-* [Delta connectors](https://github.com/delta-io/connectors/tree/master/flink).
-* [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
 * Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

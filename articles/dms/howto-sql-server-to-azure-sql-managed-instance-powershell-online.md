@@ -25,7 +25,7 @@ In this article, you learn how to:
 > * Create a migration project in an instance of Azure Database Migration Service.
 > * Run the migration online.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article provides steps for an online migration, but it's also possible to migrate [offline](howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md).
 
@@ -48,7 +48,7 @@ To complete these steps, you need:
 * To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
     > [!IMPORTANT]
-    > For online migrations, you must already have set up your Microsoft Entra credentials. For more information, see the article [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    > For online migrations, you must already have set up your Microsoft Entra credentials. For more information, see the article [Use the portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal).
 
 ## Create a resource group
 

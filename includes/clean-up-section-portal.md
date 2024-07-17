@@ -8,4 +8,4 @@ ms.subservice: web-apps
 ---
 ## Clean up resources
 
-[!INCLUDE [Clean up resources](clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean up resources](./clean-up-section-portal-no-h.md)]

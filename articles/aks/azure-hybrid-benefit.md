@@ -30,7 +30,15 @@ PASSWORD='tempPassword1234$'
 RG_NAME='myResourceGroup'
 CLUSTER='myAKSCluster'
 
-az aks create --resource-group $RG_NAME --name $CLUSTER --load-balancer-sku Standard --network-plugin azure --windows-admin-username azure --windows-admin-password $PASSWORD --enable-ahub
+az aks create \
+    --resource-group $RG_NAME \
+    --name $CLUSTER \
+    --load-balancer-sku Standard \
+    --network-plugin azure \
+    --windows-admin-username azure \
+    --windows-admin-password $PASSWORD \
+    --enable-ahub \
+    --generate-ssh-keys
 ```
 
 To enable Azure Hybrid Benefit on an existing AKS cluster:

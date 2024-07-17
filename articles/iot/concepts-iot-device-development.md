@@ -4,7 +4,7 @@ description: Learn how to use Azure IoT services, SDKs, and tools to do device d
 author: timlt
 ms.author: timlt
 ms.service: iot
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/09/2024
 
 #Customer intent: As a device builder, I want to understand the options for device development using Azure IoT. 
@@ -43,7 +43,7 @@ Embedded development targets constrained devices that have limited memory and pr
 
 Embedded devices typically use a real-time operating system (RTOS), or no operating system at all. Embedded devices have full control over their hardware, due to the lack of a general purpose operating system. That fact makes embedded devices a good choice for real-time systems.
 
-The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Azure RTOS support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a non-memory allocating design.
+The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Eclipse ThreadX support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a non-memory allocating design.
 
 > [!IMPORTANT]
 > For information on SDKs to use with embedded device development, see the [Embedded device SDKs](iot-sdks.md#embedded-device-sdks).

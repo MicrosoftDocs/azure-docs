@@ -3,17 +3,20 @@ title: Reference table for all security alerts
 description: This article lists the security alerts visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 03/17/2024
+ms.date: 06/03/2024
 ai-usage: ai-assisted
 ---
 
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you enabled. The alerts shown in your environment depend on the resources and services you're protecting, and your customized configuration.
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you enabled. The alerts shown in your environment depend on the resources and services you're protecting, and your customized configuration.  
+
+> [!NOTE]
+> Some of the recently added alerts powered by Microsoft Defender Threat Intelligence and Microsoft Defender for Endpoint might be undocumented.
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
 
-[Learn how to respond to these alerts](managing-and-responding-alerts.md).
+[Learn how to respond to these alerts](managing-and-responding-alerts.yml).
 
 [Learn how to export alerts](continuous-export.md).
 
@@ -832,6 +835,16 @@ While this action might be legitimate, attackers can try utilizing VM Access ext
 **[MITRE tactics](#mitre-attck-tactics)**: Impact
 
 **Severity**: Low
+
+### **AzureHound tool invocation detected**
+
+(ARM_AzureHound)
+
+**Description**: AzureHound was run in your subscription and performed information gathering operations to enumerate resources. Threat actors use automated tools, like AzureHound, to enumerate resources and use them to access sensitive data or perform lateral movement. This was detected by analyzing Azure Resource Manager operations in your subscription. This operation might indicate that an identity in your organization was breached, and that the threat actor is trying to compromise your environment.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Discovery
+
+**Severity**: Medium
 
 ## Alerts for Linux machines
 
@@ -2685,7 +2698,7 @@ Synapse.SQLPool_VulnerabilityToSqlInjection)
 
 **Severity**: Medium
 
-### **Attempted logon by a potentially harmful application**
+### **Logon activity from a potentially harmful application**
 
 (SQL.DB_HarmfulApplication
 SQL.VM_HarmfulApplication
@@ -2837,7 +2850,7 @@ Synapse.SQLPool_ShellExternalSourceAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Execution
 
-**Severity**: High
+**Severity**: High/Medium
 
 ### **Unusual payload with obfuscated parts has been initiated by SQL Server**
 
@@ -2847,7 +2860,7 @@ Synapse.SQLPool_ShellExternalSourceAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Execution
 
-**Severity**: High
+**Severity**: High/Medium
 
 ## Alerts for open-source relational databases
 
@@ -2863,7 +2876,7 @@ SQL.MySQL_BruteForce)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: Medium
 
 ### **Suspected successful brute force attack**
 
@@ -2887,7 +2900,7 @@ SQL.MariaDB_BruteForce)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: Medium
 
 ### **Attempted logon by a potentially harmful application**
 
@@ -2899,7 +2912,7 @@ SQL.MySQL_HarmfulApplication)
 
 **[MITRE tactics](#mitre-attck-tactics)**: PreAttack
 
-**Severity**: High
+**Severity**: High/Medium
 
 ### **Login from a principal user not seen in 60 days**
 
@@ -2911,7 +2924,7 @@ SQL.MySQL_PrincipalAnomaly)
 
 **[MITRE tactics](#mitre-attck-tactics)**: Exploitation
 
-**Severity**: Medium
+**Severity**: Low
 
 ### **Login from a domain not seen in 60 days**
 
@@ -4367,6 +4380,48 @@ Applies to: Azure Blob (Standard general-purpose v2, Azure Data Lake Storage Gen
 
 **Severity**: Medium
 
+## Alerts for AI workloads
+
+### Detected credential theft attempts on an Azure OpenAI model deployment
+
+(AI.Azure_CredentialTheftAttempt)
+
+**Description**: The credential theft alert is designed to notify the SOC when credentials are detected within GenAI model responses to a user prompt, indicating a potential breach. This alert is crucial for detecting cases of credential leak or theft, which are unique to generative AI and can have severe consequences if successful.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Credential Access, Lateral Movement, Exfiltration 
+
+**Severity**: Medium
+
+### A Jailbreak attempt on an Azure OpenAI model deployment was blocked by Azure AI Content Safety Prompt Shields
+
+(AI.Azure_Jailbreak.ContentFiltering.BlockedAttempt)
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were blocked by Azure Responsible AI Content Safety (AKA Prompt Shields), ensuring the integrity of the AI resources and the data security.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion 
+
+**Severity**: Medium
+
+### A Jailbreak attempt on an Azure OpenAI model deployment was detected by Azure AI Content Safety Prompt Shields
+
+(AI.Azure_Jailbreak.ContentFiltering.DetectedAttempt)
+
+**Description**: The Jailbreak alert, carried out using a direct prompt injection technique, is designed to notify the SOC there was an attempt to manipulate the system prompt to bypass the generative AI’s safeguards, potentially accessing sensitive data or privileged functions. It indicated that such attempts were detected by Azure Responsible AI Content Safety (AKA Prompt Shields), but were not blocked due to content filtering settings or due to low confidence.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Privilege Escalation, Defense Evasion
+
+**Severity**: Medium
+
+### Sensitive Data Exposure Detected in Azure OpenAI Model Deployment
+
+(AI.Azure_DataLeakInModelResponse.Sensitive)
+
+**Description**: The sensitive data leakage alert is designed to notify the SOC that a GenAI model responded to a user prompt with sensitive information, potentially due to a malicious user attempting to bypass the generative AI’s safeguards to access unauthorized sensitive data.
+
+**[MITRE tactics](#mitre-attck-tactics)**: Collection
+
+**Severity**: Medium
+
 ## Deprecated Defender for Containers alerts
 
 The following lists include the Defender for Containers security alerts which were deprecated.
@@ -5258,5 +5313,5 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 ## Next steps
 
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml)
 - [Continuously export Defender for Cloud data](continuous-export.md)

@@ -4,7 +4,7 @@ description: Spark Advisor is a system to automatically analyze commands/queries
  
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

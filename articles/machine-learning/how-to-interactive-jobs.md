@@ -3,9 +3,9 @@ title: Interact with your jobs (debug and monitor)
 titleSuffix: Azure Machine Learning
 description: Debug or monitor your Machine Learning job as it runs on Azure Machine Learning compute with your training application of choice.
 services: machine-learning
-ms.author: joburges
-author: joburges
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: joburges
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -154,7 +154,7 @@ By specifying interactive applications at job creation, you can connect directly
    > [!NOTE]
    > If you use `sleep infinity`, you will need to manually [cancel the job](./how-to-interactive-jobs.md#end-job) to let go of the compute resource (and stop billing). 
 
-2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id> `to submit your training job. For more details on running a job via CLI, check out this [article](./how-to-train-model.md). 
+2. Run command `az ml job create --file <path to your job yaml file> --workspace-name <your workspace name> --resource-group <your resource group name> --subscription <sub-id>` to submit your training job. For more details on running a job via CLI, check out this [article](./how-to-train-model.md). 
 
 ---
 ### Connect to endpoints
@@ -238,6 +238,9 @@ When you select on the endpoints to interact when your job, you're taken to the 
 
 - You can also interact with the job container within VS Code. To attach a debugger to a job during job submission and pause execution, [navigate here](./how-to-interactive-jobs.md#attach-a-debugger-to-a-job).
 
+  > [!NOTE]
+  > Private link-enabled workspaces are not currently supported when interacting with the job container with VS Code.
+
   :::image type="content" source="./media/interactive-jobs/vs-code-open.png" alt-text="Screenshot of interactive jobs VS Code panel when first opened. This shows the sample python file that was created to print two lines.":::
 
 - If you have logged tensorflow events for your job, you can use TensorBoard to monitor the metrics when your job is running.
@@ -251,6 +254,9 @@ Once you're done with the interactive training, you can also go to the job detai
 
 ## Attach a debugger to a job
 To submit a job with a debugger attached and the execution paused, you can use debugpy, and VS Code (`debugpy` must be installed in your job environment). 
+
+> [!NOTE]
+> Private link-enabled workspaces are not currently supported when attaching a debugger to a job in VS Code.
 
 1. During job submission (either through the UI, the CLI or the SDK) use the debugpy command to run your python script. For example, the below screenshot shows a sample command that uses debugpy to attach the debugger for a tensorflow script (`tfevents.py` can be replaced with the name of your training script).
    

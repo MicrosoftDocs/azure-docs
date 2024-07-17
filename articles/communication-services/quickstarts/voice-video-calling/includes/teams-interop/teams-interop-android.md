@@ -17,6 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- The Minimum Version supported for Teams meeting ID and passcode join API: 2.9.0
 - An [access token](../../../identity/access-tokens.md).
 
 
@@ -32,19 +33,46 @@ Replace code in activity_main.xml with following snippet. The text box will be u
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    
+    <LinearLayout    
+    android:id="@+id/meetingInfoLinearLayout"    
+    android:layout_width="match_parent"    
+    android:layout_height="match_parent"    
+    android:orientation="vertical"    
+    android:layout_marginTop="100dp">
 
-    <EditText
-        android:id="@+id/teams_meeting_link"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Teams meeting link"
-        android:inputType="textUri"
-        android:layout_marginTop="100dp"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText    
+            android:id="@+id/teams_meeting_link"    
+            android:layout_width="match_parent"    
+            android:layout_height="wrap_content"    
+            android:ems="10"    
+            android:hint="Teams meeting link"    
+            android:inputType="textUri" />
+            
+        <TextView    
+            android:layout_width="match_parent"    
+            android:layout_height="wrap_content"    
+            android:text="or"    
+            android:textAlignment="center"    
+            android:layout_marginTop="10dp"/>
+            
+        <EditText    
+            android:id="@+id/teams_meeting_id"    
+            android:layout_width="match_parent"    
+            android:layout_height="wrap_content"    
+            android:ems="10"    
+            android:hint="Teams meeting id"    
+            android:inputType="textUri" />
+        
+        <EditText    
+            android:id="@+id/teams_meeting_passcode"    
+            android:layout_width="match_parent"    
+            android:layout_height="wrap_content"    
+            android:ems="10"    
+            android:hint="Teams meeting passcode"    
+            android:inputType="textUri" />
+        
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -120,6 +148,8 @@ import com.azure.android.communication.calling.HangUpOptions;
 import com.azure.android.communication.calling.JoinCallOptions;
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.calling.TeamsMeetingLinkLocator;
+// import for meeting id and passcode join
+// import com.azure.android.communication.calling.TeamsMeetingIdLocator;
 
 public class MainActivity extends AppCompatActivity {
     private static final String[] allPermissions = new String[] { Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE };
@@ -159,17 +189,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         EditText calleeIdView = findViewById(R.id.teams_meeting_link);
+        EditText calleeMeetingId = findViewById(R.id.teams_meeting_id);
+        EditText calleeMeetingPasscode = findViewById(R.id.teams_meeting_passcode);
         String meetingLink = calleeIdView.getText().toString();
+        String meetingId = calleeMeetingId.getText().toString();
+        String passcode = calleeMeetingPasscode.getText().toString();
+
         if (meetingLink.isEmpty()) {
             Toast.makeText(this, "Please enter Teams meeting link", Toast.LENGTH_SHORT).show();
             return;
         }
 
         JoinCallOptions options = new JoinCallOptions();
-        TeamsMeetingLinkLocator teamsMeetingLinkLocator = new TeamsMeetingLinkLocator(meetingLink);
+
+        // join with meeting link
+        TeamsMeetingLinkLocator teamsMeetingLocator = new TeamsMeetingLinkLocator(meetingLink);
+
+        // (or) to join with meetingId and passcode use the below code snippet.
+        //TeamsMeetingIdLocator teamsMeetingIdLocator = new TeamsMeetingIdLocator(meetingId, passcode);
+
         call = agent.join(
                 getApplicationContext(),
-                teamsMeetingLinkLocator,
+                teamsMeetingLocator,
                 options);
         call.addOnStateChangedListener(p -> setCallStatus(call.getState().toString()));
         call.addOnIsRecordingActiveChangedListener(p -> setRecordingStatus(call.isRecordingActive()));
@@ -254,6 +295,11 @@ public class MainActivity extends AppCompatActivity {
 
 The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+## Get the Teams meeting ID and passcode
+* Graph API: Use Graph API to retrieve information about onlineMeeting resource and check the object in property joinMeetingIdSettings.
+* Teams: In your Teams application, go to Calendar app and open details of a meeting. Online meetings have meeting ID and passcode in the definition of the meeting.
+* Outlook: You can find the meeting ID & passcode in calendar events or in email meeting invites.
 
 ## Launch the app and join Teams meeting
 

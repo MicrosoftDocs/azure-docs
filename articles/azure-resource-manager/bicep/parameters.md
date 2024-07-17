@@ -77,7 +77,15 @@ param location string = resourceGroup().location
 
 You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+
+output siteNameOutput string = siteName
+output hostingPlanOutput string = hostingPlanName
+```
+
+However, you can't reference a [variable](./variables.md) as the default value.
 
 ## Decorators
 
@@ -233,7 +241,54 @@ It can be easier to organize related values by passing them in as an object. Thi
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
+
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Next steps
 
