@@ -214,16 +214,6 @@ additionalContent:
             - url: /training/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
 
-        - title: Azure Information Protection
-          summary: Control and secure emails, documents, and sensitive data
-          links: 
-            - url: /azure/information-protection/what-is-information-protection
-              text: Overview
-            - url: /azure/information-protection/quickstart-deploy-aclient
-              text: Deploying the client 
-            - url: /azure/information-protection/tutorial-scan-networks-and-content
-              text: Discovering your sensitive content
-
         - title: Microsoft Entra ID
           summary: Multitenant, cloud-based identity, and access management service
           links: 
