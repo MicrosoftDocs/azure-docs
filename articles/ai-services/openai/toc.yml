@@ -218,7 +218,7 @@ items:
       href: /legal/cognitive-services/openai/overview?context=/azure/ai-services/openai/context/context
     - name : Transparency note
       href: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
-    - name: Limited access to Azure OpenAI capabilities
+    - name: Limited access
       href: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
     - name: Code of conduct
       href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context

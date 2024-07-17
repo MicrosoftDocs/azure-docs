@@ -33,6 +33,9 @@ Azure OpenAI Service provides REST API access to OpenAI's powerful language mode
 
 At Microsoft, we're committed to the advancement of AI driven by principles that put people first. Generative models such as the ones available in Azure OpenAI have significant potential benefits, but without careful design and thoughtful mitigations, such models have the potential to generate incorrect or even harmful content. Microsoft has made significant investments to help guard against abuse and unintended harm, which includes requiring applicants to show well-defined use cases, incorporating Microsoft’s <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">principles for responsible AI use</a>, building content filters to support customers, and providing responsible AI implementation guidance to onboarded customers.
 
+## How do I get access to Azure OpenAI?
+
+Currently there is no requirement to access Azure OpenAI Service. 
 
 ## Comparing Azure OpenAI and OpenAI
 

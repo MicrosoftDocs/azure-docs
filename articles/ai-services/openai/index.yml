@@ -126,7 +126,7 @@ landingContent:
         links:
         - text: Transparency note
           url: /legal/cognitive-services/openai/transparency-note?context=/azure/ai-services/openai/context/context
-        - text: Limited access to Azure OpenAI capabilities
+        - text: Limited access
           url: /legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context
         - text: Code of conduct
           url: /legal/cognitive-services/openai/code-of-conduct?context=/azure/ai-services/openai/context/context
