@@ -11,10 +11,10 @@ ms.topic: Include file
 ms.author: alvinhan
 ---
 
-## Prerequisites 
+## Prerequisites - C#
 - An Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- A new web service application created using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
+- An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
+- A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - A websocket server that can receive media streams.
 
