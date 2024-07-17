@@ -50,8 +50,8 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
    **Key point**: The rule applies to all claims with a certain claim name. The connection count aggregation is on the same claim (including claim name and claim value). The *ThrottleByUserIdRule* is a special case of this rule, applying to all connections with the userIdentity claim.
    
 
->    #### Avoid using too aggressive maxCount
->    Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
+> [!WARNING]
+> * **Avoid using too aggressive maxCount**. Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
 
 
 
