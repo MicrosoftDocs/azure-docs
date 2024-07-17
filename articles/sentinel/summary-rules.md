@@ -325,17 +325,11 @@ This procedure describes a sample process for using summary rules with auxiliary
 
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
-
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
-
           Custom_CommonSecurityLog 
-
           | where TimeGenerated > ago(1d) 
-
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
-
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
-
           by Day,DestinationIp, DeviceVendor 
         ```
 
@@ -343,25 +337,15 @@ This procedure describes a sample process for using summary rules with auxiliary
 
         ```kusto
         // Time series data for Firewall traffic logs 
-
         let starttime = 14d; 
-
         let endtime = 1d; 
-
         let timeframe = 1h; 
-
         let TimeSeriesData =  
-
         Custom_CommonSecurityLog 
-
           | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) 
-
           | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
-
           | where ipv4_is_private(DestinationIP) == false 
-
           | project TimeGenerated, SentBytes, DeviceVendor 
-
           | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
         ```
 
