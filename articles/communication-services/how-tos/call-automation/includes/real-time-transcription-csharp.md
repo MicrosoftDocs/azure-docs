@@ -27,7 +27,7 @@ CreateCallResult createCallResult = await callAutomationClient.CreateCallAsync(c
 Once you're ready to start the transcription you can make an explicit call to Call Automation to start transcribing the call.
 
 ```csharp
-/ Start transcription with options
+// Start transcription with options
 StartTranscriptionOptions options = new StartTranscriptionOptions()
 {
     OperationContext = "startMediaStreamingContext",
