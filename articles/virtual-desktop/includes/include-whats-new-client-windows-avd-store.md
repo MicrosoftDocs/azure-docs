@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 07/10/2024 
+ms.date: 07/17/2024 
 ---
 
 ## Supported client versions
@@ -11,8 +11,20 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5552 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Public | 1.2.5559 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
 | Insider | 1.2.5552 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+
+## Updates for version 1.2.5559
+
+*Date published: July 17, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5550, but we made this change and re-released it as 1.2.5559. This version contains all of the changes made in 1.2.5550 and 1.2.5552.  
+
 
 ## Updates for version 1.2.5552
 
