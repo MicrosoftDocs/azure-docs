@@ -459,7 +459,17 @@ metric_relabel_configs:
 
 ---
 
-
+### Note
+> [!NOTE]
+> 
+> If you wish to add labels to all the jobs in your custom configuration, explicitly add labels using metrics_relabel_config for each job. Global external labels are not supported via configmap based prometheus configuration.
+> ```yaml
+> relabel_configs:
+> - source_labels: [__address__]
+>   target_label: example_label
+>   replacement: 'example_value'
+> ```
+>
 
 ### Basic Authentication
 ### [Scrape Configs using Config file](#tab/ConfigFileScrapeConfigBasicAuth)
