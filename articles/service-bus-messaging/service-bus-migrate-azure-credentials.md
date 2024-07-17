@@ -131,7 +131,7 @@ Next, update your code to use passwordless connections.
 1. Identify the code that creates a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
-    var serviceBusNamespace = $"https://{namespace}.servicebus.windows.net";
+    var serviceBusNamespace = $"{namespace}.servicebus.windows.net";
     ServiceBusClient client = new(
         serviceBusNamespace,
         new DefaultAzureCredential());
@@ -163,7 +163,7 @@ Next, update your code to use passwordless connections.
     }
 
     serviceBusNamespace := fmt.Sprintf(
-        "https://%s.servicebus.windows.net",
+        "%s.servicebus.windows.net",
         namespace)
     client, err := azservicebus.NewClient(serviceBusNamespace, credential, nil)
 
@@ -202,7 +202,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ConnectionFactory factory = new ServiceBusJmsConnectionFactory(
             credential,
@@ -218,7 +218,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
@@ -234,7 +234,7 @@ Next, update your code to use passwordless connections.
         DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
             .build();
         String serviceBusNamespace = 
-            "https://" + namespace + ".servicebus.windows.net";
+            namespace + ".servicebus.windows.net";
     
         ServiceBusSenderClient client = new ServiceBusClientBuilder()
             .credential(serviceBusNamespace, credential)
@@ -261,7 +261,7 @@ Next, update your code to use passwordless connections.
 
     ```nodejs
     const credential = new DefaultAzureCredential();
-    const serviceBusNamespace = `https://${namespace}.servicebus.windows.net`;    
+    const serviceBusNamespace = `${namespace}.servicebus.windows.net`;    
 
     const client = new ServiceBusClient(
       serviceBusNamespace,
@@ -287,7 +287,7 @@ Next, update your code to use passwordless connections.
 
     ```python
     credential = DefaultAzureCredential()
-    service_bus_namespace = "https://%s.servicebus.windows.net" % namespace
+    service_bus_namespace = "%s.servicebus.windows.net" % namespace
 
     client = ServiceBusClient(
         fully_qualified_namespace = service_bus_namespace,
