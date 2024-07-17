@@ -5,8 +5,6 @@
     href: about-nc2-on-azure.md
   - name: Use cases and supported scenarios
     href: use-cases-and-supported-scenarios.md  
-  - name: Solution design
-    href: solution-design.md
   - name: Architecture
     href: architecture.md  
   - name: Requirements
@@ -21,7 +19,4 @@
     href: faq.md
 - name: Getting started
   href: get-started.md
-
-
-
-  
+ 

@@ -1,16 +1,16 @@
 ---
-title: Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
+title: Install the Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 description: Install and configure Dapr on your Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes clusters using the Dapr cluster extension.
 author: greenie-msft
 ms.author: nigreenf
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 07/16/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli, references_regions
 ---
 
-# Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
+# Install the Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](./dapr-overview.md) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With Dapr's sidecar architecture, you can keep your code platform agnostic while tackling challenges around building microservices, like:
 - Calling other services reliably and securely
@@ -342,9 +342,8 @@ Or simply remove the Bicep template.
 
 ## Next Steps
 
-- Learn more about [extra settings and preferences you can set on the Dapr extension][dapr-settings].
-- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
-- Try out [Dapr Workflow on your Dapr extension for AKS][dapr-workflow]
+> [!div class="nextstepaction"]
+> [Configure the Dapr extension for your unique scenario][dapr-settings]
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
