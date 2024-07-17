@@ -1,5 +1,5 @@
 ---
-title: Manage access with Azure RBAC
+title: Manage access to the Deidentification service with Azure role-based access control (RBAC)
 description: Learn how to manage access to the Deidentification service using Azure role-based access control.
 author: jovinson-ms
 ms.author: jovinson
@@ -36,12 +36,14 @@ The Deidentification service has the following built-in roles available:
 
 ## Assign a built-in role
 
-### [Portal](#tab/azure-portal)
+You can use different tools to assign built-in roles.
+
+# [Azure portal](#tab/azure-portal)
 
 To use the Deidentification service, with Microsoft Entra ID credentials, a security principal must be assigned one of the built-in roles. To learn how to assign these roles to a security
-principal, follow the instruction provided in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+principal, follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To assign an Azure role to a security principal with PowerShell, call the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
 
@@ -52,6 +54,7 @@ The scope for a Deidentification service is in the form `/subscriptions/<Subscri
 
 The example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific Deidentification service. Make sure to replace the placeholder values 
 in angle brackets `<>` with your own values:
+
 ```azurepowershell
 New-AzRoleAssignment 
 	-SignInName <Email> `
@@ -60,7 +63,10 @@ New-AzRoleAssignment
 ```
 
 A successful response should look like:
-```console
+
+```
+
+console
 RoleAssignmentId   : /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>
 Scope              : /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>
 DisplayName        : Mark Patrick
@@ -70,11 +76,12 @@ RoleDefinitionId   : <Role Definition ID>
 ObjectId           : <Object ID>
 ObjectType         : User
 CanDelegate        : False
+
 ```
 
 For more information, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLIl](#tab/azure-pcli)
 
 To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment) command. In order to run the command, you must have a role that includes
 **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
@@ -85,7 +92,10 @@ The scope for a Deidentification service is in the form `/subscriptions/<Subscri
 
 The following example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific Deidentification service. Make sure to replace the placeholder values 
 in angle brackets `<>` with your own values:
-```azurecli
+
+```
+
+azurecli
 az role assignment create \
 	--assignee <Email> \
 	--role "DeID Data Owner" \
@@ -94,7 +104,7 @@ az role assignment create \
 
 For more information, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-cli).
 
-### [ARM template](#tab/azure-resource-manager)
+# [ARM template](#tab/azure-resource-manager)
 
 To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template).
 ___
@@ -105,6 +115,8 @@ Keep in mind the following points about Azure role assignments with the Deidenti
 - It takes up to 10 minutes for changes role assignments to take effect.
 - When the Deidentification service is locked with an [Azure Resource Manager read-only lock](/azure/azure-resource-manager/management/lock-resources), the lock prevents the assignment of Azure roles that are scoped to the Deidentification service.
 - Azure deny assignments might block your access even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
+
+---
 
 ## Related content
 
