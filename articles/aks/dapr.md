@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, references_regions
 [Dapr](./dapr-overview.md) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With Dapr's sidecar architecture, you can keep your code platform agnostic while tackling challenges around building microservices, like:
 - Calling other services reliably and securely
 - Building event-driven apps with pub/sub
-- Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
+- Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a virtual machine)
 
 > [!NOTE]
 > If you plan on installing Dapr in a Kubernetes production environment, see the [Dapr guidelines for production usage][kubernetes-production] documentation page.
@@ -39,9 +39,9 @@ Once Dapr is installed on your cluster, you can begin to develop using the Dapr 
 ## Prerequisites 
 
 - An Azure subscription. [Don't have one? Create a free account.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Install the latest version of the [Azure CLI][install-cli].
+- The latest version of the [Azure CLI][install-cli].
 - An existing [AKS cluster][deploy-cluster] or connected [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
-- [An Azure Kubernetes Service RBAC Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
+- [An Azure Kubernetes Service Role-Based Access Control Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-rbac-admin) 
 
 Select how you'd like to install, deploy, and configure the Dapr extension.
 
@@ -64,7 +64,7 @@ az extension update --name k8s-extension
 
 ### Register the `KubernetesConfiguration` resource provider
 
-If you haven't previously used cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+If you aren't already using cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
@@ -137,7 +137,7 @@ When configuring the extension, you can choose to install Dapr from a particular
 | Value    | Description                               |
 | -------- | ----------------------------------------- |
 | `stable` | Default.                                  |
-| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
+| `dev`    | Early releases that can contain experimental features. Not suitable for production. |
 
 For example:
 
@@ -168,7 +168,7 @@ To upgrade to the latest Dapr version in a production environment, you need to m
 az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
 ```
 
-To see the latest stable Dapr version available to your managed AKS cluster, run the following:
+To see the latest stable Dapr version available to your managed AKS cluster, run the following command:
 
 ```azurecli
 az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
@@ -206,7 +206,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 ### Register the `KubernetesConfiguration` resource provider
 
-If you haven't previously used cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
+If you aren't already using cluster extensions, you may need to register the resource provider with your subscription. You can check the status of the provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.KubernetesConfiguration')]" -o table
@@ -248,7 +248,7 @@ az feature show --namespace Microsoft.KubernetesConfiguration --name ExtensionTy
 
 ## Deploy the Dapr extension on your AKS or Arc-enabled Kubernetes cluster
 
-Create a Bicep template similar to the following example to deploy the Dapr extension to your existing cluster. 
+Create a Bicep template similar to the following example and deploy the Dapr extension to your existing cluster. 
 
 ```bicep
 @description('The name of the Managed Cluster resource.')
@@ -282,7 +282,7 @@ resource daprExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01'
 }
 ```
 
-Set the following variables, changing the values below to your actual resource group and cluster names.
+Set the following variables, changing the following values to your actual resource group and cluster names.
 
 ```azurecli-interactive
 MY_RESOURCE_GROUP=myResourceGroup
@@ -338,7 +338,7 @@ When configuring the extension, you can choose to install Dapr from a particular
 | Value    | Description                               |
 | -------- | ----------------------------------------- |
 | `stable` | Default.                                  |
-| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
+| `dev`    | Early releases that can contain experimental features. Not suitable for production. |
 
 For example:
 
@@ -366,7 +366,7 @@ If you need to delete the extension and remove Dapr from your AKS cluster, you c
 az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name dapr
 ```
 
-Or simply remove the Bicep template.
+Or you can remove the Bicep template.
 
 ## Next Steps
 
