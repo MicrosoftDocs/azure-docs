@@ -9,11 +9,11 @@ ms.collection:
 
 # Zero trust and Defender for Cloud
 
-This article provides strategy and instructions for integrating zero trust infrastructure solutions with [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). The guidance includes integrations with other solutions, including  security information and event maagement (SIEM), security orchestration automated response (SOAR), endpoint detection and response (EDR), and IT service management (ITSM) solutions.
+This article provides strategy and instructions for integrating zero trust infrastructure solutions with [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). The guidance includes integrations with other solutions, including  security information and event management (SIEM), security orchestration automated response (SOAR), endpoint detection and response (EDR), and IT service management (ITSM) solutions.
 
 Infrastructure comprises the hardware, software, micro-services, networking infrastructure, and facilities required to support IT services for an organization. Whether on-premises or multicloud, infrastructure represents a critical threat vector.
 
-Zero Trust infrastructure solutions assess, monitor, and prevent security threats to your infrastructure.Solutions support the principles of zero trust by ensuring that access to infrastructure resources is verified explicitly, and granted using principles of least privilege access. Mechanisms assume breach, and look for and remediate security threats in infrastructure.
+Zero Trust infrastructure solutions assess, monitor, and prevent security threats to your infrastructure. Solutions support the principles of zero trust by ensuring that access to infrastructure resources is verified explicitly, and granted using principles of least privilege access. Mechanisms assume breach, and look for and remediate security threats in infrastructure.
 
 ## What is zero trust?
 
@@ -23,7 +23,7 @@ Zero Trust infrastructure solutions assess, monitor, and prevent security threat
 
 ## Zero Trust and Defender for Cloud
 
-[Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/infrastructure) provides key stages of the Zero Trust strategy for infrastructure. Which are:
+[Zero Trust infrastructure deployment guidance](/security/zero-trust/deploy/infrastructure) provides key stages of zero trust infrastructure strategy:
 
 1. [Assess compliance](update-regulatory-compliance-packages.yml) with chosen standards and policies.
 1. [Harden configuration](recommendations-reference.md) wherever gaps are found.
@@ -38,7 +38,7 @@ Here's how these stages map to Defender for Cloud.
 |Assess compliance | In Defender for Cloud, every subscription automatically has the [Microsoft cloud security benchmark (MCSB) security initiative assigned](security-policy-concept.md).<br>Using the [secure score tools](secure-score-security-controls.md) and the [regulatory compliance dashboard](update-regulatory-compliance-packages.yml) you can get a deep understanding of security posture. |
 | Harden configuration | Infrastructure and environment settings are assessed against compliance standard, and recommendations are issued based on those assessments. You can [review and remediate security recommendations](review-security-recommendations.md) and [track secure score improvements] (secure-score-access-and-track.md) over time. You can prioritize which recommendations to remediate based on potential [attack paths](how-to-manage-attack-path.md). |
 |Employ hardening mechanisms | Least privilege access is a zero trust principle. Defender for Cloud can help you to harden VMs and network settings using this principle with features such as:<br>[Just-in-time (JIT) VM access](just-in-time-access-overview.md), [adaptive network hardening](adaptive-network-hardening.md), and [adaptive application controls](adaptive-application-controls.md). |
-|Set up threat protection  | Defender for Cloud is an cloud workload protection platform (CWPP), providing advanced, intelligent protection of Azure and hybrid resources and workloads. [Learn more](defender-for-cloud-introduction.md). |
+|Set up threat protection  | Defender for Cloud is a cloud workload protection platform (CWPP), providing advanced, intelligent protection of Azure and hybrid resources and workloads. [Learn more](defender-for-cloud-introduction.md). |
 |Automatically block risky behavior | Many of the hardening recommendations in Defender for Cloud offer a *deny* option, to prevent the creation of resources that don't satisfy defined hardening criteria. [Learn more](./prevent-misconfigurations.md).  |
 |Automatically flag suspicious behavior | Defenders for Cloud security alerts are triggered by threat detections. Defender for Cloud prioritizes and lists alerts, with information to help you investigate. It also provides detailed steps to help you remediate attacks. Review a [full list of security alerts](alerts-reference.md).|
 
@@ -66,7 +66,7 @@ This is great way to define and respond in an automated, consistent manner when 
 
 ## Integrate with SIEM, SOAR, and ITSM solutions
 
-Defender for Cloud can stream your security alerts into the most popular SIEM, SOAR, and ITSM solutions. There are Azure-native tools to ensure you can view your alert data in all of the most popular solutions in use today, that include:
+Defender for Cloud can stream your security alerts into the most popular SIEM, SOAR, and ITSM solutions. There are Azure-native tools to ensure you can view your alert data in all of the most popular solutions in use today, including:
 
 - Microsoft Sentinel
 - Splunk Enterprise and Splunk Cloud
@@ -115,7 +115,7 @@ You can use this API to stream alerts from the entire tenant, and data from many
 Use Defender for Cloud's [continuous export](continuous-export.md) feature to connect to Azure monitor via Azure Event Hubs, and stream alerts into **ArcSight**, **SumoLogic**, Syslog servers, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions.
 
 - This can also be done at the Management Group level using Azure Policy. Learn about [creating continuous export automation configurations at scale](continuous-export.md).
-- To view the event schemas of the exported data types, review the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
+- To view the event schemas of the exported data types, review the [Event Hubs event schemas](https://aka.ms/ASCAutomationSchemas).
 
 Learn more about [streaming alerts to monitoring solutions](export-to-siem.md).
 

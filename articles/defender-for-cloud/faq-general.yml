@@ -359,7 +359,7 @@ sections:
 
           :::image type="content" source="media/faq-general/change-region.png" alt-text="Screenshot that shows a change in region.":::
         
-          When configuring permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
+          When you configure permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
           
           :::image type="content" source="media/faq-general/permission-types.png" alt-text="Screenshot that shows selecting permission types.":::
 
