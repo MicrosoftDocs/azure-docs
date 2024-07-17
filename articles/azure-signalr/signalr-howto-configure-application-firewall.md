@@ -31,8 +31,6 @@ This guideline is divided into three parts:
 ## Client Connection Count Rules
 Client Connection Count Rules restrict concurrent client connections. When a client attempts to establish a new connection, the rules are checked **sequentially**. If any rule is violated, the connection is rejected with a status code 429.
 
-### Rule introduction
-
    #### ThrottleByUserIdRule
    This rule limits the concurrent connections of a user. For example, if a user opens multiple browser tabs or logs in using different devices, you can use this rule to restrict the number of concurrent connections for that user.
 
@@ -52,11 +50,8 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
    **Key point**: The rule applies to all claims with a certain claim name. The connection count aggregation is on the same claim (including claim name and claim value). The *ThrottleByUserIdRule* is a special case of this rule, applying to all connections with the userIdentity claim.
    
 
-
- ### Best Practice
-  #### Avoid using too aggressive maxCount
-
-  Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
+>    ### Avoid using too aggressive maxCount
+>    Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
 
 
 
