@@ -20,16 +20,16 @@ To provide resiliency and distributed availability, at least three separate avai
 
 For more information, see the following documentation:
 
-* [What are availability zones?](../reliability/availability-zones-overview.md)
-* [Azure regions with availability zone support](../reliability/availability-zones-service-support.md).
+* [What are availability zones](../reliability/availability-zones-overview.md)?
+* [Azure regions with availability zone support](../reliability/availability-zones-service-support.md)
 
-This guide provides a brief overview, considerations, and information about how to enable availability zone support in Azure Logic Apps.
+This guide provides a brief overview, considerations, and information about how to enable availability zones in Azure Logic Apps.
 
 ## Considerations
 
 ### [Standard](#tab/standard)
 
-Availability zone support is available for Standard logic apps, which are powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions?](../reliability/reliability-functions.md#availability-zone-support).
+Availability zones are supported with Standard logic app workflows, which run in single-tenant Azure Logic Apps and are powered by Azure Functions extensibility. For more information, see [Reliability in Azure Functions?](../reliability/reliability-functions.md#availability-zone-support).
 
 * You can enable this capability only when you create a Standard logic app in a [supported Azure region](../reliability/reliability-functions.md#regional-availability) or in an [App Service Environment v3 (ASE v3) - Windows plans only](../app-service/environment/overview-zone-redundancy.md).
 
@@ -41,11 +41,11 @@ Availability zone support is available for Standard logic apps, which are powere
 
 ### [Consumption](#tab/consumption)
 
-Availability zone support is available for Consumption logic app workflows, which run in multitenant Azure Logic Apps, but the following considerations apply:
+Availability zones are supported with Consumption logic app workflows, which run in multitenant Azure Logic Apps with the following considerations:
 
-* This capability is automatically enabled for *new* Consumption logic app workflows in [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support).
+* This capability is automatically enabled for *new* Consumption logic app workflows in [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-* Since mid-May 2022, the Azure Logic Apps team has been moving existing Consumption logic app workflows to using availability zones several Azure regions at a time.
+* Since mid-May 2022, the Azure Logic Apps team has been enabling availability zones for existing Consumption logic app workflows, several Azure regions at a time, in [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ---
 
