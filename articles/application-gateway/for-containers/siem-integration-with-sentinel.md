@@ -39,7 +39,7 @@ In this QuickStart guide, you set up:
         - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
       
-        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logging-agc.png)
+        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/alllogs.png)
 
      > [!NOTE]
      > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
