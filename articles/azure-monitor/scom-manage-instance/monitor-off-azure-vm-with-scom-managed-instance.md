@@ -55,7 +55,7 @@ Following are the prerequisites required on desired monitoring endpoints:
 2. Ensure to install [.NET Framework 4.7.2](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2) or higher on desired monitoring endpoints.
 3. Ensure TLS 1.2 or higher is enabled.
 
-To Troubleshooting connectivity problems, see [Troubleshoot issues with Azure Monitor SCOM Managed Instance](/system-center/scom/troubleshoot-scom-managed-instance?view=sc-om-2022&preserve-view=true).
+To Troubleshooting connectivity problems, see [Troubleshoot issues with Azure Monitor SCOM Managed Instance](troubleshoot-scom-managed-instance.md).
 
 ## Install SCOM Managed Instance Gateway
 
@@ -109,7 +109,7 @@ To delete a Gateway, follow these steps:
 To configure monitoring of air-gapped and network isolated servers through Managed Gateway, follow the steps mentioned in [Install an agent on a computer running Windows by using the Discovery Wizard](/system-center/scom/manage-deploy-windows-agent-console#install-an-agent-on-a-computer-running-windows-by-using-the-discovery-wizard) section. Download and install agent from [here](https://go.microsoft.com/fwlink/?linkid=2251996).
 
 >[!NOTE]
->Operations Manager Console is required for this action. For more information, see [Connect the Azure Monitor SCOM Managed Instance to Ops console](/system-center/scom/connect-managed-instance-ops-console?view=sc-om-2022&preserve-view=true).
+>Operations Manager Console is required for this action. For more information, see [Connect the Azure Monitor SCOM Managed Instance to Ops console](connect-managed-instance-ops-console.md).
 
 ## Install agent for Windows virtual machine
 
