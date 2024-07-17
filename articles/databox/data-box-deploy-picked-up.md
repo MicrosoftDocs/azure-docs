@@ -61,28 +61,7 @@ If using Microsoft managed shipping, follow these steps.
 
 ### US & Canada
 
-Microsoft uses two shipping partners for returning Data Box Disk devices to Azure Data Centers. Microsoft's Canadian and US Government customers use UPS; Microsoft's US public cloud customers are serviced by FedEx. 
-
-#### [US and Canada Government - UPS](#tab/ups)
-
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
-
-#### [US Public Cloud - FedEx](#tab/fedex)
-
-Take the following steps if you are a US Public Cloud customer returning a Data Box Disk device in the US or Canada.
-
-1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
-    - Go to **Overview > Download shipping label** and download a return ship label.
-    - Affix the label on the device.
-1. Seal the shipping box and ensure that the return shipping label is visible.
-1. Schedule a pickup with FedEx. To schedule a pickup:
-    - Call the local FedEx number: 800-Go-FedEx.
-    - Provide the reverse shipment tracking number as shown on your printed label.
-    - Contact [Azure Data Box Operations](mailto:adbops@microsoft.com) if you encounter any issues while scheduling a pickup.
-
-You can also drop your Data Box Disk at your nearest FedEx drop-off location.
-
---- 
 
 ::: zone-end
 
