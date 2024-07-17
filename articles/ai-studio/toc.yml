@@ -22,8 +22,6 @@ items:
     href: quickstarts/get-started-code.md
   - name: Get started with Assistants and code interpreter in the playground
     href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-  - name: Hear and speak with chat in the playground
-    href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader

@@ -56,6 +56,10 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 
 The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
+> [!NOTE]
+> [Azure Connected Machine agent version 1.44](agent-release-notes.md#version-144---july-2024) is the last version to officially support Debian 10, Ubuntu 16.04, and Azure Linux (CBL-Mariner) 1.0.
+> 
+
 ## Limited support operating systems
 
 The following operating system versions have **limited support**. In each case, newer agent versions won't support these operating systems.  The last agent version that supports the operating system is listed, and newer agent releases won't be made available for that system. 
