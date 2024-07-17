@@ -18,7 +18,7 @@ Learn how to access Azure Advisor through the Azure portal, get and manage recom
 
 ## Open Advisor
 
-To access Advisor, sign in to the [Azure portal](https://portal.azure.com). Then select the [Advisor](https://aka.ms/azureadvisordashboard) icon at the top of the page or use the search bar at the top to search for Advisor. You can also use the left pane and select **Advisor**.<br> The Advisor **Overview** page opens by default.
+To access Advisor, sign in to the [Azure portal](https://portal.azure.com). Then select the [Advisor](https://aka.ms/azureadvisordashboard) icon at the top of the page or use the search bar at the top to search for Advisor. You can also use the left pane and select **Advisor**. The Advisor **Overview** page opens by default.
 
 ## View the Advisor dashboard
 
@@ -26,7 +26,7 @@ On the Advisor **Overview** page, you see personalized and actionable recommenda
 
 :::image type="content" source="./media/advisor-get-started/advisor-overview-page-m-1.png" alt-text="Screenshot that shows the Azure Advisor opening **Overview** page." lightbox="./media/advisor-get-started/advisor-overview-page-m-1.png":::
 
-* The links at the top offer options for **Feedback**, downloading recommendations as comma-separated value (CSV) or PDFs, and a link to Advisor **Workbooks**.
+* The links at the top offer options for **Feedback**, downloading recommendations as comma-separated value (CSV) files or PDFs, and a link to Advisor **Workbooks**.
 * The filter buttons underneath them focus the recommendations.
 * The tiles represent the different recommendation categories and include your current score in each category.
 * **Get started** takes you to options for direct access to Advisor workbooks, recommendations, and the Azure Well-Architected Framework main page.
@@ -96,7 +96,7 @@ Use the **VM/VMSS right sizing** tab to adjust Advisor virtual machine (VM) and 
 
 1. Select the average CPU utilization value you want and select **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 
-  :::image type="content" source="./media/advisor-get-started/advisor-configure-rules.png" alt-text="Screenshot that shows an Advisor configuration option for VM/VMSS sizing rules." lightbox="./media/advisor-get-started/advisor-configure-rules.png":::
+   :::image type="content" source="./media/advisor-get-started/advisor-configure-rules.png" alt-text="Screenshot that shows an Advisor configuration option for VM/VMSS sizing rules." lightbox="./media/advisor-get-started/advisor-configure-rules.png":::
 
 ## Related content
 
