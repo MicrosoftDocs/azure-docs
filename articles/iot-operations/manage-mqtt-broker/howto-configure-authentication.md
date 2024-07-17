@@ -152,7 +152,7 @@ BinaryData
 
 ### Certificate attributes
 
-x509 attributes can be specified in the *BrokerListener* resource. For example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed.
+X509 attributes can be specified in the *BrokerAuthentication* resource. For example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
