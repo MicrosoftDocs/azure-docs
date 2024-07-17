@@ -92,45 +92,7 @@ Clients that use [X.509 certificates for authentication](./howto-configure-authe
 
 ### Using attributes
 
-To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in in the *BrokerAuthorization* resource. For example:
-
-```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerAuthorization
-metadata:
-  name: "my-authz-policies"
-  namespace: azure-iot-operations
-spec:
-  listenerRef:
-    - listener
-  authenticationMethods:
-    - custom:
-        endpoint: https://auth-server-template
-        caCert: custom-auth-ca
-        auth:
-          x509:
-            secretName: custom-auth-client-cert
-            namespace: azure-iot-operations
-  x509:
-      authorizationAttributes:
-        root:
-          subject: "CN = Contoso Root CA Cert, OU = Engineering, C = US"
-          attributes:
-            organization: contoso
-        intermediate:
-          subject: "CN = Contoso Intermediate CA"
-          attributes:
-            city: seattle
-            foo: bar
-        smart-fan:
-          subject: "CN = smart-fan"
-          attributes:
-            building: 17
-```
-
-In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
-
-The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#certificate-attributes).
 
 ### With client certificate subject common name as username
 
