@@ -76,7 +76,7 @@ An Azure Automation account in supported public region (except Central India, Ge
         
     > [!NOTE]
     > - When you import a package, it might take several minutes. 100MB is the maximum total size of the files that you can import.
-    > - Use *.zip* files for PowerShell runbook types as mentioned [here](https://learn.microsoft.com/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.4)
+    > - Use *.zip* files for PowerShell runbook types as mentioned [here](/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.4)
      > - For Python 3.8 packages, use .tar.gz or .whl files targeting cp38-amd64.
      > - For Python 3.10 (preview) packages, use .whl files targeting cp310 Linux OS.
   

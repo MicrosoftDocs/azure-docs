@@ -14,9 +14,9 @@ Get an authentication token using any of the following methods:
 When requesting a token, you must provide a `resource` parameter. The `resource` parameter is the URL of the resource you want to access. 
 
 Resources include:
-- https://management.azure.com
-- https://api.loganalytics.io
-- https://monitoring.azure.com 
+- `https://management.azure.com`
+- `https://api.loganalytics.io`
+- `https://monitoring.azure.com` 
 
 
 ## [REST](#tab/rest)
