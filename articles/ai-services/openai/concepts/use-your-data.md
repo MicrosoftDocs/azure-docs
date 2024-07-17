@@ -323,10 +323,10 @@ You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Foll
     - The latest version of [Teams toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VSCode extension that creates a project scaffolding for your app.
     - [Node.js](https://nodejs.org/en/download/) (version 16 or 17) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
     - [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app) installed.
-    * Sign in to your M365 account (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program))
+    - Sign in to your M365 account (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program))
     - [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) installed. This is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. For more information on setting up environment variables, see theAzure SDK documentation.
     - Your Azure account has been assigned **Cognitive Services OpenAI user** or **Cognitive Services OpenAI Contributor** role of the Azure OpenAI resource you're using, allowing your account to make Azure OpenAI API calls. For more information, [seeUsing your data with Azure OpenAI securely](/azure/ai-services/openai/how-to/use-your-data-securely#using-the-api) and [Add role assignment to an Azure OpenAI resource](/azure/ai-services/openai/how-to/role-based-access-control#add-role-assignment-to-an-azure-openai-resource) for instructions on setting this role in the Azure portal. 
-   * Enable **custom app upload** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
+    - Enable **custom app upload** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
 
 
 1. After you've added your data to the chat model, select **Deploy** and then **a new Teams app(preview)**. Enter the name of your Teams app and download the resulting .zip file.
