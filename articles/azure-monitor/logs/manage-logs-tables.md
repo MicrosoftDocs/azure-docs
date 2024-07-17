@@ -34,15 +34,18 @@ Your Log Analytics workspace can contain the following types of tables:
 
 ### Table plan
 
-[Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
-- The **Analytics** plan makes log data available for interactive queries and use by features and services. 
-- The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
+[Configure a table's plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
+- The **Analytics** plan is suited for continuous monitoring, real-time detection, and performance analytics. This plan makes log data available for interactive multi-table queries and use by features and services for 30 days to two years.  
+- The **Basic** plan is suited for troubleshooting and incident response. This plan offers discounted ingestion and optimized single-table queries for 30 days. 
+- The **Auxiliary** plan is suited for low-touch data, such as verbose logs, and data required for auditing and compliance. This plans offers low-cost ingestion and unoptimized single-table queries for 30 days.
 
-### Retention
+For full details about Azure Monitor Logs table plans, see [Azure Montior Logs: Table plans](../logs/data-platform-logs.md#table-plans).
 
-Auxiliary retention is a low-cost solution for keeping data that you don't use regularly in your workspace for compliance or occasional investigation. Use [table-level retention settings](../logs/data-retention-archive.md) to add or extend auxiliary retention. 
+### Long-term retention
 
-To access data in auxiliary retention, [run a search job](../logs/search-jobs.md).
+Long-term retention is a low-cost solution for keeping data that you don't use regularly in your workspace for compliance or occasional investigation. Use [table-level retention settings](../logs/data-retention-configure.md) to add or extend long-term retention. 
+
+To access data in long-term retention, [run a search job](../logs/search-jobs.md).
 
 ### Ingestion-time transformations
 
