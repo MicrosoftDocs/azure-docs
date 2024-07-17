@@ -133,18 +133,27 @@ Then, run the following command to deploy the broker:
 kubectl apply -f <path-to-yaml-file>
 ```
 
-## Configure MQ broker diagnostic settings
+## Configure MQTT broker advanced settings
 
-Diagnostic settings allow you to enable metrics and tracing for MQ broker.
+| Name                   | Type                    | Default Value | Description                                                    |
+|------------------------|-------------------------|---------------|----------------------------------------------------------------|
+| clients                | ClientConfig            |               | Configurations related to All Clients.                         |
+| encryptInternalTraffic | Encrypt                 | Enabled       | The setting to enable or disable encryption of internal Traffic. |
+| internalCerts          | CertManagerCertOptions  |               | Certificate rotation and private key configuration.            |
+| tolerations            | NodeTolerations         |               | The details of Tolerations that are applied to all Broker pods.|
 
-- Metrics provide information about the resource utilization and throughput of MQ broker.
-- Tracing provides detailed information about the requests and responses handled by MQ broker.
+## Configure MQTT broker diagnostic settings
 
-To enable these features, first [Configure the MQ diagnostic service settings](../configure-observability-monitoring/howto-configure-diagnostics.md).
+Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 
-To override default diagnostic settings for MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
+- Metrics provide information about the resource utilization and throughput of MQTT broker.
+- Tracing provides detailed information about the requests and responses handled by MQTT broker.
 
-You can also adjust the log level of MQ broker to control the amount and detail of information that is logged. The log level can be set for different components of MQ broker. The default log level is `info`.
+To enable these features, first [Configure the MQTT broker diagnostic service settings](../configure-observability-monitoring/howto-configure-diagnostics.md).
+
+To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
+
+You can also adjust the log level of MQTT broker to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
 If you don't specify settings, default values are used. The following table shows the properties of the broker diagnostic settings and all default values.
 
