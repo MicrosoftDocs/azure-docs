@@ -32,25 +32,27 @@ Azure Communication Services requires your server application to set up a WebSoc
 In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-csharp). For the purposes of this quickstart, we'll be going through the process of starting transcription for both incoming calls and outbound calls. 
 
 When working with real-time transcription, you have a couple of options on when and how to start transcription:
+
 **Option 1 -** Starting at time of answering or creating a call
+
 **Option 2 -** Starting transcription during an ongoing call 
 
 In this tutorial we will be demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Play audio with .NET](./includes/real-time-transcription-csharp.md)]
+[!INCLUDE [Real-time transcription with .NET](./includes/real-time-transcription-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Play audio with Java](./includes/play-audio-quickstart-java.md)]
+[!INCLUDE [Real-time transcription with Java](./includes/real-time-transcription-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Play audio with Java](./includes/play-audio-how-to-js.md)]
+[!INCLUDE [Real-time transcription with Javascript](./includes/real-time-transcription-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Play audio with Java](./includes/play-audio-how-to-python.md)]
+[!INCLUDE [Real-time transcription with Python](./includes/real-time-transcription-python.md)]
 ::: zone-end
 
 ## Event codes
