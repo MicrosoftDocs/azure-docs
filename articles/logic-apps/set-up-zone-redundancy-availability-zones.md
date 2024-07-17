@@ -1,16 +1,16 @@
 ---
-title: Protect logic apps from region failures with zone redundancy
-description: Set up availability zones for logic apps with zone redundancy for business continuity and disaster recovery.
+title: Protect logic apps from zonal failures
+description: Set up availability zone support for logic apps with zone redundancy for business continuity and disaster recovery.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, laveeshb, azla
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.custom: references_regions
-#Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
+#Customer intent: As a developer, I want to protect logic apps from zonal failures by setting up availability zones and zone redundancy.
 ---
 
-# Protect logic apps from zonal failures with zone redundancy and availability zones
+# Protect logic apps from zonal failures with availability zones and zone redundancy
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
