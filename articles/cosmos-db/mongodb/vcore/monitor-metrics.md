@@ -37,14 +37,14 @@ It delivers:
 - **IOPS:** Measures the disk IO operations per second on a shard. It provides insights into the read and write performance of the storage system, helping to optimize disk usage.
    - **Write Heavy Workloads**: IOPS is particularly important for write-heavy workloads, especially when operating at scale. If write performance needs to be improved, it is recommended to upgrade the storage disk SKU size rather than increasing the cluster tier.
 
-### Database Metrics 
+### Database metrics 
 - **Mongo request duration**: Captures the end-to-end duration in milliseconds of client MongoDB requests handled by the Mongo cluster, updated every 60 seconds. This metric is vital for assessing the responsiveness and latency of the database operations.
 
 >[!NOTE]
 >There's no charge to access Database metrics. However, you'll have to be on the M40 cluster tier or higher to access the metrics. For more information on upgrading, please refer to [this guide](./how-to-scale-cluster.md).
 
 
-## View Metrics
+## View metrics
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -52,13 +52,13 @@ It delivers:
 
 3. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Metrics** navigation menu option.
 
-   :::image type="content" source="./media/monitor/monitor-metrics-blade.png" alt-text="Screenshot of metrics blade in Azure Cosmos DB":::
+   :::image type="content" source="./media/monitor/monitor-metrics-blade.png" alt-text="Screenshot of metrics blade in Azure Cosmos DB.":::
 
 1. Next select the **Monogo request duration** metric from the list of available metrics. In this example, let's select **Mongo request duration** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   :::image type="content" source="./media/monitor/monitor-metric-mongo-request-duration.png" alt-text="Screenshot of choosing a metric from the Azure portal" border="true":::
+   :::image type="content" source="./media/monitor/monitor-metric-mongo-request-duration.png" alt-text="Screenshot of choosing a metric from the Azure portal." border="true":::
 
-## Filters for Database metrics
+## Filters for database metrics
 
 - You can also filter metrics and get the charts displayed by a specific **CollectionName**, **DatabaseName**, **Operation**, and **StatusCode**. The **Add filter** and **Apply splitting** options allows you to filter the usage and group the metrics.
 
