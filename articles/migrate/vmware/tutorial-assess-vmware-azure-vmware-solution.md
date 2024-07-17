@@ -77,7 +77,7 @@ Run an assessment as follows:
    - The **Storage type** is defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
    - In **Reserved Instance**, specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs.
     - If you decide to use a reserved instance, you can't specify **Discount (%)**.
-    - [Learn more](../azure-vmware/reserved-instance.md) about reserved instances.
+    - [Learn more](/azure-vmware/reserved-instance.md) about reserved instances.
 1. In **VM Size**:
     - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the servers to AVS.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
