@@ -1,5 +1,6 @@
 ---
-title: Data Field Differences between MMA and AMA 
+title: Data field differences between MMA and AMA 
+
 description: Documents that field lever data changes made in the migration.
 author: JeffreyWolford
 ms.author: jeffwo
