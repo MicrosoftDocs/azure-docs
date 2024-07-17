@@ -9,12 +9,12 @@ ms.reviewer: jeffwo
 
 ---
 
-# Collect Firewall logs with Azure Monitor Agent ( Preview )
+# Collect firewall logs with Azure Monitor Agent (Preview)
 Windows Firewall is a Microsoft Windows application that filters information coming to your system from the Internet and blocks potentially harmful programs. Windows Firewall logs are generated on both client and server operating systems. These logs provide valuable information about network traffic, including dropped packets and successful connections. Parsing Windows Firewall log files can be done using methods like Windows Event Forwarding (WEF) or forwarding logs to a SIEM product like Azure Sentinel. You can turn it on or off by following these steps on any Windows system:
-- Select Start, then open Settings
-- Under Update & Security, select Windows Security, Firewall & network protection.
-- Select a network profile: domain, private, or public.
-- Under Microsoft Defender Firewall, switch the setting to On or Off.
+1. Select Start, then open Settings
+1. Under Update & Security, select Windows Security, Firewall & network protection.
+1. Select a network profile: domain, private, or public.
+1. Under Microsoft Defender Firewall, switch the setting to On or Off.
 
 ## Prerequisites
 To complete this procedure, you need: 
@@ -23,10 +23,10 @@ To complete this procedure, you need:
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md) in the workspace.
 - A Virtual Machine, Virtual Machine Scale Set, or Arc-enabled on-premises machine that is running firewall. 
 
-## Add Firewall Table to LAW
-Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table in not present you will get a DCR deployment error stating that the table is not present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../../reference/tables/windowsfirewall.md
+## Add Firewall table to Log Analytics Workspace
+Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table is not present you will get a DCR deployment error stating that the table is not present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../../reference/tables/windowsfirewall.md)
 
-[ ![Screenshot that shows how to add the security and audit solution](media/firewall-logs/security-and-audit-solution.png) ](media/firewall-logs/security-and-audit-solution.png#lightbox)
+[ ![Screenshot that shows how to add the security and audit solution.](media/firewall-logs/security-and-audit-solution.png) ](media/firewall-logs/security-and-audit-solution.png#lightbox)
 
 ## Create a data collection rule to collect firewall logs
 The [data collection rule](../essentials/data-collection-rule-overview.md) defines: 
@@ -78,20 +78,20 @@ To create the data collection rule in the Azure portal:
 
 ### Sample log queries
 
-- **Count the firewall log entries by URL for the host www.contoso.com.**
+Count the firewall log entries by URL for the host www.contoso.com.
     
     ```kusto
     WindowsFirewall 
     | take 10
     ```
 
-    [ ![screenshot that shows the results of a Firewall log query.](media/firewall-logs/law-query-results.png) ](media/firewall-logs/law-query-results.png#lightbox)
+    [ ![Screenshot that shows the results of a Firewall log query.](media/firewall-logs/law-query-results.png) ](media/firewall-logs/law-query-results.png#lightbox)
 
 ## Troubleshoot
 Use the following steps to troubleshoot the collection of firewall logs. 
 
 ### Run Azure Monitor Agent troubleshooter
-To test your configuration and share logs with Microsoft [use the Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter.md)
+To test your configuration and share logs with Microsoft [use the Azure Monitor Agent Troubleshooter](use-azure-monitor-agent-troubleshooter.md).
 
 ### Check if any firewall logs have been received
 Start by checking if any records have been collected for your firewall logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entries in the last two days, but you can modify for another time range.
@@ -103,7 +103,7 @@ WindowsFirewall
 ```
 
 ### Verify that firewall logs are being created
-Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for firewall log files is C:\windows\system32\logfiles\firewall\pfirewall.log
+Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for firewall log files is C:\windows\system32\logfiles\firewall\pfirewall.log.
 
 [ ![Screenshot that shows firewall logs on a local disk.](media/firewall-logs/firewall-files-on-disk.png) ](media/firewall-logs/firewall-files-on-disk.png#lightbox)
 
@@ -112,7 +112,7 @@ To turn on logging follow these steps.
 2. netsh advfirewall>set allprofiles logging allowedconnections enable​
 3. netsh advfirewall>set allprofiles logging droppedconnections enable​
 
-[ ![Screenshot that show all the steps to turn on loging.](media/firewall-logs/turn-on-firewall-logging.png) ](media/firewall-logs/turn-on-firewall-logging.png#lightbox)
+[ ![Screenshot that show all the steps to turn on logging.](media/firewall-logs/turn-on-firewall-logging.png) ](media/firewall-logs/turn-on-firewall-logging.png#lightbox)
 
 ## Next steps
 Learn more about: 
