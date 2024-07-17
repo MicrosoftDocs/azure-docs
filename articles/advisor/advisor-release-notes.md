@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Advisor
-description: This article describes what's new and what's changed in Azure Advisor.
+description: Learn about what's new and what's changed in Azure Advisor with information from release notes, videos, and blog posts.
 ms.topic: reference
 ms.date: 05/03/2024
 ---
@@ -13,7 +13,7 @@ You can learn about what's new in Azure Advisor with the items in this article. 
 
 ### Azure Advisor will no longer display aggregated potential yearly savings beginning September 30, 2024
 
-In the Azure portal, Advisor currently shows potential aggregated cost savings under the label **Potential yearly savings based on retail pricing** on pages where cost recommendations are displayed. This aggregated savings estimate will be removed from the Azure portal on September 30, 2024. You can still evaluate potential yearly savings tailored to your specific needs by following the steps in [Calculate cost savings](/azure/advisor/advisor-how-to-calculate-total-cost-savings). All individual recommendations and their associated potential savings will remain available.
+In the Azure portal, Advisor currently shows potential aggregated cost savings under the label **Potential yearly savings based on retail pricing** on pages where cost recommendations appear. This aggregated savings estimate will be removed from the Azure portal on September 30, 2024. You can still evaluate potential yearly savings tailored to your specific needs by following the steps in [Calculate cost savings](/azure/advisor/advisor-how-to-calculate-total-cost-savings). All individual recommendations and their associated potential savings will remain available.
 
 #### Recommended action
 
@@ -139,7 +139,7 @@ To assess the reliability of your workload by using the tenets found in the [A
 
 ### Data in Azure Resource Graph is now available in Azure China and US Government clouds
 
-Advisor data is now available in the Azure Resource Graph in Azure China and US Government clouds. The Resource Graph is useful for customers who can now get recommendations for all their subscriptions at once and build custom views of Advisor recommendation data. For example, you can:
+Advisor data is now available in Azure Resource Graph in the Azure China and US Government clouds. Resource Graph is useful for customers who can now get recommendations for all their subscriptions at once and build custom views of Advisor recommendation data. For example, you can:
 
 * Review your recommendations summarized by impact and category.
 * See all recommendations for a recommendation type.
@@ -149,8 +149,8 @@ To learn more, see [Query for Advisor data in Resource Graph Explorer (Azure Res
 
 ### Service Retirement workbook
 
-Advisor now provides a Service Retirement workbook. It's important to be aware of the upcoming Azure service and feature retirements to understand their effect on your workloads and plan migration. The [Service Retirement workbook](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/workbooks) provides a single centralized resource-level view of service retirements and helps you assess impact, evaluate options, and plan migration.
-The workbook includes 35 services and features that are planned for retirement. You can view planned retirement dates and the list and map of affected resources. You also get information to make the necessary actions.
+Advisor now provides a Service Retirement workbook. It's important to be aware of the upcoming Azure service and feature retirements to understand their effect on your workloads and plan migration. The [Service Retirement workbook](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/workbooks) provides a single centralized resource-level view of service retirements. It helps you assess impact, evaluate options, and plan migration.
+The workbook includes 35 services and features that are planned for retirement. You can view planned retirement dates and the list and map of affected resources. You also get information to take the necessary actions.
 
 To learn more, see [Prepare migration of your workloads impacted by service retirements](advisor-how-to-plan-migration-workloads-service-retirement.md).
 
@@ -164,7 +164,7 @@ To learn more, see [Dismiss and postpone recommendations](/azure/advisor/view-re
 
 ### VM/virtual machine scale set right-sizing recommendations with custom lookback period
 
-You can now improve the relevance of recommendations to make them more actionable, resulting in more cost savings.
+You can now improve the relevance of recommendations to make them more actionable to achieve more cost savings.
 
 The right-sizing recommendations help optimize costs by identifying idle or underutilized VMs based on their CPU, memory, and network activity over the default lookback period of seven days. Now, with this latest update, you can adjust the default lookback period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level. This capability is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications).
 
@@ -203,7 +203,7 @@ To learn more, see [Get started with Azure Advisor](advisor-get-started.md).
 
 ### Tag filtering
 
-You can now get Advisor recommendations scoped to a business unit, workload, or team. Filter recommendations and calculate scores by using tags that you already assigned to Azure resources, resource groups, and subscriptions. Apply tag filters to:
+You can now get Advisor recommendations scoped to a business unit, workload, or team. To filter recommendations and calculate scores, use tags that you already assigned to Azure resources, resource groups, and subscriptions. Apply tag filters to:
 
 * Identify cost-saving opportunities by business units.
 * Compare scores for workloads to optimize critical ones first.
@@ -216,12 +216,10 @@ The [Shut down/Resize your VMs](advisor-cost-recommendations.md#optimize-virtual
 
 Improvements include: 
 
-1. Cross-SKU family series resize recommendations are now available. 
+- Cross-SKU family series resize recommendations are now available. 
+- Cross-version resize recommendations are now available. In general, newer versions of SKU families are more optimized, provide more features, and have better performance/cost ratios than older versions.
+- Updated recommendation criteria include other SKU characteristics for better actionability. Examples are accelerated networking support, premium storage support, availability in a region, and inclusion in an availability set.
 
-1. Cross-version resize recommendations are now available. In general, newer versions of SKU families are more optimized, provide more features, and have better performance/cost ratios than older versions.
-
-1. For better actionability, we updated recommendation criteria to include other SKU characteristics such as accelerated networking support, premium storage support, availability in a region, and inclusion in an availability set.
-
-:::image type="content" source="media/advisor-overview/advisor-vm-right-sizing.png" alt-text="Screenshot of virtual machine right-sizing recommendations." lightbox="media/advisor-overview/advisor-vm-right-sizing.png":::
+:::image type="content" source="media/advisor-overview/advisor-vm-right-sizing.png" alt-text="Screenshot that shows virtual machine right-sizing recommendations." lightbox="media/advisor-overview/advisor-vm-right-sizing.png":::
 
 To learn more, read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
