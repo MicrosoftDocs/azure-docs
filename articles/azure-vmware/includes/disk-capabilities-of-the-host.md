@@ -28,4 +28,4 @@ All the above Host Types have 100 Gbps network interface throughput.
 
 (**) AV64 Prerequisite: An Azure VMware Solution private cloud deployed with AV36, AV36P, or AV52 is required prior to adding AV64.
 
-(***) Raw is based upon [International Standard of Units (SI)](https://en.wikipedia.org/wiki/International_System_of_Units) reported by disk manufacturer.  Example: 1 TB Raw = 1000 Gigabytes, space calculated by computer in binary (1TB = 1024GB) would equal 976.5 Gigabytes.
+(***) Raw is based upon [International Standard of Units (SI)](https://en.wikipedia.org/wiki/International_System_of_Units) reported by disk manufacturer.  Example: 1 TB Raw = 1000000000000 bytes, space calculated by computer in binary (1TB binary = 1099511627776 bytes binary) would equal 931.3 Gigabytes converted from raw decimal.

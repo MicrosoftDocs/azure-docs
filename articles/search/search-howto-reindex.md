@@ -14,17 +14,17 @@ ms.date: 07/01/2024
 
 # Update or rebuild an index in Azure AI Search
 
-This article explains how to update an existing index in Azure AI Search with incremental indexing. It explains the circumstances under which rebuilds are required, and provides recommendations for mitigating the effects of rebuilds on ongoing query requests.
+This article explains how to update an existing index in Azure AI Search with schema changes or content changes through incremental indexing. It explains the circumstances under which rebuilds are required, and provides recommendations for mitigating the effects of rebuilds on ongoing query requests.
 
 During active development, it's common to drop and rebuild indexes when you're iterating over index design. Most developers work with a small representative sample of their data so that reindexing goes faster.
 
-For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime and using an [index alias](search-how-to-alias.md) to avoid changing your application code.
+For schema changes on applications already in production, we recommend creating and testing a new index that runs side by side an existing index. Use an [index alias](search-how-to-alias.md) to swap in the new index while avoiding changes your application code.
 
 ## Update content
 
-Incremental indexing and synchronizing an index against changes in source data is a basic requirement for most search applications. This section explains the workflow for overwriting field contents in a search index.
+Incremental indexing and synchronizing an index against changes in source data is fundamental to most search applications. This section explains the workflow for updating field contents in a search index.
 
-1. Use the same techniques for loading documents: [Documents - Index (REST)](/rest/api/searchservice/documents) or an equivalent API in the Azure SDKs. For more information about indexing, see [Load documents](search-how-to-load-search-index.md).
+1. Use the same techniques for loading documents: [Documents - Index (REST)](/rest/api/searchservice/documents) or an equivalent API in the Azure SDKs. For more information about indexing techniques, see [Load documents](search-how-to-load-search-index.md).
 
 1. Set the `@search.action` parameter to determine the effect on existing documents:
 
@@ -41,17 +41,52 @@ Queries continue to run, but if you're updating or removing existing fields, you
 
 ## Tips for incremental indexing
 
-+ Use `mergeOrUpload` as the search action.
++ [Indexers automate incremental indexing](search-indexer-overview.md). If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, or overwrite searchable content so that it's synchronized to your external data.
+
++ If you're making index calls directly, use `mergeOrUpload` as the search action.
 
 + The payload must include the keys or identifiers of every document you want to add, update, or delete.
 
-+ For merging, avoid listing fields that contain content you want to preserve. For example, if you populated vector fields, but only need to update a few nonvector fields, the payload should list just those fields you want to update. Specifying an empty field overwrites the existing value with a null value.
++ To update the contents of simple fields and subfields in complex types, list only the fields you want to change. For example, if you only need to update a description field, the payload should consist of the document key and the modified description. Omitting other fields retains their existing values.
 
-+ [Indexers automate incremental indexing](search-indexer-overview.md). If you can use an indexer, and if the data source supports change tracking, you can run the indexer on a recurring schedule to add, update, and delete an index so that it's synchronized to your external data.
++ To merge inline changes into string collection, provide the entire value. Recall the `tags` field example from the previous section. New values overwrite the old values for an entire field, and there's no merging within the content of a field.
+
+Here's a [REST API example](search-get-started-rest.md) demonstrating these tips:
+
+```rest
+### Get Secret Point Hotel by ID
+GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-01  HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+
+### Change the description, city, and tags for Secret Point Hotel
+POST {{baseUrl}}/indexes/hotels-vector-quickstart/docs/search.index?api-version=2023-11-01  HTTP/1.1
+  Content-Type: application/json
+  api-key: {{apiKey}}
+
+    {
+        "value": [
+            {
+            "@search.action": "mergeOrUpload",
+            "HotelId": "1",
+            "Description": "I'm overwriting the description for Secret Point Hotel.",
+            "Tags": ["my old item", "my new item"],
+            "Address": {
+                "City": "Gotham City"
+                }
+            }
+        ]
+    }
+       
+### Retrieve the same document, confirm the overwrites and retention of all other values
+GET  {{baseUrl}}/indexes/hotels-vector-quickstart/docs('1')?api-version=2023-11-01  HTTP/1.1
+    Content-Type: application/json
+    api-key: {{apiKey}}
+```
 
 ## Change an index schema
 
-The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query executions.
+The index schema defines the physical data structures created on the search service, so there aren't many schema changes that you can make without incurring a full rebuild. The following list enumerates the schema changes that can be introduced seamlessly into an existing index. Generally, the list includes new fields and functionality used during query execution.
 
 + Add a new field
 + Set the `retrievable` attribute on an existing field
@@ -68,17 +103,17 @@ The order of operations is:
 
 1. Revise the schema with updates from the previous list.
 
-1. [Update index](/rest/api/searchservice/indexes/create-or-update).
+1. [Update index schema](/rest/api/searchservice/indexes/create-or-update) on the search service.
 
-1. [Index documents](/rest/api/searchservice/documents).
+1. [Update index content](#update-content) to match your revised schema if you added a new field. For all other changes, the existing indexed content is used as-is.
 
-When you update the index schema, existing documents in the index are given a null value for the new field. On the next index documents job, values from external source data replace the nulls added by Azure AI Search.
+When you update an index schema to include a new field, existing documents in the index are given a null value for that field. On the next indexing job, values from external source data replace the nulls added by Azure AI Search.
 
-There should be no query disruptions during the updates, but query results will change as the updates take effect.
+There should be no query disruptions during the updates, but query results will vary as the updates take effect.
 
 ## Drop and rebuild an index
 
-Some modifications require an index drop and rebuild.
+Some modifications require an index drop and rebuild, replacing a current index with a new one.
 
 | Action | Description |
 |-----------|-------------|
@@ -91,15 +126,17 @@ Some modifications require an index drop and rebuild.
 
 The order of operations is:
 
-1. [Get an index definition](/rest/api/searchservice/indexes/get) in case you need it for future reference.
+1. [Get an index definition](/rest/api/searchservice/indexes/get) in case you need it for future reference, or to use as the basis for a new version.
 
 1. Consider using a backup and restore solution to preserve a copy of index content. There are solutions in [C#](https://github.com/liamca/azure-search-backup-restore/blob/master/README.md) and in [Python](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/index-backup-restore). We recommend the Python version because it's more up to date.
 
-1. [Drop the existing index](/rest/api/searchservice/indexes/delete). queries targeting the index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. 
+   If you have capacity on your search service, keep the existing index while creating and testing the new one.
 
-1. [Post a revised index](/rest/api/searchservice/indexes/create), where the body of the request includes changed or modified field definitions.
+1. [Drop the existing index](/rest/api/searchservice/indexes/delete). Queries targeting the index are immediately dropped. Remember that deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. 
 
-1. [Load the index with documents](/rest/api/searchservice/documents) from an external source.
+1. [Post a revised index](/rest/api/searchservice/indexes/create), where the body of the request includes changed or modified field definitions and configurations.
+
+1. [Load the index with documents](/rest/api/searchservice/documents) from an external source. Documents are indexed using the field definitions and configurations of the new schema.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field and a vector index created for each vector field. Fields that aren't searchable can be used in filters or expressions, but don't have inverted indexes and aren't full-text or fuzzy searchable. On an index rebuild, these inverted indexes and vector indexes are deleted and recreated based on the index schema you provide.
 
@@ -123,7 +160,7 @@ The Azure portal provides index size and vector index size. You can check these 
 
 Azure AI Search supports document-level operations so that you can look up, update, and delete a specific document in isolation. The following example shows how to delete a document. 
 
-Recall that deleted documents don't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and through APIs.
+Deleting a document doesn't immediately free up space in the index. Every few minutes, a background process performs the physical deletion. Whether you use the portal or an API to return index statistics, you can expect a small delay before the deletion is reflected in the portal and API metrics.
 
 1. Identify which field is the document key. In the portal, you can view the fields of each index. Document keys are string fields and are denoted with a key icon to make them easier to spot.
 

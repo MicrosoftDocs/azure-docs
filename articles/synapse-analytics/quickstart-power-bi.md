@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: business-intelligence
 ms.date: 10/27/2020
 ms.author: jocaplan
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: mode-other
 ---
 

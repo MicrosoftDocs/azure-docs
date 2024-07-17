@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 10/21/2021
 ms.topic: how-to
-author: ssalgadodev
-ms.author: bozhlin
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
 ms.custom: UpdateFrequency5, deploy
 ---
 

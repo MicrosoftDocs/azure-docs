@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.reviewer: lagayhar
+ms.reviewer: None
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/18/2024

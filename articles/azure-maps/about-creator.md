@@ -92,26 +92,22 @@ This section provides a high-level overview of the indoor map creation workflow.
 ### ![How-to articles](./media/creator-indoor-maps/about-creator/how-to-guides.png) How-to guides
 
 - [Manage Creator]
-- [Implement Dynamic styling for indoor maps]
 - [Query datasets with WFS API]
 - [Custom styling for indoor maps]
 - [Indoor maps wayfinding service]
 - [Edit indoor maps using the QGIS plugin]
 - [Create dataset using GeoJson package]
-- [Create a feature stateset]
 
 ### ![Reference articles](./media/creator-indoor-maps/about-creator/reference.png) Reference
 
 - [Drawing package requirements]
 - [Facility Ontology]
-- [Dynamic maps StylesObject]
 - [Drawing error visualizer]
 - [Azure Maps Creator REST API]
 
 [Azure Maps Creator onboarding tool]: https://azure.github.io/azure-maps-creator-onboarding-tool
 [Azure Maps Creator REST API]: /rest/api/maps-creator
 [Conversion]: /rest/api/maps-creator/conversion
-[Create a feature stateset]: how-to-creator-feature-stateset.md
 [Create custom styles for indoor maps]: how-to-create-custom-styles.md
 [Create dataset using GeoJson package]: how-to-dataset-geojson.md
 [Custom styling for indoor maps]: how-to-create-custom-styles.md
@@ -120,13 +116,11 @@ This section provides a high-level overview of the indoor map creation workflow.
 [Drawing error visualizer]: drawing-error-visualizer.md
 [Drawing package guide]: drawing-package-guide.md?pivots=drawing-package-v2
 [Drawing package requirements]: drawing-requirements.md
-[Dynamic maps StylesObject]: schema-stateset-stylesobject.md
 [Edit indoor maps using the QGIS plugin]: creator-qgis-plugin.md
 [Facility Ontology]: creator-facility-ontology.md
 [Features API]: /rest/api/maps-creator/features?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [features]: glossary.md#feature
 [How to create data registry]: how-to-create-data-registries.md
-[Implement Dynamic styling for indoor maps]: indoor-map-dynamic-styling.md
 [Indoor map concepts]: creator-indoor-maps.md
 [Indoor maps wayfinding service]: how-to-creator-wayfinding.md
 [Manage Creator]: how-to-manage-creator.md

@@ -113,7 +113,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
    :::image type="content" source="media/cognitive-search-debug/enriched-doc-output-expression.png" alt-text="Screenshot of a skill execution showing output values." border="true":::
 
-1. Alternatively, open **AI enrichment > Enriched Data Structure** to scroll down the list of nodes. The list includes potential and actual nodes, with a column for output, and another column that indicates the upstream object used to produce the output.
+1. Alternatively, open **AI Enrichments > Enriched Data Structure** to scroll down the list of nodes. The list includes potential and actual nodes, with a column for output, and another column that indicates the upstream object used to produce the output.
 
    :::image type="content" source="media/cognitive-search-debug/enriched-doc-output.png" alt-text="Screenshot of enriched document showing output values." border="true":::
 

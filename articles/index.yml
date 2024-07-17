@@ -1340,7 +1340,7 @@ productDirectory:
         - security
       url: nat-gateway/index.yml
     # Card
-    - title: All Networking Services
+    - title: All networking services
       summary: Provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network.
       imageSrc: ./media/index/azure-networking.svg
       azureCategories:

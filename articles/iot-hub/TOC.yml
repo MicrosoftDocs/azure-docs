@@ -216,25 +216,8 @@
     - name: Manage
       items:
         - name: Create an IoT hub
-          items:
-            - name: Use Azure portal
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-through-portal.md
-            - name: Use Visual Studio Code
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-use-iot-toolkit.md
-            - name: Use Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-using-powershell.md
-            - name: Use Azure CLI
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, az iot hub create
-              href: iot-hub-create-using-cli.md
-            - name: Use the REST API
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-rest.md
-            - name: Use a template from Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-template-powershell.md
+          displayName: create IoT Hub, delete IoT hub, portal, CLI
+          href: create-hub.md
         - name: Create and connect a device
           href: create-connect-device.md
         - name: Create message routes and endpoints
@@ -348,9 +331,6 @@
             - name: Node.js
               displayName: module twins, module identity
               href: module-twins-node.md
-            - name: C
-              displayName: module twins, module identity
-              href: module-twins-c.md
         - name: Get started with device management
           items:
             - name: CLI

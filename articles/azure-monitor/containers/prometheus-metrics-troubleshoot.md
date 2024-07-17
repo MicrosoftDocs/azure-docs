@@ -24,6 +24,8 @@ In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` a
 
 If either of them are more than 100%, ingestion into this workspace is being throttled. In the same workspace, navigate to `New Support Request` to create a request to increase the limits. Select the issue type as `Service and subscription limits (quotas)` and the quota type as `Managed Prometheus`.
 
+You can also monitor and set up an alert on the ingestion limits. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota) to avoid metrics ingestion throttling.
+
 ## Intermittent gaps in metric data collection
 
 During node updates, you may see a 1 to 2 minute gap in metric data for metrics collected from our cluster level collector. This gap is because the node it runs on is being updated as part of a normal update process. It affects cluster-wide targets such as kube-state-metrics and custom application targets that are specified. It occurs when your cluster is updated manually or via autoupdate. This behavior is expected and occurs due to the node it runs on being updated. None of our recommended alert rules are affected by this behavior. 
@@ -177,6 +179,8 @@ If you see metrics missed, you can first check if the ingestion limits are being
 - Events Per Minute Ingested - The number of events (samples) per minute recently received
 - Events Per Minute Ingested Limit - The maximum number of events per minute that can be ingested before getting throttled
 - Events Per Minute Ingested % Utilization - The percentage of current metric ingestion rate limit being util
+
+To avoid metrics ingestion throttling, you can monitor and set up an alert on the ingestion limits. See [Monitor ingestion limits](../essentials/prometheus-metrics-overview.md#how-can-i-monitor-the-service-limits-and-quota).
 
 Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace. Ensure you include the ID, internal ID and Location/Region for the Azure Monitor workspace in the support request, which you can find in the `Properties' menu for the Azure Monitor workspace in the Azure portal.
 

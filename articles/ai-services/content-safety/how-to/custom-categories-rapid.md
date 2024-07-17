@@ -35,7 +35,6 @@ Follow these steps to define an incident with a few examples of text content and
   * [cURL](https://curl.haxx.se/) for REST API calls.
   * [Python 3.x](https://www.python.org/) installed
 
-<!--tbd env vars-->
 
 ## Test the text custom categories (rapid) API
 
@@ -801,5 +800,5 @@ print(response.text)
 
 ## Related content
 
-- [Custom categories (rapid) concepts](../concepts/custom-categories-rapid.md)
+- [Custom categories concepts](../concepts/custom-categories.md)
 - [What is Azure AI Content Safety?](../overview.md)

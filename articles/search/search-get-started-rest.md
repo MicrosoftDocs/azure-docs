@@ -49,6 +49,8 @@ You're pasting this endpoint into the `.rest` or `.http` file in a later step.
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure.
 
+For a role-based connection, the following instructions have you connecting to Azure AI Search under your identity, not the identity of a client app.
+
 ### Option 1: Use keys
 
 Select **Settings** > **Keys** and then copy an admin key. Admin keys are used to add, modify, and delete objects. There are two interchangeable admin keys. Copy either one. For more information, see [Connect to Azure AI Search using key authentication](search-security-api-keys.md).
@@ -71,11 +73,10 @@ In this section, obtain your personal identity token using either the Azure CLI,
     az login
     ```
 
-1. Get your personal identity.
+1. Get your personal identity token.
 
     ```azurecli
-    az ad signed-in-user show \
-        --query id -o tsv
+    az account get-access-token --scope https://search.azure.com/.default
     ```
 
 #### [Azure PowerShell](#tab/azure-powershell)
@@ -86,10 +87,10 @@ In this section, obtain your personal identity token using either the Azure CLI,
     Connect-AzAccount
     ```
 
-1. Get your personal identity.
+1. Get your personal identity token.
 
     ```azurepowershell
-    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+    Get-AzAccessToken -ResourceUrl https://search.azure.com
     ```
 
 #### [Azure portal](#tab/portal)
@@ -159,7 +160,7 @@ Add a second request to your `.rest` file. [Create Index (REST)](/rest/api/searc
     ### Create a new index
     POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     
         {
             "name": "hotels-quickstart",  
@@ -236,7 +237,7 @@ The URI is extended to include the `docs` collections and `index` operation.
     ### Upload documents
     POST {{baseUrl}}/indexes/hotels-quickstart/docs/index?api-version=2023-11-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     
         {
             "value": [
@@ -335,15 +336,15 @@ The URI is extended to include a query expression, which is specified by using t
     ```http
     ### Run a query
     POST {{baseUrl}}/indexes/hotels-quickstart/docs/search?api-version=2023-11-01  HTTP/1.1
-        Content-Type: application/json
-        api-key: {{apiKey}}
-        
-        {
-            "search": "lake view",
-            "select": "HotelId, HotelName, Tags, Description",
-            "searchFields": "Description, Tags",
-            "count": true
-        }
+      Content-Type: application/json
+      Authorization: Bearer {{token}}
+      
+      {
+          "search": "lake view",
+          "select": "HotelId, HotelName, Tags, Description",
+          "searchFields": "Description, Tags",
+          "count": true
+      }
     ```
 
 1. Review the response in the adjacent pane. You should have a count that indicates the number of matches found in the index, a search score that indicates relevance, and values for each field listed in the `select` statement.
@@ -378,7 +379,7 @@ You can also use [Get Statistics](/rest/api/searchservice/indexes/get-statistics
     ### Get index statistics
     GET {{baseUrl}}/indexes/hotels-quickstart/stats?api-version=2023-11-01  HTTP/1.1
       Content-Type: application/json
-      api-key: {{apiKey}}
+      Authorization: Bearer {{token}}
     ```
 
 1. Review the response. This operation is an easy way to get details about index storage.
