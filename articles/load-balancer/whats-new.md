@@ -47,7 +47,7 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| IP based LB outbound IP | IP based LB uses Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, use NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
+| IP-based Load Balancer outbound IP | IP-based Load Balancers are currently not secure-by-default and can use either the virtual machines' default outbound access IPs for outbound connections. If the Load Balancer is a public Load Balancer, either the default outbound access IPs or the Load Balancer's frontend IP may be used. | In order to prevent backend instances behind an IP-based Load Balancer from using default outbound access, use NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion, or leverage the private subnet feature to secure your Load Balancer |
 | numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. Load Balancer health probes will probe up/down immediately after one probe regardless of the property's configured value | To control the number of successful or failed consecutive probes necessary to mark backend instances as healthy or unhealthy, please leverage the property ["probeThreshold"](/azure/templates/microsoft.network/loadbalancers?pivots=deployment-language-arm-template#probepropertiesformat-1) instead |
                                         
 
