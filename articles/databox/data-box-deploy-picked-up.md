@@ -67,7 +67,7 @@ Microsoft uses two shipping partners for returning Data Box Disk devices to Azur
 
 Take the following steps if you are a US or Canada Governement customer returning a Data Box Disk device in the US or Canada.
 
-[!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]<!--- Content here  -->
+[!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
 #### [US Public Cloud - FedEx](#tab/fedex)
 
@@ -85,8 +85,6 @@ Take the following steps if you are a US Public Cloud customer returning a Data 
 You can also drop your Data Box Disk at your nearest FedEx drop-off location.
 
 --- 
-
-
 
 ::: zone-end
 
