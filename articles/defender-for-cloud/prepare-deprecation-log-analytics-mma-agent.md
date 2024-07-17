@@ -6,14 +6,6 @@ ms.date: 03/13/2024
 # customer intent: As a user, I want to understand how to prepare for the retirement of the Log Analytics agent in Microsoft Defender for Cloud.
 ---
 
----
-title: Prepare for retirement of the Log Analytics agent 
-description: Learn how to prepare for the deprecation of the Log Analytics (MMA) agent in Microsoft Defender for Cloud.
-ms.topic: how-to
-ms.date: 03/13/2024
-# customer intent: As a user, I want to understand how to prepare for the retirement of the Log Analytics agent in Microsoft Defender for Cloud.
----
-
 # Prepare for retirement of the Log Analytics agent
 
 The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA), [is retiring in August 2024](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341). As a result, the Defender for Servers and Defender for SQL on machines plans in Microsoft Defender for Cloud will be updated, and features that rely on the Log Analytics agent will be redesigned.
@@ -145,7 +137,7 @@ After you disable the file events collection using one of the methods above:
 
 If you currently use FIM over the Log Analytics Agent (MMA):
 
-- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated in end of November 2024.
+- File Integrity Monitoring based on Log Analytics Agent (MMA) will be deprecated at he end of November 2024.
 
 - Microsoft Defender for Cloud recommends disabling FIM over MMA, and onboarding your environment to the new FIM version based on Defender for Endpoint upon release.
 
