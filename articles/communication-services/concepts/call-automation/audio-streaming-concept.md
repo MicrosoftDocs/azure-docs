@@ -14,12 +14,12 @@ ms.custom: public_prview
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Azure Communication Services provides developers with Audio Streaming capabilities to get real-time access to media streams to capture, analyze and process audio content during active calls. In today's world consumption of live audio and video is prevalent, this content could be in the forms of online meetings, online conferences, online schooling, customer support, etc.  With audio streaming access, developers can now build server applications to capture and analyze audio streams for each of the participants on the call in real-time. Developers can also combine media streaming with other call automation actions or use their own AI models to analyze audio streams for use cases such as NLP for conversation analysis or provide real-time insights and suggestions to their agents while they are in an active interaction with their end users. 
+Azure Communication Services provides developers with Audio Streaming capabilities to get real-time access to audio streams to capture, analyze, and process audio content during active calls. In today's world consumption of live audio and video is prevalent, this content could be in the forms of online meetings, online conferences, customer support, etc.  With audio streaming access, developers can now build server applications to capture and analyze audio streams for each of the participants on the call in real-time. Developers can also combine audio streaming with other call automation actions or use their own AI models to analyze audio streams for use cases such as NLP for conversation analysis or provide real-time insights and suggestions to their agents while they are in an active interaction with their end users. 
 
 This public preview supports the ability for developers to get access to real-time audio streams over a WebSocket to analyze each participants audio in mixed and unmixed formats 
 
 ## Common use cases
-Audio streams can be used in many ways, below are some examples of how developers may wish to use the audio streams in their applications.
+Audio streams can be used in many ways. Some examples of how developers may wish to use the audio streams in their applications include:
 
 ### Real-time call assistance
 
@@ -38,13 +38,13 @@ Audio streams can be used in many ways, below are some examples of how developer
 ## Supported formats
 
 ### Mixed format
-Contains mixed audio of all participants on the call. As this is mixed audio, the participantRawID will be null.
+Contains mixed audio of all participants on the call. Since the format is mixed audio, the participantRawID will be null.
 	
 ### Unmixed
-Contains audio per participant per channel, with support for up to four channels for four dominant speakers. You will also get a participantRawID that you can use to determine the speaker. 
+Contains audio per participant per channel, with support for up to four channels for four dominant speakers. You'll also get a participantRawID that you can use to determine the speaker. 
 
 ## Additional information
-The table below describes information that will help developers convert the media packets into audible content that can be used by their applications.
+The table below describes information that will help developers convert the audio packets into audible content that can be used by their applications.
 - Framerate: 50 frames per second
 - Packet stream rate: 20 ms rate
 - Data packet: 64 Kbytes
