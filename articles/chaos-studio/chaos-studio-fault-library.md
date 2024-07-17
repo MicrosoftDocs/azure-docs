@@ -438,7 +438,7 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 * Because the agent depends on network traffic, **this action cannot be cancelled** and will run to the specified duration. Use with caution.
 * The agent-based network faults currently only support IPv4 addresses.
 * When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
-* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
+* When running on Linux, this fault only affects **outbound** traffic, not inbound traffic. The fault affects **both inbound and outbound** traffic on Windows environments.
 * This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
 
 
