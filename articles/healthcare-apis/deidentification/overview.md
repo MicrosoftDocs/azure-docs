@@ -5,7 +5,7 @@ author: kimiamavon
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: overview
-ms.date: 7/9/2024
+ms.date: 7/17/2024
 ms.author: kimiamavon
 ---
 

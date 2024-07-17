@@ -28,7 +28,7 @@ To deploy an instance of the Deidentification service, start at the Azure portal
 
 ## Complete the Basics tab
 
-In the _Basics_ tab, you provide basic information for your Deidentification service.
+In the **Basics** tab, you provide basic information for your Deidentification service.
 
 1. Fill in the **Project Details** section:
 
@@ -37,8 +37,8 @@ In the _Basics_ tab, you provide basic information for your Deidentification ser
    | Subscription   | Select your Azure subscription.              |
    | Resource group | Select **Create new** and enter **my-deid**. |
 
- 1. Fill in the **Instance details** section:
- 
+1. Fill in the **Instance details** section:
+
    | Setting        | Action                                       |
    |----------------|----------------------------------------------|
    | Name           | Name your Deidentification service.          |
@@ -46,13 +46,12 @@ In the _Basics_ tab, you provide basic information for your Deidentification ser
 
 ## Complete the Tags tab (optional)
 
-Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this quickstart, you don't need to add any tags.
-For more information, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
-[Logging](../logging.md)
+Tags are name-value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this quickstart, you don't need to add any tags.
+For more information, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources) and [Logging](../logging.md).
 
-## Complete the Managed Identity tab (ptional)
+## Complete the Managed Identity tab (optional)
 
-In the _Managed Identity_ tab, you can assign a managed identity to your Deidentification service. Learn more about [managed identities](managed-identities.md).
+In the **Managed Identity** tab, you can assign a managed identity to your Deidentification service. For more information, see [managed identities](managed-identities.md).
 
 1. To create a system-assigned managed identity, select **On** under **Status**.
 1. To add a user-assigned managed identity, select **Add** to use the selection pane to choose an existing identity to assign.

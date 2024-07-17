@@ -3,21 +3,21 @@ title: Use managed identities in the Azure Health Data Services de-identificatio
 description: Learn how to use managed identities with the Azure Health Data Services de-identification service using the Azure portal and ARM template.
 author: jovinson-ms
 ms.author: jovinson
-ms.service: azure-health-data-services
-ms.subservice: deidentification-service
+ms.service: healthcare-apis
+ms.subservice: workspace
 ms.topic: how-to
-ms.date: 07/10/2024
-#customer intent: As a cloud administrator, I want to be able to learn how to manage use the de-identification service without managing credentials.
+ms.date: 07/17/2024
 ---
 
-# How to use managed identities with the Azure Health Data Services de-identification service
+# Use managed identities with the Azure Health Data Services de-identification service
 
-Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. This eliminates the need for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. The de-identification service supports both.
+Managed identities provide Azure services with a secure, automatically managed identity in Microsoft Entra ID. This eliminates the need for developers having to manage credentials by providing an identity. There are two types of managed identities: system-assigned and user-assigned. The de-identification service supports both.
 
 Managed identities can be used to grant the de-identification service access to your storage account for batch processing. In this article, you will learn how to assign a managed identitiy to your de-identification service.
 
 ## Prerequisites
-- Understand the differences between _system-assigned_ and _user-assigned_ in [What are managed identities for Azure resources?](entra/identity/managed-identities-azure-resources/overview)
+
+- Understand the differences between **system-assigned** and **user-assigned** in [What are managed identities for Azure resources?](entra/identity/managed-identities-azure-resources/overview)
 - A de-identification service in your Azure subscription. If you don't have a de-identification service yet, you can follow the steps in [Quickstart: Deploy your first de-identification service](quickstart.md).
 
 ## Create an instance of the de-identification service in Azure Health Data Services with a system assigned managed identity
@@ -25,7 +25,7 @@ Managed identities can be used to grant the de-identification service access to 
 # [Portal](#tab/azure-portal)
 1. Access your de-identification service's settings in the Azure portal under the **Security** group in the left navigation pane.
 1. Select **Identity**.
-1. Within the **System assigned** tab, switch _Status_ to _On_ and click **Save**.
+1. Within the **System assigned** tab, switch **Status** to **On** and click **Save**.
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 Any resource of type ``Microsoft.HealthDataAIServices/deidServices`` can be created with a system-assigned identity by including the following block in 
@@ -60,7 +60,6 @@ the resource definition, replacing <resource-id> with the ARM resource id of the
     }
 }
 ```
----
 
 ## Supported scenarios using managed identities
 
@@ -72,13 +71,13 @@ see [Batch de-identify files in Azure Blob Storage](how-to-batch-job.md).
 When you remove a system-assigned identity, it's deleted from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID
 when you delete the de-identification service.
 
-# [Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 1. In the left navigation of your de-identification service, scroll down to the **Security** group.
 1. Select **Identity**, then follow the steps based on the identity type:
-   - **System-assigned identity**: Within the **System assigned** tab, switch _Status_ to _Off_ and click **Save**.
+   - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off** and click **Save**.
    - **User-assigned identity**: Select the **User assigned** tab, select the checkbox for the identity, and select **Remove**. Select **Yes** to confirm.
 
-# [ARM template](#tab/azure-resource-manager)
+## [ARM template](#tab/azure-resource-manager)
 Any resource of type ``Microsoft.HealthDataAIServices/deidServices`` can have system-assigned identities deleted and user-assigned identities unassigned by 
 including the following block in the resource defintion:
 
@@ -87,10 +86,7 @@ including the following block in the resource defintion:
     "type": "None"
 }
 ```
----
 
-## Next steps
-
-Learn more about managed identities for Azure resources:
+## Related content
 
 - [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview)
