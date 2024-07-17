@@ -73,7 +73,7 @@ The **Snapshot** tab lets you share an interactive dashboard or panel publicly. 
 > - Users must have a Grafana Viewer permission to view snapshots shared locally.
 
 > [!TIP]
-> To disable public sharing of snapshots, open your Azure Managed Grafana instance within the Azure portal, then go to **Settings** > **Configuration**, open the **Grafana Settings** tab, and turn off the **External Enabled** option.
+> To disable public sharing of snapshots, open your Azure Managed Grafana instance within the Azure portal, then go to **Settings** > **Configuration**, open the **Grafana Settings (Preview)** tab, and turn off the **External Enabled** option.
 
 ### Create a library panel
 

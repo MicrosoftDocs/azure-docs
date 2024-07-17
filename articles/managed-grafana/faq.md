@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: reference
-ms.date: 07/10/2024
+ms.date: 04/05/2024
 ---
 
 # Azure Managed Grafana FAQ

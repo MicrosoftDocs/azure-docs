@@ -26,7 +26,7 @@ The **Viewers Can Edit** setting allows users with the Grafana Viewer role to ed
 
 This option also gives Grafana Viewers access to the **Explore** menu in the Grafana UI, where they can perform interactive queries and analyze data within Grafana. However, it's important to note that any changes made by Viewers won't be saved permanently unless they have the appropriate Editor permissions.
 
-To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** > **Viewers can edit**. This option is disabled by default.
+To enable or disable this option, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings (Preview)** > **Viewers can edit**. This option is disabled by default.
 
 ## External Enabled
 
@@ -34,7 +34,7 @@ The **External Enabled** setting controls the public sharing of snapshots. This 
 
 With this option enabled, users can publish a snapshot of a dashboard to an external URL by opening a dashboard, selecting **Share** > **Snapshot**, and then **Publish to snapshots.raintanks.io**.
 
-You can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings** and toggle off the **External Enabled** setting.
+You can disable the External Enabled option to restrict the public sharing of snapshots. To do this, open an Azure Managed Grafana instance in the Azure portal and go to **Settings** > **Configuration** > **Grafana Settings (Preview)** and toggle off the **External Enabled** setting.
 
 ## Related content
 
