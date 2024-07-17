@@ -112,7 +112,7 @@ AKS defines a generally available (GA) version as a version available in all reg
 
 * The latest GA minor version released in AKS (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version also supports a maximum of two stable patches.
+  * Each supported minor version can support any number of patches at a given time. AKS reserves the right to deprecate patches if a critical CVE or security vulnerability is detected. For awareness on patch availability and any ad-hoc deprecation, please refer to version release notes and visit the [AKS release status webpage][aks-tracker].
 
 AKS might also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
@@ -139,22 +139,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 
 When AKS releases 1.30, all the 1.27 versions go out of support 30 days later.
 
-AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
-
-```
-Current Supported Version List
-------------------------------
-1.29.2, 1.29.1, 1.28.7, 1.28.6, 1.27.11, 1.27.10
-```
-
-If AKS releases `1.29.3` and `1.28.8`, the oldest patch versions are deprecated and removed, and the supported version list becomes:
-
-```
-New Supported Version List
-----------------------
-1.29.3, 1.29.2, 1.28.8, 1.28.7, 1.27.11, 1.27.10
-```
-
+AKS may support any number of **patches** based on upstream community release availability for a given minor version. AKS reserves the right to deprecate any of these patches at any given time due to a CVE or potential bug concern. You're always encouraged to use the latest patch for a minor version.  
 ## Platform support policy
 
 Platform support policy is a reduced support plan for certain unsupported Kubernetes versions. During platform support, customers only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components aren't supported.
