@@ -1,5 +1,5 @@
 ---
-title: include file
+title: Include file - Java
 description: Java Audio Streaming quickstart
 services: azure-communication-services
 author: Alvin
@@ -7,7 +7,7 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 07/15/2024
 ms.topic: include
-ms.topic: include file
+ms.topic: Include file
 ms.author: alvinhan
 ---
 
@@ -15,7 +15,7 @@ ms.author: alvinhan
 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../../call-automation/Callflows-for-customer-interactions.md).
+- A new web service application created using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
 - [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
@@ -44,7 +44,7 @@ CallInvite callInvite = new CallInvite(target, caller); 
 ## Start Audio Streaming
 
 How to start audio streaming:
-``` java
+``` Java
 Method1:  
 StartMediaStreamingOptions startOptions = new StartMediaStreamingOptions()  
                                                         .setOperationContext("startMediaStreamingContext")  
@@ -58,10 +58,10 @@ Method2: 
                     .getCallMedia()  
                     .startMediaStreaming();  
 ```
-When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server, it will send through the first data packet which contains metadata regarding the incoming media packets. 
+When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets.
 
 The metadata packet will look like this:
-``` 
+``` Code
 { 
     "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData. 
     "audioMetadata": { 
@@ -77,7 +77,7 @@ The metadata packet will look like this:
 
 ## Stop Audio Streaming
 How to stop audio streaming
-``` java
+``` Java
 Method1:  
 StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions()  
                                                         .setOperationCallbackUrl(appConfig.getBasecallbackuri());  
