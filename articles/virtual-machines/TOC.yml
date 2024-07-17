@@ -291,6 +291,19 @@
           href: fx-series.md
     - name: Memory optimized
       items:
+      - name: Esv6 and Edsv6-series
+        href: esv6-edsv6-series.md
+      - name: Overview
+        displayName: memory optimized, sizes, size, vm size, memory
+        href: sizes-memory.md
+      - name: Dv2 and DSv2-series 11-15
+        href: dv2-dsv2-series-memory.md
+      - name: Ev3 and Esv3-series
+        href: ev3-esv3-series.md
+      - name: Eav4 and Easv4-series
+        href: eav4-easv4-series.md
+      - name: Easv6 and Eadsv6-series
+        href: easv6-eadsv6-series.md
       - name: E family
         items:
         - name: Overview
