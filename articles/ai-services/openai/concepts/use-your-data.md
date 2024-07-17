@@ -314,39 +314,51 @@ You can deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundam
 
 #### [Teams app (preview)](#tab/teams)
 
-A Teams app lets you bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. This Teams app feature is limited to users within a single tenant and personal chat (non-group chat) scenarios. 
+A Teams app lets you bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. By default, this Teams app is set for users within a single Azure account tenant and personal chat (non-group chat) scenarios, but developers can modify the app to enable different configurations.
 
 You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Follow the steps below: 
 
 1. Make sure you have fulfilled the following prerequisites: 
-   * Sign in to your M365 account (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program))
+    - The latest version of [Visual Studio Code](https://code.visualstudio.com/) installed.
+    - The latest version of [Teams toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VSCode extension that creates a project scaffolding for your app.
+    - [Node.js](https://nodejs.org/en/download/) (version 16 or 17) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
+    - [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app) installed.
+    * Sign in to your M365 account (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program))
+    - [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) installed. This is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. For more information on setting up environment variables, see theAzure SDK documentation.
+    - Your Azure account has been assigned **Cognitive Services OpenAI user** or **Cognitive Services OpenAI Contributor** role of the Azure OpenAI resource you're using, allowing your account to make Azure OpenAI API calls. For more information, [seeUsing your data with Azure OpenAI securely](/azure/ai-services/openai/how-to/use-your-data-securely#using-the-api) and [Add role assignment to an Azure OpenAI resource](/azure/ai-services/openai/how-to/role-based-access-control#add-role-assignment-to-an-azure-openai-resource) for instructions on setting this role in the Azure portal. 
    * Enable **custom app upload** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
-   * [Azure CLI](/cli/azure/install-azure-cli) installed
-   * [Visual Studio Code](https://code.visualstudio.com/) installed
-   * You have the **Cognitive Service OpenAI user** role with the Azure OpenAI resource you're using.
 
-1. After you've added your data to the chat model, select **Deploy** and then **a Teams app(preview)**. Enter the name of your Teams app and download the resulting .zip file.
 
-1. Extract the .zip file and open the folder in VSCode.
+1. After you've added your data to the chat model, select **Deploy** and then **a new Teams app(preview)**. Enter the name of your Teams app and download the resulting .zip file.
 
-1. If you chose **API key** in the data connection step, manually copy and paste your Azure AI Search key into the `src\prompts\chat\config.json` file. If you chose **System assigned managed identity**, you can skip this step. Learn more about different data connection options in the [Data connection](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#data-connection) section. 
+1. Extract the .zip file and open the folder in Visual Studio Code.
 
-1. Select the **Run** menu, and select **Debug (Edge)** to run the app locally in your environment. After you've tested it locally, you can provision, deploy, and publish your Teams app.  
+1. If you chose **API key** in the data connection step, manually copy and paste your Azure AI Search key into the `src\prompts\chat\config.json` file. Your Azure AI Search Key can be found in Azure OpenAI Studio Playground by selecting the**View code** button with the key located underAzure Search Resource Key. If you chose **System assigned managed identity**, you can skip this step. Learn more about different data connection options in the [Data connection](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#data-connection) section.
 
-1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision)) 
+1. Open the Visual Studio Code terminal and log into Azure CLI, selecting the account that you assigned **Cognitive Service OpenAI User** role to. Use the `az login` command in the terminal to log in.
+
+1. To debug your app, press the **F5** key or select **Run and Debug** from the left pane. Then select your debugging environment from the dropdown list. A webpage opens where you can chat with your custom copilot.
+    > [!NOTE]
+    > The citation experience is available in **Debug (Edge)** or **Debug (Chrome)** only.
+
+1. After you've tested your copilot, you can provision, deploy, and publish your Teams app by selecting the **Teams Toolkit Extension** on the left pane in Visual Studio Code. Run the separate provision, deploy, and publish stages in the **Lifecycle** section. You may be asked to sign in to your Microsoft 365 account where you have permissions to upload custom apps and your Azure Account.
+  
+1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision))
+
+1. Assign the **Cognitive Service OpenAI User** role to your deployed App Service resource 
     1. Go to the Azure portal and select the newly created Azure App Service resource
     1. Go to **settings** -> **identity** -> **enable system assigned identity** 
         1. Select **Azure role assignments** and then **add role assignments**. Specify the following parameters:
            * Scope: resource group 
            * Subscription: the subscription of your Azure OpenAI resource 
            * Resource group of your Azure OpenAI resource 
-           * Role: Cognitive Service OpenAI user  
+           * Role: **Cognitive Service OpenAI user**  
 
 1. Deploy your app to Azure by following the instructions in [Deploy to the cloud](/microsoftteams/platform/toolkit/deploy). 
 
 1. Publish your app to Teams by following the instructions in [Publish Teams app](/microsoftteams/platform/toolkit/publish).
 
-See also [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
+The README file in your Teams app has additional details and tips. Also, see [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
 
 #### [Web app](#tab/web-app)
 
