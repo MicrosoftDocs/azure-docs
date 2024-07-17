@@ -5,7 +5,7 @@ author:      misha-bansal # GitHub alias
 ms.author:   mishabansal # Microsoft alias
 ms.service: virtual-machines
 ms.topic: feature-availability
-ms.date:     05/01/2024
+ms.date:     07/17/2024
 ms.subservice: sizes
 ---
 
