@@ -40,13 +40,13 @@ To get started with language learning through chatting, follow these steps:
    
 1. Press the microphone icon to start speaking naturally, as if you were talking to a real person. 
   
-   :::image type="content" source="media/pronunciation-assessment/language-learning-pressing-mic-icon.png" alt-text="Screenshot of pressing the microphone icon to interact with the voice assistant.":::
+   :::image type="content" source="media/pronunciation-assessment/language-learning-selecting-mic-icon.png" alt-text="Screenshot of selecting the microphone icon to interact with the voice assistant.":::
 
    For accurate vocabulary and grammar scores, speak at least 3 sentences before assessment.
    
 1. Press the stop button or **Assess my response** button to finish speaking. This action will trigger the assessment process.
 
-   :::image type="content" source="media/pronunciation-assessment/language-learning-assess-response.png" alt-text="Screenshot of pressing the stop button to assess your response.":::
+   :::image type="content" source="media/pronunciation-assessment/language-learning-assess-response.png" alt-text="Screenshot of selecting the stop button to assess your response.":::
 
 1. Wait for a moment, and you can get a detailed assessment report.
 
