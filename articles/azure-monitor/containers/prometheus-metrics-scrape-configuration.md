@@ -457,7 +457,6 @@ metric_relabel_configs:
   regex: '.+'
 ```
 
-### Note
 > [!NOTE]
 > 
 > If you wish to add labels to all the jobs in your custom configuration, explicitly add labels using metrics_relabel_configs for each job. Global external labels are not supported via configmap based prometheus configuration.
