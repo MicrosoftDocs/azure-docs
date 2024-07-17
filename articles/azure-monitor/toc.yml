@@ -230,24 +230,7 @@ items:
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Usage (user behavior analytics)
-        items:
-        - name: Overview
-          displayName: user behavior analytics, user behavior, usage, behavioral analytics
-          href: app/usage-overview.md
-        - name: Users, Sessions, Events
-          href: app/usage-segmentation.md
-        - name: Funnels
-          href: app/usage-funnels.md
-        - name: Cohorts
-          href: app/usage-cohorts.md
-        - name: Impact
-          href: app/usage-impact.md
-        - name: Retention
-          href: app/usage-retention.md
-        - name: User Flows
-          href: app/usage-flows.md
-        - name: HEART Framework
-          href: app/usage-heart.md
+        href: app/usage.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
