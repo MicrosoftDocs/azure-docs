@@ -20,12 +20,21 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
+> [!NOTE]
+> This version replaced 1.2.5552 and has the same release notes. 
+
+## Updates for version 1.2.5552
+
+*Date published: July 2, 2024* 
+
 In this release, we made the following changes:
 
 - Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
 
 > [!NOTE]
-> This Insider release was originally version 1.2.5550, but we made this change and re-released it as 1.2.5559. This version contains all of the changes made in 1.2.5550 and 1.2.5552.  
+>- This Insider release was originally version 1.2.5550, but we made a change to fix an issue with double MFA prompts and re-released as version 1.2.5552. This version contains all the changes made in 1.2.5550. 
+>- This version was released as a public version on July 2, 2024, but was replaced by version 1.2.5559 on July 17, 2024.  
+
 
 ## Updates for version 1.2.5550
 
