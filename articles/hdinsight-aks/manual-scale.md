@@ -8,6 +8,8 @@ ms.date: 02/06/2024
 
 # Manual scale
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS provides elasticity with options to scale up and scale down the number of cluster nodes. This elasticity works to help increase resource utilization and improve cost efficiency.
 
 ## Utility to scale clusters

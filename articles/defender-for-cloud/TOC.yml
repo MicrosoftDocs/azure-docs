@@ -468,10 +468,6 @@
           href: other-threat-protections.md
     - name: Manage security by subscriptions, users, and permissions
       items:
-        - name: Organize management groups and subscriptions
-          displayName: management groups, subscriptions, organize, azure roles, assign,
-            users, elevated access
-          href: management-groups-roles.md
         - name: Grant and request tenant-wide permissions
           displayName: global admin, Azure Active Directory (AD), AAD
           href: tenant-wide-permissions-management.md
@@ -760,6 +756,9 @@
             href: transition-to-defender-vulnerability-management.md
           - name: Common questions 
             href: common-questions-microsoft-defender-vulnerability-management.md
+      - name: Binary drift detection (preview)
+        displayName: k8s, containers, aks
+        href: binary-drift-detection.md
       - name: Kubernetes data plane hardening
         displayName: k8s, containers, aks
         href: kubernetes-workload-protections.md

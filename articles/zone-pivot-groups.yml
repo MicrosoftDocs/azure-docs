@@ -3324,6 +3324,15 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: sudhirsneha
+- id: create-pre-post-events-maintenance-configuration
+  title: Requirements to create pre and post events on maintenance configuration
+  prompt: Choose the workflow
+  pivots:
+  - id: new-mc
+    title: New Maintenance Configuration
+  - id: existing-mc
+    title: Existing Maintenance Configuration
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
