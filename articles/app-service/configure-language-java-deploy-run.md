@@ -1,10 +1,10 @@
 ---
 title: Deploy and configure Tomcat, JBoss, or Java SE apps
-description: Learn how to deploy and configure Tomcat, JBoss, or Java SE apps to run on Azure App Service.
+description: Learn how to deploy Tomcat, JBoss, or Java SE apps to run on Azure App Service and perform common tasks like setting Java versions and configuring logging.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: article
-ms.date: 05/14/2024
+ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -220,7 +220,7 @@ All Java runtimes on App Service come with the Java Flight Recorder. You can use
 
 To take a timed recording, you need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
 
-Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command starts a 30-second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `C:\home` directory.
+Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="C:\home\timed_recording_example.JFR"
@@ -269,7 +269,7 @@ Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To an
 
 # [Windows](#tab/windows)
 
-Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it's configured. If you need longer retention, configure the application to write output to a Blob storage container. 
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after you enable it. If you need longer retention, configure the application to write output to a Blob storage container. 
 
 ::: zone pivot="java-javase,java-tomcat"
 
@@ -473,7 +473,7 @@ When you create an app with built-in Tomcat to host your Java workload (a WAR fi
 
 Additionally, there are certain transformations that are further applied on top of the server.xml for Tomcat distribution upon start. These are transformations to the Connector, Host, and Valve settings.
 
-Note that the latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older versions of Tomcat don't use transforms and might have different behavior as a result.
+The latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older versions of Tomcat don't use transforms and might have different behavior as a result.
 
 ### Connector
 

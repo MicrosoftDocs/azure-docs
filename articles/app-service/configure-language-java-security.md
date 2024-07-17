@@ -1,10 +1,10 @@
 ---
 title: Configure security for Tomcat, JBoss, or Java SE apps
-description: Learn how to configure security for Tomcat, JBoss, or Java SE apps on Azure App Service.
+description: Learn how to configure security for Tomcat, JBoss, or Java SE apps on Azure App Service, such as authentication, Key Vault references, and Java key store.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
-ms.date: 05/13/2024
+ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -14,7 +14,7 @@ ms.author: cephalin
 
 # Configure security for a Tomcat, JBoss, or Java SE app in Azure App Service
 
-This article shows how to confgure Java-specific security settings in App Service. Java applications running in App Service have the same set of [security best practices](../security/fundamentals/paas-applications-using-app-services.md) as other applications.
+This article shows how to configure Java-specific security settings in App Service. Java applications running in App Service have the same set of [security best practices](../security/fundamentals/paas-applications-using-app-services.md) as other applications.
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
 

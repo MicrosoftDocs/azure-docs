@@ -1,10 +1,10 @@
 ---
 title: Configure data sources for Tomcat, JBoss, or Java SE apps
-description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service. 
+description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service. You'll find instructions for native Windows and Linux container variants.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
-ms.date: 05/21/2024
+ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -26,7 +26,7 @@ To connect to data sources in Spring Boot applications, we suggest creating conn
 
     This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, `CUSTOMCONNSTR_exampledb`.
 
-2. In your *application.properties* file, reference this connection string with the environment variable name. For our example, we would use the following.
+2. In your *application.properties* file, reference this connection string with the environment variable name. For our example, we would use the following code:
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
@@ -99,7 +99,7 @@ Next, determine if the data source should be available to one application or to 
 You can't directly modify a Tomcat installation for server-wide configuration because the installation location is read-only. To make server-level configuration changes to your Windows Tomcat installation, the simplest way is to do the following on app start: 
 
 1. Copy Tomcat to a local directory (`%LOCAL_EXPANDED%`) and use that as `CATALINA_BASE` (see [Tomcat documentation on this variable](https://tomcat.apache.org/tomcat-10.1-doc/introduction.html)).
-1. Add your shared data sources to `%LOCAL_EXPANDED%\tomcat\conf\server.xml` using XSL tranform.
+1. Add your shared data sources to `%LOCAL_EXPANDED%\tomcat\conf\server.xml` using XSL transform.
 
 #### Add a startup file
 
@@ -182,7 +182,7 @@ This PowerShell completes the following steps:
 
 1. Check whether a custom Tomcat copy exists already. If it does, the startup script can end here.
 2. Copy Tomcat locally.
-3. Add shared data sources to the custom Tomcat's configuration using XSL tranform.
+3. Add shared data sources to the custom Tomcat's configuration using XSL transform.
 4. Indicate that configuration was successfully completed.
 
 #### Add XSL transform file
@@ -281,11 +281,11 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar
 
 # [Linux](#tab/linux)
 
-Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follow:
+Adding a shared, server-level data source requires you to edit Tomcat's server.xml. The most reliable way to do this is as follows:
 
 1. Upload a [startup script](./faq-app-service-linux.yml) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
 
-Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
+Your startup script makes an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -367,7 +367,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path <jar-name>.jar --type=lib --path <jar-name>.jar
 ```
 
-If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
+If you created a server-level data source, restart the App Service Linux application. Tomcat resets `CATALINA_BASE` to `/home/tomcat` and uses the updated configuration.
 
 ---
 

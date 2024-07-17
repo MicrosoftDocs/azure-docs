@@ -58,7 +58,7 @@ ms.author: cephalin
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configure your Java app](configure-language-java.md)
+> [Configure your Java app](configure-language-java-deploy-run.md)
 
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
