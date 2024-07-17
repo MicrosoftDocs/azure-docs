@@ -11,8 +11,6 @@ ms.author: abell
 
 # Tutorial: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
 
-
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -28,8 +26,6 @@ There are two specific alerts that you'll see for any DDoS attack detection and 
 To view the alerts, open **Defender for Cloud** in the Azure portal and select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
 :::image type="content" source="./media/ddos-view-alerts-defender-for-cloud/ddos-alert-asc.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/ddos-view-alerts-defender-for-cloud/ddos-alert-asc.png":::
-
-
 
 ## Prerequisites
 
