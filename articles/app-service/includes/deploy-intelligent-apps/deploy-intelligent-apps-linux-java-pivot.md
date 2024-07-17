@@ -17,7 +17,11 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Set up web app
 
+<<<<<<< HEAD
 For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
+=======
+For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
+>>>>>>> 186f85b0178b (acrolinx and template errors)
 
 ```bash
   @RequestMapping("/")
@@ -147,7 +151,7 @@ Before you can create the client, you first need to add the Azure SDK dependency
 </dependency>
 ```
 
-Once the package is created, we can start working on the client that will make our calls.
+Once the package is created, we can start working on the client that makes our calls.
 
 ### Create OpenAI client
 
@@ -180,7 +184,7 @@ import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
 ```
 
-### Setup prompt and call to OpenAI
+### Set up prompt and call to OpenAI
 
 Now that our OpenAI service is created we can use the chat completions method to send our request message to OpenAI and return a response. Here's where we add our chat message prompt to the code to be passed to the chat completions method. Use the following code to set up the chat completions method:
 
@@ -285,9 +289,9 @@ public class Application {
 
 ### Deploy to App Service
 
-If you completed the steps above, you can deploy to App Service as you normally would. If you run into any issues, remember that you need to complete the following: grant your app access to your Key Vault, and add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
+If you completed the steps above, you can deploy to App Service as you normally would. If you run into any issues, remember that you need to complete the following steps: grant your app access to your Key Vault, and add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you added in the portal.
 
-Once deployed, you can visit your site URL and you are greeted with the text that contains the response from your chat message prompt.  
+Once the app is deployed, you can visit your site URL and you're greeted with the text that contains the response from your chat message prompt.  
 
 
 ### Authentication
