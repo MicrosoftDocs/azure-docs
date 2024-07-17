@@ -59,9 +59,9 @@ When managing resources in managed clusters, use ARM or ARM-backed tools to ensu
 | [ARM and ARM templates](/azure/templates/microsoft.servicefabric/clusters?pivots=deployment-language-arm-template) | Yes |
 | [Bicep](/azure/templates/microsoft.servicefabric/clusters?pivots=deployment-language-bicep) | Yes |
 | [Azure portal](https://portal.azure.com) | Yes |
-| [Azure CLI](/cli/azure/sf?view=azure-cli-latest) | Yes |
-| [Azure PowerShell](/powershell/module/az.servicefabric/?view=azps-12.1.0) | Yes |
-| [Service Fabric PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps) | **No** |
+| [Azure CLI](/cli/azure/sf?view=azure-cli-latest&preserve-view=true) | Yes |
+| [Azure PowerShell](/powershell/module/az.servicefabric/?view=azps-12.1.0&preserve-view=true) | Yes |
+| [Service Fabric PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps&preserve-view=true) | **No** |
 | [sfctl](service-fabric-sfctl.md) | **No** |
 
 > [!IMPORTANT]
