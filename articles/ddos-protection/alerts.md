@@ -48,11 +48,12 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
     |Resource | Select the specific **Public IP address** you want to log metrics for. |
 
 1. Select **Done**, then select **Next: Condition**.
-1. On the **Condition** page, select **+ Add Condition**, then in the *Search by signal name* search box, search and select **Under DDoS attack or not**.
+1. On the **Condition** page, select **+ Add Condition**, then in the *Search by signal name* search box, search, and select **Under DDoS attack or not**.
 
     :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-add-condition.png" alt-text="Screenshot of adding DDoS Protection attack alert condition." lightbox="./media/ddos-alerts/ddos-protection-alert-add-condition.png":::
 
-1. In the **Create an alert rule** page, enter or select the following information. 
+1. In the **Create an alert rule** page, select the following information. 
+
   :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-alerts/ddos-protection-alert-signal.png":::
 
     | Setting | Value |
@@ -83,7 +84,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
     | Display name | This display name will be shown as the action group name in email and SMS notifications. For this example, enter **myDDoSAlerts**. |
 
     
-1. On the *Notifications* tab, under *Notification type*, select the notification type you wish to use. For this example we will select **Email/SMS message/Push/Voice**. In the *Name* tab, enter **myUnderAttackEmailAlert**.
+1. On the *Notifications* tab, under *Notification type*, select the notification type you wish to use. For this example, we select **Email/SMS message/Push/Voice**. In the *Name* tab, enter **myUnderAttackEmailAlert**.
 
     :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-action-group-notification.png" alt-text="Screenshot of adding DDoS Protection attack alert notification type." lightbox="./media/ddos-alerts/ddos-protection-alert-action-group-notification.png":::
 

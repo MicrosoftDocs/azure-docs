@@ -27,11 +27,11 @@ DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks a
 
 ## Configure diagnostic logging alerts through Azure Monitor
 
-With these templates, you'll be able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. 
+With these templates, you are able to configure alerts for all public IP addresses that you have enabled diagnostic logging on. 
 
 ### Create Azure Monitor alert rule
 
-The Azure Monitor alert rule template will run a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. The alert indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
+The Azure Monitor alert rule template runs a query against the diagnostic logs to detect when an active DDoS mitigation is occurring. The alert indicates a potential attack. Action groups can be used to invoke actions as a result of the alert.
 
 
 #### Deploy the template
@@ -49,7 +49,7 @@ The Azure Monitor alert rule template will run a query against the diagnostic lo
     | Subscription | Select your Azure subscription. |   
     | Resource Group | Select your Resource group. | 
     | Region | Select your Region. |
-    | Workspace Name | Enter your workspace name. In this example the *Workspace name* is **myLogAnalyticsWorkspace**. | 
+    | Workspace Name | Enter your workspace name. In this example, the *Workspace name* is **myLogAnalyticsWorkspace**. | 
     | Location | Enter **East US**. |
 
     > [!NOTE]
@@ -79,7 +79,7 @@ This DDoS Mitigation Alert Enrichment template deploys the necessary components 
     | Alert Name | Leave as default. | 
     | Security Team Email | Enter the required email address. |
     | Company Domain | Enter the required domain. |
-    | Workspace Name | Enter your workspace name. In this example the *Workspace name* is **myLogAnalyticsWorkspace**. |
+    | Workspace Name | Enter your workspace name. In this example, the *Workspace name* is **myLogAnalyticsWorkspace**. |
 
 1. Select **Review + create** and then select **Create** after validation passes. 
 

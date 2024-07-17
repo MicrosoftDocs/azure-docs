@@ -13,7 +13,6 @@ ms.custom: template-how-to-pattern
 
 In this guide, we walk through the steps to switch between Network Protection and IP Protection tiers using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
 
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -64,7 +63,7 @@ The DDoS protection plan must be disassociated from the protected resources befo
 >To maintain DDoS Protection during migration, ensure IP protection is enabled on all public IPs protected by Network Protection.
 
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
-1. In the **Settings** page, select the **Protected Resources** tab, then select the **Dissociate** icon next to the virtual network that contains the resources you are protecting. When prompted, select **Yes** to confirm.
+1. In the **Settings** page, select the **Protected Resources** tab, then select the **Dissociate** icon next to the virtual network that contains the resources you're protecting. When prompted, select **Yes** to confirm.
 
     :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-remove-protected-resources.png" alt-text="Screenshot of removing protected resources to DDoS protection plan.":::
 
