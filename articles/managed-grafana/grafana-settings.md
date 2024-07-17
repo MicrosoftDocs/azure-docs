@@ -14,7 +14,11 @@ ms.date: 07/15/2024
 
 This article introduces the Grafana settings available in Azure Managed Grafana. These settings are designed to enable Azure Managed Grafana customers to customize their Grafana instances by enabling or disabling the Grafana options listed below.
 
-These options are referenced in the Grafana documentation settings, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
+These settings are located in Azure Managed Grafana's **Settings** > **Configuration** menu, in the **Grafana Settings (Preview)** tab.
+
+:::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform, showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png"":::
+
+They are also referenced in Grafana's documentation, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
 
 ## Viewers Can Edit
 
