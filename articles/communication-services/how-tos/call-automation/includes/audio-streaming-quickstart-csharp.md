@@ -1,20 +1,20 @@
 ---
-title: include file
-description: C# Media Streaming quickstart
+title: Include file - C#
+description: C# Audio Streaming quickstart
 services: azure-communication-services
 author: Alvin
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 07/15/2024
 ms.topic: include
-ms.topic: include file
+ms.topic: Include file
 ms.author: alvinhan
 ---
 
 ## Prerequisites 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
+- An Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- A new web service application created using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - A websocket server that can receive media streams.
 
@@ -57,10 +57,10 @@ Method1:
 Method2: 
             await callMedia.StartMediaStreamingAsync(); 
 ```
-When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server and streaming has started, it will send through the first data packet which contains metadata regarding the incoming media packets. 
+When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets. 
 
 The metadata packet will look like this:
-``` 
+``` code
 { 
     "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData. 
     "audioMetadata": { 
@@ -76,7 +76,7 @@ The metadata packet will look like this:
 
 ## Stop Audio Streaming
 How to stop audio streaming
-``` java
+``` C#
             StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions() 
             { 
                 OperationCallbackUri = new Uri(callbackUriHost) 
