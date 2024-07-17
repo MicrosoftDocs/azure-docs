@@ -82,8 +82,8 @@ One flow binds to one compute session. You can start a compute session on a flow
         |Azure Container Registry|Contributor|
         |Azure Application Insights|Contributor|
         
-          > [!NOTE]
-          > The job submitter need have `assign` permission on user assigned managed identity, you can assign **Managed Identity Operator** role, as every time create serverless compute session, it will assign user assigned managed identity to compute.
+        > [!NOTE]
+        > The job submitter need have `assign` permission on user assigned managed identity, you can assign `Managed Identity Operator` role, as every time create serverless compute session, it will assign user assigned managed identity to compute.
 
     - If you choose compute instance as compute type, you can only set idle shutdown time. 
         - As it's running on an existing compute instance the VM size is fixed and can't change in session side.
