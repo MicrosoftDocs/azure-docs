@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Set up a custom table with the Auxiliary plan for low-cost data ingestion and retention in your Log Analytics workspace
+title: Tutorial: Set up a table with the Auxiliary plan for low-cost data ingestion and retention in your Log Analytics workspace
 description: Create a custom table with the Auxiliary table plan in your Log Analytics workspace. 
 author: guywi-ms
 ms.author: guywild
@@ -10,19 +10,25 @@ ms.date: 07/14/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to create a custom table with the Auxiliary table plan, so that I can ingest and retain data at a low cost for auditing and compliance.
 ---
 
-# Set up a custom table with the Auxiliary plan in your Log Analytics workspace
+# Set up a table with the Auxiliary plan in your Log Analytics workspace (Preview) 
 
 The [Auxiliary table plan](../logs/data-platform-logs.md#table-plans) lets you ingest and retain data in your Log Analyics workspace at a low cost. Azure Monitor Logs currently supports the Auxiliary table plan on [data collection rule (DCR)-based custom tables](../logs/manage-logs-tables.md#table-type-and-schema) to which you send data you collect using [Azure Monitor Agent](../agents/agents-overview.md) or the [Logs ingestion API](../logs/logs-ingestion-api-overview.md).
 
 This article explains how to create a custom table with the Auxiliary plan in your Log Analytics workspace and set up a data collection rule that sends data to this table.
 
+> [!IMPORTANT]
+> See [public preview limitations](#public-preview-limitations) for supported regions and limitations related to Auxiliary tables and data collection rules.  
+
 ## Prerequisites
 
-To create a custom table and collect, you need:
+To create a custom table and collect log data, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A [data collection endpoint](../essentials/data-collection-endpoint-overview.md).
-   
+- A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
+
+    All tables in a Log Analytics workspace have a column named `TimeGenerated`. If your raw log data has a `TimeGenerated` property, Azure Monitor uses this value to identify the creation time of the record. For a table with the Auxiliary plan, the `TimeGenerated` column currently supports ISO8601 format only. For information about the `TimeGenerated` format, see [supported ISO 8601 datetime format](/azure/data-explorer/kusto/query/scalar-data-types/datetime#iso-8601).
+    
+
 ## Create a custom table with the Auxiliary plan
 
 To create a custom table, call the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update) by using this command:
@@ -79,9 +85,10 @@ Provide this payload - update the table name and adjust the columns based on you
 }
 ```
 
-## Send data to a custom table with the Auxiliary plan
+## Send data to a table with the Auxiliary plan
 
 There are currently two ways to ingest data to a custom table with the Auxiliary plan:
+
 
 - [Collect logs from a text or JSON file with Azure Monitor Agent](../agents/data-sources-custom-logs.md).
 
@@ -206,15 +213,34 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
 
 During public preview, these limitation apply:
 
-- The Auxiliary plan is supported in the UK South, Israel Center, East US, Australia East and Canada Central regions.
+- The Auxiliary plan is gradually being rolled out to all regions and is currently supported in:
+    - East US
+    - West Europe
+    - East US 2
+    - West US 2
+    - Central US
+    - North Europe
+    - West US
+    - UK South
+    - Canada Central
+    - Australia East
+    - South Central US
+    - East Asia
+    - North Central US
+    - Australia South East
+    - Germany West Central
+    - Switzerland North
+    - France Central
+    - Israel Central
 - You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
 - Tables with the Auxiliary plan: 
+    - Are currently unbilled. There's currently no charge for ingestion, queries, search jobs, and long-term retention.
     - Do not support columns with dynamic data.
     - Have a fixed total retention of 365 days.
-    - Are currently unbilled.
+    - Support ISO 8601 datetime format only.
 - A data collection rule that sends data to a table with an Auxiliary plan:
     - Can only send data to a single table.
-    - Cannot include a [transformation](../essentials/data-collection-transformations.md). 
+    - Can't include a [transformation](../essentials/data-collection-transformations.md). 
 
 
 ## Next steps
