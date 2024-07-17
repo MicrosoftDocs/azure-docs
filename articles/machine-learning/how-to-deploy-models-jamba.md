@@ -6,9 +6,9 @@ manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
 ms.date: 06/19/2024
-ms.author: tgokal
-ms.reviewer: ssalgado
-author: tgokal
+ms.author: ssalgado
+ms.reviewer: tgokal
+author: ssalgadodev
 ms.custom: references_regions
 ---
 
@@ -36,10 +36,17 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+- An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them. The serverless API model deployment offering for Jamba Instruct is only available with workspaces created in these regions:
 
-    > [!IMPORTANT]
-    > The pay-as-you-go model deployment offering for for Jamba Instruct is only available in workspaces created in the **East US 2** and **Sweden Central** regions.
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -314,3 +321,4 @@ Models deployed as a serverless API are protected by Azure AI content safety. Wi
 - [Model Catalog and Collections](concept-model-catalog.md)
 - [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md)
+- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)

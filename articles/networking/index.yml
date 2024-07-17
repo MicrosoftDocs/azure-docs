@@ -23,7 +23,7 @@ highlightedContent:
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Azure network security
+    - title: Azure network security documentation
       itemType: overview
       url: ./security/index.yml
     - title: Hub-spoke network topology in Azure

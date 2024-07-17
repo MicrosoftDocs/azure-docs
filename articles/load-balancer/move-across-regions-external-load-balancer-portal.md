@@ -33,7 +33,7 @@ In a literal sense, you can't move an Azure external load balancer from one regi
 ## Prepare and move
 The following procedures show how to prepare the external load balancer for the move by using a Resource Manager template and move the external load balancer configuration to the target region by using the Azure portal. You must first export the public IP configuration of external load balancer.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### Export the public IP template and deploy the public IP from the portal
 

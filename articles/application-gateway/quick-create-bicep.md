@@ -15,7 +15,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 
 In this quickstart, you use Bicep to create an Azure Application Gateway. Then you test the application gateway to make sure it works correctly. The Standard v2 SKU is used in this example.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 :::image type="content" source="./media/quick-create-portal/application-gateway-qs-resources.png" alt-text="Conceptual diagram of the quickstart setup." lightbox="./media/quick-create-portal/application-gateway-qs-resources.png":::
 

@@ -323,7 +323,7 @@ Deploy production workloads includes these steps:
 
 ### Roles for production workloads
 
-To create your production resources, you need to create a user-assigend [managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) then assign that identity to your resources with the correct roles. 
+To create your production resources, you need to create a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) then assign that identity to your resources with the correct roles. 
 
 The following role is suggested for a production application:
 
@@ -391,3 +391,4 @@ Create environment variables for your deployed and keyless Azure AI Search resou
 
 * [Keyless connections developer guide](/azure/developer/intro/passwordless-overview)
 * [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
+* [Set environment variables](/azure/ai-services/cognitive-services-environment-variables)

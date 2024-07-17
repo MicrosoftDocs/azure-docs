@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

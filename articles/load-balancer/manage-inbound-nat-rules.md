@@ -21,7 +21,7 @@ There are two types of inbound NAT rule:
 
 In this article, you learn how to add and remove an inbound NAT rule for both types. You learn how to change the frontend port allocation in a multiple instance inbound NAT rule. You can choose from the Azure portal, PowerShell, or CLI examples.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

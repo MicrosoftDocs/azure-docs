@@ -28,7 +28,7 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Cosm
 
 An Azure subscription or free Azure Cosmos DB trial account.
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]  
 

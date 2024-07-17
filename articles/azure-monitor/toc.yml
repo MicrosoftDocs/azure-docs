@@ -86,6 +86,10 @@ items:
           href: app/opentelemetry-configuration.md
         - name: Add and modify OpenTelemetry
           href: app/opentelemetry-add-modify.md
+        - name: .NET (supplemental)
+          items:
+          - name: Migrate from Application Insights .NET SDKs to OpenTelemetry
+            href: app/opentelemetry-dotnet-migrate.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -118,8 +122,6 @@ items:
           items:
           - name: Migrate from Opencensus
             href: app/opentelemetry-python-opencensus-migrate.md
-        - name: FAQ
-          href: app/opentelemetry-enable.md#frequently-asked-questions
       - name: Client-side JavaScript SDK
         items:
         - name: Get Started with JavaScript SDK
@@ -223,24 +225,7 @@ items:
       - name: Failures and Performance Views
         href: app/failures-and-performance-views.md
       - name: Availability
-        items:
-        - name: Overview
-          href: app/availability-overview.md
-        - name: Standard tests
-          href: app/availability-standard-tests.md
-        - name: Testing behind a firewall
-          href: app/availability-private-test.md
-        - name: TrackAvailability()
-          href: app/availability-azure-functions.md
-          displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
-        - name: Availability alerts
-          displayName: alerts, global, alerting
-          href: app/availability-alerts.md
-        - name: SLA report
-          href: app/sla-report.md
-        - name: Migrate from URL ping tests
-          href: app/availability-test-migration.md
-          displayName: ping test, availability, migrate, convert, standard test, synthetics
+        href: app/availability.md
       - name: Live Metric stream
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
@@ -536,9 +521,6 @@ items:
       - name: Prometheus remote-write
         displayName: Prometheus,remote-write, azure monitor
         href: containers/prometheus-remote-write.md
-      - name: Microsoft Entra authorization proxy
-        displayName: Prometheus
-        href: containers/prometheus-authorization-proxy.md
       - name: Managed identity authentication
         displayName: Prometheus,remote-write
         href: containers/prometheus-remote-write-managed-identity.md
@@ -701,42 +683,64 @@ items:
     - name: Azure Monitor Agent
       items:
       - name: Overview
-        href: agents/agents-overview.md
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-overview.md
+      - name: Supported operating systems
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-supported-operating-systems.md
+      - name: Requirements
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-requirements.md
+      - name: Network settings
+        displayName: Azure Monitor agent, AMA
+        href: agents/azure-monitor-agent-network-configuration.md
       - name: Install Azure Monitor Agent
         displayName: Azure Monitor agent
         items:
-        - name: On virtual machines and servers
+        - name: Virtual machines
           href: agents/azure-monitor-agent-manage.md
-        - name: On Windows client machines
+        - name: Windows clients
           href: agents/azure-monitor-agent-windows-client.md
-        - name: View health
-          href: agents/azure-monitor-agent-health.md
+        - name: Azure Policy
+          href: agents/azure-monitor-agent-policy.md
       - name: Configure data collection
         items:
-        - name: Collect events and performance
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-rule-azure-monitor-agent.md
-        - name: Collect IIS logs
-          displayName: data collection rule,Azure Monitor Agent,IIS logs
-          href: agents/data-collection-iis.md
-        - name: Collect logs from text or JSON files
-          displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
-          href: agents/data-collection-text-log.md
-        - name: Collect SNMP traps
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-snmp-data.md
-        - name: Collect syslog data
-          href: agents/data-collection-syslog.md
-        - name: Configure a syslog forwarder
-          href: /azure/sentinel/forward-syslog-monitor-agent
-          maintainContext: true
+        - name: Create data collection rule
+          displayName: Azure Monitor agent, AMA
+          href: agents/azure-monitor-agent-data-collection.md 
+        - name: Data sources
+          items:
+          - name: Windows events
+            displayName: data collection rule,Azure Monitor agent
+            href: agents/data-collection-windows-events.md
+          - name: Syslog events
+            href: agents/data-collection-syslog.md        
+          - name: IIS logs
+            displayName: data collection rule,Azure Monitor Agent,IIS logs
+            href: agents/data-collection-iis.md
+          - name: Performance data
+            displayName: data collection rule,Azure Monitor agent
+            href: agents/data-collection-performance.md          
+          - name: Text logs
+            displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
+            href: agents/data-collection-log-text.md
+          - name: JSON logs
+            displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
+            href: agents/data-collection-log-json.md
+          - name: SNMP traps
+            displayName: data collection rule,Azure Monitor agent
+            href: agents/data-collection-snmp-data.md
+          - name: Configure a syslog forwarder
+            href: /azure/sentinel/forward-syslog-monitor-agent
+            maintainContext: true
         - name: Log Analytics gateway
           href: agents/gateway.md
         - name: Send data to Event Hubs and Storage
           href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
-      - name: Define network settings
-        href: agents/azure-monitor-agent-data-collection-endpoint.md
-      - name: Configure Private Link for Azure Monitor Agent
+      - name: Monitor
+        href: agents/azure-monitor-agent-health.md
+      - name: Private link
+        displayName: Azure Monitor agent, AMA
         href: agents/azure-monitor-agent-private-link.md
       - name: Migrate from Log Analytics Agent
         items:
@@ -1480,8 +1484,6 @@ items:
       href: essentials/resource-manager-diagnostic-settings.md
     - name: Log Analytics workspaces
       href: logs/resource-manager-workspace.md
-    - name: Log Analytics clusters
-      href: logs/resource-manager-cluster.md
     - name: Log queries
       href: logs/resource-manager-log-queries.md
     - name: SQL Insights (preview)

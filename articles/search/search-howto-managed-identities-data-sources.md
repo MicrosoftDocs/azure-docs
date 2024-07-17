@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 07/02/2024
 ---
 
 # Configure a search service to connect using a managed identity in Azure AI Search
@@ -52,7 +52,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
-<sup>2</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
+<sup>2</sup> AI search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
 
 <sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md).
 
