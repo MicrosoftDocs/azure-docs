@@ -14,9 +14,11 @@ zone_pivot_groups: acs-csharp-java-js-python
 
 # Quickstart: Subscribing to audio streams from an ongoing call
 
-Get started with using audio streams through Azure Communication Services Media Streaming API. This quickstart assumes you're already familiar with Call Automation APIs to build an automated call routing solution. 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Functinality described in this quickstart is currently in public preview.
+Get started with using audio streams through Azure Communication Services Audio Streaming API. This quickstart assumes you're already familiar with Call Automation APIs to build an automated call routing solution. 
+
+Functionality described in this quickstart is currently in public preview.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Audio Streaming with .NET](./includes//audio-streaming-quickstart-csharp.md)]
@@ -27,7 +29,7 @@ Functinality described in this quickstart is currently in public preview.
 ::: zone-end
 
 ::: zone pivot="programming-language-JS"
-[!INCLUDE [Audio Streaming with JS](./includes/audio-streaming-quickstart-js.md)]
+[!INCLUDE [Audio Streaming with JavaScript](./includes/audio-streaming-quickstart-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-Python"
@@ -50,7 +52,7 @@ After sending through the metadata packet, Azure Communication Services will sta
 }
 ```
 
-Example of audio data being streamed 
+Example of audio data being streamed:
 
 ``` json
 {
@@ -69,7 +71,7 @@ Example of audio data being streamed
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-- Learn more about [Media Streaming](../../concepts/voice-video-calling/media-streaming.md).
+- Learn more about [Media Streaming](../../concepts/call-automation/audio-streaming-concept.md).
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
 - Learn more about [Play action](../../concepts/call-automation/play-action.md).
 - Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).
