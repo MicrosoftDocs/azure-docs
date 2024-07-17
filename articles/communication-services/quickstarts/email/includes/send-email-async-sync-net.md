@@ -152,13 +152,13 @@ var emailClient = new EmailClient(endpoint, key);
 ---
 
 > [!NOTE]
-> It is recommended to use the manual polling (Send Email and get status async) to send email.
+> It is recommended to use the manual polling (Send Email with asynchronous status polling) to send email.
 
-#### [Send Email and get status async](#tab/send-email-and-get-status-async)
+#### [Send Email with asynchronous status polling](#tab/send-email-and-get-status-async)
 
-[!INCLUDE [polling-net](../send-email-advanced/includes/polling-net.md)]
+[!INCLUDE [polling-net](../send-email-advanced/includes/asynchronous-status-polling-net.md)]
 
-#### [Send Email and get status sync](#tab/send-smail-and-get-status-sync)
+#### [Send Email with synchronous status polling](#tab/send-smail-and-get-status-sync)
 
 ## Basic email sending 
 
