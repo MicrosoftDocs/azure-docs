@@ -27,6 +27,30 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 <!-- 5. Under the relevant month, add a short paragraph about the new feature. Give the paragraph an H3 (###) heading. Keep the title short and not rambling. -->
 <!-- 6. In the Update column, add a bookmark to the H3 paragraph that you created (#<bookmark-name>) .-->
 
+## August 2024
+
+|Date | Category | Update|
+|--|--|--|
+|August 1 | Upcoming update | [Defender for Cloud is removing sensitivity labels from the Microsoft 365 portal](#defender-for-cloud-is-removing-sensitivity-labels-from-the-microsoft-365-portal) |
+
+### Defender for Cloud is removing sensitivity labels from the Microsoft 365 portal
+
+August 1, 2024
+
+**Estimated date for change**: August 29, 2024
+
+Defender for Cloud pulls all sensitivity labels from the Microsoft 365 portal that meet the following conditions:
+
+- If the scope is set to **Items > files** or **Items > emails** under the "Define the scope of your label" section in "Information Protection".
+
+- The label has an automatic labeling rule configured.
+
+On August 29th, 2024, the names of the labels' scopes in the user interface will change in the Microsoft M365 portal and the Purview portal. With this change, Defender for Cloud will only pull sensitivity labels with the **Files and other data assets** scope set. Scopes that are set to **Emails** will no longer have their labels pulled.
+
+Labels that are already configured to **Items -> files**, will automatically migrate to the new **Files and other data assets** scope.
+
+The second condition is not affected and the label must still have an automatic labeling rule configured.
+
 ## July 2024
 
 |Date | Category | Update|
