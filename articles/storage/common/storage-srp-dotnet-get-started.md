@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/12/2024
+ms.date: 07/18/2024
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
@@ -87,14 +87,24 @@ You can register the Storage resource provider, or check the registration status
 
 You can also use the Azure management libraries to check the registration status and register the Storage resource provider, as shown in the following example:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobQueryEndpoint/QueryEndpoint.cs" id="Snippet_RegisterSRP":::
+```csharp
+public static async Task RegisterSRPInSubscription(SubscriptionResource subscription)
+{
+    ResourceProviderResource resourceProvider =
+        await subscription.GetResourceProviderAsync("Microsoft.Storage");
+
+    // Check the registration state of the resource provider and register, if needed
+    if (resourceProvider.Data.RegistrationState == "NotRegistered")
+        resourceProvider.Register();
+}
+```
 
 > [!NOTE]
 > To perform the register operation, you need permissions for the following Azure RBAC action: **Microsoft.Storage/register/action**. This permission is included in the **Contributor** and **Owner** built-in roles.
 
 ## Create a client for managing storage account resources
 
-After creating an `ArmClient` object and registering the Storage resource provider, you can create client objects to manage storage account resources. The following code example shows how to create client objects for a resource group and a storage account:
+After creating an `ArmClient` object and registering the Storage resource provider, you can create client objects at the resource group and storage account levels. The following code example shows how to create client objects for a given resource group and storage account:
 
 ```csharp
 ArmClient armClient = new(credential);
@@ -125,9 +135,8 @@ There are three standard levels of hierarchy for each resource type. For storage
 
 ## Build your application
 
-The following guides show you how to manage resources and perform specific actions using the Azure Storage management library for .NET:
+The following guide shows you how to manage resources and perform specific actions using the Azure Storage management library for .NET:
 
 | Guide | Description |
 | --- | --- |
-| [Manage a storage account](storage-srp-manage-account-dotnet.md) | Create and manage a storage account. |
-| [Management library configuration options](storage-srp-configuration-options-dotnet.md) | Configure the management library options. |
+| [Manage a storage account](storage-srp-manage-account-dotnet.md) | Learn how to create and manage a storage account, manage storage account keys, and configure client options to create a custom retry policy. |

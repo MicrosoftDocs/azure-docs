@@ -5,7 +5,7 @@ description: Learn how to manage storage account resources with the Azure Storag
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 07/12/2024
+ms.date: 07/18/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 # Manage storage account resources with .NET
 
-This article shows you how to manage storage account resources by using the Azure Storage management library for .NET.
+This article shows you how to manage storage account resources by using the Azure Storage management library for .NET. You can create and update storage accounts, list storage accounts in a subscription or resource group, manage storage account keys, and delete storage accounts. You can also configure client options to use a custom retry policy or set other options.
 
 ## Prerequisites
 
@@ -23,14 +23,18 @@ This article shows you how to manage storage account resources by using the Azur
 
 ## Set up your environment
 
-This section walks you through preparing a project to work with the Azure Storage management library for .NET.
+If you don't have an existing project, this section walks you through preparing a project to work with the Azure Storage management library for .NET. To learn more about project setup, see [Get started with Azure Storage management library for .NET](storage-srp-dotnet-get-started.md).
+
+#### Install packages
 
 From your project directory, install packages for the Azure Storage Resource Manager and Azure Identity client libraries using the `dotnet add package` command. The Azure.Identity package is needed for passwordless connections to Azure services.
 
-```console
+```dotnetcli
 dotnet add package Azure.Identity
 dotnet add package Azure.ResourceManager.Storage
 ```
+
+#### Add using directives
 
 Add these `using` directives to the top of your code file:
 
@@ -47,17 +51,21 @@ To connect an application and manage storage account resources, create an [ArmCl
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 ```
 
+To learn about creating client object for a storage account resource, see [Create a client for managing storage account resources](storage-srp-dotnet-get-started.md#create-a-client-for-managing-storage-account-resources).
+
 #### Authorization
 
 Azure provides built-in roles that grant permissions to call management operations. Azure Storage also provides built-in roles specifically for use with the Azure Storage resource provider. To learn more, see [Built-in roles for management operations](authorization-resource-provider.md).
 
 ## Create a storage account
 
+You can asynchronously create a storage account with specified parameters. If a storage account already exists and a subsequent create request is issued with the same parameters, the request succeeds. If the parameters are different, the storage account properties are updated. For an example of updating an existing storage account, see [Update the storage account SKU](#update-the-storage-account-sku).
+
 Each storage account name must be unique within Azure. To check for the availability of a storage account name, you can use the following method:
 
-- [CheckStorageAccountNameAvailability]()
+- [CheckStorageAccountNameAvailability](/dotnet/api/azure.resourcemanager.storage.storageextensions.checkstorageaccountnameavailability)
 
-The following code example checks the availability of a storage account name:
+The following code example shows how to check the availability of a storage account name:
 
 ```csharp
 // Check if the account name is available
@@ -65,32 +73,18 @@ bool? nameAvailable = subscription
     .CheckStorageAccountNameAvailability(new StorageAccountNameAvailabilityContent(storageAccountName)).Value.IsNameAvailable;
 ```
 
-You can create a storage account using the following method:
+You can create a storage account using the following method from the [StorageAccountCollection](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection) class:
 
-- [CreateOrUpdateAsync]()
+- [CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync)
 
-You can set or update the properties of a storage account by setting the parameters on a [StorageAccountCreateOrUpdateContent]() instance.
+When creating a storage account resource, you can set the properties for the storage account by including a[StorageAccountCreateOrUpdateContent]() instance in the `content` parameter.
 
-The following code example creates a storage account with the specified name, resource group, and location:
+The following code example creates a storage account and configures properties for SKU, kind, location, access tier, and shared key access:
 
 ```csharp
 public static async Task<StorageAccountResource> CreateStorageAccount(
     ResourceGroupResource resourceGroup,
     string storageAccountName)
-{
-    // Define the settings for the storage account
-    StorageAccountCreateOrUpdateContent parameters = GetStorageAccountParameters();
-
-    // Create a storage account with defined account name and settings
-    StorageAccountCollection accountCollection = resourceGroup.GetStorageAccounts();
-    ArmOperation<StorageAccountResource> acccountCreateOperation = 
-        await accountCollection.CreateOrUpdateAsync(WaitUntil.Completed, storageAccountName, parameters);
-    StorageAccountResource storageAccount = acccountCreateOperation.Value;
-
-    return storageAccount;
-}
-
-public static StorageAccountCreateOrUpdateContent GetStorageAccountParameters()
 {
     // Define the settings for the storage account
     AzureLocation location = AzureLocation.EastUS;
@@ -104,20 +98,26 @@ public static StorageAccountCreateOrUpdateContent GetStorageAccountParameters()
         AllowSharedKeyAccess = false,
     };
 
-    return parameters;
+    // Create a storage account with defined account name and settings
+    StorageAccountCollection accountCollection = resourceGroup.GetStorageAccounts();
+    ArmOperation<StorageAccountResource> acccountCreateOperation = 
+        await accountCollection.CreateOrUpdateAsync(WaitUntil.Completed, storageAccountName, parameters);
+    StorageAccountResource storageAccount = acccountCreateOperation.Value;
+
+    return storageAccount;
 }
 ```
 
 ## List storage accounts
 
-You can list storage accounts in a subscription or a resource group. The following code example takes a [SubscriptionResource]() instance and lists storage accounts in the subscription:
+You can list storage accounts in a subscription or a resource group. The following code example takes a [SubscriptionResource](/dotnet/api/azure.resourcemanager.resources.subscriptionresource) instance and lists storage accounts in the subscription:
 
 ```csharp
 public static async Task ListStorageAccountsForSubscription(SubscriptionResource subscription)
 {
-    await foreach (StorageAccountResource storageAcctSub in subscription.GetStorageAccountsAsync())
+    await foreach (StorageAccountResource storageAccount in subscription.GetStorageAccountsAsync())
     {
-        Console.WriteLine($"\t{storageAcctSub.Id.Name}");
+        Console.WriteLine($"\t{storageAccount.Id.Name}");
     }
 }
 ```
@@ -127,9 +127,9 @@ The following code example takes a [ResourceGroupResource]() instance and lists 
 ```csharp
 public static async Task ListStorageAccountsInResourceGroup(ResourceGroupResource resourceGroup)
 {
-    await foreach (StorageAccountResource storageAcct in resourceGroup.GetStorageAccounts())
+    await foreach (StorageAccountResource storageAccount in resourceGroup.GetStorageAccounts())
     {
-        Console.WriteLine($"\t{storageAcct.Id.Name}");
+        Console.WriteLine($"\t{storageAccount.Id.Name}");
     }
 }
 ```
@@ -138,9 +138,9 @@ public static async Task ListStorageAccountsInResourceGroup(ResourceGroupResourc
 
 You can get storage account keys using the following method:
 
-- [GetKeysAsync](): Returns an iterable collection of [StorageAccountKey]() instances.
+- [GetKeysAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.getkeysasync): Returns an iterable collection of [StorageAccountKey](/dotnet/api/azure.resourcemanager.storage.models.storageaccountkey) instances.
 
-The following code example gets the keys for a storage account and writes the name and value to the console for example purposes:
+The following code example gets the keys for a storage account and writes the names and values to the console for example purposes:
 
 ```csharp
 public static async Task GetStorageAccountKeysAsync(StorageAccountResource storageAccount)
@@ -156,7 +156,7 @@ public static async Task GetStorageAccountKeysAsync(StorageAccountResource stora
 
 You can regenerate a storage account key using the following method:
 
-- [RegenerateKeyAsync](): Regenerates a storage account key and returns the new key value.
+- [RegenerateKeyAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.regeneratekeyasync): Regenerates a storage account key and returns the new key value.
 
 The following code example regenerates a storage account key:
 
@@ -177,7 +177,7 @@ public static async Task RegenerateStorageAccountKey(StorageAccountResource stor
 
 You can update existing storage account settings by passing updated parameters to the following method:
 
-- [CreateOrUpdateAsync]()
+- [CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync)
 
 The following code example updates the storage account SKU from `Standard_LRS` to `Standard_GRS`:
 
@@ -187,7 +187,7 @@ public static async Task UpdateStorageAccountSkuAsync(
     StorageAccountCollection accountCollection)
 {
     // Update storage account SKU
-    var currentSku = storageAccount.Data.Sku.Name;  // capture the current Sku value before updating
+    var currentSku = storageAccount.Data.Sku.Name;  // capture the current SKU value before updating
     var kind = storageAccount.Data.Kind ?? StorageKind.StorageV2;
     var location = storageAccount.Data.Location;
     StorageSku updatedSku = new(StorageSkuName.StandardGrs);
@@ -201,9 +201,9 @@ public static async Task UpdateStorageAccountSkuAsync(
 
 You can delete a storage account using the following method:
 
-- [DeleteAsync]()
+- [DeleteAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.deleteasync)
 
-The following code example deletes a storage account:
+The following code example shows how to delete a storage account:
 
 ```csharp
 public static async Task DeleteStorageAccountAsync(StorageAccountResource storageAccount)
@@ -214,10 +214,12 @@ public static async Task DeleteStorageAccountAsync(StorageAccountResource storag
 
 ## Configure ArmClient options
 
-You can configure the `ArmClient` object to use a custom retry policy or set other options. The following code example shows how to configure the `ArmClient` object:
+You can pass an [ArmClientOptions](/dotnet/api/azure.resourcemanager.armclientoptions) instance when creating an `ArmClient` object. This class allows you to configure values for diagnostics, environment, transport, and retry options for a client object. 
+
+The following code example shows how to configure the `ArmClient` object to change the default retry policy:
 
 ```csharp
-// Provide configuration options for the ArmClient
+// Provide configuration options for ArmClient
 ArmClientOptions armClientOptions = new()
 {
     Retry = {

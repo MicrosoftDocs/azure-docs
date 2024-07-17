@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-storage
 ms.topic: overview
-ms.date: 07/12/2024
+ms.date: 07/18/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python, devguide-go
 ---
 
@@ -19,6 +19,9 @@ The Azure SDKs are collections of libraries built to make it easier to use Azure
 The Azure SDK provides two sets of libraries for working with Azure Storage resources. One set of libraries builds on the Azure Storage REST API, and is designed to handle data access operations for blobs, queues, and files. These libraries are sometimes referred to as the data plane. Another set of libraries builds on top of the Azure Storage resource provider REST API, and is designed to handle resource management operations. These libraries are sometimes referred to as the management plane.
 
 In this article, you learn about the management and data plane libraries, and when to use each set of libraries as you build your application.
+
+> [!IMPORTANT]
+> This article covers the latest Azure Storage client libraries. These libraries are updated regularly to drive consistent experiences and strengthen your security posture. Older libraries no longer receive official support or updates from Microsoft. It's recommended that you transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates.
 
 ## Libraries for data access
 
