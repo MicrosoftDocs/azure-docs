@@ -2,7 +2,7 @@
 author: JimacoMS4
 ms.author: v-jibrannian
 ms.topic: include
-ms.date: 07/02/7024
+ms.date: 07/02/2024
 ---
 Next, restart the web app.<br>
 <br>

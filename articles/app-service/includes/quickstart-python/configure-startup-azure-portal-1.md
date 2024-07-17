@@ -2,7 +2,7 @@
 author: JimacoMS4
 ms.author: v-jibrannian
 ms.topic: include
-ms.date: 07/02/7024
+ms.date: 07/02/2024
 ---
 First, configure the startup command in Azure App Service. Navigate to the page for the App Service instance in the Azure portal.<br>
 <br>

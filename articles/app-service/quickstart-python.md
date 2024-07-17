@@ -135,7 +135,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 1. Browse to the sample application at `http://localhost:8000` in a web browser.
 
-    :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the FastAPI app running locally in a browser":::
+    :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the FastAPI app running locally in a browser.":::
 
 Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
@@ -270,7 +270,7 @@ App Service automatically detects the presence of a Flask app. No additional con
 
 App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
 
-#### [Azure portal](#tab/azure-portal/fastapi)
+### [Azure portal](#tab/azure-portal/fastapi)
 
 For FastAPI, you must configure a custom startup command for App Service to run your app. The following command starts Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
 
