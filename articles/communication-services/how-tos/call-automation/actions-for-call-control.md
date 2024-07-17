@@ -167,10 +167,9 @@ The response provides you with CallConnection object that you can use to take fu
 ![Sequence diagram for placing an outbound call.](media/make-call-flow.png)
 
 ## Connect to a call
+Connect action enables your service to establish a connection with an ongoing call and take actions on it. This is useful to manage a Rooms call or when client applications started a 1:1 or group call that Call automation isn't part of. Connection is established using the CallLocator property and can be of types: ServerCallLocator, GroupCallLocator, and RoomCallLocator. These IDs can be found when the call is originally established or a Room is created, and also published as part of [CallStarted](./../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationcallstarted) event. 
 
-Connect action enables your service to join an ongoing call to manage it and perform actions. Connection is established using the CallLocator property and can be of types: ServerCallLocator, GroupCallLocator, and RoomCallLocator.
-
-ServerCallLocator takes the serverCallId and can be used to connect to any 1:1 or group call.
+To connect to any 1:1 or group call, use the ServerCallLocator. If you started a call using GroupCallId, you can also use the GroupCallLocator. 
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -201,41 +200,6 @@ const response = await client.connectCall(serverCallLocator, callbackUri);
 callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
 server_call_locator = ServerCallLocator("<server_call_id>")
 call_connection_properties = client.connect_call(call_locator=server_call_locator, callback_url=callback_uri)
-```
-
------
-
-GroupCallLocator takes a GroupCallId - this is relevant when a call was created using GroupCallId in the first place.
-### [csharp](#tab/csharp)
-
-```csharp
-Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
-CallLocator groupCallLocator = new GroupCallLocator("<GroupCallId>");
-ConnctCallResult response = await client.ConnectAsync(groupCallLocator, callbackUri);
-```
-
-### [Java](#tab/java)
-
-```java
-String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-CallLocator groupCallLocator =  new GroupCallLocator("<GroupCallId>");
-ConnectCallResult response = client.connectCall(groupCallLocator, callbackUri).block();
-```
-
-### [JavaScript](#tab/javascript)
-
-```javascript
-const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
-const groupCallLocator = { kind: "groupCallLocator", id: "<groupCallId>" };
-const response = await client.connectCall(groupCallLocator, callbackUri);
-```
-
-### [Python](#tab/python)
-
-```python
-callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
-group_call_locator = GroupCallLocator("<group_call_id>")
-call_connection_properties = client.connect_call(call_locator=group_call_locator, callback_url=callback_uri)
 ```
 
 -----
@@ -278,8 +242,8 @@ call_connection_properties = client.connect_call(call_locator=room_call_locator,
 A successful response provides you with CallConnection object that you can use to take further actions on this call. Two events are published to the callback endpoint you provided earlier:
 1. `CallConnected` event notifying that you successfully connect to the call.
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
-
-Failure to connect to the call results in ConnectFailed event. 
+   
+At any point after a successful connection, if your service is disconnected from this call you will be notified via a CallDisconected event. Failure to connect to the call in the first place results in ConnectFailed event.  
 
 ![Sequence diagram for connecting to call.](media/connect-call-flow.png)
 
