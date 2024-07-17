@@ -25,7 +25,7 @@ Azure Traffic Manager and [Azure Application Gateway](../application-gateway/ove
 
 1. [Create an Azure Traffic Manager profile](quickstart-create-traffic-manager-profile.md): Start by creating an Azure Traffic Manager profile. Configure it to use the desired traffic routing method (priority, weighted, performance, or geographic).
     
-    <br><img src="./media/traffic-manager-use-with-appgw/create-profile.png" alt="A screenshot of creating a traffic manager profile." width="60%">
+    <br><br><img src="./media/traffic-manager-use-with-appgw/create-profile.png" alt="A screenshot of creating a traffic manager profile." width="60%">
 2. [Create an Azure Application Gateway](../application-gateway/quick-create-portal.md): Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
 
     ![A screenshot of creating an application gateway.](media/traffic-manager-use-with-appgw/create-appgw.png)
