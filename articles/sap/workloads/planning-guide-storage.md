@@ -19,7 +19,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 ## Microsoft Azure Storage resiliency
 
-Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs as other native Azure storage.
+Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Serive Level Agreements) as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
@@ -52,7 +52,7 @@ For support restrictions on Azure storage types for SAP NetWeaver/application la
 The sections describing the different Azure storage types will give you more background about the restrictions and possibilities using the SAP supported storage. 
 
 ### Storage choices when using DBMS replication
-Our reference architectures foresee the usage of DBMS functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you're using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. Means the storage configuration between active node and replica node in DBMS HA configuration needs to be the same. 
+Our reference architectures foresee the usage of DBMS (Database Management System) functionality like SQL Server Always On, HANA System Replication, Db2 HADR, or Oracle Data Guard. In case, you're using these technologies between two or multiple Azure virtual machines, the storage types chosen for each of the VMs is required to be the same. Means the storage configuration between active node and replica node in DBMS HA configuration needs to be the same. 
   
 
 ## Storage recommendations for SAP storage scenarios
