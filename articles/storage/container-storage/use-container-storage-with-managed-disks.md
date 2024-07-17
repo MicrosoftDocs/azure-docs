@@ -61,6 +61,10 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
 
    If you're using UltraSSD_LRS or PremiumV2_LRS disks, you can set IOPS and throughput using the `IOPSReadWrite` and `MBpsReadWrite` parameters in your storage pool definition.
 
+   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra SSD and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](../../virtual-machines/disks-types.md#ultra-disk-iops) and [Premium SSD v2 IOPS](../../virtual-machines/disks-types.md#premium-ssd-v2-iops).
+
+   `MBpsReadWrite` refers to the bandwidth allowed for Ultra SSD and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](../../virtual-machines/disks-types.md#ultra-disk-throughput) and [Premium SSD v2 throughput](../../virtual-machines/disks-types.md#premium-ssd-v2-throughput).
+
    ```yml
    apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
