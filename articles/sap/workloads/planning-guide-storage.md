@@ -349,6 +349,7 @@ As preferences for allocating NFS volumes based on Azure NetApp Files for databa
 SAP scenarios supported on Azure Premium Files list like: 
 
 - Providing SMB or NFS shares for SAP's global transport directory
+- Usage as share for interfaces to SAP systems
 - The share sapmnt in high availability scenarios as documented in:
 	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md)
 	- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md)
@@ -356,6 +357,9 @@ SAP scenarios supported on Azure Premium Files list like:
 	- [High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server](./sap-hana-high-availability-scale-out-hsr-suse.md)
 
 Azure Premium Files is starting with larger amount of IOPS at the minimum share size of 100 GB compared to Azure NetApp Files. This higher bar of IOPS can avoid capacity overprovisioning to achieve certain IOPS and throughput values. For IOPS and storage throughput, read the section [Azure file share scale targets in Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md). 
+
+> [!NOTE]
+> Due to the tiered architecture of Azure Premium Files, the latency accessing metadata of the files stored in shares is significantly higher than with Azure NetApp Files. This higher latency can impact mass creation and deletion of files. But also can impact the time it takes to list content of shares. The main use case we see this higher metadata latency affecting is the usage as interface share where customers can encounter hundreds of thousands or even millions of file creations and mass deletions every day. Therefore, you should test the interface share scenarios diligently.
 
 The capability matrix for SAP workload looks like:
 
@@ -379,7 +383,7 @@ The capability matrix for SAP workload looks like:
 | Costs | low | - |
 
 
-**Summary**: Azure Premium Files is a  low latency storage that allows to deploy NFS and SMB volumes or shares. Azure Premium Files provides excellent price/performance ratio for SAP application layer shares. It also provides synchronous zonal replication for these shares. So far, we don't support this storage type for SAP DBMS workload. Though it can be used for **/hana/shared** volumes. 
+**Summary**: Azure Premium Files is a low latency storage that allows to deploy NFS and SMB volumes or shares. Azure Premium Files provides excellent price/performance ratio for SAP application layer shares. It also provides synchronous zonal replication for these shares. So far, we don't support this storage type for SAP DBMS workload. Though it can be used for **/hana/shared** volumes. 
 
 
 
