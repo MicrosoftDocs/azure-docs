@@ -94,6 +94,8 @@
   items:
   - name: Fault library
     href: chaos-studio-fault-library.md
+  - name: Experiment examples
+    href: experiment-examples.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
   - name: Version compatibility
@@ -117,7 +119,7 @@
 - name: Resources
   items:
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?query=chaos%20studio
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/chaos-studio/
   - name: Pricing calculator

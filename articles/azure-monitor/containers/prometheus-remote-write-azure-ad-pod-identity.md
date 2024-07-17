@@ -98,6 +98,21 @@ The `aadpodidbinding` label must be added to the Prometheus pod for the pod-mana
 
    [!INCLUDE[pod-identity-yaml](../includes/prometheus-sidecar-remote-write-pod-identity-yaml.md)]
 
+1. Replace the following values in the YAML:
+
+    | Value | Description |
+    |:---|:---|
+    | `<AKS-CLUSTER-NAME>` | The name of your AKS cluster. |
+    | `<CONTAINER-IMAGE-VERSION>` | [!INCLUDE [version](../includes/prometheus-remotewrite-image-version.md)]<br> The remote write container image version.   |
+    | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
+    | `<MANAGED-IDENTITY-CLIENT-ID>` | The value for **Client ID** from the **Overview** page for the managed identity. |
+    | `<CLUSTER-NAME>` | Name of the cluster that Prometheus is running on. |
+
+   > [!IMPORTANT]
+   > For Azure Government cloud, add the following environment variables in the `env` section of the YAML file:
+   >
+   > `- name: INGESTION_AAD_AUDIENCE value: https://monitor.azure.us/`
+
 1. Use Helm to apply the YAML file and update your Prometheus configuration:  
 
    ```azurecli

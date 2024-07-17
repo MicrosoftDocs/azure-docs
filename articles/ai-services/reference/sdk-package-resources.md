@@ -5,6 +5,7 @@ description: Provides an overview of available Azure AI client libraries and pac
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 03/05/2024
 ms.author: lajanuar

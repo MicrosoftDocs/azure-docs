@@ -4,11 +4,10 @@ titleSuffix: Azure Data Science Virtual  Machine
 description: Get a list of the known issues, workarounds, and troubleshooting for Azure Data Science Virtual Machine
 services: machine-learning
 ms.service: data-science-vm
-
-author: michalmar
-ms.author: mimarusa
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: reference
-ms.reviewer: franksolomon
+ms.reviewer: mimarusa
 ms.date: 04/29/2024
 ---
 
@@ -27,16 +26,16 @@ Because of its unique architecture, it needs a different setup for high-demand w
 We're building out-of-the-box support for ND A100 machines GPUs. Meanwhile, your GPU can handle Ubuntu if you add the NVIDIA Fabric Manager, and update the drivers. Follow these steps at the terminal:
 
 1. Add the NVIDIA repository to install or update drivers - find step-by-step instructions at [this resource](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html#ubuntu-lts)
-2. [OPTIONAL] You can also update your CUDA drivers, from that repository
-3. Install the NVIDIA Fabric Manager drivers:
+1. [OPTIONAL] You can also update your CUDA drivers, from that repository
+1. Install the NVIDIA Fabric Manager drivers:
 
     ```
     sudo apt-get install cuda-drivers-460
     sudo apt-get install cuda-drivers-fabricmanager-460
     ```
 
-4. Reboot your VM (to prepare the drivers)
-5. Enable and launch the newly installed NVIDIA Fabric Manager service:
+1. Reboot your VM (to prepare the drivers)
+1. Enable and launch the newly installed NVIDIA Fabric Manager service:
 
     ```
     sudo systemctl enable nvidia-fabricmanager

@@ -32,11 +32,11 @@ This quickstart uses two Node.js applications:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](./iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-cli](iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](./iot-hub-include-create-hub-cli.md)]
 
 ## Register a device
 

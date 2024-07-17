@@ -12,9 +12,6 @@
 
 # Custom data and cloud-init on Azure Virtual Machines
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 You might need to inject a script or other metadata into a Microsoft Azure virtual machine (VM) at provisioning time. In other clouds, this concept is often called  *user data*. Microsoft Azure has a similar feature called *custom data*. 
@@ -29,8 +26,8 @@ In the CLI, you can pass your custom data as a file, as the following example sh
 ```azurecli
 az vm create \
   --resource-group myResourceGroup \
-  --name centos74 \
-  --image OpenLogic:CentOS-CI:7-CI:latest \
+  --name myVM \
+  --image Ubuntu2204 \
   --custom-data cloud-init.txt \
   --generate-ssh-keys
 ```

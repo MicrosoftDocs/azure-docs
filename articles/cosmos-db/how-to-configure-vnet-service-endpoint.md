@@ -95,7 +95,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 ## <a id="configure-using-powershell"></a>Configure a service endpoint by using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
@@ -323,7 +323,7 @@ Here are some frequently asked questions about configuring access from virtual n
 
 ### Are Notebooks and Mongo/Cassandra Shell currently compatible with Virtual Network enabled accounts?
 
-At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Azure Cosmos DB Data Explorer, and the [Jupyter Notebooks service](./notebooks-overview.md), aren't supported with VNET access. This integration is currently in active development.
+At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Azure Cosmos DB Data Explorer aren't supported with VNET access. This integration is currently in active development.
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos DB account?
 

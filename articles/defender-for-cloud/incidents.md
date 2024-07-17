@@ -4,7 +4,7 @@ description: This document helps you to use Microsoft Defender for Cloud to mana
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/09/2021
+ms.date: 05/30/2024
 ---
 # Manage security incidents in Microsoft Defender for Cloud
 

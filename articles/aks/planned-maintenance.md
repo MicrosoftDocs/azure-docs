@@ -2,7 +2,7 @@
 title: Use planned maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster 
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use planned maintenance to schedule and control cluster and node image upgrades in Azure Kubernetes Service (AKS).
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/29/2024
 ms.author: nickoman
@@ -19,7 +19,7 @@ Regular maintenance is performed on your AKS cluster automatically. There are tw
 * *AKS-initiated maintenance* involves the weekly releases that AKS performs to keep your cluster up to date with the latest features and fixes.
 * *User-initiated maintenance* includes [cluster auto-upgrades][aks-upgrade] and [node operating system (OS) automatic security updates][node-image-auto-upgrade].
 
-When you use the feature of planned maintenance in AKS, you can run both types of maintenance in a cadence of your choice to minimize workload impact.
+When you use the feature of planned maintenance in AKS, you can run both types of maintenance in a cadence of your choice to minimize workload impact. You can use planned maintenance to schedule the timing of automatic upgrades, but enabling or disabling planned maintenance won't enable or disable automatic upgrades.
 
 ## Before you begin
 
@@ -54,7 +54,7 @@ The `default` option is meant exclusively for AKS weekly releases. You can switc
 
 Planned maintenance windows are specified in Coordinated Universal Time (UTC).
 
-A `default` maintenance window has the following properties:
+A `default` maintenance window has the following legacy properties (no longer recommended):
 
 |Name|Description|Default value|
 |--|--|--|
@@ -63,7 +63,10 @@ A `default` maintenance window has the following properties:
 |`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a particular day in a `default` configuration.|Not applicable|
 |`notAllowedTime`|A range of dates that maintenance can't run, determined by `start` and `end` child properties. This property is applicable only when you're creating the maintenance window by using a configuration file.|Not applicable|
 
-An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window has the following properties:
+> [!NOTE] 
+> From the 2023-05-01 API version onwards, please use the below properties for `default` configuration.
+
+An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window and `default` configuration from 2023-05-01 API version onwards has the following properties:
 
 |Name|Description|Default value|
 |--|--|--|
@@ -412,7 +415,7 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
 * I configured a maintenance window, but the upgrade didn't happen. Why?
 
-  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation or update of a maintenance configuration and the scheduled start time.
+  AKS auto-upgrade needs a certain amount of time, usually not more than 15 minutes, to take the maintenance window into consideration. We recommend at least 15 minutes between the creation or update of a maintenance configuration and the scheduled start time.
 
   Also, ensure that your cluster is started when the planned maintenance window starts. If the cluster is stopped, its control plane is deallocated and no operations can be performed.
 

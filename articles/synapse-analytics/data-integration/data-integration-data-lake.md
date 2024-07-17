@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Ingest data into Azure Data Lake Storage Gen2 

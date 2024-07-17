@@ -16,7 +16,7 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - Install and Configure [Azure PowerShell](/powershell/azure/install-azure-powershell)
 - Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)

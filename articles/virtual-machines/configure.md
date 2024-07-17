@@ -14,7 +14,7 @@ author: ju-shim
 # Configure and optimize VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -87,7 +87,7 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Alma
 
 - Scripts used in the creation of the AlmaLinux-HPC VM images from a base AlmaLinux Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/alma).
 
-Additionally, details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+Additionally, more details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and how to deploy them are in [Azure HPC VM images](azure-hpc-vm-images.md).
 
 > [!NOTE]
 > We used to support CentOS-HPC VM images. Due to phasing out of CentOS (currently the only supported version CentOS 7 will continue to receive community security patches and bug fix updates until June 2024), we are not releasing any new CentOS HPC images to Azure marketplace. CentOS/RHEL users are suggested to use our AlmaLinux-HPC images alternatives in Azure marketplace, which have the same set of drivers installed as other HPC images.

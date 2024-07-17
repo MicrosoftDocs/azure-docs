@@ -49,6 +49,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
+<authentication-managed-identity resource="https://cognitiveservices.azure.com"/> <!--Azure OpenAI-->
+```
+```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->
 ```
 ```xml  

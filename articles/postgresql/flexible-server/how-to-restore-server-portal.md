@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides a step-by-step procedure for using the Azure portal to perform point-in-time recoveries in Azure Database for PostgreSQL flexible server through backups. You can perform this procedure to the latest restore point or to a custom restore point within your retention period.
 

@@ -1,16 +1,16 @@
 ---
 title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel | Microsoft Docs
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
-author: limwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/09/2023
-ms.author: lwainstein
+ms.date: 06/18/2024
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
@@ -54,13 +54,13 @@ Your machine must meet the following requirements:
 
 - **Operating system**
 
-    - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Amazon Linux 2 (64-bit only)
     - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
     - Ubuntu Linux 20.04 LTS (64-bit only)
     - SUSE Linux Enterprise Server 12, 15 (64-bit only)
+    - CentOS distributions **are no longer supported**, as they have reached End Of Life (EOL) status. See note at the beginning of this article.
 
 - **Daemon versions**
 

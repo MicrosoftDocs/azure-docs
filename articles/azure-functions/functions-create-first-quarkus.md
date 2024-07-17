@@ -17,7 +17,7 @@ In this article, you'll develop, build, and deploy a serverless Java app to Azur
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/overview) installed on your own computer. 
-* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * [Java JDK 17](/azure/developer/java/fundamentals/java-support-on-azure) with `JAVA_HOME` configured appropriately. This article was written with Java 17 in mind, but Azure Functions and Quarkus also support older versions of Java.
 * [Apache Maven 3.8.1+](https://maven.apache.org).
 

@@ -169,7 +169,8 @@ az aks create \
     --windows-admin-password 'Password1234$' \
     --windows-admin-username azure \
     --network-plugin azure
-    --enable-ahub
+    --enable-ahub \
+    --generate-ssh-keys
 ```
 
 To use Azure Hybrid Benefit on an existing AKS cluster, run the `az aks update` command and use the update the cluster by using the `--enable-ahub` argument.
@@ -247,9 +248,9 @@ To get started with Windows Server containers in AKS, see [Create a node pool th
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limit]: quotas-skus-regions.md
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
-[maximum-number-of-pods]: azure-cni-overview.md#maximum-pods-per-node
+[maximum-number-of-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
-[client-source-ip]: concepts-network.md#ingress-controllers
+[client-source-ip]: concepts-network-ingress.md#ingress-controllers
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md

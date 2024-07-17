@@ -62,8 +62,38 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
 .StartAsync(recordingOptions);
 ```
+### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+Start Recording with your own Azure Blob Storage defined to store the recording file once recording is complete.
 
-### 2.1. Only for Unmixed - Specify a user on channel 0
+```csharp
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>"))
+{
+   RecordingContent = RecordingContent.Audio,
+   RecordingChannel = RecordingChannel.Unmixed,
+   RecordingFormat = RecordingFormat.Wav,
+   RecordingStateCallbackUri = new Uri("<CallbackUri>"),
+   RecordingStorage = RecordingStorage.CreateAzureBlobContainerRecordingStorage(new Uri("<YOUR_STORAGE_CONTAINER_URL>"))
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
+```
+## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
+```csharp
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
+{
+    RecordingContent = RecordingContent.Audio,
+    RecordingChannel = RecordingChannel.Unmixed,
+    RecordingFormat = RecordingFormat.Wav,
+    PauseOnStart = true,
+    RecordingStateCallbackUri = new Uri("<CallbackUri>");
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
+```
+
+### 2.3. Only for Unmixed - Specify a user on channel 0
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking. 
 
 ```csharp
@@ -79,7 +109,7 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
 Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording().StartAsync(recordingOptions);
 ```
 
-### 2.2. Only for Unmixed - Specify channel affinity
+### 2.4. Only for Unmixed - Specify channel affinity
 
 ```csharp
 var channelAffinity = new ChannelAffinity(new CommunicationUserIdentifier("<ACS_USER_MRI>")) { Channel = 0};

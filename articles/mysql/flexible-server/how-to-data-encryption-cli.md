@@ -4,11 +4,13 @@ description: Learn how to set up and manage data encryption for Azure Database f
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-arm-template
 ---
 
 # Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI
