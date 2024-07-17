@@ -36,6 +36,13 @@ The Deidentification service has the following built-in roles available:
 
 ## Assign a built-in role
 
+Keep in mind the following points about Azure role assignments with the Deidentification service:
+
+- When you create a Deidentification service, you aren't automatically assigned permissions to access data via Microsoft Entra ID. You need to explicitly assign yourself an applicable Azure role. You can assign it at the level of your subscription, resource group, or Deidentification service.
+- It takes up to 10 minutes for changes role assignments to take effect.
+- When the Deidentification service is locked with an [Azure Resource Manager read-only lock](/azure/azure-resource-manager/management/lock-resources), the lock prevents the assignment of Azure roles that are scoped to the Deidentification service.
+- Azure deny assignments might block your access even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
+
 You can use different tools to assign built-in roles.
 
 # [Azure portal](#tab/azure-portal)
@@ -81,7 +88,7 @@ CanDelegate        : False
 
 For more information, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
-# [Azure CLIl](#tab/azure-pcli)
+# [Azure CLI](#tab/azure-pcli)
 
 To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment) command. In order to run the command, you must have a role that includes
 **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
@@ -107,14 +114,6 @@ For more information, see [Assign Azure roles using Azure PowerShell](/azure/rol
 # [ARM template](#tab/azure-resource-manager)
 
 To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template).
-___
-
-Keep in mind the following points about Azure role assignments with the Deidentification service:
-
-- When you create a Deidentification service, you aren't automatically assigned permissions to access data via Microsoft Entra ID. You need to explicitly assign yourself an applicable Azure role. You can assign it at the level of your subscription, resource group, or Deidentification service.
-- It takes up to 10 minutes for changes role assignments to take effect.
-- When the Deidentification service is locked with an [Azure Resource Manager read-only lock](/azure/azure-resource-manager/management/lock-resources), the lock prevents the assignment of Azure roles that are scoped to the Deidentification service.
-- Azure deny assignments might block your access even if you have a role assignment. For more information, see [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments).
 
 ---
 
