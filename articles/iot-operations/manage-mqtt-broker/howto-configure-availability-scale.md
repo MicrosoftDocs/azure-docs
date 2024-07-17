@@ -149,11 +149,7 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 - Metrics provide information about the resource utilization and throughput of MQTT broker.
 - Tracing provides detailed information about the requests and responses handled by MQTT broker.
 
-To enable these features, first [Configure the MQTT broker diagnostic service settings](../configure-observability-monitoring/howto-configure-diagnostics.md).
-
-To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
-
-You can also adjust the log level of MQTT broker to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
+To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
 If you don't specify settings, default values are used. The following table shows the properties of the broker diagnostic settings and all default values.
 
