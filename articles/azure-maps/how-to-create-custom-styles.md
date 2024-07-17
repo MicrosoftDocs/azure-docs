@@ -17,7 +17,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 ## Prerequisites
 
 - Understanding of [Creator concepts].
-- An Azure Maps Creator [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- An Azure Maps Creator [tileset].
 
 ## Create custom styles using Creators visual editor
 
@@ -251,5 +251,4 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 [tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [tileset]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [unitProperties]: drawing-requirements.md#unitproperties
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
