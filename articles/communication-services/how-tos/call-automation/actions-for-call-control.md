@@ -168,11 +168,9 @@ The response provides you with CallConnection object that you can use to take fu
 
 ## Connect to a call
 
-You can create a connection to a call using CallLocator, then you can manage the call and perform actions in the call using Call Automation. 
+Connect action enables your service to join an ongoing call to manage it and perform actions. Connection is established using the CallLocator property and can be of types: ServerCallLocator, GroupCallLocator, and RoomCallLocator.
 
-Currently, we support 3 different CallLocators：ServerCallLocator, GroupCallLocator, and RoomCallLocator
-
-To connect to a call using ServerCallLocator, which take a serverCallId. You can use it to connect to regular P2P or multi-parties call.
+ServerCallLocator takes the serverCallId and can be used to connect to any 1:1 or group call.
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -207,7 +205,7 @@ call_connection_properties = client.connect_call(call_locator=server_call_locato
 
 -----
 
-To connect to a call using GroupCallLocator, which takes a GroupCallId. You can use it to connect to a group call created using GroupCallId
+GroupCallLocator takes a GroupCallId - this is relevant when a call was created using GroupCallId in the first place.
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -242,7 +240,7 @@ call_connection_properties = client.connect_call(call_locator=group_call_locator
 
 -----
 
-To connect to a call using RoomCallLocator, which takes a RoomId. You can use it to connect to a virtual meeting call using ACS Room
+To connect to a Rooms call, use RoomCallLocator which takes RoomId. 
 ### [csharp](#tab/csharp)
 
 ```csharp
@@ -277,13 +275,13 @@ call_connection_properties = client.connect_call(call_locator=room_call_locator,
 
 -----
 
-The response provides you with CallConnection object that you can use to take further actions on this call once it successfully connect to a call. Once it connects to the call, two events are published to the callback endpoint you provided earlier:
-
+A successful response provides you with CallConnection object that you can use to take further actions on this call. Two events are published to the callback endpoint you provided earlier:
 1. `CallConnected` event notifying that you successfully connect to the call.
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 
-![Sequence diagram for connecting to call.](media/connect-call-flow.png)
+Failure to connect to the call results in ConnectFailed event. 
 
+![Sequence diagram for connecting to call.](media/connect-call-flow.png)
 
 ## Answer an incoming call
 
