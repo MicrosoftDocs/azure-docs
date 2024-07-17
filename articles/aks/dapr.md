@@ -130,7 +130,7 @@ az k8s-extension create --cluster-type managedClusters \
 
 Based on your environment (dev, test, or production), you can keep up-to-date with the latest stable Dapr versions. 
 
-### Choosing a release train
+#### Choosing a release train
 
 When configuring the extension, you can choose to install Dapr from a particular release train. Specify one of the two release train values:
 
@@ -160,7 +160,7 @@ You can disable auto-update by specifying the `--auto-upgrade-minor-version` par
 --auto-upgrade-minor-version true
 ```
 
-### Viewing the latest stable Dapr versions available 
+#### Viewing the latest stable Dapr versions available 
 
 To upgrade to the latest Dapr version in a production environment, you need to manually upgrade. Start by viewing a list of the stable Dapr versions available to your managed AKS cluster. Run the following command:
 
@@ -184,7 +184,7 @@ az k8s-extension extension-types list-versions-by-location --location westus --e
 
 [Next, manually update Dapr to the latest stable version.](#targeting-a-specific-dapr-version)
 
-### Targeting a specific Dapr version
+#### Targeting a specific Dapr version
 
 > [!NOTE]
 > Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
