@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom:
   - ignite-2023
-ms.date: 07/11/2024
+ms.date: 07/17/2024
 ms.topic: concept-article
 
 #customer intent: As a developer, I want to use vector indexes in Azure Machine Learning so that I can perform retrieval-augmented generation. 
