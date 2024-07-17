@@ -126,3 +126,6 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+## Related content
+
+[Store credentials in Azure Key Vault](store-credentials-in-key-vault.md)
