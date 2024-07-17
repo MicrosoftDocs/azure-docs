@@ -160,18 +160,18 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 | Event             | Description |
 | ----------------- | ------------ |
-| CallConnected      | Your application’s call leg is connected (for inbound or outbound calls) or connected to an ongoing call (using connect call action)|
-| CallDisconnected       | Your application’s call leg is disconnected from the call |
+| CallConnected      | The call has successfully started (when using Answer or Create action) or your application has successfully connected to an ongoing call (when using Connect action)|
+| CallDisconnected       | Your application has been disconnected from the call |
 | ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
-| CallTransferAccepted         | Your application’s call leg has been transferred to another endpoint  |
-| CallTransferFailed  | The transfer of your application’s call leg failed  |
-| AddParticipantSucceeded| Your application added a participant  |
-| AddParticipantFailed   | Your application was unable to add a participant  |
-| CancelAddParticipantSucceeded| Your application canceled adding a participant  |
-| CancelAddParticipantFailed   | Your application was unable to cancel adding a participant  |
-| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call.  |
-| RemoveParticipantFailed   | Your application was unable to remove a participant from the call.  |
-| ParticipantsUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
+| CallTransferAccepted         | Transfer action has successfully completed and the transferee is connected to the target participant |
+| CallTransferFailed  | The transfer action has failed  |
+| AddParticipantSucceeded| Your application has successfully added a participant to the call  |
+| AddParticipantFailed   | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite |
+| CancelAddParticipantSucceeded| Your application canceled an AddParticipant request successfully (i.e. the participant was not added to the call) |
+| CancelAddParticipantFailed   | Your application was unable to cancel an AddParticipant request (this could be because the request has already been processed)  |
+| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call  |
+| RemoveParticipantFailed   | Your application was unable to remove a participant from the call  |
+| ParticipantsUpdated    | The status of a participant changed while your application was connected to a call  |
 | PlayCompleted | Your application successfully played the audio file provided |
 | PlayFailed | Your application failed to play audio |
 | PlayCanceled | The requested play action has been canceled |
