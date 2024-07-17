@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 07/17/2024
 ms.author: greglin
 ms.custom: template-how-to
 ---
@@ -32,6 +32,9 @@ By using Azure Traffic Manager with Azure App Service, you can ensure that your 
 ## Process overview: Steps to use Azure Traffic Manager with Azure App Service
 
 1.	Create an Azure App Service: Start by creating an Azure App Service. This will host your web, mobile, or API application. 
+
+
+
 2.	Create an Azure Traffic Manager Profile: In the Azure portal, create a new Traffic Manager profile. Choose the routing method that best suits your needs (Priority, Weighted, Performance, Geographic).
 3.	Add Endpoints to Your Traffic Manager Profile: Add your Azure App Service as an endpoint in your Traffic Manager profile. Remember, you can only specify one App Service endpoint per region in a profile.
 4.	Configure Endpoint Weights or Priorities: If you’re using the Weighted or Priority routing methods, configure the weights or priorities of your endpoints.

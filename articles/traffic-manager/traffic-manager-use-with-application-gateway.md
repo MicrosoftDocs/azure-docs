@@ -23,25 +23,22 @@ Azure Traffic Manager and [Azure Application Gateway](../application-gateway/ove
 
 ## Process overview: How to use Azure App Gateway with Azure Traffic Manager
 
-1.	[Create an Azure Traffic Manager profile](quickstart-create-traffic-manager-profile.md): Start by creating an Azure Traffic Manager profile. Configure it to use the desired traffic routing method (priority, weighted, performance, or geographic).
+1. [Create an Azure Traffic Manager profile](quickstart-create-traffic-manager-profile.md): Start by creating an Azure Traffic Manager profile. Configure it to use the desired traffic routing method (priority, weighted, performance, or geographic).
 
-  ![A screenshot of creating a traffic manager profile.](media/traffic-manager-use-with-appgw/create-profile.png)
+    <img src="./media/traffic-manager-use-with-appgw/create-profile.png" alt="A screenshot of creating a traffic manager profile." width="60%">
+2. [Create an Azure Application Gateway](../application-gateway/quick-create-portal.md): Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
 
-2.	[Create an Azure Application Gateway](../application-gateway/quick-create-portal.md): Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
+    ![A screenshot of creating an application gateway.](media/traffic-manager-use-with-appgw/create-appgw.png)
+3. Using the Azure Application Gateway [frontend public IP address](../application-gateway/application-gateway-components.md#frontend-ip-addresses), [add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to the Azure Traffic Manager profile.
 
-  ![A screenshot of creating an application gateway.](media/traffic-manager-use-with-appgw/create-appgw.png)
+    ![A screenshot of the application gateway frontend configuration.](media/traffic-manager-use-with-appgw/appgw-frontend.png)
 
-3.	Using the Azure Application Gateway [frontend public IP address](../application-gateway-components.md#frontend-ip-addresses), [add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to the Azure Traffic Manager profile.
+    ![A screenshot of adding an endpoint to the traffic manager profile.](media/traffic-manager-use-with-appgw/add-endpoint.png)
+4. Test Your Setup: Finally, test the configuration by accessing the Azure Traffic Manager DNS name from a web browser. This will help ensure that traffic is being correctly routed and load balanced.
 
-  ![A screenshot of the application gateway frontend configuration.](media/traffic-manager-use-with-appgw/appgw-frontend.png)
+    ![A screenshot of the DNS name for the traffic manager profile.](media/traffic-manager-use-with-appgw/dns-name.png)
 
-  ![A screenshot of adding an endpoint to the traffic manager profile.](media/traffic-manager-use-with-appgw/add-endpoint.png)
-
-4.	Test Your Setup: Finally, test the configuration by accessing the Azure Traffic Manager DNS name from a web browser. This will help ensure that traffic is being correctly routed and load balanced.
-
-  ![A screenshot of the DNS name for the traffic manager profile.](media/traffic-manager-use-with-appgw/dns-name.png)
-
-  ![A screenshot of testing the traffic manager connection.](media/traffic-manager-use-with-appgw/test-connection.png)
+    ![A screenshot of testing the traffic manager connection.](media/traffic-manager-use-with-appgw/test-connection.png)
 
 By using Azure Traffic Manager with Azure Application Gateway, you can achieve high availability and scalability for your web applications across multiple regions. This combination of services can help you to improve application performance, increase application availability, scale your application, and secure your application.
 
