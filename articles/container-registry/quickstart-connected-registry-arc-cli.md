@@ -136,7 +136,7 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
     For each Connected registry, you can view the status and state of the Connected registry using the [az acr connected-registry list][az-acr-connected-registry-list] command:
     
     ```azurecli
-        az acr connected-registry list --registry myacrregistry \ 
+        az acr connected-registry list --registry myacrregistry \
         --output table
     ```
 
