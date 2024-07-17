@@ -103,17 +103,19 @@ To create and manage a Consumption logic app workflow using other tools, see the
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. |
    | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <br><br>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
 
+   > [!NOTE]
+   >
+   > Availability zones are automatically enabled for *new* Consumption logic app workflows in 
+   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+   > Since mid-May 2022, the Azure Logic Apps team has been enabling availability zones for existing 
+   > Consumption logic app workflows, several regions at a time, in 
+   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+   > availability zones several Azure regions at a time. For more information, see 
+   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
+
    After you finish, your settings look similar to the following example:
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
-
-   > [!NOTE]
-   >
-   > Availability zone support is automatically enabled for new Consumption logic app workflows in 
-   > [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). Since mid-May 2022, 
-   > the Azure Logic Apps team has been moving existing Consumption logic app workflows to use 
-   > availability zones several Azure regions at a time. For more information, see 
-   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + Create**.
 
