@@ -17,46 +17,30 @@ This article helps you plan and manage costs for Azure Blob Storage. First, esti
 
 Keep in mind that costs for Blob Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
-## Estimate costs
-
-Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create and begin transferring data to an Azure Storage account.
-
-1. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) page, choose the **Storage Accounts** tile.
-
-2. Scroll down the page and locate the **Storage Accounts** section of your estimate.
-
-3. Choose options from the drop-down lists.
-
-   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
-
-   ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
-
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
-
-4. Modify the remaining options to see their effect on your estimate.
-
-   > [!TIP]
-   > See these in-depth guides to help you predict and forecast costs:
-   >
-   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
-
 ## Understand the full billing model for Azure Blob Storage
 
-Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue. 
 
 ### How you're charged for Azure Blob Storage
 
+This section describes the meters that lead to charges on your bill. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
+
 When you create or use Blob Storage resources, you'll be charged for the following meters:
+
+These are the basic meters.
 
 | Meter | Unit | More information |
 |---|---|----|
 | Data storage | Per GB / per month| See the [Data storage](#data-storage) section of this article. |
-| Metadata | Per GB / per month<sup>1 | See the [Metadata storage](#metadata) section of this article. |
+| Index | Per GB / per month| Gen2 only. Describe what this is. |
 | Operations | Per transaction | See the [Operations](#operations) section of this article. |
 | Data transfer | Per GB | See the [Data transfer](#data-transfer) section of this article. |
 | Data retrieval | Per GB | Applies only to the cool, cold, and archive tiers. |
+
+These are feature-related meters. You're never charged for enabling a feature. Other than standard transaction and capacity requirements of the feature. The pricing and billing sections of the content for each feature describe all of that. Here are other meters.
+
+| Meter | Unit | More information |
+|---|---|----|
 | Blob index tags | Per tag  | Applies only if you enable the feature. |
 | Change feed | Per logged change | Applies only if you enable the feature. |
 | SSH File Transfer Protocol (SFTP) | Per hour | Applies only if you enable the feature. |
@@ -64,8 +48,6 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 | Encryption scopes | Per month | Applies only if you enable the feature. |
 | Query acceleration | Per GB | Per GB scanned & Per GB returned.  |
 | Point-in-time restore Data Processed | Per MB | Applies only when you perform a restore operation and is based on the amount of data being restored. |
-
-At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
 
 #### Data storage
 
@@ -82,8 +64,6 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 
 > [!TIP]
 > You can save money on storage costs for blob data with Azure Storage reserved capacity. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
-
-#### Metadata
 
 - Metadata can be stored both as part of the object or outside of the object.
 - Part of the object:
@@ -127,26 +107,6 @@ To determine the price of each operation, you must first determine how that oper
 - Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 - Provide examples
 
-#### Features
-
-The following table summarizes how you're billed for using Blob Storage features.
-
-| Feature | Charges |
-|---|----|
-| Blob index | Other operations, List and Create Container operations, and monthly charge per tag ([Learn more](../blobs/storage-manage-find-blobs.md#pricing)) |
-| Blob Inventory | Storage, Write operations, Read operations, and a charge for the number of objects scanned ([Learn more](../blobs/blob-inventory.md#pricing-and-billing)) |
-| Change feed | Storage, Write operations, Read operations, and a charge per logged change |
-| Encryption scopes | A monthly charge after it is enabled. ([Learn more](../blobs/encryption-scope-overview.md#billing-for-encryption-scopes)) |
-| Last access time tracking | Other operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
-| Lifecycle management | Write operations and Read operations ([Learn more](../blobs/lifecycle-management-overview.md#regional-availability-and-pricing)) |
-| Soft delete | Storage, Write operations ([Learn more](../blobs/soft-delete-blob-overview.md#pricing-and-billing)) |
-| Versioning | Storage ([Learn more](../blobs/versioning-overview.md#pricing-and-billing)) |
-| Snapshots | Storage ([Learn more](../blobs/snapshots-overview.md#pricing-and-billing)) |
-| Point-in-time restore | Storage, and a charge based on the amount of change feed data processed for the restore ([Learn more](../blobs/point-in-time-restore-overview.md#pricing-and-billing)) |
-| Object replication | Storage, Read operations, Write operations, network egress ([Learn more](../blobs/object-replication-overview.md#billing)) |
-| Query acceleration | A charge for the data scanned and a charge for the data returned [Learn more](../blobs/data-lake-storage-query-acceleration.md#pricing) |
-| SFTP support | An hourly charge after it is enabled ([Learn more](../blobs/secure-file-transfer-protocol-support.md#pricing-and-billing)) |
-
 ### Finding the unit price for each meter
 
 To find unit prices, open the correct pricing page and select the appropriate file structure. Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
@@ -186,6 +146,31 @@ Requests can originate from any of these sources:
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
+
+## Estimate costs
+
+Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create and begin transferring data to an Azure Storage account.
+
+1. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) page, choose the **Storage Accounts** tile.
+
+2. Scroll down the page and locate the **Storage Accounts** section of your estimate.
+
+3. Choose options from the drop-down lists.
+
+   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
+
+   ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+
+   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
+
+4. Modify the remaining options to see their effect on your estimate.
+
+   > [!TIP]
+   > See these in-depth guides to help you predict and forecast costs:
+   >
+   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
 
 ### Using Azure Prepayment with Azure Blob Storage
 
