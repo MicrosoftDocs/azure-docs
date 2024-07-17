@@ -47,7 +47,7 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
 
    #### ThrottleByJwtCustomClaimRule
 
-   More advanced, connections could be grouped into different groups according to custom claim. Connections with the same claim are aggregated to do the check. For example, you could add a *ThrottleByJwtCustomClaimRule* to allow 5 concurrent connections for those with custom claim key "freeUser".
+   More advanced, connections could be grouped into different groups according to custom claim. Connections with the same claim are aggregated to do the check. For example, you could add a *ThrottleByJwtCustomClaimRule* to allow 5 concurrent connections with custom claim key "freeUser".
 
    **Key point**: The rule applies to all claims with a certain claim name. The connection count aggregation is on the same claim (including claim name and claim value). The *ThrottleByUserIdRule* is a special case of this rule, applying to all connections with the userIdentity claim.
    
