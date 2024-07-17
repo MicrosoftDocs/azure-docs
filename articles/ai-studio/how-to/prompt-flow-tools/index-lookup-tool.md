@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: This article introduces you to the Index Lookup tool for flows in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 3/6/2024
+ms.date: 5/21/2024
 ms.reviewer: estraight
 ms.author: lagayhar
 author: lgayhardt
@@ -13,12 +15,13 @@ author: lgayhardt
 
 # Index Lookup tool for Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Index Lookup tool enables the use of common vector indices (such as Azure AI Search, Faiss, and Pinecone) for retrieval augmented generation in prompt flow. The tool automatically detects the indices in the workspace and allows the selection of the index to be used in the flow.
 
 ## Build with the Index Lookup tool
 
+1. If you have a flow that contains one of the deprecated legacy index tools ( the Vector Index Lookup tool, Vector DB Lookup tool, and Faiss Index Lookup tool) you will first need to [upgrade your flow](#upgrade-your-tools).
 1. Create or open a flow in [Azure AI Studio](https://ai.azure.com). For more information, see [Create a flow](../flow-develop.md).
 1. Select **+ More tools** > **Index Lookup** to add the Index Lookup tool to your flow.
 
@@ -138,15 +141,14 @@ The following JSON format response is an example returned by the tool that inclu
 ]
 
 ```
-
 ## Migrate from legacy tools to the Index Lookup tool
 
-The Index Lookup tool looks to replace the three deprecated legacy index tools: the [Vector Index Lookup tool](./vector-index-lookup-tool.md), the [Vector DB Lookup tool](./vector-db-lookup-tool.md), and the [Faiss Index Lookup tool](./faiss-index-lookup-tool.md).
+The Index Lookup tool looks to replace the three deprecated legacy index tools: the Vector Index Lookup tool, the Vector DB Lookup tool, and the Faiss Index Lookup tool.
 If you have a flow that contains one of these tools, follow the next steps to upgrade your flow.
 
 ### Upgrade your tools
 
-1. To update your runtime, go to the AI project **Settings** tab on the left pane in AI Studio. In the list of prompt flow runtimes that appears, select the name of the runtime you want to update. Then select **Update**. Wait for the runtime to update itself.
+1. To update your runtime, go to the project **Settings** tab on the left pane in AI Studio. In the list of prompt flow runtimes that appears, select the name of the runtime you want to update. Then select **Update**. Wait for the runtime to update itself.
 1. To go to your flow, select the **Prompt flow** tab on the left pane in AI Studio. Select the **Flows** tab, and then select the name of your flow.
 
 1. Inside the flow, select **+ More tools**. In the dropdown list, select **Index Lookup** [Preview] to add an instance of the Index Lookup tool.

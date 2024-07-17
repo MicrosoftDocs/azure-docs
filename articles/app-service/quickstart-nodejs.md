@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 # Deploy a Node.js web app in Azure
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 In this quickstart, you'll learn how to create and deploy your first Node.js ([Express](https://www.expressjs.com)) web app to [Azure App Service](overview.md). App Service supports various versions of Node.js on both Linux and Windows. 
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
@@ -121,7 +123,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 # [Deploy to Linux](#tab/linux)
 
 2. Right-click on App Services and select **Create new Web App**. A Linux container is used by default. 
-1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
+1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-'). See [note at top](#dnl-note).
 1. In Select a runtime stack, select the Node.js version you want. An **LTS** version is recommended.
 1. In Select a pricing tier, select **Free (F1)** and wait for the resources to be created in Azure.
 1. In the popup **Always deploy the workspace "myExpressApp" to \<app-name>"**, select **Yes**. This way, as long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
@@ -133,7 +135,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 # [Deploy to Windows](#tab/windows)
 
 2. Right-click on App Services and select **Create new Web App... Advanced**.
-1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-').
+1. Type a globally unique name for your web app and press **Enter**. The name must be unique across all of Azure and use only alphanumeric characters ('A-Z', 'a-z', and '0-9') and hyphens ('-'). See [note at top](#dnl-note).
 1. Select **Create a new resource group**, then enter a name for the resource group, such as *AppServiceQS-rg*.
 1. Select the Node.js version you want. An **LTS** version is recommended.
 1. Select **Windows** for the operating system.
@@ -185,13 +187,13 @@ az webapp up --sku F1 --name <app-name> --os-type Windows
 -----
 
 - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
-- Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+- Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). See [note at top](#dnl-note). A good pattern is to use a combination of your company name and an app identifier.
 - The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
 - You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
 - The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
 - If you see the error, "Could not auto-detect the runtime stack of your app," ensure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure (see [note at top](#dnl-note)).
 
 <pre>
 The webapp '&lt;app-name>' doesn't exist
@@ -236,7 +238,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Select *Node 18 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+1. Under **Instance details**, type a globally unique name for your web app and select **Code** (see [note at top](#dnl-note)). Select *Node 18 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
 
     :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
 
@@ -313,7 +315,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
     
     This command uses values that are cached locally in the *.azure/config* file, such as the app name, resource group, and App Service plan.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)). You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
 ::: zone-end
 
@@ -321,7 +323,7 @@ You can deploy changes to this app by making edits in Visual Studio Code, saving
 
 2. Save your changes, then redeploy the app using your FTP client.
     
-1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net`. You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
+1. Once deployment is complete, refresh the webpage `http://<app-name>.azurewebsites.net` (see [note at top](#dnl-note)). You should see that the `Welcome to Express` message has been changed to `Welcome to Azure!`.
 
 ::: zone-end
 

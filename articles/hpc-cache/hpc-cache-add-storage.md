@@ -102,7 +102,7 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

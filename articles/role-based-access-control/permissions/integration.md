@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/13/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -24,6 +24,9 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | --- | --- |
 > | Microsoft.ApiCenter/register/action | Register Microsoft.ApiCenter resource provider for the subscription. |
 > | Microsoft.ApiCenter/unregister/action | Unregister Microsoft.ApiCenter resource provider for the subscription. |
+> | Microsoft.ApiCenter/deletedServices/read | Returns paginated collection of deleted services. |
+> | Microsoft.ApiCenter/deletedServices/read | Returns the deleted service. |
+> | Microsoft.ApiCenter/deletedServices/delete | Purge the soft deleted service. |
 > | Microsoft.ApiCenter/operations/read | Read all API operations available for Microsoft.ApiCenter resource provider. |
 > | Microsoft.ApiCenter/resourceTypes/read | Read all resource types available for Microsoft.ApiCenter resource provider. |
 > | Microsoft.ApiCenter/services/write | Creates or updates specified service. |
@@ -32,8 +35,10 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/read | Checks if specified service exists. |
 > | Microsoft.ApiCenter/services/read | Returns paginated collection of services. |
 > | Microsoft.ApiCenter/services/delete | Deletes specified service. |
-> | Microsoft.ApiCenter/services/importFromApim/action | Imports API from API Management instance. |
+> | Microsoft.ApiCenter/services/importFromApim/action | Imports resources from one or more API Management instances. |
 > | Microsoft.ApiCenter/services/exportMetadataSchema/action | Returns effective metadata schema document. |
+> | Microsoft.ApiCenter/services/validateMoveResources/action | Validates move resource request |
+> | Microsoft.ApiCenter/services/moveResources/action | Move resource request |
 > | Microsoft.ApiCenter/services/analysisReports/read | Get a certain analysis report of an API Center instance |
 > | Microsoft.ApiCenter/services/eventGridFilters/read | Returns paginated collection of the Event Grid filters. |
 > | Microsoft.ApiCenter/services/eventGridFilters/read | Returns the details of the specified Event Grid filter. |
@@ -44,7 +49,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/metadataSchemas/read | Returns the details of the specified metadataSchema. |
 > | Microsoft.ApiCenter/services/metadataSchemas/read | Checks if specified metadataSchema exists |
 > | Microsoft.ApiCenter/services/metadataSchemas/delete | Deletes specified metadataSchema. |
-> | Microsoft.ApiCenter/services/operationResults/read | Checks status of individual import operation |
+> | Microsoft.ApiCenter/services/operationResults/read | Checks status of an APIM import operation |
 > | Microsoft.ApiCenter/services/workspaces/write | Creates or updates specified workspace. |
 > | Microsoft.ApiCenter/services/workspaces/read | Returns paginated collection of workspaces. |
 > | Microsoft.ApiCenter/services/workspaces/read | Returns the details of the specified workspace. |
@@ -67,11 +72,13 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns the details of the specified API version. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Returns paginated collection of API versions. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/delete | Deletes specified API version. |
-> | Microsoft.ApiCenter/services/workspaces/apis/versions/definition/read | Returns the details of the specified API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/updateAnalysisState/action | Updates analysis results for specified API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/importSpecification/action | Imports API definition file. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/write | Creates or updates API Spec. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Checks if specified API Spec exists. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Returns the details of the specified API definition. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Returns paginated collection of API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/delete | Deletes specified API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/analysisResults/read | Returns analysis report for specified API definition. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/operationResults/read | Checks status of individual import operation |
@@ -85,6 +92,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/workspaces/apis/deployments/read | Read API deployments from an API Center. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/read | Read API versions from an API Center. |
 > | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/read | Read API definitions from an API Center. |
+> | Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
 > | Microsoft.ApiCenter/services/workspaces/environments/read | Read API environments from an API Center. |
 
 ## Microsoft.ApiManagement
@@ -100,8 +108,15 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/unregister/action | Un-register subscription for Microsoft.ApiManagement resource provider |
 > | Microsoft.ApiManagement/checkNameAvailability/read | Checks if provided service name is available |
 > | Microsoft.ApiManagement/deletedservices/read | Get deleted API Management Services which can be restored within the soft-delete period |
+> | Microsoft.ApiManagement/gateways/read | Lists Gateway or Gets a Gateway |
+> | Microsoft.ApiManagement/gateways/write | Creates a Gateway |
+> | Microsoft.ApiManagement/gateways/delete | Deletes a Gateway |
+> | Microsoft.ApiManagement/gateways/configConnections/read | Lists Gateway ConfigConnections or Gets a Gateway ConfigConnection |
+> | Microsoft.ApiManagement/gateways/configConnections/write | Creates a Gateway Config Connection |
+> | Microsoft.ApiManagement/gateways/configConnections/delete | Deletes a Gateway Config Connection |
 > | Microsoft.ApiManagement/locations/deletedservices/read | Get deleted API Management Service which can be restored within the soft-delete period by location |
 > | Microsoft.ApiManagement/locations/deletedservices/delete | Delete API Management Service without the option to restore it |
+> | Microsoft.ApiManagement/locations/operationsStatuses/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | Microsoft.ApiManagement/operations/read | Read all API operations available for Microsoft.ApiManagement resource |
 > | Microsoft.ApiManagement/reports/read | Get reports aggregated by time periods, geographical region, developers, products, APIs, operations, subscription and byRequest. |
 > | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
@@ -1132,6 +1147,7 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/write | Creates or Updates the Private Endpoint Connection Proxies. |
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/delete | Deletes the Private Endpoint Connection Proxies. |
 > | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/validate/action | Validates the Private Endpoint Connection Proxies. |
+> | Microsoft.Logic/integrationAccounts/privateEndpointConnectionProxies/operationStatuses/read | Gets Private Endpoint Connection Proxies operation status. |
 > | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | Reads the Integration Account log definitions. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/read | Reads the RosettaNet process configuration in integration account. |
 > | Microsoft.Logic/integrationAccounts/rosettaNetProcessConfigurations/write | Creates or updates the  RosettaNet process configuration in integration account. |

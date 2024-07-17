@@ -7,6 +7,12 @@ ms.author: jsaurezlee
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
+## Overview
+Push notifications on Windows platform are delivered using `Windows Push Notification Service (WNS),`.
+
+> [!NOTE]
+> To Register for Push Notifications and handling of the Push Notifications for a Custom Teams Endpoint (CTE) the API's are the same. The API's described below can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` class for Custom Teams Endpoint (CTE).
+
 ## Set up push notifications
 
 A push notification is the pop-up notification that you get in your device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 

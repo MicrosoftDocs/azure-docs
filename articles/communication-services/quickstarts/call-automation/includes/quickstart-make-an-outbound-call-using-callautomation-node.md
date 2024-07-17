@@ -2,8 +2,8 @@
 title: Quickstart - Outbound calling using Call Automation
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services using Call Automation
-author: anujb-msft
-ms.author: anujb-msft
+author: jutik0
+ms.author: jutik0
 ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -21,7 +21,7 @@ ms.custom: mode-other
 - Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
 - [Node.js](https://nodejs.org/en/) LTS installation.
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
-- (Optional) A Microsoft Teams user with a phone license. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
 

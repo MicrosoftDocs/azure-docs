@@ -53,6 +53,10 @@
         href: concept-security-admins.md
       - name: Security admin rule enforcement
         href: concept-enforcement.md
+      - name: Network groups as source and destination
+        href: concept-security-admin-rules-network-group.md
+    - name: User-defined routes (UDRs) management 
+      href: concept-user-defined-route.md
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
@@ -65,20 +69,26 @@
       href: concept-virtual-network-flow-logs.md
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
+    - name: Verify resource reachability with Virtual Network Verifier
+      href: concept-virtual-network-verifier.md
 - name: Samples
   items:
     - name: Resource Manager Templates
       href: resource-manager-template-samples.md
 - name: How-to guides
   items:
-  - name: Secure network traffic
+  - name: Secure network traffic with security admin rules
     items:
+    - name: Using network groups as source and destination
+      href: how-to-create-security-admin-rule-network-group.md
     - name: Block network traffic - Portal
       href: how-to-block-network-traffic-portal.md
     - name: Block network traffic -PowerShell
       href: how-to-block-network-traffic-powershell.md
     - name: Protect high-risk network ports with security admin rules and exceptions
       href: how-to-block-high-risk-ports.md
+  - name: Create user-defined routes (UDRs)
+    href: how-to-create-user-defined-route.md
   - name: Create a network topology
     items:
     - name: Hub-and-spoke
@@ -93,8 +103,6 @@
         href: how-to-create-mesh-network.md
       - name: Azure PowerShell
         href: how-to-create-mesh-network-powershell.md
-  - Name: Security admin rules
-    items:
   - name: Cross-tenant connection support
     items:
     - name: Configure cross-tenant connection - Portal
@@ -107,10 +115,18 @@
       href: how-to-configure-event-logs.md
     - name: Monitor security admin rules with Virtual Network Flow Logs
       href: concept-virtual-network-flow-logs.md
-  - name: View applied configurations
-    href: how-to-view-applied-configurations.md
-  - name: Define dynamic network group membership with Azure Policy
-    href: how-to-define-network-group-membership-azure-policy.md
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
+    - name: Verify resource reachability
+      href: how-to-verify-reachability-with-virtual-network-verifier.md
+  - name: User-defined routes (UDRs) management
+    items:
+      - name: Create user-defined routes (UDRs)
+        href: how-to-create-user-defined-route.md
+      - name: deploy hub and spoke topology with Azure Firewall
+        href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
   - name: Common issues
     href: common-issues.md
 - name: Reference
@@ -121,6 +137,8 @@
     href: /powershell/module/az.network#networking
   - name: Azure CLI
     href: /cli/azure/network/manager
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_manager
   - name: REST
     href: /rest/api/networkmanager/
   - name: .NET SDK

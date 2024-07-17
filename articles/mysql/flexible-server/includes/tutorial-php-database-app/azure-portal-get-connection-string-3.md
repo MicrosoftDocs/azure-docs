@@ -1,8 +1,9 @@
 ---
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.topic: include
-ms.date: 06/19/2022
 ---
 
 Create a new `MYSQL_ATTR_SSL_CA` database setting:

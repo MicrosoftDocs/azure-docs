@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 05/07/2024
 ms.custom: generated
 ---
 
@@ -722,6 +722,247 @@ Lets you update everything in cluster/namespace, except (cluster)roles and (clus
     }
   ],
   "roleName": "Azure Arc Kubernetes Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Container Storage Contributor
+
+Install Azure Container Storage and manage its storage resources. Includes an ABAC condition to constrain role assignments.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) | Add or remove role assignments for the following roles:<br/>Azure Container Storage Operator |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you install Azure Container Storage and manage its storage resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/95dd08a6-00bd-4661-84bf-f6726f83a4d0",
+  "name": "95dd08a6-00bd-4661-84bf-f6726f83a4d0",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619}))"
+    }
+  ],
+  "roleName": "Azure Container Storage Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Container Storage Operator
+
+Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/* |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/write | Creates a virtual network or updates an existing virtual network |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/delete | Deletes a virtual network |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/read | Get the properties of a Virtual Machine Scale Set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/write | Creates a new Virtual Machine Scale Set or updates an existing one |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/virtualMachines/write | Updates the properties of a Virtual Machine in a VM Scale Set |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachineScaleSets/virtualMachines/read | Retrieves the properties of a Virtual Machine in a VM Scale Set |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/providers/read | Gets or lists resource providers. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role required by a Managed Identity for Azure Container Storage operations",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/08d4c71a-cc63-4ce4-a9c8-5dd251b4d619",
+  "name": "08d4c71a-cc63-4ce4-a9c8-5dd251b4d619",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ElasticSan/elasticSans/*",
+        "Microsoft.ElasticSan/locations/asyncoperations/read",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/virtualNetworks/write",
+        "Microsoft.Network/virtualNetworks/delete",
+        "Microsoft.Network/virtualNetworks/join/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Compute/virtualMachines/read",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/virtualMachineScaleSets/read",
+        "Microsoft.Compute/virtualMachineScaleSets/write",
+        "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/write",
+        "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read",
+        "Microsoft.Resources/subscriptions/providers/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Network/virtualNetworks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Container Storage Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Container Storage Owner
+
+Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/* |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/locations/* |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/volumeGroups/* |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/volumeGroups/volumes/* |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) | Add or remove role assignments for the following roles:<br/>Azure Container Storage Operator |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you install Azure Container Storage and grants access to its storage resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/95de85bd-744d-4664-9dde-11430bc34793",
+  "name": "95de85bd-744d-4664-9dde-11430bc34793",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ElasticSan/elasticSans/*",
+        "Microsoft.ElasticSan/locations/*",
+        "Microsoft.ElasticSan/elasticSans/volumeGroups/*",
+        "Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/*",
+        "Microsoft.ElasticSan/locations/asyncoperations/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{08d4c71acc634ce4a9c85dd251b4d619}))"
+    }
+  ],
+  "roleName": "Azure Container Storage Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1649,6 +1890,185 @@ Allows read/write access to most objects in a namespace. This role does not allo
   "roleName": "Azure Kubernetes Service RBAC Writer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Cluster Admin Role
+
+Lists cluster admin credential actions.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action | Lists the admin credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "List cluster admin credential action.",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+    "name": "b29efa5f-7782-4dc3-9537-4d5bc70a5e9f",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/listAdminKubeconfig/action",
+          "Microsoft.Kubernetes/connectedClusters/Read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Cluster Admin Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Cluster User Role
+
+Lists cluster user credential actions.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Gets the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action | Lists the AAD user credentials of a provisioned cluster instance used only in direct mode. |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "List cluster user credential action.",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/233ca253-b031-42ff-9fba-87ef12d6b55f",
+    "name": "233ca253-b031-42ff-9fba-87ef12d6b55f",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/listUserKubeconfig/action",
+          "Microsoft.Kubernetes/connectedClusters/Read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Cluster User Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Kubernetes Service Arc Contributor Role
+
+Grants access to read and write Azure Kubernetes Services Arc clusters.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | Microsoft.HybridContainerService/Locations/operationStatuses/read | Read operationStatuses |
+> | Microsoft.HybridContainerService/Operations/read | Read Operations |
+> | Microsoft.HybridContainerService/kubernetesVersions/read | Get the supported kubernetes versions from the underlying custom location |
+> | Microsoft.HybridContainerService/kubernetesVersions/write | Put the kubernetes version resource type |
+> | Microsoft.HybridContainerService/kubernetesVersions/delete | Delete the kubernetes versions resource type |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/read | Get the Hybrid AKS provisioned cluster instance and instances associated with the connected cluster |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/write | Create the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/delete | Delete the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read | Get the agent pools in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write | Create and update the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete | Delete the agent pool in the Hybrid AKS provisioned cluster instance |
+> | Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read | read operationStatuses |
+> | Microsoft.HybridContainerService/skus/read | Get the supported VM skus from the underlying custom location |
+> | Microsoft.HybridContainerService/skus/write | Puts the VM SKUs resource type |
+> | Microsoft.HybridContainerService/skus/delete | Deletes the Vm Sku resource type |
+> | Microsoft.HybridContainerService/virtualNetworks/read | List the Hybrid AKS virtual networks by resource group and subscription |
+> | Microsoft.HybridContainerService/virtualNetworks/write | Put and patch the Hybrid AKS virtual network |
+> | Microsoft.HybridContainerService/virtualNetworks/delete | Deletes the Hybrid AKS virtual network |
+> | Microsoft.ExtendedLocation/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | Microsoft.ExtendedLocation/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.Kubernetes/connectedClusters/Read | Read connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/Write | Writes connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/Delete | Deletes connectedClusters |
+> | Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
+> | Microsoft.AzureStackHCI/clusters/read | Gets clusters |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Grants access to read and write Azure Kubernetes Services Arc clusters",
+    "id": "/subscriptions/586c20df-c465-4f10-8673-65aa4859e7ca/providers/Microsoft.Authorization/roleDefinitions/5d3f1697-4507-4d08-bb4a-477695db5f82",
+    "name": "5d3f1697-4507-4d08-bb4a-477695db5f82",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.HybridContainerService/Locations/operationStatuses/read",
+          "Microsoft.HybridContainerService/Operations/read",
+          "Microsoft.HybridContainerService/kubernetesVersions/read",
+          "Microsoft.HybridContainerService/kubernetesVersions/write",
+          "Microsoft.HybridContainerService/kubernetesVersions/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/write",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/read",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/write",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/agentPools/delete",
+          "Microsoft.HybridContainerService/provisionedClusterInstances/upgradeProfiles/read",
+          "Microsoft.HybridContainerService/skus/read",
+          "Microsoft.HybridContainerService/skus/write",
+          "Microsoft.HybridContainerService/skus/delete",
+          "Microsoft.HybridContainerService/virtualNetworks/read",
+          "Microsoft.HybridContainerService/virtualNetworks/write",
+          "Microsoft.HybridContainerService/virtualNetworks/delete",
+          "Microsoft.ExtendedLocation/customLocations/deploy/action",
+          "Microsoft.ExtendedLocation/customLocations/read",
+          "Microsoft.Kubernetes/connectedClusters/Read",
+          "Microsoft.Kubernetes/connectedClusters/Write",
+          "Microsoft.Kubernetes/connectedClusters/Delete",
+          "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action",
+          "Microsoft.AzureStackHCI/clusters/read"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Azure Kubernetes Service Arc Contributor Role",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions",
 }
 ```
 

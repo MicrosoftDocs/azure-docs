@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: create a Synapse workspace'
 description: Create an  Synapse workspace by following the steps in this guide.
-author: saveenr
+author: whhender
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 03/23/2022
-ms.author: saveenr
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.custom: subject-rbac-steps, mode-other
 ---
 
@@ -44,7 +44,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 1. Navigate to an existing ADLSGEN2 storage account
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -64,7 +64,7 @@ Managed identities for your Azure Synapse workspace might already have access to
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |

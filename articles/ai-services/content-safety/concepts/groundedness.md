@@ -51,22 +51,15 @@ Currently, the Groundedness detection API supports English language content. Whi
 
 ### Text length limitations
 
-The maximum character limit for the grounding sources is 55,000 characters per API call, and for the text and query, it's 7,500 characters per API call. If your input (either text or grounding sources) exceeds these character limitations, you'll encounter an error.
+See [Input requirements](../overview.md#input-requirements) for maximum text length limitations.
 
 ### Regions
 
-To use this API, you must create your Azure AI Content Safety resource in the supported regions. Currently, it's available in the following Azure regions:
-- East US 2
-- East US 
-- West US
-- Sweden Central
+To use this API, you must create your Azure AI Content Safety resource in the supported regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 ### TPS limitations
 
-| Pricing Tier | Requests per 10 seconds |
-| :----------- | :--------------------------- |
-| F0           | 50                           |
-| S0           | 50                           |
+See [Query rates](/azure/ai-services/content-safety/overview#query-rates).
 
 If you need a higher rate, [contact us](mailto:contentsafetysupport@microsoft.com) to request it.
 

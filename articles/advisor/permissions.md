@@ -1,11 +1,11 @@
 ---
-title: Permissions in Azure Advisor 
+title: Roles and permissions 
 description: Advisor permissions and how they may block your ability to configure subscriptions or postpone or dismiss recommendations.
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/03/2024
 ---
 
-# Permissions in Azure Advisor
+# Roles and permissions
 
 Azure Advisor provides recommendations based on the usage and configuration of your Azure resources and subscriptions. Advisor uses the [built-in roles](../role-based-access-control/built-in-roles.md) provided by [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to manage your access to recommendations and Advisor features. 
 

@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Key Vault using CSI driver in an AKS 
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/01/2024
 ---
@@ -19,6 +19,9 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
 > * Create a connection between the AKS cluster and the Azure Key Vault with Service Connector.
 > * Create a `SecretProviderClass` CRD and a `pod` consuming the CSI provider to test the connection.
 > * Clean up resources.
+
+> [!IMPORTANT]
+> Service Connect within AKS is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -73,7 +76,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --value MyAKSExampleSecret
     ```
 
-## Create a service connection with Service Connector
+## Create a service connection in AKS with Service Connector (preview)
 
 Create a service connection between an AKS cluster and an Azure Key Vault using the Azure portal or the Azure CLI.
 
@@ -94,7 +97,7 @@ Create a service connection between an AKS cluster and an Azure Key Vault using 
 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
 
-    :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
+    :::image type="content" source="./media/aks-tutorial/aks-keyvault.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
 ### [Azure CLI](#tab/azure-cli)
 

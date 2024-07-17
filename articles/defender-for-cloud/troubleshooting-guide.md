@@ -239,6 +239,6 @@ If you need more assistance, you can open a new support request on the Azure por
 
 ## See also
 
-- Learn how to [manage and respond to security alerts](managing-and-responding-alerts.md) in Defender for Cloud.
+- Learn how to [manage and respond to security alerts](managing-and-responding-alerts.yml) in Defender for Cloud.
 - Learn about [alert validation](alert-validation.md) in Defender for Cloud.
 - Review [common questions](faq-general.yml) about using Defender for Cloud.

@@ -41,8 +41,7 @@ There are many services you can use to analyze and visualize your IoT data. Some
 
 Use [Azure Databricks](/azure/databricks/introduction/) to process, store, clean, share, analyze, model, and monetize datasets with solutions from BI to machine learning. Use the Azure Databricks platform to build and deploy data engineering workflows, machine learning models, analytics dashboards, and more.
 
-- [Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
-- [Extend Azure IoT Central with custom analytics](../iot-central/core/howto-create-custom-analytics.md).
+[Use structured streaming with Azure Event Hubs and Azure Databricks clusters](/azure/databricks/structured-streaming/streaming-event-hubs/). You can connect a Databricks workspace to the Event Hubs-compatible endpoint on an IoT hub to read data from IoT devices.
 
 ### Azure Stream Analytics
 

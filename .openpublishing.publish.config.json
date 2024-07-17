@@ -135,9 +135,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
+      "path_to_root": "ms-identity-dotnetcore-b2c-account-management-archive",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
-      "branch": "master",
+      "branch": "archive",
       "branch_mapping": {}
     },
     {
@@ -237,6 +237,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-python-extensions",
+      "url": "https://github.com/Azure/azure-functions-python-extensions",
+      "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-python-tensorflow-tutorial",
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",
@@ -247,7 +253,7 @@
       "url": "https://github.com/Azure-Samples/function-app-arm-templates",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
@@ -356,6 +362,12 @@
       "branch": "main",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "azure-functions-python-worker",
+      "url": "https://github.com/Azure/azure-functions-python-worker",
+      "branch": "dev",
+      "branch_mapping": {}
+    },    
     {
       "path_to_root": "functions-openapi-turbine-repair",
       "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
@@ -867,6 +879,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "blob-devguide-go",
+      "url": "https://github.com/Azure-Samples/blob-storage-devguide-go",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -969,6 +987,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-app-service-sqldb-dotnetcore",
+      "url": "https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
@@ -990,6 +1014,12 @@
       "path_to_root": "functions-sql-todo-sample",
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-openai-extension",
+      "url": "https://github.com/Azure/azure-functions-openai-extension",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -1189,6 +1219,12 @@
       "url": "https://github.com/Azure-Samples/explore-iot-operations",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "SupportArticles-docs",
+      "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1206,7 +1242,12 @@
   },
   "redirection_files": [
   ".openpublishing.redirection.active-directory.json",
+  ".openpublishing.redirection.ai-services-from-applied.json",
+  ".openpublishing.redirection.ai-services-from-cog.json",
+  ".openpublishing.redirection.applied-ai-old.json",
+  ".openpublishing.redirection.applied-ai-services.json",
   ".openpublishing.redirection.ansible.json",
+  ".openpublishing.redirection.api-center.json",
   ".openpublishing.redirection.api-management.json",
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.asc-for-iot.json",
@@ -1228,12 +1269,14 @@
   ".openpublishing.redirection.azure-web-pubsub.json",
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.blockchain.json",
+  ".openpublishing.redirection.cognitive-services.json",
   ".openpublishing.redirection.container-service.json",
   ".openpublishing.redirection.data-lake-analytics.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.dev-spaces.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.document-db.json",
   ".openpublishing.redirection.germany.json",
   ".openpublishing.redirection.government.json",
   ".openpublishing.redirection.guidance.json",
@@ -1246,6 +1289,7 @@
   ".openpublishing.redirection.machine-configuration.json",
   ".openpublishing.redirection.marketplace.json",
   ".openpublishing.redirection.openshift.json",
+  ".openpublishing.redirection.private-multi-access-edge-compute-mec.json",
   ".openpublishing.redirection.purview.json",
   ".openpublishing.redirection.remoteapp.json",
   ".openpublishing.redirection.security-benchmark.json",
@@ -1260,12 +1304,9 @@
   ".openpublishing.redirection.virtual-desktop.json",
   ".openpublishing.redirection.vmware-cloudsimple.json",
   "articles/active-directory-b2c/.openpublishing.redirection.active-directory-b2c.json",
-  "articles/ai-services/.openpublishing.redirection.ai-services-from-applied.json",
-  "articles/ai-services/.openpublishing.redirection.ai-services-from-cog.json",
-  "articles/ai-services/.openpublishing.redirection.applied-ai-old.json",
-  "articles/ai-services/.openpublishing.redirection.applied-ai-services.json",
-  "articles/ai-services/.openpublishing.redirection.cognitive-services.json",
+  "articles/ai-services.openpublishing.redirection.ai-services.json",
   "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
+  "articles/aks/.openpublishing.redirection.aks.json",
   "articles/analysis-services/.openpublishing.redirection.analysis-services.json",
   "articles/application-gateway/.openpublishing.redirection.application-gateway.json",
   "articles/automation/.openpublishing.redirection.automation.json",
@@ -1316,6 +1357,7 @@
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
   "articles/machine-learning/v1/.openpublishing.redirection.machine-learning-v1.json",
+  "articles/managed-instance-apache-cassandra/.openpublishing.redirection.managed-instance-apache-cassandra.json",
   "articles/mariadb/.openpublishing.redirection.mariadb.json",
   "articles/migrate/.openpublishing.redirection.migrate.json",
   "articles/mysql/.openpublishing.redirection.mysql.json",
@@ -1324,6 +1366,7 @@
   "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
   "articles/operator-insights/.openpublishing.redirection.operator-insights.json",
   "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json",
+  "articles/operator-service-manager/.openpublishing.redirection.operator-service-manager.json",
   "articles/peering-service/.openpublishing.redirection.peering-service.json",
   "articles/postgresql/.openpublishing.redirection.postgresql.json",
   "articles/route-server/.openpublishing.redirection.route-server.json",

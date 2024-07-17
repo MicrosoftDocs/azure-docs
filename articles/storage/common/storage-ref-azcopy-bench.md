@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy bench co
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 03/29/2024
+ms.date: 05/31/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -45,24 +45,40 @@ azcopy bench [destination] [flags]
 
 ## Examples
 
-Run an upload benchmark with default parameters (suitable for benchmarking networks up to 1 Gbps):
+Run an upload benchmark with default parameters (suitable for benchmarking networks up to 1 Gbps).
 
 `azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"`
 
-Run a benchmark test that uploads 100 files, each 2 GiB in size: (suitable for benchmarking on a fast network, e.g. 10 Gbps):'
+Run an upload benchmark with a specified block size of 2 MiB and check the length of files after the transfer.
+
+`azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --block-size-mb 2 --check-length`
+
+Run a benchmark test that uploads 500 files. Each file is 500 MiB in size, and the log level is set to display only errors.
+
+`azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 500 --size-per-file 500M --log-level ERROR`
+
+Run a benchmark test that uploads 100 files. Each file is 2 GiB in size. This is suitable for benchmarking on a fast network (For example: 10 Gbps).
 
 `azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 100 --size-per-file 2G`
 
-Same as above, but use 50,000 files, each 8 MiB in size and compute their MD5 hashes (in the same way that the --put-md5 flag does this
-in the copy command). The purpose of --put-md5 when benchmarking is to test whether MD5 computation affects throughput for the selected file count and size:
+The next example is the same as above, but with 50,000 files. Each file 8 MiB in size. This example also computes the MD5 hashes of each file similar to the way that the --put-md5 flag computes the MD5 in the azcopy copy command. The purpose of --put-md5 when benchmarking is to test whether MD5 computation affects throughput for the 
+selected file count and size.
 
 `azcopy bench --mode='Upload' "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 50000 --size-per-file 8M --put-md5`
 
-Run a benchmark test that downloads existing files from a target
+Run a benchmark test that uploads 1000 files and creates folders to divide up the data. Each file is 100 KiB in size.
+
+`azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 1000 --size-per-file 100K --number-of-folders 5`
+ 
+Run a benchmark test that downloads existing files from a target.
 
 `azcopy bench --mode='Download' "https://[account].blob.core.windows.net/[container]?<SAS?"`
 
-Run an upload that doesn't delete the transferred files. (These files can then serve as the payload for a download test)
+Run a download benchmark with the default parameters and cap the transfer rate at 500 Mbps.
+
+`azcopy bench --mode=Download "https://[account].blob.core.windows.net/[container]?<SAS>" --cap-mbps 500`
+
+Run an upload that does not delete the transferred files. These files can then serve as the payload for a download test.
 
 `azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 100 --delete-test-data=false`
 

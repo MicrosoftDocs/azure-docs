@@ -20,7 +20,7 @@ This article shows you how to link virtual networks (VNets) to Azure ExpressRout
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 

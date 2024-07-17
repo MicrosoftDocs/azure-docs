@@ -32,3 +32,16 @@ so that the user is aware of the issue and understands that the audio loss is du
 However, if the network reconnection occurs at the sender's side,
 users on the receiving end are unable to know about it because currently the SDK doesn't support notifying receivers that the sender has network issues.
 
+## References
+### Troubleshooting process
+If a user can't hear sound during a call, one possibility is that the speaking participant or the receiving end has network issues.
+
+Below is a flow diagram of the troubleshooting process for this issue.
+
+:::image type="content" source="./media/network-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the network issue.":::
+
+1. First, check if there's a `networkReconnect` UFD. The user may experience audio loss during the network reconnection.
+2. The UFD can happen on either the sender's end or the receiver's end. In both cases, packets don't flow, so the user can't hear the audio.
+3. If there's no `networkReconnect` UFD, consider other potential causes, such as permission issues or device problems.
+4. If the permission is denied, refer to [The speaking participant doesn't grant the microphone permission](./microphone-permission.md) for more information.
+5. The issue could also be due to device problems, refer to [The speaking participant's microphone has a problem](./microphone-issue.md).

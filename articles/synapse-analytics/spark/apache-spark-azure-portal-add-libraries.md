@@ -3,9 +3,9 @@ title: Manage Apache Spark packages
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 author: shuaijunye
 ms.service: synapse-analytics
-ms.reviewer: wiassaf, sngun, eskot
+ms.reviewer: whhender, whhender, eskot
 ms.topic: how-to
-ms.date: 02/20/2023
+ms.date: 04/15/2023
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
@@ -114,7 +114,7 @@ To learn more about how to manage session-scoped packages, see the following art
   
   > [!IMPORTANT]
   >
-  > - **Do not use** `%%sh` to try an install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
+  > **Do not use** `%%sh` to try and install libraries with pip or conda. The behavior is **not the same** as %pip or %conda.
 
 - [Scala/Java session packages](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages): At the start of your session, provide a list of *.jar* files to install by using `%%configure`.
 

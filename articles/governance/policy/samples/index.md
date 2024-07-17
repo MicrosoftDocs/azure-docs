@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 1/3/2024
+ms.date: 05/30/2024
 ms.topic: sample
 ---
 
@@ -57,6 +57,8 @@ Azure:
 - [RBI ITF Banks v2016](./rbi-itf-banks-2016.md)
 - [RBI ITF NBFC v2017](./rbi-itf-nbfc-2017.md)
 - [RMIT Malaysia](./rmit-malaysia.md)
+- [Spain ENS](./spain-ens.md)
+- [System and Organization Controls (SOC) 2](./soc-2.md)
 - [SWIFT CSP-CSCF v2021](./swift-csp-cscf-2021.md)
 - [SWIFT CSP-CSCF v2022](./swift-csp-cscf-2022.md)
 - [UK OFFICIAL and UK NHS](./ukofficial-uknhs.md)
@@ -75,6 +77,7 @@ Azure Government:
 - [NIST SP 800-53 Rev. 4](./gov-nist-sp-800-53-r4.md)
 - [NIST SP 800-53 Rev. 5](./gov-nist-sp-800-53-r5.md)
 - [NIST SP 800-171 R2](./gov-nist-sp-800-171-r2.md)
+- [System and Organization Controls (SOC) 2](./gov-soc-2.md)
 
 ## Other Samples
 
