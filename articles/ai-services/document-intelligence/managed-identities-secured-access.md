@@ -114,7 +114,7 @@ To ensure that the Document Intelligence resource can access the training datase
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assign-role.png" alt-text="Screenshot of add role assignment window.":::
 
-1. On the **Role** tab, search for and select the **Storage Blob Data Reader** permission and select **Next**.
+1. On the **Role** tab, search for and select the **Storage Blob Data Contributor** permission and select **Next**.
 
     :::image type="content" source="media/managed-identities/v2-stg-role-assignment.png" alt-text="Screenshot of choose a role tab.":::
 
@@ -279,7 +279,7 @@ That's it! You can now configure secure access for your Document Intelligence re
 
    :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Screenshot of content source not accessible error.":::
 
-    **Resolution**: Make sure you grant your Document Intelligence managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
+    **Resolution**: Make sure you grant your Document Intelligence managed identity the role of **Storage Blob Data Contributor** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
