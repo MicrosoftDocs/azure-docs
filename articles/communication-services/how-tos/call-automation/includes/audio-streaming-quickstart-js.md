@@ -1,20 +1,20 @@
 ---
-title: include file
-description: C# Media Streaming quickstart
+title: Include file - JavaScript
+description: JavaScript Media Streaming quickstart
 services: azure-communication-services
 author: Alvin
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 07/15/2024
 ms.topic: include
-ms.topic: include file
+ms.topic: Include file
 ms.author: alvinhan
 ---
 
 ## Prerequisites 
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp)
-- Create a new web service application using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
+- A new web service application created using the [Call Automation SDK](../../../call-automation/callflows-for-customer-interactions.md).
 - [Node.js](https://nodejs.org/en/) LTS installation
 - A websocket server that can receive media streams.
 
@@ -53,7 +53,7 @@ await callMedia.startMediaStreaming(streamingOptions);
 Method2: 
 await callMedia.startMediaStreaming(); 
 ```
-When Azure Communication Services has received the URL for your WebSocket server, it will create a connection to it. Once Azure Communication Services has successfully connected to your WebSocket server and streaming has started, it will send through the first data packet which contains metadata regarding the incoming media packets. 
+When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets. 
 
 The metadata packet will look like this:
 ``` 
