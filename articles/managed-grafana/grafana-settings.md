@@ -1,6 +1,6 @@
 ---
-title: Grafana settings
-description: Learn about Grafana settings, including Viewers can Edit and External Enabled.
+title: Learn about Grafana settings
+description: Learn about Grafana settings in Azure Managed Grafana, including Viewers can Edit and External Enabled.
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
@@ -16,7 +16,7 @@ This article introduces the Grafana settings available in Azure Managed Grafana.
 
 These settings are located in Azure Managed Grafana's **Settings** > **Configuration** menu, in the **Grafana Settings (Preview)** tab.
 
-:::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png"":::
+:::image type="content" source="media/grafana-settings/grafana-settings-tab.png" alt-text="Screenshot of the Azure platform showing the Grafana settings tab." lightbox="media/grafana-settings/grafana-settings-tab.png":::
 
 They are also referenced in Grafana's documentation, under [Grafana configuration](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/). 
 
