@@ -39,7 +39,7 @@ The following list presents the set of features that are currently available in 
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Connect to a call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Connect to an ongoing call or Room                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -91,7 +91,7 @@ Using the IncomingCall event from Event Grid, a call can be redirected to one or
 Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
 **Connect Call**
-Connect Call action can be used to connect to a call. Use cases include to coonect and manage virtual meeting programmatically.
+Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and manage a Rooms call programmatically, like performing PSTN dial outs for Room using your service.  
 
 ### Mid-call actions
 
@@ -160,9 +160,9 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 | Event             | Description |
 | ----------------- | ------------ |
-| CallConnected      | Your application’s call leg is connected (inbound or outbound) or your application connected to an ongoing call (using connect call action)|
-| CallDisconnected       | Your application’s call leg is disconnected or your application disconnected from a call (for connect call action) |
-| ConnectFailed       | Your application failed to connect to a call (for connect call action)|
+| CallConnected      | Your application’s call leg is connected (for inbound or outbound calls) or connected to an ongoing call (using connect call action)|
+| CallDisconnected       | Your application’s call leg is disconnected from the call |
+| ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
 | CallTransferAccepted         | Your application’s call leg has been transferred to another endpoint  |
 | CallTransferFailed  | The transfer of your application’s call leg failed  |
 | AddParticipantSucceeded| Your application added a participant  |
