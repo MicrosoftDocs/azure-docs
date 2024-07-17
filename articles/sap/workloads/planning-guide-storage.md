@@ -7,7 +7,7 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/26/2024
+ms.date: 07/17/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
