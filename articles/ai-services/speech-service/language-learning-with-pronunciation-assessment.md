@@ -67,3 +67,7 @@ To get started with language learning through chatting, follow these steps:
 
     When you have completed the conversation, you can also download your chat audio. You can clear the current conversation by selecting **Clear chat**.
 
+## Next steps
+
+- Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
+- Try [pronunciation assessment in the studio](pronunciation-assessment-tool.md).
