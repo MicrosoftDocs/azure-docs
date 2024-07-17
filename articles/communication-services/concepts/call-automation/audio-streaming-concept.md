@@ -33,7 +33,7 @@ Audio streams can be used in many ways. Some examples of how developers may wish
 
 ## Sample architecture for subscribing to audio streams from an ongoing call - live agent scenario
 
-[![Screenshot of architecture diagram for audio streaming.](./media/audio-streaming-diagramw.png)](./media/audio-streaming-diagram#lightbox)
+[![Screenshot of architecture diagram for audio streaming.](./media/audio-streaming-diagram.png)](./media/audio-streaming-diagram#lightbox)
 
 ## Supported formats
 
