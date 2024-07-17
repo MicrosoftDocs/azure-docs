@@ -29,6 +29,11 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+- name: Plan
+  expanded: true
+  items:
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
 - name: Configure resources
   items:
   - name: Manage a dev center
@@ -66,6 +71,8 @@ items:
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
+  - name: Connect with Windows App
+    href: /windows-app/get-started-connect-devices-desktops-apps?pivots=dev-box&tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc?context=/azure/dev-box/context/context
   - name: Connect with Remote Desktop App
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md

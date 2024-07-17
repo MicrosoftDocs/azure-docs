@@ -128,7 +128,6 @@ The following example shows a sample input message to the MQ destination stage:
 
 - [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
 - [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
-- [Send data to Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](howto-configure-destination-grpc.md)
 - [Send data to an HTTP endpoint](howto-configure-destination-http.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)

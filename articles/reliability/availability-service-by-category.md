@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 06/13/2024
 ms.author: anaharris
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ Availability of services across Azure regions depends on a region's type. There 
 
 ## Service categories across region types
  
-[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
 
 ## Available services by region category
 
@@ -92,6 +92,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure Machine Learning                               |
+> | Azure Managed HSM                                    |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
 > | Microsoft Purview                                        |

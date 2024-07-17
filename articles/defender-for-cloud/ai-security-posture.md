@@ -1,7 +1,7 @@
 ---
 title: AI security posture management (Preview)
 description: Learn about AI security posture management in Microsoft Defender for Cloud and how it protects resources from AI threats.
-ms.date: 05/05/2024
+ms.date: 06/30/2024
 ms.topic: concept-article
 ms.author: elkrieger
 author: Elazark
@@ -18,11 +18,25 @@ The Defender Cloud Security Posture Management (CSPM) plan in Microsoft Defender
 
 :::image type="content" source="media/ai-security-posture/ai-lifecycle.png" alt-text="Diagram of the development lifecycle that is covered by Defender for Cloud's AI security posture management.":::
 
+> [!IMPORTANT]
+> To enable AI security posture management's capabilities on an AWS account that already:
+>
+> - Is connected to your Azure account.
+> - Has Defender CSPM enabled.
+> - Has permissions type set as **Least privilege access**.
+>
+> You must reconfigure the permissions on that connector to enable the relevant permissions using these steps:
+>
+> 1. In the Azure Portal navigate to Environment Settings page and select the appropriate AWS connector.
+> 1. Select **Configure access**.
+> 1. Ensure the permissions type is set to **Least privilege access**.
+> 1. [Follow steps 5 - 8](quickstart-onboard-aws.md#select-defender-plans) to finish the configuration.
+
 ## Discovering generative AI apps
 
 Defender for Cloud discovers AI workloads and identifies details of your organization's AI BOM. This visibility allows you to identify and address vulnerabilities and protect generative AI applications from potential threats.
 
-Defenders for Cloud automatically and continuously discover deployed AI workloads across the following services: 
+Defenders for Cloud automatically and continuously discover deployed AI workloads across the following services:
 
 - Azure OpenAI Service
 - Azure Machine Learning
@@ -44,9 +58,9 @@ Defender for Cloud assesses AI workloads and issues recommendations around ident
 
 DevOps security detects IaC misconfigurations, which can expose generative AI applications to security vulnerabilities, such as over-exposed access controls or inadvertent publicly exposed services. These misconfigurations could lead to data breaches, unauthorized access, and compliance issues, especially when handling strict data privacy regulations.
 
-Defender for Cloud assesses your generative AI apps configuration and provides security recommendations to improve AI security posture. 
+Defender for Cloud assesses your generative AI apps configuration and provides security recommendations to improve AI security posture.
 
-Detected misconfigurations should be remediated early in the development cycle to prevent more complex problems later on. 
+Detected misconfigurations should be remediated early in the development cycle to prevent more complex problems later on.
 
 Current IaC AI security checks include:
 
@@ -57,7 +71,7 @@ Current IaC AI security checks include:
 
 ### Exploring risks with attack path analysis
 
-Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pretrained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed. 
+Attack paths analysis detects and mitigates risks to AI workloads, particularly during grounding (linking AI models to specific data) and fine-tuning (adjusting a pretrained model on a specific dataset to improve its performance on a related task) stages, where data might be exposed.
 
 By monitoring AI workloads continuously, attack path analysis can identify weaknesses and potential vulnerabilities and follow up with recommendations. Additionally, it extends to cases where the data and compute resources are distributed across Azure, AWS, and GCP.
 

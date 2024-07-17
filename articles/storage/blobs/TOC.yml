@@ -94,6 +94,8 @@ items:
     items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Tape migration overview
+      href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Compare data transfer solutions
       href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -987,8 +989,14 @@ items:
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs
           href: storage-blob-delete-go.md
+        - name: Find blobs using tags
+          href: storage-blob-tags-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
@@ -1404,12 +1412,6 @@ items:
           href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
         - name: Migrate an HDFS store online
           href: migrate-gen2-wandisco-live-data-platform.md
-      - name: Migrate from Data Lake Storage Gen1
-        items:
-        - name: Migrate using the Azure portal
-          href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
-        - name: Migration guidelines and patterns
-          href: data-lake-storage-migrate-gen1-to-gen2.md
     - name: Transfer data
       items:
       - name: AzCopy

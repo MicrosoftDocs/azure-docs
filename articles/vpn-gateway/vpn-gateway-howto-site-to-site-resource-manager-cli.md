@@ -96,7 +96,7 @@ Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet) command 
 az network vnet subnet create --address-prefix 10.1.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name VNet1
 ```
 
-[!INCLUDE [vpn-gateway-no-nsg](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="localnet"></a>5. Create the local network gateway
 

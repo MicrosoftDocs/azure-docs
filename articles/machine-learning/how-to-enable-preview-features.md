@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: ankmak
-author: Ankur-Makwana
-ms.date: 01/29/2024
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 07/08/2024
 
 ---
 

@@ -66,7 +66,7 @@ Version 3.0+ of the Key Vault VM extension for Linux adds support for the follow
    `
 ## Key Vault VM extension version
 
-* Users can choose to upgrade their existing Key Vault vn extension version to newer version.
+* Users can choose to upgrade their existing Key Vault VM extension version to newer version.
 
 * If you prefer to upgrade to newer version, you would need to delete previous version first, then install newer version.
 ```azurecli
@@ -624,7 +624,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
 
 ### Logs and configuration
 

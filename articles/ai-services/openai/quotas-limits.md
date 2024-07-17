@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 06/05/2024
+ms.date: 07/01/2024
 ms.author: mbullwin
 ---
 
@@ -27,6 +27,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | OpenAI resources per region per Azure subscription | 30 |
 | Default DALL-E 2 quota limits | 2 concurrent requests |
 | Default DALL-E 3 quota limits| 2 capacity units (6 requests per minute)|
+| Default Whisper quota limits | 3 requests per minute |
 | Maximum prompt tokens per request | Varies per model. For more information, see [Azure OpenAI Service models](./concepts/models.md)|
 | Max fine-tuned model deployments | 5 |
 | Total number of training jobs per resource | 100 |
@@ -46,6 +47,7 @@ The following sections provide you with a quick guide to the default quotas and 
 | Max file size for Assistants & fine-tuning | 512 MB |
 | Assistants token limit | 2,000,000 token limit |
 | GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
+| GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
 
 ## Regional quota limits
 
@@ -56,9 +58,6 @@ The following sections provide you with a quick guide to the default quotas and 
 `gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
-
-> [!NOTE]
-> The [global standard model deployment type](./how-to/deployment-types.md#deployment-types) is currently in public preview.
 
 |Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|:---:|:---:|
@@ -96,9 +95,10 @@ If your Azure subscription is linked to certain [offer types](https://azure.micr
 |Tier| Quota Limit in tokens per minute (TPM) |
 |---|:---|
 |Azure for Students, Free Trials | 1 K (all models)|
-| Monthly credit card based accounts <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  <br> |
+| MSDN subscriptions | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K   |
+| Monthly credit card based subscriptions <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  |
 
-<sup>1</sup>This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
+<sup>1</sup> This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
 
 In the Azure portal you can view what offer type is associated with your subscription by navigating to your subscription and checking the subscriptions overview pane. Offer type corresponds to the plan field in the subscription overview.
 

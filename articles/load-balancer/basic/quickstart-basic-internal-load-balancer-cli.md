@@ -57,9 +57,8 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
 > [!IMPORTANT]
-
+> 
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
-
 >
 
 ### Create a bastion public IP address

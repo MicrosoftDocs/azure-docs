@@ -38,6 +38,55 @@ const options = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
+### Example Preferences JSON Structure
+
+Here's an example of what the `value` parameter looks like when parsed, along with the types for each field:
+
+```json
+{
+    "displayOptionsState": {
+        "textSize": "number",
+        "fontFamily": "string",
+        "textSpacing": "number",
+        "formattingEnabled": "boolean",
+        "theme": "string",
+        "themeSetByUser": "boolean",
+        "syllabificationEnabled": "boolean",
+        "nounHighlightingEnabled": "boolean",
+        "nounHighlightingColor": "string",
+        "verbHighlightingEnabled": "boolean",
+        "verbHighlightingColor": "string",
+        "adjectiveHighlightingEnabled": "boolean",
+        "adjectiveHighlightingColor": "string",
+        "adverbHighlightingEnabled": "boolean",
+        "adverbHighlightingColor": "string",
+        "pictureDictionaryEnabled": "boolean",
+        "posLabelsEnabled": "boolean"
+    },
+    "readAloudState": {
+        "readAloudSpeed": "number",
+        "voice": "string"
+    },
+    "translationState": {
+        "shouldTranslateWords": "boolean",
+        "translationLanguage": "string" // encoded JSON
+    }
+}
+```
+
+And here the sample for the `translationLanguage` decoded JSON.
+
+```json
+{
+  "text": "string",
+  "key": "string",
+  "data": {
+    "tlc": "string",
+    "slc": "string"
+  }
+}
+```
+
 ## Load user preferences
 
 Pass in the user's preferences to the Immersive Reader app by using the `-preferences` option. A trivial example to store and load the user's preferences is as follows:

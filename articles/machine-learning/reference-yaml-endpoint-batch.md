@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
-ms.reviewer: mopeakande
-author: santiagxf
-ms.author: fasantia
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 10/21/2021
 ---
 

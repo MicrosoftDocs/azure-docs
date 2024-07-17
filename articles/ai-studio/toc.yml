@@ -22,8 +22,6 @@ items:
     href: quickstarts/get-started-code.md
   - name: Get started with Assistants and code interpreter in the playground
     href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-  - name: Hear and speak with chat in the playground
-    href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader
@@ -51,6 +49,8 @@ items:
         href: how-to/create-azure-ai-hub-template.md
       - name: Create a hub using the Azure Machine Learning SDK and CLI
         href: how-to/develop/create-hub-project-sdk.md
+      - name: Create a hub using Terraform
+        href: how-to/create-hub-terraform.md
     - name: Create a project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -106,6 +106,8 @@ items:
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md
+    - name: Deploy Jamba Instruct model
+      href: how-to/deploy-models-jamba.md
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
@@ -284,6 +286,8 @@ items:
       href: concepts/vulnerability-management.md
     - name: Disaster recovery
       href: how-to/disaster-recovery.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline
 - name: Responsible AI
   items:
   - name: Overview

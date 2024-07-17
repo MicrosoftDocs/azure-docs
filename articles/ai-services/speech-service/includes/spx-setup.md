@@ -35,14 +35,14 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 #### [Linux](#tab/linuxinstall)
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The following Linux distributions are supported for x64 architectures that use the Speech CLI:
 
-* CentOS 7/8
-* Debian 9/10
-* Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 18.04/20.04
+- Ubuntu 20.04/22.04
+- Debian 11/12
+- Red Hat Enterprise Linux (RHEL) 7
+- CentOS 7
 
 > [!NOTE]
 > The Speech SDK (not the Speech CLI) supports additional architectures. For more information, see [About the Speech SDK](../speech-sdk.md).

@@ -25,7 +25,7 @@ You can create a reservation utilization alert rule at any of the following scop
 | Supported agreement | Alert rule scope | Required role | Supported actions |
 | --- | --- | --- | --- |
 | Enterprise Agreement | Billing account | Enterprise admin, enterprise read only| Create, read, update, delete |
-|• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
+|• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA-online agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
 | Microsoft Partner Agreement (MPA) | Customer scope | Global admin, admin agent | Create, read, update, delete |
 
 For more information, see [scopes and roles](understand-work-scopes.md).

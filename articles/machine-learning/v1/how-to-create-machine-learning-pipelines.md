@@ -5,9 +5,9 @@ description: Create and run machine learning pipelines to create and manage the 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: lagayhar
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1

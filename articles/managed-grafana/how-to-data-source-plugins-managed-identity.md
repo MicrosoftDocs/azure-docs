@@ -53,7 +53,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
-* [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
+* [Azure DevOps](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
 * [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
 * [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)

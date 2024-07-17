@@ -58,7 +58,7 @@ The local inference server allows you to quickly debug your entry script (`score
 
 ## Debug locally
 
-You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
+You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
 
 > [!WARNING]
 > Local web service deployments are not supported for production scenarios.

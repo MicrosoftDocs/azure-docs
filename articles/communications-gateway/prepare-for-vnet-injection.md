@@ -60,7 +60,7 @@ The network security group configuration consists of two steps, to be carried ou
 1. Create a network security group that allows the desired traffic.
 1. Associate the network security group with the virtual network subnets.
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 ### Create the relevant network security group
 

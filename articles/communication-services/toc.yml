@@ -310,8 +310,12 @@ items:
             href: tutorials/virtual-visits/extend-teams/call.md
     - name: Calling widget
       items:
-        - name: Create Calling widget for Teams Voice Apps
+        - name: Overview
+          href: tutorials/calling-widget/calling-widget-overview.md
+        - name: Create Calling widget for Teams Voice Apps using React
           href: tutorials/calling-widget/calling-widget-tutorial.md
+        - name: Create Calling widget for Teams Voice Apps using JavaScript Bundles
+          href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Call management
       items:
       - name: Manage calls
@@ -430,11 +434,13 @@ items:
           href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
-        - name: Integrate CalllKit
+        - name: Integrate CallKit
           href: how-tos/ui-library-sdk/callkit.md
+        - name: Integrate TelecomManager
+          href: how-tos/ui-library-sdk/telecommanager.md
         - name: Set up localization
           href: how-tos/ui-library-sdk/localization.md
-        - name: Set up up one-to-one calling and push notifications
+        - name: Set up one-to-one calling and push notifications
           href: how-tos/ui-library-sdk/one-to-one-calling.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
@@ -1141,6 +1147,8 @@ items:
               href: resources/troubleshooting/voice-video-calling/video-issues/video-is-frozen.md
         - name: References
           items:
+          - name: How to collect call info
+            href: resources/troubleshooting/voice-video-calling/references/how-to-collect-call-info.md
           - name: How to collect client logs
             href: resources/troubleshooting/voice-video-calling/references/how-to-collect-client-logs.md
           - name: How to collect diagnostic audio recordings from the browser
