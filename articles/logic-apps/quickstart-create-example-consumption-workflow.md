@@ -109,10 +109,10 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
    > [!NOTE]
    >
-   > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
-   > section is automatically enabled. This preview section offers the choice to enable availability zone 
-   > redundancy for your logic app. However, currently supported Azure regions don't include **West US**, 
-   > so you can ignore this section for this example. For more information, see 
+   > Availability zone support is automatically enabled for new Consumption logic app workflows in 
+   > [Azure regions with availability zone support](/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support). Since mid-May 2022, 
+   > the Azure Logic Apps team has been moving existing Consumption logic app workflows to use 
+   > availability zones several Azure regions at a time. For more information, see 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + Create**.
