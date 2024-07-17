@@ -162,6 +162,8 @@
               href: socketio-troubleshoot-common-issues.md
             - name: Collect logs
               href: socketio-troubleshoot-logging.md
+            - name: Admin UI
+              href: socketio-troubleshoot-admin-ui.md
     - name: Concepts
       items:
         - name: How does Web PubSub support Socket.IO library

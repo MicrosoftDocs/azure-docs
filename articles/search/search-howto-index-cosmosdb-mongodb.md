@@ -50,7 +50,7 @@ As an alternative to this connector, if your scenario has any of those requireme
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-For this call, specify a [preview REST API version](search-api-preview.md). You can use 2020-06-30-preview or later to create a data source that connects via the MongoDB API. We recommend using the latest preview REST API.
+For this call, specify a [preview REST API version](search-api-preview.md). You can use 2020-06-30-preview or later to create a data source that connects via the MongoDB API. We recommend the latest preview REST API.
 
 1. [Create or update a data source](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to set its definition: 
 

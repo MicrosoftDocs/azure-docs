@@ -50,6 +50,25 @@ The following figure shows an example of the user experience before a caller is 
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
 
+### Rooms integration
+
+Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+
+A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../../rooms/room-concept.md).
+
+A user is invited to a room using the Rooms API as 1 of 3 following roles:
+
+- Presenter(default)
+- Attendee
+- Consumer
+
+The distinction between each role lies in the capabilities they possess during a room call when utilizing the `CallComposite`. The specific capabilities associated with each role are detailed [here](../../rooms/room-concept.md#predefined-participant-roles-and-permissions).
+
+:::image type="content" source="../../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
+
+> [!NOTE]
+> The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. It is important to note that the Rooms API is a back-end service that is separate from the UI Library.
+
 ### View shared content
 
 Through the UI Library for mobile native platforms, call participants can view shared content when other participants share their screens during a Teams call. A remote participant can use stretch and pinch gestures to zoom in or out on the shared content in the call.

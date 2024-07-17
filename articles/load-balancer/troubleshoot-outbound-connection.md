@@ -45,9 +45,9 @@ Azure NAT Gateway is a highly resilient and scalable Azure service that provides
 
 ### Configure load balancer outbound rules to maximize SNAT ports per VM
 
-If you’re using a public standard load balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default outbound access. Default outbound access automatically allocates a conservative number of ports, which is based on the number of instances in your backend pool. Default outbound access isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections may be impacted if ports need to be reallocated. 
+If you’re using a public standard load balancer and experience SNAT exhaustion or connection failures, ensure you’re using outbound rules with manual port allocation. Otherwise, you’re likely relying on load balancer’s default port allocation. Default port allocation automatically assigns a conservative number of ports, which is based on the number of instances in your backend pool. Default port allocation isn't a recommended method for enabling outbound connections. When your backend pool scales, your connections may be impacted if ports need to be reallocated. 
 
-To learn more about default outbound access and default port allocation, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
+To learn more about default port allocation, see [Source Network Address Translation for outbound connections](load-balancer-outbound-connections.md).
 
 To increase the number of available SNAT ports per VM, configure outbound rules with manual port allocation on your load balancer. For example, if you know you have a maximum of 10 VMs in your backend pool, you can allocate up to 6,400 SNAT ports per VM rather than the default 1,024. If you need more SNAT ports, you can add multiple frontend IP addresses for outbound connections to multiply the number of SNAT ports available. Make sure you understand why you're exhausting SNAT ports before adding more frontend IP addresses. 
 

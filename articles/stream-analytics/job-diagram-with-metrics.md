@@ -15,7 +15,7 @@ The job diagram in the Azure portal can help you visualize your job's query step
 
 There are two types of job diagrams: 
 
-* **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+* **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
 
    Inside each streaming node, there are Stream Analytics processors available for processing the stream data. Each processor represents one or more steps in your query. You can visualize the processor topology in each streaming node by using the **processor diagram** in physical job diagram.
 
@@ -59,7 +59,7 @@ The following screenshot shows a physical job diagram with a default time period
     * **Watermark Delay** (Aggregation type: Max)
     * **Backlogged Input Events** (Aggregation type: SUM)
 
-    For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+    For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
 1. **Chart section**: it's the place where you can view the historical metrics data within the selected time range. The default metrics shown in the default chart are **SU (Memory) % Utilization** and **CPU % Utilization**". You can also add more charts by clicking **Add chart**.
 
 The **Diagram/Table section** and **Chart section** can be interactive with each other. You can select multiple nodes in **Diagram/Table section** to get the metrics in **Chart section** filtered by the selected nodes and vice versa.
@@ -109,7 +109,7 @@ The logical job diagram has a similar layout to the physical diagram, with three
 :::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows logical job diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
 
 1. **Command bar section**: in logical diagram, you can operate the cloud job (Stop, Delete), and configure the time range of the job metrics. The diagram view is only available for logical diagrams.
-2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
 3. **Chart section**: the chart section in a logical diagram has two tabs: **Metrics** and **Activity Logs**.
     * **Metrics**: job's metrics data is shown here when the corresponding metrics are selected in the right panel. 
     * **Activity Logs**: job's operations performed on jobs is shown here. When the job's diagnostic log is enabled, it's also shown here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
@@ -126,7 +126,7 @@ To learn more about how to debug with logical diagrams, see [Debugging with the 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics management REST API reference](/rest/api/streamanalytics/)

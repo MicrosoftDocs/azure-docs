@@ -3,9 +3,9 @@ title: Query & compare experiments and runs with MLflow
 titleSuffix: Azure Machine Learning
 description: Learn how to use MLflow for managing experiments and runs in Azure Machine Learning.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/20/2024

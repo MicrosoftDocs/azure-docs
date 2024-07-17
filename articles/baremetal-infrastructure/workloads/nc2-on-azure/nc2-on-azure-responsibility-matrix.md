@@ -1,9 +1,8 @@
 ---
 title: NC2 on Azure responsibility matrix
-
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Defines who is responsible for what for NC2 on Azure
+description: Defines who's responsible for what for NC2 on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
@@ -17,14 +16,13 @@ The following table color-codes areas of management, where:
 
 * Microsoft NC2 team = blue
 * Nutanix = purple
-* Customer = grey
-* Microsoft Azure = white
+* Customer = gray
 
 :::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners.":::
 
-Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, VNet, vWAN etc.
+Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, VNet, vWAN, etc.
 
-Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element etc.) and their licenses.
+Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element, etc.) and their licenses.
 
 **Monitoring and remediation**
 

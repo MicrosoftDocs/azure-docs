@@ -10,13 +10,64 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 06/19/2024
+ms.date: 07/09/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
+
+## July 2024
+
+### New Responsible AI default content filtering policy 
+
+The new default content filtering policy `DefaultV2` delivers the latest safety and security mitigations for the GPT model series (text), including:
+- Prompt Shields for jailbreak attacks on user prompts (filter), 
+- Protected material detection for text (filter) on model completions 
+- Protected material detection for code (annotate) on model completions
+
+While there are no changes to content filters for existing resources and deployments (default or custom content filtering configurations remain unchanged), new resources and GPT deployments will automatically inherit the new content filtering policy `DefaultV2`. Customers have the option to switch between safety defaults and create custom content filtering configurations. 
+
+Refer to our [Default safety policy documentation](./concepts/default-safety-policies.md) for more information.
+
+### New GA API release
+
+API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
+
+- embeddings `encoding_format` & `dimensions` parameters.
+- chat completions `logprops` & `top_logprobs` parameters.
+
+Refer to our [data plane inference reference documentation](./reference.md) for more information.
+
+### Expansion of regions available for global standard deployments of gpt-4o
+
+ GPT-4o is now available for [global standard deployments](./how-to/deployment-types.md) in:
+
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     git
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
+
+For information on global standard quota, consult the [quota and limits page](./quotas-limits.md).
+
 
 ## June 2024
 

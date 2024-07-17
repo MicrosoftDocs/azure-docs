@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 06/20/2024
+ms.date: 06/28/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -9,7 +9,7 @@ ms.custom: mode-api, devx-track-bicep
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization.  To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
+Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization. To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). 
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {

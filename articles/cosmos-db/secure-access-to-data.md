@@ -231,7 +231,7 @@ As a database service, Azure Cosmos DB enables you to search, select, modify, an
 
 Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, or Table) provides different language SDKs that contain methods to search and delete data based on custom predicates. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any more cost.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Next steps
 

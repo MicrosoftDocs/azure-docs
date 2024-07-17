@@ -40,9 +40,6 @@ The combination of time-to-live and automatic (and transactional) dead-lettering
 
 For example, consider a web site that needs to reliably execute jobs on a scale-constrained backend, and which occasionally experiences traffic spikes or wants to be insulated against availability episodes of that backend. In the regular case, the server-side handler for the submitted user data pushes the information into a queue and subsequently receives a reply confirming successful handling of the transaction into a reply queue. If there's a traffic spike and the backend handler can't process its backlog items in time, the expired jobs are returned on the dead-letter queue. The interactive user can be notified that the requested operation takes a little longer than usual, and the request can then be put on a different queue for a processing path where the eventual processing result is sent to the user by email. 
 
-### Expiration for session-enabled entities
-For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the TTL for any of the messages expires, all messages related to that session are either dropped or dead-lettered based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that has passed the TTL, all the messages in the session are expired. The messages expire only if there's an active listener. 
-
 ## Temporary entities
 
 Service Bus queues, topics, and subscriptions can be created as temporary entities, which are automatically removed when they haven't been used for a specified period of time.

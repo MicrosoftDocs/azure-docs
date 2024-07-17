@@ -46,6 +46,8 @@
         href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
+      - name: Discover shadow APIs with Dev Proxy
+        href: discover-shadow-apis-dev-proxy.md  
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal

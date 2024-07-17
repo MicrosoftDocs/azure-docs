@@ -2,11 +2,11 @@
 title: Job Router overview for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Azure Communication Services Job Router.
-author: jasonshave
+author: sroons
 manager: phans
 services: azure-communication-services
 
-ms.author: jassha
+ms.author: serooney
 ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
