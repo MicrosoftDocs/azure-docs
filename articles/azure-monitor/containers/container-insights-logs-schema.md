@@ -64,7 +64,7 @@ When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` c
 > Collection of Kubernetes metadata requires [managed identity authentication](./container-insights-authentication.md#migrate-to-managed-identity-authentication) and [ContainerLogsV2](./container-insights-logs-schema.md)
 
 
-Enable Kubernetes metadata using [ConfigMap](#configuration-methods) with the following settings. All metadata fields are collected by default when the `metadata_collection` is enabled. Uncomment `include_fields` to specify individual fields to be collected.
+Enable Kubernetes metadata using [ConfigMap](./container-insights-data-collection-configure.md#configure-data-collection-using-configmap) with the following settings. All metadata fields are collected by default when the `metadata_collection` is enabled. Uncomment `include_fields` to specify individual fields to be collected.
 
 ```yaml
 [log_collection_settings.metadata_collection]

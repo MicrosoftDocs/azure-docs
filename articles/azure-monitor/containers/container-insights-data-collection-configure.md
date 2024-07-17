@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Configure log collection in Container insights
 
-This article provides details on how to configure data collection in Azure Monitor Container insights for your Kubernetes cluster, including how to filter data that you don't require. Kubernetes clusters generate a large amount of log data. You can collect all of this data in Container insights, but since you're charged for the ingestion and retention of this data, that may result in charges for data that you don't use. 
+This article provides details on how to configure data collection in [Container insights](./container-insights-overview.md) for your Kubernetes cluster. 
 
 ## Configuration methods
 There are two methods use to configure and filter data being collected in Container insights. Depending on the setting, you may be able to choose between the two methods or you may be required to use one or the other. The two methods are described in the table below with detailed information in the following sections.
@@ -18,28 +18,8 @@ There are two methods use to configure and filter data being collected in Contai
 | [Data collection rule (DCR)](#configure-data-collection-using-dcr) | [Data collection rules](../essentials/data-collection-rule-overview.md) are sets of instructions supporting data collection using the [Azure Monitor pipeline](../essentials/pipeline-overview.md). A DCR is created when you enable Container insights, and you can modify the settings in this DCR either using the Azure portal or other methods. | 
 | [ConfigMap](#configure-data-collection-using-configmap) | [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as a configuration file or environment variables. Container insights looks for a ConfigMap on each cluster with particular settings that define data that it should collect.|
 
-## Configuration tasks
-The following table describes the different configuration tasks you can perform in Container insights and the method available for each. Details for each task are provided in the following sections.
-
-| Task | ConfigMap | DCR | Description |
-|:---|:---:|:---:|:---|
-| Enable V2 schema | ✓ | ✓ | Enables the ContainerLogsV2 schema for older installations of Container insights. Provides more efficient log queries and ability to enable Basic logs.  |
-| Enable metadata | ✓ |  | Adds a column to ContainerLogsV2 table with additional data that helps with troubleshooting with simple log queries and removes the need for joining with other tables. |
-| Log collection | ✓ | ✓ | Enable collection of stdout/stderr logs. |
-| Filter by namespace | ✓ | ✓ | Filter out container logs for particular namespaces. |
-| Annotation filtering | ✓ | | Filter out container logs for certain pods and containers.  |
-| Inventory collection |  | ✓ | Collect inventory data for containers, nodes, and pods. |
-| Performance data |  | ✓ | Collect performance data in a Log Analytics workspace. |
-| Collection frequency  |  | ✓ | Configure how often Container insights samples for log and inventory data. |
-| Syslog collection | ✓ | ✓ | Enable Syslog collection from the cluster. |
-| Environment variable collection | ✓ | - | Collect environment variables from the cluster. |
-| Enable dashboard |  | | Install the Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. This installation is performed from Grafana. |
-
-
 ## Configure data collection using DCR
-The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. You can [view this DCR](../essentials/data-collection-rule-view.md) along with others in your subscription, and you can edit it using methods described in [Create and edit data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-create-edit.md).
-
-While you can directly modify the DCR for particular customizations, you can perform most of configuration using the methods described here. See [Data transformations in Container insights](./container-insights-transformations.md) for details on editing the DCR directly for more advanced configurations.
+The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. You can [view this DCR](../essentials/data-collection-rule-view.md) along with others in your subscription, and you can edit it using methods described in [Create and edit data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-create-edit.md). While you can directly modify the DCR for particular customizations, you can perform most of configuration using the methods described below. See [Data transformations in Container insights](./container-insights-transformations.md) for details on editing the DCR directly for more advanced configurations.
 
 > [!IMPORTANT]
 > AKS clusters must use either a system-assigned or user-assigned managed identity. If cluster is using a service principal, you must update the cluster to use a [system-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
@@ -270,7 +250,7 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-Perf | Perf |
 
 ## Share DCR with multiple clusters
-When you enable Container insights on a Kubernetes cluster, a new DCR is created for that cluster. If you have multiple clusters with custom monitoring configurations, you may want to share a single DCR with multiple clusters. You can then make changes to a single DCR that are automatically implemented for any clusters associated with it.
+When you enable Container insights on a Kubernetes cluster, a new DCR is created for that cluster, and the DCR for each cluster can be modified independently. If you have multiple clusters with custom monitoring configurations, you may want to share a single DCR with multiple clusters. You can then make changes to a single DCR that are automatically implemented for any clusters associated with it.
 
 A DCR is associated with a cluster with a [data collection rule associates (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra). Use the [preview DCR experience](../essentials/data-collection-rule-view.md#preview-dcr-experience) to view and remove existing DCR associations for each cluster. You can then use the guidance at [Create new associations](../essentials/data-collection-rule-view.md#create-new-associations) to add an association to a single DCR for multiple clusters.
 
@@ -343,12 +323,7 @@ kubectl describe pod ama-logs-fdf58 -n=kube-system.
 ```
 
 
-
-
-
-
-
-## Data collection settings
+## ConfigMap settings
 
 The following table describes the settings you can configure to control data collection with ConfigMap.
 
