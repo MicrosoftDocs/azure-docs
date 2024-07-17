@@ -33,11 +33,11 @@ We recommend that you allocate sufficient storage on the flexible server, equiva
 > [!IMPORTANT]  
 > Storage size can't be reduced in manual configuration or Storage Autogrow. Each step in the storage configuration spectrum doubles in size, so estimating the required storage beforehand is prudent.
 
-The quickstart to [create an Azure Database for PostgreSQL - Flexible Server by using the portal](../../flexible-server/quickstart-create-server-portal.md) is an excellent place to begin. For more information about each server configuration, see [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../../flexible-server/concepts-compute-storage.md).
+The quickstart to [create an Azure Database for PostgreSQL - Flexible Server instance by using the portal](../../flexible-server/quickstart-create-server-portal.md) is an excellent place to begin. For more information about each server configuration, see [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../../flexible-server/concepts-compute-storage.md).
 
 ## Migration timeline
 
-Each migration has a maximum lifetime of seven days (168 hours) once it starts, and it times out after seven days. You can complete your migration and application cutover after the data validation and all checks are complete to avoid the migration from timing out. In online migrations, after the initial base copy is complete, the cutover window lasts three days (72 hours) before timing out. In offline migrations, the applications should stop writing to the database to prevent data loss. Similarly, for online migration, keep traffic low throughout the migration.
+Each migration has a maximum lifetime of seven days (168 hours) after it starts, and it times out after seven days. You can complete your migration and application cutover after the data validation and all checks are complete to avoid the migration from timing out. In online migrations, after the initial base copy is complete, the cutover window lasts three days (72 hours) before timing out. In offline migrations, the applications should stop writing to the database to prevent data loss. Similarly, for online migration, keep traffic low throughout the migration.
 
 Most nonproduction servers (dev, UAT, test, and staging) are migrated by using offline migrations. Because these servers have less data than the production servers, the migration is fast. For production server migration, you need to know the time it would take to complete the migration to plan for it in advance.
 
@@ -59,13 +59,13 @@ The following phases are considered for calculating the total downtime to perfor
 - **Migration of server settings**: Any custom server parameters, firewall rules (if applicable), tags, and alerts must be manually copied from the source instance to the target.
 - **Changing connection strings**: The application should change its connection strings to a flexible server after successful validation. This activity is coordinated with the application team to change all the references of connection strings pointing to the source instance. In the flexible server, the user parameter can be used in the **user=username** format in the connection string.
 
-For example: psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
+For example: `psql -h myflexserver.postgres.database.azure.com -u user1 -d db1`
 
-While a migration often runs without any problems, it's good practice to plan for contingencies if more time is required for debugging or if a migration needs to be restarted.
+Although a migration often runs without any problems, it's good practice to plan for contingencies if more time is required for debugging or if a migration needs to be restarted.
 
 ## Migration speed benchmarking
 
-The following table shows the time it takes to perform migrations for databases of various sizes by using the migration service. The migration was performed by using a flexible server with the SKU Standard_D4ds_v4 (4 cores, 16-GB memory, 128-GB disk, and 500 iops).
+The following table shows the time it takes to perform migrations for databases of various sizes by using the migration service. The migration was performed by using a flexible server with the SKU Standard_D4ds_v4 (4 cores, 16-GB memory, 128-GB disk, and 500 IOPS).
 
 | Database size | Approximate time taken (HH:MM) |
 | :--- | :--- |
@@ -80,7 +80,7 @@ The following table shows the time it takes to perform migrations for databases 
 The preceding numbers give you an approximation of the time taken to complete the migration. We strongly recommend running a test migration with your workload to get a precise value for migrating your server.
 
 > [!IMPORTANT]  
-> Pick a higher SKU for your flexible server to perform faster migrations. Azure Database for PostgreSQL - Flexible Server supports near-zero downtime compute and IOPS scaling, so the SKU can be updated with minimal downtime. You can always change the SKU to match the application needs post-migration.
+> Choose a higher SKU for your flexible server to perform faster migrations. Azure Database for PostgreSQL - Flexible Server supports near-zero downtime compute and IOPS scaling, so the SKU can be updated with minimal downtime. You can always change the SKU to match the application needs post-migration.
 
 ### Improve migration speed: Parallel migration of tables
 
@@ -88,18 +88,18 @@ We recommend a powerful SKU for the target because the PostgreSQL migration serv
 
 If the data distribution on the source is highly skewed, with most of the data present in one table, the allocated compute for migration needs to be fully utilized, which creates a bottleneck. So, split large tables into smaller chunks, which are then migrated in parallel. This feature applies to tables with more than 10,000,000 (10 m) tuples. Splitting the table into smaller chunks is possible if one of the following conditions is satisfied:
 
-- The table must have a column with a simple (not composite) primary key or unique index of type int or significant int.
+- The table must have a column with a simple (not composite) primary key or unique index of type `int` or `significant int`.
 
     > [!NOTE]
     > In the case of the first or second approaches, you must carefully evaluate the implications of adding a unique index column to the source schema. Only after confirmation that adding a unique index column won't affect the application should you go ahead with the changes.
 
-- If the table doesn't have a simple primary key or unique index of type int or significant int but has a column that meets the data type criteria, the column can be converted into a unique index by using the following command. This command doesn't require a lock on the table.
+- If the table doesn't have a simple primary key or unique index of type `int` or `significant int` but has a column that meets the data type criteria, the column can be converted into a unique index by using the following command. This command doesn't require a lock on the table.
 
     ```sql
         create unique index concurrently partkey_idx on <table name> (column name);
     ```
 
-- If the table doesn't have a simple int/big int primary key or unique index or any column that meets the data type criteria, you can add such a column by using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the `ALTER` command requires a lock on the table.
+- If the table doesn't have a `simple int`/`big int` primary key or unique index or any column that meets the data type criteria, you can add such a column by using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the `ALTER` command requires a lock on the table.
 
     ```sql
         alter table <table name> add column <column name> big serial unique;
@@ -142,7 +142,7 @@ PostgreSQL provides the `VACUUM` command to reclaim storage occupied by dead row
     VACUUM FULL your_table;
     ```
 
-In this example, replace your_table with the actual table name. The `VACUUM` command without **FULL** reclaims space efficiently, while `VACUUM ANALYZE` optimizes query planning. The `VACUUM FULL` option should be used judiciously because of its heavier performance impact.
+In this example, replace your_table with the actual table name. The `VACUUM` command without `FULL` reclaims space efficiently, whereas `VACUUM ANALYZE` optimizes query planning. The `VACUUM FULL` option should be used judiciously because of its heavier performance impact.
 
 Some databases store large objects, such as images or documents, that can contribute to database bloat over time. The `VACUUMLO` command is designed for large objects in PostgreSQL.
 
