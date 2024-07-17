@@ -38,7 +38,7 @@ When working with real-time transcription, you have a couple of options on when 
 In this tutorial we will be demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Play audio with .NET](./includes/play-audio-quickstart-csharp.md)]
+[!INCLUDE [Play audio with .NET](./includes/real-time-transcription-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
