@@ -145,7 +145,7 @@ services.AddSignalR().AddAzureSignalR(options =>
 ```
 The logic for **Serverless Mode** is similar.
 
-For more details, refer to [Client negotiation](signalr-concept-client-negotiation.md#What-can-you-do-during-negotiation) .  
+For more details, refer to [Client negotiation](signalr-concept-client-negotiation.md#what-can-you-do-during-negotiation) .  
 
 
 
