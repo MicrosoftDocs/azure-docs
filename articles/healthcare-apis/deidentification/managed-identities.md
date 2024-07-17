@@ -28,7 +28,7 @@ Managed identities can be used to grant the Deidentification service access to y
 1. Select **Identity**.
 1. Within the **System assigned** tab, switch **Status** to **On** and choose **Save**.
 
-# [ARM template](tab/azure-resource-manager)
+# [ARM template](#tab/azure-resource-manager)
 
 Any resource of type ``Microsoft.HealthDataAIServices/deidServices`` can be created with a system-assigned identity by including the following block in 
 the resource definition:
@@ -65,6 +65,8 @@ the resource definition, replacing **resource-id** with the Azure Resource Manag
 }
 ```
 
+---
+
 ## Supported scenarios using managed identities
 
 Managed identities assigned to the Deidentification service can be used to allow access to Azure Blob Storage for batch deidentification jobs. The service acquires a token as
@@ -93,6 +95,8 @@ including this block in the resource definition:
     "type": "None"
 }
 ```
+
+---
 
 ## Related content
 
