@@ -182,6 +182,17 @@
       href: ./sizes/overview.md
     - name: General purpose
       items:
+      - name: Dlsv6 and Dldsv6-series
+        href: dlsv6-dldsv6-series.md
+      - name: Dasv6 and Dadsv6-series
+        href: dasv6-dadsv6-series.md
+      - name: Overview
+        displayName: General purpose, sizes, size, vm size
+        href: sizes-general.md
+      - name: Av1-series retirement
+        href: av1-series-retirement.md
+      - name: Av2-series
+        href: av2-series.md
       - name: A family
         items:
         - name: Overview
