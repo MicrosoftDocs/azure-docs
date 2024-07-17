@@ -36,6 +36,8 @@
           href: vector-search.md
         - name: Open-source vector databases
           href: vector-search-ai.md
+        - name: RAG with Langchain & OpenAI
+          href: rag.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability (HA)
