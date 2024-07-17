@@ -15,6 +15,12 @@ ms.author: prakulka
 >[!Important] 
 >Short Code availability is currently restricted to Azure enterprise subscriptions that have a billing address in the United States, Canada, and United Kingdom.
 
+> [!IMPORTANT]
+>- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products is not eligible for Microsoft Azure Consumption Commitment drawdown.
+>
+>
+>- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products.
+
 The Short Code service requires provisioning a short code through the Azure portal. Once a short code is provisioned, pay-as-you-go pricing applies to the leasing fee, usage fee, and the carrier surcharge. The leasing fee, usage fee, and the carrier surcharge are determined by the short code type, location of the short code, destination, and the carrier of the message.
 
 ## Short Codes Pricing
