@@ -47,7 +47,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
 **Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
 **Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery.
-**VMware VM/physical disaster recovery to Azure** | Added support for Debian 12 and Ubuntu 18.04 Pro Linux distros. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
 
 
 ## Updates (April 2024)
