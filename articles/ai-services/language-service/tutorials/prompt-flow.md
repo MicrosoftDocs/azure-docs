@@ -55,7 +55,7 @@ To create a prompt flow from the gallery in Azure AI Studio:
 
 1. After the process is complete, you will be taken to the prompt flow wizard. Click **Start Compute Session** in the upper right hand corner to begin. The various parts of the wizard are out lined below:
 
-    :::image type="content" source="../media/prompt-flow/pf-wizard.png" alt-text="Screenshot of the prompt flow wizard page with each part of the tool numbered." lightbox="../media/prompt-flow/pf-wizard.png":::
+    :::image type="content" source="../media/prompt-flow/prompt-flow-wizard.png" alt-text="Screenshot of the prompt flow wizard page with each part of the tool numbered." lightbox="../media/prompt-flow/prompt-flow-wizard.png":::
 
     1. A graph view of your flow.
     1. Files in your flow. Click the arrow to expand this section.
