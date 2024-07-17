@@ -23,6 +23,7 @@ All calculations are based on a fictitious price. You can find each price in the
 
 Something here about how to calculate storage costs.
 Something here about the percentage of storage that goes to metadata
+Something here about the percentage that goes to the index charge per GB - which is the space required to maintain HNS.
 Example calculation here.
 Describe storage reservations
 Example of the impact of storage reservations.
@@ -163,7 +164,9 @@ This scenario is identical to the previous one except you are billed for network
 
 ## The cost to rename objects
 
-Put something here.
+- Clearly identify which operations are used and how they are billed.
+- For HNS, we show a write transaction, but it might be iterative write operations. This would be billed per 100. This is being investigated.
+- For FNS, this amounts to a complete copy exercise. Show the cost of each approach.
 
 ## The cost to change access tiers
 

@@ -85,14 +85,25 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 
 #### Metadata
 
-- List all cases where metadata is generated and stored.
-  - Archived data? What tier is it stored in? 
-  - HNS accounts? - what tier is that data stored in?
-  - Index tags? Is this specially priced metadata?
-  - Metadata vs properties vs tags.
-- What is the proportion of metadata to stored objects so that customers can estimate?
-- List cases where customers might directly add metadata that results in a cost.
+- Metadata can be stored both as part of the object or outside of the object.
+- Part of the object:
+  - Properties of the object. Maximum size is 8K so it is insignificant to your calculation costs (in most cases)
+  - Tags (name value pairs)
+  - Metadata (name value pairs)
+- Outside of the object (as separate objects)
+  - Only for HNS accounts. This is all of the space required to facilitate the hierarchical structure, connected metadata, and ACLs. Always stored and billed as hot tier.
+  - Put proportion of space that customers can expect here (pending answer to question)
+  - Archive tier blobs
+    An archived blob's metadata remains available for read access, so that you can list the blob and its properties, metadata, and index tags. Metadata for a blob in the archive tier is read-only, while blob index tags can be read or written. Storage costs for metadata of archived blobs will be charged on cool tier rates. Snapshots aren't supported for archived blobs.
 
+Costs
+- Metadata capacity and transactions against that metadata are billed using the same capacity and transaction rates according to the object's tier. 
+- Tags have an additional billing model that is over and above the space and access costs of regular embedded metadata.
+- How is metadata outside of the object billed?
+  - HNS metadata always stored and billed at the hot tier as per the Index GB meter.
+  - List any transaction costs over and above normal transaction costs here (pending question)
+  - For archive tier metadata, capacity is charged at cold tier. If transaction fees apply at a different tier (other than cold, list them here).
+  
 #### Operations
 
 - Explain the difference between operations and transactions.
