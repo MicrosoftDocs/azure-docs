@@ -70,7 +70,7 @@ The preceding code imports modules that you'll use in the rest of the article.
 
 To connect to the API for NoSQL of Azure Cosmos DB, create an instance of the [CosmosClient](/python/api/azure-cosmos/azure.cosmos.cosmosclient) class. This class is the starting point to perform all operations against databases. There are three ways to connect to an API for NoSQL account using the **CosmosClient** class:
 
-- [Connect with Microsoft Entra ID (recommended)](#connect-using-the-microsoft-identity-platform)
+- [Connect with Microsoft Entra ID (recommended)](#connect-using-the-microsoft-identity-platform-recommended)
 - [Connect with an API for NoSQL endpoint and read/write key](#connect-with-an-endpoint-and-key)
 - [Connect with an API for NoSQL connection string](#connect-with-a-connection-string)
 
