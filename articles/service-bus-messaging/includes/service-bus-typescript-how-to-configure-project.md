@@ -1,0 +1,30 @@
+---
+title: include file
+description: include file
+services: service-bus-messaging
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 07/17/2024
+ms.author: spelluru
+ms.custom: "include file"
+
+---
+
+## Configure project 
+
+1. Create a project folder to contain the files. 
+1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build.
+1. Copy the following into the file:
+
+    :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
+1. In a terminal in the project folder, initialize the Node.js project.
+
+    ```bash
+    npm init -y
+    ```
+1. Open the `package.json` file in the project folder and add the property to configure ESM. Add this property after the `version` property:
+
+    ```json
+    "types":"module",
+    ```
