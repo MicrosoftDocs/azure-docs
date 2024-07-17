@@ -256,8 +256,9 @@ The following table lists some suggested alert rules for Event Hubs. These alert
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Metric | CPU              | When CPU utilization exceed a set value.       |
+| Metric | Available Memory | When Available Memory drops below a set value. |
+| Metric | Capture Backlog  | When Capture Backlog is above a certain value. |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
