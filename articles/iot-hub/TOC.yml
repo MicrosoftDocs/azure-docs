@@ -220,6 +220,8 @@
           href: create-hub.md
         - name: Create and connect a device
           href: create-connect-device.md
+        - name: Manage device twins
+          href: manage-device-twins.md
         - name: Create message routes and endpoints
           items:
             - name: Azure portal
@@ -273,8 +275,7 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-        - name: Manage device twin tags
-          href: iot-hubs-manage-device-twin-tags.md
+
     - name: Develop
       items:
         - name: Send cloud-to-device messages
