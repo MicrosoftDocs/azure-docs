@@ -59,7 +59,9 @@ This table provides a brief description of each alert type. For more information
 
 Alerts can be stateful or stateless.
 - Stateless alerts fire each time the condition is met, even if fired previously.
-- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
+- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
+
+Each alert rule is evaluated individually. There is no validation to check if there is another alert configured for the same conditions. If there is more than one alert rule configured for the same conditions, each of those alerts will fire when the conditions are met. 
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
