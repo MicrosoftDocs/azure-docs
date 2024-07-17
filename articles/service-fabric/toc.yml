@@ -419,8 +419,6 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
-  - name: Operation restrictions in managed and classic clusters
-    href: operation-restriction-managed-versus-classic.md
   - name: Managed cluster deny assignment policy
     href: managed-cluster-deny-assignment.md
   - name: Service Fabric Explorer blocking operations for managed clusters
