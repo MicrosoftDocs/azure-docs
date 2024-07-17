@@ -5,16 +5,17 @@ items:
   items:
   - name: About Azure Update Manager
     href: overview.md
+  - name: What's New 
+    href: whats-new.md
+  - name: FAQ
+    href: update-manager-faq.md
 - name: Getting started
   items:
   - name: Prerequisites
     href: prerequisites.md
   - name: Support matrix
     href: support-matrix.md
-  - name: What's New 
-    href: whats-new.md
-  - name: FAQ
-    href: update-manager-faq.md
+ 
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
