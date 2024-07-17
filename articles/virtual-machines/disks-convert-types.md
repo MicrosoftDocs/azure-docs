@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-disk-storage
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, references_regions
 ms.topic: how-to
-ms.date: 07/15/2024
+ms.date: 07/17/2024
 ms.author: rogarana
 ---
 
@@ -56,7 +56,6 @@ This preview is currently only available in the following regions:
 - Southeast Asia
 - Central India
 - France Central
-- West US 3
 
 ## Switch all managed disks of a VM from one account to another
 
