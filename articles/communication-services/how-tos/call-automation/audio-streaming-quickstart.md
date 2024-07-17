@@ -71,7 +71,7 @@ Example of audio data being streamed:
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
-- Learn more about [Media Streaming](../../concepts/call-automation/audio-streaming-concept.md).
+- Learn more about [Audio Streaming](../../concepts/call-automation/audio-streaming-concept.md).
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
 - Learn more about [Play action](../../concepts/call-automation/play-action.md).
 - Learn more about [Recognize action](../../concepts/call-automation/recognize-action.md).
