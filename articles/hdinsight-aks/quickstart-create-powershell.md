@@ -9,6 +9,8 @@ ms.date: 06/19/2024
 
 # Quickstart: Create an HDInsight on AKS cluster pool using Azure PowerShell
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
 
 - **Cluster pools** are a logical grouping of clusters and maintain a set of clusters in the same pool, which helps in building robust interoperability across multiple cluster types. It can be created within an existing virtual network or outside a virtual network.

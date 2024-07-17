@@ -1,6 +1,25 @@
 {
     "redirections": [
     {
+      "source_path": "articles/networking/connectivity-interoperability-configuration.md",
+      "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-add-gateway-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-add-gateway-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-integrate-maps.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/single-server/azure-pipelines-mysql-deploy.md",
       "redirect_url": "/previous-versions/azure/mysql/single-server/azure-pipelines-mysql-deploy",
       "redirect_document_id": false
@@ -1242,7 +1261,22 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
             "redirect_document_id": false
         },
         {
@@ -3669,6 +3703,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
             "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
             "redirect_document_id": false
@@ -4484,6 +4528,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/pre-post-events-common-scenarios.md",
+            "redirect_url": "/azure/update-manager/manage-pre-post-events",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-manager/whats-upcoming.md",
             "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false
@@ -4501,6 +4550,11 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
+            "redirect_url": "/azure/aks/network-observability-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
@@ -4724,11 +4778,9 @@
             "redirect_document_id": false
         },
         {
-
            "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
            "redirect_document_id": false
-
         },
         {
            "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
@@ -4739,7 +4791,21 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
         }
+
+
+
+        
 
     ]
 }

@@ -18,13 +18,13 @@ This article shows you how to quickly deploy Red Hat Quarkus on Azure Kubernetes
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
-- Install a Java SE implementation version 17 or later (for example, [Microsoft build of OpenJDK](/java/openjdk)).
-- Install [Maven](https://maven.apache.org/download.cgi) 3.9.8 or higher.
+- Prepare a local machine with Unix-like operating system installed - for example, Ubuntu, macOS, or Windows Subsystem for Linux.
+- Install a Java SE implementation version 17 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
+- Install [Maven](https://maven.apache.org/download.cgi), version 3.9.8 or higher.
 - Install [Docker](https://docs.docker.com/get-docker/) or [Podman](https://podman.io/docs/installation) for your OS.
 - Install [jq](https://jqlang.github.io/jq/download/).
 - Install [cURL](https://curl.se/download.html).
-- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling) 3.12.1 or higher.
+- Install the [Quarkus CLI](https://quarkus.io/guides/cli-tooling), version 3.12.1 or higher.
 - Azure CLI for Unix-like environments. This article requires only the Bash variant of Azure CLI.
   - [!INCLUDE [azure-cli-login](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
   - This article requires at least version 2.61.0 of Azure CLI.
@@ -156,17 +156,17 @@ The steps in this section show you how to create the following Azure resources t
 - Azure Container Registry (ACR)
 - Azure Kubernetes Service (AKS)
 
-Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values in `UNIQUE_VALUE`, `LOCATION` and `DB_PASSWORD` with your own values and run the commands in your terminal:
+Some of these resources must have unique names within the scope of the Azure subscription. To ensure this uniqueness, you can use the *initials, sequence, date, suffix* pattern. To apply this pattern, name your resources by listing your initials, some sequence number, today's date, and some kind of resource specific suffix - for example, `rg` for "resource group". The following environment variables use this pattern. Replace the placeholder values `UNIQUE_VALUE`, `LOCATION`, and `DB_PASSWORD` with your own values and then run the following commands in your terminal:
 
 ```bash
 export UNIQUE_VALUE=<your unique value, such as ejb010717>
 export RESOURCE_GROUP_NAME=${UNIQUE_VALUE}rg
-export LOCATION=<your desired Azure region for deploying your resources. For example, northeurope>
+export LOCATION=<your desired Azure region for deploying your resources - for example, northeurope>
 export REGISTRY_NAME=${UNIQUE_VALUE}reg
 export DB_SERVER_NAME=${UNIQUE_VALUE}db
 export DB_NAME=demodb
 export DB_ADMIN=demouser
-export DB_PASSWORD='<your desired password for the database server. For example, Secret123456>'
+export DB_PASSWORD='<your desired password for the database server - for example, Secret123456>'
 export CLUSTER_NAME=${UNIQUE_VALUE}aks
 export AKS_NS=${UNIQUE_VALUE}ns
 ```
@@ -175,17 +175,17 @@ export AKS_NS=${UNIQUE_VALUE}ns
 
 Azure Database for PostgreSQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. This section shows you how to create an Azure Database for PostgreSQL Flexible Server instance using the Azure CLI. For more information, see [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli).
 
-First, create a resource group to contain the database server and other resources:
+First, create a resource group to contain the database server and other resources by using the following command:
 
-```azurecli-interactive
+```azurecli
 az group create \
     --name $RESOURCE_GROUP_NAME \
     --location $LOCATION
 ```
 
-Next, create an Azure Database for PostgreSQL flexible server instance with the `az postgres flexible-server create` command.
+Next, create an Azure Database for PostgreSQL flexible server instance by using the following command:
 
-```azurecli-interactive
+```azurecli
 az postgres flexible-server create \
     --name $DB_SERVER_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -220,7 +220,7 @@ Because Quarkus is a cloud native technology, it has built-in support for creati
 
 Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named with the value of your environment variable `${REGISTRY_NAME}`:
 
-```azurecli-interactive
+```azurecli
 az acr create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
@@ -241,7 +241,7 @@ After a short time, you should see JSON output that contains the following lines
 
 Sign in to the ACR instance. Signing in lets you push an image. Use the following commands to verify the connection:
 
-```azurecli-interactive
+```azurecli
 export LOGIN_SERVER=$(az acr show \
     --name $REGISTRY_NAME \
     --query 'loginServer' \
@@ -268,7 +268,7 @@ If you've signed into the ACR instance successfully, you should see `Login Succe
 
 Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named with the value of your environment variable `${CLUSTER_NAME}` with one node. The cluster is connected to the ACR instance you created in a preceding step. This command takes several minutes to complete.
 
-```azurecli-interactive
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --location ${LOCATION} \
@@ -291,7 +291,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To manage a Kubernetes cluster, you use `kubectl`, the Kubernetes command-line client. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command, as shown in the following example:
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 
@@ -299,7 +299,7 @@ For more information about `kubectl`, see [Command line tool (kubectl)](https://
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command, as shown in the following example. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -399,7 +399,7 @@ The `prod.` prefix indicates that these properties are active when running in th
 
 #### Database configuration
 
-Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username` and `%prod.quarkus.datasource.password` read values from the environment variables `DB_JDBC_URL`, `DB_USERNAME` and `DB_PASSWORD`, respectively. These environment variables map to secret values that store the database connection information for security reasons, which is described in the next section.
+Add the following database configuration variables. The database connection related properties `%prod.quarkus.datasource.jdbc.url`, `%prod.quarkus.datasource.username`, and `%prod.quarkus.datasource.password` read values from the environment variables `DB_JDBC_URL`, `DB_USERNAME`, and `DB_PASSWORD`, respectively. These environment variables map to secret values that store the database connection information for security reasons, which is described in the next section.
 
 ```yaml
 # Database configurations
@@ -637,7 +637,7 @@ Enter *\q* to exit from the `psql` program and return to the Cloud Shell.
 
 To avoid Azure charges, you should clean up unneeded resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
-```azurecli-interactive
+```azurecli
 git reset --hard
 docker rmi ${TODO_QUARKUS_TAG}:1.0
 docker rmi postgres

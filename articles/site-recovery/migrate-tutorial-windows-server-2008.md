@@ -147,8 +147,6 @@ You can perform a test failover of replicating servers after initial replication
 
 Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
 
-   ![Screenshot showing the Test failover command.](media/migrate-tutorial-windows-server-2008/testfailover.png)
-
 
 ### Migrate to Azure
 

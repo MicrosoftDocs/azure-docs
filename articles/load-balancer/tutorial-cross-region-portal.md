@@ -74,9 +74,9 @@ In this section, you create a
 
 7. Select **IPv4** or **IPv6** for **IP version**.
 
-8. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **OK**.
+8. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **Save** for the Add Public IP Address Dialog.
 
-9. Select **Add**.
+9. Select **Save**.
 
 10. Select **Next: Backend pools** at the bottom of the page.
 

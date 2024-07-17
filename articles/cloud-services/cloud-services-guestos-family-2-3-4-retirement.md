@@ -39,7 +39,7 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Your cloud services are impacted by this retirement if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty. If empty, the default `osFamily` column value is `5`. 
+Your cloud services are impacted by this retirement if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty.  If empty, the default `osFamily` attribute will point to `osFamily` `5`. 
 
 ## Recommendations
 
@@ -57,7 +57,7 @@ If you're affected, we recommend you migrate your Cloud Service or [Cloud Servic
 
 ## Important clarification regarding support 
 
-The announcement of the retirement of Azure Guest OS Families 2, 3, and 4, effective May 2025, pertains specifically to the operating systems within these families. This retirement doesn't extend the overall support timeline for Azure Cloud Services (classic) beyond the scheduled deprecation in August 2024. [Cloud Services Extended Support](../cloud-services-extended-support/overview.md) continues support with Guest OS Families 5 and newer. 
+The announcement of the retirement of Azure Guest OS Families 2, 3, and 4, effective March 2025, pertains specifically to the operating systems within these families. This retirement doesn't extend the overall support timeline for Azure Cloud Services (classic) beyond the scheduled deprecation in August 2024. [Cloud Services Extended Support](../cloud-services-extended-support/overview.md) continues support with Guest OS Families 5 and newer. 
 
 Customers currently using Azure Cloud Services who wish to continue receiving support beyond August 2024 are encouraged to transition to [Cloud Services Extended Support](../cloud-services-extended-support/overview.md). This separate service offering ensures continued assistance and support. Cloud Services Extended Support requires a distinct enrollment and isn't automatically included with existing Azure Cloud Services subscriptions. 
 
