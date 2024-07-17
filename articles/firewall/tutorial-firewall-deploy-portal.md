@@ -172,8 +172,8 @@ After deployment completes, select **Go to resource**.
 
 This is the application rule that allows outbound access to `www.google.com`.
 
-1. Open the **Test-FW-RG**, and select the **Test-FW01** firewall.
-2. On the **Test-FW01** page, under **Settings**, select **Rules (classic)**.
+1. Open the **Test-FW-RG**, and select the **Test-FW-VN-firewall-policy** firewall policy.
+2. On the **Test-FW-VN-firewall-policy** page, under **Settings**, select **Rules (classic)**.
 3. Select the **Application rule collection** tab.
 4. Select **Add application rule collection**.
 5. For **Name**, type **App-Coll01**.
