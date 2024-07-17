@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: how-to 
-ms.date: 06/21/2023
+ms.date: 07/17/2024
 ms.custom: template-how-to-pattern 
 ---
 

@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 

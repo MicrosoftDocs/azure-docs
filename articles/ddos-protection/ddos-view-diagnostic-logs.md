@@ -1,23 +1,24 @@
 ---
-title: 'View Azure DDoS Protection logs in Log Analytics workspace'
+title: 'Tutorial: View Azure DDoS Protection logs in Log Analytics workspace'
 description: Learn how to view DDoS protection diagnostic logs in Log Analytics workspace.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 08/08/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
-# View Azure DDoS Protection logs in Log Analytics workspace
-
-DDoS Protection diagnostic logs provide you with the ability to view DDoS Protection notifications, mitigation reports and mitigation flow logs after a DDoS attack. You can view these logs in your Log Analytics workspace.
-
+# Tutorial: View Azure DDoS Protection logs in Log Analytics workspace
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * view Azure DDoS Protection diagnostic logs including notifications, mitigation reports and mitigation flow logs.
+
+DDoS Protection diagnostic logs provide you with the ability to view DDoS Protection notifications, mitigation reports and mitigation flow logs after a DDoS attack. You can view these logs in your Log Analytics workspace.
+
+Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
 ## Prerequisites
 
@@ -38,6 +39,40 @@ In this tutorial, you learn how to:
 1. In the *Logs* page, type in your query then hit *Run* to view results.
 
     :::image type="content" source="./media/ddos-view-diagnostic-logs/ddos-notification-logs.png" alt-text="Screenshot of viewing DDoS Protection notification logs in log analytics workspace.":::
+
+### Query Azure DDoS Protection logs in log analytics workspace
+
+For more information on log schemas, see [View diagnostic logs](ddos-view-diagnostic-logs.md#example-log-queries).
+
+#### DDoSProtectionNotifications logs
+
+1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
+
+
+1. On the left side pane, select **Logs**.
+
+    :::image type="content" source="./media/ddos-attack-telemetry/ddos-workspace-diagnostic-logs.png" alt-text="Screenshot of log query in Log analytics workspaces.":::
+
+1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSProtectionNotifications"
+    ```
+
+1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationFlowLogs"
+    ```
+
+1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == "DDoSMitigationReports"
+    ```
 
 ## Example log queries
 
@@ -96,8 +131,6 @@ The following table lists the field names and descriptions:
 | **Protocol** | Type of protocol. Possible values include `tcp`, `udp`, `other`.|
 
 ### DDoS Mitigation Reports
-
-Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
 ```kusto
 AzureDiagnostics

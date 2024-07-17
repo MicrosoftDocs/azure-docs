@@ -1,28 +1,29 @@
 ---
-title: 'Configure Azure DDoS Protection diagnostic logging alerts'
+title: 'Tutorial: Configure Azure DDoS Protection diagnostic logging alerts'
 description: Learn how to configure DDoS protection diagnostic alerts for Azure DDoS Protection.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 08/07/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
-# Configure Azure DDoS Protection diagnostic logging alerts
-
-DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks and mitigation actions. You can configure alerts for all DDoS protected public IP addresses that you have enabled diagnostic logging on.
+# Tutorial: Configure Azure DDoS Protection diagnostic logging alerts
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure diagnostic logging alerts through Azure Monitor and Logic App.
+
+DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks and mitigation actions. You can configure alerts for all DDoS protected public IP addresses that you have enabled diagnostic logging on.
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md). 
-- DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this guide, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. 
+- DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. 
 
 ## Configure diagnostic logging alerts through Azure Monitor
 
