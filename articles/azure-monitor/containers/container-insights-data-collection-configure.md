@@ -147,8 +147,7 @@ az aks enable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName> --
 ```
 
 ### Arc-enabled Kubernetes cluster
-Use the following command to add monitoring to an existing Arc-enabled Kubernetes cluster. See [Data collection parameters](#data-collection-settings) for definitions of the available settings.
-
+Use the following command to add monitoring to an existing Arc-enabled Kubernetes cluster.
 ```azcli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
 ```
@@ -157,7 +156,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 > When deploying on a Windows machine, the dataCollectionSettings field must be escaped. For example, dataCollectionSettings={\"interval\":\"1m\",\"namespaceFilteringMode\": \"Include\", \"namespaces\": [ \"kube-system\"]} instead of dataCollectionSettings='{"interval":"1m","namespaceFilteringMode": "Include", "namespaces": [ "kube-system"]}'
 
 ### AKS hybrid Cluster
-Use the following command to add monitoring to an existing AKS hybrid cluster. See [Data collection parameters](#data-collection-settings) for definitions of the available settings.
+Use the following command to add monitoring to an existing AKS hybrid cluster.
 
 ```azcli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true dataCollectionSettings='{"interval":"1m","namespaceFilteringMode":"Include", "namespaces": ["kube-system"],"enableContainerLogV2": true,"streams": ["<streams to be collected>"]}'
@@ -270,7 +269,7 @@ Use the following procedure to configure and deploy your ConfigMap configuration
 
 1. If you don't already have a ConfigMap for Container insights, download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and open it in an editor.
 
-1. Edit the ConfigMap YAML file with your customizations. The template includes all valid settings with descriptions. To enable a setting, remove the comment character (#) and set its value. See [Data collection settings](#data-collection-settings) below for a description of each setting.
+1. Edit the ConfigMap YAML file with your customizations. The template includes all valid settings with descriptions. To enable a setting, remove the comment character (#) and set its value. 
 
 1. Create a ConfigMap by running the following kubectl command: 
 
