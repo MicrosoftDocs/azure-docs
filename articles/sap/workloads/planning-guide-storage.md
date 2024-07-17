@@ -112,8 +112,8 @@ Azure premium SSD storage got introduced with the goal to provide:
 
 This type of storage is targeting DBMS workloads, storage traffic that requires low single digit millisecond latency, and SLAs on IOPS and throughput. Cost basis for Azure premium storage isn't the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that aren't directly mapping into the size categories shown in the article [Premium SSD](../../virtual-machines/disks-types.md#premium-ssds). Conclusions out of this article are:
 
-- The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
-- The IOPS per GiB aren't tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
+- The storage is organized in ranges. For example, a disk in the range 513 GiB to 1,024 GiB capacity share the same capabilities and the same monthly costs
+- The IOPS per GiB aren't tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1,024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
 - The I/O throughput for this storage isn't linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780 KB per GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28 KB per GiB
 - The IOPS and throughput SLAs can't be changed without changing the capacity of the disk
 
@@ -146,7 +146,7 @@ Azure premium storage doesn't fulfill SAP HANA storage latency KPIs with the com
 
 
 
-**Summary:** Azure premium storage is one of the Azure storage types recommended for SAP workload. This recommendation applies for non-production and production systems. Azure premium storage is suited to handle database workloads. The usage of Azure Write Accelerator is going to improve write latency against Azure premium disks substantially. However, for DBMS systems with high IOPS and throughput rates, you need to either overprovision storage capacity. Or you need to use functionality like Windows Storage Spaces or logical volume managers in Linux to build stripe sets that give you the desired capacity on the one side. But also the necessary IOPS or throughput at best cost efficiency.
+**Summary:** Azure premium storage is one of the Azure storage types recommended for SAP workload. This recommendation applies for nonproduction and production systems. Azure premium storage is suited to handle database workloads. The usage of Azure Write Accelerator is going to improve write latency against Azure premium disks substantially. However, for DBMS systems with high IOPS and throughput rates, you need to either overprovision storage capacity. Or you need to use functionality like Windows Storage Spaces or logical volume managers in Linux to build stripe sets that give you the desired capacity on the one side. But also the necessary IOPS or throughput at best cost efficiency.
 
 
 ### Azure burst functionality for premium storage
@@ -175,7 +175,7 @@ Azure Premium SSD v2 storage is a new version of premium storage that got introd
 * Give the possibility to add more IOPS and throughput to each disk and pay separately for these extra provisioned resources
 * Pass SAP HANA certification without the help of other functionality like Azure Write Accelerator or other caches
 
-This type of storage is targeting DBMS workloads, storage traffic that requires submillisecond latency, and SLAs on IOPS and throughput. The Premium SSD v2 disks are delivered with a default set of 3,000 IOPS and 125 MBps throughput. And the possibility to add more IOPS and throughput to individual disks. The pricing of the storage is structured in a way that adding more throughput or IOPS isn't influencing the price majorly. Nevertheless, we leave it up to you to decide how the storage configuration for Premium SSD v2 will look like. For a base start, read [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md).
+This type of storage is targeting DBMS workloads, storage traffic that requires submillisecond latency, and SLAs on IOPS and throughput. The Premium SSD v2 disks are delivered with a default set of 3,000 IOPS and 125 MBps throughput. And the possibility to add more IOPS and throughput to individual disks. The pricing of the storage is structured in a way that adding more throughput or IOPS isn't influencing the price majorly. Nevertheless, we leave it up to you to decide how your storage configuration for Premium SSD v2 is going to look like. For a base start, read [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md).
 
 For the actual regions, this new block storage type is available and the actual restrictions read the document [Premium SSD v2](../../virtual-machines/disks-types.md#premium-ssd-v2).
 
@@ -331,11 +331,11 @@ Other built-in functionality of Azure NetApp Files storage:
 > Even for non-DBMS usage, you should use the functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM(s) that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../azure-netapp-files/manage-availability-zone-volume-placement.md). The motivation to have this type of Availability Zone alignment is the reduction of risk surface by having the NFS shares yet in another AvZone where you don't run VMs in. 
 
 
-- You go for the closest proximity between VM and NFS share that can be arranged by using [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency, is that your different NFS shares for SAP HANA deployments are distributed across different controllers in the Azure NetApp Files backend clusters. Disadvantage of this method is that you need to go through a pinning process again. A process that will end restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
+- You go for the closest proximity between VM and NFS share that can be arranged by using [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency, is that your different NFS shares for SAP HANA deployments are distributed across different controllers in the Azure NetApp Files backend clusters. Disadvantage of this method is that you need to go through a pinning process again. A process that ends restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
 - Current process of not using Availability Placement Groups. Which so far are available for SAP HANA only. This process also uses the same manual pinning process as this is the case with Availability Volume groups. This method is the method used for the last three years. It has the same flexibility restrictions as the process has with Availability Volume Groups.
 
 
-As preferences for allocating NFS volumes based on Azure NetApp Files for database specific usage, you should attempt to allocate the NFS volume in the same zone as your VM first. Especially for non-HANA databases. Only if latency proves to be insufficient you should go through a manual pinning process. For smaller HANA workload or non-production HANA workload, you should follow a zonal allocation method as well. Only in cases where performance and latency aren't sufficient you should use Application Volume Groups.
+As preferences for allocating NFS volumes based on Azure NetApp Files for database specific usage, you should attempt to allocate the NFS volume in the same zone as your VM first. Especially for non-HANA databases. Only if latency proves to be insufficient you should go through a manual pinning process. For smaller HANA workload or nonproduction HANA workload, you should follow a zonal allocation method as well. Only in cases where performance and latency aren't sufficient you should use Application Volume Groups.
 
 
 **Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The Azure NetApp Files storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is suitable for providing file shares as needed for /sapmnt or SAP global transport directory. Azure NetApp Files storage come with functionality availability that is available as native NetApp functionality.  
@@ -388,14 +388,14 @@ The capability matrix for SAP workload looks like:
 
 
 ## Azure standard SSD storage
-Compared to Azure standard HDD storage, Azure standard SSD storage delivers better availability, consistency, reliability, and latency. It's optimized for workloads that need consistent performance at lower IOPS levels. This storage is the minimum storage used for non-production SAP systems that have low IOPS and throughput demands. The capability matrix for SAP workload looks like:
+Compared to Azure standard HDD storage, Azure standard SSD storage delivers better availability, consistency, reliability, and latency. It's optimized for workloads that need consistent performance at lower IOPS levels. This storage is the minimum storage used for nonproduction SAP systems that have low IOPS and throughput demands. The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | Restricted suitable | Non-production systems |
-| Data disk | Restricted suitable | Some non-production systems with low IOPS and latency demands |
+| OS base VHD | Restricted suitable | Nonproduction systems |
+| Data disk | Restricted suitable | Some nonproduction systems with low IOPS and latency demands |
 | SAP global transport directory | No | [Not supported](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | Restricted suitable | Non-production systems |
+| SAP sapmnt | Restricted suitable | Nonproduction systems |
 | Backup storage | Suitable | - |
 | Shares/shared disk | Not available | Needs third party |
 | Resiliency | LRS, GRS | No ZRS available for disks |
@@ -410,7 +410,7 @@ Compared to Azure standard HDD storage, Azure standard SSD storage delivers bett
 
 
 
-**Summary:** Azure standard SSD storage is the minimum recommendation for non-production VMs for base VHD, eventual DBMS deployments with relative latency insensitivity and/or low IOPS and throughput rates. This Azure storage type isn't supported anymore for hosting the SAP Global Transport Directory. 
+**Summary:** Azure standard SSD storage is the minimum recommendation for nonproduction VMs for base VHD, eventual DBMS deployments with relative latency insensitivity and/or low IOPS and throughput rates. This Azure storage type isn't supported anymore for hosting the SAP Global Transport Directory. 
 
 
 
