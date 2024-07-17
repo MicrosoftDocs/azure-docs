@@ -48,10 +48,14 @@
         href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
+      - name: Find nonproduction API requests with Dev Proxy
+        href: find-nonproduction-api-requests-dev-proxy.md
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
+      - name: Check if your app is calling APIs using minimal permissions with Dev Proxy
+        href: check-minimal-api-permissions-dev-proxy.md
 - name: API center management and operations
   items:
       - name: Reliability
