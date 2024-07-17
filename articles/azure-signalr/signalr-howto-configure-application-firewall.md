@@ -51,7 +51,7 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
    
 
 > [!WARNING]
-> * **Avoid using too aggressive maxCount**. Client connections may close without completing the tcp handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
+> * **Avoid using too aggressive maxCount**. Client connections may close without completing the TCP handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
 
 
 
