@@ -19,6 +19,8 @@ Code Optimizations, an AI-based service in Azure Application Insights, works in 
 
 Make informed decisions and optimize your code using real-time performance data and insights gathered from your production environment.
 
+[You can review your Code Optimizations in the Azure portal.](https://ms.portal.azure.com/#view/Microsoft_Azure_CodeOptimizations/CodeOptimizationsBlade)
+
 ## Demo video
 
 > [!VIDEO https://www.youtube-nocookie.com/embed/eu1P_vLTZO0]
@@ -41,13 +43,11 @@ Application Insights Profiler and Code Optimizations work together to provide a 
 [The Profiler](../profiler/profiler-overview.md) focuses on tracing specific requests, down to the millisecond. It provides an excellent "big picture" view of issues within your application and general best practices to address them.
 
 ### Code Optimizations
-Code Optimizations analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Code Optimizations:
+[Code Optimizations](https://ms.portal.azure.com/#view/Microsoft_Azure_CodeOptimizations/CodeOptimizationsBlade) analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Code Optimizations:
 
 - Displays aggregated data gathered over time.
 - Connects data with the methods and functions in your application code.
 - Narrows down the culprit by finding bottlenecks within the code.
-
-[See Code Optimizations at work in the Azure portal.](https://ms.portal.azure.com/#view/Microsoft_Azure_CodeOptimizations/CodeOptimizationsBlade)
 
 ## Cost and overhead
 
