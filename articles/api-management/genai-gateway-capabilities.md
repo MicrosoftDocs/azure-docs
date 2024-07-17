@@ -5,7 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: concept-a
+ms.collection: ce-skilling-ai-copilot
+ms.topic: concept-article
 ms.date: 07/16/2024
 ms.author: danlep
 ---
@@ -14,7 +15,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-While generative AI services and their APIs provide powerful capabilities for understanding, interpreting, and generating human-like text and images, they can also impose significant management and security challenges. This article provides an introduction to how Azure API Management can help you manage generative AI APIs, such as those provided by [Azure OpenAI Service](../ai-services/openai/overview.md). Azure API Management provides a range of capabilities including policies, metrics, and other features to enhance security, performance, and reliability of APIs for your intelligent apps. Collectively, this set of features enables API Management to be a *generative AI (GenAI) gateway* for your applications.
+While generative AI services and their APIs provide powerful capabilities for understanding, interpreting, and generating human-like text and images, they can also impose significant management, monitoring, and security challenges for app developers. This article provides an introduction to how Azure API Management can help you manage generative AI APIs, such as those provided by [Azure OpenAI Service](../ai-services/openai/overview.md). Azure API Management provides a range of capabilities including policies, metrics, and other features to enhance security, performance, and reliability of APIs for your intelligent apps. Collectively, this set of features enables API Management to be a *generative AI (GenAI) gateway* for your applications.
 
 ## Challenges in managing generative AI APIs
 
