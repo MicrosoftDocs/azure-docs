@@ -29,7 +29,7 @@ Azure Traffic Manager and [Azure Application Gateway](../application-gateway/ove
 2. [Create an Azure Application Gateway](../application-gateway/quick-create-portal.md): Next, create an Azure Application Gateway. Configure it to use the desired backend pool and routing rules.
 
     ![A screenshot of creating an application gateway.](media/traffic-manager-use-with-appgw/create-appgw.png)
-3. Using the Azure Application Gateway [frontend public IP address](../application-gateway/application-gateway-components.md#frontend-ip-addresses), [add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to the Azure Traffic Manager profile.
+3. Copy the Azure Application Gateway [frontend public IP address](../application-gateway/application-gateway-components.md#frontend-ip-addresses) and then use this IP address to [add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to your Azure Traffic Manager profile.
 
     ![A screenshot of the application gateway frontend configuration.](media/traffic-manager-use-with-appgw/appgw-frontend.png)
 
