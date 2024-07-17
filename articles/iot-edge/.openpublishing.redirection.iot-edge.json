@@ -352,7 +352,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-edge/deploy-modbus-gateway.md",
-            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_url": "/previous-versions/azure/iot-edge/deploy-modbus-gateway",
             "redirect_document_id": false
         }
     ]
