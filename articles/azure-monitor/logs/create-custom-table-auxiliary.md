@@ -214,24 +214,28 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
 During public preview, these limitation apply:
 
 - The Auxiliary plan is gradually being rolled out to all regions and is currently supported in:
-    - East US
-    - West Europe
-    - East US 2
-    - West US 2
-    - Central US
-    - North Europe
-    - West US
-    - UK South
-    - Canada Central
-    - Australia East
-    - South Central US
-    - East Asia
-    - North Central US
-    - Australia South East
-    - Germany West Central
-    - Switzerland North
-    - France Central
-    - Israel Central
+    - **Americas**
+        - Canada Central
+        - Central US
+        - East US
+        - East US 2
+        - West US
+        - West US 2
+        - South Central US
+        - North Central US
+    - **Asia Pacific**
+        - Australia East
+        - Australia South East
+    - **Europe**
+        - West Europe
+        - East Asia
+        - North Europe
+        - UK South
+        - Germany West Central
+        - Switzerland North
+        - France Central
+    - **Middle East**
+        - Israel Central
 - You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
 - Tables with the Auxiliary plan: 
     - Are currently unbilled. There's currently no charge for ingestion, queries, search jobs, and long-term retention.
