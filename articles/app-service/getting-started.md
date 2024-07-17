@@ -7,7 +7,6 @@ ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 8/31/2023
 zone_pivot_groups: app-service-getting-started-stacks
-<!-- #customer intent: As a developer, I want to learn how to deploy my web applications to Azure App Service so that I can take advantage of its managed platform and easily scale my applications. -->
 ---
 
 # Getting started with Azure App Service

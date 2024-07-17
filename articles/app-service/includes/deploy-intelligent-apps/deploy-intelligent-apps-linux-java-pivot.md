@@ -17,11 +17,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 ### Set up web app
 
-<<<<<<< HEAD
-For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
-=======
 For this Spring Boot application, we're building off the [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-javase) app and adding an extra feature to make a request to an Azure OpenAI or OpenAI service. Add the following code to your application:
->>>>>>> 186f85b0178b (acrolinx and template errors)
 
 ```bash
   @RequestMapping("/")
@@ -35,9 +31,9 @@ For this Spring Boot application, we're building off the [quickstart](../../quic
 
 ### Secure your app with managed identity
 
-Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you are not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
+Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you're not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
 
-Follow the steps below to secure your application:
+To secure your application:
 
 Add the Azure OpenAI dependency package. This package enables using Azure credentials in your app.
 
@@ -60,16 +56,16 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once the credentials are added to the application, you�ll then need to enable managed identity in your application and grant access to the resource.
+Once the credentials are added to the application, you need to enable managed identity in your application and grant access to the resource.
 
-1. In your web app resource, navigate to the **Identity** page and turn on **System assigned** and click **Save**
-2. Once System assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+1. In your web app resource, navigate to the **Identity** page and turn on **System assigned** and select **Save**.
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
 3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** page on the left pane.  
-4. Find the Grant access to this resource card and click on **Add role assignment**
-5. Search for the **Cognitive Services OpenAI User** role and click **Next**
-6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option
-7. Next, click on **+Select Members**  and find your web app
-8. Click **Review + assign**
+4. Find the Grant access to this resource card and select **Add role assignment**.
+5. Search for the **Cognitive Services OpenAI User** role and select **Next**.
+6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
+7. Next, select **+Select Members**  and find your web app.
+8. Select **Review + assign**.
 
 Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
 
@@ -291,7 +287,7 @@ public class Application {
 
 If you completed the steps above, you can deploy to App Service as you normally would. If you run into any issues, remember that you need to complete the following steps: grant your app access to your Key Vault, and add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you added in the portal.
 
-Once the app is deployed, you can visit your site URL and you're greeted with the text that contains the response from your chat message prompt.  
+Once the app is deployed, you can visit your site URL and see the text that contains the response from your chat message prompt.  
 
 
 ### Authentication

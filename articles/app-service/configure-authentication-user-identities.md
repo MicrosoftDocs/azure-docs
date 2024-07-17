@@ -20,19 +20,19 @@ For all language frameworks, App Service makes the claims in the incoming token 
 |------------------------------|-----------------------------------------------------------------------|
 | `X-MS-CLIENT-PRINCIPAL`      | A Base64 encoded JSON representation of available claims. For more information, see [Decoding the client principal header](#decoding-the-client-principal-header).   |
 | `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier for the caller set by the identity provider.            |
-| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider, e.g. Email Address, User Principal Name.   |
+| `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller set by the identity provider, such as email address or user principal name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider used by App Service Authentication. |
 
 Provider tokens are also exposed through similar headers. For example, Microsoft Entra also sets `X-MS-TOKEN-AAD-ACCESS-TOKEN` and `X-MS-TOKEN-AAD-ID-TOKEN` as appropriate.
 
 > [!NOTE]
-> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+> Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 
-Code that is written in any language or framework can get the information that it needs from these headers. [Decoding the client principal header](#decoding-the-client-principal-header) covers this process. For some frameworks, the platform also provides extra options that may be more convenient.
+Code that is written in any language or framework can get the information that it needs from these headers. [Decoding the client principal header](#decoding-the-client-principal-header) covers this process. For some frameworks, the platform also provides extra options that might be more convenient.
 
 ### Decoding the client principal header
 
-`X-MS-CLIENT-PRINCIPAL` contains the full set of available claims as Base64 encoded JSON. These claims go through a default claims-mapping process, so some may have different names than you would see if processing the token directly. The decoded payload is structured as follows:
+`X-MS-CLIENT-PRINCIPAL` contains the full set of available claims as Base64 encoded JSON. These claims go through a default claims-mapping process, so some might have different names than you would see if processing the token directly. The decoded payload is structured as follows:
 
 ```json
 {
@@ -52,12 +52,12 @@ Code that is written in any language or framework can get the information that i
 |------------|------------------|---------------------------------------|
 | `auth_typ` | string           | The name of the identity provider used by App Service Authentication. |
 | `claims`   | array of objects | An array of objects representing the available claims. Each object contains `typ` and `val` properties. |
-| `typ`      | string           | The name of the claim. This may have been subject to default claims mapping and could be different from the corresponding claim contained in a token. |
+| `typ`      | string           | The name of the claim. It might be subject to default claims mapping and could be different from the corresponding claim contained in a token. |
 | `val`      | string           | The value of the claim.                                      |
 | `name_typ` | string           | The name claim type, which is typically a URI providing scheme information about the `name` claim if one is defined. |
 | `role_typ` | string           | The role claim type, which is typically a URI providing scheme information about the `role` claim if one is defined. |
 
-To process this header, your app will need to decode the payload and iterate through the `claims` array to find the claims of interest. It may be convenient to convert these into a representation used by the app's language framework. Here's an example of this process in C# that constructs a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
+To process this header, your app needs to decode the payload and iterate through the `claims` array to find the claims of interest. It it be convenient to convert them into a representation used by the app's language framework. Here's an example of this process in C# that constructs a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
 
 ```csharp
 using System;

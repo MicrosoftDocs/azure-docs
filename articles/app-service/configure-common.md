@@ -34,7 +34,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-app-settings-as-environment-variables)
-- [Java](configure-language-java-data-sources.md#configure-data-sources)
+- [Java](configure-language-java-data-sources.md)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
@@ -216,7 +216,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Notification Hub: `NOTIFICATIONHUBCONNSTR_`
 * Service Bus: `SERVICEBUSCONNSTR_`
 * Event Hub: `EVENTHUBCONNSTR_`
-* Document Db: `DOCDBCONNSTR_`
+* Document DB: `DOCDBCONNSTR_`
 * Redis Cache: `REDISCACHECONNSTR_`
 
 >[!Note]

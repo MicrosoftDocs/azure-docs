@@ -99,7 +99,7 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
-3. Copy your license key, you'll need it to configure the agent later.
+3. Copy your license key, you need it to configure the agent later.
 4. [SSH into your App Service instance](configure-linux-open-ssh-session.md) and create a new directory */home/site/wwwroot/apm*.
 5. Upload the unpacked NewRelic Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/newrelic*.
 6. Modify the YAML file at */home/site/wwwroot/apm/newrelic/newrelic.yml* and replace the placeholder license value with your own license key.
@@ -187,18 +187,22 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 ## Configure Datadog
 
 # [Windows](#tab/windows)
-* The configuration options are different depending on which Datadog site your organization is using. Therefore please reference and follow the steps here in the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+* The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
 
-# [Linux](#tab/windows)
-* The configuration options are different depending on which Datadog site your organization is using. Therefore please reference and follow the steps here in the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+# [Linux](#tab/linux)
+* The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+
+---
 
 ## Configure Dynatrace
 
 # [Windows](#tab/windows)
-* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, please follow the steps in the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
 
-# [Linux](#tab/windows)
-* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, please follow the steps in the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+# [Linux](#tab/linux)
+* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+
+---
 
 ## Next steps
 
