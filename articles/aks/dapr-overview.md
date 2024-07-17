@@ -63,7 +63,7 @@ Microsoft provides best-effort support for [the latest version of Dapr and two p
 - 1.12.x 
 - 1.11.x 
 
-You can run Azure CLI commands to retreive a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
+You can run Azure CLI commands to retrieve a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
 
 To view a list of the stable Dapr versions available to your managed AKS cluster, run the following command:
 
