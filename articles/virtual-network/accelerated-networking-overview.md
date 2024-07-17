@@ -109,7 +109,7 @@ Images with cloud-init version 19.4 or later have networking correctly configure
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
 ```bash
-sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+sudo cat <<EOF > /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparentlybonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
