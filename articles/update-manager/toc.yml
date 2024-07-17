@@ -5,6 +5,8 @@ items:
   items:
   - name: About Azure Update Manager
     href: overview.md
+  - name: How Update Manager works
+    href: workflow-update-manager.md
   - name: What's New 
     href: whats-new.md
   - name: FAQ
