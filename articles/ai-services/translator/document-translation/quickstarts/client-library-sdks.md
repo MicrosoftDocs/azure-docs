@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-ms.date: 06/19/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
@@ -24,7 +24,7 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../..
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
 > * Document Translation is supported in paid tiers. The Language Studio supports the S1 or D3 instance tiers. We suggest that you select Standard S1 to try Document Translation.  *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 > * Document Translation public preview releases provide early access to features that are in active development. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
-> * The public preview version of Document Translation client libraries default to REST API version [**2024-05-01**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true).
+> * The public preview version of Document Translation client libraries default to REST API version **2024-05-01**.
 
 ## Prerequisites
 

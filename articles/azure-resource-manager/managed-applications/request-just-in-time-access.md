@@ -3,12 +3,14 @@ title: Request just-in-time access
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 06/24/2024
 ms.author: evanhi
 ---
+
 # Enable and request just-in-time access for Azure Managed Applications
 
-Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a managed application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access.
+Consumers of your managed application might be reluctant to grant you permanent access to the managed resource group. As a publisher of a managed application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access.
+
 JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.
 
 The work flow for granting access is:
@@ -33,20 +35,20 @@ In "steps":
 
 ```json
 {
-    "name": "jitConfiguration",
-    "label": "JIT Configuration",
-    "subLabel": {
-        "preValidation": "Configure JIT settings for your application",
-        "postValidation": "Done"
-    },
-    "bladeTitle": "JIT Configuration",
-    "elements": [
-        {
-          "name": "jitConfigurationControl",
-          "type": "Microsoft.Solutions.JitConfigurator",
-          "label": "JIT Configuration"
-        }
-    ]
+  "name": "jitConfiguration",
+  "label": "JIT Configuration",
+  "subLabel": {
+    "preValidation": "Configure JIT settings for your application",
+    "postValidation": "Done"
+  },
+  "bladeTitle": "JIT Configuration",
+  "elements": [
+    {
+      "name": "jitConfigurationControl",
+      "type": "Microsoft.Solutions.JitConfigurator",
+      "label": "JIT Configuration"
+    }
+  ]
 }
 ```
 
@@ -68,7 +70,7 @@ When creating your offer in Partner Center, make sure you enable JIT access.
 
    :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Enable just-in-time access":::
 
-You've added a JIT configuration step to your UI, and have enabled JIT access in the commercial marketplace offering. When consumers deploy your managed application, they can [turn on JIT access for their instance](approve-just-in-time-access.md#enable-during-deployment).
+You added a JIT configuration step to your UI, and enabled JIT access in the commercial marketplace offering. When consumers deploy your managed application, they can [turn on JIT access for their instance](approve-just-in-time-access.md#enable-during-deployment).
 
 ## Request access
 

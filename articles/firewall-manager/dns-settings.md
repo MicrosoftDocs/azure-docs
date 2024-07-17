@@ -4,6 +4,7 @@ description: You can configure Azure Firewall policies with  DNS server and DNS 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/21/2024
 ms.author: victorh

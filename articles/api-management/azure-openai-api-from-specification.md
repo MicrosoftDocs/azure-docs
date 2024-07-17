@@ -6,6 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/10/2024
+ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
 

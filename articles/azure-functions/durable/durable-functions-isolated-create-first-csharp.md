@@ -42,7 +42,7 @@ To complete this tutorial:
 
 * Make sure that you have version 3.1 or a later version of the [.NET Core SDK](https://dotnet.microsoft.com/download) installed.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
 
@@ -178,7 +178,7 @@ To complete this tutorial:
 
 * Verify that you have the [Azurite Emulator](../../storage/common/storage-use-azurite.md) installed and running.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a function app project
 

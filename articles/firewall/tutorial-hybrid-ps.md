@@ -27,7 +27,7 @@ For this article, you create three virtual networks:
 
 If you want to use the Azure portal instead to complete the procedures in this article, see [Deploy and configure Azure Firewall in a hybrid network by using the Azure portal](tutorial-hybrid-portal.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -434,7 +434,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

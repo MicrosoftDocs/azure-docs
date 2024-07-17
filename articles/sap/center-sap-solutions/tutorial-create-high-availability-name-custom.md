@@ -45,7 +45,7 @@ This tutorial shows you how to use Azure CLI to deploy infrastructure for an SAP
     - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
     - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Understand the SAP certified Azure SKUs available for your deployment type
 

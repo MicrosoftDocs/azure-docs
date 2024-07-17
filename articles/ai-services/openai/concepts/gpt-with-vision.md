@@ -81,7 +81,7 @@ For a typical use case, take an image with both visible objects and text and a 1
 | Item        | Detail        |  Cost   |
 |-----------------|-----------------|--------------|
 | Text prompt input | 100 text tokens | $0.001 |
-| Example image input (see [Image tokens](/ai-services/openai/overview#image-tokens-gpt-4-turbo-with-vision)) | 170 + 85 image tokens | $0.00255 |
+| Example image input (see [Image tokens](/azure/ai-services/openai/overview#image-tokens-gpt-4-turbo-with-vision)) | 170 + 85 image tokens | $0.00255 |
 | Enhanced add-on features for OCR | $1.50 / 1000 transactions | $0.0015 |
 | Enhanced add-on features for Object Grounding | $1.50 / 1000 transactions | $0.0015 | 
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |

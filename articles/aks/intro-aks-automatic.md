@@ -29,12 +29,12 @@ The following table provides a comparison of options that are available, preconf
 
 ### Application deployment, monitoring, and observability
 
-Application deployment can be streamlined using [automated deployments][automated-deployments] from source control, which creates Kubernetes manifest and generates CI/CD workflows. Additionally, the cluster is configured with monitoring tools such as Managed Prometheus for metrics, Managed Grafana for visualization and Container Insights for log collection.
+Application deployment can be streamlined using [automated deployments][automated-deployments] from source control, which creates Kubernetes manifest and generates CI/CD workflows. Additionally, the cluster is configured with monitoring tools such as Managed Prometheus for metrics, Managed Grafana for visualization, and Container Insights for log collection.
 
 | Option                    | AKS Automatic   	| AKS Standard  	|
 |---	                    |---	            |---	            |
 | Application deployment	        | **Optional:** <ul><li>Use [automated deployments][automated-deployments] to containerize applications from source control, create Kubernetes manifests, and continuous integration/continuous deployment (CI/CD) workflows.</li><li>Create deployment pipelines using [GitHub Actions for Kubernetes][kubernetes-action].</li><li>Bring your own CI/CD pipeline.</li></ul>  | **Optional:** <ul><li>Use [automated deployments][automated-deployments] to containerize applications from source control, create Kubernetes manifests, and continuous integration/continuous deployment (CI/CD) workflows.</li><li>Create deployment pipelines using [GitHub Actions for Kubernetes][kubernetes-action].</li><li>Bring your own CI/CD pipeline.</li></ul> |
-| Monitoring, logging, and visualization       | **Default:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection</li><li>[Managed Grafana][managed-grafana] for visualization</li><li>[Container insights][container-insights] for log collection</li></ul>  | **Optional:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection</li><li>[Managed Grafana][managed-grafana] for visualization</li><li>[Container insights][container-insights] for log collection</li></ul> |
+| Monitoring, logging, and visualization       | **Default:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection when using Azure CLI or the Azure portal. </li><li>[Managed Grafana][managed-grafana] for visualization when using Azure CLI or the Azure portal.</li><li>[Container insights][container-insights] for log collection when using Azure CLI or the Azure portal.</li></ul>  | **Optional:** <ul><li>[Managed Prometheus][managed-prometheus] for metric collection.</li><li>[Managed Grafana][managed-grafana] for visualization.</li><li>[Container insights][container-insights] for log collection.</li></ul> |
 
 ### Node management, scaling, and cluster operations
 

@@ -700,7 +700,8 @@ This section provides answers to common questions.
 Container insights support viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We've provided a template that you can download from the Grafana [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker). Use it to get started and as a reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
 
 ### Why are log lines larger than 16 KB split into multiple records in Log Analytics?
-The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file.
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file. Use [Multi-line logging](./container-insights-logs-schema.md#multi-line-logging) to get log record size up to 64KB.
+
           
 
 ## Next steps

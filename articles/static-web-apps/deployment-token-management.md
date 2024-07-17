@@ -2,11 +2,11 @@
 title: Reset deployment tokens in Azure Static Web Apps
 description: Reset tokens in an Azure Static Web Apps site
 services: static-web-apps
-author: webmaxru
-ms.author: masalnik
+author: craigshoemaker
+ms.author: cshoe
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 01/24/2024
+ms.date: 06/24/2024
 ---
 
 # Reset deployment tokens in Azure Static Web Apps
@@ -32,10 +32,7 @@ Normally, you don't need to worry about the deployment token, but the following 
 
 2. Select **Reset token**.
 
-    :::image type="content" source="./media/deployment-token-management/manage-deployment-token.png" alt-text="Resetting deployment token":::
-
 3. After displaying a new token in the _Deployment token_ field, copy the token by selecting **Copy to clipboard**.
-
 
 ## Update a secret in the GitHub repository
 
@@ -55,8 +52,6 @@ To keep automated deployment running, after resetting a token you need to set th
 1. **Paste the value** of the deployment token to the _Value_ field.
 
 1. Select **Update secret**.
-
-    :::image type="content" source="./media/deployment-token-management/github-update-secret.png" alt-text="Updating repository secret":::
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.date: 11/17/2023
 
 This document describes the various options to lift and shift your MongoDB workloads to Azure Cosmos DB for MongoDB vCore offering.
 
-## Azure Data Studio (Offline)
+## Azure Data Studio (Online)
 
 The [The MongoDB migration extension for Azure Data Studio](/azure-data-studio/extensions/database-migration-for-mongo-extension) is the preferred tool in migrating your MongoDB workloads to the API for MongoDB vCore.
 
