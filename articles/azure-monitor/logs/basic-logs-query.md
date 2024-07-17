@@ -14,7 +14,7 @@ Basic and Auxiliary logs tables reduce the cost of ingesting high-volume verbose
 For more information about Basic and Auxiliary table plans, see [Azure Monitor Logs Overview: Table plans](data-platform-logs.md#table-plans). 
 
 > [!NOTE]
-> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs.
+> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access data in Basic and Auxiliary tables.
 
 [!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
@@ -36,14 +36,15 @@ Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/dat
 ### Time range
 Specify the time range in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.
 
-### Query context
-Queries with Basic Logs must use a workspace for the scope. You can't run queries using another resource for the scope. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
+### Query scope
+
+Set the Log Analytics workspace as the scope of your query. You can't run queries using another resource for the scope. For more information about query scope, see [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
 
 ### Concurrent queries
 You can run two concurrent queries per user. 
 
 ### Purge
-You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic Logs tables. 
+You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic and Auxiliary logs tables. 
 
 ## Run a query on a Basic Logs table
 Creating a query using Basic Logs is the same as any other query in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
