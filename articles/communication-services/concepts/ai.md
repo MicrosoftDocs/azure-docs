@@ -5,7 +5,6 @@ description: Learn about Communication Services AI concepts
 author: chpalm
 manager: sundraman
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 07/10/2024
 ms.topic: conceptual
@@ -13,20 +12,20 @@ ms.service: azure-communication-services
 ms.subservice: ai
 ---
 
-# AI overview
+# Artificial intelligence (AI) overview
 
-Artificial intelligence (AI) technologies can be useful for a wide variety of communication experiences. This concept page summarizes availability of AI and AI-adjacent features in Azure Communication Services. Broadly AI features can be split into three categories:
+Artificial intelligence (AI) technologies can be useful for a wide variety of communication experiences. This concept page summarizes availability of AI and AI-adjacent features in Azure Communication Services. AI features can be split into three categories:
 
 1.  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
 2.  **Transformers.** APIs that provide a built-in transformation of communication data using a machine learning or language model.
 3.  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
 
-Typical communication scenarios involving these capabilities:
+Typical communication scenarios integrating these capabilities:
 
--Transforming a corpus of text chat and meeting transcriptions into summaries. This may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
--Transforming audio speech content into text transcriptions
--Transforming a video feed to blur the user's background
--Operating a chat or voice bot that responds to human conversation
+- Transforming audio speech content into text transcriptions
+- Transforming a video feed to blur the user's background
+- Operating a chat or voice bot that responds to human conversation
+- Transforming a corpus of text chat and meeting transcriptions into summaries. This may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
 
 ## Messaging: SMS, Chat, Email, WhatsApp
 
