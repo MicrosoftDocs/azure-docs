@@ -14,13 +14,13 @@ ms.topic: conceptual
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!IMPORTANT]  
-> The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL - Single Server as the source. This feature is currently disabled for PostgreSQL version 16 servers.
+> The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL - Single Server instance as the source. This feature is currently disabled for PostgreSQL version 16 servers.
 
 The migration service automatically provides the following built-in capabilities for Azure Database for PostgreSQL - Single Server as the source and data migration:
 
 - Migration of user roles on your source server to the target server.
 - Migration of ownership of all the database objects on your source server to the target server.
-- Migration of permissions of database objects on your source server, such as GRANTS/REVOKES, to the target server.
+- Migration of permissions of database objects on your source server, such as `GRANT`/`REVOKE`, to the target server.
 
 ## Permission differences between Azure Database for PostgreSQL - Single Server and Flexible Server
 
@@ -68,9 +68,9 @@ Another important consideration is the deprecation of the **pg_pltemplate** syst
 - If your application is designed to directly query the affected tables and views, it encounters issues upon migrating to the flexible server. We strongly advise you to refactor your application to avoid direct queries to these system tables.
 - If you've granted or revoked privileges to any users or roles for the affected pg_catalog tables and views, you encounter an error during the migration process. You can identify this error by the following pattern:
 
-```sql
-pg_restore error: could not execute query <GRANT/REVOKE> <PRIVILEGES> on <affected TABLE/VIEWS> to <user>.
- ```
+  ```sql
+  pg_restore error: could not execute query <GRANT/REVOKE> <PRIVILEGES> on <affected TABLE/VIEWS> to <user>.
+  ```
 
 #### Workaround
 
@@ -113,7 +113,7 @@ For example:
 
 **Step 3: Undo the privileges**
 
-To undo the privileges, run REVOKE statements for each privilege on the relation from the grantee. In this example, you would run:
+To undo the privileges, run `REVOKE` statements for each privilege on the relation from the grantee. In this example, you would run:
 
 ```sql
 REVOKE SELECT ON pg_authid FROM adminuser1;
@@ -121,12 +121,9 @@ REVOKE SELECT ON pg_shadow FROM adminuser2;
 REVOKE UPDATE ON pg_shadow FROM adminuser2;
 ```
 
-**Step 4: Final Verification**
+**Step 4: Final verification**
 
 Run the query from step 1 again to ensure that the resulting output set is empty.
-
-> [!NOTE]
-> Make sure you perform the preceding steps for all the databases included in the migration to avoid any permission-related issues during the migration.
 
 > [!NOTE]
 > Make sure you perform the preceding steps for all the databases included in the migration to avoid any permission-related issues during the migration.
