@@ -219,7 +219,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
     # This interface is transparentlybonded to the synthetic interface,
     # so NetworkManager should just ignore any SRIOV interfaces.
-    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION="add", ENV{NM_UNMANAGED}="1"
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION!="remove", ENV{NM_UNMANAGED}="1"
     EOF
     ```
 1. Ensure that the network service starts at boot time:
