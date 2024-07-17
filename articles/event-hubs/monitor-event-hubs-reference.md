@@ -97,9 +97,7 @@ The following two types of errors are classified as *user errors*:
 | Dimension name  | Description |
 |:----------------|:------------|
 | EntityName      | Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization. |
-| OperationResult | |
-| Replica         | |
-| Role            | |
+| OperationResult | Either indicates `success` or the appropriate error state, such as `serverbusy`, `clienterror` or `quotaexceeded`. |
 
 Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level.
 
