@@ -15,7 +15,7 @@ ms.author: greglin
 
 ## Introduction
 
-Historically, Application Gateway v2 SKUs, and to a certain extent v1, have required public IP addressing to enable management of the service.  This requirement has imposed several limitations in using fine-grain controls in Network Security Groups and Route Tables.  Specifically, the following challenges have been observed:
+Historically, Application Gateway v2 SKUs, and to a certain extent v1, have required public IP addressing to enable management of the service. This requirement has imposed several limitations in using fine-grain controls in Network Security Groups and Route Tables. Specifically, the following challenges have been observed:
 
 * All Application Gateways v2 deployments must contain public facing frontend IP configuration to enable communication to the **Gateway Manager** service tag.
 * Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
@@ -38,7 +38,7 @@ The Private Application Gateway is available to all public cloud regions [where 
 
 ## Configuration of network controls
 
-Configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.  No API or command changes are introduced with this feature.
+Configuration of NSG, Route Table, and private IP address frontend configuration can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal. No API or command changes are introduced with this feature.
 
 ## Resource Changes
 
@@ -57,7 +57,7 @@ Application Gateway Subnet is the subnet within the Virtual Network where the Ap
 
 ## Outbound Internet connectivity
 
-Application Gateway deployments that contain only a private frontend IP configuration (do not have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+Application Gateway deployments that contain only a private frontend IP configuration (don't have a public IP frontend configuration) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -73,14 +73,14 @@ Common scenarios where public IP usage is required:
 
 ## Network Security Group Control
 
-Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
+Network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet. The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
-The following configuration is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
+The following configuration is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes. In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
  [ ![View the inbound security group rules](./media/application-gateway-private-deployment/inbound-rules.png) ](./media/application-gateway-private-deployment/inbound-rules.png#lightbox)
 
 > [!Note]
-> Application Gateway will display an alert asking to ensure the **Allow LoadBalanceRule** is specified if a **DenyAll** rule inadvertently restricts access to health probes.
+> Application Gateway will display an alert asking to ensure the `Allow LoadBalanceRule` is specified if a `DenyAll` rule inadvertently restricts access to health probes.
 
 ### Example scenario
 
@@ -146,7 +146,7 @@ These rules are assigned a priority of 400, 401, and 4096, respectively.
 To create these rules: 
 - Select **Outbound security rules**
 - Select **Add**
-- Enter the following information for each rule into the **Add outbound security rule** pane. 
+- Enter the following information for each rule into the `Add outbound` security rule** pane. 
 - When you've entered the information, select **Add** to create the rule. 
 - Creation of each rule takes a moment.
 
@@ -177,13 +177,13 @@ Result:
 
 The ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
 
-Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising does not affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
+Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising doesn't affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
 ### Example scenario
 
-In the following example, we create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance.  At a high level, the following design is summarized in Figure 1:
+In the following example, we create a route table and associate it to the Application Gateway subnet to ensure outbound Internet access from the subnet will egress from a virtual appliance. At a high level, the following design is summarized in Figure 1:
 - The Application Gateway is in spoke virtual network
-- There is a network virtual appliance (a virtual machine) in the hub network
+- There's a network virtual appliance (a virtual machine) in the hub network
 - A route table with a default route (0.0.0.0/0) to the virtual appliance is associated to Application Gateway subnet
 
 ![Diagram for example route table](./media/application-gateway-private-deployment/route-table-diagram.png)
@@ -239,8 +239,8 @@ If a subnet shares Application Gateway v2 deployments that were created both pri
 
 ### Unknown Backend Health status
 
-If backend health is _Unknown_, you may see the following error:
-   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 if there is v1 SKU, and ports 65200-65535 if there is v2 SKU or if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
+If backend health is _Unknown_, you might see the following error:
+   + The backend health status could not be retrieved. This happens when an NSG/UDR/Firewall on the application gateway subnet is blocking traffic on ports 65503-65534 (v1 SKU) and ports 65200-65535 (v2 SKU). This error can also occur if the FQDN configured in the backend pool could not be resolved to an IP address. To learn more visit - https://aka.ms/UnknownBackendHealth.
 
 This error can be ignored and will be clarified in a future release.
 
