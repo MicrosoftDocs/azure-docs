@@ -4,7 +4,7 @@ description: Learn how data is managed and safeguarded in Microsoft Defender for
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 05/12/2024
+ms.date: 07/18/2024
 #customer intent: As a reader, I want to understand how data is managed and safeguarded in Microsoft Defender for Cloud so that I can ensure the security of my data.
 ---
 
@@ -90,7 +90,11 @@ Customers can access Defender for Cloud related data from the following data str
 
 ## Data retention
 
-When the cloud security graph collects data from Azure and multicloud environments and other data source, it retains the data for a 14 day period. After 14 days, the data is deleted. Calculated data, such as the data collected to created attack paths, might be kept for an additional 14 days. This information is collected in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
+When the cloud security graph collects data from Azure and multicloud environments and other data source, it retains the data for a 14 day period. After 14 days, the data is deleted. 
+
+Calculated data, such as attack paths, might be kept for an additional 14 days. Calculated data consist of data that is derived from the raw data collected from the environment. For example, the attack path is derived from the raw data collected from the environment.
+
+This information is collected in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
 ## Defender for Cloud and Microsoft Defender 365 Defender integration
 
