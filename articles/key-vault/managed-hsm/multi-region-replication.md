@@ -33,7 +33,7 @@ Failover occurs when one of the regions in a multi-region Managed HSM becomes un
 | Secondary | Yes | Yes |
 | Primary | Yes | Maybe |
 
-If the extended region becomes unavailable, read operations (get key, list keys, all crypto operations, list role assignments) are available if the primary region is alive. Write operations (create and update keys, create and update role assignments, create and update role definitions) are also available.
+If an extended region becomes unavailable, read operations (get key, list keys, all crypto operations, list role assignments) are available if the primary region is alive. Write operations (create and update keys, create and update role assignments, create and update role definitions) are also available.
 
 If the primary region is unavailable, read operations are available, but write operations may not, depending on the scope of the outage.
 
