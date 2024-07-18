@@ -38,21 +38,7 @@ landingContent:
         links:
           - text: Manage access with Azure RBAC
             url: manage-access-rbac.md
-          - text: Use managed identities with the Deindentification service
+          - text: Use managed identities
             url: managed-indentities.md
           - text: Use batch jobs to deidentify medical data
             url: batch-job.md
-                   
-  - title: Disable events and delete events enabled workspaces
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to disable events and delete events enabled workspaces
-            url: events-disable-delete-workspace.md
-
-  - title: Consume FHIR events with Logic Apps
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: How to consume FHIR events with Logic Apps to enable automation workflows
-            url: events-consume-logic-apps.md 
