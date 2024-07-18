@@ -40,7 +40,7 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
-| Logs | Log Analytics must be configured with cluster extension; not per-site |
+| Logs | Log Analytics must be configured with cluster extension; not per-application |
 
 ## Resources created by the Container Apps extension
 
@@ -55,12 +55,12 @@ The following table describes the role of each revision created for you:
 | `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB | ReplicaSet | 
 | `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 1 GB | ReplicaSet |
-| `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB | ReplicaSet |
+| `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1,536 MB | ReplicaSet |
 | `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-keda-cosmosdb-scaler` | KEDA Cosmos DB Scaler | 1 | 10 m | 128 MB | ReplicaSet |
-| `<extensionName>-k8se-keda-metrics-apiserver` | KEDA Metrics Server | 1 | 1 Core | 1000 MB | ReplicaSet |
+| `<extensionName>-k8se-keda-metrics-apiserver` | KEDA Metrics Server | 1 | 1 Core | 1,000 MB | ReplicaSet |
 | `<extensionName>-k8se-keda-operator` | Scales workloads in and out from 0/1 to N instances | 1 | 100 millicpu | 500 MB | ReplicaSet |
 | `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB | DaemonSet |
 | `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB | ReplicaSet |
@@ -77,7 +77,7 @@ The following table describes the role of each revision created for you:
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can I deploy the Container Apps extension on an ARM64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
+- [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
 
@@ -101,13 +101,13 @@ Logs for both system components and your applications are written to standard ou
 
 Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the application environment cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
 
-By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might affect the time needed for any support cases, and you'll be asked to collect logs from standard output through some other means.
+By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will disable forwarding of application to your Log Analytics workspace. Disabling the log processor might affect the time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
 
-### Can I deploy the Container Apps extension on an ARM64 based cluster?
+### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
 ARM64 based clusters aren't supported at this time.  
 
@@ -180,16 +180,16 @@ ARM64 based clusters aren't supported at this time.
 ### Container Apps extension v1.30.6 (January 2024)
 
  - Update KEDA to v2.12, Envoy SC image to v1.0.4, and Dapr image to v1.11.6
- - Added default response timeout for Envoy routes to 1800 seconds
+ - Added default response timeout for Envoy routes to 1,800 seconds
  - Changed Fluent bit default log level to warn
  - Delay deletion of job pods to ensure log emission
  - Fixed issue for job pod deletion for failed job executions
- - Ensure jobs in suspended state also have failed pods deleted
+ - Ensure jobs in suspended state have failed pods deleted
  - Update to not resolve HTTPOptions for TCP applications
  - Allow applications to listen on HTTP or HTTPS
  - Add ability to suspend jobs
  - Fixed issue where KEDA scaler was failing to create job after stopped job execution
- - Add startingDeadlineSeconds to Container App Job in case of cluster reboot
+ - Add startingDeadlineSeconds to Container App Job if there is a cluster reboot
  - Removed heavy logging in Envoy access log server
  - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
 
