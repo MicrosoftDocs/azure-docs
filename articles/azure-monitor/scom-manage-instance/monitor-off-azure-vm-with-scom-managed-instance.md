@@ -33,8 +33,9 @@ The following are the supported monitoring scenarios:
 
 SCOM Managed Instance users will be able to:
 
-- Set up and manage Gateways seamlessly from SCOM Managed Instance portal on Arc-enabled servers.
+- Set up and manage Gateways on Arc-enabled servers from SCOM Managed Instance portal.
 - Set high availability at Gateway plane for agent failover as described in [Designing for High Availability and Disaster Recovery](/system-center/scom/plan-hadr-design).
+
 
 ## Supported scenarios
 
