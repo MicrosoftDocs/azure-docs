@@ -90,7 +90,7 @@ The following regions are supported as primary regions (Regions where you can re
 
 ## Billing
 
-Multi-region replication into extended region incurs extra billing (x2), as a new HSM pool is consumed in the extended region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
+Multi-region replication into an extended region incurs extra billing (x2), as a new HSM pool is consumed in an extended region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
 
 ## Soft-delete behavior
 
