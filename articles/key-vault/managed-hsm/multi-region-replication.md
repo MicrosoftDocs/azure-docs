@@ -39,7 +39,7 @@ If the primary region is unavailable, read operations are available, but write o
 
 ## Time to failover
 
-Under the hood, DNS resolution handles the redirection of requests to either the primary or extended region.
+Under the hood, DNS resolution handles the redirection of requests to either the primary or the extended regions.
 
 If both regions are active, the Traffic Manager resolves incoming requests to the location that has the closest geographical proximity or lowest network latency to the origin of the request. DNS records are configured with a default TTL of 5 seconds.
 
