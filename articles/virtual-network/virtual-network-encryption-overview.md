@@ -6,7 +6,7 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 07/16/2024
+ms.date: 07/18/2024
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -67,21 +67,7 @@ Virtual network encryption is supported in the following scenarios:
 | Virtual network peering | Supported on traffic between VMs across regional peering. |
 | Global virtual network peering | Supported on traffic between VMs across global peering. |
 | VM to Azure VPN Gateway | Supported on traffic with gateways that use Dv5 SKU instances <sup>1</sup>. |
-| VM to Azure Application Gateway | Not supported <sup>2</sup>. |
-| VM to Azure Firewall | Not supported <sup>2</sup>. |
 | Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic will be encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic will be encrypted, but pod traffic won't be encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
-| Azure App Service | Not supported <sup>2</sup>. |
-| Azure SQL Database | Not supported <sup>2</sup>. |
-| Azure Storage | Not supported <sup>2</sup>. |
-| Azure Functions Premium | Not supported <sup>2</sup>. |
-| Private Endpoint  | Not supported <sup>2</sup>. |
-| Azure NetApp Files | Not supported <sup>2</sup>. |
-| VM to ExpressRoute gateway | Not supported <sup>2</sup>. |
-| VM to internet (using public IP address or load balancer) | Not supported <sup>2</sup>. |
-
-<sup>1</sup> SKU not controlled by user.
-
-<sup>2</sup> Data flows unencrypted in these scenarios.  
 
 > [!NOTE]
 > VM to PaaS injected services requires onboarding of the PaaS services to support encryption using supported VM SKUs.
