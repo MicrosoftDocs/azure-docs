@@ -52,6 +52,8 @@ To create a cache, follow these steps:
 
 1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
 
+   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
+
 1. Configure your settings for clustering and/or RDB persistence.  
 
    > [!NOTE]
