@@ -27,7 +27,7 @@ To check if your app is calling APIs using minimal permissions, you need to have
 > [!TIP]
 > Download the preset for this how to article by running in the command prompt `devproxy preset get demo-apicenter-minimalpermissions`.
 
-### Create an Azure API Center instance
+### Register APIs in your Azure API Center instance
 
 Before you start, create an Azure API Center instance and register APIs that you use in your organization. For each API, upload the OpenAPI specification file that describes the API operations and permissions.
 
