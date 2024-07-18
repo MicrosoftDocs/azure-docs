@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 04/22/2024
+ms.date: 07/18/2024
 ms.author: cshoe
 ---
 
@@ -207,7 +207,11 @@ ARM64 based clusters aren't supported at this time.
  - Enabled revision GC by default
  - Enabled emission of metrics for sidecars
  - Added volumeMounts to job executions
- - Added validation to webhook endpoints for jobs 
+ - Added validation to webhook endpoints for jobs
+
+ ### Container Apps extension v1.37.1 (July 2024)
+
+ - Update Easy Auth to support MISE
 
 ## Next steps
 
