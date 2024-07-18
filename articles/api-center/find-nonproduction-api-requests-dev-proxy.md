@@ -20,7 +20,7 @@ One way to check if your app is using production-level APIs, is by using [Dev Pr
 
 To detect nonproduction API requests, you need to have an Azure API Center instance with information about the APIs that you use in your organization. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md). Additionally, you need to install [Dev Proxy](https://aka.ms/devproxy).
 
-### Create an Azure API Center instance
+### Register APIs in your API Center instance
 
 Before you start, create an Azure API Center instance and register APIs that you use in your organization. For each API, define the versions you use and specify their lifecycle stage.
 
