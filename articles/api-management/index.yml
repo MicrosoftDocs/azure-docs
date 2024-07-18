@@ -28,10 +28,10 @@ landingContent:
         links:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
-          - text: Hybrid and multicloud management
-            url: self-hosted-gateway-overview.md  
           - text: Workspaces
-            url: workspaces-overview.md        
+            url: workspaces-overview.md       
+          - text: Hybrid and multicloud management
+            url: self-hosted-gateway-overview.md   
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -75,6 +75,8 @@ landingContent:
             url: configure-custom-domain.md
           - text: Integrate with Application Insights 
             url: api-management-howto-app-insights.md
+          - text: Create a workspace
+            url: how-to-create-workspace.md
           - text: Deploy to VNet - external mode
             url: api-management-using-with-vnet.md
           - text: Deploy to VNet - internal mode
@@ -110,8 +112,6 @@ landingContent:
             url: azure-openai-enable-semantic-caching.md   
           - text: Authenticate and authorize to Azure OpenAI APIs
             url: api-management-authenticate-authorize-azure-openai.md
-          - text: Create a workspace
-            url: how-to-create-workspace.md
       - linkListType: concept
         links:
           - text: New v2 service tiers
