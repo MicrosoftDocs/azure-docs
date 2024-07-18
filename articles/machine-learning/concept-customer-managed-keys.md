@@ -124,7 +124,7 @@ Data that previously was stored in CosmosDB in your subscription, is stored in m
 
 Pipelines metadata that previously was stored in a storage account in a managed resource group, is now stored on the storage account in your subscription that is associated to the Azure Machine Learning workspace. Since this Azure Storage resource is managed separately in your subscription, you are responsible to configure encryption settings on it.
 
-Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in for this preview. Preview availability varies by [workspace kind](concept-workspace.md):
+Set the `enableServiceSideCMKEncryption` on a REST API or in your Bicep or Resource Manager template to opt-in for this preview. You can also use Azure Portal. Preview availability varies by [workspace kind](concept-workspace.md):
 
 | Kind | Supported |
 | ----- | ----- |
@@ -132,6 +132,7 @@ Set the `enableServiceSideCMKEncryption` when you create a workspace to opt-in f
 | Hub | No |
 | Project | No |
 
+![media](concept-customer-managed-keys/cmk-service-side-encryption.png)
 
 > [!NOTE]
 > During this preview key rotation and data labeling capabilities are not supported.
