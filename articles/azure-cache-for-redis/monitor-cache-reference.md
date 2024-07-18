@@ -135,7 +135,7 @@ The following list provides details and more information about the supported Azu
 - Total Keys  
   - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command.
     
-  > [!CAUTION]
+  > [!IMPORTANT]
   > Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
 - Total Operations
   - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub, there are no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there are `Total Operations` metrics that reflect the cache usage for pub/sub operations.
