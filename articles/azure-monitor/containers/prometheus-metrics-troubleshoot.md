@@ -57,7 +57,7 @@ If the pods are running as expected, the next place to check is the container lo
 
 ## Check for relabeling configs
 
-If metrics are missing, you can also check if you have relabeling configs. With relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly matches the targets.. Refer to [Prometheus relabel config documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) for more details.
+If metrics are missing, you can also check if you have relabeling configs. With relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly matches the targets. Refer to [Prometheus relabel config documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config) for more details.
 
 ## Container logs
 View the container logs with the following command:
