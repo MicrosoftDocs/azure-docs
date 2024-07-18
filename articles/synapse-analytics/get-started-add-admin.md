@@ -32,7 +32,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
     | Assign access to | USER |
     | Member | ryan@contoso.com |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Select **Save**. 
  
@@ -62,7 +62,7 @@ Assign to `ryan@contoso.com` to the **Synapse Administrator** role on the worksp
     | Assign access to | USER |
     | Member | ryan@contoso.com |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ## Dedicated SQL pools: db_owner role
 

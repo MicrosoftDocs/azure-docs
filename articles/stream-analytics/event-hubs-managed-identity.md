@@ -54,7 +54,7 @@ For the Stream Analytics job to access your event hub using managed identity, th
  | Assign access to | User, group, or service principal |
  | Members | \<Name of your Stream Analytics job> |
 
- ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ ![Screenshot that shows Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 You can also grant this role at the Event Hubs Namespace level, which will naturally propagate the permissions to all event hubs created under it. That is, all event hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
 
