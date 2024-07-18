@@ -56,9 +56,11 @@ The second condition isn't affected and the label must still have an automatic l
 
 **Estimated date for change**: August 29, 2024 
 
-You will no longer need to provide consent to benefit from custom information types and sensitivity labels configured in the Defender XDR or Purview portal. Currently, customers need to select a dedicated consent button in the Defender XDR portal under the "Information Protection" section within the "Labels" blade. 
+You will no longer need to provide consent to benefit from custom information types and sensitivity labels configured in the Defender XDR or Microsoft Purview compliance portal. Currently, customers need to select a dedicated consent button in the Defender XDR portal under the "Information Protection" section within the "Labels" blade. 
 
 With this upcoming change, all custom information types and sensitivity labels will be automatically imported into the Microsoft Defender for Cloud portal.
+
+Learn more about [data sensitivity settings](data-sensitivity-settings.md#import-custom-sensitivity-info-typeslabels).
 
 ## July 2024
 
