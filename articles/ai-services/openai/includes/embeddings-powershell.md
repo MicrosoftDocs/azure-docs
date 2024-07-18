@@ -398,7 +398,7 @@ the entire datatable). As a learning exercise, try creating a PowerShell script 
 
 <!-- Reference link definitions -->
 [01]: https://azure.microsoft.com/free/cognitive-services?azure-portal=true
-[02]: https://aka.ms/oai/access
+
 [03]: ../concepts/models.md#model-summary-table-and-region-availability
 [04]: ../how-to/create-resource.md
 [05]: https://aka.ms/install-powershell
