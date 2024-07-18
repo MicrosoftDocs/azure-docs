@@ -73,6 +73,8 @@
         href: create-routebased-vpn-gateway-powershell.md
       - name: Azure CLI
         href: create-routebased-vpn-gateway-cli.md
+      - name: Create a Basic SKU gateway
+        href: create-gateway-basic-sku-powershell.md
     - name: Verify a gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
     - name: Reset a connection or a gateway
