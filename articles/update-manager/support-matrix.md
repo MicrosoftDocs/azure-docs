@@ -320,10 +320,11 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Rocky Linux 8|
 
 # [Windows IoT on Arc enabled IaaS VMs](#tab/winio-arc)
-    - Windows 10 IoT Enterprise LTSC 2021 
-    - Windows 10 IoT Enterprise LTSC 2019 
-    - Windows 11 IoT Enterprise, version 23H2 
-    - Windows 11 IoT Enterprise LTSC 2024 
+
+   - Windows 10 IoT Enterprise LTSC 2021 
+   - Windows 10 IoT Enterprise LTSC 2019 
+   - Windows 11 IoT Enterprise, version 23H2 
+   - Windows 11 IoT Enterprise LTSC 2024 
 
 ---
 
