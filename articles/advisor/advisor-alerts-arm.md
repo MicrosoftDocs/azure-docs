@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## Validate the deployment
 
-Verify that the workspace was created by using one of the following commands. Replace the sample values for **Resource Group** with the value you used in the preceding example.
+Verify that the workspace was created by using one of the following commands. Replace the sample values for **Resource Group** with the value you used in the previous example.
 
 # [CLI](#tab/CLI)
 
