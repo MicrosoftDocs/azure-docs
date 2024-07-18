@@ -31,7 +31,7 @@ Azure Traffic Manager and [Azure Application Gateway](../application-gateway/ove
     ![A screenshot of creating an application gateway.](media/traffic-manager-use-with-app-gateway/create-app-gateway.png)
 3. Copy the Azure Application Gateway [frontend public IP address](../application-gateway/application-gateway-components.md#frontend-ip-addresses) and then use this IP address to [add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to your Azure Traffic Manager profile.
 
-    ![A screenshot of the application gateway frontend configuration.](media/traffic-manager-use-with-app-gateway/appgw-frontend.png)
+    ![A screenshot of the application gateway frontend configuration.](media/traffic-manager-use-with-app-gateway/app-gateway-frontend.png)
 
     ![A screenshot of adding an endpoint to the traffic manager profile.](media/traffic-manager-use-with-app-gateway/add-endpoint.png)
 4. Test Your Setup: Finally, test the configuration by accessing the Azure Traffic Manager DNS name from a web browser. This will help ensure that traffic is being correctly routed and is load balanced. In the following example, the application gateway backend target is a web server. 
