@@ -39,6 +39,6 @@ landingContent:
           - text: Manage access with Azure RBAC
             url: manage-access-rbac.md
           - text: Use managed identities
-            url: managed-indentities.md
+            url: managed-identities.md
           - text: Use batch jobs to deidentify medical data
             url: batch-job.md
