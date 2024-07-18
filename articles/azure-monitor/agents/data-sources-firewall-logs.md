@@ -26,7 +26,7 @@ To complete this procedure, you need:
 ## Add Firewall table to Log Analytics Workspace
 Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table isn't present you'll get a DCR deployment error stating that the table isn't present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../../reference/tables/windowsfirewall.md)
 
-[ ![Screenshot that shows how to add the security and audit solution.](media/data-collection-firewall-logs/security-and-audit-solution.png) ](media/data-collection-firewall-logs/security-and-audit-solution.png#lightbox)
+[ ![Screenshot that shows how to add the security and audit solution.](media/data-collection-firewall-log/security-and-audit-solution.png) ](./media/data-collection-firewall-log/security-and-audit-solution.png#lightbox)
 
 ## Create a data collection rule to collect firewall logs
 The [data collection rule](../essentials/data-collection-rule-overview.md) defines: 
@@ -43,14 +43,14 @@ To create the data collection rule in the Azure portal:
 1. On the **Monitor** menu, select **Data Collection Rules**.
 1. Select **Create** to create a new data collection rule and associations.
 
-    [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-firewall-logs/data-collection-rules-updated.png) ](media/data-collection-firewall-logs/data-collection-rules-updated.png#lightbox)
+    [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-firewall-log/data-collection-rules-updated.png) ](media/data-collection-firewall-log/data-collection-rules-updated.png#lightbox)
    
 1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
     -**Data Collection End Point** select a previously created data [collection end point](../essentials/data-collection-endpoint-overview.md).
       
-    [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-firewall-logs/data-collection-rule-basics-updated.png) ](media/data-collection-firewall-logs/data-collection-rule-basics-updated.png#lightbox)
+    [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-firewall-log/data-collection-rule-basics-updated.png) ](media/data-collection-firewall-log/data-collection-rule-basics-updated.png#lightbox)
 1. On the **Resources** tab: Select **+ Add resources** and associate resources with the data collection rule. Resources can be Virtual Machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
 > [!IMPORTANT]
@@ -62,11 +62,11 @@ To create the data collection rule in the Azure portal:
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **Firewall Logs**.
 
-    [ ![Screenshot that shows the Azure portal form to select firewall logs in a data collection rule.](media/data-collection-firewall-logs/firewall-data-collection-rule.png)](media/data-collection-firewall-logs/firewall-data-collection-rule.png#lightbox)
+    [ ![Screenshot that shows the Azure portal form to select firewall logs in a data collection rule.](media/data-collection-firewall-log/firewall-data-collection-rule.png)](media/data-collection-firewall-log/firewall-data-collection-rule.png#lightbox)
 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
-    [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-firewall-logs/data-collection-rule-destination.png) ](media/data-collection-firewall-logs/data-collection-rule-destination.png#lightbox)
+    [ ![Screenshot that shows the Azure portal form to add a data source in a data collection rule.](media/data-collection-firewall-log/data-collection-rule-destination.png) ](media/data-collection-firewall-log/data-collection-rule-destination.png#lightbox)
 
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
@@ -84,7 +84,7 @@ Count the firewall log entries by URL for the host www.contoso.com.
     | take 10
     ```
 
-    [ ![Screenshot that shows the results of a Firewall log query.](media/data-collection-firewall-logs/law-query-results.png) ](media/data-collection-firewall-logs/law-query-results.png#lightbox)
+    [ ![Screenshot that shows the results of a Firewall log query.](media/data-collection-firewall-log/law-query-results.png) ](media/data-collection-firewall-log/law-query-results.png#lightbox)
 
 ## Troubleshoot
 Use the following steps to troubleshoot the collection of firewall logs. 
@@ -104,14 +104,14 @@ WindowsFirewall
 ### Verify that firewall logs are being created
 Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for firewall log files is C:\windows\system32\logfiles\firewall\pfirewall.log.
 
-[ ![Screenshot that shows firewall logs on a local disk.](media/data-collection-firewall-logs/firewall-files-on-disk.png) ](media/data-collection-firewall-logs/firewall-files-on-disk.png#lightbox)
+[ ![Screenshot that shows firewall logs on a local disk.](media/data-collection-firewall-log/firewall-files-on-disk.png) ](media/data-collection-firewall-log/firewall-files-on-disk.png#lightbox)
 
 To turn on logging follow these steps.
 1. gpedit {follow the picture}​
 2. netsh advfirewall>set allprofiles logging allowedconnections enable​
 3. netsh advfirewall>set allprofiles logging droppedconnections enable​
 
-[ ![Screenshot that show all the steps to turn on logging.](media/data-collection-firewall-logs/turn-on-firewall-logging.png) ](media/data-collection-firewall-logs/turn-on-firewall-logging.png#lightbox)
+[ ![Screenshot that show all the steps to turn on logging.](media/data-collection-firewall-log/turn-on-firewall-logging.png) ](media/data-collection-firewall-log/turn-on-firewall-logging.png#lightbox)
 
 ## Next steps
 Learn more about: 
