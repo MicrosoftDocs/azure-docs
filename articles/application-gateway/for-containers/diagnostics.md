@@ -94,7 +94,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | referrer | Referrer header of the request received from the client by Application Gateway for Containers  |
 | requestBodyBytes | Size in bytes of the body payload of the request received from the client by Application Gateway for Containers  |
 | requestHeaderBytes | Size in bytes of the headers of the request received from the client by Application Gateway for Containers  |
-| requestUri | URI of the request received from the client by Application Gateway for Containers (everything after \<protocol\>://\<host\> of the URL).  |
+| requestUri | URI of the request received from the client by Application Gateway for Containers (everything after \<protocol\>://\<host\> of the URL)  |
 | responseBodyBytes | Size in bytes of the body payload of the response returned to the client by Application Gateway for Containers |
 | responseHeaderBytes | Size in bytes of the headers of the response returned to the client by Application Gateway for Containers |
 | timeTaken | Time in milliseconds of the client request received by Application Gateway for Containers and the last byte returned to the client from Application Gateway for Containers |
