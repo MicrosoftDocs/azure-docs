@@ -2,8 +2,6 @@
 # Don't add metadata, which interferes with the alignment within a doc.
 ---
 
-1. Install or use a tool that can send HTTP requests, for example:
-
    - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
    - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
    - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)

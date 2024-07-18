@@ -230,7 +230,9 @@ As you progress, you'll complete these high-level tasks:
 
 1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
-[!INCLUDE [postman-replacements-number](../../includes/postman-replacements-number.md)]
+1. Install or use a tool that can send HTTP requests, for example:
+
+   [!INCLUDE [postman-replacements](../../includes/postman-replacements.md)]
 
 <a name="set-up"></a>
 
