@@ -183,6 +183,7 @@
     - name: General purpose
       items:
       - name: Dsv6 and Ddsv6-series
+        href: dsv6-ddsv6-series.md
       - name: Dlsv6 and Dldsv6-series
         href: dlsv6-dldsv6-series.md
       - name: Dasv6 and Dadsv6-series
