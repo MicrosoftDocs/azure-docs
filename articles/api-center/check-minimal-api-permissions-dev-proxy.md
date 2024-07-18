@@ -29,7 +29,7 @@ To check if your app is calling APIs using minimal permissions, you need to have
 
 ### Register APIs in your Azure API Center instance
 
-Before you start, create an Azure API Center instance and register APIs that you use in your organization. For each API, upload the OpenAPI specification file that describes the API operations and permissions.
+Register APIs that you use in your organization. For each API, upload the OpenAPI specification file that describes the API operations and permissions.
 
 :::image type="content" source="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-openapi-spec-security.png" alt-text="Screenshot of Azure API Center with an API and its OpenAPI spec with security information." lightbox="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-openapi-spec-security.png":::
 
