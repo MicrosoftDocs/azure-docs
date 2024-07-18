@@ -71,6 +71,8 @@ Virtual network encryption is supported in the following scenarios:
 > [!NOTE]
 > Other services that currently don't support virtual network encryption are included in our future roadmap.
 
-## Next step
+## Related content
 
-- For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- [Create a virtual network with encryption using the Azure portal](how-to-create-encryption-portal.md)
+- [Virtual network encryption frequently asked questions (FAQ)](virtual-network-encryption-faq.yml).
+- For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](virtual-networks-overview.md)
