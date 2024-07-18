@@ -211,7 +211,7 @@ Arm64 based clusters aren't supported at this time.
 
  ### Container Apps extension v1.37.1 (July 2024)
 
- - Update Easy Auth to support MISE
+ - Update EasyAuth to support MISE
 
 ## Next steps
 
