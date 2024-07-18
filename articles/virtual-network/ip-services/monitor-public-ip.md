@@ -16,7 +16,7 @@ ms.subservice: ip-services
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-Public IP Address insights provides:
+Public IP Address insights provide:
 
 - Traffic data
 - DDoS information
@@ -43,9 +43,9 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-The following is an example of the built in queries for Public IP addresses that are found within the Long Analytics queries interface in the Azure portal.
+The following image is an example of the built-in queries for Public IP addresses that are found within the Long Analytics queries interface in the Azure portal.
 
-:::image type="content" source="./media/monitor-public-ip/public-ip-queries.png" alt-text="Screenshot of the built in queries for Public IP addresses.":::
+:::image type="content" source="./media/monitor-public-ip/public-ip-queries.png" alt-text="Screenshot of the built-in queries for Public IP addresses.":::
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
@@ -55,7 +55,7 @@ The following table lists some suggested alert rules for Public IP addresses. Th
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Under DDoS attack or not | **GreaterThan** 0. </br> **1** is currently under attack. </br> **0** indicates normal activity | As part of Azure's edge protection, public IP addresses are monitored for DDoS attacks. An alert allows you to be notified if your public IP address is affected. |
+| Under DDoS attack or not | **GreaterThan** 0.</br> **1** is currently under attack.</br> **0** indicates normal activity | As part of Azure's edge protection, public IP addresses are monitored for DDoS attacks. An alert allows you to be notified if your public IP address is affected. |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
