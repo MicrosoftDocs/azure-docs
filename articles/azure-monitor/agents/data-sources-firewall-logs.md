@@ -42,23 +42,22 @@ You can define a data collection rule to send data from multiple machines to mul
 To create the data collection rule in the Azure portal:
 1. On the **Monitor** menu, select **Data Collection Rules**.
 1. Select **Create** to create a new data collection rule and associations.
+
     [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
+   
 1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
     -**Data Collection End Point** select a previously created data [collection end point](../essentials/data-collection-endpoint-overview.md).
+      
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
-1. On the **Resources** tab: 
-    1. Select **+ Add resources** and associate resources with the data collection rule. Resources can be Virtual Machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
+1. On the **Resources** tab: Select **+ Add resources** and associate resources with the data collection rule. Resources can be Virtual Machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
-        > [!IMPORTANT]
-        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
-    
-        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
-    1. Select **Enable Data Collection Endpoints**.
-    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
-
-    [ ![Screenshot that shows the Resources tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
+> [!IMPORTANT]
+> The portal enables system-assigned managed identity on the target resources, along with existing user-assigned
+> identities, if there are any. For existing applications, unless you specify the user-assigned identity in the
+> request, the machine defaults to using system-assigned identity instead. If you need network isolation using private
+> links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **Firewall Logs**.
