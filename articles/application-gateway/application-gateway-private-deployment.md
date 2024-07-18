@@ -42,7 +42,7 @@ For more information about preview features, see [Set up preview features in Azu
 
 ## Register to the preview
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Use the following steps to enroll into the public preview for the enhanced Application Gateway network controls via the Azure portal:
 
@@ -108,7 +108,7 @@ For more information about preview features, see [Set up preview features in Azu
 
 ## Unregister from the preview
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To opt out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
 
