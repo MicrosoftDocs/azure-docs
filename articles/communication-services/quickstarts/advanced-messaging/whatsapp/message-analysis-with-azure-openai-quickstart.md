@@ -45,7 +45,8 @@ Azure Communication Services now enables you to ...
 
 3. **Set up Event Grid subscription:**
 
-   - Subscribe to Advanced Message Analysis Completed event by creating or modifying an event subscription. See [Subscribe to Advanced Messaging events](../whatsapp/handle-advanced-messaging-events.md#set-up-event-grid-viewer) for more details on creating event subscriptions.   
+   - Subscribe to Advanced Message Analysis Completed event by creating or modifying an event subscription. See [Subscribe to Advanced Messaging events](../whatsapp/handle-advanced-messaging-events.md#set-up-event-grid-viewer) for more details on creating event subscriptions.
+
       :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create Message Analysis event subscription properties.":::
       
 5. **See Message Analysis in action**
