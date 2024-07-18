@@ -20,7 +20,7 @@ Running in an Azure Arc-enabled Kubernetes cluster allows:
 
 Learn to set up your Kubernetes cluster for Container Apps, via [Set up an Azure Arc-enabled Kubernetes cluster to run Azure Container Apps](azure-arc-enable-cluster.md)
 
-As you configure your cluster, you'll carry out these actions:
+As you configure your cluster, you carry out these actions:
 
 - **The connected cluster**, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
 
@@ -101,7 +101,7 @@ Logs for both system components and your applications are written to standard ou
 
 Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the application environment cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
 
-By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will disable forwarding of application to your Log Analytics workspace. Disabling the log processor might affect the time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
+By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting disables forwarding of application to your Log Analytics workspace. Disabling the log processor might affect the time needed for any support cases, and you'll be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
@@ -109,7 +109,7 @@ As you create an Azure Container Apps connected environment resource, some subsc
 
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
-ARM64 based clusters aren't supported at this time.  
+Arm64 based clusters aren't supported at this time.  
 
 ## Extension Release Notes
 
@@ -189,7 +189,7 @@ ARM64 based clusters aren't supported at this time.
  - Allow applications to listen on HTTP or HTTPS
  - Add ability to suspend jobs
  - Fixed issue where KEDA scaler was failing to create job after stopped job execution
- - Add startingDeadlineSeconds to Container App Job if there is a cluster reboot
+ - Add startingDeadlineSeconds to Container App Job if there's a cluster reboot
  - Removed heavy logging in Envoy access log server
  - Updated Monitoring Configuration version for Azure Container Apps on Azure Arc enabled Kubernetes
 
@@ -202,7 +202,7 @@ ARM64 based clusters aren't supported at this time.
  - Export additional Envoy metrics
  - Truncate Envoy log to first 1,024 characters when log content failed to parse
  - Handle SIGTERM gracefully in local proxy
- - Allow ability to leverage different namespaces with KEDA
+ - Allow ability to use different namespaces with KEDA
  - Validation added for scale rule name
  - Enabled revision GC by default
  - Enabled emission of metrics for sidecars
