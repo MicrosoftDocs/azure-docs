@@ -65,10 +65,10 @@ The Deidentification service is designed to receive unstructured text. For more 
 
 An AI system includes the technology, the people who use it, the people affected by it, and the environment where it's deployed. Read the transparency note for the Deidentification service to learn about responsible AI use and deployment in your systems.
 
-Learn more:
-- [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
-- [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
-
-## Next steps
+## Related content
 
 [Deidentification quickstart](quickstart.md)
+
+[Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)
+
+[Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=%2Fazure%2Fai-services%2Flanguage-service%2Fcontext%2Fcontext)

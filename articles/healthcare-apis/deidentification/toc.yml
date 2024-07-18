@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy the Deidentification services
+    - name: Deploy the Deidentification service
       href: quickstart.md
 - name: How-tos
   expanded: true
