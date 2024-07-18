@@ -1,6 +1,6 @@
 ---
 title: Gain end-user context for AI alerts
-description: Learn how to enhance the security of your AI workloads by adding user context for AI alerts with Microsoft Defender for Cloud threat protection for AI workloads.
+description: Learn how to enhance AI security by adding user context for alerts with Microsoft Defender for Cloud threat protection.
 ms.topic: how-to
 ms.date: 07/18/2024
 #Customer intent: I want to learn how to enhance the security of my AI workloads by adding end-user context for AI alerts with Microsoft Defender for Cloud threat protection for AI workloads.
