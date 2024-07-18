@@ -135,12 +135,77 @@ kubectl apply -f <path-to-yaml-file>
 
 ## Configure MQTT broker advanced settings
 
-| Name                   | Type                    | Default Value | Description                                                    |
-|------------------------|-------------------------|---------------|----------------------------------------------------------------|
-| clients                | ClientConfig            |               | Configurations related to All Clients.                         |
-| encryptInternalTraffic | Encrypt                 | Enabled       | The setting to enable or disable encryption of internal Traffic. |
-| internalCerts          | CertManagerCertOptions  |               | Certificate rotation and private key configuration.            |
-| tolerations            | NodeTolerations         |               | The details of Tolerations that are applied to all Broker pods.|
+The following table lists the properties of the broker advanced settings that include client configurations, encryption of internal traffic, certificate rotation, and node tolerations.
+
+| Name                                | Type                     | Description                                                                 |
+|-------------------------------------|--------------------------|-----------------------------------------------------------------------------|
+| clients                             | ClientConfig             | Configurations related to all clients                                      |
+| clients.maxKeepAliveSeconds         | `integer`                | Upper bound of a client's keep alive, in seconds                           |
+| clients.maxMessageExpirySeconds     | `integer`                | Upper bound of message expiry interval, in seconds                         |
+| clients.maxReceiveMaximum           | `integer`                | Upper bound of receive maximum that a client can request in the CONNECT packet |
+| clients.maxSessionExpirySeconds     | `integer`                | Upper bound of session expiry interval, in seconds                         |
+| clients.subscriberQueueLimit        | `SubscriberQueueLimit`    | The limit on the number of queued messages for a subscriber                |
+| clients.subscriberQueueLimit.length | `integer`                | The maximum length of the queue before messages are dropped       |
+| clients.subscriberQueueLimit.strategy | `SubscriberMessageDropStrategy` | The strategy for dropping messages from the queue              |
+| clients.subscriberQueueLimit.strategy.DropOldest | `string` | The oldest message is dropped                                       |
+| clients.subscriberQueueLimit.strategy.None     | `string` | Messages are never dropped                                          |
+| encryptInternalTraffic              | Encrypt                  | The setting to enable or disable encryption of internal traffic            |
+| encryptInternalTraffic.Disabled     | `string`                 | Disable internal traffic encryption                                       |
+| encryptInternalTraffic.Enabled      | `string`                 | Enable internal traffic encryption                                        |
+| internalCerts                       | CertManagerCertOptions   | Certificate rotation and private key configuration                         |
+| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h|m|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.privateKey            | `CertManagerPrivateKey`  | Configuration of certificate private key                                   |
+| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h|m|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.privateKey.algorithm  | PrivateKeyAlgorithm      | Algorithm for private key                                                  |
+| internalCerts.privateKey.rotationPolicy | PrivateKeyRotationPolicy | Cert-manager private key rotation policy                                |
+| internalCerts.privateKey.algorithm.Ec256   | `string`| Algorithm - EC256  |
+| internalCerts.privateKey.algorithm.Ec384   | `string`| Algorithm - EC384  |
+| internalCerts.privateKey.algorithm.Ec521   | `string`| Algorithm - EC521  |
+| internalCerts.privateKey.algorithm.Ed25519 | `string`| Algorithm - Ed25519|
+| internalCerts.privateKey.algorithm.Rsa2048 | `string`| Algorithm - RSA2048|
+| internalCerts.privateKey.algorithm.Rsa4096 | `string`| Algorithm - RSA4096|
+| internalCerts.privateKey.algorithm.Rsa8192 | `string`| Algorithm - RSA8192|
+| internalCerts.privateKey.rotationPolicy.Always  | `string`| Always rotate key |
+| internalCerts.privateKey.rotationPolicy.Never   | `string`| Never rotate key  |
+| tolerations                         | NodeTolerations          | The details of tolerations that are applied to all *Broker* pods             |
+| tolerations.effect                  | `string`                 | Toleration effect                                                          |
+| tolerations.key                     | `string`                 | Toleration key                                                             |
+| tolerations.operator                | `TolerationOperator`     | Toleration operator. For example, "Exists" or "Equal".                              |
+| tolerations.value                   | `string`                 | Toleration value                                                            |
+| tolerations.operator.Equal          | `string`                 | Equal operator                                                             |
+| tolerations.operator.Exists         | `string`                 | Exists operator                                                             |
+
+Here's an example of a *Broker* with advanced settings:
+
+```yml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: Broker
+metadata:
+  name: broker
+  namespace: azure-iot-operations
+spec:
+  advanced:
+    clients:
+        maxSessionExpirySeconds: 282277
+        maxMessageExpirySeconds: 1622
+        subscriberQueueLimit:
+          length: 1000
+          strategy: DropOldest
+        maxReceiveMaximum: 15000
+        maxKeepAliveSeconds: 300
+    encryptInternalTraffic: Enabled
+    internalCerts:
+      duration: 240h
+      renewBefore: 45m
+      privateKey:
+        algorithm: Rsa2048
+        rotationPolicy: Always
+    tolerations:
+        effect: string
+        key: string
+        operator: Equal
+        value: string
+```
 
 ## Configure MQTT broker diagnostic settings
 
@@ -170,7 +235,7 @@ If you don't specify settings, default values are used. The following table show
 | `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview | Image used for self check |
 
 
-Here's an example of a Broker CR with metrics and tracing enabled and self-check disabled:
+Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 
 ```yml
 apiVersion: mq.iotoperations.azure.com/v1beta1
