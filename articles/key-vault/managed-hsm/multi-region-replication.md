@@ -94,7 +94,7 @@ Multi-region replication into an extended region incurs extra billing (x2), as a
 
 ## Soft-delete behavior
 
-The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery of deleted HSMs and keys however in a multi-region replication enabled scenario, there are subtle differences where the secondary HSM must be deleted before soft-delete can be executed on the primary HSM. Additionally, when an extension is deleted, it's purged immediately and doesn't go into a soft-delete state that stops all billing for the extension. You can always extend to a new region from the primary if needed. 
+The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery of deleted HSMs and keys however in a multi-region replication enabled scenario, there are subtle differences where the secondary HSM must be deleted before soft-delete can be executed on the primary HSM. Additionally, when an extended region is removed from the primary HSM, the HSM in the removed region is purged instead of entering a soft-delete state, and billing for the purged HSM ends immediately. You can always extend to a new extended region from the primary if needed. 
 
 ## Private link behavior with Multi-region replication
 
@@ -129,9 +129,9 @@ If creating a new Managed HSM pool and then extending to an extended region, ref
 > [!NOTE]
 > These commands requires Azure CLI version 2.48.1 or higher. To install the latest version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-### Add a secondary HSM in another region
+### Extend a primary HSM into an extended region
 
-To extend a managed HSM pool to another region, run the following command that will automatically create an extended HSM.
+To extend a managed HSM pool to another region, run the following command that will automatically create a new HSM in an extended region.
 
 ```azurecli-interactive
 az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
@@ -140,7 +140,7 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 > [!NOTE]
 > "ContosoMHSM" in this example is the primary HSM pool name; "australiaeast" is the extended region into which you are extending it.
 
-### Remove a secondary HSM in another region
+### Remove an extended region from the primary HSM
 
 Once you remove an extended HSM, the HSM partitions in the other region will be purged. All secondaries must be deleted before a primary managed HSM can be soft-deleted or purged. Only secondaries can be deleted using this command. The primary can only be deleted using the [soft-delete](soft-delete-overview.md#soft-delete-behavior) and [purge](soft-delete-overview.md#purge-protection) commands
 
