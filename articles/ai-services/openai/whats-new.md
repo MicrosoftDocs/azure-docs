@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 07/09/2024
+ms.date: 07/18/2024
 recommendations: false
 ---
 
@@ -19,6 +19,16 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## July 2024
+
+### GPT-4o mini preview model available for early access
+
+GPT-4o mini is the latest model from OpenAI [launched on July 18, 2024](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/).
+
+From OpenAI:
+
+*"GPT-4o mini surpasses GPT-3.5 Turbo and other small models on academic benchmarks across both textual intelligence and multimodal reasoning, and supports the same range of languages as GPT-4o. It also demonstrates strong performance in function calling, which can enable developers to build applications that fetch data or take actions with external systems, and improved long-context performance compared to GPT-3.5 Turbo."*
+
+To start testing out the model today in Azure OpenAI, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
 
 ### New Responsible AI default content filtering policy 
 
