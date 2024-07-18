@@ -3,7 +3,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/16/2024
+ms.date: 06/25/2024
 ---
 
 1. Sign in to the Azure portal.

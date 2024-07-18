@@ -34,7 +34,7 @@ Azure Blob storage CSI driver supports the following features:
 
 ## Before you begin
 
-- You need the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- Make sure that you have the Azure CLI version 2.42 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli]. If you have installed the Azure CLI `aks-preview` extension, make sure that you update the extension to the latest version by calling `az extension update --name aks-preview`.
 
 - Perform the steps in this [link][csi-blob-storage-open-source-driver-uninstall-steps] if you previously installed the [CSI Blob Storage open-source driver][csi-blob-storage-open-source-driver] to access Azure Blob storage from your cluster.
 > [!NOTE]
