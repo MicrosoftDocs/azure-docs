@@ -53,8 +53,7 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
   },
   "categories": ["Hate", "SelfHarm", "Sexual", "Violence"],
   "outputType": "FourSeverityLevels"
-}
-'
+}'
 ```
 
 > [!NOTE]
