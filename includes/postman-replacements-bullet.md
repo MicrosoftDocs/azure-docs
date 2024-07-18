@@ -1,5 +1,8 @@
 ---
-# Don't add metadata, which interferes with the alignment within a doc.
+ms.topic: include
+ms.author: estfan
+ms.date: 07/18/2024
+# Generic text about Postman alternatives.
 ---
 
 * Install or use a tool that can send HTTP requests, for example:

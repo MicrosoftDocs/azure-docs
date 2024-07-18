@@ -1,5 +1,9 @@
 ---
-# Don't add metadata, which interferes with the alignment within a doc.
+author: ecfan
+ms.author: estfan
+ms.topic: include
+ms.date: 07/18/2024
+# Generic text about Postman alternatives.
 ---
 
    - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
