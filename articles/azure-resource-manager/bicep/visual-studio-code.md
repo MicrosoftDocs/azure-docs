@@ -3,7 +3,7 @@ title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 05/10/2024
+ms.date: 07/18/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -195,6 +195,14 @@ Visual Studio Code automatically converts the JSON to Bicep. Notice that you als
 
 You can undo the decompilation by using <kbd>Ctrl+Z</kbd>. The original JSON appears in the file.
 
+## Troubleshoot
+
+The `Problems` pane summarize the errors and warnning in your Bicep file.
+
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-problems-pane.png" alt-text="Screenshot of Visual Studio Code Bicep problems pane.":::
+
+For the list of error/warning codes, see [Bicep error/warning codes](./bicep-error-codes.md).
+ 
 ## Next steps
 
 To walk through a quickstart, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
