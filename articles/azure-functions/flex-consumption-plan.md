@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 05/24/2024
+ms.date: 06/15/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -24,7 +24,7 @@ The Flex Consumption plan builds on the strengths of the Consumption plan, which
 + [Always-ready instances](#always-ready-instances) 
 + [Virtual network integration](#virtual-network-integration)
 + Fast scaling based on concurrency for both HTTP and non-HTTP apps
-+ Multiple choices, for instance, memory size
++ Multiple choices for instance memory sizes
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 
@@ -82,7 +82,7 @@ Concurrency has a direct effect on how your app scales because at lower concurre
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behavior.
+Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there's no longer the need for app settings to influence deployment behavior.
 
 ## Billing
 
@@ -138,8 +138,8 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
-+ **Authorization**: EasyAuth is currently not supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
-+ **CORS**: CORS settings are currently not supported. Exceptions might occur if CORS is configured for Flex Consumption apps.
++ **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
++ **CORS**: [Cross-origin resource sharing (CORS) settings](functions-how-to-use-azure-function-app-settings.md#cors) are currently ignored for Flex Consumption apps.  
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
  
 ## Related articles 
