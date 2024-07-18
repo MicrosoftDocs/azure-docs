@@ -12,7 +12,7 @@ ms.date: 01/10/2024
 
 # Encode and decode flat files in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. If you receive encoded XML content, you'll need to decode that content first. When you're building a logic app workflow in Azure Logic Apps, you can encode and decode flat files by using the **Flat File** built-in connector actions and a flat file schema for encoding and decoding. You can use **Flat File** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
@@ -282,7 +282,13 @@ You're now done with setting up your flat file decoding action. In a real world 
 
 ## Test your workflow
 
-1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, and include the XML content that you want to encode or decode in the request body.
+1. To send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, follow these steps:
+
+   1. Use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
+
+   1. Send the HTTP request using the **`POST`** method with the URL.
+
+   1. Include the XML content that you want to encode or decode in the request body.
 
 1. After your workflow finishes running, go to the workflow's run history, and examine the Flat File action's inputs and outputs.
 

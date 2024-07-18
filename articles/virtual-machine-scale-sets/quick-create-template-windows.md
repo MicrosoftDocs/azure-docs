@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.collection: linux
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs, mode-arm, devx-track-arm-template
 ---

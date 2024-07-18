@@ -1,25 +1,30 @@
 ---
 title: "Quickstart: Run Resource Graph query using Azure PowerShell"
 description: In this quickstart, you run an Azure Resource Graph query using the module for Azure PowerShell.
-ms.date: 04/24/2024
+ms.date: 06/27/2024
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Run Resource Graph query using Azure PowerShell
 
-This quickstart describes how to run an Azure Resource Graph query using the `Az.ResourceGraph` module for Azure PowerShell. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you're finished, you can remove the module.
+This quickstart describes how to run an Azure Resource Graph query using the `Az.ResourceGraph` module for Azure PowerShell. The module is included with the latest version of Azure PowerShell and adds [cmdlets](/powershell/module/az.resourcegraph) for Resource Graph.
+
+The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. 
 
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- [PowerShell](/powershell/scripting/install/installing-powershell).
-- [Azure PowerShell](/powershell/azure/install-azure-powershell).
+- Latest versions of [PowerShell](/powershell/scripting/install/installing-powershell) and [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Install the module
 
-Install the `Az.ResourceGraph` module so that you can use Azure PowerShell to run Azure Resource Graph queries. The Azure Resource Graph module requires PowerShellGet version 2.0.1 or higher. If you installed the latest versions of PowerShell and Azure PowerShell, you already have the required version.
+If you installed the latest versions of PowerShell and Azure PowerShell, you already have the `Az.ResourceGraph` module and required version of PowerShellGet. 
+
+### Optional module installation
+
+Use the following steps to install the `Az.ResourceGraph` module so that you can use Azure PowerShell to run Azure Resource Graph queries. The Azure Resource Graph module requires PowerShellGet version 2.0.1 or higher. 
 
 1. Verify your PowerShellGet version:
 
@@ -89,6 +94,16 @@ If a query doesn't return results from a subscription you already have access to
 
 ## Clean up resources
 
+To sign out of your Azure PowerShell session:
+
+```azurepowershell
+Disconnect-AzAccount
+```
+
+### Optional clean up steps
+
+If you installed the latest version of Azure PowerShell, the `Az.ResourceGraph` module is included and shouldn't be removed. The following steps are optional if you did a manual install of the `Az.ResourceGraph` module and want to remove the module. 
+
 To remove the `Az.ResourceGraph` module from your PowerShell session, run the following command:
 
 ```azurepowershell
@@ -102,12 +117,6 @@ Uninstall-Module -Name Az.ResourceGraph
 ```
 
 A message might be displayed that _module Az.ResourceGraph is currently in use_. If so, you need to shut down your PowerShell session and start a new session. Then run the command to uninstall the module from your computer.
-
-To sign out of your Azure PowerShell session:
-
-```azurepowershell
-Disconnect-AzAccount
-```
 
 ## Next steps
 

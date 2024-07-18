@@ -13,8 +13,6 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 This article shows you how to create a security rule to block outbound network traffic to port 80 and 443 that you can add to your rule collections. For more information, see [Security admin rules](concept-security-admins.md).
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 
 Before you start configuring security rules, confirm the following steps:

@@ -13,7 +13,7 @@ ms.custom: inspire-july-2022
 
 # What is confidential computing?
 
-Confidential computing is an industry term established by the [Confidential Computing Consortium](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/CCC_outreach_whitepaper_updated_November_2022.pdf) (CCC), part of the Linux Foundation. It defines it as:
+Confidential computing is an industry term established by the [Confidential Computing Consortium (CCC)](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/CCC_outreach_whitepaper_updated_November_2022.pdf), part of the Linux Foundation. It defines it as:
 
 > Confidential Computing protects data in use by performing computation in a hardware-based, attested Trusted Execution Environment.
 >

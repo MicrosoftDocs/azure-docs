@@ -5,9 +5,9 @@ description: Build and use feature set materialization resources.
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: ynpandey
 ms.date: 12/06/2023
 ms.custom: template-concept, update-code2
 ---

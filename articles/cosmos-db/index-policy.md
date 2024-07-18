@@ -150,7 +150,7 @@ Here's an example of an indexing policy with a vector index:
     "vectorIndexes": [
         {
             "path": "/vector",
-            "type": "DiskANN"
+            "type": "diskANN"
         }
     ]
 }

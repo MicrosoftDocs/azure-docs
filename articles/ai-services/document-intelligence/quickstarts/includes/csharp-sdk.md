@@ -96,7 +96,7 @@ In this quickstart, use the following features to analyze and extract data and v
 
 :::moniker-end
 
-5. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+5. In the **Additional information** dialog window, select **.NET 8.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
 

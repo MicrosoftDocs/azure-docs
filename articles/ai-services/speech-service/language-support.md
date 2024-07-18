@@ -47,6 +47,10 @@ To improve Speech to text recognition accuracy, customization is available for s
 
 These are the locales that support the [display text format feature](./how-to-custom-speech-display-text-format.md): da-DK, de-DE, en-AU, en-CA, en-GB, en-HK, en-IE, en-IN, en-NG, en-NZ, en-PH, en-SG, en-US, es-ES, es-MX, fi-FI, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nb-NO, nl-NL, pl-PL, pt-BR, pt-PT, sv-SE, tr-TR, zh-CN, zh-HK.
 
+### Fast transcription
+
+The supported locales for the [fast transcription API](fast-transcription-create.md) are: en-US, es-ES, es-MX, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, pt-BR, and zh-CN. You can only specify one locale per transcription request.
+
 # [Text to speech](#tab/tts)
 
 The table in this section summarizes the locales and voices supported for Text to speech. See the table footnotes for more details.
@@ -118,7 +122,7 @@ With the cross-lingual feature, you can transfer your custom neural voice model 
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the 31 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 30 more languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. If you're interested in languages not listed in the following table, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
+The table in this section summarizes the 33 locales supported for pronunciation assessment, and each language is available on all [Speech to text regions](regions.md#speech-service). Latest update extends support from English to 32 more languages and quality enhancements to existing features, including accuracy, fluency and miscue assessment. You should specify the language that you're learning or practicing improving pronunciation. The default language is set as `en-US`. If you know your target learning language, [set the locale](how-to-pronunciation-assessment.md#get-pronunciation-assessment-results) accordingly. For example, if you're learning British English, you should specify the language as `en-GB`. If you're teaching a broader language, such as Spanish, and are uncertain about which locale to select, you can run various accent models (`es-ES`, `es-MX`) to determine the one that achieves the highest score to suit your specific scenario. If you're interested in languages not listed in the following table, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 

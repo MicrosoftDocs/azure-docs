@@ -29,7 +29,7 @@ You can use this smartphone app to:
 
 ## Install the app
 
-[!INCLUDE [iot-phoneapp-install](~/reusable-content/ce-skilling/azure/includes/iot-phoneapp-install.md)]
+[!INCLUDE [iot-phoneapp-install](../../includes/iot-phoneapp-install.md)]
 
 ## App features
 

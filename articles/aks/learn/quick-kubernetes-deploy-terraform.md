@@ -5,12 +5,12 @@ ms.author: schaffererin
 author: schaffererin
 ms.topic: quickstart
 ms.date: 03/22/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, devx-track-azurecli
 content_well_notification: 
   - AI-contribution
-#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ai-usage: ai-assisted
 zone_pivot_groups: aks-azure-developer-cli
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform
@@ -49,7 +49,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 First, log into your Azure account and authenticate using one of the methods described in the following section.
 
-[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
+Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to [authenticate to Azure](/azure/developer/terraform/authenticate-to-azure).  
 
 ## Implement the Terraform code
 
@@ -688,4 +688,3 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [azd-hooks]: /azure/developer/azure-developer-cli/reference#azd-hooks
 [azd-overview]: /azure/developer/azure-developer-cli
 [aks-home]: /azure/aks
-

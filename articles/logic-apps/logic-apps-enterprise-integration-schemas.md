@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Add schemas to use with workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 

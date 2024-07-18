@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 This script creates an application gateway that uses a virtual machine scale set for backend servers. The application gateway can then be configured to manage web traffic. After running the script, you can test the application gateway using its public IP address.
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

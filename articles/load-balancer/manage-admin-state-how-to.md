@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 05/30/2024
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage Administrative (Admin) State in Azure Load Balancer

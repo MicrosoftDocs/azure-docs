@@ -10,6 +10,8 @@ ms.date: 08/07/2023
 
 # Migrate from lab accounts to lab plans
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Lab plans replace lab accounts in Azure Lab Services. This article lists the steps needed to migrate your lab accounts to lab plans. Lab plans bring improvements in performance, reliability, and scalability. Lab plans also give you more flexibility for managing labs, using capacity, and tracking costs.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
@@ -127,7 +129,7 @@ If you're moving from lab accounts, the following table provides guidance on how
 |[Virtual network peering](./how-to-connect-peer-virtual-network.md#configure-at-the-time-of-lab-account-creation)|Lab plans can reuse the same virtual network as lab accounts. </br> - [Setup advanced networking](./how-to-connect-vnet-injection.md) when you create the lab plan.|
 |[Role assignments](./concept-lab-services-role-based-access-control.md) </br> - Lab account owner\contributor. </br> - Lab creator\owner\contributor.|Lab plans include new specialized roles. </br>1. [Review roles](./concept-lab-services-role-based-access-control.md). </br>2. [Assign permissions](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).|
 |Enabled Marketplace images. </br> - Lab accounts only support Gen1 images from the Marketplace.|Lab plans include settings to enable [Azure Marketplace images](./specify-marketplace-images.md). </br> - Lab plans support Gen1 and Gen2 Marketplace images, so the list of images will be different than what you would see if using lab accounts.|
-|[Location](./how-to-manage-lab-accounts.md#create-a-lab-account) </br> - Labs are automatically created within the same geolocation as the lab account. </br> - You can't specify the exact region where a lab is created. |Lab plans enable specific control over which regions labs are created. </br> - [Configure regions for labs](./create-and-configure-labs-admin.md).|
+|[Location](./how-to-create-lab-accounts.md#create-a-lab-account) </br> - Labs are automatically created within the same geolocation as the lab account. </br> - You can't specify the exact region where a lab is created. |Lab plans enable specific control over which regions labs are created. </br> - [Configure regions for labs](./create-and-configure-labs-admin.md).|
 |[Attached Azure Compute Gallery (Shared Image Gallery)](./how-to-attach-detach-shared-image-gallery-1.md)|Lab plans can be attached to the same gallery used by lab accounts. </br>1. [Attach an Azure Compute Gallery](./how-to-attach-detach-shared-image-gallery.md). </br>2. Ensure that you [enable images for the lab plan](./how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).|
 |Teams integration|Configure lab plans with [Teams integration](./lab-services-within-teams-overview.md) by [adding the app to Teams groups](./how-to-get-started-create-lab-within-teams.md).|
 |[Firewall settings](./how-to-configure-firewall-settings-1.md) </br> - Create inbound and outbound rules for the lab's public IP address and the port range 49152 - 65535.|[Firewall settings](./how-to-configure-firewall-settings.md) </br> - Create inbound and outbound rules for the lab's public IP address and the port ranges 4980-4989, 5000-6999, and 7000-8999.|

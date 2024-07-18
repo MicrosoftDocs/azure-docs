@@ -24,7 +24,7 @@ This article describes how devices can use supported MQTT behaviors to communica
 * [MQTT v3.1.1](https://mqtt.org/) on TCP port 8883
 * MQTT v3.1.1 over WebSocket on TCP port 443.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 All device communication with IoT Hub must be secured using TLS/SSL. Therefore, IoT Hub doesn't support nonsecure connections over TCP port 1883.
 

@@ -32,23 +32,23 @@ Learn how an Azure AI service can help your enhance applications and optimize yo
 | --- | --- |
 | ![Anomaly Detector icon](media/service-icons/anomaly-detector.svg) [Anomaly Detector](./Anomaly-Detector/index.yml) (retired) | Identify potential problems early on. |
 | ![Azure AI Search icon](media/service-icons/search.svg) [Azure AI Search](../search/index.yml) | Bring AI-powered cloud search to your mobile and web apps. |
-| ![Azure OpenAI Service icon](~/reusable-content/ce-skilling/azure/media/service-icons/azure-openai.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks. |
+| ![Azure OpenAI Service icon](~/reusable-content/ce-skilling/azure/media/ai-services/azure-openai.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks. |
 | ![Bot service icon](media/service-icons/bot-services.svg) [Bot Service](/composer/) | Create bots and connect them across channels. |
 | ![Content Moderator icon](media/service-icons/content-moderator.svg) [Content Moderator](./content-moderator/index.yml) (retired) | Detect potentially offensive or unwanted content. |
-| ![Content Safety icon](~/reusable-content/ce-skilling/azure/media/service-icons/content-safety.svg) [Content Safety](./content-safety/index.yml) | An AI service that detects unwanted contents. |
+| ![Content Safety icon](~/reusable-content/ce-skilling/azure/media/ai-services/content-safety.svg) [Content Safety](./content-safety/index.yml) | An AI service that detects unwanted contents. |
 | ![Custom Vision icon](media/service-icons/custom-vision.svg) [Custom Vision](./custom-vision-service/index.yml) | Customize image recognition for your business. |
-| ![Document Intelligence icon](~/reusable-content/ce-skilling/azure/media/service-icons/document-intelligence.svg) [Document Intelligence](./document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions. |
-| ![Face icon](~/reusable-content/ce-skilling/azure/media/service-icons/face.svg) [Face](./computer-vision/overview-identity.md) | Detect and identify people and emotions in images. |
+| ![Document Intelligence icon](~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg) [Document Intelligence](./document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions. |
+| ![Face icon](~/reusable-content/ce-skilling/azure/media/ai-services/face.svg) [Face](./computer-vision/overview-identity.md) | Detect and identify people and emotions in images. |
 | ![Immersive Reader icon](media/service-icons/immersive-reader.svg) [Immersive Reader](./immersive-reader/index.yml) | Help users read and comprehend text. |
-| ![Language icon](~/reusable-content/ce-skilling/azure/media/service-icons/language.svg) [Language](./language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities. |
+| ![Language icon](~/reusable-content/ce-skilling/azure/media/ai-services/language.svg) [Language](./language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities. |
 | ![Language Understanding icon](media/service-icons/luis.svg) [Language understanding](./luis/index.yml) (retired) | Understand natural language in your apps. |
 | ![Metrics Advisor icon](media/service-icons/metrics-advisor.svg) [Metrics Advisor](./metrics-advisor/index.yml) (retired) | An AI service that detects unwanted contents. |
 | ![Personalizer icon](media/service-icons/personalizer.svg) [Personalizer](./personalizer/index.yml) (retired) | Create rich, personalized experiences for each user. |
 | ![QnA Maker icon](media/service-icons/luis.svg) [QnA maker](./qnamaker/index.yml) (retired) | Distill information into easy-to-navigate questions and answers. |
-| ![Speech icon](~/reusable-content/ce-skilling/azure/media/service-icons/speech.svg) [Speech](./speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition. |
-| ![Translator icon](~/reusable-content/ce-skilling/azure/media/service-icons/translator.svg) [Translator](./translator/index.yml) | Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects. |
+| ![Speech icon](~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg) [Speech](./speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition. |
+| ![Translator icon](~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg) [Translator](./translator/index.yml) | Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects. |
 | ![Video Indexer icon](media/service-icons/video-indexer.svg) [Video Indexer](/azure/azure-video-indexer/) | Extract actionable insights from your videos. |
-| ![Vision icon](~/reusable-content/ce-skilling/azure/media/service-icons/vision.svg) [Vision](./computer-vision/index.yml) | Analyze content in images and videos. |
+| ![Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg) [Vision](./computer-vision/index.yml) | Analyze content in images and videos. |
 
 ## Pricing tiers and billing
 

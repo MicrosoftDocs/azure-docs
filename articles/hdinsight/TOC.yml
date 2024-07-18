@@ -83,6 +83,8 @@ items:
           href: ./hdinsight-high-availability-case-study.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: MSI Support to access Azure services
+      href: ./msi-support-to-access-azure-services.md
     - name: Compare storage options
       href: hdinsight-hadoop-compare-storage-options.md
       items:

@@ -144,7 +144,7 @@ Get or create a container instance:
 
 ```python
 container = database.create_container_if_not_exists(id="batch_container",
-                                                        partition_key=PartitionKey(path='/road_bikes'))
+                                                        partition_key=PartitionKey(path='/category'))
 ```
 In Python, Transactional Batch operations look very similar to the singular operations apis, and are tuples containing (operation_type_string, args_tuple, batch_operation_kwargs_dictionary). Below are sample items that will be used to demonstrate batch operations functionality:
 

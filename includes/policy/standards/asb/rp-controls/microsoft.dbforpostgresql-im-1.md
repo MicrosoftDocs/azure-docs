@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/30/2024
+ms.date: 07/15/2024
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated
@@ -9,4 +9,4 @@ ms.custom: generated
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[A Microsoft Entra administrator should be provisioned for PostgreSQL servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4dec045-250a-48c2-b5cc-e0c4eec8b5b4) |Audit provisioning of a Microsoft Entra administrator for your PostgreSQL server to enable Microsoft Entra authentication. Microsoft Entra authentication enables simplified permission management and centralized identity management of database users and other Microsoft services |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_AuditServerADAdmins_Audit.json) |
+|[\[Preview\]: Azure PostgreSQL flexible server should have Microsoft Entra Only Authentication enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffa498b91-8a7e-4710-9578-da944c68d1fe) |Disabling local authentication methods and allowing only Microsoft Entra Authentication improves security by ensuring that Azure PostgreSQL flexible server can exclusively be accessed by Microsoft Entra identities. |Audit, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_FlexibleServers_EnableEntraOnlyAuthentication_Audit.json) |

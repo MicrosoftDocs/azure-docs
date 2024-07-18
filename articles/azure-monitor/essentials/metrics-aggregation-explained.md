@@ -5,15 +5,15 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 07/13/2024
 ms.reviewer: vitalyg
 ---
 
 # Azure Monitor Metrics aggregation and display explained
 
-This article explains the aggregation of metrics in the Azure Monitor time-series database that back Azure Monitor [platform metrics](../data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). This article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
+This article explains the aggregation of metrics in the time-series database that backs Azure Monitor [platform metrics](../data-platform.md) and [custom metrics](../essentials/metrics-custom-overview.md). The article also applies to standard [Application Insights metrics](../app/app-insights-overview.md). 
 
-The contents of this article are complex in nature and not necessary to understand to use Azure Monitor metrics effectively.
+This information in this article is complex and is provided for those who want to dig deeper into the metrics system. You do not need to understand it to use Azure Monitor metrics effectively. 
 
 ## Overview and terms
 
@@ -142,7 +142,7 @@ Azure Monitor alerts use the values the resource provider writes to the metric d
 
 ## How aggregation works
 
-The metrics charts in the previous system show different types of aggregated data. The system pre-aggregates the data so that the requested charts can show quicker without many repeated computations.  
+The metrics charts in the previous system show different types of aggregated data. The system preaggregates the data so that the requested charts can show quicker without many repeated computations.  
 
 In this example:
 
@@ -261,7 +261,7 @@ Following is a larger example using values for a fictitious metric called HTTP R
 
 Consider the following example. The boxes and arrows show examples of how the values are aggregated and calculated. 
 
-The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT pre-aggregated. It's recalculated using aggregated data to avoid calculation errors.
+The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT preaggregated. It's recalculated using aggregated data to avoid calculation errors.
  
 :::image type="content" source="media/metrics-aggregation-explained/full-aggregation-example-all-types.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="false" lightbox="media/metrics-aggregation-explained/full-aggregation-example-all-types.png":::
 

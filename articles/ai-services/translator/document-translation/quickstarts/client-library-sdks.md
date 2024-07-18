@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-dotnet, devx-track-python
 ms.topic: quickstart
-ms.date: 02/12/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-document-sdk
 ---
@@ -22,9 +22,9 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../..
 > [!IMPORTANT]
 >
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
-> * Document Translation is supported in paid tiers. The Language Studio only supports the S1 or D3 instance tiers. We suggest that you select Standard S1 to try Document Translation.  *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is supported in paid tiers. The Language Studio supports the S1 or D3 instance tiers. We suggest that you select Standard S1 to try Document Translation.  *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 > * Document Translation public preview releases provide early access to features that are in active development. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
-> * The public preview version of Document Translation client libraries default to REST API version [**2024-05-01**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true).
+> * The public preview version of Document Translation client libraries default to REST API version **2024-05-01**.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ To get started, you need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource). If you're planning on using the Document Translation feature with [managed identity authorization](../how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**. Select the **Standard S1 or D3** or pricing tier.
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource). If you're planning on using the Document Translation feature with [managed identity authorization](../how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**. Select the **Standard S1 Standard Service Plan (Pay-as-you-go) or C2, C3, C4, or D3 Volume Discount Plans**.
 
 * An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure Blob Storage account for your source and target files:
 

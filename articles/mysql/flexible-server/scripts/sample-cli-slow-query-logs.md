@@ -3,12 +3,15 @@ title: CLI script - Configure slow query logs
 description: This Azure CLI sample script shows how to configure slow query logs on an Azure Database for MySQL - Flexible Server instance.
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Configure slow query logs on an Azure Database for MySQL - Flexible Server instance using Azure CLI

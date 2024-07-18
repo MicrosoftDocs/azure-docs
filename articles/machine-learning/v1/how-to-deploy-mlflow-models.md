@@ -3,9 +3,9 @@ title: Deploy MLflow models as web services
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to deploy your ML models as an Azure web service.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022

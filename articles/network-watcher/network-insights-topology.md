@@ -17,7 +17,7 @@ Topology provides an interactive interface to view resources and their relations
 
 In this article, you learn how to use topology to visualize virtual networks and connected resources.
 
-[!INCLUDE [Resource Graph](../../includes/network-watcher-resource-graph-topology.md)]
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Prerequisites
 

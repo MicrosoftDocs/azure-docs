@@ -5,12 +5,12 @@ description: How to manage inputs and outputs of components and pipeline in Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: zhanxia
-author: xiaoharper
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: zhanxia
 ms.date:  08/27/2023
 ms.topic: how-to
-ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code4
+ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code5
 ---
 # Manage inputs and outputs of component and pipeline
 

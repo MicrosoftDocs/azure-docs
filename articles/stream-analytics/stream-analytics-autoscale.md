@@ -96,7 +96,7 @@ The following procedure shows you how to add a condition to automatically increa
     :::image type="content" source="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" alt-text="Screenshot showing the Save option for a rule." lightbox="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" :::
 
 > [!NOTE]
-> Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when a scale event triggers the opposite scale event. Refer to [this](https://learn.microsoft.com/azure/azure-monitor/autoscale/autoscale-flapping)) article which describes flapping in autoscale and how to avoid it.
+> Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when a scale event triggers the opposite scale event. Refer to [this](/azure/azure-monitor/autoscale/autoscale-flapping) article which describes flapping in autoscale and how to avoid it.
 
 ### Scale to specific number of streaming units
 

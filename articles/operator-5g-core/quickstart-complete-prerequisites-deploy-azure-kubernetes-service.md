@@ -5,7 +5,7 @@ description: Learn how to complete the prerequisites necessary to deploy Azure O
 author: HollyCl
 ms.author: HollyCl
 ms.service: azure-operator-5g-core
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: quickstart #required; leave this attribute/value as-is.
 ms.date: 06/06/2024
 ---

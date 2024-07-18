@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/29/2024
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -260,6 +260,8 @@ If you're a new EA account owner with a .onmicrosoft.com account, you might not 
 ## Change Azure subscription or account ownership
 
 EA admins can use the Azure portal to transfer account ownership of selected or all subscriptions in an enrollment. When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
+
+Transferring one or more subscriptions from one EA enrollment to another EA enrollment requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). For more information, see [Product transfer support](subscription-transfer.md#product-transfer-support).
 
 Before starting the ownership transfer, get familiar with the following Azure role-based access control (RBAC) policies:
 

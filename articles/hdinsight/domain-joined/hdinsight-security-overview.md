@@ -3,7 +3,7 @@ title: Overview of enterprise security in Azure HDInsight
 description: Learn the various methods to ensure enterprise security in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: overview
-ms.date: 05/24/2023
+ms.date: 06/15/2024
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 

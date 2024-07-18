@@ -176,7 +176,7 @@ For logs stored in the App Service file system, the easiest way is to download t
 - Linux/custom containers: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Windows apps: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-For Linux/custom containers, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory.
+For Linux/custom containers, the ZIP file contains console output logs for both the docker host and the docker container. For a scaled-out app, the ZIP file contains one set of logs for each instance. In the App Service file system, these log files are the contents of the */home/LogFiles* directory. Deployment logs are stored in */site/deployments/*.
 
 For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* directory in the App Service file system. It has the following structure:
 
@@ -190,34 +190,14 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 
 ## Send logs to Azure Monitor
 
-With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. When you add a diagnostic setting, App Service adds app settings to your app, which triggers an app restart.
 
 > [!div class="mx-imgBorder"]
 > ![Diagnostic Settings](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
 
 ### Supported log types
 
-The following table shows the supported log types and descriptions: 
-
-| Log Name| Log type | Windows | Windows Container | Linux | Linux Container | Description |
-|-|-|-|-|-|-|-|
-| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error <sup>3</sup> |
-| HTTP logs | AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
-| App Service Environment Platform Logs | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| Access Audit Logs | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
-| Site Content Change Audit Logs | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs <sup>3</sup> |
-| IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
-| App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>4</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
-
-<sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
-
-<sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
-
-<sup>3</sup> Current logging limit is set to 100 logs per minute.
-
-<sup>4</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+For a list of supported log types and their descriptions, see [Supported resource logs for Microsoft.Web](monitor-app-service-reference.md#supported-resource-logs-for-microsoftweb).
 
 ## Networking considerations
 

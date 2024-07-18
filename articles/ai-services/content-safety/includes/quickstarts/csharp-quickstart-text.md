@@ -123,7 +123,7 @@ Replace `"Your input text"` with the text content you'd like to use.
 > [!TIP]
 > Text size and granularity
 >
-> The default maximum length for text submissions is **10K** characters.
+> See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

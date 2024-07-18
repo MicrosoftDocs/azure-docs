@@ -1,6 +1,5 @@
 ---
 title: Vector database
-titleSuffix: Azure Cosmos DB
 description: Vector database functionalities, implementation, and comparison.
 author: wmwxwa
 ms.author: wangwilliam
@@ -35,7 +34,7 @@ There are two common types of vector database implementations - pure vector data
 
 A pure vector database is designed to efficiently store and manage vector embeddings, along with a small amount of metadata; it is separate from the data source from which the embeddings are derived.
 
-A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database in a NoSQL or relational database can store, index, and query embeddings alongside the corresponding original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, keeping the vector embeddings and original data together better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
+A vector database that is integrated in a highly performant NoSQL or relational database provides additional capabilities. The integrated vector database in a NoSQL or relational database can store, index, and query embeddings alongside the corresponding original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, keeping the vector embeddings and original data together better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance. A highly performant database with schema flexibility and integrated vector database is especially optimal for [AI agents](ai-agents.md).
 
 ### Vector database use cases
 
@@ -117,13 +116,13 @@ DiskANN enables you to perform highly accurate, low latency queriers at any scal
 
 #### Links and samples
 
+- [What is the database behind ChatGPT? - Microsoft Mechanics](https://www.youtube.com/watch?v=6IIUtEFKJec)
 - [Vector indexing in Azure Cosmos DB for NoSQL](index-policy.md#vector-indexes)
 - [VectorDistance system function NoSQL queries](nosql/query/vectordistance.md)
 - [How to setup vector database capabilities in Azure Cosmos DB NoSQL](nosql/vector-search.md)
 - [Python notebook tutorial](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples)
 - [C# Solution accelerator for building AI apps](https://aka.ms/BuildModernAiAppsSolution)
 - [C# Azure Cosmos DB Chatbot with Azure OpenAI](https://aka.ms/cosmos-chatgpt-sample)
-
 
 ### API for MongoDB
 
@@ -150,19 +149,6 @@ Use the natively integrated vector database in [Azure Cosmos DB for PostgreSQL](
 #### Code sample
 - Python: [Python notebook tutorial - food review chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-PostgreSQL_CognitiveSearch)
 
-### NoSQL API
-
-> [!NOTE]
-> For our NoSQL API, the native integration of a state-of-the-art vector indexing algorithm will be announced during Build in May 2024. Please stay tuned.
-
-The natively integrated vector databaseg in the NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
-
-#### Links & Code samples
-
-- [What is the database behind ChatGPT? - Microsoft Mechanics](https://www.youtube.com/watch?v=6IIUtEFKJec)
-- [.NET tutorial - Build and Modernize AI Applications](https://github.com/Azure/Build-Modern-AI-Apps-Hackathon)
-- [.NET tutorial - Bring Your Data to ChatGPT](https://github.com/Azure/Vector-Search-AI-Assistant/tree/cognitive-search-vector)
-- [Azure Data + RAG samples with Azure OpenAI](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/)
 ### Next step 
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)

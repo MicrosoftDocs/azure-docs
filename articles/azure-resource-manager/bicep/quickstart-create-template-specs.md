@@ -44,7 +44,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -165,7 +165,7 @@ You can create a template spec with a Bicep file but the `mainTemplate` must be 
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2022-09-01'
+              'apiVersion': '2023-04-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {
@@ -526,7 +526,7 @@ Rather than create a new template spec for the revised template, add a new versi
           'resources': [
             {
               'type': 'Microsoft.Storage/storageAccounts'
-              'apiVersion': '2022-09-01'
+              'apiVersion': '2023-04-01'
               'name': '[variables(\'storageAccountName\')]'
               'location': '[parameters(\'location\')]'
               'sku': {
