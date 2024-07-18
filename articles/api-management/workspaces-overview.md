@@ -52,7 +52,7 @@ The following is a sample workflow for creating and using a workspace.
 
 Teams manage their own APIs, products, subscriptions, backends, policies, loggers, and other resources within workspaces. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview) for a full list of resources and operations supported in workspaces. 
 
-While workspaces are managed independently from resources on the service level, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
+While workspaces are managed independently from the API Management service and other workspaces, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
 
 ## Workspace gateway
 
@@ -66,6 +66,9 @@ Workspace gateways are managed independently from the API Management service and
 ### Gateway hostname
 
 Each association of a workspace to a workspace gateway creates a unique hostname for APIs managed in that workspace. Default hostnames follow the pattern `<workspace-name>-<hash>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways.
+
+> [!NOTE]
+> Through October 2024, APIs in workspaces can be accessed at runtime using the gateway hostname of your API Management instance in addition to the hostname of the workspace gateway.
 
 ### Network isolation
 
@@ -122,10 +125,7 @@ Workspaces are designed to be self-contained to maximize segregation of administ
 
     > [!IMPORTANT]
     > All resources in an API Management service (for example, APIs, products, tags, or subscriptions) need to have unique names, even if they are located in different workspaces. There can't be any resources of the same type and with the same Azure resource name in the same workspace, in other workspaces, or on the service level.
-    > 
-
-    > [!NOTE]
-    > Through October 2024, APIs in workspaces can be accessed at runtime using the gateway hostname of your API Management instance in addition to the hostname of the workspace gateway. 
+    >  
 
 * **Developer portal** - Workspaces are an administrative concept and aren't surfaced as such to developer portal consumers, including through the developer portal UI and the underlying API. APIs and products within a workspace can be published to the developer portal, just like APIs and products on the service level.  
 
