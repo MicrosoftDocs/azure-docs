@@ -71,8 +71,8 @@ conceptualContent:
               itemType: how-to-guide
               text: Network insights topology
         # Card 2
-        - title: Connectivity monitoring
-          summary: End-to-end connectivity monitoring for hybrid network
+        - title: Connectivity and traffic monitoring
+          summary: End-to-end connectivity monitoring and traffic logging
           links:
             - url: ../../network-watcher/connection-monitor-overview.md
               itemType: concept
@@ -80,10 +80,6 @@ conceptualContent:
             - url: ../../network-watcher/monitor-vm-communication.md
               itemType: tutorial
               text: Monitor network communication between two VMs
-        # Card 3
-        - title: Traffic monitoring
-          summary: Enhanced visibility into network activities with flow logs and traffic analytics
-          links:
             - url: ../../network-watcher/vnet-flow-logs-overview.md
               itemType: concept
               text: Virtual network flow logs
@@ -93,7 +89,7 @@ conceptualContent:
             - url: ../../network-watcher/nsg-flow-logs-overview.md
               itemType: concept
               text: Network security group flow logs
-        # Card 4
+        # Card 3
         - title: Troubleshooting
           summary: Troubleshoot connectivity, routing, security group issues with actionable insights
           links:
@@ -115,6 +111,19 @@ conceptualContent:
             - url: ../../network-watcher/vpn-troubleshoot-overview.md
               itemType: concept
               text: VPN troubleshoot
+        # Card 4
+        - title: Network management
+          summary: Group, configure, deploy, and manage virtual networks
+          links:
+            - url: ../../virtual-network-manager/concept-network-groups.md
+              itemType: concept
+              text: Network groups
+            - url: ../../virtual-network-manager/concept-security-admins.md
+              itemType: concept
+              text: Security admin rules
+            - url: ../../virtual-network-manager/concept-user-defined-route.md
+              itemType: concept
+              text: Management of user-defined routes
     # Section 2
     - title: Learn more about monitoring networking services
       items:
