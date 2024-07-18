@@ -319,12 +319,14 @@ is ${blocked}'''
 
 ## Union types
 
-In Bicep, a union type allows the creation of a combined type consisting of a set of sub-types. An assignment is valid if any of the individual sub-type assignments are permitted. The `|` character separates individual sub-types using an `or` condition. For example, the syntax `'a' | 'b'` means that a valid assignment could be either `'a'` or `'b'`.
+In Bicep, a union type allows the creation of a combined type consisting of a set of sub-types. An assignment is valid if any of the individual sub-type assignments are permitted. The `|` character separates individual sub-types using an `or` condition. For example, the syntax `'a' | 'b'` means that a valid assignment could be either `'a'` or `'b'`. Union types are translated into the allowed-value constraint in Bicep, so only literals are permitted as members. Unions may include any number of literal-typed expressions.
 
 ```bicep
 type color = 'Red' | 'Blue' | 'White'
 type trueOrFalse = 'true' | 'false'
 type permittedIntegers = 1 | 2 | 3
+type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
+type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
 ```
 
 Any type expression can be used as a sub-type in a union type declaration (between `|` characters). For example, the following examples are all valid:
@@ -335,15 +337,42 @@ type bar = foo | 3
 type baz = bar | (4 | 5) | 6
 ```
 
+### Custom-tagged union data type
+
+Bicep supports custom tagged union data type, which is used to represent a value that can be one of several different types. To declare a custom tagged union data type, you can use a `@discriminator()` decorator. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
+
+```bicep
+@discriminator('<property-name>')
+```
+
+The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
+
+```bicep
+type FooConfig = {
+  type: 'foo'
+  value: int
+}
+
+type BarConfig = {
+  type: 'bar'
+  value: bool
+}
+
+@discriminator('type')
+param ServiceConfig  FooConfig | BarConfig | { type: 'baz', *: string } = { type: 'bar', value: true }
+```
+
+The parameter value is validated based on the discriminated property value. For instance, in the preceding example, if the _serviceConfig_ parameter is of type _foo_, it is validated using the _FooConfig_ type. Similarly, if the parameter is of type _bar_, it is validated using the _BarConfig_ type. This pattern applies to other types as well.
+
 There are some limitations with union type.
 
-* Union types must be reduceable to a single ARM type.  The following definition is in valid:
+* Union types must be reduceable to a single ARM type.  The following definition is invalid:
 
   ```bicep
   type foo = 'a' | 1
   ```
 
-The union type syntax can also be used in [user-defined data types](./user-defined-data-types.md).
+The union type syntax can be used in [user-defined data types](./user-defined-data-types.md).
 
 ## Secure strings and objects
 
