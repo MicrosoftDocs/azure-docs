@@ -38,7 +38,7 @@ Automated contract processing is the process of extracting key contract fields f
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-07-31-preview) & v4.0 (2024-02-29-preview)  supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) and v4.0 (2024-02-29-preview) support the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
