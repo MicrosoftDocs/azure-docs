@@ -680,7 +680,7 @@ You can get pronunciation assessment scores for:
 - Syllable groups
 - Phonemes in [SAPI](/previous-versions/windows/desktop/ee431828(v=vs.85)#american-english-phoneme-table) or [IPA](https://en.wikipedia.org/wiki/IPA) format
 
-### Supported features per locale
+## Supported features per locale
 
 The following table summarizes which features that locales support. For more specifies, see the following sections. If the locales you require aren't listed in the following table for the supported feature, fill out this [intake form](https://aka.ms/speechpa/intake) for further assistance.
 
@@ -783,7 +783,7 @@ pronunciationAssessmentConfig?.phonemeAlphabet = "IPA"
 
 ::: zone-end
 
-## Assess spoken phonemes
+### Assess spoken phonemes
 
 With spoken phonemes, you can get confidence scores that indicate how likely the spoken phonemes matched the expected phonemes.
 
@@ -1028,6 +1028,26 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 ::: zone pivot="programming-language-go"
 
 ::: zone-end
+
+## Other tips on configuration and SDK usage
+
+- Pronunciation assessment uses a fixed version of the speech to text model, different from the standard speech to text model.
+- Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
+  
+  When sorting the scores of accuracy/prosody/fluency/completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
+
+   For reading scenario:
+   - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
+   - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+
+   For speaking scenario (completeness score is useless):
+   - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+   - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
+
+   This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
+ 
+- Currently, only `en-US` is supported for topics in pronunciation assessment. There is no length limit for the topic parameter.
+- If your audio file exceeds 30 seconds, use continuous mode for processing. For how to use streaming mode, refer to [Use pronunciation assessment in streaming mode](#use-pronunciation-assessment-in-streaming-mode).
 
 ## Related content
 
