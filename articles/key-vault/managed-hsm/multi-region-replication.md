@@ -110,7 +110,7 @@ Some scenarios below with examples: Managed HSM in a primary region (UK South) a
 
   :::image type="content" source="../media/managed-hsm-multiregion-scenario-2.png" alt-text="Diagram illustrating the second managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-2.png":::
 
-- Managed HSMs in primary and extended regions but only one private endpoint configured in either primary or extension. For a client from a different VNET (VNET1) to connect to a Managed HSM through a private endpoint in a different VNET (VNET2), it requires VNET peering between the two VNETs. You can add VNET link for the private DNS zone which is created during the private endpoint creation.
+- Managed HSMs in primary and extended regions but only one private endpoint configured in either the primary or extended region. For a client from a different VNET (VNET1) to connect to a Managed HSM through a private endpoint in a different VNET (VNET2), it requires VNET peering between the two VNETs. You can add VNET link for the private DNS zone which is created during the private endpoint creation.
 
   :::image type="content" source="../media/managed-hsm-multiregion-scenario-3.png" alt-text="Diagram illustrating the third managed HSM multi-region scenario." lightbox="../media/managed-hsm-multiregion-scenario-3.png":::
 
