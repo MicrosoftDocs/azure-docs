@@ -24,6 +24,8 @@ Use the [`az servicebus topic subscription rule create`](/cli/azure/servicebus/t
 
 Use the [`Set-AzServiceBusRule`](/powershell/module/az.servicebus/set-azservicebusrule) to create a rule or filter on a subscription. 
 
+> [!NOTE]
+> A subscription rule consists of filters and actions. You can specify actions using CLI and PowerShell, but not using the Azure portal. 
 
 
 ## Filter on system properties
@@ -127,7 +129,7 @@ Here's a .NET C# example that creates the following Service Bus entities:
 - Subscription named `ColorRed` with a SQL filter expression `color='red'` and an action 
 - Subscription named `HighPriorityRedOrders` with a correlation filter expression `Subject = "red", CorrelationId = "high"`
 
-See the inline code comments for more details. 
+For more information, see the inline code comments. 
 
 ```csharp
 namespace CreateTopicsAndSubscriptionsWithFilters
@@ -381,7 +383,7 @@ See the following samples:
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+To explore Azure Service Bus features, try the samples in the language of your choice. 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
