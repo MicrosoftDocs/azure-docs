@@ -92,6 +92,8 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
 1. For models offered through the Azure Marketplace, ensure that your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
 
+    Models that are offered by non-Microsoft providers (for example, Llama and Mistral models) are billed through the Azure Marketplace. For such models, you're required to subscribe your project to the particular model offering. Models that are offered by Microsoft (for example, Phi-3 models) don't have this requirement, as billing is done differently. For details about billing for serverless deployment of models in the model catalog, see [Billing for serverless APIs](model-catalog-overview.md#billing).
+
 1. Select **Model catalog** from the left sidebar and find the model card of the model you want to deploy. In this article, you select a **Meta-Llama-3-8B-Instruct** model.
     
     1. If you're deploying the model using Azure CLI, Python, or ARM, copy the **Model ID**.
@@ -102,9 +104,7 @@ In this article, you learn how to deploy a model from the model catalog as a ser
     :::image type="content" source="../media/deploy-monitor/serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="../media/deploy-monitor/serverless/model-card.png":::
 
 
-Models that are offered by non-Microsoft providers (for example, Llama and Mistral models) are billed through the Azure Marketplace. For such models, you need to subscribe your project to the particular model offering. For models from Microsoft (for example, Phi-3 models), you don't need to subscribe your project to the model offering, as billing is done differently. For details about billing for serverless deployment of models in the model catalog, see [Billing for serverless APIs](model-catalog-overview.md#billing).
-
-The next section covers the steps for subscribing your project to a model offering. You can skip this section and go to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint), if you're using a Microsoft model.
+The next section covers the steps for subscribing your project to a model offering. You can skip this section and go to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint), if you're deploying a Microsoft model.
 
 ## Subscribe your project to the model offering
 
@@ -240,7 +240,7 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
 
 ## Deploy the model to a serverless API endpoint
 
-Once you've created a subscription for non-Microsoft model, you can deploy the associated model to a serverless API endpoint. For Microsoft models (such as Phi-3 models), you don't need to create a subscription.
+Once you've created a subscription for a non-Microsoft model, you can deploy the associated model to a serverless API endpoint. For Microsoft models (such as Phi-3 models), you don't need to create a subscription.
 
 The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
