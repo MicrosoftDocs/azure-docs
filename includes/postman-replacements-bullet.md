@@ -1,6 +1,8 @@
 ---
-ms.topic: include
+ms.service: azure
+author: ecfan
 ms.author: estfan
+ms.topic: include
 ms.date: 07/18/2024
 # Generic text about Postman alternatives.
 ---
