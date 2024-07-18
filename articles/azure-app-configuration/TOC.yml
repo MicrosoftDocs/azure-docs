@@ -117,7 +117,7 @@
         - name: Pull using Azure Pipelines
           href: pull-key-value-devops-pipeline.md
         - name: Push using GitHub Actions
-          href: concept-github-action.md
+          href: push-kv-github-action.md
         - name: Build project using exported configuration
           href: integrate-ci-cd-pipeline.md
         - name: Deploy to Kubernetes using Helm
