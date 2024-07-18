@@ -14,15 +14,19 @@ A Log Analytics workspace retains data in two states:
 * **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics, based on the [table plan](../logs/logs-table-plans.md).
 * **Long-term retention**: In this low-cost state, data isn't available for table plan features, but can be accessed through [search jobs](../logs/search-jobs.md). 
 
-This article explains how Log Analytics workspaces retain data and how to manage data retention of tables in your workspace.
+This article explains how Log Analytics workspaces retain data and how to manage the data retention of tables in your workspace.
 
 ## Interactive, long-term, and total retention
 
-By default, all tables in a Log Analytics workspace retain data for 30 days, except for [log tables with 90-day default retention](#log-tables-with-90-day-default-retention). During this period - the interactive retention period - you can retrieve the data from the table through queries, and the data is avaiable for visualizations, alerts, and other features and services, based on the table plan. 
+By default, all tables in a Log Analytics workspace retain data for 30 days, except for [log tables with 90-day default retention](#log-tables-with-90-day-default-retention). During this period - the interactive retention period - you can retrieve the data from the table through queries, and the data is available for visualizations, alerts, and other features and services, based on the table plan. 
 
-You can extend the interactive retention period of tables with the Analaytics plan to up to two years. The Basic and Auxiliary plans have a fixed interactive retention period of 30 days. 
+You can extend the interactive retention period of tables with the Analytics plan to up to two years. The Basic and Auxiliary plans have a fixed interactive retention period of 30 days. 
 
-To retain data in the same table beyond the interactive retention period, extend the table's total retention to up to 12 years. At the end of the interactive retention period, the data stays in the table at a low cost for up to 12 years. During this period - the long-term retention period - run a search job to retreive the specific data you need from the table and make it available for interactive queries in a search results table.
+> [!NOTE]
+> You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
+
+
+To retain data in the same table beyond the interactive retention period, extend the table's total retention to up to 12 years. At the end of the interactive retention period, the data stays in the table at a low cost for up to 12 years. During this period - the long-term retention period - run a search job to retrieve the specific data you need from the table and make it available for interactive queries in a search results table.
 
 :::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows interactive and long-term retention in Azure Monitor Logs.":::
 
@@ -31,13 +35,13 @@ To retain data in the same table beyond the interactive retention period, extend
 
 When you shorten a table's total retention, Azure Monitor Logs waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. 
 
-When you increase total retention, the new retention period applies to all data that was already ingested into the table and wasn't yet or removed.   
+When you increase total retention, the new retention period applies to all data that was already ingested into the table and wasn't yet removed.   
 
 When you change the long-term retention settings of a table with existing data, the change takes effect immediately. 
 
 ***Example***: 
 
-- You have an existing table with 180 days of interactive retention and no long-term retention. 
+- You have an existing Analytics table with 180 days of interactive retention and no long-term retention. 
 - You change the interactive retention to 90 days without changing the total retention period of 180 days. 
 - Azure Monitor automatically treats the remaining 90 days of total retention as low-cost, long-term retention, so that data that's 90-180 days old isn't lost.
 
@@ -51,10 +55,12 @@ When you change the long-term retention settings of a table with existing data, 
 
 ## Configure the default interactive retention period of Analytics tables
 
+The default interactive retention period of all tables in a Log Analytics workspace is 30 days. You can change the default interactive period of Analytics tables to up to two years by modifying the workspace-level data retention setting. Basic and Auxiliary tables have a fixed interactive retention period of 30 days. 
+
+Changing the default workspace-level data retention setting automatically affects all Analytics tables to which the default setting still applies in your workspace. If you've already changed the interactive retention of a particular table, that table isn't affected when you change the workspace default data retention setting.     
+
 > [!IMPORTANT]
 > Workspaces with 30-day retention might keep data for 31 days. If you need to retain data for 30 days only to comply with a privacy policy, configure the default workspace retention to 30 days using the API and update the `immediatePurgeDataOn30Days` workspace property to `true`. This operation is currently only supported using the [Workspaces - Update API](/rest/api/loganalytics/workspaces/update).
-
-To change the default interactive retention period of Analytics tables within a Log Analytics workspace from 30 days to up to two years:
 
 # [Portal](#tab/portal-3)
 
@@ -145,9 +151,6 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 ## Configure table-level retention
 
 By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-analtyics-retention-period-of-analytics-tables-in-your-workspace) and have no long-term retention. You can increase the interactive retention period to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
-
-> [!NOTE]
-> You can reduce the interactive retention period to as little as four days using the API or CLI. However, since 31 days of interactive retention are included in the ingestion price, lowering the retention period below 31 days doesn't reduce costs.
 
 To add long-term retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days).
 
