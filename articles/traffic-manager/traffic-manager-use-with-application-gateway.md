@@ -16,10 +16,10 @@ Azure Traffic Manager and [Azure Application Gateway](../application-gateway/ove
 
 ## Scenarios for using Azure App Gateway with Azure Traffic Manager
 
-* Improve application performance: By using Azure Traffic Manager to route traffic to the closest Azure Application Gateway, you can reduce latency and improve application performance for your users.
-* Increase application availability: By using Azure Traffic Manager to distribute traffic across multiple Azure Application Gateways, you can ensure that your application remains available even if one or more gateways become unavailable.
-* Scale your application: By using Azure Application Gateway to load balance traffic within a region, you can scale your application horizontally to handle increased traffic.
-* Secure your application: By using Azure Application Gateway to terminate SSL/TLS connections and protect against web attacks, you can secure your application from external threats.
+* **Improve application performance**: By using Azure Traffic Manager to route traffic to the closest Azure Application Gateway, you can reduce latency and improve application performance for your users.
+* **Increase application availability**: By using Azure Traffic Manager to distribute traffic across multiple Azure Application Gateways, you can ensure that your application remains available even if one or more gateways become unavailable.
+* **Scale your application**: By using Azure Application Gateway to load balance traffic within a region, you can scale your application horizontally to handle increased traffic.
+* **Secure your application**: By using Azure Application Gateway to terminate SSL/TLS connections and protect against web attacks, you can secure your application from external threats.
 
 ## Process overview: How to use Azure App Gateway with Azure Traffic Manager
 

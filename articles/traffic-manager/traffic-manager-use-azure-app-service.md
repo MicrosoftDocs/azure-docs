@@ -16,9 +16,9 @@ Azure App Service is a fully managed platform as a service (PaaS) offering that 
 
 ## Scenarios for using Azure Traffic Manager with Azure App Service
 
-* High availability: Azure Traffic Manager can help ensure that your app is always available by directing traffic to a healthy instance of your app in the event of an outage or other issue.
-* Geographic distribution: If you have apps in different geographic locations, you can use Azure Traffic Manager to direct users to the closest app in terms of the lowest network latency.
-* Load balancing: Azure Traffic Manager can distribute traffic across a set of apps, either evenly or according to weights, which you define.
+* **High availability**: Azure Traffic Manager can help ensure that your app is always available by directing traffic to a healthy instance of your app in the event of an outage or other issue.
+* **Geographic distribution**: If you have apps in different geographic locations, you can use Azure Traffic Manager to direct users to the closest app in terms of the lowest network latency.
+* **Load balancing**: Azure Traffic Manager can distribute traffic across a set of apps, either evenly or according to weights, which you define.
 
 By using Azure Traffic Manager with Azure App Service, you can ensure that your app is always available, provide better user experience by directing users to the closest app, and distribute traffic across a set of apps.
 
