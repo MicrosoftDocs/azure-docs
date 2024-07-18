@@ -1,7 +1,7 @@
 ---
 title: Message Analysis Transparency FAQ
 titleSuffix: An Azure Communication Services Advanced Messaging concept
-description: Learn about the Message ANalysis Transparency FAQ
+description: Learn about the Message Analysis Transparency FAQ
 author: gelli
 manager: camilo.ramirez
 services: azure-communication-services
@@ -16,19 +16,19 @@ ms.service: azure-communication-services
 
 ## What is Message Analysis? 
 
-Message Analysis is an AI-driven feature that evaluates and understands the content of messages sent via platforms like WhatsApp using Azure OpenAI resource brought by Contoso themselves. At a basic level, it takes text messages as input and processes them to determine the language of the text, the intent behind the message (e.g., a question about a service, a complaint), and identifies key phrases or topics discussed. The output is a set of data points about these aspects, which can be used to better respond to and engage with the message sender. 
+Message Analysis is an AI-driven feature that evaluates and understands the content of messages sent via platforms like WhatsApp using Azure OpenAI resource brought by Contoso themselves. At a basic level, it takes text messages as input and processes them to determine the language of the text. It then identifies the intent behind the message, such as a question about a service or a complaint, and identifies key phrases or topics discussed. The output is a set of data points about these aspects, which can be used to better respond to and engage with the message sender. 
 
 ## What can Message Analysis do?  
 
 Message Analysis leverages advanced AI capabilities with Azure OpenAI to offer multifaceted functionality for customer interaction. It uses Azure OpenAI services to process messages received through platforms like WhatsApp. Here’s what it does: 
 
-* Language Detection: Identifies the language of the message, provides confidence scores, and translate the message into English if the original message is not in English. 
+* Language Detection: Identifies the language of the message, provides confidence scores, and translate the message into English if the original message isn't in English. 
 * Intent Recognition: Analyzes the message to determine the customer’s purpose, such as seeking help or providing feedback. 
 * Key Phrase Extraction: Extracts important terms and names from the message, which can be crucial for context. 
 
 This combination of features enables businesses to tailor their responses and better manage customer interactions. 
 
-## What is/are Message Analysis’s intended use(s)? 
+## What are Message Analysis’s intended uses? 
 
 * Providing message analysis for agents or departments helps businesses resolve issues efficiently and provide a seamless end-user experience. 
 
@@ -50,7 +50,7 @@ This combination of features enables businesses to tailor their responses and be
 
    * Manual Verification: Conduct manual testing sessions where team members simulate real-world use cases to see how well the system processes and analyzes messages. 
 
-   * Bug Bashing: Organize bug bashing events where team members and stakeholders try to find as many issues as possible in a short time, which can uncover unexpected bugs or usability issues. 
+   * Bug Bashing: Organize bug bashing events where team members and stakeholders work together to find as many issues as possible within a short time. These events can help uncover unexpected bugs or usability problems.
 
 * Feedback in Production: 
 
@@ -62,24 +62,24 @@ This combination of features enables businesses to tailor their responses and be
 
 * False positives:  
 
-   * It is possible for the system to produce false positive analysis. For example, Intent of confusing/conflicting/ sarcastic content from customer messages cannot be analyzed correctly. 
+   * It's possible for the system to produce false positive analysis. For example, Intent of confusing/conflicting/ sarcastic content from customer messages can't be analyzed correctly. 
 
 * Unsupported languages/ Translation Issues: 
 
-   * If the language is not supported by the model, then it cannot be detected correctly or translated properly. There may be misleading translations in the supported languages as well that you have to account for correcting or building your own translation models. 
+   * If the model does't support the language, it can't be detected correctly or translated properly. There may be misleading translations in the supported languages as well that you have to account for correcting or building your own translation models. 
 
  
 
 ## What operational factors and settings allow for effective and responsible use of Message Analysis? 
 
-* Explicit Meta-Prompt Components: Enhance the system's prompts with explicit meta-prompt components that guide the AI in understanding the context of the conversation better. This can improve the relevance and accuracy of the analysis by providing clearer instructions on what the system should focus on during its assessments. 
+* Explicit Meta-Prompt Components: Enhance the system's prompts with explicit meta-prompt components that guide the AI in understanding the context of the conversation better. This approach can improve the relevance and accuracy of the analysis by providing clearer instructions on what the system should focus on during its assessments. 
 
 * Canned Responses for Sensitive Messages: Flags sensitive topics or questions in the analysis response. This helps ensure that replies are respectful and legally compliant, reducing the risk of errors or inappropriate responses generated by the AI. 
 
-* Phased Release Plan: Implement a staged rollout starting with a private preview involving a limited user base to gather feedback and ensure system stability before a full deployment. This phased approach allows for real-time adjustments and risk management based on actual user experiences. 
+* Phased Release Plan: To gather feedback and ensure system stability, implement a staged rollout starting with a private preview involving a limited user base before a full deployment. This phased approach allows for real-time adjustments and risk management based on actual user experiences. 
 
-* Update Incident Response Plan: Regularly update the incident response plan to include procedures that address the integration of new features or potential new threats. This ensures the team is prepared to handle unexpected situations effectively and can maintain system integrity and user trust. 
+* Update Incident Response Plan: Regularly update the incident response plan to include procedures that address the integration of new features or potential new threats. This strategy ensures the team is prepared to handle unexpected situations effectively and can maintain system integrity and user trust. 
 
-* Rollback Plan: Develop a rollback strategy that allows for quick reversion to a previous stable state if the new feature leads to unexpected issues. Implement this strategy in the deployment pipelines to ensure rapid response capabilities during critical situations. 
+* Rollback Plan: Develop a rollback strategy that allows for quick reversion to a previous stable state if the new feature leads to unexpected issues. To ensure rapid response capabilities during critical situations, implement this strategy in the deployment pipelines. 
 
-* Feedback Analysis: Regularly collect and analyze feedback from users, particularly from Contoso, to gather actionable insights. This feedback is crucial for continuous improvement and helps the development team understand the real-world impact of the features, leading to more targeted and effective updates. 
+* Feedback Analysis: To gather actionable insights, regularly collect and analyze feedback from users, particularly from Contoso. This feedback is crucial for continuous improvement and helps the development team understand the real-world impact of the features, leading to more targeted and effective updates. 
