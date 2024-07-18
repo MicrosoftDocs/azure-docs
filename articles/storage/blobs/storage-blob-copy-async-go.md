@@ -29,7 +29,7 @@ The methods covered in this article use the [Copy Blob](/rest/api/storageservice
 
 ## About copying blobs with asynchronous scheduling
 
-The `Copy Blob` operation can finish asynchronously and is performed on a best-effort basis, which means that the operation isn't guaranteed to start immediately or complete within a specified time frame. The copy operation is scheduled in the background and performed as the server has available resources.  The operation can complete synchronously if the copy occurs within the same storage account. 
+The `Copy Blob` operation can finish asynchronously and is performed on a best-effort basis, which means that the operation isn't guaranteed to start immediately or complete within a specified time frame. The copy operation is scheduled in the background and performed as the server has available resources. The operation can complete synchronously if the copy occurs within the same storage account. 
 
 A `Copy Blob` operation can perform any of the following actions:
 
@@ -39,7 +39,7 @@ A `Copy Blob` operation can perform any of the following actions:
 - Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
 - Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
 
-The source blob for a copy operation may be one of the following types: block blob, append blob, page blob, blob snapshot, or blob version. The copy operation always copies the entire source blob or file. Copying a range of bytes or set of blocks isn't supported.
+The source blob for a copy operation can be one of the following types: block blob, append blob, page blob, blob snapshot, or blob version. The copy operation always copies the entire source blob or file. Copying a range of bytes or set of blocks isn't supported.
 
 If the destination blob already exists, it must be of the same blob type as the source blob, and the existing destination blob is overwritten. The destination blob can't be modified while a copy operation is in progress, and a destination blob can only have one outstanding copy operation.
 
