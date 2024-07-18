@@ -1764,7 +1764,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5004335]: https://support.microsoft.com/kb/5004335
 [5008244]: https://support.microsoft.com/kb/5008244
 [5008277]: https://support.microsoft.com/kb/5008277
-[5008263]: https://support.microsoft.com/kb/5008263
+[5008263]: https://support.microsoft.com/topic/december-14-2021-kb5008263-monthly-rollup-513a39f5-b624-4214-b2be-b93f5a775e12
 [5001401]: https://support.microsoft.com/kb/5001401
 [5001403]: https://support.microsoft.com/kb/5001403
 [4578013]: https://support.microsoft.com/kb/4578013
