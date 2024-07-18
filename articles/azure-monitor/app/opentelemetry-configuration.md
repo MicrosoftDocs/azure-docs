@@ -202,12 +202,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add the OpenTelemetry telemetry service to the application.
 // This service will collect and send telemetry data to Azure Monitor.
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
-// Configure the OpenTelemetry tracer provider to add the resource attributes to all traces.
-builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
-    builder.ConfigureResource(resourceBuilder => 
-        resourceBuilder.AddAttributes(resourceAttributes)));
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
+    // Configure the ResourceBuilder to add the custom resource attributes to all signals.
+    // Custom resource attributes should be added AFTER AzureMonitor to override the default ResourceDetectors.
+    .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(_testResourceAttributes));
 
 // Build the ASP.NET Core web application.
 var app = builder.Build();
