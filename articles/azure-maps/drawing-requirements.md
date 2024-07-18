@@ -670,17 +670,6 @@ For a guide on how to prepare your drawing package, see the drawing package guid
 > [!div class="nextstepaction"]
 > [Drawing Package Guide]
 
-Learn more by reading:
-
-> [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
-> [Creator for indoor maps]
-
-[What is Azure Maps Creator?]: about-creator.md
-[Creator for indoor maps]: creator-indoor-maps.md
-
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
 [Drawing Package Guide]: drawing-package-guide.md

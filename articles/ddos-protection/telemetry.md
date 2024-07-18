@@ -6,13 +6,11 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: tutorial
-ms.date: 05/09/2024
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
 # Tutorial: View and configure Azure DDoS protection telemetry
-
-Azure DDoS Protection offers in-depth insights and visualizations of attack patterns through DDoS Attack Analytics. It provides customers with comprehensive visibility into attack traffic and mitigation actions via reports and flow logs. During a DDoS attack, detailed metrics are available through Azure Monitor, which also allows alert configurations based on these metrics.
 
 In this tutorial, you'll learn how to:
 
@@ -21,9 +19,7 @@ In this tutorial, you'll learn how to:
 > * View Azure DDoS Protection mitigation policies
 > * Validate and test Azure DDoS Protection telemetry
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-
+Azure DDoS Protection offers in-depth insights and visualizations of attack patterns through DDoS Attack Analytics. It provides customers with comprehensive visibility into attack traffic and mitigation actions via reports and flow logs. During a DDoS attack, detailed metrics are available through Azure Monitor, which also allows alert configurations based on these metrics.
 
 ## Prerequisites
 
@@ -51,7 +47,7 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
 1. For **Metric** select **Under DDoS attack or not**.
 1. Select the **Aggregation** type as **Max**.
 
-:::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating DDoS protection metrics menu." lightbox="./media/ddos-attack-telemetry/ddos-metrics-menu.png":::
+    :::image type="content" source="./media/ddos-attack-telemetry/ddos-metrics-menu.png" alt-text="Screenshot of creating DDoS protection metrics menu." lightbox="./media/ddos-attack-telemetry/ddos-metrics-menu.png":::
 
 ### View metrics from virtual network
 
@@ -62,10 +58,10 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
 1. Select **Public IP Address** for **Resource type** then select the specific public IP address you want to log metrics for, and then select **Apply**.
 1. Under **Metric** select your chosen metric then under **Aggregation** select type as **Max**.
 
->[!NOTE]
->To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by Azure DDoS Protection.
+    :::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot of DDoS diagnostic settings within Azure." lightbox="./media/ddos-attack-telemetry/vnet-ddos-metrics.png":::
 
-:::image type="content" source="./media/ddos-attack-telemetry/vnet-ddos-metrics.png" alt-text="Screenshot of DDoS diagnostic settings." lightbox="./media/ddos-attack-telemetry/vnet-ddos-metrics.png":::
+> [!NOTE]
+> To filter IP Addresses select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the virtual network, that are protected by Azure DDoS Protection.
 
 ### View metrics from Public IP address
 
@@ -77,8 +73,8 @@ For more information on metrics, see [Monitoring Azure DDoS Protection](monitor-
 1. Select **Public IP Address** for **Resource type** then select the specific public IP address you want to log metrics for, and then select **Apply**.
 1. Under **Metric** select your chosen metric then under **Aggregation** select type as **Max**.
 
->[!NOTE]
->When changing DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource will not be available.
+> [!NOTE]
+> When changing DDoS IP protection from **enabled** to **disabled**, telemetry for the public IP resource will not be available.
 
 ### View DDoS mitigation policies
 
@@ -97,7 +93,7 @@ You can make a chart for the public IP address resource. In this chart, include 
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing peace time telemetry." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
 
->[!NOTE]
+> [!NOTE]
 > To make a fair comparison, you need to convert the data to packets-per-second. You can do this by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
 
 ## Validate and test
