@@ -1,5 +1,5 @@
 ---
-title: Configure MQTT diagnostics service
+title: Configure MQ diagnostics service
 description: How to configure the MQTT broker diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
 author: kgremban
 ms.author: kgremban
@@ -60,5 +60,5 @@ spec:
 
 ## Related content
 
-- [Configure MQ broker diagnostic settings](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings)
+- [Configure MQ broker diagnostic settings](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mq-broker-diagnostic-settings)
 - [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
