@@ -89,7 +89,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
-- [Defender for Cloud - Pre-Purchase][(/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [Microsoft Fabric](fabric-capacity.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)

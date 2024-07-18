@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Access virtual machines as a student from the educator view
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows how educators can access their VMs for classes that they attend as students.
 
 The feature will be of great use when a teaching assistant is an educator for one class and a student in another class. And now, the teaching assistant wants to view and access the student VMs from the educator's view that shows the labs they own.
