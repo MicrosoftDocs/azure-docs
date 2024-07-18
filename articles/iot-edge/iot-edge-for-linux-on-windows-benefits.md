@@ -1,9 +1,9 @@
 ---
-title: Why use Azure IoT Edge for Linux on Windows? | Microsoft Docs 
-description: Benefits - Azure IoT Edge for Linux on Windows 
+title: Why use Azure IoT Edge for Linux on Windows?
+description: Benefits for using Azure IoT Edge for Linux on Windows (EFLOW) to deploy production Linux-based cloud-native workloads on Windows devices.
 author: PatAltimore
-ms.author: fcabrera
-ms.date: 04/15/2022
+ms.author: patricka
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -37,5 +37,3 @@ EFLOW doesn't require extensive Linux knowledge and utilizes familiar Windows to
 
 ## Windows + Linux
 **Interoperability**. With EFLOW, the whole is greater than the sum of its parts. Combining a Windows application and Linux application on the same device unlocks new experiences and scenarios that otherwise wouldn't have been possible. Interoperability and hardware passthrough capabilities built into EFLOW including, [TPM passthrough](how-to-provision-devices-at-scale-linux-on-windows-tpm.md), [HW acceleration](gpu-acceleration.md), [Camera passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/camera-over-rtsp), [Serial passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/serial), and more, allow you to take advantage of both Linux and Windows environments.
-
-**IoT Edge Marketplace.** EFLOW presents an opportunity for Linux developers to target Windows devices, greatly increasing the potential install base. The Azure Marketplace offers a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [Azure IoT Edge and EFLOW](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules).

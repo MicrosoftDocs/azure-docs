@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: iot-dps
-ms.custom: devx-track-extended-java, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 ---
 
@@ -26,7 +26,7 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * Trusted platform module (TPM)
 * Symmetric keys - **This tutorial demonstrates symmetric key attestation**
 
-Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
+Some devices might not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
 
 In this tutorial, you complete the following objectives:
 
@@ -126,7 +126,7 @@ In this section, you prepare a development environment to build the [Azure IoT D
     >[!TIP]
     >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. When the build completes successfully, the last few output lines will look similar to the following output:
+1. When the build completes successfully, the last few output lines look similar to the following output:
 
     ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -401,7 +401,7 @@ The sample provisioning code accomplishes the following tasks:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -427,7 +427,7 @@ To update and run the provisioning sample with your device information:
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
-5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
+5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class works with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file. No changes are needed.
 
 6. Build and run the sample code using the following command:
 
@@ -500,7 +500,7 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it's not needed with for this tutorial. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it's not needed with for this tutorial. You can use a custom payload when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
     The `provisioningClient.register()` method attempts the registration of your device.
 
@@ -509,7 +509,7 @@ To update and run the provisioning sample with your device information:
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied from the Azure portal.
     * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
-    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `<derived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -563,7 +563,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -584,7 +584,7 @@ To update and run the provisioning sample with your device information:
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
     * Replace `<id-scope>` with the **ID Scope** that you copied from the Azure portal.
     * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
-    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `<derived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -661,7 +661,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 

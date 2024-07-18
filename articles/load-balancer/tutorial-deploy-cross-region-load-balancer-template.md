@@ -16,7 +16,7 @@ A cross-region load balancer ensures a service is available globally across mult
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
@@ -60,7 +60,7 @@ Multiple Azure resources have been defined in the template:
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 

@@ -11,7 +11,7 @@ ms.date: 04/26/2022
 ms.custom: mode-api, devx-track-azurecli, devx-track-go
 ---
 # Quickstart: Connect a Go application to Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

@@ -19,6 +19,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
@@ -28,6 +29,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
@@ -35,9 +37,10 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 ---
 
 > [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Retrieve key and endpoint
+## Setup 
+### Retrieve key and endpoint
 
 To successfully call the Azure OpenAI APIs, you need the following information about your Azure OpenAI resource:
 
@@ -50,14 +53,13 @@ Go to your resource in the Azure portal. On the navigation pane, select **Keys a
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot that shows the Keys and Endpoint page for an Azure OpenAI resource in the Azure portal." lightbox="../media/quickstarts/endpoint.png":::
 
+[!INCLUDE [environment-variables](environment-variables.md)]
 
 ## Create a new Python application
 
 Create a new Python file named _quickstart.py_. Open the new file in your preferred editor or IDE.
 
-1. Replace the contents of _quickstart.py_ with the following code. Enter your endpoint URL and key in the appropriate fields. Change the value of `prompt` to your preferred text.
-
-    
+1. Replace the contents of _quickstart.py_ with the following code. Change the value of `prompt` to your preferred text.
 
     #### [DALL-E 3](#tab/dalle3)
 
@@ -67,8 +69,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     import requests
     import time
     import os
-    api_base = '<your_endpoint>'  # Enter your endpoint here
-    api_key = '<your_key>'        # Enter your API key here
+    api_base = os.environ['AZURE_OPENAI_ENDPOINT']  # Enter your endpoint here
+    api_key = os.environ['AZURE_OPENAI_API_KEY']         # Enter your API key here
 
     api_version = '2024-02-01'
     url = f"{api_base}/openai/deployments/<dalle3>/images/generations?api-version={api_version}"
@@ -97,8 +99,8 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     import time
     import os
 
-    api_base = '<your_endpoint>'  # Enter your endpoint here
-    api_key = '<your_key>'        # Enter your API key here
+    api_base = os.environ['AZURE_OPENAI_ENDPOINT'] # Enter your endpoint here
+    api_key = os.environ['AZURE_OPENAI_API_KEY']         # Enter your API key here
 
     # Assign the API version (DALL-E is currently supported for the 2023-06-01-preview API version only)
     api_version = '2023-06-01-preview'

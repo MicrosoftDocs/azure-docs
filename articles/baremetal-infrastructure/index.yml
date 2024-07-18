@@ -134,8 +134,4 @@ landingContent:
       - linkListType: architecture
         links:
          - text: Architecture
-           url: workloads/nc2-on-azure/architecture.md 
-      - linkListType: concept
-        links:
-         - text: Solution design
-           url: workloads/nc2-on-azure/solution-design.md
+           url: workloads/nc2-on-azure/architecture.md

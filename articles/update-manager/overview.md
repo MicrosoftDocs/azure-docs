@@ -76,7 +76,7 @@ Along with the following prerequisites, see [Support matrix](support-matrix.md) 
 Resource | Role
 --- | ---
 |Azure VM | [Azure Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or Azure [Owner](../role-based-access-control/built-in-roles.md#owner)
-Azure Arc-enabled server | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-overview.md#identity-and-access-control)
+Azure Arc-enabled server | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-identity-authorization.md#identity-and-access-control)
 
 ### Permissions
 

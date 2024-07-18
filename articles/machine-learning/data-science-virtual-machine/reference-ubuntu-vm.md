@@ -2,12 +2,12 @@
 title: 'Reference: Ubuntu Data Science Virtual Machine'
 titleSuffix: Azure Data Science Virtual Machine
 description: Details on tools included in the Ubuntu Data Science Virtual Machine
-author: jesscioffi
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: devx-track-python, linux-related-content
-ms.author: jcioffi
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: jcioffi
 ms.date: 04/30/2024
 ms.topic: reference
 ---

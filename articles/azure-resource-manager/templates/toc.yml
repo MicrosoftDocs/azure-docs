@@ -459,8 +459,6 @@
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
       href: update-visual-studio-deployment-script.md
-    - name: IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Reference
   items:
   - name: Template reference

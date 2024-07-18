@@ -170,6 +170,8 @@
           href: scenarios.md
         - name: Azure Storage blobs
           href: scenario-storage-blobs.md
+        - name: Upload to Azure Storage blobs
+          href: scenario-upload-storage-blobs.md
     - name: Classic
       items:
         - name: Migrate to Standard or Premium Tier
@@ -234,6 +236,10 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: About migration to Azure Front Door
+      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/TOC.json
+    - name: CDN and Front Door price comparison
+      href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
       href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Akamai retirement FAQ
@@ -386,6 +392,8 @@
     items:
     - name: Microsoft (classic)
       items:
+      - name: Migrate to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/TOC.json
       - name: Optimized content
         href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
         items:

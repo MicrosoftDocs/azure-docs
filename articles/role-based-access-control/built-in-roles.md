@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 05/07/2024
 ms.custom: generated
 ---
 
@@ -37,6 +37,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
 > | <a name='classic-virtual-machine-contributor'></a>[Classic Virtual Machine Contributor](./built-in-roles/compute.md#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+> | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
+> | <a name='compute-gallery-sharing-admin'></a>[Compute Gallery Sharing Admin](./built-in-roles/compute.md#compute-gallery-sharing-admin) | This role allows user to share gallery to another subscription/tenant or share it to the public. | 1ef6a3be-d0ac-425d-8c01-acb62866290b |
 > | <a name='data-operator-for-managed-disks'></a>[Data Operator for Managed Disks](./built-in-roles/compute.md#data-operator-for-managed-disks) | Provides permissions to upload data to empty managed disks, read, or export data of managed disks (not attached to running VMs) and snapshots using SAS URIs and Azure AD authentication. | 959f8984-c045-4866-89c7-12bf9737be2e |
 > | <a name='desktop-virtualization-application-group-contributor'></a>[Desktop Virtualization Application Group Contributor](./built-in-roles/compute.md#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
 > | <a name='desktop-virtualization-application-group-reader'></a>[Desktop Virtualization Application Group Reader](./built-in-roles/compute.md#desktop-virtualization-application-group-reader) | Reader of the Desktop Virtualization Application Group. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
@@ -161,6 +163,9 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-arc-kubernetes-cluster-admin'></a>[Azure Arc Kubernetes Cluster Admin](./built-in-roles/containers.md#azure-arc-kubernetes-cluster-admin) | Lets you manage all resources in the cluster. | 8393591c-06b9-48a2-a542-1bd6b377f6a2 |
 > | <a name='azure-arc-kubernetes-viewer'></a>[Azure Arc Kubernetes Viewer](./built-in-roles/containers.md#azure-arc-kubernetes-viewer) | Lets you view all resources in cluster/namespace, except secrets. | 63f0a09d-1495-4db4-a681-037d84835eb4 |
 > | <a name='azure-arc-kubernetes-writer'></a>[Azure Arc Kubernetes Writer](./built-in-roles/containers.md#azure-arc-kubernetes-writer) | Lets you update everything in cluster/namespace, except (cluster)roles and (cluster)role bindings. | 5b999177-9696-4545-85c7-50de3797e5a1 |
+> | <a name='azure-container-storage-contributor'></a>[Azure Container Storage Contributor](./built-in-roles/containers.md#azure-container-storage-contributor) | Install Azure Container Storage and manage its storage resources. Includes an ABAC condition to constrain role assignments. | 95dd08a6-00bd-4661-84bf-f6726f83a4d0 |
+> | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks. | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
+> | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments. | 95de85bd-744d-4664-9dde-11430bc34793 |
 > | <a name='azure-kubernetes-fleet-manager-contributor-role'></a>[Azure Kubernetes Fleet Manager Contributor Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-contributor-role) | Grants read/write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, etc. | 63bb64ad-9799-4770-b5c3-24ed299a07bf |
 > | <a name='azure-kubernetes-fleet-manager-rbac-admin'></a>[Azure Kubernetes Fleet Manager RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-admin) | Grants read/write access to Kubernetes resources within a namespace in the fleet-managed hub cluster - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
 > | <a name='azure-kubernetes-fleet-manager-rbac-cluster-admin'></a>[Azure Kubernetes Fleet Manager RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
@@ -218,6 +223,9 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-ai-developer'></a>[Azure AI Developer](./built-in-roles/ai-machine-learning.md#azure-ai-developer) | Can perform all actions within an Azure AI resource besides managing the resource itself. | 64702f94-c441-49e6-a78b-ef80e0188fee |
+> | <a name='azure-ai-enterprise-network-connection-approver'></a>[Azure AI Enterprise Network Connection Approver](./built-in-roles/ai-machine-learning.md#azure-ai-enterprise-network-connection-approver) | Can approve private endpoint connections to Azure AI common dependency resources | b556d68e-0be0-4f35-a333-ad7ee1ce17ea |
+> | <a name='azure-ai-inference-deployment-operator'></a>[Azure AI Inference Deployment Operator](./built-in-roles/ai-machine-learning.md#azure-ai-inference-deployment-operator) | Can perform all actions required to create a resource deployment within a resource group. | 3afb7f49-54cb-416e-8c09-6dc049efa503 |
 > | <a name='azureml-compute-operator'></a>[AzureML Compute Operator](./built-in-roles/ai-machine-learning.md#azureml-compute-operator) | Can access and perform CRUD operations on Machine Learning Services managed compute resources (including Notebook VMs). | e503ece1-11d0-4e8e-8e2c-7a6c3bf38815 |
 > | <a name='azureml-data-scientist'></a>[AzureML Data Scientist](./built-in-roles/ai-machine-learning.md#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | <a name='cognitive-services-contributor'></a>[Cognitive Services Contributor](./built-in-roles/ai-machine-learning.md#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |

@@ -45,7 +45,7 @@ To set up your environment, [install the Speech SDK](~/articles/ai-services/spee
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.37.0</version>
+            <version>1.38.0</version>
             </dependency>
         </dependencies>
     </project>
