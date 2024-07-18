@@ -283,7 +283,7 @@ Specifies the connection string for an Azure Storage account that the Functions 
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Instead of a connection string, you can use an identity based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
 
 ## AzureWebJobsStorage__accountName
 
@@ -408,7 +408,8 @@ This app setting is a temporary way for Node.js apps to enable a breaking change
 
 Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
 
-For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+For Node.js v18 or lower, the app setting is used, and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+
 - If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
 - If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
 
@@ -553,7 +554,7 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
-Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher-level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
 When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
@@ -793,7 +794,7 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### alwaysOn
 
-On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP triggers _wakes-up_ your functions. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, at which point only a request to an HTTP trigger _wakes up_ your function. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
 
 ### linuxFxVersion 
 
@@ -884,7 +885,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `properties.use32BitWorkerProcess` |32-bit not supported |
 | `properties.vnetBackupRestoreEnabled` |Not used for networking in Flex Consumption|
 | `properties.vnetContentShareEnabled` |Not used for networking in Flex Consumption|
-| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumptionlid|
+| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumption|
 | `properties.vnetRouteAllEnabled` |Not used for networking in Flex Consumption|
 | `properties.windowsFxVersion` |Not valid|
 

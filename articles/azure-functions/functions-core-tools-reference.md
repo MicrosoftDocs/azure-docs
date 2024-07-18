@@ -226,7 +226,7 @@ The following publish options apply, based on version:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated azure actions. |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
 | **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
@@ -278,7 +278,7 @@ The following deployment options apply:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--access-token`** | Lets you use a specific access token when performing authenticated azure actions. |
+| **`--access-token`** | Lets you use a specific access token when performing authenticated `azure` actions. |
 | **`--access-token-stdin `** | Reads a specific access token from a standard input. Use this when reading the token directly from a previous command such as [`az account get-access-token`](/cli/azure/account#az-account-get-access-token). |
 | **`--environment`** | The name of an existing Container Apps environment.| 
 | **`--image-build`** | When set to `true`, skips the local Docker build. |

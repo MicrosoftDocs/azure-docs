@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Securing Azure Functions
 
-In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. [Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
+In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud-hosted application. [Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
@@ -21,7 +21,7 @@ This section guides you on configuring and running your function app as securely
 
 ### Defender for Cloud
 
-Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../defender-for-cloud/defender-for-app-service-introduction.md). 
+Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an extra cost. To learn more, see [Protect your Azure App Service web apps and APIs](../defender-for-cloud/defender-for-app-service-introduction.md). 
 
 ### Log and monitor
 
@@ -48,7 +48,7 @@ HTTP endpoints that are exposed publicly provide a vector of attack for maliciou
 
 By default, clients can connect to function endpoints by using both HTTP or HTTPS. You should redirect HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. To learn how, see [Enforce HTTPS](../app-service/configure-ssl-bindings.md#enforce-https).
 
-When you require HTTPS, you should also Require the latest T[Work with access keys in Azure Functions](function-keys-how-to.md)LS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
+When you require HTTPS, you should also require the latest TLS version. To learn how, see [Enforce TLS versions](../app-service/configure-ssl-bindings.md#enforce-tls-versions).
 
 For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
@@ -58,7 +58,7 @@ Functions lets you use keys to make it harder to access your function endpoints.
 
 While access keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity. 
 
-For the highest-level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#deploy-your-function-app-to-a-virtual-network) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
+For the highest level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#deploy-your-function-app-to-a-virtual-network) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
 
 ### Enable App Service Authentication/Authorization
 
@@ -66,7 +66,7 @@ The App Service platform lets you use Microsoft Entra ID and several third-party
 
 ### Use Azure API Management (APIM) to authenticate requests
 
-APIM provides a variety of API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-policies.md#authentication-and-authorization). With APIM in place, you can configure your function app to accept requests only from the IP address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
+APIM provides various API security options for incoming requests. To learn more, see [API Management authentication policies](../api-management/api-management-policies.md#authentication-and-authorization). With APIM in place, you can configure your function app to accept requests only from the IP address of your APIM instance. To learn more, see [IP address restrictions](ip-addresses.md#ip-address-restrictions).
 
 ### Permissions
 
@@ -122,9 +122,9 @@ While application settings are sufficient for most many functions, you may want 
 
 Identities may be used in place of secrets for connecting to some resources. This has the advantage of not requiring the management of a secret, and it provides more fine-grained access control and auditing. 
 
-When you are writing code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
+When you're writing code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), you can choose to use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
 
-Some Azure Functions trigger and binding extensions may be configured using an identity-based connection. Today, this includes the [Azure Blob](./functions-bindings-storage-blob.md) and [Azure Queue](./functions-bindings-storage-queue.md) extensions. For information about how to configure these extensions to use an identity, see [How to use identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
+Some Azure Functions binding extensions can be configured to access services using identity-based connections. For more information, see [Configure an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
 
 ### Set usage quotas
 
@@ -212,7 +212,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 ### Deploy your function app in isolation
 
-Azure App Service Environment (ASE) provides a dedicated hosting environment in which to run your functions. ASE lets you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/integrate-with-application-gateway.md). 
+Azure App Service Environment provides a dedicated hosting environment in which to run your functions. These environments let you configure a single front-end gateway that you can use to authenticate all incoming requests. For more information, see [Configuring a Web Application Firewall (WAF) for App Service Environment](../app-service/environment/integrate-with-application-gateway.md). 
 
 ### Use a gateway service
 

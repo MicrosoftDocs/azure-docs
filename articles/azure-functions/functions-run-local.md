@@ -497,7 +497,7 @@ When the settings file is encrypted and decrypted, the file's `IsEncrypted` sett
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
-This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported binding were included in the core product extension.
+This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported bindings were included in the core product extension.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

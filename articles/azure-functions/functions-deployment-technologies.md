@@ -56,7 +56,7 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. 
 
-You must manually sync triggers when using these deploymention options:
+You must manually sync triggers when using these deployment options:
 
 + [External package URL](#external-package-url)
 + [Local Git](#local-git)
