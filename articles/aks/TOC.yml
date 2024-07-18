@@ -62,6 +62,8 @@
           href: learn/quick-windows-container-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-windows-container-deploy-portal.md
+        - name: Use Terraform
+          href: learn/quick-windows-container-deploy-terraform.md
     - name: Work with package managers
       expanded: true
       items:
@@ -156,6 +158,8 @@
       items:
         - name: Small and large language models
           href: concepts-ai-ml-language-models.md
+        - name: Fine-tuning language models
+          href: concepts-fine-tune-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -178,7 +182,7 @@
       href: concepts-sustainable-software-engineering.md
     - name: Preview API life cycle
       href: concepts-preview-api-life-cycle.md
-    - name: Dapr
+    - name: Dapr extension
       href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
@@ -777,6 +781,8 @@
               href: keda-deploy-add-on-arm.md
             - name: Use Azure CLI
               href: keda-deploy-add-on-cli.md
+            - name: Securely scale your applications using the Kubernetes Event-driven Autoscaling (KEDA) add-on and workload identity
+              href: keda-workload-identity.md
             - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
               href: keda-integrations.md
             - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
@@ -873,7 +879,7 @@
               href: deploy-application-az-cli.md
         - name: Dapr
           items:
-            - name: Create the Dapr extension
+            - name: Install the Dapr extension
               href: dapr.md
             - name: Configure the Dapr extension
               href: dapr-settings.md
@@ -937,6 +943,8 @@
           href: eks-edw-prepare.md
         - name: Deploy to Azure
           href: eks-edw-deploy.md
+- name: FAQ
+  href: faq.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -976,8 +984,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-container-service
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-    - name: FAQ
-      href: faq.md
 - name: Support and troubleshooting
   items:
     - name: Support options for AKS
