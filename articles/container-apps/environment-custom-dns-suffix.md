@@ -32,6 +32,7 @@ Azure Container Apps environment provides a default DNS suffix in the format `<U
 1. In a new browser window, go to your domain provider's website and add the DNS records shown in the *Domain validation* section to your domain.
 
     | Record type | Host | Value | Description |
+    | -- | -- | -- | -- |
     | A | `*.<DNS_SUFFIX>` | Environment inbound IP address | Wildcard record configured to the IP address of the environment. |
     | TXT | `asuid.<DNS_SUFFIX>` | Validation token | TXT record with the value of the validation token (not required for Container Apps environment with internal load balancer). |
 
