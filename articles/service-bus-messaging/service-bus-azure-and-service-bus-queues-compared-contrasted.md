@@ -2,7 +2,7 @@
 title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 ms.topic: article
-ms.date: 11/27/2023
+ms.date: 07/18/2024
 ---
 
 # Storage queues and Service Bus queues - compared and contrasted
@@ -61,7 +61,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 | Push-style API |No |Yes<br/><br/>Our .NET, Java, JavaScript, and Go SDKs provide push-style API. |
 | Receive mode |Peek & Lease |Peek & Lock<br/><br/>Receive & Delete |
 | Exclusive access mode |Lease-based |Lock-based |
-| Lease/Lock duration |30 seconds (default)<br/><br/>7 days (maximum) (You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API.) |30 seconds (default)<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
+| Lease/Lock duration |30 seconds (default)<br/><br/>You can renew or release a message lease using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |30 seconds (default)<br/><br/>You can renew the message lock for the same lock duration each time manually or use the automatic lock renewal feature where the client manages lock renewal for you. |
 | Lease/Lock precision |Message level<br/><br/>Each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) API. |Queue level<br/><br/>(each queue has a lock precision applied to all of its messages, but the lock can be renewed as described in the previous row) |
 | Batched receive |Yes<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages) |Yes<br/><br/>(implicitly enabling a pre-fetch property or explicitly by using transactions) |
 | Batched send |No |Yes<br/><br/>(by using transactions or client-side batching) |
