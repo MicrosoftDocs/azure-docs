@@ -44,7 +44,7 @@ This combination of features enables businesses to tailor their responses and be
 
    * Unit Testing: Develop and run unit tests for each component of the system to ensure they function correctly in isolation. 
 
-   * Integration Testing: Test the integration of different system components, such as the interaction between the webhook receiver, Azure OpenAI API, and Event Grid. This helps to identify issues where components interact. 
+   * Integration Testing: Test the integration of different system components, such as the interaction between the webhook receiver, Azure OpenAI API, and Event Grid. Testing helps to identify issues where components interact. 
 
 * Validation and Verification: 
 
@@ -66,7 +66,7 @@ This combination of features enables businesses to tailor their responses and be
 
 * Unsupported languages/ Translation Issues: 
 
-   * If the model does't support the language, it can't be detected correctly or translated properly. There may be misleading translations in the supported languages as well that you have to account for correcting or building your own translation models. 
+   * If the model doesn't support the language, it can't be detected correctly or translated properly. There may also be misleading translations in the supported languages that you need to correct or build your own translation models. 
 
  
 
