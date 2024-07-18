@@ -317,6 +317,40 @@
             - name: Security alerts reference list
               displayName: alerts, mitre
               href: alerts-reference.md
+            - name: Alerts for Windows machines
+              href: alerts-windows-machines.md
+            - name: Alerts for Linux machines
+              href: alerts-linux-machines.md
+            - name: Alerts for DNS
+              href: alerts-dns.md
+            - name: Alerts for Azure VM extensions
+              href: alerts-azure-vm-extensions.md
+            - name: Alerts for Azure App Service
+              href: alerts-azure-app-service.md
+            - name: Alerts for containers - Kubernetes clusters
+              href: alerts-containers.md
+            - name: Alerts for SQL Database and Azure Synapse Analytics
+              href: alerts-sql-database-and-azure-synapse-analytics.md
+            - name: Alerts for open-source relational databases
+              href: alerts-open-source-relational-databases.md
+            - name: Alerts for Resource Manager
+              href: alerts-resource-manager.md
+            - name: Alerts for Azure Storage
+              href: alerts-azure-storage.md
+            - name: Alerts for Azure Cosmos DB
+              href: alerts-azure-cosmos-db.md
+            - name: Alerts for Azure network layer
+              href: alerts-azure-network-layer.md
+            - name: Alerts for Azure Key Vault
+              href: alerts-azure-key-vault.md
+            - name: Alerts for Azure DDoS Protection
+              href: alerts-azure-ddos-protection.md
+            - name: Alerts for Defender for APIs
+              href: alerts-defender-for-apis.md
+            - name: Alerts for AI workloads
+              href: alerts-ai-workloads.md
+            - name: Deprecated security alerts
+              href: deprecated-alerts.md
         - name: Incidents
           items:
             - name: Incidents reference list
