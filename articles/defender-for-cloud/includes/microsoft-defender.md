@@ -1,5 +1,6 @@
 ---
 ms.service: defender-for-cloud
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 02/14/2023
 author: dcurwin

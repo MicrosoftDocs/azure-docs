@@ -114,6 +114,11 @@ sections:
            Using outbound rules allows you fine grained control over all aspects of outbound connectivity.
            
       - question: |
+          Is it expected for one frontend IP to be used when I have multiple frontend IP addresses or a prefix on my outbound rules?
+        answer: |
+          Azure Load Balancer will use IPs as needed based on available ports. It will only use the next frontend IP once the connections cannot be made from the one IP.
+      
+      - question: |
           How can I view the traffic from my configured health probe(s)?
         answer: |
           To view the traffic sent to each backend instance from the health probe you can use IP stack statistics with a tool such as netstat. The health probe traffic originates from 168.63.129.16.

@@ -183,7 +183,7 @@ This list doesn't include FQDNs and endpoints for other services such as Microso
 
 Direct connectivity to Azure Virtual Desktop RDP broker service endpoints is critical for remote performance to a dev box. These endpoints affect both connectivity and latency. To align with the Microsoft 365 network connectivity principles, you should categorize these endpoints as *Optimize* endpoints, and use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) from your Azure virtual network to those endpoints. RDP Shortpath  can provide another connection path for improved dev box connectivity, especially in suboptimal network conditions.
 
-To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identity those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
+To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identify those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
 Changing the network routes of a dev box (at the network layer or at the dev box layer like VPN) might break the connection between the dev box and the Azure Virtual Desktop RDP broker. If so, the end user is disconnected from their dev box until a connection is re-established.
 
 ## DNS requirements

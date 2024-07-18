@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Protect logic apps from zonal failures with zone redundancy and availability zones
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 
@@ -30,7 +30,7 @@ Availability zone support is available for Standard logic apps, which are powere
 
 * You can enable availability zone redundancy *only for new* Standard logic apps with workflows that run in single-tenant Azure Logic Apps. You can't enable availability zone redundancy for existing Standard logic app workflows.
 
-* You can enable availability zone redundancy *only at creation time using Azure portal*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy.
+* You can enable availability zone redundancy *only at creation time*. No programmatic tool support, such as Azure PowerShell or Azure CLI, currently exists to enable availability zone redundancy after creation.
 
 ### [Consumption (preview)](#tab/consumption)
 

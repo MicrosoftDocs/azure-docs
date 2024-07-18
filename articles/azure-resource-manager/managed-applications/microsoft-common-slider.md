@@ -2,7 +2,7 @@
 title: Slider UI element
 description: Describes the Microsoft.Common.Slider UI element for Azure portal. Enables users to set a value from a range of options.
 ms.topic: reference
-ms.date: 07/10/2020
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Common.Slider UI element
@@ -17,19 +17,19 @@ The Slider control lets users select from a range of allowed values.
 
 ```json
 {
-    "name": "memorySize",
-    "type": "Microsoft.Common.Slider",
-    "min": 1,
-    "max": 64,
-    "label": "Memory",
-    "subLabel": "MB",
-    "defaultValue": 24,
-    "showStepMarkers": false,
-    "toolTip": "Pick the size in MB",
-    "constraints": {
-        "required": false
-    },
-    "visible": true
+  "name": "memorySize",
+  "type": "Microsoft.Common.Slider",
+  "min": 1,
+  "max": 64,
+  "label": "Memory",
+  "subLabel": "MB",
+  "defaultValue": 24,
+  "showStepMarkers": false,
+  "toolTip": "Pick the size in MB",
+  "constraints": {
+    "required": false
+  },
+  "visible": true
 }
 ```
 
@@ -47,5 +47,5 @@ The Slider control lets users select from a range of allowed values.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

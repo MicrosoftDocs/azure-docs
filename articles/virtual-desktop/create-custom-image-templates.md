@@ -25,6 +25,7 @@ Before you can create a custom image template, you need to meet the following pr
    - Microsoft.Compute
    - Microsoft.Network
    - Microsoft.KeyVault
+   - Microsoft.ContainerInstance
 
 - A resource group to store custom image templates, and images. If you specify your own resource group for Azure Image Builder to use, then it needs to be empty before the image build starts.
 

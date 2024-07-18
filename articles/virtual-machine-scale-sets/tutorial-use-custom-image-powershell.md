@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.author: jushiman
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell

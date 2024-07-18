@@ -22,7 +22,7 @@ This sample CLI script restores a single Azure Database for MariaDB server to a 
 
 ## Sample script
 
-[!INCLUDE [cli-run-local-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-run-local-sign-in.md)]
+[!INCLUDE [cli-run-local-sign-in.md](../../../includes/cli-run-local-sign-in.md)]
 
 ### Run the script
 

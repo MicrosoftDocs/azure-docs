@@ -21,7 +21,7 @@ You need to use [speech synthesis markup language (SSML)](./speech-synthesis-mar
 
 - The `speakerProfileId` property in SSML is used to specify the [speaker profile ID](./personal-voice-create-voice.md) for the personal voice.
 
-- The voice name is specified in the `name` property in SSML. For personal voice, the voice name must be one of the supported base model voice names. To get a list of supported base model voice names, use the [BaseModels_List](/rest/api/speechapi/base-models/list) operation of the custom voice API.
+- The voice name is specified in the `name` property in SSML. For personal voice, the voice name must be one of the supported base model voice names. To get a list of supported base model voice names, use the [BaseModels_List](/rest/api/aiservices/speechapi/base-models/list) operation of the custom voice API.
   
   > [!NOTE]
   > The voice names labeled with the `Latest`, such as `DragonLatestNeural` or `PhoenixLatestNeural`, will be updated from time to time; its performance may vary with updates for ongoing improvements. If you would like to use a fixed version, select one labeled with a version number, such as `PhoenixV2Neural`.

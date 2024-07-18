@@ -43,6 +43,10 @@ ms.custom: references_regions
   **How do I remove Azure Container Storage?**  
   See [Remove Azure Container Storage](remove-container-storage.md).
 
+* <a id="azure-container-storage-containeros"></a>
+  **Does Azure Container Storage support Windows containers on AKS?**  
+  No, Azure Container Storage only supports AKS containers running on Ubuntu and Azure Linux nodes.
+
 ## Billing and pricing
 
 * <a id="azure-container-storage-extension-operation-failed"></a>

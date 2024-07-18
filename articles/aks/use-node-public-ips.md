@@ -114,7 +114,7 @@ az aks nodepool add --cluster-name <clusterName> --name <nodepoolName> --locatio
 
 AKS nodes utilizing node public IPs that host services on their host address need to have an NSG rule added to allow the traffic. Adding the desired ports in the node pool configuration will create the appropriate allow rules in the cluster network security group.
 
-If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group](../virtual-network/network-security-groups-overview.md#application-security-groups) (ASG). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
+If a network security group is in place on the subnet with a cluster using bring-your-own virtual network, an allow rule must be added to that network security group. This can be limited to the nodes in a given node pool by adding the node pool to an [application security group (ASG)](../virtual-network/network-security-groups-overview.md#application-security-groups). A managed ASG will be created by default in the managed resource group if allowed host ports are specified. Nodes can also be added to one or more custom ASGs by specifying the resource ID of the NSG(s) in the node pool parameters.
 
 ### Host port specification format
 
@@ -320,4 +320,3 @@ Containers:
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
 [drain-nodes]: resize-node-pool.md#drain-the-existing-nodes
-

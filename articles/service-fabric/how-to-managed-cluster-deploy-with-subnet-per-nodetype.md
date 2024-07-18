@@ -20,6 +20,22 @@ Configure your managed cluster's network properly for your scenario. You can use
 * [Bring-Your-Own-Virtual-Network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network)
 * [Bring-Your-Own-Azure-Load-Balancer scenario](how-to-managed-cluster-networking.md#bring-your-own-azure-load-balancer)
 
+You need to configure the rules of the NSG on the subnet to allow connections from Service Fabric Resource Provider (SFRP). Specifically, `SFMC_AllowServiceFabricGatewayToSFRP` and `SFMC_AllowServiceFabricGatewayToLB` must be allowed.
+
+The `SFMC_AllowServiceFabricGatewayToSFRP` NSG rule should take the following form:
+
+| Rule | Destination port range | Protocol | Source address prefix | Destination address prefix | Access |
+| - | - | - | - | - | - |
+| SFMC_AllowServiceFabricGatewayToSFRP | 19000, 19080 | TCP | ServiceFabric | VirtualNetwork | Allow |
+
+The `SFMC_AllowServiceFabricGatewayToLB` NSG rule should take the following form:
+
+| Rule | Destination port range | Protocol | Source address prefix | Destination address prefix | Access |
+| - | - | - | - | - | - |
+| SFMC_AllowServiceFabricGatewayToLB | Any | Any | AzureLoadBalancer | VirtualNetwork | Allow |
+
+For ARM template formatting of NSG rules, see the [NSG rule: SFMC_AllowServiceFabricGatewayToSFRP section of Configure network settings for Service Fabric managed clusters](how-to-managed-cluster-networking.md#nsg-rule-sfmc_allowservicefabricgatewaytosfrp) as an example.
+
 Subnet per NodeType only works for Service Fabric API version `2022-10-01 preview` or later.
 
 ## Considerations and limitations

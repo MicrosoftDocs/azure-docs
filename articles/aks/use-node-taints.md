@@ -250,6 +250,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     az aks nodepool update \
     --cluster-name $CLUSTER_NAME \
     --name $NODE_POOL_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --node-taints "sku=gpu:NoSchedule"
     ```
 
@@ -260,6 +261,7 @@ This article assumes you have an existing AKS cluster. If you need an AKS cluste
     ```azurecli-interactive
     az aks nodepool update \
     --cluster-name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
     --name $NODE_POOL_NAME \
     --node-taints ""
     ```
@@ -295,7 +297,7 @@ When you remove all initialization taint occurrences from node pool replicas, th
     az aks update \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
-    --node-init-taints "sku=gpu:NoSchedule"
+    --node-init-taints ""
     ```
 
 ## Check that the taint has been removed from the node

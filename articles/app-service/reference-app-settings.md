@@ -269,24 +269,24 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > [!div class="mx-tdCol5BreakAll"]
 > |Application Setting | Scope | Value | Max | Description
 > |-------------|-------------|-------------|---------------|--------------------|
-> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts.  |
-> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
-> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
-> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
-> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
-> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
-> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
-> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
-> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
-> |MAX_INPUT_VARS|PHP|10000|10000|-|
-> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
-> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
-> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
-> |WORDPRESS_ADMIN_EMAIL|Deployment only|-|-|WordPress admin email.|
-> |WORDPRESS_ADMIN_PASSWORD|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
-> |WORDPRESS_ADMIN_USER|Deployment only|-|-|WordPress admin username|
-> |WORDPRESS_ADMIN_LOCALE_CODE|Deployment only|-|-|Database username used to connect to WordPress.|
+> |`WEBSITES_ENABLE_APP_SERVICE_STORAGE`|Web App|true|-|When set to TRUE, file contents are preserved during restarts.  |
+> |`WP_MEMORY_LIMIT`|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |`WP_MAX_MEMORY_LIMIT`|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |`PHP_MEMORY_LIMIT`|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |`FILE_UPLOADS`|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |`UPLOAD_MAX_FILESIZE`|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |`POST_MAX_SIZE`|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |`MAX_EXECUTION_TIME`|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |`MAX_INPUT_TIME`|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |`MAX_INPUT_VARS`|PHP|10000|10000|-|
+> |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
+> |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
+> |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
+> |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
+> |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
+> |`WORDPRESS_ADMIN_LOCALE_CODE`|Deployment only|-|-|Database username used to connect to WordPress.|
 
 ## Domain and DNS
 
@@ -336,7 +336,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux custom containers: set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for Linux custom containers.<br/><br/>For Windows containers: set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers.||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time in seconds to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120` ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable isn't passed on to the container. | `https://<server-name>.azurecr.io` |

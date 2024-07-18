@@ -14,10 +14,32 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Reserved capacity](optimize-costs-reserved-capacity.md)
+* [Reserved capacity](reserved-capacity.md)
 
-    If you have a material storage footprint in a region and service level, you can optimize your TCO by committing to a one-year or three-year term of Azure NetApp Files reserved capacity. Like other [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity are automatically applied to existing Azure NetApp Files capacity pools in the same region and service level. Reserved capacity is available in increments of 100 TiB and 1 PiB for a one-year or three-year term. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same tenant. For more detail, see [Azure NetApp Files reserved capacity](optimize-costs-reserved-capacity.md) or view purchasing options in the Azure portal.
+    If you have a material storage footprint in a region and service level, you can optimize your TCO by committing to a one-year or three-year term of Azure NetApp Files reserved capacity. Like other [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity are automatically applied to existing Azure NetApp Files capacity pools in the same region and service level. Reserved capacity is available in increments of 100 TiB and 1 PiB for a one-year or three-year term. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same tenant. For more detail, see [Azure NetApp Files reserved capacity](reserved-capacity.md) or view purchasing options in the Azure portal.
         
+## July 2024
+
+* [Azure NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
+
+
+* [Metrics enhancement:](azure-netapp-files-metrics.md) New performance metrics for volumes
+
+    New counters have been added to Azure NetApp Files performance metrics to increase visibility into your volumes' workloads:
+
+    - Other IOPS: any operations other than read or write.
+    - Total IOPS: a summation of all IOPS (read, write, and other)
+    - Other throughput: any operations other than read or write.
+    - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
+
+## June 2024
+
+* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
+
+    Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
+    - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.
+    - Support for [Standard network features](azure-netapp-files-network-topologies.md) for SAP HANA volumes. 
+
 ## May 2024
 
 * [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).

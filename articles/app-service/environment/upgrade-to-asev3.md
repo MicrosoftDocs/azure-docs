@@ -16,6 +16,8 @@ ms.date: 6/12/2024
 >
 > As of [29 January 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/), you can no longer create new App Service Environment v1 and v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API.
 >
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
+>
 
 This page is your one-stop shop for guidance and resources to help you upgrade successfully with minimal downtime. Follow the guidance to plan and complete your upgrade as soon as possible. This page is updated with the latest information as it becomes available.
 
@@ -52,6 +54,18 @@ There are two automated migration features available to help you upgrade to App 
 - **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place. In-place means that your App Service Environment v3 replaces your existing App Service Environment in the same subnet. There's application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
 - **Side-by-side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There's no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side-by-side migration feature](side-by-side-migrate.md).
 - **Manual migration options** are available if you can't use the automated migration features. For more information about these options, see [Migration alternatives](migration-alternatives.md).
+
+### Why do some customers see performance differences after migrating?
+
+App Service Environment v3 uses newer virtual machines that are based on virtual CPUs (vCPU), not physical cores. One vCPU typically doesn't equate to one physical core in terms of raw CPU performance. As a result, CPU-bound workloads might see a performance difference if attempting to match old-school physical core counts to current vCPU counts.
+
+When migrating to App Service Environment v3, we map App Service plan tiers as follows: 
+
+|App Service Environment v2 SKU|App Service Environment v3 SKU|
+|------------------------------|------------------------------|
+|I1                            |I1v2                          |
+|I2                            |I2v2                          |
+|I3                            |I3v2                          |
 
 ### Migration path decision tree
 

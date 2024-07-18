@@ -143,7 +143,7 @@ updated software versions are released continuously. Ensure that you
 have an ongoing plan to monitor, triage, and apply updates or
 configuration changes to the libraries and components you use.
 
-See the [Open Web Application Security Project](https://www.owasp.org/) (OWASP) page on [using components with known vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities) for tool suggestions. You can also subscribe to email alerts for security vulnerabilities that are related to components you use.
+See the [Open Web Application Security Project (OWASP)](https://www.owasp.org/) page on [using components with known vulnerabilities](https://owasp.org/www-project-top-ten/2017/A9_2017-Using_Components_with_Known_Vulnerabilities) for tool suggestions. You can also subscribe to email alerts for security vulnerabilities that are related to components you use.
 
 ### Use threat modeling during application design
 

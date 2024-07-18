@@ -4,7 +4,7 @@ description: Learn how to create an Azure HDInsight cluster that uses Availabili
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/11/2023
+ms.date: 06/15/2024
 ---
 
 # Create an HDInsight cluster that uses Availability Zones

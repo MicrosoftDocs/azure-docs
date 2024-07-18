@@ -2,12 +2,12 @@
 title: CheckBox UI element
 description: Describes the Microsoft.Common.CheckBox UI element for Azure portal. Enables users to select to check or uncheck an option.
 ms.topic: reference
-ms.date: 07/09/2020
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Common.CheckBox UI element
 
-The CheckBox control lets users check or uncheck an option. The control returns **true** when the control is checked or **false** when not checked.
+The CheckBox control lets users check or uncheck an option. The control returns `true` when the control is checked or `false` when not checked.
 
 ## UI sample
 
@@ -17,13 +17,13 @@ The CheckBox control lets users check or uncheck an option. The control returns 
 
 ```json
 {
-    "name": "legalAccept",
-    "type": "Microsoft.Common.CheckBox",
-    "label": "I agree to the terms and conditions.",
-    "constraints": {
-        "required": true,
-        "validationMessage": "Please acknowledge the legal conditions."
-    }
+  "name": "legalAccept",
+  "type": "Microsoft.Common.CheckBox",
+  "label": "I agree to the terms and conditions.",
+  "constraints": {
+    "required": true,
+    "validationMessage": "Please acknowledge the legal conditions."
+  }
 }
 ```
 
@@ -35,9 +35,9 @@ true
 
 ## Remarks
 
-When you set **required** to **true**, the user must select the checkbox. If the user doesn't select the checkbox, the validation message is displayed.
+When you set `required` to `true`, the user must select the checkbox. If the user doesn't select the checkbox, the validation message is displayed.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

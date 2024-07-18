@@ -1,7 +1,7 @@
 ---
 title: Upgrade REST API versions
 titleSuffix: Azure AI Search
-description: Review differences in API versions and learn the steps for migrating code to the newer versions.
+description: Review differences in API versions and learn about the REST API lifecycle and the steps for migrating code to the newer versions.
 
 manager: nitinme
 author: bevloh
@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: conceptual
-ms.date: 06/03/2024
+ms.date: 06/24/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
@@ -20,13 +20,13 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 
 + [`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
 
-+ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. 
++ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) is the most recent preview API version. 
 
 Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
 We recommend upgrading API versions in succession, working through each version until you get to the newest one.
 
-`2023-07-01-preview` was the first REST API for vector support. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
+`2023-07-01-preview` was the first REST API for vector support. **Do not use this API version**. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
 
 > [!NOTE]
 > REST API reference docs are now versioned. For version-specific content, open a reference page and then use the selector located to the right, above the table of contents, to pick your version.
@@ -35,7 +35,7 @@ We recommend upgrading API versions in succession, working through each version 
 
 Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-+ Your code references a retired or deprecated API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview`](#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
++ Your code references a retired or unsupported API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview`](#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
@@ -89,7 +89,9 @@ If you're upgrading from the previous version, the next section has the steps.
 
 ## Upgrade from 2023-07-01-preview
 
-`2023-07-01-preview` is now deprecated, so you shouldn't upgrade *to* this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version. There are multiple breaking changes from `2023-07-01-preview` to any newer version.
+Do not use this API version. It implements a vector query syntax that's incompatible with any newer API version.
+
+`2023-07-01-preview` is now deprecated, so you shouldn't base new code on this version, nor should you upgrade *to* this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version.
 
 ### Portal upgrade for vector indexes
 

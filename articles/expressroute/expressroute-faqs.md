@@ -4,7 +4,7 @@ description: The ExpressRoute FAQ contains information about Supported Azure Ser
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 04/09/2024
 ms.author: duau
 
@@ -353,7 +353,7 @@ ExpressRoute premium is a collection of the following features:
 
 The following tables show the ExpressRoute limits and the number of VNets and ExpressRoute Global Reach connections per ExpressRoute circuit:
 
-[!INCLUDE [ExpressRoute limits](~/reusable-content/ce-skilling/azure/includes/expressroute-limits.md)]
+[!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
 ### How do I enable ExpressRoute premium?
 
@@ -523,7 +523,7 @@ No. ExpressRoute Traffic Collector can be deployed to a different subscription f
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 
-[!INCLUDE [customer-controlled network gateway maintenance](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
 
 ### How do I find out more about customer-controlled gateway maintenance?
 

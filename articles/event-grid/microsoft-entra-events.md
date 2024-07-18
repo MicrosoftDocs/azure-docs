@@ -12,6 +12,9 @@ This article provides the properties and schema for Microsoft Entra events, whic
 ## Available event types
 These events are triggered when a [User](/graph/api/resources/user) or [Group](/graph/api/resources/group) is created, updated, or deleted in Microsoft Entra ID or by operating over those resources using Microsoft Graph API. 
 
+> [!NOTE]
+> Currently, `UserUpdated` or `GroupUpdated` event is generated when a user or a group is created. It's a known issue and will be fixed in the future release. 
+
  | Event name | Description |
  | ---------- | ----------- |
  | **Microsoft.Graph.UserUpdated** | Triggered when a user in Microsoft Entra ID is **created** or **updated**. |
@@ -186,4 +189,4 @@ The data object has the following properties:
 * For information on how to subscribe to Microsoft Graph API to receive Microsoft Entra events, see [subscribe to Azure Graph API events](subscribe-to-graph-api-events.md).
 * For information about Azure Event Grid event handlers, see [event handlers](event-handlers.md).
 * For more information about creating an Azure Event Grid subscription, see [create event subscription](subscribe-through-portal.md#create-event-subscriptions) and [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about how to configure an event subscription to select specific events to be delivered, see [event filtering](event-filtering.md). You may also want to refer to [filter events](how-to-filter-events.md).
+* For information about how to configure an event subscription to select specific events to be delivered, see [event filtering](event-filtering.md). 

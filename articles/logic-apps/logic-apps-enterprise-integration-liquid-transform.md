@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Transform JSON and XML using Liquid templates as maps in workflows using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
@@ -271,16 +271,22 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
 ## Test your workflow
 
-1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, and include the JSON input to transform, for example:
+1. To send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, follow these steps:
 
-   ```json
-   {
-      "devices": "Surface, Mobile, Desktop computer, Monitors",
-      "firstName": "Dean",
-      "lastName": "Ledet",
-      "phone": "(111)0001111"
-   }
-   ```
+   1. Use a local tool or app such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
+
+   1. Send the HTTP request using the **`POST`** method with the URL.
+
+   1. Include the JSON input to transform, for example:
+
+      ```json
+      {
+         "devices": "Surface, Mobile, Desktop computer, Monitors",
+         "firstName": "Dean",
+         "lastName": "Ledet",
+         "phone": "(111)0001111"
+      }
+      ```
 
 1. After your workflow finishes running, go to the workflow's run history, and examine the **Transform JSON to JSON** action's inputs and outputs, for example:
 

@@ -28,7 +28,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
 
 ## Create a key vault
 
@@ -72,7 +72,7 @@ Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 

@@ -384,7 +384,7 @@ You should ensure that statistics on data tables are up to date by building in a
 
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
 
-- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage (ADLS)](../../../storage/blobs/data-lake-storage-introduction.md) and Azure Blob Storage.
 
 - CSV, PARQUET, and ORC file formats.
 

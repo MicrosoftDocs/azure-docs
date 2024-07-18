@@ -10,7 +10,7 @@ ms.custom: devx-track-arm-template, devx-track-azurecli
 
 # Develop ARM templates for cloud consistency
 
-[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 A key benefit of Azure is consistency. Development investments for one location are reusable in another. An Azure Resource Manager template (ARM template) makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
 

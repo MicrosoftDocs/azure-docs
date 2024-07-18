@@ -16,9 +16,10 @@ ms.custom: language-service-summarization, build-2024
 
 [!INCLUDE [availability](includes/regional-availability.md)]
 
-Summarization is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications.
+Summarization is one feature offered by [Azure AI Language](../overview.md), which is a combination of generative Large Language models and task-optimized encoder models that offer summarization solutions with higher quality, cost efficiency, and lower latency.
+Use this article to learn more about this feature, and how to use it in your applications.
 
-Though the services are labeled document and conversation summarization, text summarization only accepts plain text blocks, and conversation summarization accept various speech artifacts in order for the model to learn more. If you want to process a conversation but only care about text, you can use text summarization for that scenario.
+Out of the box, the service provides summarization solutions for three types of genre, plain texts, conversations, and native documents. Text summarization only accepts plain text blocks, and conversation summarization accept conversational input, including various speech audio signals in order for the model to effectively segment and summarize, and native document can directly summarize for documents in their native formats, such as Words, PDF, etc. 
 
 # [Text summarization](#tab/text-summarization)
 
@@ -27,24 +28,22 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization uses natural language processing techniques to generate a summary for documents. There are two supported API approaches to automatic summarization: extractive and abstractive. 
-
-Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content. Abstractive summarization generates a summary with concise, coherent sentences or words that aren't verbatim extract sentences from the original document. These features are designed to shorten content that could be considered too long to read.
+These features are designed to shorten content that could be considered too long to read.
 
 ## Key features for text summarization
 
-There are two aspects of text summarization this API provides:
+Text summarization uses natural language processing techniques to generate a summary for plain texts, which can be from a document or a conversation, or any texts. There are two approaches of summarization this API provides:
 
-* [**Extractive summarization**](how-to/document-summarization.md#try-text-extractive-summarization): Produces a summary by extracting salient sentences within the document.
+* [**Extractive summarization**](how-to/document-summarization.md#try-text-extractive-summarization): Produces a summary by extracting salient sentences within the document, together the positioning information of these sentences. 
 
   * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
-  * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
-  * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
+  * Rank score: The rank score indicates how relevant a sentence is to the main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+ For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
   * Positional information: The start position and length of extracted sentences.
 
-* [**Abstractive summarization**](how-to/document-summarization.md#try-text-abstractive-summarization): Generates a summary that doesn't use the same words as in the document, but captures the main idea.
-  * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document can be segmented so multiple groups of summary texts can be returned with their contextual input range.
-  * Contextual input range: The range within the input document that was used to generate the summary text.
+* [**Abstractive summarization**](how-to/document-summarization.md#try-text-abstractive-summarization): Generates a summary with concise, coherent sentences or words that aren't verbatim extract sentences from the original document.
+  * Summary texts: Abstractive summarization returns a summary for each contextual input range. A long input can be segmented so multiple groups of summary texts can be returned with their contextual input range.
+  * Contextual input range: The range within the input that was used to generate the summary text.
 
 As an example, consider the following paragraph of text:
 
@@ -52,7 +51,7 @@ As an example, consider the following paragraph of text:
 
 The text summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API is returned. The output is available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response can contain text offsets. For more information, see [how to process offsets](../concepts/multilingual-emoji-support.md).
 
-If we use the above example, the API might return these summarized sentences:
+If we use the above example, the API might return these summaries:
 
 **Extractive summarization**:
 - "At Microsoft, we are on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding."
@@ -73,11 +72,10 @@ This documentation contains the following article types:
 
 Conversation summarization supports the following features:
 
-* [**Issue/resolution summarization**](how-to/conversation-summarization.md#get-summaries-from-text-chats): A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
+* [**Recap**](how-to/conversation-summarization.md#get-recap-and-follow-up-task-summarization): Summarizes a conversation into a brief paragraph.
+* [**Issue/resolution summarization**](quickstart.md?tabs=conversation-summarization%2Cwindows&pivots=rest-api#conversation-issue-and-resolution-summarization): Call center specific features that give a summary of issues and resolutions in conversations between customer-service agents and your customers.
 * [**Chapter title summarization**](how-to/conversation-summarization.md#get-chapter-titles): Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
-* [**Recap**](how-to/conversation-summarization.md#get-narrative-summarization): Summarizes a conversation into a brief paragraph.
 * [**Narrative summarization**](how-to/conversation-summarization.md#get-narrative-summarization): Generates detail call notes, meeting notes or chat summaries of the input conversation.
-* [**Follow-up tasks**](how-to/conversation-summarization.md#get-narrative-summarization): Gives a list of follow-up tasks discussed in the input conversation.
 
 As an example, consider the following example conversation:
 
@@ -101,23 +99,37 @@ As an example, consider the following example conversation:
 
 Conversation summarization feature would simplify the text as follows:
 
-|Example summary  | Format | Conversation aspect |
+|Example summary  | Remark | Conversation aspect |
 |---------|----|----|
-| Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
-| Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
+| Customer is unable to set up wifi connection for Smart Brew 300 espresso machine |  a customer issue in a customer-and-agent conversation     | issue  |
+| The agent suggested several troubleshooting steps, including checking the wifi connection, checking the Contoso Coffee app, and performing a factory reset. However, none of these steps resolved the issue. The agent then put the customer on hold to look for another solution.   | solutions tried in a customer-and-agent conversation | resolution |
+| The customer contacted the agent for assistance with setting up a wifi connection for their Smart Brew 300 espresso machine. The agent guided the customer through several troubleshooting steps, including a wifi connection check, checking the power light, and a factory reset. Despite following these steps, the issue persisted. The agent then decided to explore other potential solutions | Summarizes a conversation into one paragraph | recap |
+| Troubleshooting SmartBrew 300 Espresso Machine | Segments a conversation and generates a title for each segment; usually cowork with `narrative` aspect  | chapterTitle
+| The customer is having trouble setting up a wifi connection for their Smart Brew 300 espresso machine. The agent suggests several solutions, including a factory reset, but the issue persists. | Segments a conversation and generates a summary for each segment, usually cowork with `chapterTitle` aspect  | narrative
 
-# [Document summarization](#tab/document-summarization)
+# [Document summarization (Preview)](#tab/document-summarization)
 
 This documentation contains the following article types:
 
-* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
+* **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Document summarization uses natural language processing techniques to generate a summary for documents. There are two supported API approaches to automatic summarization: extractive and abstractive. 
+Document summarization uses natural language processing techniques to generate a summary for documents. 
 
-A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for both [**AbstractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-abstractive-summarization) and [**ExtractiveSummarization**](../summarization/how-to/document-summarization.md#try-text-extractive-summarization) capabilities.
+A native document refers to the file format used to create the original document such as Microsoft Word (docx) or a portable document file (pdf). Native document support eliminates the need for text preprocessing prior to using Azure AI Language resource capabilities.  Currently, native document support is available for two types of summarization:
+* **Extractive summarization**: Produces a summary by extracting salient sentences within the document, together the positioning information of those sentences. 
 
- Currently **Text Summarization** supports the following native document formats:
+  * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They're original sentences extracted from the input document's content.
+  * Rank score: The rank score indicates how relevant a sentence is to the main topic. Text summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+ For example, if you request a three-sentence summary extractive summarization returns the three highest scored sentences.
+  * Positional information: The start position and length of extracted sentences.
+
+* **Abstractive summarization**: Generates a summary with concise, coherent sentences or words that aren't verbatim extract sentences from the original document.
+  * Summary texts: Abstractive summarization returns a summary for each contextual input range. A long input can be segmented so multiple groups of summary texts can be returned with their contextual input range.
+  * Contextual input range: The range within the input that was used to generate the summary text.
+
+
+ Currently **Document Summarization** supports the following native document formats:
 
 |File type|File extension|Description|
 |---------|--------------|-----------|
@@ -143,7 +155,7 @@ For more information, *see* [**Use native documents for language processing**](.
 # [Conversation summarization](#tab/conversation-summarization)
 
 * Conversation summarization takes structured text for analysis. For more information, see [data and service limits](../concepts/data-limits.md).
-* Conversation summarization accepts text in English. For more information, see [language support](language-support.md?tabs=conversation-summarization).
+* Conversation summarization works with various spoken languages. For more information, see [language support](language-support.md?tabs=conversation-summarization).
 
 # [Document summarization](#tab/document-summarization)
 
