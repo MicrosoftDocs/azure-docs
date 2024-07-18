@@ -2,13 +2,29 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 02/23/2024
+ms.date: 07/18/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
 
 # Set subscription filters (Azure Service Bus)
 This article provides a few examples on setting filters on subscriptions for Service Bus topics. For conceptual information about filters, see [Filters](topic-filters.md).
+
+## Use Azure portal
+
+To set subscription filters in the Azure portal, use the **Filters** section of the **Service Bus Subscription** page.
+
+:::image type="content" source="./media/service-bus-filter-examples/filters-section.png" alt-text="Screenshot that shows the Service Bus Subscription page with the Filters section highlighted." lightbox="./media/service-bus-filter-examples/filters-section.png":::
+
+## Use Azure CLI
+
+Use the [`az servicebus topic subscription rule create`](/cli/azure/servicebus/topic/subscription/rule) to create a rule or filter on a subscription. 
+
+## Use Azure PowerShell
+
+Use the [`Set-AzServiceBusRule`](/powershell/module/az.servicebus/set-azservicebusrule) to create a rule or filter on a subscription. 
+
+
 
 ## Filter on system properties
 To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
