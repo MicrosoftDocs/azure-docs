@@ -12,7 +12,7 @@ ms.custom: upgradepolicy, devx-track-azurepowershell
 # Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA) . 
+> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
 >
 > **Rolling upgrade policy for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
 >
@@ -245,7 +245,7 @@ Stop-AzVmssRollingUpgrade `
 
 ## Restart a rolling upgrade
 
-If you decide to cancel a rolling upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new rolling upgrade. If you want to restart a rolling upgrade, to trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
+If you decide to cancel a rolling upgrade or the upgrade has stopped due to any policy breach, any more changes that result in another scale set model change trigger a new rolling upgrade. If you want to restart a rolling upgrade, trigger a generic model update. This tells the scale set to check if all the instances are up to date with the latest model.
 
 ### [CLI](#tab/cli4)
 To restart a rolling upgrade after its been canceled, you need to trigger the scale set to check if the instances in the scale set are up to date with the latest scale set model. You can do this by running [az vmss update](/cli/azure/vmss#az-vmss-update).

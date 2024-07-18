@@ -5,9 +5,9 @@ description: Learn how to use a custom container with an open-source server to d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 03/26/2024
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, sdkv2

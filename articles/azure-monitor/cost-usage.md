@@ -67,10 +67,9 @@ See [Azure Monitor billing meter names](cost-meters.md) for a list of all Azure 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
 
->[!NOTE]
->Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
+> [!NOTE]
+> Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application. (You might need to use the [preview version](https://preview.portal.azure.com/) of the Azure portal to see this option.) 
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
-
 ### Automated mails and alerts
 Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 
@@ -103,7 +102,7 @@ There are several approaches to view the benefits a workspace receives from offe
 1. [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
 > [!NOTE]
-> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution).
+> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](/cli/azure/monitor/log-analytics/solution).
 
 ### View benefits in a usage export
 

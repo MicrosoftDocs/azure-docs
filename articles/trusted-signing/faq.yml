@@ -46,7 +46,7 @@ sections:
           For questions with Identity Validation reach out via Microsoft Q&A or Stack Overflow, tag: trusted-signing. Identity Validation issues aren't supported by Azure Support.
       - question: What is the cost of using Trusted Signing?
         answer: | 
-          Trusted Signing is free for now in public preview. You're prompted to select a Basic SKU or Premium SKU when you create your account.
+          Refer to the [Trusted Signing pricing page](https://azure.microsoft.com/pricing/details/trusted-signing/) for details.
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           You can create a support ticket with the service in the Azure portal. You're assisted by Azure customer support. Otherwise, we recommend that you go to Microsoft Q&A or Stack Overflow and use the tag `Trusted-Signing` to ask questions.  
@@ -155,6 +155,7 @@ sections:
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | Azure.Identity.CredentialUnavailableException         |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you are working outside of Azure, we recommend that you add "exclude ManagedIdentity". |
+          | 403          |  - Check Trusted Signing role.  <br>  - Check Trusted Signing account name and Trusted Signing Certificate profile name in your metadata.json. <br> - Check dlib and dlib path. <br>  - Install C++ Redistributables: Download link: https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check .NET version, dlib version, and Windows SDK version. <br>  - Check if Trusted Signing role is assigned to the identity trying to sign the file. <br>  - Check if the corresponding Identity Validation is in "Completed" state.<br>  - Verify if you access the Trusted Signing endpoint from this VM or machine?Try executing the action on a different VM or machine. It can be a potential network issue. <br> - For Private Trust scenarios 403: The user object ID to do the signing is different than the user object ID to call the  Get-azCodeSigningRootCert. The appropriate object ID needs to have the role “Trusted Signing Certificate Profile Signer."|
   - name: Cost Management and Billing
     questions:  
        - question: How do I view usage costs and billing information for Trusted Signing resources?

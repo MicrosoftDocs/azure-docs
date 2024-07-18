@@ -80,6 +80,16 @@ You can review the `environmentVariables.sh` Bash script in the `deployment` dir
 > [!div class="nextstepaction"]
 > [Deploy the EDW workload to Azure][eks-edw-deploy]
 
+## Contributors
+
+*This article is maintained by Microsoft. It was originally written by the following contributors*:
+
+- Ken Kilty | Principal TPM
+- Russell de Pina | Principal TPM
+- Jenny Hayes | Senior Content Developer
+- Carol Smith | Senior Content Developer
+- Erin Schaffer | Content Developer 2
+
 <!-- LINKS -->
 [azure-storage-queue-scaler]: https://keda.sh/docs/1.4/scalers/azure-storage-queue/
 [github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws

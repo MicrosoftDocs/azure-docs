@@ -183,7 +183,6 @@ For models offered through the Azure Marketplace, you can deploy them to serverl
                 "type": "Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions",
                 "apiVersion": "2024-04-01",
                 "name": "[concat(parameters('project_name'), '/', parameters('subscription_name'))]",
-                "location": "[parameters('location')]",
                 "properties": {
                     "modelId": "[parameters('model_id')]"
                 }

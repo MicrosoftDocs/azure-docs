@@ -8,7 +8,7 @@ ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Monitor Site Recovery
+# Use the Recovery Services dashboard
 
 In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
