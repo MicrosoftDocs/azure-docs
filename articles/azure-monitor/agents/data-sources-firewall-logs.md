@@ -24,7 +24,7 @@ To complete this procedure, you need:
 - A Virtual Machine, Virtual Machine Scale Set, or Arc-enabled on-premises machine that is running firewall. 
 
 ## Add Firewall table to Log Analytics Workspace
-Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table isn't present you'll get a DCR deployment error stating that the table isn't present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../../reference/tables/windowsfirewall.md)
+Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table isn't present you'll get a DCR deployment error stating that the table isn't present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](../reference/tables/windowsfirewall.md)
 
 [ ![Screenshot that shows how to add the security and audit solution.](media/data-collection-firewall-log/security-and-audit-solution.png) ](./media/data-collection-firewall-log/security-and-audit-solution.png#lightbox)
 
@@ -79,10 +79,10 @@ To create the data collection rule in the Azure portal:
 
 Count the firewall log entries by URL for the host www.contoso.com.
     
-    ```kusto
-    WindowsFirewall 
-    | take 10
-    ```
+```kusto
+WindowsFirewall 
+| take 10
+```
 
     [ ![Screenshot that shows the results of a Firewall log query.](media/data-collection-firewall-log/law-query-results.png) ](media/data-collection-firewall-log/law-query-results.png#lightbox)
 
