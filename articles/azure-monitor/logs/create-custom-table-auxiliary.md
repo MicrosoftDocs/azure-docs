@@ -236,7 +236,7 @@ During public preview, these limitation apply:
         - France Central
     - **Middle East**
         - Israel Central
-- You can set the Auxiliary plan only on custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
+- You can set the Auxiliary plan only on data collection rule-based custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
 - Tables with the Auxiliary plan: 
     - Are currently unbilled. There's currently no charge for ingestion, queries, search jobs, and long-term retention.
     - Do not support columns with dynamic data.
@@ -245,7 +245,12 @@ During public preview, these limitation apply:
 - A data collection rule that sends data to a table with an Auxiliary plan:
     - Can only send data to a single table.
     - Can't include a [transformation](../essentials/data-collection-transformations.md). 
+- Ingestion data for Auxiliary tables isn't currently available in the Azure Monitor Logs [Usage table](/azure/azure-monitor/reference/tables/usage). To estimate data ingestion volume, you can count the number of records in your Auxiliary table using this query:
 
+    ```kusto
+    MyTable_CL
+    | summarize count()
+    ```
 
 ## Next steps
 
