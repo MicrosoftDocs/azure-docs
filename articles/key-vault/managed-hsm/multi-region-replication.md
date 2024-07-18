@@ -124,7 +124,7 @@ In the diagram below, private endpoint is created only in the UK South region, o
 
 ### Azure CLI commands
 
-If creating a new Managed HSM pool and then extending to an extended region, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create an extension HSM into  another region.  
+If creating a new Managed HSM pool and then extending to an extended region, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to extend the HSM pool into an extended region.  
 
 > [!NOTE]
 > These commands requires Azure CLI version 2.48.1 or higher. To install the latest version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
