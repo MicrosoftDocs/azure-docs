@@ -1,0 +1,21 @@
+items:
+- name: Deidentification service documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items: 
+    - name: What is the Deindentification service?
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items: 
+    - name: Deploy the Deindentification services
+      href: quickstart.md
+- name: How-tos
+  expanded: true
+  items: 
+    - name: Use managed identities
+      href: managed-identities.md
+    - name: Use batch jobs to deindentify data
+      href: batch-job.md
+   

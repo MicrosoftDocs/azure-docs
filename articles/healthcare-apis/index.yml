@@ -129,14 +129,24 @@ conceptualContent:
               text: Troubleshoot events
                      
         # Card
-        - title: De-identification
+        - title: Deidentify medical data
           links:
             - url: ./deidentification/overview.md
               itemType: overview
-              text: De-ID
+              text: Deidentification service overview
             - url: ./deidentification/quickstart.md
               itemType: how-to-guide
-              text: De-ID quickstart
+              text: Deploy the Deidentification service
+            - url: ./deidentification/manage-access-rbac.md
+              itemType: how-to-guide
+              text: Manage access with Azure RBAC
+            - url: ./deidentification/managed-identities.md
+              itemType: how-to-guide
+              text: Use managed identities with the Deindentification service
+            - url: ./deidentification/batch-job.md
+              itemType: how-to-guide
+              text: Use batch jobs to deidentify medical data
+
 
 additionalContent:
   sections:
