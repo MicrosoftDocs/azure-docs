@@ -1,6 +1,6 @@
 ---
 title: Learn about monitoring
-description: Start here to learn how to monitor Azure Synapse Analytics.
+description: Learn how to monitor Azure Synapse Analytics using Azure Monitor.
 ms.date: 03/25/2024
 ms.topic: conceptual
 author: jonburchel

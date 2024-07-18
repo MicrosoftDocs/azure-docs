@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Synapse Analytics
-description: Start here to learn how to monitor Azure Synapse Analytics.
+title: Monitor dedicated SQL pool in Azure Synapse Analytics
+description: Start here to learn how to monitor dedicated SQL pool in Azure Synapse Analytics.
 ms.date: 03/25/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: jburchel
 ms.service: synapse-analytics
 ---
 
-# Monitor Azure Synapse Analytics
+# Monitor dedicated SQL pool in Azure Synapse Analytics
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
