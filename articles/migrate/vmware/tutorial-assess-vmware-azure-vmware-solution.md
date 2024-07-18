@@ -65,9 +65,6 @@ Run an assessment as follows:
 1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
- 
-
-1. 1. In **Assessment properties** > **Target Properties**:
 
 1. In **Assessment settings**, set the necessary values or retain the default values:
 
