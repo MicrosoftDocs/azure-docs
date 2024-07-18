@@ -113,10 +113,10 @@ This table shows the language stack versions that are currently supported for Fl
 
 Currently in preview each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
 
-+ You have one 2048GB app scaled to 100 and a second 2048GB app scaled to 150 instances
-+ You have one 2048GB app that scaled out to 250 instances
-+ You have one 4096GB app that scaled out to 125 instances
-+ You have one 4096GB app scaled to 100 and one 2048GB app scaled to 50 instances
++ You have one 2,048 MB app scaled to 100 and a second 2,048 MB app scaled to 150 instances
++ You have one 2,048 MB app that scaled out to 250 instances
++ You have one 4,096 MB app that scaled out to 125 instances
++ You have one 4,096 MB app scaled to 100 and one 2,048 MB app scaled to 50 instances
 
 This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
 
