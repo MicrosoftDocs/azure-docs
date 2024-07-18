@@ -21,7 +21,7 @@ A [GitHub Action workflow](https://docs.github.com/en/actions/learn-github-actio
 To import configurations to your Azure App Configuration store you can authenticate using one of the following methods:
 
 ### Use Microsoft Entra ID
-The recommended way to authenticate is by using Microsoft Entra ID, which allows you to securely connect to your Azure resources. You can automate the authentication process using the [Azure Login](/azure/developer/github/connect-from-azure) Github action.
+The recommended way to authenticate is by using Microsoft Entra ID, which allows you to securely connect to your Azure resources. You can automate the authentication process using the [Azure Login](/azure/developer/github/connect-from-azure) GitHub action.
 
 Azure Login allows you to authenticate using service principals with secrets or OpenID Connect with a Federated Identity Credential. In this example, you’ll use OpenID Connect to log in to your App Configuration store.
 
@@ -29,7 +29,7 @@ Azure Login allows you to authenticate using service principals with secrets or 
 To use Azure Login with OpenID Connect, you will need to:
 1. Set up a [Microsoft Entra application with a service principal.](/entra/identity-platform/howto-create-service-principal-portal)
 2. Assign your Microsoft Entra application the **App Configuration Data Owner** role to allow your GitHub action to read and write to your App Configuration store.
-3. Provide your Microsoft Entra application's Client ID, Tenant ID, and Subscription ID to the login action. These values can be provided directly in the workflow or stored as GitHub secrets for better security. In the example below, these values are set as secrets. For more information about using secrets in GitHub, see [Using secrets in Github Actions](https://docs.github.com/en/actions/reference/encrypted-secrets).
+3. Provide your Microsoft Entra application's Client ID, Tenant ID, and Subscription ID to the login action. These values can be provided directly in the workflow or stored as GitHub secrets for better security. In the example below, these values are set as secrets. For more information about using secrets in GitHub, see [Using secrets in GitHub Actions](https://docs.github.com/en/actions/reference/encrypted-secrets).
 
 To start using this GitHub Action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure Login”. Once you find it, click on the action and copy the provided snippet into your workflow file.
 > [!div class="mx-imgBorder"]
