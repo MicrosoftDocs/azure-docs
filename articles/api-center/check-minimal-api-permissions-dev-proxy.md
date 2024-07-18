@@ -222,7 +222,7 @@ No errors occurred.
 
 Using the `ApiCenterMinimalPermissionsPlugin`, you can check if your app is calling APIs using minimal permissions. The plugin compares the information about API requests from your app with information from Azure API Center and reports on excessive permissions. It also recommends the minimal permissions needed to call the APIs that you're using in your app. Verifying that your app is calling APIs using minimal permissions, helps you make your app more secure. You can run this check manually or integrate with your CI/CD pipeline to ensure that your app is calling APIs using minimal permissions before releasing it to production.
 
-## More information
+## Related content
 
 - [Learn more about Dev Proxy](/microsoft-cloud/dev/dev-proxy/overview)
 - [Learn more about Azure API Center](./key-concepts.md)
