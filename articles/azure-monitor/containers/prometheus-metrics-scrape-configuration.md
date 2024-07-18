@@ -249,7 +249,7 @@ relabelings:
 ```
 
 > [!NOTE]
-> If you have relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly matches the targets.
+> If you have relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets.
 
 ### Metric Relabelings
 
