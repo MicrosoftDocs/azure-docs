@@ -16,7 +16,7 @@ What's hard about checking if your app is calling APIs with minimal permissions 
 
 To check if your app is calling APIs using minimal permissions, you can use Dev Proxy. Dev Proxy is an API simulator that intercepts and analyzes API requests from applications. One feature of Dev Proxy is comparing the permissions that your app uses with the permissions defined in Azure API Center and reporting on any excessive permissions. Dev Proxy also recommends the minimal set of permissions that you should use.
 
-:::image type="content" source="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-plugin.png" alt-text="Screenshot of a command prompt showing Dev Proxy checking if the recorded API requests use tokens minimal API permissions." lightbox="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-plugin.png":::
+:::image type="content" source="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-plugin.png" alt-text="Screenshot of a command prompt showing Dev Proxy checking if the recorded API requests use tokens with minimal API permissions." lightbox="./media/check-minimal-api-permissions-dev-proxy/api-center-minimal-permissions-plugin.png":::
 
 > [!VIDEO https://www.youtube.com/embed/fFr3tFBp1Z8]
 
