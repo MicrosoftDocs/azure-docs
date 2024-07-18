@@ -15,7 +15,7 @@ If you have adopted [Configuration as Code](./howto-best-practices.md#configurat
 * Updating configuration without redeploying your entire app. 
 * Integration with services like Azure App Service and Functions.
 
-A [GitHub Action workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. To import a configuration file from your github repository into Azure App Configuration store, use the [Azure CLI](https://github.com/Azure/cli) GitHub action, which provides full capabilities for file importing to your App Configuration store.
+A [GitHub Action workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. To import a configuration file from your GitHub repository into Azure App Configuration store, use the [Azure CLI](https://github.com/Azure/cli) GitHub action, which provides full capabilities for file importing to your App Configuration store.
 
 ## Authentication
 To import configurations to your Azure App Configuration store you can authenticate using one of the following methods:
