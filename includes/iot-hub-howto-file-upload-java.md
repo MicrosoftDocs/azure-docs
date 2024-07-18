@@ -20,6 +20,8 @@ This how-to contains two sections:
 
 ## Upload a file from a device application
 
+This section describes how to upload a file from a device to an IoT hub using the [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class from the Azure IoT SDK for Java.
+
 Follow this procedure to upload a file from a device to IoT hub:
 
 * Connect to IoT hub

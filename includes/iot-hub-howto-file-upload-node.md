@@ -20,6 +20,8 @@ This how-to contains two sections:
 
 ## Upload a file from a device application
 
+This section describes how to upload a file from a device to an IoT hub using the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js.
+
 ### Install SDK packages
 
 Run this command to install the **azure-iot-device** device SDK, the **azure-iot-device-mqtt**, and the **@azure/storage-blob** packages: on your development machine:
@@ -134,7 +136,9 @@ To create a file upload notification application:
 
 ### Connect to the IoT hub service client
 
-Create the [ServiceClient](/javascript/api/azure-iothub/client) using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring).
+The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
+
+Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring).
 
 ```javascript
 const Client = require('azure-iothub').Client;

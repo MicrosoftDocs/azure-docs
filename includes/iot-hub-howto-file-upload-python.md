@@ -27,6 +27,8 @@ pip install azure.storage.blob
 
 ## Upload file from a device application
 
+This section describes how to upload a file from a device to an IoT hub using the [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class from the Azure IoT SDK for Python.
+
 Follow this procedure to upload a file from a device to IoT hub:
 
 * Connect to IoT hub
@@ -123,7 +125,7 @@ Shut down the client. Once this method is called, any attempts at further client
 device_client.shutdown()
 ```
 
-### SDK file upload sample
+### SDK file upload samples
 
 The SDK includes two file upload samples:
 
