@@ -1,10 +1,10 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 04/20/2023
+ms.date: 07/18/2024
 ms.topic: overview
-author: tfitzmac
-ms.author: tomfitz
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 # What are Azure management groups?
 
