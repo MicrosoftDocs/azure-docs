@@ -104,7 +104,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
 >[!Note]
->Query string parameters contained in the requestUri field, such as "secret", "password", "pwd", "passwd", "key", "token", "pat", "accesskey", "accesstoken", "credential", "sas", "personalAccessToken", and "personal.access.token", will be replaced with a value of **_<redacted>_** to prevent sensitive information from being logged. This is non-configurable. 
+>Query string parameter values such as "secret", "password", "pwd", "passwd", "key", "token", "pat", "accesskey", "accesstoken", "credential", "sas", "personalAccessToken", and "personal.access.token" logged in the requestUri field will be replaced with a value of **_<redacted>_** to prevent sensitive information from being logged. This is non-configurable. 
 
 Here an example of the access log emitted in JSON format to a storage account.
 
