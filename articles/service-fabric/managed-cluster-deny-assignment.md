@@ -21,7 +21,7 @@ This article pertains to Service Fabric managed clusters, but we make callouts w
 
 All actions related to managed clusters should be done through the managed cluster resource APIs instead of directly against the infrastructure resource group. Using the resource APIs ensures the resources of the cluster are synchronized with the data in the managed cluster.
 
-See the [Best practices section](#best-practices) for guidance on the correct APIs to use.
+See the [Best practices section](#best-practices) for guidance on what tools to use to go through the proper resource APIs.
 
 ## Blocked actions
 
@@ -52,7 +52,7 @@ The following are some best practices to minimize the threat of desyncing your c
   * [Virtual machine scale set restarts](/powershell/module/az.servicefabric/restart-azservicefabricmanagednodetype)
   * [Virtual machine scale set reimage](/powershell/module/az.servicefabric/set-azservicefabricmanagednodetype)
 
-When managing resources in managed clusters, use ARM or ARM-backed tools to ensure the use of a proper API.
+When managing resources in managed clusters, use ARM or ARM-backed tools to ensure the use of the proper resource APIs.
 
 | Utility | ARM or ARM-backed |
 | - | - |
