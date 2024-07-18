@@ -39,7 +39,7 @@ IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 
 ### Connect to IoT hub
 
-Instantiate the `DeviceClient` to connect to IoT hub using the IoT hub primary connection string and protocol parameters.
+Instantiate the `DeviceClient` to connect to IoT hub using the IoT hub primary connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
 
 ```java
 String connString = "{IoT hub connection string}";

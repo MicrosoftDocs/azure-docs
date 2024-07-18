@@ -138,7 +138,7 @@ To create a file upload notification application:
 
 The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
 
-Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring).
+Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring). See the prerequisites section for how to look up the IoT hub primary connection string.
 
 ```javascript
 const Client = require('azure-iothub').Client;
