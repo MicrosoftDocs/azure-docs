@@ -73,11 +73,11 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 and 1,024 TiB.
+- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 and 1 PiB.
 
 ## Large volumes
 
-Azure NetApp Files allows you to create large volumes up to 1,024 TiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 1,024 TiB. Regular Azure NetApp Files volumes are offered between 100 GiB and 102,400 GiB. 
+Azure NetApp Files allows you to create large volumes up to 1 PiB in size. Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB. Regular Azure NetApp Files volumes are offered between 100 GiB and 102,400 GiB. 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
 
