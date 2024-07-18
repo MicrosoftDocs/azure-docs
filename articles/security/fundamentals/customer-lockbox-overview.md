@@ -145,7 +145,7 @@ As an example:
 :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" alt-text="A screenshot of the audit log.":::
 
 > [!NOTE]
-> The history tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
+> The History tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
 Customer Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](https://learn.microsoft.com/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
