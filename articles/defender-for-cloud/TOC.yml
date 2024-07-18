@@ -1030,6 +1030,9 @@
       - name: Enable threat protection for AI workloads (preview)
         displayName: AI, Defender for AI
         href: ai-onboarding.md
+      - name: Gain end-user context for AI alerts
+        displayName: AI, Defender for AI, threat protection
+        href: gain-end-user-context-ai.md
 - name: Reference
   items:
     - name: Archived release notes (older than six months)
