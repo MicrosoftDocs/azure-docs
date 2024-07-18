@@ -104,14 +104,24 @@ param exampleInt int = 1
 
 In Bicep, integers are 64-bit integers. When passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
-You can use an integer as a specific integer type. In the following example, the first line is valid and defines an integer type with the value 1. The second line, however, results in a BCP033 error - Expected a value of type "2" but the provided value is of type "1".
+Bicep supports integer literal type which refers to a specific value that is an exact integer. In the following example, `1` is an integer literal type, `foo` can only be assigned the value `1` and no other value. 
 
 ```bicep
 output foo 1 = 1
-output bar 2 = 1
 ```
 
-The following example, shows using specific integer types with a [union type](#union-types):
+An integer literal type can either be declared inline, as shown in the preceeding example,  or in a [`type` statement](./user-defined-data-types.md).  
+
+```bicep
+type oneType = 1
+
+output foo oneType = 1
+output bar oneType = 2
+```
+
+In the preceeding example, assigning `2` to `bar` will result in results in a [BCP033](./bicep-error-bcp033.md) error - _Expected a value of type "1" but the provided value is of type "2"_.
+
+The following example, shows using integer literal type with [union type](#union-types):
 
 ```bicep
 output bar 1 | 2 | 3 = 3
@@ -232,6 +242,32 @@ The following table lists the set of reserved characters that must be escaped by
 var myVar = 'what\'s up?'
 ```
 
+Bicep supports string literal type which refers to a specific string value. In the following example, `red` is a string literal type, `redColor` can only be assigned the value `red` and no other value. 
+
+```bicep
+output redColor 'red' = 'red'
+```
+
+An string literal type can either be declared inline, as shown in the preceeding example, or in a [`type` statement](./user-defined-data-types.md).  
+
+```bicep
+type redColor = 'red'
+
+output colorRed redColor = 'red'
+output colorBlue redColor = 'blue'
+```
+
+In the preceeding example, assigning `blue` to `colorBlue` will result in results in a [BCP033](./bicep-error-bcp033.md) error - _Expected a value of type "'red'" but the provided value is of type "'blue'"_.
+
+The following example, shows using string literal type with [union type](#union-types):
+
+```bicep
+type direction = 'north' | 'south' | 'east' | 'west'
+
+output west direction = 'west'
+output northWest direction = 'northwest'
+```
+
 All strings in Bicep support interpolation. To inject an expression, surround it by `${` and `}`. Expressions that are referenced can't span multiple lines.
 
 ```bicep
@@ -283,13 +319,29 @@ is ${blocked}'''
 
 ## Union types
 
-In Bicep, a union type represents one of several specified values within the same data type. 
+In Bicep, a union type allows the creation of a combined type consisting of a set of sub-types. An assignment is valid if any of the individual sub-type assignments are permitted. The `|` character separates individual sub-types using an `or` condition. For example, the syntax `'a' | 'b'` means that a valid assignment could be either `'a'` or `'b'`.
 
 ```bicep
-output color 'Red' | 'Blue' | 'White' = 'White'
-output foo 'true' | 'false' = 'false'
-output bar 1 | 2 | 3 = 3
+type color = 'Red' | 'Blue' | 'White'
+type trueOrFalse = 'true' | 'false'
+type permittedIntegers = 1 | 2 | 3
 ```
+
+Any type expression can be used as a sub-type in a union type declaration (between `|` characters). For example, the following examples are all valid:
+
+```bicep
+type foo = 1 | 2
+type bar = foo | 3
+type baz = bar | (4 | 5) | 6
+```
+
+There are some limitations with union type.
+
+* Union types must be reduceable to a single ARM type.  The following definition is in valid:
+
+  ```bicep
+  type foo = 'a' | 1
+  ```
 
 The union type syntax can also be used in [user-defined data types](./user-defined-data-types.md).
 
