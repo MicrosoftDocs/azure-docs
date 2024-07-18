@@ -192,7 +192,7 @@ Production APIs:
 
 Using Dev Proxy and its `ApiCenterProductionVersionPlugin`, you can check if your app is using production-level APIs. The plugin compares the information about API requests from your app with information from Azure API Center and reports on any nonproduction API requests. It also recommends the production version of the APIs you're using. Verifying what APIs your app is using, helps you ensure that your app is using stable APIs, which are supported and covered by SLAs, making your app more robust. You can run this check manually or integrate with your CI/CD pipeline to ensure that your app is using production-level APIs before releasing it to production.
 
-## More information
+## Related content
 
 - [Learn more about Dev Proxy](/microsoft-cloud/dev/dev-proxy/overview)
 - [Learn more about Azure API Center](./key-concepts.md)
