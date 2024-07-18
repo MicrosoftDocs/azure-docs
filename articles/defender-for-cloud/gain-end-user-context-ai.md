@@ -8,7 +8,7 @@ ms.date: 07/18/2024
 
 # Gain end-user context for AI alerts
 
-Microsoft Defender for Cloud's threat protection for AI workloads allows you to enhance the actionability and security value of the generated AI alerts by providing end-user context. With end user-context, investigations can be more in depth and allows you to protect your generative AI applications from external threats.
+Microsoft Defender for Cloud's threat protection for AI workloads allows you to enhance the actionability and security value of the generated AI alerts by providing end-user context.
 
 By adding parameters to your Azure OpenAI API calls, you enable your Azure AI to pass critical end-user context to Defender for Cloud's AI alerts. This addition of end-user context provides greater visibility on end-users and leads to better investigations and results. For example, you can block a specific user or correlate incidents and alerts by end-user.
 
