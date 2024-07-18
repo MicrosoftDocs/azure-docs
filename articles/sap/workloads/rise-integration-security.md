@@ -37,13 +37,13 @@ SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SA
 
 It can be used with any data source that Defender XDR and Sentinel support, including SAP RISE/ECS. Below shows the stand-alone experience.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Using Copilot for Security with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Using Copilot for Security with SAP RISE/ECS incidents":::
    This image shows an example of the Microsoft Copilot for Security experience using an prompt to investigate an SAP incident.
 :::image-end:::
 
 In addition to that the Copilot for Security experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Using Copilot for Security with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Using embedded Copilot for Security experience in Defender with SAP RISE/ECS incidents":::
    This image shows an example of Microsoft Copilot for Security analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
 :::image-end:::
 
@@ -69,9 +69,9 @@ To enable the solution, only an authorized RFC user is required and nothing need
 - Only RFC based connections are possible currently with SAP RISE/ECS environments
 
 > [!IMPORTANT]
-> Running Microsoft Sentinel in an SAP RISE/ECS environment requires:
-> - Importing an SAP transport change request for the following log fields/source : Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
-> - SAP infrastructure and operating system logs aren't available to Sentinel in RISE, including VMs running SAP, SAPControl data sources, network resources placed within ECS. SAP monitors elements of the Azure infrastructure and operation system independently.
+> 
+> - Running Microsoft Sentinel in an SAP RISE/ECS environment requires: Importing an SAP transport change request for the following log fields/source: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
+> - SAP infrastructure and operating system logs aren't available to Sentinel in RISE, due to shared responsibility model.
 
 ### Automatic response with Sentinel's SOAR capabilities
 
