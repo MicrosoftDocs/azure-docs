@@ -32,8 +32,6 @@
             href: register-apis.md
           - name: 3 - Add environments and deployments
             href: configure-environments-deployments.md
-          - name: 4 - Discover shadow APIs
-            href: discover-shadow-apis-dev-proxy.md
 - name: API inventory
   items:
       - name: Manage inventory - Azure CLI
@@ -48,6 +46,8 @@
         href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
+      - name: Discover shadow APIs with Dev Proxy
+        href: discover-shadow-apis-dev-proxy.md  
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal

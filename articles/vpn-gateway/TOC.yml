@@ -323,14 +323,16 @@
       href: https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections
     - name: Validate VPN throughput to a VNet
       href: vpn-gateway-validate-throughput-to-vnet.md
-    - name: Point-to-site connections
+    - name: Point-to-site connection issues
       items:
-      - name: Point-to-site connection problems
+      - name: Connection problems
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-      - name: Point-to-site connection problems - macOS X VPN client
+      - name: macOS VPN Client connection problems
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Point-to-site - Microsoft Entra ID authentication
+      - name: Microsoft Entra ID authentication connection problems
         href: troubleshoot-ad-vpn-client.md
+      - name: Report Azure VPN Client problem - Feedback Hub
+        href: feedback-hub-azure-vpn-client.md
     - name: Site-to-site connection issues
       items:
       - name: Site-to-site connections
