@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
-ms.date: 07/17/2024
+ms.date: 07/18/2024
 ms.author: danlep
 ---
 
@@ -128,6 +128,21 @@ Update the settings of the developer portal in the API Management instance to en
 1. In the left menu, under **Developer portal**, select **Portal settings**.
 1. On the **Self-hosted portal configuration** tab, enter the hostname of your WordPress on App Service site as a portal origin, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net`
 1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
+
+Also, update the `cors` policy configuration in the API Management instance to add the app service site as an allowed origin. This value is needed to allow calls from the developer portal's test console on the WordPress site. 
+
+Add the following `origin` value in your `cors` policy configuration:
+
+```xml
+<cors ...>
+    <allowed-origins>
+        [...]
+        <origin>https://<yourapp-service-name>.azurewebsites.net</origin>
+    </allowed-origins>
+</cors>
+```
+
+Learn more about how to [set or edit policies](set-edit-policies.md). 
 
 ## Step 6: Navigate to WordPress admin site and upload the customized theme 
 
