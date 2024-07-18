@@ -12,20 +12,20 @@ ms.reviewer: mattmcinnes
 
 # Dldsv5 sizes series
 
-[!INCLUDE [dldsv5-summary](./includes/dldsv5-summary.md)]
+[!INCLUDE [dldsv5-summary](./includes/dldsv5-series-summary.md)]
 
 ## Host specifications
 [!INCLUDE [dldsv5-series-specs](./includes/dldsv5-series-specs.md)]
 
 ## Feature support
-[Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+Premium Storage: Supported<br>
+Premium Storage caching: Supported<br>
+Live Migration: Supported<br>
+Memory Preserving Updates: Supported<br>
+VM Generation Support: Generation 1 and 2<br>
+Accelerated Networking: Required <br>
+Ephemeral OS Disks: Supported <br>
+Nested Virtualization: Supported <br>
 
 ## Sizes in series
 
@@ -45,9 +45,8 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D96lds_v5 | 96 | 192 |
 
 #### VM Basics resources
-- [What are vCPUs (Qty.)](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview)
-- [Check vCPU quotas](https://learn.microsoft.com/azure/virtual-machines/quotas)
-- [Introduction to Azure compute units (ACUs)](https://learn.microsoft.com/azure/virtual-machines/acu)
+- [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
+- [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
 
@@ -91,9 +90,9 @@ Remote (uncached) storage info for each size
 | Standard_D96lds_v5 | 32 | 80000 | 2600 | 80000 | 4000 |  |  |  |  |
 
 #### Storage resources
-- [Introduction to Azure managed disks](https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview)
-- [Azure managed disk types](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-types)
-- [Share an Azure managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/disks-shared)
+- [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
+- [Azure managed disk types](../../../virtual-machines/disks-types.md)
+- [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
 - <sup>1</sup>These sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
@@ -120,13 +119,13 @@ Network interface info for each size
 | Standard_D96lds_v5 | 8 | 35000 |
 
 #### Networking resources
-- [Virtual networks and virtual machines in Azure](https://learn.microsoft.com/azure/virtual-network/network-overview)
-- [Virtual machine network bandwidth](https://learn.microsoft.com/azure/virtual-network/virtual-machine-network-throughput)
+- [Virtual networks and virtual machines in Azure](../../../../virtual-network/network-overview.md)
+- [Virtual machine network bandwidth](../../../../virtual-network/virtual-machine-network-throughput.md)
 
 #### Table definitions
-- Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](https://learn.microsoft.com/azure/virtual-network/virtual-machine-network-throughput)
-- Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](https://learn.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth). 
--  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](https://learn.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+- Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../../../../virtual-network/virtual-machine-network-throughput.md)
+- Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimize network throughput for Azure virtual machines](../../../../virtual-network/virtual-network-optimize-network-bandwidth.md). 
+-  To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see [Bandwidth/Throughput testing (NTTTCP)](../../../../virtual-network/virtual-network-bandwidth-testing.md).
 
 ### [Accelerators](#tab/sizeaccelerators)
 
