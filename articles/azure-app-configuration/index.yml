@@ -81,7 +81,9 @@ landingContent:
         - text: Code a Java Spring app
           url: quickstart-java-spring-app.md
         - text: Code a Python app
-          url: quickstart-python.md
+          url: quickstart-python-provider.md
+        - text: Code a JavaScript app
+          url: quickstart-javascript-provider.md
         - text: Azure Resource Manager deployment
           url: quickstart-deployment-overview.md       
         - text: Azure Container Apps
