@@ -1,23 +1,26 @@
 {
   "build": {
-    "content":
-       [
-         {
-             "files": ["breadcrumb/toc.yml"],
-             "group": "cyclecloud-7-group"
-         },
-         {
-          "group": "cyclecloud-7-group",
-          "files": ["**/**.md", 
-                     "**/**.yml"],
-           "exclude": [
-            "**/obj/**",
-            "**/includes/**"]
-         }
-       ],
+    "content": [
+      {
+        "files": [
+          "breadcrumb/toc.yml"
+        ],
+        "group": "cyclecloud-7-group"
+      },
+      {
+        "files": [
+          "**/**.md",
+          "**/**.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ],
+        "group": "cyclecloud-7-group"
+      }
+    ],
     "resource": [
       {
-        "group": "cyclecloud-7-group",
         "files": [
           "**/*.png",
           "**/*.jpg",
@@ -28,7 +31,8 @@
           "**/obj/**",
           "_themes/**",
           "_themes.pdf/**"
-        ]
+        ],
+        "group": "cyclecloud-7-group"
       }
     ],
     "overwrite": [],
@@ -36,35 +40,125 @@
     "globalMetadata": {
       "brand": "azure",
       "uhfHeaderId": "azure",
-      "feedback_system": "None",
+      "feedback_system": "None",
       "titleSuffix": "Azure CycleCloud",
-      "searchScope": ["Azure","CycleCloud"],
+      "searchScope": [
+        "Azure",
+        "CycleCloud"
+      ],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "ms.service": "cyclecloud",
       "ms.topic": "conceptual"
     },
     "fileMetadata": {
-      "author":
-      {
+      "author": {
         "**.md": "adriankjohnson"
       },
-      "ms.topic":
-      {
+      "ms.topic": {
         "includes/**/*.md": "include",
         "**/qs-*.md": "quickstart",
         "tutorials/**/*.md": "tutorial",
         "how-to/**/*.md": "how-to",
         "**overview.md": "overview"
-      }
-    },
-    "groups": {
-      "cyclecloud-7-group": {
-        "moniker_range": ">= cyclecloud-7",
-        "dest": "tempdest_cyclecloud_7"
+      },
+      "exclude_monikers": {
+        "release-notes-archive.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes-previous.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-0.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-1.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-2.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-3.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-4.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-5-5.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-6-0.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-6-1.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-0.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-1.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-2.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-3.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-4.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-7-5.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-8-0.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-0.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-1.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-10.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-11.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-2.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-3.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-4.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-5.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-6.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-7.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-8.md": [
+          "cyclecloud-7"
+        ],
+        "release-notes/7-9-9.md": [
+          "cyclecloud-7"
+        ]
       }
     },
     "template": [],
+    "groups": {
+      "cyclecloud-7-group": {
+        "dest": "tempdest_cyclecloud_7",
+        "moniker_range": ">= cyclecloud-7"
+      }
+    },
     "dest": "cycle_docs_v1"
   }
 }
