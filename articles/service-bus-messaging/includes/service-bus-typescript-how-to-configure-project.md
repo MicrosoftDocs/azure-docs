@@ -13,11 +13,8 @@ ms.custom: "include file"
 
 ## Configure project 
 
-1. Create a project folder to contain the files. 
-1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build.
-1. Copy the following into the file:
+1. Create a project folder to contain the quickstart files. 
 
-    :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
 1. In a terminal in the project folder, initialize the Node.js project.
 
     ```bash
@@ -28,3 +25,6 @@ ms.custom: "include file"
     ```json
     "types":"module",
     ```
+1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build and copy the following into the file:
+
+    :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
