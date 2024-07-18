@@ -56,7 +56,7 @@ To get a token using CLI, you can use the following command
 az account get-access-token 
 ```
 
-For more information, see [az account get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token)
+For more information, see [az account get-access-token](/cli/azure/account#az-account-get-access-token)
 
 ## [SDK](#tab/SDK)
 ### Get a token using the SDKs
