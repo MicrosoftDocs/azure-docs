@@ -23,7 +23,7 @@ ms.custom: "include file"
 1. Open the `package.json` file in the project folder and add the property to configure ESM. Add this property after the `version` property:
 
     ```json
-    "types":"module",
+    "type":"module",
     ```
 1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build and copy the following into the file:
 
