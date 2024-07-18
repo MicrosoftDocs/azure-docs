@@ -6,7 +6,7 @@ author: greglin
 ms.service: application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 02/27/2024
+ms.date: 07/17/2024
 ms.author: greglin
 ---
 
@@ -94,7 +94,7 @@ Each access log entry in Application Gateway for Containers contains the followi
 | referrer | Referrer header of the request received from the client by Application Gateway for Containers  |
 | requestBodyBytes | Size in bytes of the body payload of the request received from the client by Application Gateway for Containers  |
 | requestHeaderBytes | Size in bytes of the headers of the request received from the client by Application Gateway for Containers  |
-| requestUri | URI of the request received from the client by Application Gateway for Containers (everything after \<protocol\>://\<host\> of the URL)  |
+| requestUri | URI of the request received from the client by Application Gateway for Containers (everything after \<protocol\>://\<host\> of the URL).  |
 | responseBodyBytes | Size in bytes of the body payload of the response returned to the client by Application Gateway for Containers |
 | responseHeaderBytes | Size in bytes of the headers of the response returned to the client by Application Gateway for Containers |
 | timeTaken | Time in milliseconds of the client request received by Application Gateway for Containers and the last byte returned to the client from Application Gateway for Containers |
@@ -102,6 +102,9 @@ Each access log entry in Application Gateway for Containers contains the followi
 | tlsProtocol | TLS version negotiated between the client and Application Gateway for Containers frontend |
 | trackingId | Generated guid by Application Gateway for Containers to help with tracking and debugging.  This value correlates to the x-request-id header returned to the client from Application Gateway for Containers. |
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
+
+>[!Note]
+>Query string parameters contained in the requestUri field, such as "secret", "password", "pwd", "passwd", "key", "token", "pat", "accesskey", "accesstoken", "credential", "sas", "personalAccessToken", and "personal.access.token", will be replaced with a value of **_<redacted>_** to prevent sensitive information from being logged. This is non-configurable. 
 
 Here an example of the access log emitted in JSON format to a storage account.
 
