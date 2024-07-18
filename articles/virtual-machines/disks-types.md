@@ -168,7 +168,7 @@ Azure standard SSDs are optimized for workloads that need consistent performance
 
 ### Standard SSD size
 
-[!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
+[!INCLUDE [disk-storage-standard-ssd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-standard-ssd-sizes.md)]
 
 Standard SSDs are designed to provide single-digit millisecond latencies and the IOPS and throughput up to the limits described in the preceding table 99% of the time. Actual IOPS and throughput may vary sometimes depending on the traffic patterns. Standard SSDs provide more consistent performance than the HDD disks with the lower latency.
 
@@ -185,7 +185,7 @@ Standard SSDs offer disk bursting, which provides better tolerance for the unpre
 Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-tolerant workloads. With standard storage, your data is stored on HDDs, and performance may vary more widely than that of SSD-based disks. Standard HDDs are designed to deliver write latencies of less than 10 ms and read latencies of less than 20 ms for most IO operations. Actual performance may vary depending on IO size and workload pattern, however. When working with VMs, you can use standard HDD disks for dev/test scenarios and less critical workloads. Standard HDDs are available in all Azure regions and can be used with all Azure VMs. Standard HDDs support the [512E sector size](https://en.wikipedia.org/wiki/Advanced_Format#512_emulation_(512e)).
 
 ### Standard HDD size
-[!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
+[!INCLUDE [disk-storage-standard-hdd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-standard-hdd-sizes.md)]
 
 ### Standard HDD Transactions
 
