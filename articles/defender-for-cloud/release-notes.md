@@ -32,6 +32,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 |Date | Category | Update|
 |--|--|--|
 |August 1 | Upcoming update | [Defender for Cloud is removing sensitivity labels from the Microsoft 365 portal](#defender-for-cloud-is-removing-sensitivity-labels-from-the-microsoft-365-portal) |
+| August 1 | Upcoming update | [Sensitivity label consent changes](#sensitivity-label-consent-changes) |
 
 ### Defender for Cloud is removing sensitivity labels from the Microsoft 365 portal
 
@@ -50,6 +51,14 @@ On August 29, 2024, the names of the labels' scopes in the user interface will c
 Labels that are already configured to **Items -> files**, will automatically migrate to the new **Files and other data assets** scope.
 
 The second condition isn't affected and the label must still have an automatic labeling rule configured.
+
+### Sensitivity label consent changes 
+
+**Estimated date for change**: August 29, 2024 
+
+You will no longer need to provide consent to benefit from custom information types and sensitivity labels configured in the Defender XDR or Purview portal. Currently, customers need to select a dedicated consent button in the Defender XDR portal under the "Information Protection" section within the "Labels" blade. 
+
+With this upcoming change, all custom information types and sensitivity labels will be automatically imported into the Microsoft Defender for Cloud portal.
 
 ## July 2024
 
