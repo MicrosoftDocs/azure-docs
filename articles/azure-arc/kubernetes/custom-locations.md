@@ -74,7 +74,7 @@ Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the f
 
 This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service (custom location). To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the custom location application used by the Azure Arc service by using the following command:
+1. Sign in to Azure CLI with your user account. Run the following command to fetch the `oid` or `objectId` of the custom location application used by the Azure Arc service, where `--id` is predefined and set to `bc313c14-388c-4e7d-a58e-70017303ee3b` (Note: copy and run the command exactly as it is. Do not replace `--id` with a different value.):
 
       ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
