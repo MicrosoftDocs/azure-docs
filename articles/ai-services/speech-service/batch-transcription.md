@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 5/21/2024
+ms.date: 7/16/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
