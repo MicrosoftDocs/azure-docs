@@ -63,11 +63,13 @@ For a complete example, see [Create a function app in a local container](functio
 
 #### [Visual Studio Code](#tab/vs-code)
 
-The Azure Functions extension for Visual Studio Code doesn't provide a way to create a Dockerfile when you create the project. However, you can instead create the Dockerfile for an existing project by using the `--docker-only` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command in the Terminal windows of an existing project folder, as in the following example:
+The Azure Functions extension for Visual Studio Code creates your Dockerfile when it creates your code project. To create a containerized code project:
 
-```console 
-func init --docker-only
-```  
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Containerized Project...`.
+
+1. Select a folder for your new code project, choose **Select**, and follow the remaining prompts.
+
+1. After your project is created, you can open and review the Dockerfile in the root folder you chose for your     project.
 
 #### [Visual Studio](#tab/vs)
 
@@ -83,7 +85,7 @@ func init --docker-only
 
 ### Creating your function app in a container
 
-With a Core Tools-generated Dockerfile in your code project, you can use Docker to create the containerized function app on your local computer. The following `docker build` command creates an image of your containerized functions from the project in the local directory:
+With a Functions-generated Dockerfile in your code project, you can use Docker to create the containerized function app on your local computer. The following `docker build` command creates an image of your containerized functions from the project in the local directory:
 
 ```console
 docker build --tag <DOCKER_ID>/<IMAGE_NAME>:v1.0.0 .
@@ -114,7 +116,9 @@ Replace `<DOCKER_ID>` with your Docker Hub account ID.
 
 ---
 
-At this point, you need to update the deployment to use the new image. The following example updates the function app to use the new image: 
+At this point, you need to update an existing deployment to use the new image. You can updates the function app to use the new image either by using the Azure CLI or in the [Azure portal]: 
+
+### [Azure CLI](#tab/azure-cli2)
 
 ```azurecli
 az functionapp config container set --image <IMAGE_NAME> --registry-password <SECURE_PASSWORD>--registry-username <USER_NAME> --name <APP_NAME> --resource-group <RESOURCE_GROUP>
@@ -122,13 +126,31 @@ az functionapp config container set --image <IMAGE_NAME> --registry-password <SE
 
 In this example, `<IMAGE_NAME>` is the full name of the new image with version. Private registries require you to supply a username and password. Store these credentials securely.
 
+### [Azure portal](#tab/portal)
+:::zone pivot="container-apps"  
+1. In the [Azure portal], locate your function app and select **Settings** > **Configuration** on the left-hand side. 
+
+1. Under **Image settings**, update the **Image tag** value to the update version in the registry, and then select **Save**.
+
+The specified image version is deployed to your app.
+::: zone-end  
+:::zone pivot="azure-functions"  
+1. In the [Azure portal], locate your function app and select **Deployment** > **Deployment center** on the left-hand side. 
+
+1. Under **Settings**, select **Container registry** for **Source**, update the **Full Image Name and Tag** value to the update version in the registry, and then select **Save**.
+
+The specified image version is deployed to your app.
+::: zone-end  
+
+---
+
 :::zone pivot="azure-functions"  
 You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
 ::: zone-end  
 :::zone pivot="azure-functions"  
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal](https://portal.azure.com), you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
+When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
 
 The following steps create and deploy an existing containerized function app from a container registry.
 
@@ -168,7 +190,7 @@ The following steps create and deploy an existing containerized function app fro
 :::zone pivot="container-apps"  
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal](https://portal.azure.com), you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
+When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
 
 The following steps create and deploy an existing containerized function app from a container registry.
 
@@ -206,11 +228,37 @@ The following steps create and deploy an existing containerized function app fro
 
 ## Work with images in Azure Functions
 
-When your function app container is deployed from a registry, Functions maintains information about the source image. Use the following commands to get data about the image or change the deployment image used:
+When your function app container is deployed from a registry, Functions maintains information about the source image. 
+
+### [Azure CLI](#tab/azure-cli2)
+
+Use the following commands to get data about the image or change the deployment image used:
 
  +  [`az functionapp config container show`](/cli/azure/functionapp/config/container#az-functionapp-config-container-show): returns information about the image used for deployment. 
 
  +  [`az functionapp config container set`](/cli/azure/functionapp/config/container#az-functionapp-config-container-set): change registry settings or update the image used for deployment, as shown in the previous example.
+
+### [Azure portal](#tab/portal)
+:::zone pivot="container-apps"  
+1. In the [Azure portal], locate your function app and select **Settings** > **Configuration** on the left-hand side. 
+
+1. Under **Image settings**, you can review information about the currently deployed image or change the deployment to a different image. You can also change the container environment allocation settings.
+
+1. To make updates, modify any of the image settings, such as the **Image tag**, or container environment allocation settings and select **Save**.
+
+Based on your changes, a new image is deployed to your app or new allocations are provisioned.
+::: zone-end  
+:::zone pivot="azure-functions"  
+1. In the [Azure portal], locate your function app and select **Deployment** > **Deployment center** on the left-hand side. 
+
+1. Under **Settings**, select **Container registry** for **Source** and you can review information about the currently deployed image.
+ 
+1. To make updates, modify any of the image settings, such as the **Full Image Name and Tag** and then select **Save**.
+
+The a new image is deployed to your app based on your new settings.
+::: zone-end 
+
+---
 
 :::zone pivot="container-apps"  
 ## Container Apps workload profiles
@@ -333,10 +381,13 @@ SSH enables secure communication between a container and a client. With SSH enab
 <!---For when we support connecting to the container console -->
 ::: zone-end
 
-## Next steps
+## Related articles
 
 The following articles provide more information about deploying and managing containers:
 
 + [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
+
+
+[Azure portal]: https://portal.azure.com

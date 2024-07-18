@@ -193,7 +193,7 @@ To enable basic authentication to the `scm` endpoint:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
-1. In the app's left menu, select **Configuration** > **General settings**.
+1. In the app's left menu, select **Settings** > **Configuration** > **General settings**.
 
 1. Set **SCM Basic Auth Publishing Credentials** to **On**, then select **Save**.
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
-ms.date: 03/14/2024
+ms.date: 07/17/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -98,19 +98,15 @@ You also need these prerequisites to [run and debug your functions locally](#run
 
 The Functions extension lets you create the required function app project at the same time you create your first function. Use these steps to create an HTTP-triggered function in a new project. An [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
 
-1. In the Activity bar, select the Azure icon. In the **Workspace (Local)** area, open the **+** list, and select **Create Function**.
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`. Select the directory location for your project workspace, and then choose **Select**. 
 
-   :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
+   You can either create a new folder or choose an empty folder for the project workspace, but don't choose a project folder that's already part of a workspace.   
 
-1. When prompted, select **Create new project**. Select the directory location for your project workspace, and then choose **Select**.
-
-   You can either create a new folder or choose an empty folder for the project workspace, but don't choose a project folder that's already part of a workspace.
+   You can instead run the command `Azure Functions: Create New Containerized Project...` to also get a Dockerfile generated for the project.
 
 1. When prompted, **Select a language** for your project. If necessary, choose a specific language version.
 
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
-
-   :::image type="content" source="./media/functions-develop-vs-code/select-http-trigger.png" alt-text="Screenshot for selecting HTTP trigger.":::
 
    > [!TIP]
    > You can view additional templates by selecting the **Change template filter** option and setting the value to **Core** or **All**.
@@ -119,15 +115,9 @@ The Functions extension lets you create the required function app project at the
 
    This authorization level requires that you provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
-   :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
-
 1. From the dropdown list, select **Add to workspace**.
 
-   :::image type="content" source="./media/functions-develop-vs-code/add-to-workplace.png" alt-text=" Screenshot for selectIng Add to workplace.":::
-
 1. In the **Do you trust the authors of the files in this folder?** window, select **Yes**.
-
-   :::image type="content" source="./media/functions-develop-vs-code/select-author-file.png" alt-text="Screenshot to confirm trust in authors of the files.":::
 
 Visual Studio Code creates a function in your chosen language and in the template for an HTTP-triggered function.
 
@@ -141,6 +131,8 @@ The project template creates a project in your chosen language and installs the 
 
   > [!IMPORTANT]
   > Because the **local.settings.json** file can contain secrets, make sure to exclude the file from your project source control.
+
+* **Dockerfile** (optional): Lets you create a containerized function app from your project by using an approved base image for your project. You only get this file when you run the command `Azure Functions: Create New Containerized Project...`. You can add a Dockerfile to an existing project using the `func init --docker-only` command in [Core Tools](./functions-core-tools-reference.md#func-init).  
 
 Depending on your language, these other files are created:
 
