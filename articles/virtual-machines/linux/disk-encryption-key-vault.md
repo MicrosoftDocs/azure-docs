@@ -55,7 +55,7 @@ az login
 Connect-AzAccount
 ```
 
-[!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
  
 ## Next steps

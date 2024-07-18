@@ -11,7 +11,7 @@ ms.date: 01/15/2021
 > [!TIP]
 > It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Machine Learning Studio (classic) UDF for improved performance and reliability.
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 This article discusses how to efficiently scale Azure Stream Analytics jobs that use Machine Learning Studio (classic) functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](stream-analytics-scale-jobs.md).
 
