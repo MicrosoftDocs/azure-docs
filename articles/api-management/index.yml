@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 01/08/2024
+  ms.date: 07/18/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -29,7 +29,9 @@ landingContent:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
           - text: Hybrid and multicloud management
-            url: self-hosted-gateway-overview.md          
+            url: self-hosted-gateway-overview.md  
+          - text: Workspaces
+            url: workspaces-overview.md        
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -108,6 +110,8 @@ landingContent:
             url: azure-openai-enable-semantic-caching.md   
           - text: Authenticate and authorize to Azure OpenAI APIs
             url: api-management-authenticate-authorize-azure-openai.md
+          - text: Create a workspace
+            url: how-to-create-workspace.md
       - linkListType: concept
         links:
           - text: New v2 service tiers
