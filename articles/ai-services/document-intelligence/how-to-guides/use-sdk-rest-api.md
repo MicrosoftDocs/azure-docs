@@ -89,7 +89,7 @@ Choose from the following Document Intelligence models and analyze and extract d
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javaScript"
 
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [NodeJS SDK quickstart](includes/v4-0/javascript-sdk.md)]
