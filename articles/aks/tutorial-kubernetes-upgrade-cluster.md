@@ -164,6 +164,12 @@ You can either [manually upgrade your cluster](#manually-upgrade-cluster) or [co
           "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202405.27.0",
           "orchestratorVersion": "1.29.2",
           "osType": "Linux",
+          "upgradeSettings": {
+            "drainTimeoutInMinutes": null,
+            "maxSurge": "10%",
+            "nodeSoakDurationInMinutes": null,
+            "undrainableNodeBehavior": null
+          },
           "vmSize": "Standard_DS2_v2",
           ...
         }

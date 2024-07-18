@@ -57,11 +57,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
-
-    ```azurecli-interactive
-    vi aks-store-quickstart.yaml
-    ```
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the `aks-store-quickstart.yaml` manifest file with a text editor.
 
 3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
 
@@ -79,7 +75,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ...
     ```
 
-4. Save and close the file. In `vi`, use `:wq`.
+4. Save and close the file.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -89,11 +85,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name $ACRNAME).LoginServer
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
-
-    ```azurepowershell-interactive
-    notepad aks-store-quickstart.yaml
-    ```
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the `aks-store-quickstart.yaml` manifest file with a text editor.
 
 3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
 
