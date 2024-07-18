@@ -51,7 +51,7 @@ Each tile provides information about the recommendations for that category:
 
 * Your overall score for the category.
 * The total number of recommendations for the category, and the specific number per impact.
-* The number of affected resources by the recommendations.
+* The number of impacted resources by the recommendations.
 
 For detailed graphics and information on your Advisor score, see [Optimize Azure workloads by using Advisor score](/azure/advisor/azure-advisor-score).
 
@@ -59,7 +59,7 @@ For detailed graphics and information on your Advisor score, see [Optimize Azure
 
 You can view recommendation details, such as the recommended actions and affected resources. You can also see the solution options, including postponing or dismissing a recommendation.
 
-1. To review details of a recommendation, including the affected resources, open the recommendation list for a category. Then select **Description** or **Impacted resources** for a specific recommendation. The following screenshot shows a **Reliability Recommendation details** page.
+1. To review details of a recommendation, including the affected resources, open the recommendation list for a category. Then select **Description** or **Impacted resources** for a specific recommendation. The following screenshot shows a Reliability recommendation details page.
 
    :::image type="content" source="./media/advisor-get-started/advisor-score-reliability-recommendation-page.png" alt-text="Screenshot that shows an Advisor Reliability Recommendation details example." lightbox="./media/advisor-get-started/advisor-score-reliability-recommendation-page.png":::
 
@@ -90,9 +90,9 @@ Use the **Resources** tab to select or unselect subscriptions for Advisor recomm
 
 :::image type="content" source="./media/advisor-get-started/advisor-configure-resources.png" alt-text="Screenshot that shows an Advisor configuration option for resources." lightbox="./media/advisor-get-started/advisor-configure-resources.png":::
 
-Use the **VM/VMSS right sizing** tab to adjust Advisor virtual machine (VM) and virtual machine scale sets recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations by machine, but it doesn't change how they're generated. Follow these steps:
+Use the **VM/VMSS right sizing** tab to adjust Advisor virtual machine (VM) and virtual machine scale sets (VMSS) recommendations. Specifically, you can set up a filter for each subscription to only show recommendations for machines with certain CPU utilization. This setting filters recommendations by machine, but it doesn't change how they're generated. Follow these steps:
 
-1. Select the subscriptions for which you want to set up a filter for average CPU utilization. Then select **Edit**. Not all subscriptions can be edited for VM/virtual machine scale sets right sizing, and certain privileges are required. For more information on permissions, see [Permissions in Azure Advisor](permissions.md).
+1. Select the subscriptions for which you want to set up a filter for average CPU utilization. Then select **Edit**. Not all subscriptions can be edited for VM/VMSS right sizing, and certain privileges are required. For more information on permissions, see [Permissions in Azure Advisor](permissions.md).
 
 1. Select the average CPU utilization value you want and select **Apply**. It can take up to 24 hours for the new settings to be reflected in recommendations.
 

@@ -26,7 +26,7 @@ The following table defines the roles and the access they have within Advisor.
 |Resource Reader|**X**|--|--|--|--|
 
 > [!NOTE]
-> Access to view recommendations is dependent on your access to the recommendation's affected resource.
+> Access to view recommendations is dependent on your access to the recommendation's impacted resource.
 
 ## Permissions and unavailable actions
 
