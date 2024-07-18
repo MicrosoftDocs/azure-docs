@@ -54,7 +54,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 
 1. In the **Create an alert rule** page, select the following information. 
 
-  :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-alerts/ddos-protection-alert-signal.png":::
+    :::image type="content" source="./media/ddos-alerts/ddos-protection-alert-signal.png" alt-text="Screenshot of adding DDoS Protection attack alert signal." lightbox="./media/ddos-alerts/ddos-protection-alert-signal.png":::
 
     | Setting | Value |
     |--|--|
