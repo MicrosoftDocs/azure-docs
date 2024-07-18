@@ -63,11 +63,7 @@ After you've chosen an appropriate cost preset, you can filter additional data u
 
 For example, you may choose to filter container logs based on the log level in ContainerLogV2. You could add a transformation to your Container insights DCR that would perform the functionality in the following diagram. In this example, only `error` and `critical` level events are collected, while any other events are ignored.
 
-:::image type="content" source="media/container-insights-cost/transformation-sample.png" lightbox="media/container-insights-cost/transformation-sample.png" alt-text="Diagram that shows filtering container logs using a transformation." border="false":::
-
 An alternate strategy would be to save the less important events to a separate table configured for basic logs. The events would still be available for troubleshooting, but with a significant cost savings for data ingestion.
-
-:::image type="content" source="media/container-insights-cost/transformation-sample-basic-logs.png" lightbox="media/container-insights-cost/transformation-sample-basic-logs.png" alt-text="Diagram that shows filtering container logs using a transformation that sends some data to analytics table and other data to basic logs." border="false":::
 
 See [Data transformations in Container insights](./container-insights-transformations.md) for details on adding a transformation to your Container insights DCR including sample DCRs using transformations.
 

@@ -75,7 +75,7 @@ The sample below shows the `dataFlows` section for a single stream with a transf
 ]
 ```
 
-## Examples
+## Sample DCRs
 
 
 ### Filter data
