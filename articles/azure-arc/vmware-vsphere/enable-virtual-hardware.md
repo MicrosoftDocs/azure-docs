@@ -50,15 +50,15 @@ Use the following az commands to link Arc-enabled Server machines to vCenter at 
 
 **Create VMware resource from the specified Arc for Server machine in the vCenter** 
 
-[!INCLUDE [azure-cli-specified-arc](../includes/azure-cli-specified-arc.md)]
+[!INCLUDE [azure-cli-specified-arc](./includes/azure-cli-specified-arc.md)]
 
 **Create VMware resources from all Arc for Server machines in the specified resource group belonging to that vCenter**
 
-[!INCLUDE [azure-cli-all](../includes/azure-cli-all.md)]
+[!INCLUDE [azure-cli-all](./includes/azure-cli-all.md)]
 
 **Create VMware resources from all Arc for Server machines in the specified subscription belonging to that vCenter**
 
-[!INCLUDE [azure-cli-subscription](../includes/azure-cli-subscription.md)]
+[!INCLUDE [azure-cli-subscription](./includes/azure-cli-subscription.md)]
 
 ### Required Parameters 
 

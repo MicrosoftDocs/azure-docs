@@ -158,15 +158,15 @@ Arc agents can be installed directly on machines without relying on VMware tools
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
 
-     [!INCLUDE [azure-cli-subscription](../includes/azure-cli-subscription.md)]
+     [!INCLUDE [azure-cli-subscription](./includes/azure-cli-all.md)]
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
 
-     [!INCLUDE [azure-cli-all](../includes/azure-cli-all.md)]
+     [!INCLUDE [azure-cli-all](./includes/azure-cli-all.md)]
 
    - The following command can be used to link an individual Arc for Server resource to vCenter. 
 
-     [!INCLUDE [azure-cli-specified-arc](../includes/azure-cli-specified-arc.md)]
+     [!INCLUDE [azure-cli-specified-arc](./includes/azure-cli-specified-arc.md)]
 
 ## Next steps
 
