@@ -44,15 +44,16 @@ Azure Communication Services now enables you to ...
 
 
 3. **Set up Event Grid subscription:**
+
    - Subscribe to Advanced Message Analysis Completed event by creating or modifying an event subscription. See [Subscribe to Advanced Messaging events](../whatsapp/handle-advanced-messaging-events.md#set-up-event-grid-viewer) for more details on creating event subscriptions.   
       :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create Message Analysis event subscription properties.":::
       
-4. **See Message Analysis in action**
+5. **See Message Analysis in action**
    - Send a message from WhatsApp Customer to Contoso business phone number.
    
       :::image type="content" source="./media/message-analysis/send-a-message.png" lightbox="./media/message-analysis/send-a-message.png" alt-text="Screenshot that shows sending a message from Customer to Contoso.":::
 
-5. **Receive the Message Analysis event**
+6. **Receive the Message Analysis event**
    - Receive the Message Analysis event in the Event Grid Viewer that you set up in Step **3**.
 
       :::image type="content" source="./media/message-analysis/event-grid-viewer.png" lightbox="./media/message-analysis/event-grid-viewer.png" alt-text="Screenshot that shows Message Analysis event being received at Event Grid Viewer.":::
