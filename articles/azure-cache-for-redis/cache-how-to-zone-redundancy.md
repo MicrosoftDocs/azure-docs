@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 06/07/2022
+ms.date: 07/17/2024
 
 ---
 
@@ -13,7 +13,7 @@ ms.date: 06/07/2022
 
 In this article, you'll learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 
-Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](../virtual-machines/availability.md) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
+Azure Cache for Redis Standard, Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](../virtual-machines/availability.md) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Standard, Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
 
 ## Prerequisites
 
@@ -39,13 +39,18 @@ To create a cache, follow these steps:
     | **Location** | Select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
     | **Cache type** | Select a [Premium or Enterprise tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-1. On the **Advanced** page, for a Premium tier cache, choose **Replica count**.
+1. For Standard or Premium tier cache, select **Advanced** in the Resource menu. To enable zone resiliency with automatic zone allocation, select **Select zones automatically**.
+<!-- I think at some point we have to point out that this is preview -->
 
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count":::
+   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-availability-zone.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones.:":::
 
-1. Select **Availability zones**.
+   For an Enterprise tier cache, select **Advanced** in the Resource menu. For **Zone redundancy**, select **Zone redundant (recommended)**.
 
-    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Availability zones":::
+   :::image type="content" source="media/cache-how-to-zone-redundancy/cache-enterprise-create-zones.png" alt-text="Screenshot showing the Advanced tab with a red box around Zone redundancy.":::
+
+   Automatic zone allocation increases the overall availability of your cache by automatically spreading it across multiple availability zones. Using availability zones makes the cache more resilient to outages in a datacenter. For more information, see [Zone redundancy](cache-high-availability.md#zone-redundancy).
+
+1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
 
 1. Configure your settings for clustering and/or RDB persistence.  
 
@@ -57,9 +62,6 @@ To create a cache, follow these steps:
 1. Select **Create**.
 
     It takes a while for the cache to be created. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-
-    > [!NOTE]
-    > Availability zones can't be changed or enabled after a cache is created.
 
 ## Zone Redundancy FAQ
 
