@@ -22,7 +22,7 @@ To detect nonproduction API requests, you need to have an Azure API Center insta
 
 ### Register APIs in your API Center instance
 
-Before you start, create an Azure API Center instance and register APIs that you use in your organization. For each API, define the versions you use and specify their lifecycle stage.
+Register APIs that you use in your organization. For each API, define the versions you use and specify their lifecycle stage.
 
 :::image type="content" source="./media/find-nonproduction-api-requests-dev-proxy/api-center-api-versions.png" alt-text="Screenshot of Azure API Center showing an API with different versions." lightbox="./media/find-nonproduction-api-requests-dev-proxy/api-center-api-versions.png":::
 
