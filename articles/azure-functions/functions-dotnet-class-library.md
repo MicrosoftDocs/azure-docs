@@ -47,7 +47,7 @@ Support for .NET 8 still uses version 4.x of the Functions runtime, and no chang
 
 To update your local project, first make sure you are using the latest versions of local tools. Then ensure that the project references [version 4.4.0 or later of Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.4.0). You can then change your `TargetFramework` to "net8.0". You must also update `local.settings.json` to include both `FUNCTIONS_WORKER_RUNTIME` set to "dotnet" and `FUNCTIONS_INPROC_NET8_ENABLED` set to "1".
 
-The following is an example of a minimal `local.settings.json` file with these changes:
+The following is an example of a minimal `project` file with these changes:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

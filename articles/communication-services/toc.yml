@@ -217,6 +217,8 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/get-started.md
         - name: Handle Advanced Messaging Events
           href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
+        - name: Download Media Payload
+          href: quickstarts/advanced-messaging/whatsapp/download-media.md
         - name: Try Advanced Messaging Sandbox
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Managed Identity

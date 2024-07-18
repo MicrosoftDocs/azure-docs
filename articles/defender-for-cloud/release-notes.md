@@ -31,9 +31,40 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
+|July 15|Preview|[Binary Drift Public Preview in Defender for Containers](#binary-drift-public-preview-now-available-in-defender-for-containers)|
+|July 14|GA|[Automated remediation scripts for AWS and GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga)|
+| July 11 | Upcoming update | [GitHub application permissions update](#github-application-permissions-update) |
 | July 10 | GA | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
 | July 9 | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 |July 8 | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### Binary Drift public preview now available in Defender for Containers
+
+We are introducing the public preview of Binary Drift for Defender for Containers. This feature aids in identifying and mitigating potential security risks associated with unauthorized binaries in your containers. Binary Drift autonomously identifies and sends alerts about potentially harmful binary processes within your containers. Furthermore, it allows the implementation of a new Binary Drift Policy to control alert preferences, offering the ability to tailor notifications to specific security needs.
+For more information about this feature, see [Binary Drift Detection](binary-drift-detection.md)
+
+### Automated remediation scripts for AWS and GCP are now GA
+July 14, 2024
+
+In March, we released automated remediation scripts for AWS & GCP to Public Preview, that allows you to remediate recommendations for AWS & GCP at scale programmatically. 
+
+Today we are releasing this feature to  generally available (GA). [Learn how to use automated remediation scripts](/azure/defender-for-cloud/implement-security-recommendations)>
+
+### GitHub application permissions update
+
+July 11, 2024
+
+**Estimated date for change**: July 18, 2024
+
+DevOps security in Defender for Cloud is constantly making updates that require customers with GitHub connectors in Defender for Cloud to update the permissions for the Microsoft Security DevOps application in GitHub.
+
+As part of this update, the GitHub application will require GitHub Copilot Business read permissions. This permission will be used to help customers better secure their GitHub Copilot deployments. We suggest updating the application as soon as possible.
+
+Permissions can be granted in two different ways:
+
+1. In your GitHub organization, navigate to the Microsoft Security DevOps application within **Settings > GitHub Apps** and accept the permissions request. 
+
+1. In an automated email from GitHub Support, select **Review permission request** to accept or reject this change.
 
 ### Compliance standards are now GA
 

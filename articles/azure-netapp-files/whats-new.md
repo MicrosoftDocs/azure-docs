@@ -14,6 +14,20 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2024
+
+* [Azure NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
+
+
+* [Metrics enhancement:](azure-netapp-files-metrics.md) New performance metrics for volumes
+
+    New counters have been added to Azure NetApp Files performance metrics to increase visibility into your volumes' workloads:
+
+    - Other IOPS: any operations other than read or write.
+    - Total IOPS: a summation of all IOPS (read, write, and other)
+    - Other throughput: any operations other than read or write.
+    - Total throughput: Total throughput is a summation of all throughput (read, write, and other)
+
 ## June 2024
 
 * [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
