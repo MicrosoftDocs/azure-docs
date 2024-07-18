@@ -112,10 +112,10 @@
       href: ../../traffic-manager/traffic-manager-overview.md?toc=/azure/networking/fundamentals/toc.json
   - name: Network monitoring
     items:
-    - name: Monitor your network with Azure Monitor
+    - name: Monitor your network with Network Insights
       href: ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Monitor and repair network health
-      href: ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json 
+      href: ../../network-watcher/network-watcher-overview.md?toc=/azure/networking/fundamentals/toc.json 
 - name: How-to guides
   items:
   - name: Create and connect to cloud networks
