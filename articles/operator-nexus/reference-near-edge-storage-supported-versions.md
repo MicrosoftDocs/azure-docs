@@ -62,6 +62,7 @@ Each number in the version indicates general compatibility with the previous ver
 ## Supported Pure HW Controller versions
 
 | Pure HW Controller version | Support added in |
+|----------|-------------|
 | R3	| Year 2021 |
 | R4	| Nexus 2404.x |
 
