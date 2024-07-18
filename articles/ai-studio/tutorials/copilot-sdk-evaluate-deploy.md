@@ -5,11 +5,11 @@ description: Evaluate and deploy a RAG-based copilot with the prompt flow SDK. T
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 7/17/2024
+ms.date: 7/18/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
-#customer intent: As a developer, I want to learn how to use the Azure AI SDK so that I can evaluate and deploy a copilot.
+#customer intent: As a developer, I want to learn how to use the prompt flow SDK so that I can evaluate and deploy a copilot.
 ---
 
 # Tutorial: Part 2 - Evaluate and deploy a RAG-based copilot with the prompt flow SDK

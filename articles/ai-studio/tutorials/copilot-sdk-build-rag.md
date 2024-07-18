@@ -5,11 +5,11 @@ description:  Learn how to build a RAG-based copilot using the prompt flow SDK. 
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: tutorial
-ms.date: 7/17/2024
+ms.date: 7/18/2024
 ms.reviewer: lebaro
 ms.author: sgilley
 author: sdgilley
-#customer intent: As a developer, I want to learn how to use the Azure AI SDK so that I can build a RAG-based copilot.
+#customer intent: As a developer, I want to learn how to use the prompt flow SDK so that I can build a RAG-based copilot.
 ---
 
 # Tutorial:  Part 1 - Build a RAG-based copilot with the prompt flow SDK
