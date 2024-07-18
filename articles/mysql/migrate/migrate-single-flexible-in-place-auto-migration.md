@@ -19,6 +19,9 @@ ms.custom:
 
 **In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 100 GiB** and **no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
+> [!IMPORTANT]  
+> Some Single Server instances may require mandatory inputs to perform a successful in-place automigration. Review the migration details in the Migration blade on Azure portal to provide those inputs. Failure to provide mandatory inputs 7 days before the scheduled migration will lead to re-scheduling of the migration to a later date.  
+
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
 - **Target Flexible Server is deployed**, inheriting all feature set and properties (including server parameters and firewall rules) from source Single Server. Source Single Server is set to read-only and backup from source Single Server is copied to the target Flexible Server.
