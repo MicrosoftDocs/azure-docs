@@ -1,5 +1,5 @@
 ---
-title: Manage access to the Deidentification service with Azure role-based access control (RBAC)
+title: Manage access to the Deidentification service with Azure role-based access control (RBAC) in Azure Health Data Services
 description: Learn how to manage access to the Deidentification service using Azure role-based access control.
 author: jovinson-ms
 ms.author: jovinson
@@ -11,10 +11,10 @@ ms.date: 07/16/2024
 
 # Use Azure role-based access control with the Deidentification service
 
-Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (Azure RBAC). The Deidentification service defines a set of 
+Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (RBAC). The Deidentification service defines a set of
 built-in roles that encompass common sets of permissions used to access deidentification functionality.
 
-Microsoft Entra ID uses the concept of a _security principal_, which can be a user, a group, an application service principal, or a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
+Microsoft Entra ID uses the concept of a security principal, which can be a user, a group, an application service principal, or a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 When an Azure role is assigned to a Microsoft Entra ID security principal over a specific scope, Azure grants access to that scope for that security principal. For more information about scopes, see
 [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).

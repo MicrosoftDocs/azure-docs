@@ -1,5 +1,5 @@
 ---
-title: Use managed identities with the Deidentification service in the Azure Health Data Services
+title: Use managed identities with the Deidentification service in Azure Health Data Services
 description: Learn how to use managed identities with the Azure Health Data Services Deidentification service using the Azure portal and ARM template.
 author: jovinson-ms
 ms.author: jovinson
@@ -24,7 +24,7 @@ Managed identities can be used to grant the Deidentification service access to y
 
 # [Azure portal](#tab/portal)
 
-1. Access your Deidentification service's settings in the Azure portal under the **Security** group in the left navigation pane.
+1. Access the Deidentification service settings in the Azure portal under the **Security** group in the left navigation pane.
 1. Select **Identity**.
 1. Within the **System assigned** tab, switch **Status** to **On** and choose **Save**.
 

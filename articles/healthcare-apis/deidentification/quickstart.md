@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Deploy your first deidentification service
-description: Get up and running quickly with the deidentification service in Azure Health Data Services.
+title: Quickstart - Deploy the Deidentification service in Azure Health Data Services
+description: Get up and running quickly with the Deidentification service in Azure Health Data Services.
 author: jovinson-ms
 ms.service: healthcare-apis
 ms.subservice: workspace

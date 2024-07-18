@@ -4,18 +4,20 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is the Deindentification service?
+    - name: What is the Deidentification service?
       href: overview.md
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Deploy the Deindentification services
+    - name: Deploy the Deidentification services
       href: quickstart.md
 - name: How-tos
   expanded: true
   items: 
     - name: Use managed identities
       href: managed-identities.md
-    - name: Use batch jobs to deindentify data
+    - name: Use Azure role-based access control
+      href: manage-access-rbac.md
+    - name: Use batch jobs to deidentify data
       href: batch-job.md
    
