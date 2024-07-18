@@ -2532,7 +2532,7 @@ It's not possible to filter telemetry in Java native.
 
 ## Get the trace ID or span ID
     
-You can obtain the `Trace ID` and `Span ID` of the currently active Span using below steps.
+You can obtain the `Trace ID` and `Span ID` of the currently active Span using following steps.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
