@@ -155,7 +155,7 @@ If you're playing the same audio file multiple times, your application can provi
 const playSource: FileSource = { url: audioUri, playsourcacheid: "<playSourceId>", kind: "fileSource" }; 
 await callAutomationClient.getCallConnection(callConnectionId) 
 .getCallMedia() 
-.play([ playSource ], [ targetParticipant ]); 
+.play([ playSource ], [ targetParticipant ]);
 ```
 
 ## Handle play action event updates 
@@ -175,6 +175,12 @@ if (event.type === "Microsoft.Communication.PlayCompleted") {
 ```javascript
 if (event.type === "Microsoft.Communication.PlayFailed") { 
     console.log("Play failed: data=%s", JSON.stringify(eventData)); 
+} 
+```
+### Example of how you can deserialize the *PlayStarted* event:
+```javascript
+if (event.type === "Microsoft.Communication.PlayStarted") { 
+    console.log("Play started: data=%s", JSON.stringify(eventData)); 
 } 
 ```
 
