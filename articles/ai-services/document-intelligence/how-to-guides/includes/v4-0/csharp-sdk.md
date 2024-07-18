@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 05/23/2024
+ms.date: 07/18/2024
 ms.author: lajanuar
 ms.custom: devx-track-csharp, ignite-2023, linux-related-content
 monikerRange: 'doc-intel-4.0.0'
