@@ -27,7 +27,7 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
-| Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Isolation](#network-isolation)                                     | Network disruption                                          |
+| Windows, Linux      | [Network Isolation](#network-isolation)                                     | Network disruption                                          |
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
 | Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
@@ -407,8 +407,8 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 |-|-|
 | Capability name | NetworkIsolation-1.0 |
 | Target type | Microsoft-Agent |
-| Supported OS types | Windows, Linux (outbound traffic only) |
-| Description | Fully isolate the virtual machine from network connections by dropping all IP-based inbound (on Windows) and outbound (on Windows and Linux) packets for the specified duration. At the end of the duration, network connections will be re-enabled. Because the agent depends on network traffic, this action cannot be cancelled and will run to the specified duration. |
+| Supported OS types | Windows, Linux |
+| Description | Fully isolate the virtual machine from network connections by dropping all IP-based inbound and outbound packets for the specified duration. At the end of the duration, network connections will be re-enabled. Because the agent depends on network traffic, this action cannot be cancelled and will run to the specified duration. |
 | Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
 | | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
 | Urn | urn:csci:microsoft:agent:networkIsolation/1.0 |
@@ -436,9 +436,6 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 #### Limitations
 
 * Because the agent depends on network traffic, **this action cannot be cancelled** and will run to the specified duration. Use with caution.
-* The agent-based network faults currently only support IPv4 addresses.
-* When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
-* When running on Linux, this fault only affects **outbound** traffic, not inbound traffic. The fault affects **both inbound and outbound** traffic on Windows environments.
 * This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
 
 
