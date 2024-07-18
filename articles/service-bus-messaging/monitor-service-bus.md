@@ -2,7 +2,7 @@
 title: Monitor Azure Service Bus
 description: Start here to learn how to monitor Azure Service Bus by using Azure Monitor metrics, logs, and tools.
 ms.date: 07/17/2024
-ms.custom: horz-monitor, subject-monitoring
+ms.custom: horz-monitor
 ms.topic: conceptual
 author: spelluru
 ms.author: spelluru 
@@ -204,11 +204,13 @@ Following are sample queries that you can use to help you monitor your Azure Ser
   | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
   | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
   | summarize by NamespaceInfo, AuthKey, ActivityName
-   ```
+  ```
 
 ---
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+
+[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 ### Service Bus alert rules
 
