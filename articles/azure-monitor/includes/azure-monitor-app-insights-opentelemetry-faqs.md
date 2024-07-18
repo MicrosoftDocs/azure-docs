@@ -86,7 +86,7 @@ The following chart breaks out OpenTelemetry feature support for each language.
 |-----------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
 | [Distributed tracing](../app/distributed-trace-data.md)                                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Standard metrics](../app/standard-metrics.md) (accuracy currently affected by sampling)                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Standard metrics](../app/standard-metrics.md)                                                                        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Fixed-rate sampling](../app/sampling.md)                                                                             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |

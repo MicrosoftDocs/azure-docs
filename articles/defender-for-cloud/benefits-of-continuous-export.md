@@ -24,10 +24,10 @@ When you set up continuous export, you can fully customize what information to e
 You can use continuous export to export the following data types whenever they change:
 
 - Security recommendations.
-    - Recommendation severity.
-    - Security findings.
+  - Recommendation severity.
+  - Security findings.
 - Secure score.
-    - Controls.
+  - Controls.
 - Security alerts.
 - Regulatory compliance.
 - Attack paths

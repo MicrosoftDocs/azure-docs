@@ -595,11 +595,6 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 >[!IMPORTANT]
 >Cluster update should not include both identity and key identifier details in the same operation. If you need to update both, the update should be in two consecutive operations.
 
-<!--
-> [!NOTE]
-> The *billingType* property isn't supported in CLI.
--->
-
 #### [Portal](#tab/azure-portal)
 
 N/A

@@ -4,7 +4,7 @@ description: The ExpressRoute FAQ contains information about Supported Azure Ser
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 04/09/2024
 ms.author: duau
 

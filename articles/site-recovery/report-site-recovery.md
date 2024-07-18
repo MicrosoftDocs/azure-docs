@@ -40,11 +40,14 @@ To set up a Log Analytics workspace, [follow these steps](../azure-monitor/logs/
 
 ### Configure diagnostics settings for your vaults 
 
-Azure Resource Manager resources like Recovery Services vaults, record information about site recovery jobs and replicated items as diagnostics data. To configure diagnostics settings for your vaults, follow these steps: 
+Azure Resource Manager resources, like Recovery Services vaults, record information about site recovery jobs and replicated items as diagnostics data.
 
-1. On the Azure portal, navigate to the chosen the Recovery Services vault of concern
-1. Select **Monitoring** > **Diagnostic settings**.
-1. Specify the target for the Recovery Services Vault's diagnostic data. Learn more about [using diagnostic events](../backup/backup-azure-diagnostic-events.md) for Recovery Services vaults. 
+To learn how to configure diagnostics settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
+
+You can also configure diagnostics settings for your vaults using the following steps in the Azure portal.
+
+1. Navigate to the chosen the Recovery Services vault, then select **Monitoring** > **Diagnostic settings**.
+1. Specify the target for the Recovery Services Vault's diagnostic data. Learn more about [using diagnostic events](../backup/backup-azure-diagnostic-events.md) for Recovery Services vaults.
 1. Select **Azure Site Recovery Jobs** and **Azure Site Recovery Replicated Item Details** options to populate the reports. 
     :::image type="content" source="./media/report-site-recovery/logs.png" alt-text="Screenshot of logs options.":::
 

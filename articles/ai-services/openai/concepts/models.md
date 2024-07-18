@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 07/08/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -34,7 +34,7 @@ GPT-4o is the latest model from OpenAI. GPT-4o integrates text and images in a s
 
 GPT-4o is available for **standard** and **global-standard** model deployment.
 
-You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability-preview) region where the model is available.
+You need to [create](../how-to/create-resource.md) or use an existing resource in a [supported standard](#gpt-4-and-gpt-4-turbo-model-availability) or [global standard](#global-standard-model-availability) region where the model is available.
 
 When your resource is created, you can [deploy](../how-to/create-resource.md#deploy-a-model) the GPT-4o model. If you are performing a programmatic deployment, the **model** name is `gpt-4o`, and the **version** is `2024-05-13`.
 
@@ -145,9 +145,9 @@ You can also use the OpenAI text to speech voices via Azure AI Speech. To learn 
 
 [!INCLUDE [Standard Models](../includes/model-matrix/standard-models.md)]
 
-This table doesn't include fine-tuning regional availability, consult the dedicated [fine-tuning section](#fine-tuning-models) for this information.
+This table doesn't include [global standard](../how-to/deployment-types.md) model deployment regional availability for GPT-4o, or fine-tuning regional availability information.  Consult the dedicated [global standard deployment section](#global-standard-model-availability) and the [fine-tuning section](#fine-tuning-models) for this information.
 
-### Standard deployment model quota
+### Standard and global standard deployment model quota
 
 [!INCLUDE [Quota](../includes/model-matrix/quota.md)]
 
@@ -164,7 +164,7 @@ You need to speak with your Microsoft sales/account team to acquire provisioned 
 
 For more information on Provisioned deployments, see our [Provisioned guidance](./provisioned-throughput.md).
 
-### Global standard model availability (preview)
+### Global standard model availability
 
 **Supported models:**
 
@@ -172,18 +172,35 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 **Supported regions:**
 
- - eastus
- - eastus2
- - northcentralus
- - southcentralus
- - westus
- - westus3
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
 
 ### GPT-4 and GPT-4 Turbo model availability
 
 #### Public cloud regions
 
 [!INCLUDE [GPT-4](../includes/model-matrix/standard-gpt-4.md)]
+
+
 
 #### Select customer access
 
@@ -295,7 +312,7 @@ The following Embeddings models are available with [Azure Government](/azure/azu
 
 ### Assistants (Preview)
 
-For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). 
+For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2.
 
 | Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` |
 |-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
