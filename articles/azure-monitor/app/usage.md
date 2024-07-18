@@ -8,7 +8,16 @@ ms.reviewer: mmcc
 
 # Usage analysis with Application Insights
 
-Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later? [Application Insights](./app-insights-overview.md) helps you gain powerful insights into how people use your app. Every time you update your app, you can assess how well it works for users. With this knowledge, you can make data-driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later? [Application Insights](./app-insights-overview.md) is a powerful tool for monitoring the performance and usage of your applications. It provides insights into how users interact with your app, identifies areas for improvement, and helps you understand the impact of changes. With this knowledge, you can make data-driven decisions about your next development cycles.
+
+This article covers the following areas:
+
+* [Users, Sessions & Events](#the-users-sessions-and-events-segmentation-tool) - Filter your data by pages or custom events. The reports segment the data by properties such as location, environment, and page. You can also add your own filters.
+* [Funnels](#use-funnels-to-discover-how-customers-are-using-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
+* [User Flows](#analyze-user-navigation-patterns-with-user-flows) - Visualize user paths to identify where users are most engaged and where they exit.
+* [Cohorts](#analyze-a-specific-set-of-users-sessions-events-or-operations-repeatedly-with-cohorts) - Define and analyze sets of users or events that share common characteristics.
+* [Impact Analysis](#use-impact-analysis-to-discover-how-load-times-and-other-properties-influence-conversion-rates) - Analyze how different factors such as load times influence user behavior and conversion rates.
+* [HEART](#analyze-product-usage-with-heart) - Utilize the HEART framework to measure user happiness, engagement, adoption, retention, and task success.
 
 ## Send telemetry from your app
 
@@ -30,25 +39,7 @@ The best experience is obtained by installing Application Insights both in your 
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- Users & Sessions --> Explore usage demographics and statistics
-
-Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Application Insights](./app-insights-overview.md).
-
-:::image type="content" source="./media/usage-overview/users.png" alt-text="Screenshot that shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
-
-The **Users** and **Sessions** reports filter your data by pages or custom events. The reports segment the data by properties such as location, environment, and page. You can also add your own filters.
-
-Insights on the right point out interesting patterns in the set of data.
-
-* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, they're counted more than once.
-* The **Sessions** report tabulates the number of user sessions that access your site. A session represents a period of activity initiated by a user and concludes with a period of inactivity exceeding half an hour.
-
-### The Users, Sessions, and Events segmentation tool
+## The Users, Sessions, and Events segmentation tool
 
 Three of the **Usage** panes use the same tool to slice and dice telemetry from your web app from three perspectives. By filtering and splitting the data, you can uncover insights about the relative use of different pages and features.
 
@@ -67,7 +58,17 @@ Clicking **View More Insights** displays the following information:
 * Properties: Charts containing up to six user properties such as browser version, country or region, and operating system.
 * Meet Your Users: View timelines of user activity.
 
-### Query for certain users
+### Users & Sessions - Explore usage demographics and statistics
+
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using Application Insights.
+
+:::image type="content" source="./media/usage-overview/users.png" alt-text="Screenshot that shows the Users tab with a bar chart." lightbox="./media/usage-overview/users.png":::
+
+* The **Users** report counts the numbers of unique users that access your pages within your chosen time periods. For web apps, users are counted by using cookies. If someone accesses your site with different browsers or client machines, or clears their cookies, they're counted more than once.
+
+* The **Sessions** report tabulates the number of user sessions that access your site. A session represents a period of activity initiated by a user and concludes with a period of inactivity exceeding half an hour.
+
+#### Query for certain users
 
 Explore different groups of users by adjusting the query options at the top of the Users tool:
 
@@ -79,16 +80,11 @@ Explore different groups of users by adjusting the query options at the top of t
 * **Split By**: Choose a property to use to split or segment the data.
 * **Add Filters**: Limit the query to certain users, sessions, or events based on their properties, such as browser or city.
 
-### Meet your users
+#### Meet your users
 
 The **Meet your users** section shows information about five sample users matched by the current query. Exploring the behaviors of individuals and in aggregate can provide insights about how people use your app.
 
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## Retention: How many users come back?
+### Retention: How many users come back?
 
 Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. You can:
 
@@ -106,7 +102,7 @@ For more information about the Retention workbook, see [User retention analysis 
 
 The retention feature in [Application Insights](./app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve your user experience and your business strategy.
 
-### The Retention workbook
+#### The Retention workbook
 
 To use the Retention workbook, in your Application Insights resources go to **Usage** > **Retention** > **Retention Analysis Workbook**. Or on the **Workbooks** tab, select **Public Templates**. Then under **Usage**, select **User Retention Analysis**.
 
@@ -116,7 +112,7 @@ To use the Retention workbook, in your Application Insights resources go to **Us
 
 :::image type="content" source="./media/usage-retention/retention.png" alt-text="Screenshot that shows the Retention workbook showing a line chart." lightbox="./media/usage-retention/retention.png":::
 
-Workbook capabilities:
+**Workbook capabilities:**
 
 * By default, retention shows all users who did anything and then came back and did anything else over a defined period. You can select different combinations of events to narrow the focus on specific user activities.
 * To add one or more filters on properties, select **Add Filters**. For example, you can focus on users in a particular country or region.
@@ -126,7 +122,9 @@ Workbook capabilities:
 
     :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot that shows the Retention workbook showing the User returned after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
 
-### Use business events to track retention
+### Events - ...
+
+#### Use business events to track retention
 
 You should measure events that represent significant business activities to get the most useful retention analysis.
 
@@ -134,12 +132,7 @@ For more information and example code, see [Custom business events](usage-overvi
 
 To learn more, see [writing custom events](./api-custom-events-metrics.md#trackevent).
 
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- Events --> Custom business events
+#### Custom business events
 
 To understand user interactions in your app, insert code lines to log custom events. These events track various user actions, like button selections, or important business events, such as purchases or game victories.
 
@@ -170,7 +163,7 @@ You can attach property values to these events so that you can filter or split t
 
 Learn more about [custom events](./api-custom-events-metrics.md#trackevent) and [properties](./api-custom-events-metrics.md#properties).
 
-### Slice and dice events
+#### Slice and dice events
 
 In the Users, Sessions, and Events tools, you can slice and dice custom events by user, event name, and properties.
 
@@ -199,11 +192,11 @@ dataset
 | render timechart
 ```
   
-## Design the telemetry with the app
+#### Design the telemetry with the app
 
 When you design each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
 
-## A | B testing
+#### A | B testing
 
 If you're unsure which feature variant is more successful, release both and let different users access each variant. Measure the success of each variant, and then transition to a unified version.
 
@@ -230,7 +223,7 @@ To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#ad
     }
 ```
 
-### [NET 6.0+](#tab/aspnetcore)
+##### [NET 6.0+](#tab/aspnetcore)
 
 For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
 
@@ -240,7 +233,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 ```
 
-### [.NET Framework 4.8](#tab/aspnet-framework)
+##### [.NET Framework 4.8](#tab/aspnet-framework)
 
 In the web app initializer, such as `Global.asax.cs`:
 
@@ -256,18 +249,26 @@ In the web app initializer, such as `Global.asax.cs`:
 
 ---
 
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- Funnels --> Discover how customers are using your application with Application Insights funnels
+## Use funnels to discover how customers are using your application
 
 Understanding the customer experience is of great importance to your business. If your application involves multiple stages, you need to know if customers are progressing through the entire process or ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights funnels to gain insights into your users and monitor step-by-step conversion rates.
 
-### Create your funnel
+### Funnel features
 
-Before you create your funnel, decide on the question you want to answer. For example, you might want to know how many users view the home page, view a customer profile, and create a ticket.
+Funnels have the following features:
+
+* If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
+* Select a step to see more details on the right.
+* The historical conversion graph shows the conversion rates over the last 90 days.
+* Understand your users better by accessing the users tool. You can use filters in each step.
+
+### Create a funnel
+
+#### Prerequisites
+
+Before you create a funnel, decide on the question you want to answer. For example, you might want to know how many users view the home page, view a customer profile, and create a ticket.
+
+#### Get started
 
 To create a funnel:
 
@@ -288,21 +289,7 @@ To create a funnel:
 
 1. To save your funnel to view at another time, select **Save** at the top. Use **Open** to open your saved funnels.
 
-#### Funnels features
-
-Funnels have the following features:
-
-* If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
-* Select a step to see more details on the right.
-* The historical conversion graph shows the conversion rates over the last 90 days.
-* Understand your users better by accessing the users tool. You can use filters in each step.
-
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- User Flows --> Analyze user navigation patterns with User Flows in Application Insights
+## Analyze user navigation patterns with User Flows
 
 :::image type="content" source="./media/usage-flows/flows.png" lightbox="./media/usage-flows/flows.png" alt-text="Screenshot that shows the Application Insights User Flows tool.":::
 
@@ -367,27 +354,7 @@ Keep in mind that **Session Ended** nodes are based only on telemetry collected 
 
 Look for a page view or custom event that's repeated by many users across subsequent steps in the visualization. This activity usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, you might add bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
-### Frequently asked questions
-
-This section provides answers to common questions.
-
-#### Does the initial event represent the first time the event appears in a session or any time it appears in a session?
-
-The initial event on the visualization only represents the first time a user sent that page view or custom event during a session. If users can send the initial event multiple times in a session, then the **Step 1** column only shows how users behave after the *first* instance of an initial event, not all instances.
-
-#### Some of the nodes in my visualization have a level that's too high. How can I get more detailed nodes?
-
-Use the **Split by** options on the **Edit** menu:
-
-1. Select the event you want to break down on the **Event** menu.
-1. Select a dimension on the **Dimension** menu. For example, if you have an event called **Button Clicked**, try a custom property called **Button Name**.
-
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- Cohorts --> Application Insights cohorts
+## Analyze a specific set of users, sessions, events, or operations repeatedly with Cohorts
 
 A cohort is a set of users, sessions, events, or operations that have something in common. In Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you're interested in.
 
@@ -396,6 +363,7 @@ A cohort is a set of users, sessions, events, or operations that have something 
 You can use cohorts in ways similar to filters. But cohorts' definitions are built from custom analytics queries, so they're much more adaptable and complex. Unlike filters, you can save cohorts so that other members of your team can reuse them.
 
 You might define a cohort of users who have all tried a new feature in your app. You can save this cohort in your Application Insights resource. It's easy to analyze this saved group of specific users in the future.
+
 > [!NOTE]
 > After cohorts are created, they're available from the Users, Sessions, Events, and User Flows tools.
 
@@ -476,23 +444,9 @@ The previous two cohorts were defined by using dropdown boxes. You can also defi
 
 1. Save and name the cohort.
 
-### Frequently asked questions
+## Use Impact Analysis to discover how load times and other properties influence conversion rates
 
-#### I defined a cohort of users from a certain country/region. When I compare this cohort in the Users tool to setting a filter on that country/region, why do I see different results?
-
-Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter `Country or region = United Kingdom`:
-
-* The cohort version shows all events from users who sent one or more events from the United Kingdom in the current time range. If you split by country or region, you likely see many countries and regions.
-* The filters version only shows events from the United Kingdom. If you split by country or region, you see only the United Kingdom.
-
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- Impact Analysis --> Impact analysis with Application Insights
-
-Impact analyzes how load times and other properties influence conversion rates for various parts of your app. To put it more precisely, it discovers how any dimension of a page view, custom event, or request affects the usage of a different page view or custom event.
+Impact Analysis discovers how any dimension of a page view, custom event, or request affects the usage of a different page view or custom event.
 
 ### Still not sure what Impact does?
 
@@ -558,12 +512,7 @@ Sessions are then broken into two different kinds of *subsessions* based on one 
 
 How Impact is ultimately calculated varies based on whether we're analyzing by metric or by dimension. For metrics, all *A*s in a subsession are averaged. For dimensions, the value of each *A* contributes *1/N* to the value assigned to *B*, where *N* is the number of *A*s in the subsession.
 
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
-## <!-- HEART --> Analyze product usage with HEART
+## Analyze product usage with HEART
 
 This article describes how to enable and use the Heart Workbook on Azure Monitor. The HEART workbook is based on the HEART measurement framework, which was originally introduced by Google. Several Microsoft internal teams use HEART to deliver better software.
 
@@ -735,15 +684,33 @@ Set up a custom task by using the following parameters.
 | Expected task duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint are considered a failure. Not all tasks necessarily have a time constraint. For such tasks, select **No Time Expectation**. |
 | Last step        | The feature that completes the task. In the cart/purchase example, **Purchasing items from the cart** is the last step.                                                                                               |
 
-### Frequently asked questions
+## Frequently asked questions
 
-#### How do I view the data at different grains (daily, monthly, or weekly)?
+### Does the initial event represent the first time the event appears in a session or any time it appears in a session?
+
+The initial event on the visualization only represents the first time a user sent that page view or custom event during a session. If users can send the initial event multiple times in a session, then the **Step 1** column only shows how users behave after the *first* instance of an initial event, not all instances.
+
+### Some of the nodes in my visualization have a level that's too high. How can I get more detailed nodes?
+
+Use the **Split by** options on the **Edit** menu:
+
+1. Select the event you want to break down on the **Event** menu.
+1. Select a dimension on the **Dimension** menu. For example, if you have an event called **Button Clicked**, try a custom property called **Button Name**.
+
+### I defined a cohort of users from a certain country/region. When I compare this cohort in the Users tool to setting a filter on that country/region, why do I see different results?
+
+Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter `Country or region = United Kingdom`:
+
+* The cohort version shows all events from users who sent one or more events from the United Kingdom in the current time range. If you split by country or region, you likely see many countries and regions.
+* The filters version only shows events from the United Kingdom. If you split by country or region, you see only the United Kingdom.
+
+### How do I view the data at different grains (daily, monthly, or weekly)?
 
 You can select the **Date Grain** filter to change the grain. The filter is available across all the dimension tabs.
 
 :::image type="content" source="media/usage-overview/date-grain-monthly.png" alt-text="Screenshot that shows the filter to change date grain to daily, monthly, or weekly in the workbook.":::
 
-#### How do I access insights from my application that aren't available on the HEART workbooks?
+### How do I access insights from my application that aren't available on the HEART workbooks?
 
 You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this task, under the **Monitoring** section, select **Logs** and query the `customEvents` table. Some of the Click Analytics attributes are contained within the `customDimensions` field. A sample query is shown here.
 
@@ -751,7 +718,7 @@ You can dig into the data that feeds the HEART workbook if the visuals don't ans
 
 To learn more about Logs in Azure Monitor, see [Azure Monitor Logs overview](../logs/data-platform-logs.md).
 
-#### Can I edit visuals in the workbook?
+### Can I edit visuals in the workbook?
 
 Yes. When you select the public template of the workbook:
 
@@ -771,21 +738,12 @@ Yes. When you select the public template of the workbook:
 
 For more on editing workbook templates, see [Azure Workbooks templates](../visualize/workbooks-templates.md).
 
-### <!-- HEART-exclusive --> Next steps
-
-* Check out the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection plug-in.
-* Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-* Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
-* Learn more about the [Google HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
-
-<!-- 
-    NEXT 
-    CHAPTER 
-            -->
-
 ## Next steps
 
+* Check out the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection plug-in.
+* Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
+* Learn more about the [Google HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
 * To learn more about workbooks, see the [Workbooks overview](../visualize/workbooks-overview.md).
 * To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
-* [Export to Power BI](../logs/log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md)
-* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Export to Power BI](../logs/log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md).
+* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
