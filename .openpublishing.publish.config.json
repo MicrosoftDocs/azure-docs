@@ -1225,6 +1225,12 @@
       "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-fastapi-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
