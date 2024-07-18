@@ -127,7 +127,7 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 
 1. Select **Alert rules**. 
 
-     :::image type="content" source="./media/ddos-alerts/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page within Azure for DDoS Protection.." lightbox="./media/ddos-alerts/ddos-protection-delete-alert-rules.png":::
+     :::image type="content" source="./media/ddos-alerts/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page within Azure for DDoS Protection." lightbox="./media/ddos-alerts/ddos-protection-delete-alert-rules.png":::
 
 1. In the Alert rules page, select your subscription.
 

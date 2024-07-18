@@ -44,7 +44,7 @@ Let's assume you have only one subscription in your tenant. If you create a Netw
 
 Let's take this same scenario and assume you have 10 Public IP addresses. If you enable IP Protection for each Public IP address, you're billed for $1,990 USD per month (199 USD x 10 resources).
 
-Under this scenario, its more cost effective to enable IP Protection for each Public IP address. For environments with more than 15 Public IP addresses, it's more cost effective to create a Network Protection plan. To calculate your unique pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
+Under this scenario, it's more cost effective to enable IP Protection for each Public IP address. For environments with more than 15 Public IP addresses, it's more cost effective to create a Network Protection plan. To calculate your unique pricing scenarios, see the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=ddos-protection).
 
 > [!NOTE]
 > Network Protection includes valued-added benefits such as DDoS Rapid Protection, WAF Discount, and Cost Protection. For more information, see [Azure DDoS Protection SKU Comparison](ddos-protection-sku-comparison.md).
