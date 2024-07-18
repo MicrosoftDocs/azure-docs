@@ -18,7 +18,7 @@ ms.date: 05/31/2024
 
 ## Go to the Azure OpenAI Studio
 
-Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your OpenAI resource.. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to Azure OpenAI Studio at <a href="https://oai.azure.com/" target="_blank">https://oai.azure.com/</a> and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 From the Azure OpenAI Studio landing page launch the Assistant's playground from the left-hand navigation **Playground** > **Assistants (Preview)**
 
