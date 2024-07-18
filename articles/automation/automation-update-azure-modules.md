@@ -13,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 
 > [!NOTE]
-> - You can't delete global modules, which are modules that Automation provides out of the box.
+> You can't delete global modules, which are modules that Automation provides out of the box.
 > [!IMPORTANT]
-> - New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](manage-runtime-environment.md).
+> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](manage-runtime-environment.md).
 
 ## Set up an Automation account
 
