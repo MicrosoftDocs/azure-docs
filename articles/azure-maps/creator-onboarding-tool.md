@@ -2,8 +2,8 @@
 title: Create indoor map with onboarding tool
 titleSuffix: Azure Maps Creator
 description: This article describes how to create an indoor map using the onboarding tool
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 08/15/2023
 ms.topic: how-to
 ms.service: azure-maps
