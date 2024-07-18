@@ -16,9 +16,9 @@ Azure App Service is a fully managed platform as a service (PaaS) offering that 
 
 ## Scenarios for using Azure Traffic Manager with Azure App Service
 
-1.	High availability: Azure Traffic Manager can help ensure that your app is always available by directing traffic to a healthy instance of your app in the event of an outage or other issue.
-2.	Geographic distribution: If you have apps in different geographic locations, you can use Azure Traffic Manager to direct users to the closest app in terms of the lowest network latency.
-3.	Load balancing: Azure Traffic Manager can distribute traffic across a set of apps, either evenly or according to weights, which you define.
+* High availability: Azure Traffic Manager can help ensure that your app is always available by directing traffic to a healthy instance of your app in the event of an outage or other issue.
+* Geographic distribution: If you have apps in different geographic locations, you can use Azure Traffic Manager to direct users to the closest app in terms of the lowest network latency.
+* Load balancing: Azure Traffic Manager can distribute traffic across a set of apps, either evenly or according to weights, which you define.
 
 By using Azure Traffic Manager with Azure App Service, you can ensure that your app is always available, provide better user experience by directing users to the closest app, and distribute traffic across a set of apps.
 
@@ -36,7 +36,7 @@ By using Azure Traffic Manager with Azure App Service, you can ensure that your 
     ![A screenshot of the app service.](media/traffic-manager-use-azure-app-service/create-app-service.png)
 2.	Create an Azure Traffic Manager Profile: In the Azure portal, create a new Traffic Manager profile. Choose the routing method that best suits your needs (Priority, Weighted, Performance, Geographic).
 
-    <br><img src="./media/traffic-manager-use-with-appgw/create-profile.png" alt="A screenshot of creating a traffic manager profile." width="60%">
+    <br><img src="./media/traffic-manager-use-with-app-gateway/create-profile.png" alt="A screenshot of creating a traffic manager profile." width="60%">
 3.	[Add an endpoint](quickstart-create-traffic-manager-profile.md#add-traffic-manager-endpoints) to your Traffic Manager profile: Add your Azure App Service as an endpoint in your Traffic Manager profile. Remember, you can only specify one App Service endpoint per region in a profile.
 
     ![A screenshot of the adding a traffic manager endpoint.](media/traffic-manager-use-azure-app-service/add-endpoint.png)
