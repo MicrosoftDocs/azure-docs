@@ -69,7 +69,7 @@ The CLI requires permission to access the SSH folder during deployment or operat
 If you encounter an error stating: `Access to the file in the SSH folder was denied. This may occur if the CLI doesn't have permission to the SSH folder or if another CLI instance is using the file`, there are two common causes for this issue:
 
 1. Insufficient permissions: The CLI lacks the necessary permissions to access the SSH folder. Ensure that the user account running the CLI has appropriate permissions to access the SSH folder.
- 
+
 1. Concurrent file access: Another instance of the CLI might be using the file in the SSH folder. This often happens on workstations with shared profiles. Ensure that any other CLI instance completes or terminates its operation before you proceed. 
 
 ### Arc resource bridge is offline
