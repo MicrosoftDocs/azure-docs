@@ -65,7 +65,7 @@ The volume hard quota change will result in changes in provisioned and available
     There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
 
 * **Provisioned capacity pool sizes**:   
-    After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool will have to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 500 TiB (which is the [capacity pool size limit](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity will be subject to ACR charge as normal.
+    After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool has to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 1 PiB (which is the [capacity pool size limit](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity will be subject to ACR charge as normal.
 
 You should work with your Azure NetApp Files specialists to validate your environment, if you need help with setting up monitoring or alerting as described in the sections below.
 

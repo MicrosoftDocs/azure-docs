@@ -16,6 +16,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## July 2024
 
+* [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
+
+    Azure NetApp Files large volumes now support increased maximum throughput and size limits. This update brings an increased size limit to **one PiB,** available via Azure Feature Exposure Control (AFEC), allowing for more extensive and robust data management solutions for various workloads, including HPC, EDA, VDI, and more.
+    
+    This update also introduces a preview of a large volume type, starting from **one PiB** up to **two PiB**, available upon request. This **2-PiB** enhancement is subject to regional availability and capacity, ensuring that Azure NetApp Files can meet your specific needs and requirements. This feature is currently in preview.
+    
 * [Azure NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
 
 
@@ -298,7 +304,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Large volumes](large-volumes-requirements-considerations.md) (Preview)
 
-    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 500 TiB in size. The large volumes capability enables various use cases and workloads that require large volumes with a single directory namespace.
+    Regular Azure NetApp Files volumes are limited to 100 TiB in size. Azure NetApp Files [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) break this barrier by enabling volumes of 100 TiB to 1 PiB in size. The large volumes capability enables various use cases and workloads that require large volumes with a single directory namespace.
 
 * [Customer-managed keys](configure-customer-managed-keys.md) (Preview)
 
