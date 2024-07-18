@@ -57,6 +57,7 @@ Following described are the ways to review your migration schedule once you rece
   - **Review** the private endpoints listed to be migrated. Ensure they are marked as **Ready to Migrate**. If they are marked as ineligible, select the appropriate subscription and private DNS Zone.
   - Select the **confirmation checkbox** after performing the listed pre-requisite checks for migrating private endpoints.
   - Click on the **Authenticate** button to authenticate ARM connection required to migrate the private endpoints from source to target server.
+  - Click on **Save** to save all the above steps.
   > [!NOTE]  
   > If the mandatory inputs for migration are not provided atleast 7 days before the scheduled migration, the migration will be rescheduled to a later date.
 
