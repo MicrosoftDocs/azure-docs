@@ -166,12 +166,10 @@
       href: ../../traffic-manager/quickstart-create-traffic-manager-profile.md?toc=/azure/networking/fundamentals/toc.json
   - name: Monitor your network
     items:
-    - name: Monitor network health
-      href:  ../../network-watcher/network-watcher-monitoring-overview.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Monitor communications between Azure resources
+    - name: Monitor communication between Azure resources
       href: ../../network-watcher/connection-monitor-create-using-portal.md?toc=/azure/networking/fundamentals/toc.json
-    - name: Azure Monitor Network Insights
-      href:  ../../network-watcher/network-insights-overview.md?toc=/azure/networking/fundamentals/toc.json
+    - name: View topology
+      href:  ../../network-watcher/network-insights-topology.md?toc=/azure/networking/fundamentals/toc.json
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
   - name: Troubleshooting
