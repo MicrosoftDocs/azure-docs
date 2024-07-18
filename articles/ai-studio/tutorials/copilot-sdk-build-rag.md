@@ -171,7 +171,7 @@ In the Azure AI Studio, check for an Azure AI Search connected resource.
 We recommend using [Microsoft Entra ID](/entra/fundamentals/whatis) instead of using API keys. In order to use this authentication, you need to set the right access controls and assign the right roles for your Azure AI Search service. 
 
 > [!WARNING]
-> You can use role-based access control locally because you run `az login` later in this tutorial. But when you deploy your app in [part 2 of the tutorial](./evaluate-deploy-sdk.md), the deployment is authenticated using API keys from your Azure AI Search service. Support for Microsoft Entra ID authentication of the deployment is coming soon.
+> You can use role-based access control locally because you run `az login` later in this tutorial. But when you deploy your app in [part 2 of the tutorial](./copilot-sdk-evaluate-deploy.md), the deployment is authenticated using API keys from your Azure AI Search service. Support for Microsoft Entra ID authentication of the deployment is coming soon.
 
 To enable role-based access control for your Azure AI Search service, follow these steps:
 
@@ -399,9 +399,9 @@ If you navigate to the trace from this flow run, you see this in action. The loc
 
 To avoid incurring unnecessary Azure costs, you should delete the resources you created in this tutorial if they're no longer needed. To manage resources, you can use the [Azure portal](https://portal.azure.com?azure-portal=true).
 
-But don't delete them yet, if you want to deploy your copilot to Azure in [the next part of this tutorial series](evaluate-deploy-sdk.md).
+But don't delete them yet, if you want to deploy your copilot to Azure in [the next part of this tutorial series](copilot-sdk-evaluate-deploy.md).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Evaluate and deploy your copilot to Azure](evaluate-deploy-sdk.md)
+> [Evaluate and deploy your copilot to Azure](copilot-sdk-evaluate-deploy.md)

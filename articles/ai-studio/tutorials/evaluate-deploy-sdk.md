@@ -14,7 +14,7 @@ author: sdgilley
 
 # Tutorial: Part 2 - Evaluate and deploy a RAG-based copilot with the prompt flow SDK
 
-In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the prompt flow SDK (and other libraries) to  evaluate and deploy the copilot you built in [Part 1 of the tutorial series](build-custom-copilot-sdk.md).
+In this [Azure AI Studio](https://ai.azure.com) tutorial, you use the prompt flow SDK (and other libraries) to  evaluate and deploy the copilot you built in [Part 1 of the tutorial series](copilot-sdk-build-rag.md).
 
 This tutorial is part two of a two-part tutorial.
 
@@ -30,7 +30,7 @@ In this part two, you learn how to:
 
 ## Prerequisites
 
-- You must complete [part 1 of the tutorial series](build-custom-copilot-sdk.md) to build the copilot application.
+- You must complete [part 1 of the tutorial series](copilot-sdk-build-rag.md) to build the copilot application.
 
 - You must have the necessary permissions to add role assignments in your Azure subscription. Granting permissions by role assignment is only allowed by the **Owner** of the specific Azure resources. You might need to ask your IT admin for help with completing the [assign access](#assign-access-for-the-endpoint) section.
 
@@ -56,7 +56,7 @@ AZURE_OPENAI_EVALUATION_DEPLOYMENT=<your evaluation model deployment name>
 
 Use the following evaluation dataset, which contains example questions and expected answers (truth). 
 
-1. Create a file called **eval_dataset.jsonl** in your **rag-tutorial** folder. See the [application code structure](build-custom-copilot-sdk.md#application-code-structure) for reference.
+1. Create a file called **eval_dataset.jsonl** in your **rag-tutorial** folder. See the [application code structure](copilot-sdk-build-rag.md#application-code-structure) for reference.
 1. Paste this dataset into the file:
 
     :::code language="jsonl" source="~/rag-data-openai-python-promptflow-main/tutorial/eval_dataset.jsonl":::
@@ -262,7 +262,7 @@ To grant yourself access to the Azure AI Services resource that you're using:
 
 ### Endpoint access for Azure AI Search resource
 
-Similar to how you assigned the **Search Index Data Contributor** [role to your Azure AI Search service](./build-custom-copilot-sdk.md#configure-access-for-the-azure-ai-search-service), you need to assign the same role for your endpoint.
+Similar to how you assigned the **Search Index Data Contributor** [role to your Azure AI Search service](./copilot-sdk-build-rag.md#configure-access-for-the-azure-ai-search-service), you need to assign the same role for your endpoint.
 
 1. In Azure AI Studio, select **Settings** and navigate to the connected **Azure AI Search** service. 
 1. Select the link to open a summary of the resource. Select the link on the summary page to open the resource in the Azure portal.
