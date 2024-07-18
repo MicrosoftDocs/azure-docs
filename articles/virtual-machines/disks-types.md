@@ -150,7 +150,7 @@ Azure Premium SSDs deliver high-performance and low-latency disk support for vir
 To learn more about individual Azure VM types and sizes for Windows or Linux, including size compatibility for premium storage, see [Sizes for virtual machines in Azure](sizes.md). You'll need to check each individual VM size article to determine if it's premium storage-compatible.
 
 ### Premium SSD size
-[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](~/reusable-content/ce-skilling/azure/includes/disk-storage-premium-ssd-sizes.md)]
 
 Capacity, IOPS, and throughput are guaranteed when a premium storage disk is provisioned. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance. Premium SSDs are designed to provide the single-digit millisecond latencies, target IOPS, and throughput described in the preceding table 99.9% of the time.
 
