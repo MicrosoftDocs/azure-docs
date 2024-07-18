@@ -4,7 +4,7 @@ description: This article describes the virtual endpoints for read replica featu
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 6/6/2024
+ms.date: 6/10/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -68,8 +68,8 @@ This section explains how to use Virtual Endpoints in Azure Database for Postgre
         - Go to the **Backups** section of your primary server.
         - Choose the appropriate restore option (`PITR` or `snapshot`) and specify the desired point in time.
     - Update Virtual Endpoint:
-        - Once the new instance is created, navigate back to the primary server settings.
-        - Remove the virtual endpoint from the original primary server.
+        - Once the new instance is created, navigate back to the old primary server **Replication** Tab.
+        - Remove the virtual endpoint from the original primary server. Old Primary should be in `succeeded` state to remove the virtual endpoint
         - Add the same virtual endpoint to the newly created server.
 
 3. **Validation:**

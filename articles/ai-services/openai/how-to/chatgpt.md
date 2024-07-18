@@ -5,7 +5,7 @@ description: Learn about the options for how to use the GPT-35-Turbo and GPT-4 m
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
-ms.custom: build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai, devx-track-python
 ms.topic: how-to
 ms.date: 04/05/2024
 manager: nitinme

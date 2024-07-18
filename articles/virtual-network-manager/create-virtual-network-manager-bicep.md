@@ -17,8 +17,6 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager." lightbox="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png":::
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Bicep Template Modules
 
 The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The template sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment. 

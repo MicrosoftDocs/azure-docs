@@ -33,7 +33,7 @@ When you enable distributed tracing for IoT Hub, you can:
   - Southeast Asia
   - West US 2
 
-- A device registered to your IoT hub. If you don't have one, follow the steps in [Register a new device in the IoT hub](./iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub) and save the device connection string to use in this article.
+- A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device) and save the device connection string to use in this article.
 
 - This article assumes that you're familiar with sending telemetry messages to your IoT hub.
 

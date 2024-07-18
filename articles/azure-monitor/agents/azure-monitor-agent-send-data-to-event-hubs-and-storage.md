@@ -53,7 +53,7 @@ The Azure Monitor Agent is the new, consolidated telemetry agent for collecting 
 
 ## Prerequisites
 
-A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) associated with the following resources:
+A managed identity (either system or user) associated with the resources below. We highly recommend using [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) for better scalability and performance.
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
@@ -739,4 +739,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
+- For more information on creating a data collection rule, see [Collect data from virtual machines using Azure Monitor Agent](./azure-monitor-agent-data-collection.md).

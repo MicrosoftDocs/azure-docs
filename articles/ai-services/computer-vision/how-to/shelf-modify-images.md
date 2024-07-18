@@ -8,7 +8,7 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 06/01/2024
 ms.author: pafarley
-ms.custom: references_regions, build-2023
+ms.custom: build-2023
 ---
 
 # Shelf image composition (preview)
@@ -21,7 +21,7 @@ This guide also shows you how to use the **Rectification API** to correct for pe
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in a supported Azure region (see [Region availability](./../overview-image-analysis.md#region-availability)). After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.

@@ -5,7 +5,7 @@ author: davidmrdavid
 ms.topic: overview
 ms.date: 04/09/2024
 ms.author: dajusto
-ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-dotnet
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---

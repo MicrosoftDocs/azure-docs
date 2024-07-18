@@ -4,7 +4,7 @@ description: Learn about the flexible server deployment model for Azure Database
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -232,9 +232,9 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Arizona | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Texas | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| USGov Arizona | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| USGov Texas | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |

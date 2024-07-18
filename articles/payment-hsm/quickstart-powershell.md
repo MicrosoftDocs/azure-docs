@@ -19,7 +19,7 @@ This quickstart describes how you can create an Azure Payment HSM using the [Az.
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -54,7 +54,7 @@ You can continue with this quick start if the "RegistrationState" of both comman
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group with the Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 ## Create a virtual network and subnet
 
@@ -143,7 +143,7 @@ Remove-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup"
 
 ## Delete the resource group
 
-[!INCLUDE [Delete a resource group with Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Delete a resource group with Azure PowerShell](../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 

@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: Learn how to enable Permissions Management for better access control and security in your cloud infrastructure.
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 06/09/2024
 #customer intent: As a cloud administrator, I want to learn how to enable permissions (CIEM) in order to effectively manage user access and entitlements in my cloud infrastructure.
 ---
 
@@ -54,7 +54,7 @@ List of Azure recommendations:
 
 - Azure over-provisioned identities should have only the necessary permissions
 
-- Unused identities in your Azure environment should be revoked/removed
+- Permissions of inactive identities in your Azure subscription should be revoked
 
 - Super identities in your Azure environment should be revoked/removed
 
@@ -99,7 +99,7 @@ List of AWS recommendations:
 
 - AWS over-provisioned identities should have only the necessary permissions
 
-- Unused identities in your Azure environment should be revoked/removed
+- Permissions of inactive identities in your Azure subscription should be revoked
 
 ## Enable Permissions Management (CIEM) for GCP
 
@@ -145,10 +145,11 @@ List of GCP recommendations:
 
 - GCP over-provisioned identities should have only necessary permissions
 
-- Unused identities in your GCP environment should be revoked/removed
+- Permissions of inactive identities in your GCP project should be revoked
 
 - Super identities in your GCP environment should be revoked/removed
 
 ## Next step
 
-Learn more about [Microsoft Entra Permissions Management](/entra/permissions-management/).
+> [!div class="nextstepaction"]
+> [Microsoft Entra Permissions Management](/entra/permissions-management/).

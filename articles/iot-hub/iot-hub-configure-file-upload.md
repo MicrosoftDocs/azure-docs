@@ -21,7 +21,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An Azure IoT hub. If you don't have an IoT hub, see [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## Configure your IoT hub
 

@@ -665,3 +665,28 @@ Immersive Reader supports the following human languages.
 | Spanish (Spain) | es-ES |
 | Swedish | sv |
 | Swedish (Sweden) | sv-SE |
+
+## Math
+
+| Language | Tag |
+|----------|-----|
+| Catalan (Catalan) | ca-ES |
+| Chinese Simplified | zh-Hans |
+| Chinese Traditional | zh-Hant |
+| Danish (Denmark) | da-DK |
+| Dutch (Netherlands) | nl-NL |
+| English (United States) | en-US |
+| Finnish (Finland) | fi-FI |
+| French (France) | fr-FR |
+| German (Germany) | de-DE |
+| Italian (Italy) | it-IT |
+| Japanese (Japan) | ja-JP |
+| Korean (Korea) | ko-KR |
+| Norwegian Bokmal (Norway) | nb-NO |
+| Polish (Poland) | pl-PL |
+| Portuguese (Brazil) | pt-BR |
+| Portuguese (Portugal) | pt-PT |
+| Russian (Russia) | ru-RU |
+| Swedish (Sweden) | sv-SE |
+| Spanish (Spain) | es-ES |
+| Turkish (Türkiye) | tr-TR |

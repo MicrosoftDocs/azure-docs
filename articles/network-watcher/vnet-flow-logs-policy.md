@@ -32,7 +32,7 @@ To audit your flow logs using the built-in policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-portal-search.png":::
 
@@ -75,7 +75,7 @@ To assign the *deployIfNotExists* policy, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results.
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results.
 
     :::image type="content" source="./media/vnet-flow-logs-policy/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/vnet-flow-logs-policy/policy-portal-search.png":::
 

@@ -3,17 +3,17 @@ author: stevenmatthew
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 06/08/2022
+ms.date: 06/10/2024
 ms.author: shaas
 ---
 
 When Microsoft receives and scans the device, order status is updated to **Received**. The device then undergoes physical verification for damage or signs of tampering.
 
-After the verification is complete, the Data Box is connected to the network in the Azure datacenter. The data copy starts automatically. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
+After the verification is complete, the Data Box is connected to the network in the Azure datacenter. The data copy starts automatically. Depending upon the data size, the copy operation can take between a few hours to a few days to complete. You can monitor the copy job progress in the portal.
 
 ### Review copy errors from upload
 
-When files fail to upload because of an non-retryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
+When files fail to upload due to a nonretryable error, you're notified to review the errors before proceeding. The errors are listed in the data copy log.
 
 You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order. For guidance, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](../articles/databox/data-box-troubleshoot-data-upload.md).
 
@@ -25,6 +25,11 @@ When you confirm that you've reviewed the errors and are ready to proceed, the d
 ### Verify data in completed upload
 
 Once the data upload is complete, order status updates to **Completed**.
+
+> [!NOTE]
+> A Cyclic Redundancy Check (CRC) computation is completed during the upload to Azure. The CRCs from the data copy and data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
+> 
+> You can use the CRC checksum tool script to compare the checksums of the on-premises source data with the data uploaded to Azure. The script can be downloaded from [Azure Samples](https://github.com/Azure-Samples/data-box-samples/tree/main/JavaToolforCRC). See the [README file](https://github.com/Azure-Samples/data-box-samples/blob/main/JavaToolforCRC/README.md) for more information.
 
 Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
 

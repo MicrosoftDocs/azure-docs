@@ -88,7 +88,7 @@ First, enable Microsoft Entra authentication to SQL Database by assigning a Micr
 1. Restrict the database server authentication to Active Directory authentication. This step effectively disables SQL authentication.
 
     ```azurecli-interactive
-    az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
+    az sql server ad-only-auth enable --resource-group <group-name> --name <server-name>
     ```
 
 For more information on adding an Active Directory admin, see [Provision Microsoft Entra admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).

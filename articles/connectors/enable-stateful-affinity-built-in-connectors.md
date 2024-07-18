@@ -11,7 +11,7 @@ ms.date: 01/10/2024
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 In Standard logic app workflows, the following built-in, service provider-based connectors are stateless, by default:
 
@@ -36,21 +36,21 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 1. In the [Azure portal](https://portal.azure.com), open the Standard logic app resource where you want to enable stateful mode for these connector operations.
 
-1. Enable virtual network integration for your logic app and add your logic app to the previously created subnet:
+1. To enable virtual network integration for your logic app, and add your logic app to the previously created subnet, follow these steps:
 
-   1. On your logic app menu resource, under **Settings**, select **Networking**.
+   1. On the logic app menu resource, under **Settings**, select **Networking**.
 
-   1. In the **Outbound Traffic** section, select **VNET integration** > **Add VNet**.
+   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration**.
 
-   1. On the **Add VNet Integration** pane that opens, select your Azure subscription and your virtual network.
+   1. On the **Add virtual network integration** pane that opens, select your Azure subscription and your virtual network.
 
-   1. Under **Subnet**, select **Select existing**. From the **Subnet** list, select the subnet where you want to add your logic app.
+   1. From the **Subnet** list, select the subnet where you want to add your logic app.
 
-   1. When you're done, select **OK**.
+   1. When you're done, select **Connect**, and return to the **Networking** page.
 
-      On the **Networking** page, the **VNet integration** option now appears set to **On**, for example:
+      The **Virtual network integration** property is now set to the selected virtual network and subnet, for example:
 
-      :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/enable-virtual-network-integration.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Networking page, VNet integration set to On.":::
+      :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/enable-virtual-network-integration.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Networking page with selected virtual network and subnet.":::
 
    For general information about enabling virtual network integration with your app, see [Enable virtual network integration in Azure App Service](../app-service/configure-vnet-integration-enable.md).
 
@@ -93,8 +93,8 @@ Updates a resource by using the specified resource ID:
 
 #### Parameter values
 
-| Element | Value  | Description |
-|---------|--------|-------------|
+| Element | Value  |
+|---------|--------|
 | HTTP request method | **PATCH** |
 | <*resourceId*> | **subscriptions/{yourSubscriptionID}/resourcegroups/{yourResourceGroup}/providers/Microsoft.Web/sites/{websiteName}/config/web** |
 | <*yourSubscriptionId*> | The ID for your Azure subscription |
@@ -190,11 +190,13 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 1. On your logic app resource menu, under **Settings**, select **Scale out**.
 
-1. Under **App Scale Out**, set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit**.
+1. On the **Scale out** page, in the **App Scale out** section, follow these steps:
 
-1. On the **Scale out** page, under **App Scale out**, set the number for **Always Ready Instances** to the same number as **Maximum Scale Out Limit** and **Maximum Burst**, which appears under **Plan Scale Out**, for example:
+   1. Set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit**.
 
-   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Scale Out Limit and Maximum Burst.":::
+   1. Set **Always Ready Instances** to the same number as **Maximum Scale Out Limit** and **Maximum Burst**, which appears in the **Plan Scale out** section, for example:
+
+   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Burst and Maximum Scale Out Limit.":::
 
 1. When you're done, on the **Scale out** toolbar, select **Save**.
 

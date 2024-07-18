@@ -47,14 +47,8 @@ items:
     items:
     - name: Code Sample page
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-    - name: C#
-      items:
-      - name: C# samples
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
-      - name: Authenticate with Microsoft Entra ID
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
-      - name: Authenticate using Microsoft Entra tokens
-        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
+    - name: C# samples
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
     - name: Java
       href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
@@ -89,35 +83,35 @@ items:
     - name: Translate behind firewalls
       displayName: domain,IP,filtering,tag,endpoints,CognitiveServicesManagement
       href: firewalls.md
-  - name: Reference
-    items:
-    - name: v3 Translator reference
-      displayName: 401000,405000,400000
-      href: reference/v3-0-reference.md
-    - name: Text Translation REST APIs
-      href:  reference/rest-api-guide.md
-    - name: Languages
-      href: reference/v3-0-languages.md
-    - name: Translate
-      displayName: detection,detect
-      href: reference/v3-0-translate.md
-    - name: Transliterate
-      href: reference/v3-0-transliterate.md
-    - name: Detect
-      href: reference/v3-0-detect.md
-    - name: BreakSentence
-      displayName: detection,detect
-      href: reference/v3-0-break-sentence.md
-    - name: Dictionary Lookup
-      href: reference/v3-0-dictionary-lookup.md
-    - name: Dictionary Examples
-      href: reference/v3-0-dictionary-examples.md
+    - name: Reference
+      items:
+      - name: v3 Translator reference
+        displayName: 401000,405000,400000
+        href: reference/v3-0-reference.md
+      - name: Text Translation REST APIs
+        href:  reference/rest-api-guide.md
+      - name: Languages
+        href: reference/v3-0-languages.md
+      - name: Translate
+        displayName: detection,detect
+        href: reference/v3-0-translate.md
+      - name: Transliterate
+        href: reference/v3-0-transliterate.md
+      - name: Detect
+        href: reference/v3-0-detect.md
+      - name: BreakSentence
+        displayName: detection,detect
+        href: reference/v3-0-break-sentence.md
+      - name: Dictionary Lookup
+        href: reference/v3-0-dictionary-lookup.md
+      - name: Dictionary Examples
+        href: reference/v3-0-dictionary-examples.md
 - name: Document translation
   items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Document Translation SDK guide
+  - name: 🆕 Document Translation SDK guide
     displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
     href: document-translation/document-sdk-overview.md
   - name: 🆕 Document Translation REST API guide
@@ -128,7 +122,7 @@ items:
     - name: "Quickstart: Document Translation client libraries"
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/quickstarts/client-library-sdks.md
-    - name: "🆕 Quickstart: Document Translation REST APIs"
+    - name: "Quickstart: Document Translation REST APIs"
       displayName: get,post,cancel,delete
       href: document-translation/quickstarts/rest-api.md
   - name: How-to guides
@@ -146,12 +140,12 @@ items:
       href: document-translation/how-to-guides/create-sas-tokens.md
   - name: Reference
     items:
-      - name: 🆕 Document Translation operations
+      - name: Document Translation operations
         href: document-translation/reference/rest-api-guide.md
       - name: Translate a single document
         href: document-translation/reference/translate-document.md
       - name: Start a batch translation
-        href: document-translation/reference/start-translation.md
+        href: document-translation/reference/start-batch-translation.md
       - name: Get status of all translation jobs
         href: document-translation/reference/get-translations-status.md
       - name: Get status of a specific translation job
@@ -193,7 +187,7 @@ items:
       - name: "🆕 Container: Transliterate text"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/transliterate-text-parameters.md
-      - name: "🆕 Container: Translate documents (preview)"
+      - name: "🆕 Container: Translate documents"
         displayName: docker,docker-run,run,pull,swagger,c#,python,import,cpu,EULA,billing
         href: containers/translate-document-parameters.md
   - name: Translator container FAQ
@@ -263,7 +257,7 @@ items:
     - name: Model training
       displayName: tuning
       href: custom-translator/concepts/model-training.md
-    - name: Bilingual Evaluation Understudy (BLEU) score
+    - name: Bilingual Evaluation Understudies (BLEU) score
       href: custom-translator/concepts/bleu-score.md
     - name: Encrypt data at rest
       displayName: encryption,key vault,revoke

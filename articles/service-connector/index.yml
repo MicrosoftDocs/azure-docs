@@ -28,6 +28,8 @@ landingContent:
             url: concept-availability.md
           - text: Permission requirements
             url: concept-permission.md
+          - text: Microsoft Entra roles assigned by Service Connector
+            url: concept-microsoft-entra-roles.md
           - text: Frequently asked questions
             url: faq.yml
 
