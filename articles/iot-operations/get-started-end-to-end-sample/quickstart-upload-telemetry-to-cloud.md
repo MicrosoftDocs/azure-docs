@@ -22,7 +22,7 @@ In this quickstart, you use a dataflow to forward messages from the MQTT broker 
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md)
+- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 
 ## What problem will we solve?
@@ -31,7 +31,7 @@ To use a tool such as Real-Time Dashboard to analyze your OPC UA data, you need 
 
 ## Create an Event Hubs namespace
 
-To create an Event Hubs namespace and an event hub, run the following Azure CLI commands in your codespaces terminal. These commands create the Event Hubs namespace in the same resource group as your Kubernetes cluster:
+To create an Event Hubs namespace and an event hub, run the following Azure CLI commands in your Codespaces terminal. These commands create the Event Hubs namespace in the same resource group as your Kubernetes cluster:
 
 ```azurecli
 az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --location $LOCATION
