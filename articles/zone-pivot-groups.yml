@@ -516,6 +516,8 @@ groups:
   pivots:
   - id: consumption-plan
     title: Consumption plan
+  - id: flex-consumption-plan
+    title: Flex Consumption plan (preview)
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan

@@ -317,7 +317,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 **Severity**: Low
 
-### **Microsoft Defender for Cloud test alert (not a threat).**
+### **Microsoft Defender for Cloud test alert (not a threat)**
 
 (K8S.NODE_EICAR) <sup>[1](#footnote1)</sup>
 
@@ -547,7 +547,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 **Severity**: Informational
 
-### **Possible malicious web shell detected.**
+### **Possible malicious web shell detected**
 
 (K8S.NODE_Webshell) <sup>[1](#footnote1)</sup>
 

@@ -155,7 +155,7 @@ This article lists the security alerts you might get for Azure Key Vault from Mi
 
 **Severity**: Low
 
-### **Unusual access to the key vault from a suspicious IP (Non-Microsoft or External)**
+### **Unusual access to the key vault from a suspicious IP (Non-Microsoft or external)**
 
 (KV_UnusualAccessSuspiciousIP)
 
