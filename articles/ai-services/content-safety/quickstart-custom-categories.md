@@ -95,9 +95,9 @@ curl -X POST "<your_endpoint>/contentsafety/text:analyzeCustomCategory?api-versi
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
-           \"text\": \"<Example text to analyze>\",
-           \"categoryName\": \"survival-advice\", 
-           \"version\": 1
+            \"text\": \"<Example text to analyze>\",
+            \"categoryName\": \"survival-advice\", 
+            \"version\": 1
         }"
 ```
 
