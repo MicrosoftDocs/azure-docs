@@ -51,7 +51,7 @@ To connect an application and manage storage account resources, create an [ArmCl
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 ```
 
-To learn about creating client object for a storage account resource, see [Create a client for managing storage account resources](storage-srp-dotnet-get-started.md#create-a-client-for-managing-storage-account-resources).
+To learn about creating client object for a resource group or storage account resource, see [Create a client for managing storage account resources](storage-srp-dotnet-get-started.md#create-a-client-for-managing-storage-account-resources).
 
 #### Authorization
 
@@ -77,7 +77,7 @@ You can create a storage account using the following method from the [StorageAcc
 
 - [CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync)
 
-When creating a storage account resource, you can set the properties for the storage account by including a[StorageAccountCreateOrUpdateContent]() instance in the `content` parameter.
+When creating a storage account resource, you can set the properties for the storage account by including a[StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance in the `content` parameter.
 
 The following code example creates a storage account and configures properties for SKU, kind, location, access tier, and shared key access:
 
@@ -122,7 +122,7 @@ public static async Task ListStorageAccountsForSubscription(SubscriptionResource
 }
 ```
 
-The following code example takes a [ResourceGroupResource]() instance and lists storage accounts in the resource group:
+The following code example takes a [ResourceGroupResource](/dotnet/api/azure.resourcemanager.resources.resourcegroupresource) instance and lists storage accounts in the resource group:
 
 ```csharp
 public static async Task ListStorageAccountsInResourceGroup(ResourceGroupResource resourceGroup)
