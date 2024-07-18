@@ -44,7 +44,7 @@ Use the **Assistant setup** pane to create a new AI assistant or to select an ex
 | **Deployment** | This is where you set which model deployment to use with your assistant. |
 | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications |
 | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
-| **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. |
+| **Files** | You can upload up to 10,000 files, with a max file size of 512 MB to use with tools. |
 
 ### Tools
 
