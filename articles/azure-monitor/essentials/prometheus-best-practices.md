@@ -1,5 +1,5 @@
 ---
-title: Best Practices for scaling Azure Monitor Workspaces with Azure Monitor managed service for Prometheus
+title: Best practices for scaling Azure Monitor Workspaces with Azure Monitor managed service for Prometheus
 description: Learn best practices for organizing your Azure Monitor Workspaces to meet your scale and growing volume of data ingestion 
 author: EdB-MSFT
 ms-service: azure-monitor
@@ -11,7 +11,7 @@ ms.date: 7/20/2024
 
 ---
 
-# Best Practices for scaling Azure Monitor Workspaces with Azure Monitor managed service for Prometheus
+# Best practices for scaling Azure Monitor Workspaces with Azure Monitor managed service for Prometheus
 
 Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale. Prometheus metrics are stored in Azure Monitor Workspaces. The workspace supports analysis tools like Azure Managed Grafana, Azure Monitor metrics explorer with PromQL, and open source tools such as PromQL and Grafana.
 
@@ -87,3 +87,121 @@ Use the configmap, changing the settings as required, and apply the configmap to
 
 ### Queries 
 
+To optimize queries, consider the following best practices:
+
+#### Using Recording rules to optimize query
+
+Prometheus recording rules are used to pre-compute frequently needed or computationally expensive queries, making them more efficient and faster to query later. This is especially useful for high volume metrics where querying raw data can be slow and resource-intensive. For more information, see [Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules). Azure Managed Prometheus provides a managed and scalable way to create and update recording rules with the help of [Azure Managed Prometheus Rule Groups.](azure/azure-monitor/essentials/prometheus-rule-groups#rule-types)
+To make the recording rules faster, you can also limit them in scope to a specific cluster. For more information see [Limiting rules to a specific cluster](/azure/azure-monitor/essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster).
+
+Recording rules have the following benefits:
+
+
+- **Reduce resource consumption**.
+    Recording rules reduce the load on Prometheus by pre-computing complex queries.
+
+- **Improve query performance**.  
+  Recording rules can be used to pre-compute complex queries, making them faster to query later.
+
+- **Performance**. Precomputing complex queries reduces the load on Prometheus when these metrics are queried.
+
+- **Efficiency and Reduced query time**.  Recording rules pre-compute the query results, reducing the time taken to query the data. This is especially useful for dashboards with multiple panels or high cardinality metrics.
+
+- **Simplicity**. Recording rules Simplify queries in Grafana or other visualization tools, as they can reference precomputed metrics.
+ 
+The following example shows a recording rule as defined in Azure Managed Prometheus rule group:
+``` yaml
+"record": "job:request_duration_seconds:avg ",
+"expression": "avg(rate(request_duration_seconds_sum[5m])) by (job)",
+"labels": {  "workload_type": "job"
+                        },
+"enabled": true
+```
+
+For more complex metrics, you can create recording rules that aggregate multiple metrics or perform more advanced calculations. In the following example, `instance:node_cpu_utilisation:rate5m` computes the cpu utilization when the cpu is not idle
+
+```yaml
+"record": "instance:node_cpu_utilisation:rate5m",
+ "expression": "1 - avg without (cpu) (sum without (mode)(rate(node_cpu_seconds_total{job=\"node\", mode=~\"idle|iowait|steal\"}[5m])))",
+"labels": {
+                            "workload_type": "job"
+                        },
+"enabled": true
+```
+
+#### Recording rule best practices
+
+- **Identify High Volume Metrics**. Focus on metrics that are queried frequently and have a high cardinality
+- **Optimize Rule Evaluation Interval**. Adjust the evaluation interval of your recording rules to balance between data freshness and computational load.
+- **Monitor Performance**. Monitor query performance and adjust recording rules as necessary.
+
+
+#### Create Recording rules with Azure Managed Prometheus
+
+To create recording rules for Prometheus metrics, create an Azure Managed Prometheus rule group. \For more information on creating rule ,see [Rule groups in Azure Monitor Managed Service for Prometheus](/azure/azure-monitor/essentials/prometheus-rule-groups).
+  
+Once the rule groups are created, Azure Managed Prometheus automatically loads and starts evaluating them.
+
+#### Query recording rules
+
+Once the recording rules have been created, you can query them from the Azure Monitor workspace like other Prometheus metrics.
+
+
+#### Using filters in query
+
+Optimizing Prometheus queries using filters involves refining the queries to return only the necessary data, reducing the amount of data processed and improving performance. The following are some common techniques to refine Prometheus queries.
+
+- Use label filters. Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit timeseries is to use the “cluster” filter.  
+
+  For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`
+
+- Apply time range selectors.
+Using specific time ranges can significantly reduce the amount of data queried.
+
+    For example, instead of querying all data points for the last 7 days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`
+
+- Use aggregation and grouping. Aggregation functions can be used to summarize data, which can be more efficient than processing raw data points. When aggregating data, use `by` to group by specific labels, or `without` to exclude specific labels.
+
+  For example, sum requests grouped by job: `sum(rate(http_requests_total[5m])) by (job)`
+
+- Filter early in the query. Apply filters as early as possible in your query to limit the dataset from the start.
+
+   For example, instead of `sum(rate(http_requests_total[5m])) by (job)`, filter first, then aggregate as follows: `sum(rate(http_requests_total{job="myapp"}[5m])) by (job)`
+
+- Avoid Regex if Possible. Regex filters can be powerful but are also computationally expensive. Use exact matches whenever possible.
+
+    For example, instead of `http_requests_total{job=~"myapp.*"}`, use `http_requests_total{job="myapp"}`
+
+- Use offset for historical data. If you are comparing current data with historical data, use the offset modifier.
+    
+    For example, for current requests verses requests from 24 hours ago use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`
+
+- Limit data points in charts. When creating charts, limit the number of data points to improve rendering performance. Use the step parameter to control the resolution.
+
+    For example, in Grafana: Set a higher step value to reduce data points:`http_requests_total{job="myapp"}[1h:10s]`
+
+
+#### Parallel queries
+
+Running a high number of parallel queries in Prometheus can lead to performance bottlenecks and can affect the stability of your Prometheus server. To handle a large volume of parallel queries efficiently, you can follow the best practices below:
+
+-	Query Load Distribution
+    Distribute the query load by spreading the queries across different time intervals or Prometheus instances.
+
+-	Staggered Queries 
+     Schedule queries to run at different intervals to avoid peaks of simultaneous query executions.
+
+If you are still seeing issues with running many parallel queries, create a support ticket to request an increase in the query limits.
+
+
+### Alerts and recording rules
+
+#### Optimizing alerts and recording rules for high scale
+
+Prometheus alerts and recording rules can be defined as Prometheus rule groups. One rule group can contain up to twenty alerts or recording rules. Create upt to 500 rule groups for each workspace to accommodate the number of alerts/rules required. To raise this limit, open a support ticket
+
+When defining the recording rules, take into account the evaluation interval to optimize the number of timeseries per rule and the performance of rule evaluations. Evaluation intervals can be between 1 minute and 24 hours. The default is 1 minute.
+
+### Use Resource Health to view queries from recording rule status
+
+Setup Resource Health to view the health of your Prometheus rule group in the portal. Resource Health allows you to detect problems in your recording rules, such as incorrect configuration, or query throttling problems. For more information on setting up Resource Health, see [View the resource health states of your Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups#view-the-resource-health-states-of-your-prometheus-rule-groups)
