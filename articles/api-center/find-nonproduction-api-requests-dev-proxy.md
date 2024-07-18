@@ -32,7 +32,7 @@ The Dev Proxy's `ApiCenterProductionVersionPlugin` uses this information to chec
 
 From the Azure API Center instance Overview page, copy the **name** of the API Center instance, the name of the **resource group** and the **subscription ID**. You need this information to configure the `ApiCenterProductionVersionPlugin` so that it can connect to your Azure API Center instance.
 
-:::image type="content" source="./media/find-nonproduction-api-requests-dev-proxy/api-center-overview.png" alt-text="Screenshot of Azure API Center overview page with several properties highlighted" lightbox="./media/find-nonproduction-api-requests-dev-proxy/api-center-overview.png":::
+:::image type="content" source="./media/find-nonproduction-api-requests-dev-proxy/api-center-overview.png" alt-text="Screenshot of Azure API Center overview page with several properties highlighted." lightbox="./media/find-nonproduction-api-requests-dev-proxy/api-center-overview.png":::
 
 ## Configure Dev Proxy
 
