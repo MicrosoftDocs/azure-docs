@@ -54,7 +54,7 @@ Depending on the VPN client software that you use, you might be able to connect 
 
 ### Can I configure a point-to-site client to connect to multiple virtual networks at the same time?
 
-Yes. Point-to-site client connections to a virtual network gateway deployed in a VNet that's peered with other VNets might have access to other peered VNets. Point-to-site clients can connect to peered VNets as long as the peered VNets use the **Use remote gateways** or **Allow gateway transit** feature. For more information, see [About point-to-site VPN routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
+Yes. Point-to-site client connections to a VPN gateway deployed in a VNet that's peered with other VNets can have access to the other peered VNets, as long as they meet certain configuration criteria. For a point-to-site client to have access to a peered VNet, the peered VNet (the VNet without the gateway) must be configured with the **Use remote gateways** attribute. The VNet with the VPN gateway must be configured with **Allow gateway transit**. For more information, see [About point-to-site VPN routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
 
 ### How much throughput can I expect through site-to-site or point-to-site connections?
 

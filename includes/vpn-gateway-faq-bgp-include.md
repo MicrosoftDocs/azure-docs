@@ -31,7 +31,7 @@ You can't specify these ASNs for your on-premises VPN devices when you're connec
 
 ### Can I use 32-bit (4-byte) ASNs?
 
-Yes, Azure VPN Gateway now supports 32-bit (4-byte) ASNs. To configure a VPN gateway by using ASN in decimal format, use Azure PowerShell, the Azure CLI, or the Azure SDK.
+Yes, Azure VPN Gateway now supports 32-bit (4-byte) ASNs. To configure by using ASN in decimal format, use Azure PowerShell, the Azure CLI, or the Azure SDK.
 
 ### What private ASNs can I use?
 

@@ -20,11 +20,11 @@ The Network Gateways scope includes gateway resources in networking services. Th
 
 ### Which maintenance does customer-controlled maintenance support?
 
-Azure services go through periodic maintenance updates to improve functionality, reliability, performance, and security. After you configure a maintenance window for your resources, guest OS and service maintenance are performed during that window. Customer-controlled maintenance doesn't cover updates beyond the host updates (for example, TOR and power) and critical security updates.  
+Azure services go through periodic maintenance updates to improve functionality, reliability, performance, and security. After you configure a maintenance window for your resources, guest OS maintenance and service maintenance are performed during that window. Customer-controlled maintenance doesn't cover host updates (beyond the host updates for Power, for example) and critical security updates.
 
 ### Can I get advanced notification of the maintenance?
 
-At this time, you can't get advanced notification for the maintenance of network gateway resources.
+At this time, you can't get advanced notification for the maintenance of Network Gateway REST API resources.
 
 ### Can I configure a maintenance window shorter than five hours?
 
@@ -54,7 +54,7 @@ It might take up to 24 hours for Network Gateways to follow the maintenance sche
 
 ### Are there any limitations on using customer-controlled maintenance based on the Basic SKU public IP address?
 
-Yes. Gateway resources that use a Basic SKU public IP address can have service updates only after the customer-controlled maintenance schedule. For these gateways, guest OS maintenance does *not* follow the customer-controlled maintenance schedule because of infrastructure limitations.
+Yes. Customer-controlled maintenance doesn't work for resources that use Basic SKU public IP addresses, except in the case of service updates. For these gateways, guest OS maintenance does *not* follow the customer-controlled maintenance schedule because of infrastructure limitations.
 
 ### How should I plan maintenance windows when using VPN and ExpressRoute in a coexistence scenario?
 

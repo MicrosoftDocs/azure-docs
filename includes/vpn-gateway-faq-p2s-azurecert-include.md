@@ -7,7 +7,7 @@
 ---
 
 
-### What should I do if I get a certificate mismatch when connecting through certificate authentication?
+### What should I do if I get a certificate mismatch for a point-to-site certificate authentication connection?
 
 Clear the **Verify the server's identity by validating the certificate** checkbox. Or, add the server's fully qualified domain name (FQDN) along with the certificate when you're creating a profile manually. You can do this by running `rasphone` from a command prompt and selecting the profile from the dropdown list.
 
