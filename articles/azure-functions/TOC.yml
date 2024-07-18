@@ -647,6 +647,8 @@
           href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
+        - name: Work with access keys
+          href: function-keys-how-to.md
         - name: Add SSL cert
           href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
@@ -1110,7 +1112,7 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
-      href: https://www.youtube.com/c/AzureFunctions
+      href: https://www.youtube.com/@AzureDevelopers/search?query=functions
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow
