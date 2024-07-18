@@ -18,7 +18,7 @@ Multi-region replication allows you to extend a managed HSM pool from one Azure 
 
 :::image type="content" source="../media/multi-region-replication.png" alt-text="Architecture diagram of managed HSM Multi-Region Replication." lightbox="../media/multi-region-replication.png":::
 
-When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions, is created in an extended region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region receives and fulfills the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the secondary managed HSM pool.
+When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions, is created in an extended region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region receives and fulfills the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the managed HSM pool in the extended region.
 
 ## Replication latency
 
@@ -30,8 +30,8 @@ Failover occurs when one of the regions in a multi-region Managed HSM becomes un
 
 | Affected Region | Reads Allowed | Writes Allowed |
 |--|--|--|
-| Secondary | Yes | Yes |
-| Primary | Yes | Maybe |
+| Extended Region | Yes | Yes |
+| Primary Region | Yes | Maybe |
 
 If an extended region becomes unavailable, read operations (get key, list keys, all crypto operations, list role assignments) are available if the primary region is alive. Write operations (create and update keys, create and update role assignments, create and update role definitions) are also available.
 
@@ -98,7 +98,7 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ## Private link behavior with Multi-region replication
 
-The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in the extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in the extended region.  This will redirect client requests to the Managed HSM closest to the client location. 
+The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in an extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in an extended region.  This will redirect client requests to the Managed HSM closest to the client location. 
 
 Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in an extended region (US West Central).
 
