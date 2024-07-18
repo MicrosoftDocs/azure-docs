@@ -30,8 +30,15 @@ items:
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
-  - name: Build your own copilot using prompt flow
+  - name: Build your own copilot with prompt flow UI
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot with the prompt flow SDK
+    expanded: true
+    items:
+      - name: "Part 1: Build a custom copilot that implements RAG"
+        href: tutorials/build-custom-copilot-sdk.md
+      - name: "Part 2: Evaluate and deploy your custom copilot"
+        href: tutorials/evaluate-deploy-sdk.md
 - name: How-to
   expanded: true
   items:

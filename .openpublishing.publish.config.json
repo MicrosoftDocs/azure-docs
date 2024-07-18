@@ -507,6 +507,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "rag-data-openai-python-promptflow-main",
+      "url": "https://github.com/Azure-Samples/rag-data-openai-python-promptflow",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
