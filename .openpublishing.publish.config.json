@@ -255,6 +255,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-flex-consumption",
+      "url": "https://github.com/Azure-Samples/azure-functions-flex-consumption-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
