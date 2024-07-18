@@ -115,7 +115,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 
 ## Auditing logs
 
-Customer Lockbox for Azure auditing logs are written to activity logs for subscription-scoped requests and to the [Entra Audit Log](https://learn.microsoft.com/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
+The auditing logs for Customer Lockbox for Azure are written to the activity logs for subscription-scoped requests and to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ### Subscription-Scoped Requests - Activity Logs
 
@@ -132,7 +132,7 @@ As an example:
 
 ### Tenant-Scoped Requests - Audit Log
 
-For tenant-scoped Customer Lockbox requests, log entries are wrriten to the [Entra Audit Log](https://learn.microsoft.com/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
+For tenant-scoped Customer Lockbox requests, log entries are wrriten to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
 
 - **Create request**
 - **Request approved**
@@ -146,7 +146,7 @@ As an example:
 
 > [!NOTE]
 > The History tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
-Customer Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](https://learn.microsoft.com/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
+Customer Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 
