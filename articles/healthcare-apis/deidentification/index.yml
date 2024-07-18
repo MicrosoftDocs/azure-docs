@@ -5,7 +5,7 @@ summary: Documentation for the Deidentification service in Azure Health Data Ser
 
 metadata:
   title: Azure Health Data Services Deidentification service
-  description: Deidentification service documentation for Azure Health Data Services
+  description: Deidentification service documentation for Azure Health Data Services.
   ms.service: healthcare-apis
   ms.subservice: workspace
   ms.topic: landing-page 
@@ -40,5 +40,5 @@ landingContent:
             url: manage-access-rbac.md
           - text: Use managed identities
             url: managed-identities.md
-          - text: Use batch jobs to deidentify medical data
+          - text: Deidentify medical data with batch jobs
             url: batch-job.md

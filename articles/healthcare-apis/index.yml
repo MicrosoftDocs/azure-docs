@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page # Required
   author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
   ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
+  ms.date: 07/18/2024 #Required; mm/dd/yyyy format.
 
 highlightedContent:
   items:
@@ -139,13 +139,13 @@ conceptualContent:
               text: Deploy the Deidentification service
             - url: ./deidentification/manage-access-rbac.md
               itemType: how-to-guide
-              text: Manage access with Azure RBAC
+              text: Manage access with Azure role-based access (RBAC)
             - url: ./deidentification/managed-identities.md
               itemType: how-to-guide
-              text: Use managed identities with the Deindentification service
+              text: Use managed identities
             - url: ./deidentification/batch-job.md
               itemType: how-to-guide
-              text: Use batch jobs to deidentify medical data
+              text: Deidentify medical data in batch jobs
 
 
 additionalContent:
