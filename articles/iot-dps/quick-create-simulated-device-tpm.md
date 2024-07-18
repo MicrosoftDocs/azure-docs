@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python
+ms.custom: mvc, amqp, mqtt, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ---
 
@@ -668,8 +668,6 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
-
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 >
@@ -708,18 +706,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. Next, learn how to enroll your TPM device programmatically.
+In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
-::: zone-end
-::: zone pivot="programming-language-ansi-c, programming-language-csharp"
 > [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-csharp)
-::: zone-end
-::: zone pivot="programming-language-nodejs"
-> [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-nodejs)
-::: zone-end
-::: zone pivot="programming-language-java"
-> [!div class="nextstepaction"]
-> [Create an individual enrollment for a TPM device using the DPS service SDK](quick-enroll-device-tpm.md?pivots=programming-language-java)
-::: zone-end
+> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)

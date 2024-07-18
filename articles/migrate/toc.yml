@@ -29,8 +29,12 @@ items:
   items:
   - name: Discover
     items:
-    - name: Discover servers in VMware environment
-      href: tutorial-discover-vmware.md
+    - name: VMware environment
+      items:
+        - name: Discover servers in VMware environment
+          href: tutorial-discover-vmware.md
+        - name: Import servers in VMware environment
+          href: tutorial-import-vmware-using-rvtools-xlsx.md
     - name: Discover servers in Hyper-V environment
       href: tutorial-discover-hyper-v.md
     - name: Discover physical servers
@@ -41,6 +45,8 @@ items:
       href: tutorial-discover-gcp.md
     - name: Discover Spring Boot apps
       href: tutorial-discover-spring-boot.md
+    - name: Discover SAP systems (preview)
+      href: tutorial-discover-sap-systems.md
   - name: Decide
     items:
     - name: Build a business case
@@ -71,14 +77,16 @@ items:
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
-    - name: Assess ASP.NET web apps for migration to Azure Kubernetes Service (AKS)
+    - name: Assess web apps for migration to Azure Kubernetes Service (AKS)
       href: tutorial-assess-aspnet-aks.md
-    - name: Assess ASP.NET web apps for migration to Azure App Service
+    - name: Assess web apps for migration to Azure App Service
       href: tutorial-assess-webapps.md
     - name: Assess Spring Boot web apps for migration
       href: tutorial-assess-spring-boot.md
     - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
+    - name: Assess SAP systems for migration (preview)
+      href: tutorial-assess-sap-systems.md
   - name: Migrate
     items:
     - name: Migrate servers in VMware environment
@@ -157,6 +165,8 @@ items:
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices
       href: best-practices-assessment.md
+    - name: Assessment overview (discover and assess SAP Systems) (preview)
+      href: concepts-azure-sap-systems-assessment.md
   - name: Migrate
     items:
     - name: Build a migration plan
@@ -176,7 +186,7 @@ items:
           href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Web apps migration support
       href: concepts-migration-webapps.md
@@ -194,8 +204,6 @@ items:
         href: migrate-servers-to-azure-using-private-link.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
-  - name: Prepare to work with ISV tools/Movere
-    href: prepare-isv-movere.md
   - name: Discover
     items:
     - name: Deploy the Azure Migrate appliance
@@ -234,8 +242,6 @@ items:
     items:
     - name: Azure Migrate application and code assessment
       href: appcat/index.yml
-    - name: Add assessment tools
-      href: how-to-assess.md
     - name: Group machines for assessment
       href: how-to-create-a-group.md
     - name: Create an Azure VM assessment
@@ -319,7 +325,13 @@ items:
   - name: Assess
     items:
     - name: Troubleshoot assessment
-      href: troubleshoot-assessment.md
+      items:
+        - name: Common Issues
+          href: troubleshoot-assessment.md
+        - name: Supported Scenarios
+          href: troubleshoot-assessment-supported-scenarios.md
+        - name: FAQ
+          href: troubleshoot-assessment-faq.md
   - name: Migrate
     items:
     - name: Troubleshoot replication issues in agentless VMware migration

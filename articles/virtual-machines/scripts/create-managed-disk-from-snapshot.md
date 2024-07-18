@@ -1,31 +1,28 @@
 ---
 title: Create managed disk from snapshot (Linux) - CLI sample
 description: Azure CLI Script Sample - restore a disk from a snapshot and learn about the performance impact of restoring managed disk snapshots
-documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-tags: azure-service-management
 ms.service: azure-disk-storage
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/19/2024
 ms.author: ramankum
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Create a managed disk from a snapshot with CLI (Linux)
 
 This article contains two scripts for creating a managed disk from a snapshot. The first script is for a managed disk with platform-managed keys and the second script is for a managed disk with customer-managed keys. Use these scripts to restore a virtual machine from snapshots of OS and data disks. Create OS and data managed disks from respective snapshots and then create a new virtual machine by attaching managed disks. You can also restore data disks of an existing VM by attaching data disks created from snapshots.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Disks with platform-managed keys
 
@@ -80,7 +77,7 @@ az disk create -g $resourceGroupName -n $diskName --source $snapshotId --disk-en
 
 ## Performance impact - background copy process
 
-When you create a managed disk from a snapshot, it starts a background copy process. You can attach a disk to a VM while this process is running but you'll experience performance impact (4k disks experience read impact, 512e experience both read and write impact). For Ultra Disks and Premium SSD v2, you can check the status of the background copy process with the following commands:
+When you create a managed disk from a snapshot, it starts a background copy process. You can attach a disk to a VM while this process is running but you'll experience performance impact (4k disks experience read impact, 512e experience both read and write impact) with higher latency, lower IOPS and throughput until background copy completes. For Ultra Disks and Premium SSD v2, you can check the status of the background copy process with the following commands:
 
 > [!IMPORTANT]
 > You can't use the following sections to get the status of the background copy process for disk types other than Ultra Disk or Premium SSD v2. Other disk types will always report 100%.

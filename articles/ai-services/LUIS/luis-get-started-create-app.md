@@ -8,7 +8,7 @@ author: aahill
 ms.manager: nitinme
 ms.topic: quickstart
 ms.date: 01/19/2024
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
@@ -252,12 +252,12 @@ To create a Prediction resource from the LUIS portal
     }
     ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 
 ## Clean up resources
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

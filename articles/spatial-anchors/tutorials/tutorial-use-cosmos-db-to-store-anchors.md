@@ -9,7 +9,6 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.custom: ignite-2022
 ---
 # Tutorial: Sharing Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 
@@ -23,7 +22,7 @@ It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this
 
 Add an Azure Cosmos DB database to the resource group you created earlier.
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../cosmos-db/includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../includes/cosmos-db-create-dbaccount-table.md)]
 
 Copy the `Connection String` because you'll need it.
 

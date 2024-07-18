@@ -7,8 +7,8 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 07/24/2023
+ms.custom: synapse
+ms.date: 05/15/2024
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics

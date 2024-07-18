@@ -6,12 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-ignite-2022
+ms.custom: cliv2
 
-ms.author: rasavage
-author: rsavage2
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/11/2022
-ms.reviewer: ssalgado
+ms.reviewer: rasavage
 ---
 
 # CLI (v2) Automated ML image multi-Label classification job YAML schema
@@ -43,11 +43,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML image multi-label classification job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multilabel-task-fridge-items/cli-automl-image-classification-multilabel-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/automl-standalone-jobs/cli-automl-image-classification-multilabel-task-fridge-items/cli-automl-image-classification-multilabel-task-fridge-items.yml":::
 
 ## YAML: AutoML image multi-label classification pipeline job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-multilabel-classification-fridge-items-pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/pipelines/automl/image-multilabel-classification-fridge-items-pipeline/pipeline.yml":::
 
 ## Next steps
 

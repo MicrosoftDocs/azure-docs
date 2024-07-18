@@ -12,6 +12,9 @@ ms.custom: compute-evergreen, devx-track-python
 
 # Use service management from Python
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure portal]. You can use this functionality to create, update, and delete cloud services, deployments, data management services, and virtual machines. This functionality can be useful in building applications that need programmatic access to service management.
@@ -48,7 +51,7 @@ To create the `.cer` certificate, execute:
 openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 ```
 
-For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [https://www.openssl.org/docs/manmaster/man1/req.html](https://www.openssl.org/docs/manmaster/man1/req.html).
 
 After you create these files, upload the `.cer` file to Azure. In the [Azure portal], on the **Settings** tab, select **Upload**. Note where you saved the `.pem` file.
 

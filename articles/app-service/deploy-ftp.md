@@ -4,8 +4,7 @@ description: Learn how to deploy your app to Azure App Service using FTP or FTPS
 
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
-ms.date: 02/26/2021
-ms.custom: seodec18
+ms.date: 02/29/2024
 author: cephalin
 ms.author: cephalin
 ---
@@ -18,7 +17,7 @@ or API app to [Azure App Service](./overview.md).
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+> When [FTP basic authentication is disabled](configure-basic-auth-disable.md), FTP/S deployment doesn't work, and you can't view or configure FTP credentials in the app's Deployment Center.
 
 ## Get deployment credentials
 
@@ -85,7 +84,7 @@ For enhanced security, you should allow FTP over TLS/SSL only. You can also disa
 
 1. In your app's resource page in [Azure portal](https://portal.azure.com), select **Configuration** > **General settings** from the left navigation.
 
-2. To disable unencrypted FTP, select **FTPS Only** in **FTP state**. To disable both FTP and FTPS entirely, select **Disabled**. When finished, click **Save**. If using **FTPS Only**, you must enforce TLS 1.2 or higher by navigating to the **TLS/SSL settings** blade of your web app. TLS 1.0 and 1.1 are not supported with **FTPS Only**.
+2. To disable unencrypted FTP, select **FTPS Only** in **FTP state**. To disable both FTP and FTPS entirely, select **Disabled**. When finished, select **Save**. If using **FTPS Only**, you must enforce TLS 1.2 or higher by navigating to the **TLS/SSL settings** page of your web app. TLS 1.0 and 1.1 aren't supported with **FTPS Only**.
 
     ![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -132,7 +131,7 @@ A runtime application issue typically results in the right set of files deployed
 To determine a deployment or runtime issue, see [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 #### I'm not able to FTP and publish my code. How can I resolve the issue?
-Check that you've entered the correct [hostname](#get-ftps-endpoint) and [credentials](#get-deployment-credentials). Check also that the following FTP ports on your machine are not blocked by a firewall:
+Check that you entered the correct [hostname](#get-ftps-endpoint) and [credentials](#get-deployment-credentials). Check also that the following FTP ports on your machine aren't blocked by a firewall:
 
 - FTP control connection port: 21, 990
 - FTP data connection port: 989, 10001-10300
@@ -142,20 +141,19 @@ Azure App Service supports connecting via both Active and Passive mode. Passive 
 
 #### Why is my connection failing when attempting to connect over FTPS using explicit encryption?
 FTPS allows establishing the TLS secure connection in either an Explicit or Implicit way.
- - If you are connecting in an Implicit way, the connection is established via port 990.
- - If you are connecting in an Explicit way, the connection is established via port 21.
 
+ - If you connect with Implicit encryption, the connection is established via port 990.
+ - If you connect with Explicit encryption, the connection is established via port 21.
 
-One thing to be aware that can affect your connection success is the URL used, this will depend on the Client Application used. 
-The portal will have just the URL as "ftps://" and you might need to change this.
- - If the URL used starts with "ftp://", the connection is implied to be on port 21.
- - If it starts with "ftps://", the connection is implied to be Implicit and on port 990. 
+The URL format you use can affect your connection success, and it also depends on the client application you use. The portal shows the URL as `ftps://`, but note:
 
- Make sure to not mix both, such as attempting to connect to "ftps://" and using port 21, as it will fail to connect, even if you wish to do Explicit encryption.
- The reason for this is due to an Explicit connection starting as a plain FTP connection before the AUTH method.
+ - If the URL you connect with starts with `ftp://`, the connection is implied to be on port 21.
+ - If it starts with `ftps://`, the connection is implied to be Implicit and on port 990. 
+
+ Make sure not to mix both, such as attempting to connect to `ftps://` and using port 21, as it will fail to connect, even if you wish to do Explicit encryption. This is due to an Explicit connection starting as a plain FTP connection before the AUTH method.
 
 #### How can I determine the method that was used to deploy my Azure App Service?
-Let us say you take over owning an app and you wish to find out how the Azure App Service was deployed so you can make changes and deploy them. You can determine how an Azure App Service was deployed by checking the application settings. If the app was deployed using an external package URL, you will see the WEBSITE_RUN_FROM_PACKAGE setting in the application settings with a URL value. Or if it was deployed using zip deploy, you will see the WEBSITE_RUN_FROM_PACKAGE setting with a value of 1. If the app was deployed using Azure DevOps, you will see the deployment history in the Azure DevOps portal. If Azure Functions Core Tools was used, you will see the deployment history in the Azure portal.
+You can find out how an app was deployed by checking the application settings. If the app was deployed using an external package URL, you should see the `WEBSITE_RUN_FROM_PACKAGE` setting in the application settings with a URL value. Or if it was deployed using zip deploy, you should see the `WEBSITE_RUN_FROM_PACKAGE` setting with a value of `1`. If the app was deployed using Azure DevOps, you should see the deployment history in the Azure DevOps portal. If Azure Functions Core Tools is used, you should see the deployment history in the Azure portal.
 
 ## More resources
 

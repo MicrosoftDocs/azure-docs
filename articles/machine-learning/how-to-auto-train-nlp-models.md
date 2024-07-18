@@ -1,15 +1,15 @@
 ---
-title: Set up AutoML for NLP 
+title: Set up AutoML for NLP
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train natural language processing models with the Azure Machine Learning Python SDK or the Azure Machine Learning CLI.
 services: machine-learning
-author: wenxwei
-ms.author: wenxwei
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
-ms.reviewer: ssalgado
+ms.reviewer: wenxwei
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: devplatv2, sdkv2, cliv2, event-tier1-build-2022, ignite-2022, build-2023, build-2023-dataai, devx-track-python
+ms.custom: devplatv2, sdkv2, cliv2, build-2023, build-2023-dataai, devx-track-python
 ms.date: 06/15/2023
 #Customer intent: I'm a data scientist with ML knowledge in the natural language processing space, looking to build ML models using language specific data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
 ---

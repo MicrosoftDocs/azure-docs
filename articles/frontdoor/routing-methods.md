@@ -12,6 +12,8 @@ ms.author: duau
 
 # Traffic routing methods to origin
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door supports four different traffic routing methods to determine how your HTTP/HTTPS traffic is distributed between different origins. When user requests reach the Front Door edge locations, the configured routing method gets applied to ensure requests are forwarded to the best backend resource.
 
 > [!NOTE]
@@ -94,7 +96,7 @@ The weighted method enables some useful scenarios:
 
 ## <a name = "affinity"></a>Session affinity
 
-By default, without session affinity, Azure Front Door forwards requests originating from the same client to different origins. Certain stateful applications or in certain scenarios when ensuing requests from the same user prefers the same origin to process the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same origin. When you use managed cookies with SHA256 of the origin URL as the identifier in the cookie, Azure Front Door can direct ensuing traffic from a user session to the same origin for processing.
+By default, without session affinity, Azure Front Door forwards requests originating from the same client to different origins. Certain stateful applications or in certain scenarios when ensuing requests from the same user prefers the same origin to process the initial request. The cookie-based session affinity feature is useful when you want to keep a user session on the same origin, such as scenarios where clients authenticate to the origin. When you use managed cookies with SHA256 of the origin URL as the identifier in the cookie, Azure Front Door can direct ensuing traffic from a user session to the same origin for processing.
 
 Session affinity can be enabled the origin group level in Azure Front Door Standard and Premium tier and front end host level in Azure Front Door (classic) for each of your configured domains (or subdomains). Once enabled, Azure Front Door adds a cookie to the user's session. The cookies are called ASLBSA and ASLBSACORS. Cookie-based session affinity allows Front Door to identify different users even if behind the same IP address, which in turn allows a more even distribution of traffic between your different origins.
 

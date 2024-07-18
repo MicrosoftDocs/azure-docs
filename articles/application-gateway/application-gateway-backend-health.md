@@ -6,7 +6,7 @@ services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/19/2023
+ms.date: 05/30/2024
 ms.author: jaysoni 
 ---
 

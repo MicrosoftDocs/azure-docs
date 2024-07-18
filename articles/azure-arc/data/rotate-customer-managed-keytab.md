@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 05/05/2023
 ms.topic: how-to
 ---
-# Rotate SQL Server Managed Instance enabled by Azure Arc customer-managed keytab
+# Rotate SQL Managed Instance enabled by Azure Arc customer-managed keytab
 
 This article describes how to rotate customer-managed keytabs for SQL Managed Instance enabled by Azure Arc. These keytabs are used to enable Active Directory logins for the managed instance.
 

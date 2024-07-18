@@ -6,13 +6,20 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.date: 02/28/2022
-ms.custom: contperf-fy21q2
+ms.date: 04/19/2024
 ---
 
 # Azure Digital Twins known issues
 
 This article provides information about known issues associated with Azure Digital Twins.
+
+## Azure Digital Twins Explorer doesn't support private endpoints
+
+**Issue description:** Azure Digital Twins Explorer shows errors when attempting to use it with an Azure Digital Twins instance that uses [Private Link](concepts-security.md#private-network-access-with-azure-private-link) to disable public access. You may see a popup that says *Error fetching models.*
+
+| Does this affect me? | Cause | Resolution |
+| --- | --- | --- |
+| If you're using Azure&nbsp;Digital&nbsp;Twins with a private endpoint/Private Link, this issue will affect you when trying to view your instance in Azure&nbsp;Digital&nbsp;Twins Explorer. | Azure Digital Twins Explorer does not offer support for private endpoints. | You can deploy your own version of the Azure Digital Twins Explorer codebase privately in the cloud. For instructions on how to do this, see [Azure Digital Twins Explorer: Running in the cloud](https://github.com/Azure-Samples/digital-twins-explorer#running-in-the-cloud). Alternatively, you can manage your Azure Digital Twins instance using the [APIs and SDKs](./concepts-apis-sdks.md) instead. |
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 

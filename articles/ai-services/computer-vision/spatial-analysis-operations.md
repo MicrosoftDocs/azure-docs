@@ -9,7 +9,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: ignite-fall-2021
 ---
 
 # Spatial Analysis operations

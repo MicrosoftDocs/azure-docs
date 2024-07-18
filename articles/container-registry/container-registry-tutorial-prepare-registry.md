@@ -5,7 +5,7 @@ ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.custom: "seodec18, mvc"
+ms.custom: mvc
 ms.service: container-registry
 ---
 

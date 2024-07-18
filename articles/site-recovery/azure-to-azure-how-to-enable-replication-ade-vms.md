@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.date: 05/06/2024
 ms.author: ankitadutta
 
 ---
@@ -118,7 +118,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/storage.png" alt-text="Screenshot of Storage.":::
 
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard.
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location.
 
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -168,6 +168,9 @@ Because of the above reasons, the keys are not in sync between source and target
 - REST API
 - PowerShell
 
+> [!NOTE]
+> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
+
 ### Update target VM encryption settings from the Azure portal
 
 If you are using Site Recovery on a VM and have enabled disk encryption on it at a later point, then you might not have any key vault in the target settings. You must add a new key vault in the target. 
@@ -190,12 +193,12 @@ For this example, we assume that you create a new empty key vault `KV2` with the
 ### Update target VM encryption settings using REST API
 
 1. You must copy the keys to target vault using the [Copy-Keys](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) script.
-2. Use the [`Replication Protected Items - Update`](https://learn.microsoft.com/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
+2. Use the [`Replication Protected Items - Update`](/rest/api/site-recovery/replication-protected-items/update?view=rest-site-recovery-2023-02-01&preserve-view=true&tabs=HTTP&tryIt=true&source=docs#diskencryptioninfo) Rest API to update the Azure Site Recovery metadata.
 
 ### Update target VM encryption settings using PowerShell
 
 1. Copy the keys to target vault using the [Copy-Keys](https://raw.githubusercontent.com/AsrOneSdk/published-scripts/master/CopyKeys/CopyKeys.ps1) script.
-1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](https://learn.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem?view=azps-11.1.0) command to update the Azure Site Recovery metadata.
+1. Use the [`Set-AzRecoveryServicesAsrReplicationProtectedItem`](/powershell/module/az.recoveryservices/set-azrecoveryservicesasrreplicationprotecteditem) command to update the Azure Site Recovery metadata.
     
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
@@ -222,4 +225,4 @@ Permission required on [target Key vault](#required-user-permissions)
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

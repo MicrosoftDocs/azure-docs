@@ -1,10 +1,10 @@
 ---
-title: Create a function triggered by Azure Cosmos DB 
+title: Create a function triggered by Azure Cosmos DB
 description: Use Azure Functions to create a serverless function that is invoked when data is added to a database in Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
 ms.date: 12/28/2023
-ms.custom: cc996988-fb4f-47, ignite-2022
+ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the trigger.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Create a function app in Azure
 

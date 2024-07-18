@@ -6,7 +6,6 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 12/04/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
@@ -24,6 +23,8 @@ A *route* in Azure Front Door defines how traffic gets handled when the incoming
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 When a request arrives Azure Front Door (classic) edge, one of the first things that Front Door does is determine how to route the matching request to a backend resource and then take a defined action in the routing configuration. The following document explains how Front Door determines which route configuration to use when processing a request.
 

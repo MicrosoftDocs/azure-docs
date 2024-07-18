@@ -7,7 +7,6 @@ editor: thsomasu
 services: notification-hubs
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: csharp
 ms.topic: article

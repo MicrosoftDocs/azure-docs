@@ -3,7 +3,7 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 3/29/2024
 ms.custom: engagement-fy23
 ---
 
@@ -11,13 +11,17 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
+You can set up vCenter Server to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a third-party LDAP server. Then, the account can be assigned a vCenter Server role, like in an on-premises environment, to provide role-based access for vCenter Server users.
+
+:::image type="content" source="media/nsxt/azure-vmware-solution-to-ldap-server.png" alt-text="Screenshot that shows vCenter Server connectivity to the LDAP Windows Server Active Directory server." lightbox="media/nsxt/azure-vmware-solution-to-ldap-server.png":::
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
-> - Configure NSX-T DNS for resolution to your Windows Server Active Directory domain.
+> - Configure NSX DNS for resolution to your Windows Server Active Directory domain.
 > - Add Windows Server Active Directory by using LDAPS (secure) or LDAP (unsecured).
 > - Add an existing Windows Server Active Directory group to the CloudAdmin group.
 > - List all existing external identity sources that are integrated with vCenter Server SSO.
@@ -77,7 +81,7 @@ To verify that the certificate is valid:
 
 1. Select **OK**.
 
-To export the certificate:
+#### To export the certificate:
 
 1. In the Certificates console, right-click the LDAPS certificate and select **All Tasks** > **Export**. The Certificate Export Wizard opens. Select **Next**.
 1. In the **Export Private Key** section, select **No, do not export the private key**, and then select **Next**.
@@ -284,9 +288,26 @@ To remove all existing external identity sources at once, run the Remove-Externa
 > [!WARNING]
 > If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
 
+## Renew existing certificates for LDAPS identity source
+
+1. Renew the existing certificates in your domain controllers.
+
+1. Optional: If the certificates are stored in default domain controllers, this step is optional. Leave the SSLCertificatesSasUrl parameter blank and the new certificates will be downloaded from the default domain controllers and updated in vCenter automatically. If you choose to not use the default way, [export the certificate for LDAPS authentication](#to-export-the-certificate) and [upload the LDAPS certificate to blob storage and generate an SAS URL](#upload-the-ldaps-certificate-to-blob-storage-and-generate-an-sas-url-optional). Save the SAS URL for the next step.
+
+1. Select **Run command** > **Packages** > **Update-IdentitySourceCertificates**.
+
+1. Provide the required values and the new SAS URL (optional), and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **DomainName***  |  The FQDN of the domain, for example **avslab.local**.  |
+   | **SSLCertificatesSasUrl (optional)**  | A comma-delimited list of SAS path URI to Certificates for authentication. Ensure permissions to read are included. To generate, place the certificates in any storage account blob and then right-click the cert and generate SAS. If the value of this field isn't provided by a user, the certificates will be downloaded from the default domain controllers.  |
+
+1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
+
 ## Related content
 
 - [Create a storage policy](configure-storage-policy.md)
-- [Azure VMware Solution identity concepts](concepts-identity.md)
-- [Set an external identity source for NSX-T Data Center](configure-external-identity-source-nsx-t.md)
+- [Azure VMware Solution identity architecture](architecture-identity.md)
+- [Set an external identity source for NSX](configure-external-identity-source-nsx-t.md)
 - [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)

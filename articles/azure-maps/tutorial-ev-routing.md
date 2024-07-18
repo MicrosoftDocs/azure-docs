@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with Microsoft Azure Maps'
 description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -419,8 +419,8 @@ To learn more about Azure Notebooks, see
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing API]: /rest/api/maps/route/postroutematrix
 [Post Route Matrix]: /rest/api/maps/route/postroutematrix
-[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0
-[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0
+[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
+[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Quickstart: Sign in and set a user ID]: https://notebooks.azure.com
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt

@@ -3,14 +3,15 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux - Azu
 description: Use symmetric key attestation to test provisioning Linux devices at scale for Azure IoT Edge with device provisioning service
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/26/2022
+ms.date: 02/27/2024
 ms.topic: conceptual
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 # Create and provision IoT Edge devices at scale on Linux using symmetric key
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Linux IoT Edge devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -51,17 +52,35 @@ Have the following information ready:
 * The device **Registration ID** you created
 * Either the **Primary Key** from an individual enrollment, or a [derived key](#derive-a-device-key) for devices using a group enrollment.
 
-1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
 
-   ```bash
-   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
-   ```
+# [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
 
-1. Open the configuration file on the IoT Edge device.
+```bash
+sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+```
+
+Open the configuration file on the IoT Edge device.
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
+
+# [Ubuntu Core snaps](#tab/snaps)
+
+If using a snap installation of IoT Edge, the template file is located at `/snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template`. Create a copy of the template file in your home directory and name it config.toml. For example:
+
+```bash
+cp /snap/azure-iot-edge/current/etc/aziot/config.toml.edge.template ~/config.toml
+```
+
+Open the configuration file in your home directory on the IoT Edge device.
+
+```bash
+nano ~/config.toml
+```
+
+---
 
 1. Find the **Provisioning** section of the file. Uncomment the lines for DPS provisioning with symmetric key, and make sure any other provisioning lines are commented out.
 
@@ -90,18 +109,29 @@ Have the following information ready:
 
    If you use any PKCS#11 URIs, find the **PKCS#11** section in the config file and provide information about your PKCS#11 configuration.
 
-1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+    For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 
-1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemons to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
+
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file is [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
 
 1. Save and close the file.
 
-1. Apply the configuration changes that you made to IoT Edge.
+1. Apply the configuration changes that you made on the device.
 
-   ```bash
-   sudo iotedge config apply
-   ```
-
+    # [Ubuntu / Debian / RHEL](#tab/ubuntu+debian+rhel)
+    ```bash
+    sudo iotedge config apply
+    ```
+    
+    # [Ubuntu Core snaps](#tab/snaps)
+    
+    ```bash
+    sudo snap set azure-iot-edge raw-config="$(cat ~/config.toml)"
+    ```
+    
+    ---
+    
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.

@@ -33,7 +33,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create required resources
 
@@ -160,7 +160,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the desired role to the managed identity of your Azure Digital Twins instance, using the information below. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -168,7 +168,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Assign access to | **Managed identity** |
     | Members | Select the user-assigned or system-assigned managed identity of your Azure Digital Twins instance that's being assigned the role. A user-assigned identity will have the name you chose when you created the identity, and a system-assigned identity will have a name that matches the name of your Azure Digital Twins instance. |
     
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 
 # [CLI](#tab/cli)
 

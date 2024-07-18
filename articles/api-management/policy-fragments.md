@@ -8,10 +8,11 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep
-ms.custom: event-tier1-build-2022
 ---
 
 # Reuse policy configurations in your API Management policy definitions
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows you how to create and use *policy fragments* in your API Management policy definitions. Policy fragments are centrally managed, reusable XML snippets containing one or more API Management [policy](api-management-howto-policies.md) configurations. 
 
@@ -117,4 +118,4 @@ For more information about working with policies, see:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-+ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
++ [Author policies using Microsoft Copilot in Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

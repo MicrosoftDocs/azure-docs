@@ -2,7 +2,7 @@
 title: Plan the Azure VMware Solution deployment
 description: In this tutorial, learn how to plan your Azure VMware Solution deployment for a successful production-ready environment.
 ms.topic: tutorial
-ms.custom: "contperf-fy21q4, engagement-fy23"
+ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 12/19/2023
 ---

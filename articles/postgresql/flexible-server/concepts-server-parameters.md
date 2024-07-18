@@ -1,52 +1,62 @@
 ---
-title: Server parameters
-description: Describes the server parameters in Azure Database for PostgreSQL - Flexible Server.
-author: varun-dhawan
-ms.author: varundhawan
+title: Server parameters in Azure Database for PostgreSQL - Flexible Server
+description: Learn about the server parameters in Azure Database for PostgreSQL - Flexible Server.
+author: AlicjaKucharczyk
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 05/16/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/21/2023
 ---
 
 # Server parameters in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL flexible server provides a subset of configurable parameters for each server. For more information on Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/config-setting.html).
+Azure Database for PostgreSQL provides a subset of configurable parameters for each server. For more information on
+Postgres parameters, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config.html).
 
-## An overview of PostgreSQL parameters 
+## Parameter types
 
-Azure Database for PostgreSQL server is pre-configured with optimal default values for each parameter on creation. Static parameters require a server restart. Further parameters that require superuser access cannot be configured by the user. 
+Azure Database for PostgreSQL - Flexible Server comes preconfigured with optimal default settings for each parameter. Parameters are categorized into one of the following types:
 
-In order to review which parameters are available to view or to modify, we recommend going into the Azure portal, and to the Server Parameters page. You can also configure parameters on a per-user or per-database basis using `ALTER DATABASE` or `ALTER ROLE` commands.
+* **Static**: These parameters require a server restart to implement any changes.
+* **Dynamic**: These parameters can be altered without the need to restart the server instance. However, changes will apply only to new connections established after the modification.
+* **Read-only**: These parameters aren't user configurable because of their critical role in maintaining reliability, security, or other operational aspects of the service.
 
->[!NOTE]
-> Since Azure Database for PostgreSQL is a managed database service, users are not provided host or OS access to view or modify configuration files such as `postgresql.conf`. The content of the file is automatically updated based on parameter changes in the Server Parameters page.
+To determine the parameter type, go to the Azure portal and open the **Server parameters** pane. The parameters are grouped into tabs for easy identification.
 
-:::image type="content" source="./media/concepts-server-parameters/server-parameters.png" alt-text="Server parameters - portal":::
+## Parameter customization
 
-Here's the list of some of the parameters:
+Various methods and levels are available to customize your parameters according to your specific needs.
 
+### Global level
 
-   | Parameter Name             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **max_connections** | You can tune max_connections on Azure Database for PostgreSQL flexible server, where it can be set to 5000 connections. See the [limits documentation](concepts-limits.md) for more details. Although it is not the best practice to set this value higher than several hundreds. See [Postgres Wiki](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections) for more details. If you are considering higher values, consider using [connection pooling](concepts-pgbouncer.md) instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 
-| **shared_buffers**    | The 'shared_buffers' setting changes depending on the selected SKU (SKU determines the memory available). General Purpose servers have 2 GB shared_buffers for 2 vCores; Memory Optimized servers have 4 GB shared_buffers for 2 vCores. The shared_buffers setting scales linearly (approximately) as vCores increase in a tier.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 
-| **shared_preload_libraries** | This parameter is available for configuration with a predefined set of supported extensions. We always load the `azure` extension (used for maintenance tasks), and the `pg_stat_statements` extension (you can use the pg_stat_statements.track parameter to control whether the extension is active).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **connection_throttling** | You can enable or disable temporary connection throttling per IP for too many invalid password login failures.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
- | **work_mem** | This parameter specifies the amount of memory to be used by internal sort operations and hash tables before writing to temporary disk files. Increasing this parameter value can help Azure Database for PostgreSQL flexible server perform larger in-memory scans instead of spilling to disk, which is faster. This configuration is beneficial if your workload contains few queries but with many complex sorting tasks, and you have ample available memory.  Be careful however, as one complex query may have number of sort, hash operations running concurrently. Each one of those operations uses as much memory as it value allows before it starts writing to disk based temporary files. Therefore on a relatively busy system total memory usage is many times of individual work_mem parameter. If you do decide to tune this value globally, you can use formula Total RAM * 0.25 / max_connections as initial value. Azure Database for PostgreSQL flexible server supports range of 4096-2097152 kilobytes for this parameter. |
-| **effective_cache_size** | The effective_cache_size parameter estimates how much memory is available for disk caching by the operating system and within the database shared_buffers itself. This parameter is just a planner "hint" and does not allocate or reserve any memory. Index scans are most likely to be used against higher values; otherwise, sequential scans are used if the value is low. Recommendations are to set effective_cache_size at 50%-75% of the machine’s total RAM.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **maintenance_work_mem** | The maintenance_work_mem parameter basically provides the maximum amount of memory to be used by maintenance operations like vacuum, create index, and alter table add foreign key operations. Default value for that parameter is 64 KB. It’s recommended to set this value higher than work_mem.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **effective_io_concurrency** | Sets the number of concurrent disk I/O operations that Azure Database for PostgreSQL flexible server expects can be executed simultaneously. Raising this value increases the number of I/O operations that any individual Azure Database for PostgreSQL flexible server session attempts to initiate in parallel. The allowed range is 1 to 1000, or zero to disable issuance of asynchronous I/O requests. Currently, this setting only affects bitmap heap scans.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
- |**require_secure_transport** | If your application doesn't support SSL connectivity to the server, you can optionally disable secured transport from your client by turning `OFF` this parameter value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
- |**log_connections** | This parameter may be read-only, as on Azure Database for PostgreSQL flexible server all connections are logged and intercepted to make sure connections are coming in from right sources for security reasons.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|**log_disconnections** | This parameter may be read-only, as on Azure Database for PostgreSQL flexible server all disconnections are logged.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+For altering settings globally at the instance or server level, go to the **Server parameters** pane in the Azure portal. You can also use other available tools such as the Azure CLI, the REST API, Azure Resource Manager templates, or partner tools.
 
->[!NOTE]
-> As you scale Azure Database for PostgreSQL flexible server SKUs up or down, affecting available memory to the server, you may wish to tune your memory global parameters, such as `work_mem` or `effective_cache_size` accordingly based on information shared in the article. 
+> [!NOTE]
+> Because Azure Database for PostgreSQL is a managed database service, users don't have host or operating system access to view or modify configuration files such as *postgresql.conf*. The content of the files is automatically updated based on parameter changes that you make.
 
- 
+:::image type="content" source="./media/concepts-server-parameters/server-parameters-portal.png" alt-text="Screenshot of the pane for server parameters in the Azure portal.":::
+
+### Granular levels
+
+You can adjust parameters at more granular levels. These adjustments override globally set values. Their scope and duration depend on the level at which you make them:
+
+* **Database level**: Use the `ALTER DATABASE` command for database-specific configurations.
+* **Role or user level**: Use the `ALTER USER` command for user-centric settings.
+* **Function, procedure level**: When you're defining a function or procedure, you can specify or alter the configuration parameters that will be set when the function is called.
+* **Table level**: As an example, you can modify parameters related to autovacuum at this level.
+* **Session level**: For the duration of an individual database session, you can adjust specific parameters. PostgreSQL facilitates this adjustment with the following SQL commands:
+
+  * Use the `SET` command to make session-specific adjustments. These changes serve as the default settings during the current session. Access to these changes might require specific `SET` privileges, and the limitations for modifiable and read-only parameters described earlier don't apply. The corresponding SQL function is `set_config(setting_name, new_value, is_local)`.
+  * Use the `SHOW` command to examine existing parameter settings. Its SQL function equivalent is `current_setting(setting_name text)`.
+
+## Supported server parameters
+
+[!INCLUDE [server-parameters-table](./includes/server-parameters-table.md)]
+
 ## Next steps
 
-For information on supported PostgreSQL extensions, see [the extensions document](concepts-extensions.md).
+For information on supported PostgreSQL extensions, see [PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server](concepts-extensions.md).

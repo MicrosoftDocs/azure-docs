@@ -48,7 +48,7 @@ Data source configurations are delivered to agents that are directly connected t
 
 For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default. The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will either be sent to a management server, which forwards the data to the Azure Monitor, or the agent will send the data to Azure Monitor without going through the management server.
 
-For more information, see [Data collection details for monitoring solutions in Azure](../monitor-reference.md). You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure integration with System Center Operations Manager](./om-agents.md).
+For more information, see [Data collection in Azure Monitor](../essentials/data-collection.md). You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure integration with System Center Operations Manager](./om-agents.md).
 
 If the agent is unable to connect to Azure Monitor or Operations Manager, it will continue to collect data that it will deliver when it establishes a connection. Data can be lost if the amount of data reaches the maximum cache size for the client, or if the agent can't establish a connection within 24 hours.
 

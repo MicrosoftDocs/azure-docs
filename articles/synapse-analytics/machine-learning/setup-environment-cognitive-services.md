@@ -3,7 +3,7 @@ title: "Setup environment for Azure AI services for big data"
 description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
-ms.reviewer: sngun, garye, negust, ruxu
+ms.reviewer: whhender, garye, negust, ruxu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: how-to
@@ -92,7 +92,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
 
-1. [Install the Apache Spark 2.4.0 helm chart](https://hub.helm.sh/charts/microsoft/spark) - warning: [Spark 2.4](../spark/apache-spark-24-runtime.md) is retired and out of the support.
+1. [Install the Apache Spark 2.4.0 helm chart](https://artifacthub.io/packages/helm/microsoft/spark) - warning: [Spark 2.4](../spark/apache-spark-24-runtime.md) is retired and out of the support.
 
 1. [Install an Azure AI container using Helm](../../ai-services/computer-vision/deploy-computer-vision-on-premises.md)
 

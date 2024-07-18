@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: meyetman
-author: meyetman
-ms.date: 01/23/2024
-ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022, devx-track-arm-template
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 03/11/2024
+ms.custom: how-to, devx-track-azurecli, devx-track-arm-template
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
@@ -30,7 +30,7 @@ This article explains how to manage access (authorization) to Azure Machine Lear
 
 ## Default roles
 
-Azure Machine Learning workspaces have five built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the following roles.
+Azure Machine Learning workspaces have built-in roles that are available by default. When adding users to a workspace, they can be assigned one of the following roles.
 
 | Role | Access level |
 | --- | --- |
@@ -195,12 +195,16 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/services/aks/score/action`, `/workspaces/services/aks/listkeys/action` (when you don't use Microsoft Entra auth) OR `/workspaces/read` (when you use token auth) |
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/read`, `/workspaces/notebooks/samples/read`, `/workspaces/notebooks/storage/*`, `/workspaces/listStorageAccountKeys/action`, `/workspaces/listNotebookAccessToken/read`|
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
-| Create/manage online endpoints and deployments | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you need an additional permission `Microsoft.Resources/deployments/write` from the resource group owner. |
+| Create/manage online endpoints and deployments | Not required | To deploy on studio,  `Microsoft.Resources/deployments/write` | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`.  |
 | Retrieve authentication credentials for online endpoints | Not required | Not required | Owner, contributor, or custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action` |
 
 1. If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
 2. When attaching an AKS cluster, you also need to have the [Azure Kubernetes Service Cluster Admin Role](/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) on the cluster.
+
+###  Deploy into a virtual network or subnet
+
+[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 ### Differences between actions for V1 and V2 APIs
 
@@ -219,6 +223,13 @@ You can make custom roles compatible with both V1 and V2 APIs by including both 
 ### Create a workspace using a customer-managed key
 
 When using a customer-managed key (CMK), an Azure Key Vault is used to store the key. The user or service principal used to create the workspace must have owner or contributor access to the key vault.
+
+If your workspace is configured with a **user-assigned managed identity**, the identity must be granted the following roles. These roles allow the managed identity to create the Azure Storage, Azure Cosmos DB, and Azure Search resources used when using a customer-managed key:
+
+- `Microsoft.Storage/storageAccounts/write`
+- `Microsoft.Search/searchServices/write`
+- `Microsoft.DocumentDB/databaseAccounts/write`
+
 
 Within the key vault, the user or service principal must have create, get, delete, and purge access to the key through a key vault access policy. For more information, see [Azure Key Vault security](/azure/key-vault/general/security-features#controlling-access-to-key-vault-data).
 
@@ -325,6 +336,7 @@ A more restricted role definition without wildcards in the allowed actions. It c
         "Microsoft.MachineLearningServices/workspaces/computes/delete",
         "Microsoft.MachineLearningServices/workspaces/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/connections/listsecrets/action",
         "Microsoft.MachineLearningServices/workspaces/listKeys/action",
         "Microsoft.Authorization/*",
         "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
@@ -462,150 +474,9 @@ The workspace admin also cannot create a new role. It can only assign existing b
 
 ### Data labeling
 
-# [Data labeler](#tab/labeler)
+There is a built-in role for data labeling, scoped only to labeling data. The following custom roles give other levels of access for a data labeling project. 
 
-Allows you to define a role scoped only to labeling data:
-
-*labeler_custom_role.json* :
-
-```json
-{
-    "Name": "Labeler Custom",
-    "IsCustom": true,
-    "Description": "Can label data for Labeling",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
-    ],
-    "NotActions": [        
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>"
-    ]
-}
-```
-
-# [Labeling team lead](#tab/team-lead)
-
-Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
-
-*labeling_team_lead_custom_role.json* :
-
-```json
-{
-    "Name": "Labeling Team Lead",
-    "IsCustom": true,
-    "Description": "Team lead for Labeling Projects",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-    ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
-        "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>"
-    ]
-}
-```
-
-# [Vendor account manager](#tab/vendor-admin)
-
-A vendor account manager can help manage all the vendor roles and perform any labeling action. They can't modify projects or view MLAssist experiments.
-
-*vendor_admin_role.json* :
-
-```json
-{
-    "Name": "Vendor account admin",
-    "IsCustom": true,
-    "Description": "Vendor account admin for Labeling Projects",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read", 
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/write", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/export/action", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>"
-    ]
-}
-```
-
-# [Customer QA](#tab/customer-qa)
-
-A customer quality assurance role can view project dashboards, preview datasets, export a labeling project, and review submitted labels. This role can't submit labels.
-
-*customer_qa_role.json* :
-
-```json
-{
-    "Name": "Customer QA",
-    "IsCustom": true,
-    "Description": "Customer QA for Labeling Projects",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
-        "Microsoft.MachineLearningServices/workspaces/labeling/export/action",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>"
-    ]
-}
-```
-
-# [Vendor QA](#tab/vendor-qa)
-
-A vendor quality assurance role can perform a customer quality assurance role, but can't preview the dataset.
-
-*vendor_qa_role.json*:
-
-```json
-{
-    "Name": "Vendor QA",
-    "IsCustom": true,
-    "Description": "Vendor QA for Labeling Projects",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read", 
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/update/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/labels/approve_unapprove/action",
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read", 
-        "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscriptionId>"
-    ]
-}
-```
-
----
+[!INCLUDE [custom-role-data-labeling](includes/custom-role-data-labeling.md)]
 
 ## Troubleshooting
 
@@ -618,8 +489,6 @@ Here are a few things to be aware of while you use Azure RBAC:
 - In order to deploy on studio, you need `Microsoft.Resources/deployments/write` AND `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. For SDK/CLI deployments, you need `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments/write`. Contact your workspace/resource group owner for the additional permissions.
 
 - When there are two role assignments to the same Microsoft Entra user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they're also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-
-[!INCLUDE [network-rbac](includes/network-rbac.md)]
 
 - It can sometimes take up to one hour for your new role assignments to take effect over cached permissions across the stack.
 

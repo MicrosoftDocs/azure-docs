@@ -1,6 +1,6 @@
 ---
-title: CI/CD patterns with Managed Airflow
-description: This article talks about recommended deployment patterns with Managed Airflow.
+title: CI/CD patterns with Workflow Orchestration Manager
+description: This article talks about recommended deployment patterns with Workflow Orchestration Manager.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -9,15 +9,16 @@ ms.topic: how-to
 ms.date: 10/17/2023
 ---
 
-# CI/CD patterns with Managed Airflow
+# CI/CD patterns with Workflow Orchestration Manager
 
-Azure Data Factory Managed Airflow provides a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Managed Airflow. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
+> [!NOTE]
+> Workflow Orchestration Manager is powered by Apache Airflow.
 
-Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with Managed Airflow.
+Workflow Orchestration Manager provides a simple and efficient way to create and manage Apache Airflow environments. The service enables you to run data pipelines at scale with ease. There are two primary methods to run DAGs in Workflow Orchestration Manager. You can upload the DAG files in your blob storage and link them with the Airflow environment. Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
+
+Working with data pipelines in Airflow requires you to create or update your DAGs, plugins, and requirement files frequently, based on your workflow needs. Although developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a continuous integration and continuous delivery (CI/CD) approach for code deployment. This article walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with Workflow Orchestration Manager.
 
 ## Understand CI/CD
-
-To integrate and deploy your Apache Airflow DAGs by using Managed Airflow, it's important to understand continuous integration and continuous delivery.
 
 ### Continuous integration
 
@@ -29,13 +30,13 @@ CI ensures that the codebase remains in a constantly testable and deployable sta
 
 Continuous delivery is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice helps organizations release software updates quickly and reliably. It reduces mistakes in manual deployment and ensures that approved code changes are delivered to users swiftly.
 
-## CI/CD workflow within Managed Airflow
+## CI/CD workflow within Workflow Orchestration Manager
 
-:::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot that shows the CI/CD pattern that can be used in Managed Airflow." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
+:::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot that shows the CI/CD pattern that can be used in Workflow Orchestration Manager." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
 
 ### Git sync with Dev/QA integration runtime
 
-Map your Managed Airflow environment with your Git repository's development/QA branch.
+Map your Workflow Orchestration Manager environment with your Git repository's development/QA branch.
 
 #### CI pipeline with Dev/QA integration runtime
 
@@ -50,7 +51,7 @@ If any of these checks fail, the pipeline terminates. You then need to address t
 
 ### Git sync with production integration runtime
 
-Map your Managed Airflow environment with your Git repository's production branch.
+Map your Workflow Orchestration Manager environment with your Git repository's production branch.
 
 #### PR pipeline with production integration runtime
 
@@ -58,54 +59,54 @@ A best practice is to maintain a separate production environment to prevent eve
 
 After the feature branch successfully merges into the development branch, you can create a pull request to the production branch to make your newly merged feature public. This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch. Quality checks ensure that all features were integrated correctly and there are no errors in the production environment.
 
-### Benefits of using the CI/CD workflow in Managed Airflow
+### Benefits of using the CI/CD workflow in Workflow Orchestration Manager
 
-- **Fail-fast approach:** Without the integration of the CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with Managed Airflow, and throws an `Import Error`. Meanwhile, another developer can unknowingly pull the faulty code from the repository, which potentially leads to inefficiencies down the line.
+- **Fail-fast approach:** Without the integration of the CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with Workflow Orchestration Manager, and throws an `Import Error`. Meanwhile, another developer can unknowingly pull the faulty code from the repository, which potentially leads to inefficiencies down the line.
 - **Code quality improvement:** If you neglect fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, you increase the likelihood of delivering subpar code.
 
-## Deployment patterns in Managed Airflow
+## Deployment patterns in Workflow Orchestration Manager
 
 We recommend two deployment patterns.
 
-### Pattern 1: Develop data pipelines directly in Managed Airflow
+### Pattern 1: Develop data pipelines directly in Workflow Orchestration Manager
 
-You can develop data pipelines directly in Managed Airflow when you use pattern 1.
+You can develop data pipelines directly in Workflow Orchestration Manager when you use pattern 1.
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory instance in the region where the Managed Airflow preview is supported.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Create or select an existing Data Factory instance in the region where the Workflow Orchestration Manager preview is supported.
 - You need access to a [GitHub repository](https://github.com/join).
 
 ### Advantages
 
-- **No local development environment required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure.
-- **Scalability:** Managed Airflow provides autoscaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention.
-- **Monitoring and logging:** Managed Airflow includes diagnostic logs and monitoring to help you track the execution of your workflows, diagnose issues, set up alerts, and optimize performance.
+- **No local development environment required:** Workflow Orchestration Manager handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure.
+- **Scalability:** Workflow Orchestration Manager provides autoscaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention.
+- **Monitoring and logging:** Workflow Orchestration Manager includes diagnostic logs and monitoring to help you track the execution of your workflows, diagnose issues, set up alerts, and optimize performance.
 
 ### Workflow
 
 1. Use the Git-sync feature.
 
-    In this workflow, there's no requirement to establish your own local environment. Instead, you can start by using the Git-sync feature offered by Managed Airflow. This feature automatically synchronizes your DAG files with Airflow web servers, schedulers, and workers. Now you can develop, test, and execute your data pipelines directly through the Managed Airflow UI.
-    
-    Learn more about how to use the Managed Airflow [Git-sync feature](airflow-sync-github-repository.md).
+    In this workflow, there's no requirement to establish your own local environment. Instead, you can start by using the Git-sync feature offered by Workflow Orchestration Manager. This feature automatically synchronizes your DAG files with Airflow web servers, schedulers, and workers. Now you can develop, test, and execute your data pipelines directly through the Workflow Orchestration Manager UI.
+
+    Learn more about how to use the Workflow Orchestration Manager [Git-sync feature](airflow-sync-github-repository.md).
 
 1. Create individual feature branch environments.
 
-    You can choose the branch from your repository to sync with Managed Airflow. This capability lets you create an individual Airflow environment for each feature branch. In this way, developers can work on specific tasks for data pipelines.
+    You can choose the branch from your repository to sync with Workflow Orchestration Manager. This capability lets you create an individual Airflow environment for each feature branch. In this way, developers can work on specific tasks for data pipelines.
 
 1. Create a pull request.
 
     Proceed to submit a pull request to the Airflow development environment integration runtime after you thoroughly develop and test your features within your dedicated Airflow environment.
 
-### Pattern 2: Develop DAGs locally and deploy on Managed Airflow
+### Pattern 2: Develop DAGs locally and deploy on Workflow Orchestration Manager
 
-You can develop DAGs locally and deploy them on Managed Airflow when you use pattern 2.
+You can develop DAGs locally and deploy them on Workflow Orchestration Manager when you use pattern 2.
 
 ### Prerequisites
 
 - You need access to a [GitHub repository](https://github.com/join).
-- Ensure that at least a single branch of your code repository is synchronized with Managed Airflow to see the code changes on the service.
+- Ensure that at least a single branch of your code repository is synchronized with Workflow Orchestration Manager to see the code changes on the service.
 
 ### Advantages
 
@@ -119,13 +120,13 @@ You can limit access to Azure resources to admins only.
 
 1. Use the Git-sync feature.
 
-    Synchronize your GitHub repository's branch with Managed Airflow.
+    Synchronize your GitHub repository's branch with Workflow Orchestration Manager.
 
-    Learn more about how to use the Managed Airflow [Git-sync feature](airflow-sync-github-repository.md).
+    Learn more about how to use the Workflow Orchestration Manager [Git-sync feature](airflow-sync-github-repository.md).
 
-1. Use Managed Airflow as a production environment.
+1. Use Workflow Orchestration Manager as a production environment.
 
-    After you successfully develop and test data pipelines on your local setup, you can raise a pull request to the branch synchronized with Managed Airflow. After the branch is merged, use Managed Airflow features like autoscaling and monitoring and logging at the production level.
+    After you successfully develop and test data pipelines on your local setup, you can raise a pull request to the branch synchronized with Workflow Orchestration Manager. After the branch is merged, use Workflow Orchestration Manager features like autoscaling and monitoring and logging at the production level.
 
 ## Sample CI/CD pipeline
 
@@ -134,13 +135,13 @@ For more information, see:
 - [Azure DevOps](https://azure.microsoft.com/products/devops)
 - [GitHub actions](https://github.com/features/actions)
 
-1. Copy the code of a DAG deployed in Managed Airflow integration runtime by using the Git-sync feature.
+1. Copy the code of a DAG deployed in Workflow Orchestration Manager integration runtime by using the Git-sync feature.
 
     ```python
     from datetime import datetime
     from airflow import DAG
     from airflow.operators.bash import BashOperator
-    
+
     with DAG(
         dag_id="airflow-ci-cd-tutorial",
         start_date=datetime(2023, 8, 15),
@@ -152,7 +153,7 @@ For more information, see:
         task2 = BashOperator(task_id="task2", bash_command="echo task2")
         task3 = BashOperator(task_id="task3", bash_command="echo task3")
         task4 = BashOperator(task_id="task4", bash_command="echo task4")
-    
+
         # Set dependencies between tasks
         task1 >> task2 >> task3 >> task4
     ```
@@ -164,28 +165,28 @@ For more information, see:
         ```python
         trigger:
         - dev
-        
+
         pr:
         - dev
-        
+
         pool:
           vmImage: ubuntu-latest
         strategy:
           matrix:
             Python3.11:
               python.version: '3.11.5'
-        
+
         steps:
         - task: UsePythonVersion@0
           inputs:
             versionSpec: '$(python.version)'
           displayName: 'Use Python $(python.version)'
-        
+
         - script: |
             python -m pip install --upgrade pip
             pip install -r requirements.txt
           displayName: 'Install dependencies'
-        
+
         - script: |
             airflow webserver &
             airflow db init
@@ -193,9 +194,9 @@ For more information, see:
             pytest
           displayName: 'Pytest'
         ```
-    
+
         For more information, see [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up).
-    
+
 
 
     1. **GitHub actions option**: Create a `.github/workflows` directory in your GitHub repository.
@@ -203,10 +204,10 @@ For more information, see:
         1. In the `.github/workflows` directory, create a file named `github-actions-ci-cd.yml`.
 
         1. Copy the following code. The pipeline triggers whenever there's a pull request or push request to the development branch:
-        
+
             ```python
             name: GitHub Actions CI/CD
-            
+
             on:
               pull_request:
                 branches:
@@ -214,7 +215,7 @@ For more information, see:
               push:
                 branches:
                   - "dev"
-            
+
             jobs:
               flake8:
                 strategy:
@@ -263,13 +264,13 @@ For more information, see:
         - **Your DAG doesn't contain cyclicity:** Cyclicity, where a task forms a loop or circular dependency within the workflow, can lead to unexpected and infinite execution loops.
         - **There are no import errors:** Import errors can arise because of issues like missing dependencies, incorrect module paths, or coding errors.  
         - **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined.
-    
+
             ```python
             @pytest.fixture()
-            
+
             def dagbag():
                 return DagBag(dag_folder="dags")
-            
+
             def test_no_import_errors(dagbag):
                 """
                 Test Dags to contain no import errors.
@@ -285,10 +286,10 @@ For more information, see:
             Test whether expected dag Ids are present.
             """
             expected_dag_ids = ["airflow-ci-cd-tutorial"]
-        
+
             for dag_id in expected_dag_ids:
                 dag = dagbag.get_dag(dag_id)
-        
+
                 assert dag is not None
                 assert dag_id == dag.dag_id
         ```
@@ -302,7 +303,7 @@ For more information, see:
             """
             Expected_tags = {"tutorial", "CI/CD"}
             dagIds = dagbag.dag_ids
-        
+
             for id in dagIds:
                 dag = dagbag.get_dag(id)
                 assert dag.tags

@@ -12,11 +12,11 @@ ms.date: 09/07/2023
 #CustomerIntent: As an operator, I want understand how to reference parts of a message so that I can configure pipeline stages.
 ---
 
-# What are jq path expressions?
+# What are jq path expressions in Azure IoT Data Processor Preview?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Many pipeline stages in Azure IoT Data Processor (preview) make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
+Many pipeline stages in Azure IoT Data Processor Preview make use of _jq path_ expressions. Whenever you need to retrieve information from a message or to place some information into a message, you use a path. jq paths let you:
 
 - Locate a piece of information in a message.
 - Identify where to place a piece of information into a message.

@@ -3,14 +3,14 @@ title: Set up Python development environment  (v1)
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning (v1) Python development environments in Jupyter Notebooks, Visual Studio Code, Azure Databricks, and Data Science Virtual Machines.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: Blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: larryfr
+ms.reviewer: roastala
 ms.date: 09/30/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, sdkv1, build-2023
 ---
 
 # Set up a Python development environment for Azure Machine Learning (v1)

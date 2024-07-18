@@ -19,6 +19,7 @@ The entitlement service of Azure Data Manager for Energy allows you to create gr
 
 Different groups and associated user entitlements must be set for every *new data partition*, even in the same Azure Data Manager for Energy instance.
 
+## Types of OSDU groups
 The entitlement service enables three use cases for authorization:
 
 ### Data groups
@@ -36,20 +37,29 @@ The entitlement service enables three use cases for authorization:
 ### User groups
 - User groups are used for hierarchical grouping of user and service groups.
 - The service groups start with the word "users," such as `users.datalake.viewers` and `users.datalake.editors`.
-- Some user groups are created by default when a data partition is provisioned. For information on these groups and their hierarchy scope, see [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+
 
 **Nested hierarchy** 
 - If user_1 is part of a data_group_1 and data_group_1 is added as a member to the user_group_1, OSDU code checks for the nested membership and authorize user_1 to access the entitlements for user_group_1. This is explained in [OSDU Entitlement Check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java?ref_type=heads#L105) and [OSDU Retrieve Group API](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/master/provider/entitlements-v2-azure/src/main/java/org/opengroup/osdu/entitlements/v2/azure/spi/gremlin/retrievegroup/RetrieveGroupRepoGremlin.java#:~:text=public%20ParentTreeDto%20loadAllParents(EntityNode%20memberNode)%20%7B).
 
 - You can add individual users to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups because individual users don't need to be added one by one to the data group. Instead, you can add users to the `user group`. Then you can use the `user group` repeatedly for multiple `data groups`. The nested structure helps provide scalability to manage memberships in OSDU.
 
-#### Peculiarity of `users@` group
+## Default groups
+- Some OSDU groups are created by default when a data partition is provisioned. 
+- Data groups of `data.default.viewers` and `data.default.owners` are created by default.
+- Service groups to view, edit, and admin each service such as `service.entitlement.admin` and `service.legal.editor` are created by default.
+- User groups of `users`, `users.datalake.viewers`, `users.datalake.editors`, `users.datalake.admins`, `users.datalake.ops`, and `users.data.root` are created by default.
+- The chart of default members and groups in [Bootstrapped OSDU entitlement groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) shows the column header groups as the member of row headers. For example, `users` group is member of `data.default.viewers` and `data.default.owners` by default. `users.datalake.admins` and `users.datalake.ops` are member of `service.entitlement.admin` group.
+- Service principal or the `client-id` or the `app-id` is the default owner of all the groups. 
+  
+### Peculiarity of `users@` group
 - There's one exception of this group naming rule for the "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
 - It has the list of all the users with any type of access in a specific data partition. Before you add a new user to any entitlement groups, you also need to add the new user to the `users@{partition}.{domain}` group.
 
-#### Peculiarity of `users.data.root@` group
+### Peculiarity of `users.data.root@` group
 - users.data.root entitlement group is the default member of all data groups when groups are created. If you try to remove users.data.root from any data group, you get error since this membership is enforced by OSDU.
-- users.data.root is the default and permanent owner of all the data records as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98)
+- users.data.root becomes automatically the default and permanent owner of all the data records when the records get created in the system as explained in [OSDU validate owner access API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/DataAuthorizationService.java?ref_type=heads#L66) and [OSDU users data root check API](https://community.opengroup.org/osdu/platform/system/storage/-/blob/master/storage-core/src/main/java/org/opengroup/osdu/storage/service/EntitlementsAndCacheServiceImpl.java#L98). As a result, along with checking the OSDU membership of the user, the system also checks if the user is “DataManager”, i.e., part of data.root group, to assess the access of the data record.
+- The default membership in users.data.root is only the `app-id` that is used to set up the instance. You can add other users explicitly to this group to give them default access of data records. 
 
 As an example in the scenario, 
 - A data_record_1 has 2 ACLs: ACL_1 and ACL_2.
@@ -58,6 +68,9 @@ As an example in the scenario,
 Now if you remove user_1 from  ACL_1, user_1 remains to have access of the data_record_1 via users.data.root group.
 
 And if ACL_1 and ACL_2 are removed from data_record_1, users.data.root continue to have owner access of the data. This preserves the data record from becoming orphan ever.
+
+### Unknown OID
+You will see one unknown OID in all the OSDU groups added by default, this OID refers to an internal Azure Data Manager for Energy GUID that is used for internal system to system communication. This GUID gets created uniquely for each instance and is enforced by the system to not be deleted or removed by you.
 
 ## Users
 
@@ -73,12 +86,12 @@ For each OSDU group, you can add a user as either an OWNER or a MEMBER:
 
 ## Entitlement APIs
 
-For a full list of Entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/blob/release/0.15/docs/tutorial/Entitlements-Service.md#entitlement-service-api). A few illustrations of how to use Entitlement APIs are available in [Manage users](how-to-manage-users.md).
+For a full list of Entitlement API endpoints, see [OSDU entitlement service](https://community.opengroup.org/osdu/platform/security-and-compliance/entitlements/-/tree/release/0.15/docs). A few illustrations of how to use Entitlement APIs are available in [Manage users](how-to-manage-users.md).
 
 > [!NOTE]
 > The OSDU documentation refers to v1 endpoints, but the scripts noted in this documentation refer to v2 endpoints, which work and have been successfully validated.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

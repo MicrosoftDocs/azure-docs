@@ -4,7 +4,6 @@ description: Explains how to use standard storage with cool access to configure 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/01/2023
 ms.author: anfdocs
@@ -13,19 +12,22 @@ ms.custom: references_regions
 
 # Standard storage with cool access in Azure NetApp Files 
 
-Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). In doing so, data blocks that haven't been accessed for some time will be kept and stored in the cool tier, resulting in cost savings.
+Using Azure NetApp Files standard storage with cool access, you can configure inactive data to move from Azure NetApp Files Standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). Enabling cool access moves inactive data blocks from the volume and the volume's snapshots to the cool tier, resulting in cost savings.
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level. Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.  
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
+:::image type="content" source="./media/cool-access-introduction/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="./media/cool-access-introduction/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
-By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
+By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier. Additionally, sequential reads for Azure NetApp Files, cross-region replication, or cross-zone replication do ***not*** "warm" the data.
+
+>[!IMPORTANT]
+>If you're using a third-party backup service, configure it to use NDMP instead of the CIFS or NFS protocols. NDMP reads do not affect the temperature of the data.
 
 Metadata is never cooled and always remains in the hot tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 
@@ -42,19 +44,42 @@ Standard storage with cool access is supported for the following regions:
 * Canada Central 
 * Canada East
 * Central India 
+* Central US
 * East Asia  
+* East US
 * East US 2   
 * France Central
+* Germany North 
+* Germany West Central
+* Israel Central
+* Italy North 
+* Japan East
+* Japan West 
+* Korea Central
+* Korea South 
 * North Central US 
 * North Europe  
+* Norway East
+* Norway West
+* Qatar Central
+* South Africa North
+* South Central US
+* South India
 * Southeast Asia
 * Switzerland North 
 * Switzerland West 
+* Sweden Central
+* UAE Central
 * UAE North 
+* UK South
+* UK West
 * US Gov Arizona
 * US Gov Texas
 * US Gov Virginia 
+* West Europe
 * West US
+* West US 2
+* West US 3
 
 ## Effects of cool access on data
 
@@ -91,7 +116,7 @@ This test had a large dataset and ran several days starting the worst-case most-
 
 The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that has been 100% cooled and the buffers cleared (absolute worst-case aged data). 
 
-:::image type="content" source="../media/azure-netapp-files/cool-access-test-chart.png" alt-text="Diagram that shows cool access read IOPS warming cooled tier, long duration, and 10-TB working set. The y-axis is titled IOPS, ranging from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential." lightbox="../media/azure-netapp-files/cool-access-test-chart.png"::: 
+:::image type="content" source="./media/cool-access-introduction/cool-access-test-chart.png" alt-text="Diagram that shows cool access read IOPS warming cooled tier, long duration, and 10-TB working set. The y-axis is titled IOPS, ranging from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential." lightbox="./media/cool-access-introduction/cool-access-test-chart.png"::: 
 
 ### 64k sequential-read test
 

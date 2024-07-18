@@ -8,10 +8,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 6/18/2021
 ms.author: jushiman
-ms.custom: H1Hack27Feb2017, contperf-fy21q4
+ms.custom: H1Hack27Feb2017
 ---
 # Monitoring and troubleshooting from HANA side
 

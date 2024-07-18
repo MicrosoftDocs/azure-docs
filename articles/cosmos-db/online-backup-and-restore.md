@@ -1,9 +1,9 @@
 ---
 title: Online backup and on-demand data restore in Azure Cosmos DB.
-description: This article describes how automatic backup, on-demand data restore works. It also explains the difference between continuous and periodic backup modes. 
+description: This article describes how automatic backup, on-demand data restore works. It also explains the difference between continuous and periodic backup modes.
 author: kanshiG
 ms.service: cosmos-db
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: govindk
@@ -28,6 +28,14 @@ There are two backup modes:
   > If you configure a new account with continuous backup, you can do self-service restore via Azure portal, PowerShell, or CLI. If your account is configured in continuous mode, you can’t switch it back to periodic mode.
 
 For Azure Synapse Link enabled accounts, analytical store data isn't included in the backups and restores. When Azure Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval. Within an analytical store, automatic backup and restore of your data isn't supported at this time.
+
+## Immutability of Cosmos DB backups
+Cosmos DB backups are completely managed by the platform. Actions like restore, update backup retention or redundancy change are controlled via permission model managed by database account administrator. Cosmos DB backups are not exposed to any human actors, customers or any other module for listing, deletion, or disabling of backups. The backups are encrypted and stored in storage accounts secured by rotating certificate-based access. These backups are only accessed by restore module to restore specific backup nondestructively when a customer initiates a restore. These actions are logged and audited regularly. Backups kept under retention policy are:  
+* Not alterable (no modifications are permitted to the backups). 
+* Not allowed to be re-encrypted. 
+* Not allowed to be deleted.   
+* Not allowed to be disabled 
+Customers who chose [CMK (customer managed key)](how-to-setup-customer-managed-keys.md), their data and backup have protection through envelope encryption."  
 
 ## Frequently asked questions
 

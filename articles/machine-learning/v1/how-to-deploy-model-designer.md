@@ -5,12 +5,12 @@ description: Use Azure Machine Learning studio to deploy machine learning models
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, deploy, studio, designer, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer

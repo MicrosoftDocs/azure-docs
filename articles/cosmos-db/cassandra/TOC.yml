@@ -13,7 +13,7 @@
         - name: Tokens and the Token function
           href: tokens.md
         - name: FAQ
-          href: cassandra-faq.yml
+          href: faq.yml
     - name: Quickstarts
       items:
         - name: Java v4
@@ -43,9 +43,8 @@
         - name: Migrate data
           displayName: import
           href: migrate-data.md
-        - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md
-        - name: KQL transformations for workspace data
+        - name: Kusto Query Language (KQL) transformations
+          displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
     - name: Samples
       items:
@@ -176,10 +175,16 @@
             - name: Mapping Cassandra consistency levels
               href: consistency-mapping.md
             - name: High availability
-              href: ../high-availability.md
-            - name: Conflict types and resolution policies
-              displayName: last write wins, custom, multi-region writes, multi-master
-              href: ../conflict-resolution-policies.md
+              items:
+                - name: High availability overview
+                  href: ../high-availability.md
+                - name: Multi-region writes
+                  items:
+                    - name: Understanding multi-region writes
+                      href: ../multi-region-writes.md
+                    - name: Conflict resolution
+                      displayName: last write wins, custom, multi-region writes, multi-master
+                      href: ../conflict-resolution-policies.md
             - name: Global distribution - under the hood
               href: ../global-dist-under-the-hood.md
         - name: Security
@@ -212,12 +217,6 @@
               href: ../compliance.md
             - name: Data residency
               href: ../data-residency.md
-        - name: Jupyter notebooks
-          items:
-            - name: Overview
-              href: ../notebooks-overview.md
-            - name: FAQ
-              href: ../notebooks-faq.yml
         - name: Network bandwidth
           href: ../network-bandwidth.md
     - name: How to
@@ -293,9 +292,9 @@
               href: migrate-data-databricks.md
             - name: Migrate - PostgreSQL to API for Apache Cassandra using Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
-            - name: Migrate - Oracle DB to API for Apache Cassandra using Striim
+            - name: Migrate - Oracle Database to API for Apache Cassandra using Striim
               href: migrate-data-striim.md
-            - name: Migrate - Oracle DB to API for Apache Cassandra using Arcion
+            - name: Migrate - Oracle Database to API for Apache Cassandra using Arcion
               href: oracle-migrate-cosmos-db-arcion.md
         - name: Develop with the emulator
           href: ../how-to-develop-emulator.md?pivots=api-apache-cassandra
@@ -303,8 +302,12 @@
           items:
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Keyboard shortcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Troubleshooting and performance
           items:
             - name: Troubleshoot common issues
@@ -321,7 +324,7 @@
         - name: Manage Azure Cosmos DB resources
           items:
             - name: Manage an Azure Cosmos DB account
-              href: ../how-to-manage-database-account.md
+              href: ../how-to-manage-database-account.yml
             - name: Manage using PowerShell
               href: powershell-samples.md
             - name: Manage using Azure CLI
@@ -374,7 +377,7 @@
               href: ../how-to-setup-managed-identity.md
         - name: Monitor
           items:
-            - name: Monitor Azure Cosmos DB
+            - name: Monitor
               href: ../monitor.md
             - name: Use Azure monitor metrics
               items:
@@ -410,7 +413,7 @@
                   href: ../how-to-alert-on-logical-partition-key-storage-size.md
             - name: Monitoring data reference
               href: ../monitor-reference.md
-            - name: Third-party monitoring solutions
+            - name: Partner monitoring solutions
               href: ../monitoring-solutions.md
     - name: Reference
       items:
@@ -438,7 +441,7 @@
           href: ../whitepapers.md
         - name: Partners
           href: ../partners-migration.md
-        - name: Microsoft Q&A question page
+        - name: Microsoft Questions and Answers
           href: /answers/topics/azure-cosmos-db.html
         - name: Videos
           href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
@@ -504,7 +507,7 @@
           href: ../../managed-instance-apache-cassandra/add-service-principal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Configure Customer-Managed Keys
           href: ../../managed-instance-apache-cassandra/customer-managed-keys.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Enable LDAP authentication
+        - name: Enable Lightweight Directory Access Protocol (LDAP) authentication
           href: ../../managed-instance-apache-cassandra/ldap.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Monitor
           href: ../../managed-instance-apache-cassandra/monitor-clusters.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
@@ -517,7 +520,14 @@
           href: ../../managed-instance-apache-cassandra/visualize-prometheus-grafana.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Enable materialized views
           href: ../../managed-instance-apache-cassandra/materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Commands
+        - name: Improve read performance with local disks
+          href: ../../managed-instance-apache-cassandra/write-through-cache.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Run Jaeger with Azure Managed Instance for Apache Cassandra
+          href: ../../managed-instance-apache-cassandra/jaeger.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Use VPN with Azure Managed Instance for Apache Cassandra
+          href: ../../managed-instance-apache-cassandra/use-vpn.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json         
+        - name: Troubleshooting nodes
+          displayName: CLI, node, tool
           href: ../../managed-instance-apache-cassandra/dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Reference
       items:

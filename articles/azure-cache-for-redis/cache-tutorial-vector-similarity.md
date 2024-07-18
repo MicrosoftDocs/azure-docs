@@ -77,7 +77,7 @@ In this tutorial, you learn how to:
 
 To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
 
-1. Go to your Azure Open AI resource in the Azure portal.
+1. Go to your Azure OpenAI resource in the Azure portal.
 
 1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 

@@ -9,7 +9,6 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: troubleshooting
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Monitor and mitigate throttling to reduce latency in Azure Time Series Insights Gen1

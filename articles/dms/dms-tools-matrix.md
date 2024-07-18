@@ -9,7 +9,6 @@ ms.service: dms
 ms.topic: reference
 ms.custom:
   - mvc
-  - ignite-2022
   - sql-migration-content
 ---
 

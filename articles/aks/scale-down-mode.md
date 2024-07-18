@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.date: 08/21/2023
 ms.author: qpetraroia
 author: qpetraroia
+ms.subservice: aks-nodes
 ---
 
 # Use Scale-down Mode to delete/deallocate nodes in Azure Kubernetes Service (AKS)
@@ -21,7 +22,7 @@ When an Azure VM is in the `Stopped` (deallocated) state, you will not be charge
 > In order to preserve any deallocated VMs, you must set Scale-down Mode to Deallocate. That includes VMs that have been deallocated using IaaS APIs (Virtual Machine Scale Set APIs). Setting Scale-down Mode to Delete will remove any deallocate VMs.
 > Once applied the deallocated mode and scale down operation occurred, those nodes keep registered in APIserver and appear as NotReady state.
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you don't have an AKS cluster, for guidance on a designing an enterprise-scale implementation of AKS, see [Plan your AKS design][plan-aks-design].
 
 ### Limitations
 
@@ -79,11 +80,10 @@ az aks nodepool add --enable-cluster-autoscaler --min-count 1 --max-count 10 --m
 - To learn more about the cluster autoscaler, see [Automatically scale a cluster to meet application demands on AKS][cluster-autoscaler]
 
 <!-- LINKS - Internal -->
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[plan-aks-design]: /azure/architecture/reference-architectures/containers/aks-start-here?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
 [aks-upgrade]: upgrade-cluster.md
 [cluster-autoscaler]: cluster-autoscaler.md
 [ephemeral-os]: concepts-storage.md#ephemeral-os-disk
 [state-billing-azure-vm]: ../virtual-machines/states-billing.md
 [spot-node-pool]: spot-node-pool.md
+

@@ -2,7 +2,8 @@
 title: Configure schedule patching on Azure VMs for business continuity
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 01/17/2024
+ms.custom: devx-track-azurepowershell
+ms.date: 02/20/2024
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -27,7 +28,9 @@ In some instances, when you remove the schedule from a VM, there's a possibility
 
 All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
 
 ## Find VMs with associated schedules
 
@@ -187,7 +190,7 @@ Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
 ---
 
 > [!NOTE]
-> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal, REST API, and PowerShell. It can't be enabled via the Azure CLI.
+> You can now enable the new prerequisite for schedule patching via the Azure portal, REST API, PowerShell and Azure CLI.
 
 ## Enable automatic guest VM patching on Azure VMs
 
@@ -297,4 +300,8 @@ Scenario 8 | No | False | No | Autopatch and schedule patch don't run.|
 
 ## Next steps
 
-To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
+- Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
+- Learn on how to [automatically installs the updates according to the created schedule both for a single VM and at scale](scheduled-patching.md).
+- Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.
+

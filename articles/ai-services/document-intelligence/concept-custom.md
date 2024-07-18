@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -35,7 +35,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 Document Intelligence uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
+Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -51,10 +51,10 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
- > Starting with version 3.1—2023-07-31(GA) API, custom neural models only require one sample labeled document to train a model.
+> Starting with version 4.0 (2024-02-29-preview) API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
 >
 
-The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
 ### Custom template model
 
@@ -76,17 +76,18 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |Model | PDF |Image: </br>`jpeg/jpg`, `png`, `bmp`, `tiff`, `heif` | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx)|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
+    |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, and later)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
-    |Custom          |  ✔  | ✔ |   |
+    |Custom extraction|  ✔  | ✔ |   |
+    |Custom classification|  ✔  | ✔ | ✔ |
 
     &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* For PDF and TIFF, up to 2,000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
 * The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
@@ -94,7 +95,7 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * If your PDFs are password-locked, you must remove the lock before submission.
 
-* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch.
 
 * For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
 
@@ -102,13 +103,35 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
+### Optimal training data
+
+Training input data is the foundation of any machine learning model. It determines the quality, accuracy, and performance of the model. Therefore, it's crucial to create the best training input data possible for your Document Intelligence project. When you use the Document Intelligence custom model, you provide your own training data. Here are a few tips to help train your models effectively:
+
+* Use text-based instead of image-based PDFs when possible. One way to identify an image*based PDF is to try selecting specific text in the document. If you can select only the entire image of the text, the document is image based, not text based.
+
+* Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
+
+* Use forms that have all of the available fields completed.
+
+* Use forms with differing values in each field.
+
+* Use a larger dataset (more than five training documents) if your images are low quality.
+
+* Determine if you need to use a single model or multiple models composed into a single model.
+
+* Consider segmenting your dataset into folders, where each folder is a unique template. Train one model per folder, and compose the resulting models into a single endpoint. Model accuracy can decrease when you have different formats analyzed with a single model.
+
+* Consider segmenting your dataset to train multiple models if your form has variations with formats and page breaks. Custom forms rely on a consistent visual template.
+
+* Ensure that you have a balanced dataset by accounting for formats, document types, and structure.
+
 ### Build mode
 
-The build custom model operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+The `build custom model` operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 * Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 
-* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies. Neural models currently only support English text.
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies.
 
 This table provides links to the build mode programming language SDK references and code samples on GitHub:
 
@@ -127,13 +150,18 @@ The following table compares custom template and custom neural features:
 |---|---|---|
 |Document structure|Template, form, and structured | Structured, semi-structured, and unstructured|
 |Training time | 1 to 5 minutes | 20 minutes to 1 hour |
-|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks and tables|
+|Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks, and tables|
+|Overlapping fields | Not supported | Supported |
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
-|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
+|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian, and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
 
 ### Custom classification model
 
- Document classification is a new scenario supported by Document Intelligence with the ```2023-07-31``` (v3.1 GA) API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Document Intelligence with the ```2023-07-31``` (v3.1 GA) API. The document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. To learn more, *see* [custom classification](concept-custom-classifier.md) models.
+
+ > [!NOTE]
+>
+>Starting with the ```2024-02-29-preview``` API version document classification now supports Office document types for classification. This API version also introduces [incremental training](concept-incremental-classifier.md) for the classification model.
 
 ## Custom model tools
 
@@ -142,6 +170,10 @@ Document Intelligence v3.1 and later models support the following tools, applica
 | Feature | Resources | Model ID|
 |---|---|:---|
 |Custom model| &bullet; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</br>&bullet; [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet; [C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet; [Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|***custom-model-id***|
+
+## Custom model life cycle
+
+The life cycle of a custom model depends on the API version that is used to train it. If the API version is a general availability (GA) version, the custom model has the same life cycle as that version. The custom model isn't available for inference when the API version is deprecated. If the API version is a preview version, the custom model has the same life cycle as the preview version of the API.
 
 :::moniker-end
 
@@ -201,26 +233,27 @@ Extract data from your specific or unique documents using custom models. You nee
 
 1. Review and create your project.
 
-1. Add your sample documents to label, build and test your custom model.
+1. Add your sample documents to label, build, and test your custom model.
 
-    > [!div class="nextstepaction"]
-    > [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+> [!div class="nextstepaction"]
+> [Try Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+>
 
-For a detailed walkthrough to create your first custom extraction model, see [how to create a custom extraction model](how-to-guides/build-a-custom-model.md)
+For a detailed walkthrough to create your first custom extraction model, *see* [How to create a custom extraction model](how-to-guides/build-a-custom-model.md).
 
 ## Custom model extraction summary
 
 This table compares the supported data extraction areas:
 
-|Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
-|--|:--:|:--:|:--:|:--:|:--:|
-|Custom template| ✔ | ✔ | ✔ | ✔ | ✔ |
-|Custom neural| ✔| ✔ | ✔ | **n/a** | * |
+|Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling | Overlapping fields |
+|--|:--:|:--:|:--:|:--:|:--:|:--:|
+|Custom template| ✔ | ✔ | ✔ | ✔ | ✔ | **n/a** |
+|Custom neural| ✔| ✔ | ✔ | **n/a** | * | ✔ (2024-02-29-preview) |
 
-**Table symbols**:
-✔—supported;
-**n/a—currently unavailable;
-*-behaves differently. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in the region is selected.
+**Table symbols**:<br>
+✔—Supported<br>
+**n/a—Currently unavailable;<br>
+*-Behaves differently depending upon model. With template models, synthetic data is generated at training time. With neural models, exiting text recognized in the region is selected.
 
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md) to learn more about custom neural models.
@@ -229,13 +262,13 @@ This table compares the supported data extraction areas:
 
 ## Custom model development options
 
-The following table describes the features available with the associated tools and SDKs. As a best practice, ensure that you use the compatible tools listed here.
+The following table describes the features available with the associated tools and client libraries. As a best practice, ensure that you use the compatible tools listed here.
 
 | Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
 | Custom template v 4.0 v3.1 v3.0 | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)|
 | Custom neural v4.0 v3.1 v3.0 | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
-| Custom form v2.1 | [Document Intelligence 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom form v2.1 | [Document Intelligence 2.1 GA API](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) | [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
 
@@ -251,50 +284,30 @@ The following table describes the features available with the associated tools a
   > [!TIP]
   > Training data:
   >
-  >* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+  > * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
   > * Please supply only a single instance of the form per document.
   > * For filled-in forms, use examples that have all their fields filled in.
   > * Use forms with different values in each field.
-  >* If your form images are of lower quality, use a larger dataset. For example, use 10 to 15 images.
+  > * If your form images are of lower quality, use a larger dataset. For example, use 10 to 15 images.
 
 ## Supported languages and locales
 
 *See* our [Language Support—custom models](language-support-custom.md) page for a complete list of supported languages.
 
-### Try signature detection
-
-* **Custom model v4.0, v3.1 and v3.0 APIs** supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
-* [Document Intelligence v3.1 migration guide](v3-1-migration-guide.md): This guide shows you how to use the v3.0 version in your applications and workflows.
-* [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP): This API shows you more about the v3.0 version and new capabilities.
-
-1. Build your training dataset.
-
-1. Go to [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
-
-    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Document Intelligence Studio Custom form page.":::
-
-1. Follow the workflow to create a new project:
-
-   1. Follow the **Custom model** input requirements.
-
-   1. Label your documents. For signature fields, use **Region** labeling for better accuracy.
-
-      :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot that shows the Label signature field.":::
-
-After your training set is labeled, you can train your custom model and use it to analyze documents. The signature fields specify whether a signature was detected or not.
 
 ## Next steps
 
 ::: moniker range="doc-intel-2.1.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/)
+* Try processing your own forms and documents with the [Document Intelligence Sample Labeling tool](https://fott-2-1.azurewebsites.net/).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-2.1.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
+
 :::moniker-end
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
+* Try processing your own forms and documents with the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio).
 
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 

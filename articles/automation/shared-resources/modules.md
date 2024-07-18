@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 11/01/2021
+ms.date: 07/17/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-python
 ---
@@ -20,6 +20,9 @@ Azure Automation uses a number of PowerShell modules to enable cmdlets in runboo
 * Custom modules that you create.
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
+
+> [!IMPORTANT]
+> New Runtime environment experience allows you to manage modules and packages by allowing you to configure the job execution environment. In the new experience, Modules and Packages blades are not available. To manage modules and packages, see [Manage Runtime environment and associated runbooks](../manage-runtime-environment.md).
 
 ## Sandboxes
 
@@ -53,7 +56,7 @@ The default modules are also known as global modules. In the Azure portal, the *
 ![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
 
 > [!NOTE]
-> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../automation-solution-vm-management.md) feature.
+> We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../../azure-functions/start-stop-vms/overview.md)
 
 |Module name|Version|
 |---|---|

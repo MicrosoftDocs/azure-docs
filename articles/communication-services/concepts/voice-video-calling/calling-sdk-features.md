@@ -2,12 +2,12 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK capabilities limitations features for video and audio.
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 06/30/2021
+ms.author: micahvivion
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,13 +15,13 @@ ms.custom: devx-track-js
 ---
 # Calling SDK overview
 
-Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manage and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
+Azure Communication Services allows end-user browsers, apps, and services to drive voice and video communication. This page focuses on Calling client SDK, which can be embedded in websites and native applications. This page provides detailed descriptions of Calling client features such as platform and browser support information. Services programmatically manages and access calls using the [Call Automation APIs](../call-automation/call-automation.md). The [Rooms API](../rooms/room-concept.md) is an optional Azure Communication Services API that adds additional features to a voice or video call, such as roles and permissions.
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
-If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md) or [Storybook](https://aka.ms/acsstorybook).
+If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md).
 
 Once you start development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
@@ -32,7 +32,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 | Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) |  [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| |
 | UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 
-**Key features** 
+**Key features**
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically. You can also bring your own numbers using session border controllers. 
 - **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
@@ -59,7 +59,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Mute other participants    |✔️<sup>1</sup>        |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
+|                   | Mute other participants    |✔️   |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -96,24 +96,32 @@ The following list presents the set of features that are currently available in 
 |                   | Set / update scaling mode                                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Render remote video stream                                                                                          | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)          | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Custom background image                                                                                             | ✔️   | ❌       | ❌              | ❌                 |
-
+|                   | Custom background image                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
+| [Audio Effects](../../tutorials/audio-quality-enhancements/add-noise-supression.md)       | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Echo cancellation        | ❌   | ✔️       | ✔️              | ✔️                 |
+|      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
+| Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
+
 <sup>2</sup> The Share Screen capability can be achieved using Raw Media APIs. To learn more visit [the raw media access quickstart guide](../../quickstarts/voice-video-calling/get-started-raw-media-access.md).
+
 <sup>3</sup> The Calling SDK doesn't have an explicit API for these functions, you should use the Android & iOS OS APIs to achieve instead.
+
+<sup>4</sup> The maximum value for TTL in native platforms, is **180 days (15,552,000 seconds)**, and the min value is **5 minutes (300 seconds)**. For CTE (Custom Teams Endpoint)/M365 Identity the max TTL value is **24 hrs (86,400 seconds)**.
 
 ## JavaScript Calling SDK support by OS and browser
 
 The following table represents the set of supported browsers, which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |
-| ------------ | ------ | ------ | ------ | ------- | ------- |
-| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     |
-| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      |
-| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      |
-| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      |
-| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      |
+| Platform     | Chrome | Safari | Edge  | Firefox |  Webview |  Electron |
+| ------------ | ------ | ------ | ------ | ------- | ------- |  ------- |
+| Android      | ✔️      | ❌      | ✔️           | ❌      | ✔️     | ❌      |
+| iOS          | ✔️      | ✔️      | ❌           | ❌      | ✔️      | ❌      |
+| macOS        | ✔️      | ✔️      | ✔️           | ✔️      | ❌      | ✔️     |
+| Windows      | ✔️      | ❌      | ✔️           | ✔️      | ❌      | ✔️     |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           | ❌      | ❌      | ❌     |
 
 - Outgoing Screen Sharing isn't supported on iOS or Android mobile browsers.
 - Firefox support is in public preview.
@@ -151,12 +159,11 @@ For example, this iframe allows both camera and microphone access:
 - Xcode 12.0+
 - Support for **iPadOS** 13.0+
 
-
 ## Maximum call duration
 
 **The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours will be disconnected from the call.
 
-## Limits to the number of simultaneous video streams
+## Supported number of incoming video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
@@ -166,10 +173,29 @@ The Azure Communication Services Calling SDK supports the following streaming co
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK does not enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
+
+## Supported video resolutions
+The Azure Communication Services Calling SDK automatically adjusts resolutions of video and screen share streams during the call.
+
+> [!NOTE]
+> The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streans and other overall call parameters.
+
+The Azure Communication Services Calling SDK supports sending following video resolutions
+
+| Maximum video resolution | WebJS | iOS | Android | Windows |
+| ------------- | ----- | ----- | ------- | ------- |
+| **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
+| **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
+| **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
+
+## Number of participants on a call support
+- Up to **350** users can join a group call, Room or Teams + ACS call.
+- Once the call size reaches 100+ participants in a call, only the top 4 most dominant speakers that have their video camera turned can be seen.
+- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos).
+- When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
 
 ## Calling SDK timeouts
-
 The following timeouts apply to the Communication Services Calling SDKs:
 
 | Action                                                                      | Timeout in seconds |

@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 06/27/2024
 ---
 
 # Move operation support for resources
@@ -185,6 +185,18 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | ------------- | ----------- | ---------- | ----------- |
 > | b2cdirectories | **Yes** | **Yes** | No |
 > | b2ctenants | No | No | No |
+
+## Microsoft.AzureArcData
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | datacontrollers | No | No | No |
+> | postgresinstances | No | No | No |
+> | sqlmanagedinstances | No | No | No |
+> | sqlserverinstances | No | No | No |
+> | sqlserverlicenses | No | No | No |
+
 
 ## Microsoft.AzureData
 
@@ -612,6 +624,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | workspaces | No | No | No |
+> |accessConnectors| No| No| No|
 
 ## Microsoft.DataCatalog
 
@@ -627,6 +640,13 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | connectionmanagers | No | No | No |
+
+## Microsoft.DataDog
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No |  No |
 
 ## Microsoft.DataExchange
 
@@ -925,8 +945,10 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
+> | licenses | **Yes** | **Yes** | No |
 > | machines | **Yes** | **Yes** | No |
 > | machines / extensions | **Yes** | **Yes** | No |
+> | privatelinkscopes | **Yes** | **Yes** | No |
 
 ## Microsoft.HybridData
 
@@ -970,7 +992,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
-> | actiongroups | **Yes** | **Yes** | No |
+> | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |
 > | autoscalesettings | **Yes** | **Yes** | No |
@@ -1355,8 +1377,8 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
-> | virtualnetworks | **Yes** | **Yes** | No |
+> | virtualnetworkgateways | No| No | No |
+> | virtualnetworks | **Yes** | **Yes** | **Yes** |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |
 > | virtualwans | No | No |
@@ -1771,7 +1793,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | storageaccounts | **Yes** | **Yes** | **Yes**<br/><br/> [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
+> | storageaccounts | **Yes** | **Yes** | [Move an Azure Storage account to another region](../../storage/common/storage-account-move.md) |
 
 ## Microsoft.StorageCache
 

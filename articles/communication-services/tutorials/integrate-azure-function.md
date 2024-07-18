@@ -87,6 +87,6 @@ With extra configuration, this sample supports connecting to a Microsoft Entra p
 
 Note that we currently don't support Microsoft Entra ID in sample code. Follow the links below to enable it in your app and Azure Function:
 
-[Register your app under Microsoft Entra ID (using Android platform settings)](../../active-directory/develop/tutorial-v2-android.md).
+[Register your app under Microsoft Entra ID (using Android platform settings)](/entra/identity-platform/tutorial-v2-android).
 
 [Configure your App Service or Azure Functions app to use Microsoft Entra ID log in](../../app-service/configure-authentication-provider-aad.md).

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 02/16/2022
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB for Gremlin by using Gremlin

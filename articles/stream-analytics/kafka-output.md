@@ -1,17 +1,31 @@
 ---
 title: Stream data from Azure Stream Analytics into Kafka
 description: Learn about setting up Azure Stream Analytics as a producer to kafka
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 02/20/2024
 ---
 
 # Kafka output from Azure Stream Analytics (Preview)
 
 Azure Stream Analytics allows you to connect directly to Kafka clusters as a producer to output data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The ASA Kafka output is backward compatible and supports all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions.
 Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
+
+## Steps
+This article shows how to set up Kafka as an output from Azure Stream Analytics. There are six steps:
+
+1. Create an Azure Stream Analytics job.
+2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSl security protocols.
+3. Configure Azure Key vault if you are using mTLS or SASL_SSl security protocols.
+4. Upload certificates as secrets into Azure Key vault.
+5. Grant Azure Stream Analytics permissions to access the uploaded certificate.
+6. Configure Kafka output in your Azure Stream Analytics job.
+
+> [!NOTE]
+> Depending on how your Kafka cluster is configured and the type of Kafka cluster you are using, some of the above steps may not apply to you. Examples are: if you are using confluent cloud Kafka, you will not need to upload a certificate to use the Kafka connector. If your Kafka cluster is inside a virtual network (VNET) or behind a firewall, you may have to configure your Azure Stream Analytics job to access your Kafka topic using a private link or a dedicated networking configuration.
+
 
 ## Configuration
 The following table lists the property names and their description for creating a Kafka output: 
@@ -26,6 +40,9 @@ The following table lists the property names and their description for creating 
 | Partition key                | Azure Stream Analytics assigns partitions using round partitioning.                                                     |
 | Kafka event compression type | The compression type used for outgoing data streams, such as Gzip, Snappy, Lz4, Zstd, or None.                            | 
 
+:::image type="content" source="./media/kafka/kafka-output.png" alt-text="Screenshot showing how to configure kafka output for a stream analytics job." lightbox="./media/kafka/kafka-output.png" :::
+
+
 ## Authentication and encryption
 
 You can use four types of security protocols to connect to your Kafka clusters:
@@ -36,8 +53,8 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 |Property name   |Description   |
 |----------|-----------|
-|mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM. |
+|mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.       |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None | No authentication and encryption. |
 

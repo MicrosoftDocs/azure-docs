@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 08/14/2023
+ms.date: 06/14/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -45,6 +45,8 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - You can create DNS across subscriptions.
 
+- You can create a secondary private endpoint before or after having protected items in the vault. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
+
 ## Recommended and supported scenarios
 
 While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM, MARS agent backup and DPM only. You can use the vault for backup of other workloads as well (they won't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery for Azure VM backup.
@@ -73,7 +75,7 @@ In addition to these connections, when the workload extension or MARS agent is i
 | --- | --- | --- |
 | Azure Backup | `*.backup.windowsazure.com` | 443 |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443 |
-| Microsoft Entra ID |  `*.australiacentral.r.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). |  443 <br><br> As applicable   |
+| Microsoft Entra ID |  `*.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). |  443 <br><br> As applicable   |
 
 When the workload extension or MARS agent is installed for Recovery Services vault with private endpoint, the following endpoints are communicated:
 
@@ -81,7 +83,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 | --- | --- | --- |
 | Azure Backup | `*.privatelink.<geo>.backup.windowsazure.com` | 443 |
 | Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443 |
-| Microsoft Entra ID |  `*.australiacentral.r.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
+| Microsoft Entra ID |  `*.login.microsoft.com` <br><br> Allow access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online). | 443 <br><br> As applicable |
 
 >[!Note]
 >In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:

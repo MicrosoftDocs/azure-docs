@@ -7,8 +7,8 @@ ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, has-azure-ad-ps-ref
-ms.date: 07/17/2023
+ms.custom: has-azure-ad-ps-ref
+ms.date: 05/15/2024
 ---
 
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime
@@ -30,7 +30,7 @@ For more info about the managed identity for your ADF, see [Managed identity for
 > 
 > - If you have already created your Azure-SSIS IR using SQL authentication, you can not reconfigure it to use Microsoft Entra authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 <a name='enable-azure-ad-authentication-on-azure-sql-database'></a>
 
@@ -54,6 +54,8 @@ You can use an existing Microsoft Entra group or create a new one using Azure AD
                              -SecurityEnabled $true `
                              -MailNickName "NotSet"
    ```
+
+   [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
    The result looks like the following example, which also displays the variable value:
 

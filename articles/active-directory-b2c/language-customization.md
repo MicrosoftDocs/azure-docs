@@ -1,11 +1,11 @@
 ---
 title: Language customization in Azure Active Directory B2C
-description: Learn about customizing the language experience in your user flows in Azure Active Directory B2C.
+description: Learn how to customize the language experience in your user flows in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 03/22/2024
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -28,7 +28,7 @@ You might not need that level of control over what languages your customer sees.
 
 * **ui-locales specified language**: After you enable language customization, your user flow is translated to the language that's specified here.
 * **Browser-requested language**: If no `ui_locales` parameter was specified, your user flow is translated to the browser-requested language, *if the language is supported*.
-* **Policy default language**: If the browser doesn't specify a language, or it specifies one that is not supported, the user flow is translated to the user flow default language.
+* **Policy default language**: If the browser doesn't specify a language, or it specifies one that isn't supported, the user flow is translated to the user flow default language.
 
 > [!NOTE]
 > If you're using custom user attributes, you need to provide your own translations. For more information, see [Customize your strings](#customize-your-strings).
@@ -41,7 +41,7 @@ Watch this video to learn how to localize or customize language using Azure AD B
 
 Localization requires three steps: 
 
-1. Set-up the explicit list of supported languages
+1. Set up the explicit list of supported languages
 1. Provide language-specific strings and collections
 1. Edit the [content definition](contentdefinitions.md) for the page. 
 
@@ -124,7 +124,7 @@ Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 ### Provide a list of values by using LocalizedCollections
 
-If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. To add `LocalizedCollections`, use the following format:
+If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they're displayed. To add `LocalizedCollections`, use the following format:
 
 ```json
 {
@@ -183,7 +183,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode", for example `en-GB`. For more information, please refer to [locale ID formats](/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a).
+You can also add languages that Microsoft currently doesn't provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode", for example `en-GB`. For more information, please refer to [locale ID formats](/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a).
 
 1. In your Azure AD B2C tenant, select **User flows**.
 2. Click the user flow where you want to add custom languages, and then click **Languages**.
@@ -466,7 +466,7 @@ Microsoft provides the `ui_locales` OIDC parameter to social logins. But some so
 
 ### Browser behavior
 
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently does not request a language and goes straight to the default language.
+Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently doesn't request a language and goes straight to the default language.
 
 ## Supported languages
 

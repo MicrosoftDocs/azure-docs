@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 06/25/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
@@ -63,6 +63,8 @@ Field mappings are added to the `fieldMappings` array of an indexer definition. 
 | targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
 | mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
+If you get an error similar to `"Field mapping specifies target field 'Address/city' that doesn't exist in the index"`, it's because target field mappings can't be a complex type. The workaround is to create an index schema that's identical to the raw content for field names and data types. See [Tutorial: Index nested JSON blobs](search-semi-structured-data.md) for an example.
+
 Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
 > [!NOTE]
@@ -72,7 +74,7 @@ You can use the REST API or an Azure SDK to define field mappings.
 
 ### [**REST APIs**](#tab/rest)
 
-Use [Create Indexer (REST)](/rest/api/searchservice/create-Indexer) or [Update Indexer (REST)](/rest/api/searchservice/update-indexer), any API version.
+Use [Create Indexer (REST)](/rest/api/searchservice/indexers/create) or [Update Indexer (REST)](/rest/api/searchservice/indexers/create-or-update), any API version.
 
 This example handles a field name discrepancy.
 
@@ -134,6 +136,8 @@ A field mapping function transforms the contents of a field before it's stored i
 + [urlEncode](#urlEncodeFunction)
 + [urlDecode](#urlDecodeFunction)
 
+Note that these functions are exclusively supported for parent indexes at this time. They are not compatible with chunked index mapping, therefore, these functions can't be used for [index projections](index-projections-concept-intro.md).
+
 <a name="base64EncodeFunction"></a>
 
 ### base64Encode function
@@ -142,12 +146,12 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 #### Example: Base-encoding a document key
 
-Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
+Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/documents/get)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
-The following example specifies the base64Encode function on `metadata_storage_name `to handle unsupported characters.
+The following example specifies the base64Encode function on `metadata_storage_name` to handle unsupported characters.
 
 ```http
-PUT /indexers?api-version=2020-06-30
+PUT /indexers?api-version=2023-11-01
 {
   "dataSourceName" : "my-blob-datasource ",
   "targetIndexName" : "my-search-index",
@@ -171,7 +175,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need an unencoded version for full text search. To support both scenarios, you can map `metadata_storage_path` to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as `searchable` in the index schema.
 
 ```http
-PUT /indexers/blob-indexer?api-version=2020-06-30
+PUT /indexers/blob-indexer?api-version=2023-11-01
 {
     "dataSourceName" : " blob-datasource ",
     "targetIndexName" : "my-target-index",
@@ -386,7 +390,7 @@ This function converts a string into a formatted JSON object. This can be used f
 
 ### Example - map text content to a complex field
 
-Assume there is a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
+Assume there's a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
 
 ```JSON
 {

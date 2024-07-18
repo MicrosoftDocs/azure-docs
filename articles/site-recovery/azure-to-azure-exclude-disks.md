@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or the target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -134,4 +134,4 @@ After initial replication finishes, replication moves on to the differential-syn
 
 ## Next steps
 
-Learn about [running a test failover](site-recovery-test-failover-to-azure.md).
+- Learn about [running a test failover](site-recovery-test-failover-to-azure.md).

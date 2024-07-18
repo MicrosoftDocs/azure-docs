@@ -3,7 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
-ms.custom: devx-track-azurecli, build-2023, linux-related-content
+ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
 ms.date: 10/19/2023
@@ -66,7 +66,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 Create a virtual network with two separate subnets, one for the cluster, one for the firewall. Optionally you could also create one for internal service ingress.
 
-![Empty network topology](../aks/media/limit-egress-traffic/empty-network.png)
+![Empty network topology](~/reusable-content/ce-skilling/azure/media/aks/empty-network.png)
 
 Create a resource group to hold all of the resources.
 
@@ -102,7 +102,7 @@ az network vnet subnet create \
 
 Azure Firewall inbound and outbound rules must be configured. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS Cluster.
 
-![Firewall and UDR](../aks/media/limit-egress-traffic/firewall-udr.png)
+![Firewall and UDR](~/reusable-content/ce-skilling/azure/media/aks/firewall-udr.png)
 
 > [!IMPORTANT]
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
@@ -209,7 +209,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 Now an AKS cluster can be deployed into the existing virtual network. You also use [outbound type `userDefinedRouting`](../aks/egress-outboundtype.md), this feature ensures any outbound traffic is forced through the firewall and no other egress paths exist (by default the Load Balancer outbound type could be used).
 
-![aks-deploy](../aks/media/limit-egress-traffic/aks-udr-fw.png)
+![aks-deploy](~/reusable-content/ce-skilling/azure/media/aks/aks-udr-fw.png)
 
 The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. We didn't define the `$SUBNETID` variable in the previous steps. To set the value for the subnet ID, you can use the following command:
 
@@ -237,7 +237,7 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 ```
 
 > [!NOTE]
-> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> To create and use your own VNet and route table with `kubenet` network plugin, you need to use a [user-assigned managed identity][bring-your-own-managed-identity]. For a system-assigned managed identity, we cannot get the identity ID before creating cluster, which causes a delay in the role assignment taking effect.
 >
 > To create and use your own VNet and route table with `azure` network plugin, both system-assigned and user-assigned managed identities are supported.
 
@@ -265,7 +265,7 @@ az aks get-credentials -g $RG -n $AKSNAME
 
 You can now start exposing services and deploying applications to this cluster. In this example, we expose a public service, but you can also choose to expose an internal service via [internal load balancer](../aks/internal-lb.md).
 
-![Public Service DNAT](../aks/media/limit-egress-traffic/aks-create-svc.png)
+![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/aks/aks-create-svc.png)
 
 Deploy the Azure voting app application by copying the following yaml to a file named `example.yaml`.
 
@@ -532,7 +532,7 @@ Navigate to the Azure Firewall frontend IP address in a browser to validate conn
 
 You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
-![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](../aks/media/limit-egress-traffic/aks-vote.png)
+![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](./media/aks-vote.png)
 
 ## Clean up resources
 
@@ -547,4 +547,4 @@ az group delete -g $RG
 - Learn more about Azure Kubernetes Service, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../aks/concepts-clusters-workloads.md).
 
 <!-- LINKS - Internal -->
-[bring-your-own-managed-identity]: ../aks/use-managed-identity.md#bring-your-own-managed-identity
+[bring-your-own-managed-identity]: ../aks/use-managed-identity.md#enable-a-user-assigned-managed-identity

@@ -6,14 +6,12 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/10/2024
+ms.date: 2/7/2024
 ms.author: eur
-ms.custom: references_regions
+ms.custom: references_regions, build-2024
 ---
 
-# Use personal voice (preview) in your application
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Use personal voice in your application
 
 You can use the [speaker profile ID](./personal-voice-create-voice.md) for your personal voice to synthesize speech in any of the 91 languages supported across 100+ locales. A locale tag isn't required. Personal voice uses automatic language detection at the sentence level. 
 
@@ -23,29 +21,38 @@ You need to use [speech synthesis markup language (SSML)](./speech-synthesis-mar
 
 - The `speakerProfileId` property in SSML is used to specify the [speaker profile ID](./personal-voice-create-voice.md) for the personal voice.
 
-- The voice name is specified in the `name` property in SSML. For personal voice, the voice name must be set to `PhoenixV2Neural` or another supported base model voice name. To get a list of supported base model voice names, use the `BaseModels_List` operation of the custom voice API. 
+- The voice name is specified in the `name` property in SSML. For personal voice, the voice name must be one of the supported base model voice names. To get a list of supported base model voice names, use the [BaseModels_List](/rest/api/aiservices/speechapi/base-models/list) operation of the custom voice API.
+  
+  > [!NOTE]
+  > The voice names labeled with the `Latest`, such as `DragonLatestNeural` or `PhoenixLatestNeural`, will be updated from time to time; its performance may vary with updates for ongoing improvements. If you would like to use a fixed version, select one labeled with a version number, such as `PhoenixV2Neural`.
 
-Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. 
+- `DragonLatestNeural` is a base model with superior voice cloning similarity compared to `PhoenixLatestNeural`. `PhoenixLatestNeural` is a base model with more accurate pronunciation and lower latency than `DragonLatestNeural`.
+
+- For personal voice, you can use the `<lang xml:lang>` element to adjust the speaking language. It's the same as with multilingual voices. See [how to use the lang element to speak different languages](speech-synthesis-markup-voice.md#lang-examples).
+  
+Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. The sample also demonstrates how to switch languages from `en-US` to `zh-HK` using the `<lang xml:lang>` element.
 
 ```xml
 <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
-    <voice name='PhoenixV2Neural'> 
-    <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
-    I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。Je suis heureux d'apprendre que vous me trouvez incroyable et que j'ai rendu la planification de votre voyage plus facile et plus amusante.  
-    </mstts:ttsembedding> 
+    <voice name='DragonLatestNeural'> 
+        <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
+            I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 
+            <lang xml:lang='zh-HK'>我很高興聽到你覺得我很了不起，我讓你的旅行計劃更輕鬆、更有趣。</lang>
+        </mstts:ttsembedding> 
     </voice> 
-</speak> 
+</speak>
 ```
 
-You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md), [REST API](rest-text-to-speech.md), or [batch synthesis API](batch-synthesis.md).
+You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
 
 * **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech.
-
-* **Asynchronous synthesis of long audio**: Use the [batch synthesis API](batch-synthesis.md) (Preview) to asynchronously synthesize text to speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or Speech to text REST API, responses aren't returned in real-time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
+    * When you use Speech SDK, don't set Endpoint Id, just like prebuild voice.
+    * When you use REST API, please use prebuilt neural voices endpoint.
 
 ## Reference documentation
 
-The API reference documentation is made available to approved customers. You can apply for access [here](https://aka.ms/customneural).
+> [!div class="nextstepaction"]
+> [Custom voice REST API reference documentation](/rest/api/speech/)
 
 ## Next steps
 

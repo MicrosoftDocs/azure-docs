@@ -1,10 +1,10 @@
 ---
 title: Linux filesystem cache best practices for Azure NetApp Files | Microsoft Docs
-description: Describes Linux filesystem cache best practices to follow for Azure NetApp Files.  
+description: Describes Linux filesystem cache best practices to follow for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.author: anfdocs

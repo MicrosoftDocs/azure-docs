@@ -4,7 +4,7 @@ description: Describes columns that are common to multiple data types in Azure M
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 02/18/2022
+ms.date: 05/26/2024
 
 ---
 
@@ -156,7 +156,7 @@ Use these `union withsource = tt *` queries sparingly as scans across data types
 
 
 ## \_IsBillable
-The **\_IsBillable** column specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
+The **\_IsBillable** column specifies whether ingested data is considered billable. Data with **\_IsBillable** equal to `false` does not incur data ingestion, retention or archive charges. 
 
 ### Examples
 To get a list of computers sending billed data types, use the following query:

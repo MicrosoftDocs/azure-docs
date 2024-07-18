@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 06/15/2022
-ms.custom: devplatv2, event-tier1-build-2022
+ms.custom: devplatv2
 ---
 
 # Deploy models with REST

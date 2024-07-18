@@ -2,14 +2,13 @@
 title: Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS| Microsoft Docs
 description: Install high-availability SAP NetWeaver on SUSE Linux Enterprise Server with simple mount and NFS for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 01/17/2024
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 06/19/2024
 ms.author: radeltch
 ---
 
@@ -127,16 +126,13 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ---
 
-> [!IMPORTANT]
-> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
-
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 >
 > * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more information, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Deploy NFS
 
@@ -202,14 +198,14 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 * The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
 * Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
-* For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files is not supported.
+* For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
 * If your SAP system has a heavy load of batch jobs, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For details, see [Job log in the database][2360818].
 * Deploy a separate `sapmnt` share for each SAP system.
 * Don't use the `sapmnt` share for any other activity, such as interfaces.
 * Don't use the `saptrans` share for any other activity, such as interfaces.
 * Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [scalability and performance targets for storage accounts](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 * In general,  don't consolidate the shares for more than *five* SAP systems in a single storage account. This guideline helps you avoid exceeding the storage account limits and simplifies performance analysis.
-* In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
+* In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
 * We recommend that you deploy on SLES 15 SP2 or later to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
 * Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
 * If you're deploying your VMs across availability zones, use a [storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS.
@@ -239,7 +235,7 @@ When you're considering Azure NetApp Files for the SAP NetWeaver high-availabili
 
 * The minimum capacity pool is 4 tebibytes (TiB). You can increase the size of the capacity pool in 1-TiB increments.
 * The minimum volume is 100 GiB.
-* Azure NetApp Files and all virtual machines where Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't yet supported.
+* Azure NetApp Files and all virtual machines where Azure NetApp Files volumes are mounted must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't yet supported.
 * The selected virtual network must have a subnet that's delegated to Azure NetApp Files.
 * The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). When you're sizing the Azure NetApp Files volumes for SAP, make sure that the resulting throughput meets the application's requirements.  
 * Azure NetApp Files offers an [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md). You can control the allowed clients and the access type (for example, read/write or read-only).
@@ -346,7 +342,7 @@ The following items are prefixed with:
     ```bash
     # Temporarily mount the volume.
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4.1,sec=sys
+    sudo mount -t nfs sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
     # Create the SAP directories.
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -374,9 +370,9 @@ The following items are prefixed with:
    With the simple mount configuration, the Pacemaker cluster doesn't control the file systems.
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1/ /usr/sap/NW1 nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```
@@ -642,7 +638,32 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo systemctl enable sappong
     ```
 
-10. **[1]** Create the SAP cluster resources.
+10. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
+
+    ```bash
+    vi crm_sapstartsrv.txt
+    ```
+
+    Enter below primitive in `crm_sapstartsrv.txt` file and save
+
+    ```bash
+    primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
+     params InstanceName=NW1_ASCS00_sapascs
+
+    primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
+     params InstanceName=NW1_ERS01_sapers
+    ```
+
+    Load the file using below command.
+
+    ```bash
+    sudo crm configure load update crm_sapstartsrv.txt
+    ```
+
+    > [!NOTE]
+    > If you’ve set up a SAPStartSrv resource using the "crm configure primitive…" command on crmsh version 4.4.0+20220708.6ed6b56f-150400.3.3.1 or later, it’s important to review the configuration of the SAPStartSrv resource primitives. If a monitor operation is present, it should be removed. While SUSE also suggests removing the start and stop operations, but these are not as crucial as the monitor operation. For more information, see [recent changes to crmsh package can result in unsupported configuration of SAPStartSrv resource Agent in a SAP NetWeaver HA cluster](https://www.suse.com/support/kb/doc/?id=000021423).
+
+11. **[1]** Create the SAP cluster resources.
 
     Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 
@@ -650,12 +671,6 @@ The instructions in this section are applicable only if you're using Azure NetAp
 
     ```bash
     sudo crm configure property maintenance-mode="true"
-    
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_sapascs
-
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_sapers
 
     # If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -711,12 +726,6 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo crm configure property maintenance-mode="true"
 
     sudo crm configure property priority-fencing-delay=30
-   
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ASCS00 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ASCS00_sapascs
-
-    sudo crm configure primitive rsc_sapstartsrv_NW1_ERS01 ocf:suse:SAPStartSrv \
-     params InstanceName=NW1_ERS01_sapers
 
     # If you're using NFS on Azure Files or NFSv3 on Azure NetApp Files:
     sudo crm configure primitive rsc_sap_NW1_ASCS00 SAPInstance \
@@ -843,8 +852,8 @@ If you're using NFS on Azure Files, use the following instructions to prepare th
 2. Mount the file systems.
 
     ```bash
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab
-    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4.1,sec=sys  0  0" >> /etc/fstab   
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+    echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab   
     # Mount the file systems.
     mount -a 
     ```

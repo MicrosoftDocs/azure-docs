@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 03/08/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -21,7 +21,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multitenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In multitenant Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -31,7 +31,7 @@ App settings integrate with Azure Key Vault. You can [directly reference secure 
 >
 > If you use Key Vault, make sure that you store only secrets, such as passwords, credentials, and certificates. 
 > In a logic app workflow, don't use Key Vault to store non-secret values, such as URL paths, that the workflow designer needs to make calls. 
-> The designer can't deference an app setting that references a Key Vault resource type, which results in an 
+> The designer can't dereference an app setting that references a Key Vault resource type, which results in an 
 > error and a failed call. For non-secret values, store them directly in app settings.
 
 For more information about setting up your logic apps for deployment, see the following documentation:
@@ -58,7 +58,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
 | `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
 | `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
-| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
 | `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
 | `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
@@ -142,7 +142,6 @@ To add or update an app setting using the Azure CLI, run the command `az logicap
 ```azurecli
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 
 ```
-
 ---
 
 <a name="reference-host-json"></a>
@@ -301,7 +300,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.Backend.HttpOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP triggers and actions. |
 | `Runtime.Backend.HttpOperation.MaxContentSize` | `104857600` bytes | Sets the maximum request size in bytes for HTTP actions only, not triggers. For more information, see [Limitations](#limitations). |
-| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) | Sets the request timeout value for HTTP triggers and actions. |
+| `Runtime.Backend.HttpOperation.RequestTimeout` | `00:03:45` <br>(3 min and 45 sec) <br><br>**Note**: The default value is also the maximum value. | Sets the request timeout value for HTTP triggers and actions. |
 
 <a name="http-webhook"></a>
 

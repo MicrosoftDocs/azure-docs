@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Gen2 data ingestion overview

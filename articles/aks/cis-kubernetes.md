@@ -2,6 +2,7 @@
 title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 ms.topic: article
+ms.subservice: aks-security
 ms.date: 01/10/2024
 ---
 
@@ -154,7 +155,7 @@ Recommendations can have one of the following statuses:
 |5.1.12|Minimize access to webhook configuration objects|Not Scored|L1|Depends on Environment|
 |5.1.13|Minimize access to the service account token creation|Not Scored|L1|Depends on Environment|
 |5.2|Pod Security Policies||||
-|5.2.1|Ensure that the clsuter has at least one active policy control mechanism in place|Not Scored|L1|Depends on Environment|
+|5.2.1|Ensure that the cluster has at least one active policy control mechanism in place|Not Scored|L1|Depends on Environment|
 |5.2.2|Minimize the admission of privileged containers|Not Scored|L1|Depends on Environment|
 |5.2.3|Minimize the admission of containers wishing to share the host process ID namespace|Scored|L1|Depends on Environment|
 |5.2.4|Minimize the admission of containers wishing to share the host IPC namespace|Scored|L1|Depends on Environment|

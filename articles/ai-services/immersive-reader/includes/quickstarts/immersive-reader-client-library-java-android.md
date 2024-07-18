@@ -1,59 +1,53 @@
 ---
 title: Immersive Reader Java (Android) client library quickstart 
 titleSuffix: Azure AI services
-description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
+description: In this quickstart, you build an Android app using Java, and add the Immersive Reader API functionality.
 #services: cognitive-services
-author: rwallerms
+author: sharmas
 manager: guillasi
 ms.service: azure-ai-immersive-reader
 ms.topic: include
-ms.date: 09/14/2020
+ms.date: 02/14/2024
 ms.custom: devx-track-java
-ms.author: rwaller
+ms.author: sharmas
 ---
 
-[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
-
-In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is [available on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
-* [Git](https://git-scm.com/).
-* [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/ai-services).
+* An Immersive Reader resource configured for Microsoft Entra authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. Save the output of your session into a text file so you can configure the environment properties.
+* [Git](https://git-scm.com).
 * [Android Studio](https://developer.android.com/studio).
 
 ## Create an Android project
 
-Start a new project in Android Studio. Source code for this example is available as part of the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-java-android).
+Start a new project in Android Studio.
 
-![New project - Android](../../media/android/java/android-studio-create-project.png)
+:::image type="content" source="../../media/android/java/android-studio-create-project.png" alt-text="Screenshot of the Start new project option in Android Studio.":::
 
-In the **Choose your project** window, select **Empty Activity**, and then select **Next**.
+In the **Templates** window, select **Empty Views Activity**, and then select **Next**.
 
-![Empty Activity project - Android](../../media/android/java/android-studio-empty-activity.png)
+:::image type="content" source="../../media/android/java/android-studio-empty-activity.png" alt-text="Screenshot of the Templates window in Android Studio.":::
 
 ## Configure the project
 
 Name the project **QuickstartJava**, and select a location to save it. Select **Java** as the programming language, and then select **Finish**.
 
-![Configure the project - Android](../../media/android/java/android-studio-configure-project.png)
+:::image type="content" source="../../media/android/java/android-studio-configure-project.png" alt-text="Screenshot of the Configure project window in Android Studio.":::
 
 ## Set up assets and authentication
 
-Create a new **/assets** folder.
+To create a new *assets* folder, right-click on **app** and select **Folder** -> **Assets Folder** from the dropdown.
 
-![Create a new assets folder - Android](../../media/android/java/android-studio-assets-folder.png)
+:::image type="content" source="../../media/android/java/android-studio-assets-folder.png" alt-text="Screenshot of the Assets folder option.":::
 
- Create a file named **env** inside the assets folder. Add the following names and values, and supply values as appropriate. Don't commit this env file into source control because it contains secrets that shouldn't be made public.
+Right-click on **assets** and select **New** -> **File**. Name the file **env**.
 
-> [!IMPORTANT]
-> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
+:::image type="content" source="../../media/android/java/android-studio-create-env-file.png" alt-text="Screenshot of name input field to create the env file.":::
 
-![Create a new env file - Android](../../media/android/java/android-studio-create-env-file.png)
+Add the following names and values, and supply values as appropriate. Don't commit this env file into source control because it contains secrets that shouldn't be made public.
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -61,11 +55,17 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Screenshot that shows environment variables in Android Studio.](../../media/android/java/android-studio-assets-and-env-file.png)
+
+:::image type="content" source="../../media/android/java/android-studio-assets-and-env-file.png" alt-text="Screenshot of Environment variables in Android Studio.":::
+
+> [!IMPORTANT]
+> Remember to never post secrets publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 ## Add dependencies
 
-Replace the existing dependencies in the **build.gradle** file with the following implementations to enable gson (JSON parsing and serialization) and dotenv to reference the variables defined in the env file. You might need to sync the project again when you implement activities later in this quickstart.
+Replace the existing dependencies in the *build.gradle* file with the following implementations to enable gson (JSON parsing and serialization) and dotenv to reference the variables defined in the env file. You might need to sync the project again when you implement activities later in this quickstart.
+
+:::image type="content" source="../../media/android/java/android-studio-build-gradle.png" alt-text="Screenshot of app gradle dependencies.":::
 
 ```build.gradle
 dependencies {
@@ -80,13 +80,11 @@ dependencies {
 }
 ```
 
-![App gradle implementations - Android](../../media/android/java/android-studio-build-gradle.png)
-
 ## Update app strings and layout resources
 
-Replace the content in **res/strings/strings.xml** with the following strings to be used in the app.
+Replace the content in *res/values/strings.xml* with the following strings to be used in the app.
 
-![App strings.xml - Android](../../media/android/java/android-studio-strings.png)
+:::image type="content" source="../../media/android/java/android-studio-strings.png" alt-text="Screenshot of the app strings xml file.":::
 
 ```strings.xml
 <resources>
@@ -102,9 +100,9 @@ Replace the content in **res/strings/strings.xml** with the following strings to
 </resources>
 ```
 
-Replace the content in **res/layout/activity_main.xml** with the following XML to be used in the app. This XML is the UI layout of the app.
+Replace the content in *res/layout/activity_main.xml* with the following XML to be used in the app. This XML is the UI layout of the app. If you don't see the code in the *activity_main.xml* file, right-click on the canvas and select **Go to XML**.
 
-![App activity_main.xml - Android](../../media/android/java/android-studio-activity-main-xml.png)
+:::image type="content" source="../../media/android/java/android-studio-activity-main-xml.png" alt-text="Screenshot of the app activity mail xml file.":::
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -203,11 +201,11 @@ Replace the content in **res/layout/activity_main.xml** with the following XML t
 
 ## Add the web view layout
 
-In the **res/layout/** folder, create a new Layout resource file and name it **activity_immersive_reader**. Then replace its content with the following XML. This XML adds the WebView component to be used by the IRActivity Java code that will be created in a later step. For now, it's undefined and will cause errors.
+In the *res/layout/* folder, create a new Layout resource file and name it `activity_immersive_reader`. Then replace its content with the following XML. This XML adds the WebView component to be used by the IRActivity Java code in a later step. For now, it's undefined and causes errors.
 
-![Create new Layout resource file - Android](../../media/android/java/android-studio-new-layout-resource.png)
+:::image type="content" source="../../media/android/java/android-studio-new-layout-resource.png" alt-text="Screenshot of the new layout resource file.":::
 
-![Configure the new Layout resource - Android](../../media/android/java/android-studio-activity-immersive-reader.png)
+:::image type="content" source="../../media/android/java/android-studio-activity-immersive-reader.png" alt-text="Screenshot of the new resource file name input field.":::
 
 ```activity_immersive_reader.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -232,11 +230,11 @@ In the **res/layout/** folder, create a new Layout resource file and name it **a
 
 ## Set up the app Java code
 
-In the **/Java/com.example.quickstartjava** folder, you'll see an existing **MainActivity.java** Java class file. This folder is where the app logic is authored.
+In the *java/com.example.quickstartjava/* folder, there's an existing *MainActivity.java* Java class file. This folder is where the app logic is authored.
 
-![MainActivity - Android](../../media/android/java/android-studio-main-activity-java.png)
+:::image type="content" source="../../media/android/java/android-studio-main-activity-java.png" alt-text="Screenshot of the MainActivity file.":::
 
-Replace **MainActivity.java** contents with the following code. There are a few classes referenced in code that don't yet exist and will be created later.
+Replace *MainActivity.java* contents with the following code. There are a few classes referenced in code that don't yet exist and will be created later.
 
 ```MainActivity.java
 /**
@@ -287,13 +285,15 @@ public class MainActivity extends Activity {
 }
 ```
 
-We'll create 16 more Java class files in the **/Java/com.example.quickstartjava** folder. Each of these classes is used by the app to integrate the Immersive Reader SDK. With each new file, there are a few classes referenced in code that don't yet exist and will be created later. After all classes are created, there should be no null reference errors.
+We'll create 16 more Java class files in the *java/com.example.quickstartjava/* folder. Each of these classes is used by the app to integrate the Immersive Reader SDK. With each new file, there are a few classes referenced in code that don't yet exist and will be created later. After all classes are created, there should be no null reference errors.
 
-To create a new **ImmersiveReader.java** Java class file, right-click the folder in Android Studio, select **New**, and then select **Java Class**. You'll use this same method to create Java class files for each new Java class file you create.
+To create a new *ImmersiveReader.java* Java class file, right-click the *java/com.example.quickstartjava/* folder, select **New**, and then select **Java Class**. Enter *ImmersiveReader*.
 
-![ImmersiveReader - Android](../../media/android/java/android-studio-immersivereader-java.png)
+Use this same method to create Java class files for each new Java class file you create.
 
-Replace **ImmersiveReader.java** contents with the following code:
+:::image type="content" source="../../media/android/java/android-studio-immersivereader-java.png" alt-text="Screenshot of the ImmersiveReader file.":::
+
+Replace *ImmersiveReader.java* contents with the following code:
 
 ```ImmersiveReader.java
 /**
@@ -372,11 +372,11 @@ public class ImmersiveReader {
 }
 ```
 
-Create a new **IRActivity.java** Java class file.
+Create a new *IRActivity.java* Java class file.
 
-![IRActivity - Android](../../media/android/java/android-studio-iractivity-java.png)
+:::image type="content" source="../../media/android/java/android-studio-iractivity-java.png" alt-text="Screenshot of the IRActivitt file.":::
 
-Replace **IRActivity.java** contents with the following code:
+Replace *IRActivity.java* contents with the following code:
 
 ```IRActivity.java
 /**
@@ -455,11 +455,11 @@ public class ImmersiveReader {
 }
 ```
 
-Create a new **IRError.java** Java class file.
+Create a new *IRError.java* Java class file.
 
-![IRError - Android](../../media/android/java/android-studio-irerror-java.png)
+:::image type="content" source="../../media/android/java/android-studio-irerror-java.png" alt-text="Screenshot of the IRError file.":::
 
-Replace **IRError.java** contents with the following code:
+Replace *IRError.java* contents with the following code:
 
 ```IRError.java
 /**
@@ -534,11 +534,11 @@ public class IRError implements Parcelable {
 }
 ```
 
-Create a new **Error.java** Java class file.
+Create a new *Error.java* Java class file.
 
-![Error - Android](../../media/android/java/android-studio-error-java.png)
+:::image type="content" source="../../media/android/java/android-studio-error-java.png" alt-text="Screenshot of the Error Java class file.":::
 
-Replace **Error.java** contents with the following code:
+Replace *Error.java* contents with the following code:
 
 ```Error.java
 /**
@@ -565,11 +565,11 @@ public class Error {
 }
 ```
 
-Create a new **ReadableContent.java** Java class file.
+Create a new *ReadableContent.java* Java class file.
 
-![ReadableContent - Android](../../media/android/java/android-studio-readablecontent-java.png)
+:::image type="content" source="../../media/android/java/android-studio-readablecontent-java.png" alt-text="Screenshot of ReadableContent Java class file.":::
 
-Replace **ReadableContent.java** contents with the following code:
+Replace *ReadableContent.java* contents with the following code:
 
 ```ReadableContent.java
 /**
@@ -609,11 +609,11 @@ public class ReadableContent {
 }
 ```
 
-Create a new **ReadableTextChunk.java** Java class file.
+Create a new *ReadableTextChunk.java* Java class file.
 
-![ReadableTextChunk - Android](../../media/android/java/android-studio-readabletextchunk-java.png)
+:::image type="content" source="../../media/android/java/android-studio-readabletextchunk-java.png" alt-text="Screenshot of ReadableTextChunk Java class file.":::
 
-Replace **ReadableTextChunk.java** contents with the following code:
+Replace *ReadableTextChunk.java* contents with the following code:
 
 ```ReadableTextChunk.java
 /**
@@ -641,11 +641,11 @@ public class ReadableTextChunk {
 }
 ```
 
-Create a new **IRDataHolder.java** Java class file.
+Create a new *IRDataHolder.java* Java class file.
 
-![IRDataHolder - Android](../../media/android/java/android-studio-irdataholder-java.png)
+:::image type="content" source="../../media/android/java/android-studio-irdataholder-java.png" alt-text="Screenshot of IRDataHolder Java class file.":::
 
-Replace **IRDataHolder.java** contents with the following code:
+Replace *IRDataHolder.java* contents with the following code:
 
 ```IRDataHolder.java
 /**
@@ -706,11 +706,11 @@ public class IRDataHolder {
 }
 ```
 
-Create a new **IRAuthenticator.java** Java class file.
+Create a new *IRAuthenticator.java* Java class file.
 
-![IRAuthenticator - Android](../../media/android/java/android-studio-irauthenticator-java.png)
+:::image type="content" source="../../media/android/java/android-studio-irauthenticator-java.png" alt-text="Screenshot of IRAuthenticator Java class file.":::
 
-Replace **IRAuthenticator.java** contents with the following code:
+Replace *IRAuthenticator.java* contents with the following code:
 
 ```IRAuthenticator.java
 /**
@@ -815,11 +815,11 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
 }
 ```
 
-Create a new **IRLauncher.java** Java class file.
+Create a new *IRLauncher.java* Java class file.
 
-![IRLauncher - Android](../../media/android/java/android-studio-irlauncher-java.png)
+:::image type="content" source="../../media/android/java/android-studio-irlauncher-java.png" alt-text="Screenshot of IRLauncher Java class file.":::
 
-Replace **IRLauncher.java** contents with the following code:
+Replace *IRLauncher.java* contents with the following code:
 
 ```IRLauncher.java
 /**
@@ -1008,11 +1008,11 @@ public class IRLauncher {
 }
 ```
 
-Create a new **IRStore.java** Java class file.
+Create a new *IRStore.java* Java class file.
 
-![IRStore - Android](../../media/android/java/android-studio-irstore-java.png)
+:::image type="content" source="../../media/android/java/android-studio-irstore-java.png" alt-text="Screenshot of IRStore Java class file.":::
 
-Replace **IRStore.java** contents with the following code:
+Replace *IRStore.java* contents with the following code:
 
 ```IRStore.java
 /**
@@ -1033,11 +1033,11 @@ public final class IRStore {
 }
 ```
 
-Create a new **AuthenticationTask.java** Java class file.
+Create a new *AuthenticationTask.java* Java class file.
 
-![AuthenticationTask](../../media/android/java/android-studio-authenticationtask-java.png)
+:::image type="content" source="../../media/android/java/android-studio-authenticationtask-java.png" alt-text="Screenshot of AuthenticationTask Java class file.":::
 
-Replace **AuthenticationTask.java** contents with the following code:
+Replace *AuthenticationTask.java* contents with the following code:
 
 ```AuthenticationTask.java
 /**
@@ -1090,11 +1090,11 @@ public class AuthenticationTask extends AsyncTask<Void, Void, String> {
 }
 ```
 
-Create a new **Chunk.java** Java class file.
+Create a new *Chunk.java* Java class file.
 
-![Chunk - Android](../../media/android/java/android-studio-chunk-java.png)
+:::image type="content" source="../../media/android/java/android-studio-chunk-java.png" alt-text="Screenshot of Chunk Java class file.":::
 
-Replace **Chunk.java** contents with the following code:
+Replace *Chunk.java* contents with the following code:
 
 ```Chunk.java
 /**
@@ -1127,11 +1127,11 @@ public class Chunk {
 }
 ```
 
-Create a new **Content.java** Java class file.
+Create a new *Content.java* Java class file.
 
-![Content - Android](../../media/android/java/android-studio-content-java.png)
+:::image type="content" source="../../media/android/java/android-studio-content-java.png" alt-text="Screenshot of Content Java class file.":::
 
-Replace **Content.java** contents with the following code:
+Replace *Content.java* contents with the following code:
 
 ```Content.java
 /**
@@ -1163,11 +1163,11 @@ public class Content {
 }
 ```
 
-Create a new **Options.java** Java class file.
+Create a new *Options.java* Java class file.
 
-![Options - Android](../../media/android/java/android-studio-options-java.png)
+:::image type="content" source="../../media/android/java/android-studio-options-java.png" alt-text="Screenshot of Options Java class file.":::
 
-Replace **Options.java** contents with the following code:
+Replace *Options.java* contents with the following code:
 
 ```Options.java
 /**
@@ -1197,11 +1197,11 @@ public class Options {
 }
 ```
 
-Create a new **Message.java** Java class file.
+Create a new *Message.java* Java class file.
 
-![Message - Android](../../media/android/java/android-studio-message-java.png)
+:::image type="content" source="../../media/android/java/android-studio-message-java.png" alt-text="Screenshot of Message Java class file.":::
 
-Replace **Message.java** contents with the following code:
+Replace *Message.java* contents with the following code:
 
 ```Message.java
 /**
@@ -1235,11 +1235,11 @@ public class Message {
 }
 ```
 
-Create a new **WebAppInterface.java** Java class file.
+Create a new *WebAppInterface.java* Java class file.
 
-![WebAppInterface - Android](../../media/android/java/android-studio-webappinterface-java.png)
+:::image type="content" source="../../media/android/java/android-studio-webappinterface-java.png" alt-text="Screenshot of WebAppInterface Java class file.":::
 
-Replace **WebAppInterface.java** contents with the following code:
+Replace *WebAppInterface.java* contents with the following code:
 
 ```WebAppInterface.java
 /**
@@ -1286,13 +1286,13 @@ public class WebAppInterface {
 
 ## Add the app HTML to the web view
 
-The web view implementation needs HTML to work. Right-click the **/assets** folder, create a new file, and name it **immersiveReader.html**.
+The web view implementation needs HTML to work. Right-click the */assets* folder, create a new file, and name it *immersiveReader.html*.
 
-![Create a new html file - Android](../../media/android/java/android-studio-immersive-reader-html.png)
+:::image type="content" source="../../media/android/java/android-studio-immersive-reader-html.png" alt-text="Screenshot of the new html file name.":::
 
-![HTML asset location - Android](../../media/android/java/android-studio-immersive-reader-html-assets.png)
+:::image type="content" source="../../media/android/java/android-studio-immersive-reader-html-assets.png" alt-text="Screenshot of the new html asset location.":::
 
-Add the following HTML and JavaScript. This code adds the Immersive Reader SDK to the app and uses it to open the Immersive Reader by using the app code we've written.
+Add the following HTML and JavaScript. This code adds the Immersive Reader SDK to the app and uses it to open the Immersive Reader by using the app code we wrote.
 
 ```immersiveReader.html
 <!-- Copyright (c) Microsoft Corporation. All rights reserved.
@@ -1347,9 +1347,9 @@ Licensed under the MIT License. -->
 
 ## Set up app permissions
 
-![AndroidManifest - Android](../../media/android/java/android-studio-android-manifest-xml.png)
+Because the application needs to make network calls to the Immersive Reader SDK to function, we need to ensure the app permissions are configured to allow network access. Replace the content of */manifests/AndroidManifest.xml* with the following XML:
 
-Because the application needs to make network calls to the Immersive Reader SDK to function, we need to ensure the app permissions are configured to allow network access. Replace the content of **/manifests/AndroidManifest.xml** with the following XML:
+:::image type="content" source="../../media/android/java/android-studio-android-manifest-xml.png" alt-text="Screenshot of the AndroidManifest XML file.":::
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1384,9 +1384,9 @@ Because the application needs to make network calls to the Immersive Reader SDK 
 
 Use Android Studio to run the app on a device emulator. When you select **Immersive Reader**, the Immersive Reader opens with the content on the app.
 
-![Immersive Reader - Android](../../media/android/java/android-studio-device-emulator.png)
+:::image type="content" source="../../media/android/java/android-studio-device-emulator.png" alt-text="Screenshot of the Immersive Reader app running in the emulator.":::
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Create a resource and configure Microsoft Entra ID](../../how-to-create-immersive-reader.md)
+> [Explore the Immersive Reader SDK reference](../../reference.md)

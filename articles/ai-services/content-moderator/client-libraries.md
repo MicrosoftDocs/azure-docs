@@ -12,7 +12,7 @@ ms.date: 01/18/2024
 ms.author: pafarley
 ms.devlang: csharp
 # ms.devlang: csharp, java, python
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api, devx-track-dotnet, devx-track-extended-java
+ms.custom: devx-track-python, devx-track-csharp, mode-api, devx-track-dotnet, devx-track-extended-java
 keywords: content moderator, Azure Content Moderator, online moderator, content filtering software
 ---
 

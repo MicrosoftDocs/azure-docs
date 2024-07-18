@@ -20,11 +20,17 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
+## GPT-4 Turbo model upgrade
+
+[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
+
 ## Call the Chat Completion APIs
 
-The following REST command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
+The following command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
+#### [REST](#tab/rest)
+
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -33,8 +39,16 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 - `Content-Type`: application/json 
 - `api-key`: {API_KEY} 
 
+
+
 **Body**: 
-The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing strings and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image). Remember to set a `"max_tokens"` value, or the return output will be cut off.
+The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing text and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image). 
+
+> [!IMPORTANT]
+> Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+> [!IMPORTANT]
+> When uploading images, there is a limit of 10 images per chat request.
 
 ```json
 {
@@ -53,7 +67,7 @@ The following is a sample request body. The format is the same as the chat compl
 	            {
 	                "type": "image_url",
 	                "image_url": {
-                        "url": "<URL or base-64-encoded image>"
+                        "url": "<image URL>"
                     }
                 } 
            ] 
@@ -63,6 +77,95 @@ The following is a sample request body. The format is the same as the chat compl
     "stream": false 
 } 
 ```
+
+#### [Python](#tab/python)
+
+1. Define your Azure OpenAI resource endpoint and key. 
+1. Enter the name of your GPT-4 Turbo with Vision model deployment.
+1. Create a client object using those values.
+
+    ```python
+    api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    api_key="<your_azure_openai_key>"
+    deployment_name = '<your_deployment_name>'
+    api_version = '2024-02-15-preview' # this might change in the future
+    
+    client = AzureOpenAI(
+        api_key=api_key,  
+        api_version=api_version,
+        base_url=f"{api_base}openai/deployments/{deployment_name}",
+    )
+    ```
+
+1. Then call the client's **create** method. The following code shows a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing text and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image). 
+
+    > [!IMPORTANT]
+    > Remember to set a `"max_tokens"` value, or the return output will be cut off.
+    
+    ```python
+    response = client.chat.completions.create(
+        model=deployment_name,
+        messages=[
+            { "role": "system", "content": "You are a helpful assistant." },
+            { "role": "user", "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "<image URL>"
+                    }
+                }
+            ] } 
+        ],
+        max_tokens=2000 
+    )
+    print(response)
+    ```
+
+---
+
+> [!TIP]
+> ### Use a local image
+>
+> If you want to use a local image, you can use the following Python code to convert it to base64 so it can be passed to the API. Alternative file conversion tools are available online.
+>
+> ```python
+> import base64
+> from mimetypes import guess_type
+> 
+> # Function to encode a local image into data URL 
+> def local_image_to_data_url(image_path):
+>     # Guess the MIME type of the image based on the file extension
+>     mime_type, _ = guess_type(image_path)
+>     if mime_type is None:
+>         mime_type = 'application/octet-stream'  # Default MIME type if none is found
+> 
+>     # Read and encode the image file
+>     with open(image_path, "rb") as image_file:
+>         base64_encoded_data = base64.b64encode(image_file.read()).decode('utf-8')
+> 
+>     # Construct the data URL
+>     return f"data:{mime_type};base64,{base64_encoded_data}"
+> 
+> # Example usage
+> image_path = '<path_to_image>'
+> data_url = local_image_to_data_url(image_path)
+> print("Data URL:", data_url)
+> ```
+>
+> When your base64 image data is ready, you can pass it to the API in the request body like this:
+> 
+> ```json
+> ...
+> "type": "image_url",
+> "image_url": {
+>    "url": "data:image/jpeg;base64,<your_image_data>"
+> }
+> ...
+> ```
 
 ### Output
 
@@ -133,14 +236,14 @@ The API response should look like the following.
 }
 ```
 
-Every response includes a `"finish_reason"` field. It has the following possible values:
+Every response includes a `"finish_details"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
 
 ## Detail parameter settings in image processing: Low, High, Auto  
 
-The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
+The _detail_ parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
 - `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
 - `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.''
 
@@ -155,12 +258,14 @@ The **Optical character recognition (OCR)** integration allows the model to prod
 The **object grounding** integration brings a new layer to data analysis and user interaction, as the feature can visually distinguish and highlight important elements in the images it processes.
 
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource, and it must be in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+#### [REST](#tab/rest)
+
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -173,7 +278,11 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 
 The format is similar to that of the chat completions API for GPT-4, but the message content can be an array containing strings and images (either a valid HTTP or HTTPS URL to an image, or a base-64-encoded image).
 
-You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. Remember to set a `"max_tokens"` value, or the return output will be cut off.
+You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. 
+
+> [!IMPORTANT]
+> Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
 
 ```json
 {
@@ -208,7 +317,7 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
 	            {
 	                "type": "image_url",
 	                "image_url": {
-                        "url":"<URL or base-64-encoded image>" 
+                        "url":"<image URL>" 
                     }
                 }
            ] 
@@ -218,6 +327,62 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
     "stream": false 
 } 
 ```
+
+#### [Python](#tab/python)
+
+You call the same method as in the previous step, but include the new *extra_body* parameter. It contains the `enhancements` and `dataSources` fields. 
+
+`enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` field, which both have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. 
+
+`dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVision"` and a `parameters` field. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. R
+
+> [!IMPORTANT]
+> Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+
+```python
+response = client.chat.completions.create(
+    model=deployment_name,
+    messages=[
+        { "role": "system", "content": "You are a helpful assistant." },
+        { "role": "user", "content": [  
+            { 
+                "type": "text", 
+                "text": "Describe this picture:" 
+            },
+            { 
+                "type": "image_url",
+                "image_url": {
+                    "url": "<image URL>"
+                }
+            }
+        ] } 
+    ],
+    extra_body={
+        "dataSources": [
+            {
+                "type": "AzureComputerVision",
+                "parameters": {
+                    "endpoint": "<your_computer_vision_endpoint>",
+                    "key": "<your_computer_vision_key>"
+                }
+            }],
+        "enhancements": {
+            "ocr": {
+                "enabled": True
+            },
+            "grounding": {
+                "enabled": True
+            }
+        }
+    },
+    max_tokens=2000
+)
+print(response)
+```
+
+
+---
 
 ### Output
 
@@ -232,7 +397,10 @@ The chat responses you receive from the model should now include enhanced inform
     "choices":
     [
         {
-            "finish_reason":"stop",
+            "finish_details": {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
             "index": 0,
             "message":
             {
@@ -272,7 +440,7 @@ The chat responses you receive from the model should now include enhanced inform
 }
 ```
 
-Every response includes a `"finish_reason"` field. It has the following possible values:
+Every response includes a `"finish_details"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
@@ -281,17 +449,135 @@ Every response includes a `"finish_reason"` field. It has the following possible
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. The **video prompt** integration uses Azure AI Vision video retrieval to sample a set of frames from a video and create a transcript of the speech in the video. It enables the AI model to give summaries and answers about video content.
 
+Follow these steps to set up a video retrieval system and integrate it with your AI chat model.
+
 > [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource, and it must be in the same Azure region as your GPT-4 Turbo with Vision resource.
+> To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
-Follow these steps to set up a video retrieval system and integrate it with your AI chat model:
+> [!TIP]
+> If you prefer, you can carry out the below steps using a Jupyter notebook instead: [Video chat completions notebook](https://github.com/Azure-Samples/azureai-samples/blob/main/scenarios/GPT-4V/video/video_chatcompletions_example_restapi.ipynb). 
+
+### Upload videos to Azure Blob Storage
+
+You need to upload your videos to an Azure Blob Storage container. [Create a new storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount) if you don't have one already.
+
+Once your videos are uploaded, you can get their SAS URLs, which you use to access them in later steps.
+
+#### Ensure proper read access
+
+Depending on your authentication method, you may need to do some extra steps to grant access to the Azure Blob Storage container. If you're using an Azure AI Services resource instead of an Azure OpenAI resource, you need to use Managed Identities to grant it **read** access to Azure Blob Storage:
+
+#### [using System assigned identities](#tab/system-assigned)
+
+Enable System assigned identities on your Azure AI Services resource by following these steps:
+1. From your AI Services resource in Azure portal select **Resource Management** -> **Identity** and toggle the status to **ON**.
+1. Assign **Storage Blob Data Read** access to the AI Services resource: From the **Identity** page, select **Azure role assignments**, and then **Add role assignment** with the following settings:
+    - scope: storage
+    - subscription: {your subscription}
+    - Resource: {select the Azure Blob Storage resource}
+    - Role: Storage Blob Data Reader
+1. Save your settings.
+
+#### [using User assigned identities](#tab/user-assigned)
+
+To use a User assigned identity on your Azure AI Services resource, follow these steps:
+1. Create a new Managed Identity resource in the Azure portal.
+1. Navigate to the new resource, then to **Azure Role Assignments**.
+1. Add a **New Role Assignment** with the following settings:
+    - scope: storage
+    - subscription: {your subscription}
+    - Resource: {select the Azure Blob Storage resource}
+    - Role: Storage Blob Data Reader
+1. Save your new configuration.
+1. Navigate to your AI Services resource's **Identity** page.
+1. Select the **User Assigned** Tab, then click **+Add** to select the newly created Managed Identity.
+1. Save your configuration.
+
+---
+
+### Create a video retrieval index
+
 1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
-1. Follow the instructions in  [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval) to create a video retrieval index. Return to this guide once your index is created.
-1. Save the index name, the `documentId` values of your videos, and the blob storage SAS URLs of your videos to a temporary location. You'll need these values the next steps.
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+1. Create an index to store and organize the video files and their metadata. The example command below demonstrates how to create an index named `my-video-index` using the **[Create Index](/azure/ai-services/computer-vision/reference-video-search)** API. Save the index name to a temporary location; you'll need it in later steps. 
+
+    > [!TIP]
+    > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+
+    > [!IMPORTANT]
+    > A video index name can be up to 24 characters long, unless it's a GUID, which can be 36 characters.
+        
+    ```bash
+    curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+    {
+      'metadataSchema': {
+        'fields': [
+          {
+            'name': 'cameraId',
+            'searchable': false,
+            'filterable': true,
+            'type': 'string'
+          },
+          {
+            'name': 'timestamp',
+            'searchable': false,
+            'filterable': true,
+            'type': 'datetime'
+          }
+        ]
+      },
+      'features': [
+        {
+          'name': 'vision',
+          'domain': 'surveillance'
+        },
+        {
+          'name': 'speech'
+        }
+      ]
+    }"
+    ```
+
+1. Add video files to the index with their associated metadata. The example below demonstrates how to add two video files to the index using SAS URLs with the **[Create Ingestion](/azure/ai-services/computer-vision/reference-video-search)** API. Save the SAS URLs and `documentId` values to a temporary location; you'll need them in later steps.
+    
+    ```bash
+    curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions/my-ingestion?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
+    {
+      'videos': [
+        {
+          'mode': 'add',
+          'documentId': '02a504c9cd28296a8b74394ed7488045',
+          'documentUrl': 'https://example.blob.core.windows.net/videos/02a504c9cd28296a8b74394ed7488045.mp4?sas_token_here',
+          'metadata': {
+            'cameraId': 'camera1',
+            'timestamp': '2023-06-30 17:40:33'
+          }
+        },
+        {
+          'mode': 'add',
+          'documentId': '043ad56daad86cdaa6e493aa11ebdab3',
+          'documentUrl': '[https://example.blob.core.windows.net/videos/043ad56daad86cdaa6e493aa11ebdab3.mp4?sas_token_here',
+          'metadata': {
+            'cameraId': 'camera2'
+          }
+        }
+      ]
+    }"
+    ```
+
+1. After you add video files to the index, the ingestion process starts. It might take some time depending on the size and number of files. To ensure the ingestion is complete before performing searches, you can use the **[Get Ingestion](/en-us/azure/ai-services/computer-vision/reference-video-search)** API to check the status. Wait for this call to return `"state" = "Completed"` before proceeding to the next step. 
+    
+    ```bash
+    curl.exe -v -X GET "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index/ingestions?api-version=2023-05-01-preview&$top=20" -H "ocp-apim-subscription-key: <YOUR_SUBSCRIPTION_KEY>"
+    ```
+
+### Integrate your video index with GPT-4 Turbo with Vision
+
+#### [REST](#tab/rest)
+
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
@@ -311,7 +597,7 @@ Follow these steps to set up a video retrieval system and integrate it with your
         {
             "type": "AzureComputerVisionVideoIndex",
             "parameters": {
-                "endpoint": "<your_computer_vision_endpoint>",
+                "computerVisionBaseUrl": "<your_computer_vision_endpoint>",
                 "computerVisionApiKey": "<your_computer_vision_key>",
                 "indexName": "<name_of_your_index>",
                 "videoUrls": ["<your_video_SAS_URL>"]
@@ -326,12 +612,12 @@ Follow these steps to set up a video retrieval system and integrate it with your
                 "role": "user",
                 "content": [
                         {
-                            "type": "text",
-                            "text": "Describe this video:"
-                        },
-                        {
                             "type": "acv_document_id",
                             "acv_document_id": "<your_video_ID>"
+                        },
+                        {
+                            "type": "text",
+                            "text": "Describe this video:"
                         }
                     ]
             }
@@ -344,11 +630,105 @@ Follow these steps to set up a video retrieval system and integrate it with your
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
+#### [Python](#tab/python)
+
+In your Python script, call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `data_sources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
+
+`data_sources` represents the external resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVisionVideoIndex"` and a `parameters` field. 
+
+Set the `computerVisionBaseUrl` and `computerVisionApiKey` to the endpoint URL and access key of your Computer Vision resource. Set `indexName` to the name of your video index. Set `videoUrls` to a list of SAS URLs of your videos. 
+
+> [!IMPORTANT]
+> Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+```python
+response = client.chat.completions.create(
+    model=deployment_name,
+    messages=[
+        { "role": "system", "content": "You are a helpful assistant." },
+        { "role": "user", "content": [  
+            {
+                "type": "acv_document_id",
+                "acv_document_id": "<your_video_ID>"
+            },
+            { 
+                "type": "text", 
+                "text": "Describe this video:" 
+            }
+        ] } 
+    ],
+    extra_body={
+        "data_sources": [
+            {
+                "type": "AzureComputerVisionVideoIndex",
+                "parameters": {
+                    "computerVisionBaseUrl": "<your_computer_vision_endpoint>", # your endpoint should look like the following https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/computervision
+                    "computerVisionApiKey": "<your_computer_vision_key>",
+                    "indexName": "<name_of_your_index>",
+                    "videoUrls": ["<your_video_SAS_URL>"]
+                }
+            }],
+        "enhancements": {
+            "video": {
+                "enabled": True
+            }
+        }
+    },
+    max_tokens=100
+)
+
+print(response)
+```
+---
+
+> [!IMPORTANT]
+> The `"data_sources"` object's content varies depending on which Azure resource type and authentication method you're using. See the following reference:
+> 
+> #### [Azure OpenAI resource](#tab/resource)
+> 
+> ```json
+> "data_sources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>     "endpoint": "<your_computer_vision_endpoint>",
+>     "computerVisionApiKey": "<your_computer_vision_key>",
+>     "indexName": "<name_of_your_index>",
+>     "videoUrls": ["<your_video_SAS_URL>"]
+>     }
+> }],
+> ```
+> 
+> #### [Azure AIServices resource + SAS authentication](#tab/resource-sas)
+> 
+> ```json
+> "data_sources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>     "indexName": "<name_of_your_index>",
+>     "videoUrls": ["<your_video_SAS_URL>"]
+>     }
+> }],
+> ```	
+> 
+> #### [Azure AIServices resource + Managed Identities](#tab/resource-mi)
+> 
+> ```json
+> "data_sources": [
+> {
+>     "type": "AzureComputerVisionVideoIndex",
+>     "parameters": {
+>         "indexName": "<name_of_your_index>",
+>         "documentAuthenticationKind": "managedidentity",
+>     }
+> }],
+> ```	
+> ---
 
 ### Output
 
 The chat responses you receive from the model should include information about the video. The API response should look like the following.
-
 
 ```json
 {
@@ -377,7 +757,7 @@ The chat responses you receive from the model should include information about t
 }
 ```
 
-Every response includes a `"finish_reason"` field. It has the following possible values:
+Every response includes a `"finish_details"` field. It has the following possible values:
 - `stop`: API returned complete model output.
 - `length`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
 - `content_filter`: Omitted content due to a flag from our content filters.
@@ -393,7 +773,7 @@ Base Pricing for GPT-4 Turbo with Vision is:
   
 Video prompt integration with Video Retrieval Add-on:
 - Ingestion: $0.05 per minute of video
-- Transactions: $0.25 per 1000 queries of the Video Retrieval indexer
+- Transactions: $0.25 per 1000 queries of the Video Retrieval
 
 ## Next steps
 

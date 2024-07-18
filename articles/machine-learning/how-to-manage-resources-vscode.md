@@ -4,11 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to create and manage Azure Machine Learning resources using the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
 author: ssalgadodev
-ms.author: tbombach
-ms.reviewer: ssalgado
+ms.author: ssalgado
+ms.reviewer: tbombach
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 01/15/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'

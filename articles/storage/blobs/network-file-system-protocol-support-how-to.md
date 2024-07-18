@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 06/28/2024
 ms.author: normesta
 
 ---
@@ -92,7 +92,6 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > [!NOTE]
    > AZNFS is supported on following Linux distributions:
    > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
-   > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
    > - SUSE (SLES 15)

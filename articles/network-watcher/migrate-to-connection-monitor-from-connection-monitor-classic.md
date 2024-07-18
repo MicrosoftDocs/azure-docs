@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 03/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to migrate my connection monitors from Connection monitor (classic) to the new Connection monitor so I avoid service disruption. 
 ---
@@ -16,7 +16,7 @@ ms.date: 12/06/2023
 In this article, you learn how to migrate your existing connection monitors from Connection monitor (classic) to the new Connection monitor with zero downtime. For more information, see [Connection monitor overview](connection-monitor-overview.md).
 
 > [!IMPORTANT]
-> Starting July 1, 2021, you will not be able to add new connection monitors in Connection monitor (classic) but you can continue to use existing connection monitors created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate from Connection monitor (classic) to the new Connection monitor in Azure Network Watcher before February 29, 2024.
+> Connection monitor (Classic) is deprecated and no longer available. To minimize service disruption to your current workloads, migrate from Connection monitor (classic) to the new Connection monitor.
 
 ## Key benefits of the new Connection monitor
 
@@ -93,8 +93,6 @@ The migration helps produce the following results:
     :::image type="content" source="./media/migrate-to-connection-monitor-from-connection-monitor-classic/migrate-classic-connection-monitors.png" alt-text="Screenshot showing the migration of connection monitors to the new Connection monitor." lightbox="./media/migrate-to-connection-monitor-from-connection-monitor-classic/migrate-classic-connection-monitors.png":::
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
-
-After you migrated from Connection monitor (classic) to Connection monitor, you won't be able to see the connection monitors under Connection monitor (classic)
 
 You can now customize Connection monitor properties, change the default workspace, download templates, and check the migration status. 
 

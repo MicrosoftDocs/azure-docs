@@ -78,8 +78,8 @@ The inferencing code for provisioned deployments is the same a standard deployme
 
     client = AzureOpenAI(
         azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-        api_key=os.getenv("AZURE_OPENAI_KEY"),  
-        api_version="2023-05-15"
+        api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+        api_version="2024-02-01"
     )
 
     response = client.chat.completions.create(
@@ -138,8 +138,8 @@ from openai import AzureOpenAI
 # Configure the default for all requests:
 client = AzureOpenAI(
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_KEY"),
-    api_version="2023-05-15",
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    api_version="2024-02-01",
     max_retries=5,# default is 2
 )
 
@@ -175,7 +175,7 @@ We recommend the following workflow:
 * For more information on provisioned deployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
     * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
-    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview&preserve-view=true)
+    * [.NET reference documentation](/dotnet/api/overview/azure/ai.openai-readme)
     * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview&preserve-view=true#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
     * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview&preserve-view=true#@azure-openai-openaiclientoptions-retryoptions)
     * [GO reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)

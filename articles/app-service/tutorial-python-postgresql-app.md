@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 11/30/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: mvc, seodec18, seo-python-october2019, cli-validate, devx-track-python, devdivchpfy22, event-tier1-build-2022, vscode-azure-extension-update-completed, AppServiceConnectivity
+ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ---
 
@@ -108,7 +108,7 @@ SECRET_KEY=<secret-key>
 
 Create a virtual environment for the app:
 
-[!INCLUDE [Virtual environment setup](<./includes/quickstart-python/virtual-environment-setup.md>)]
+[!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
 
 Install the dependencies:
 

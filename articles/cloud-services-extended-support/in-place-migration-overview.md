@@ -23,7 +23,7 @@ The below table highlights comparison between these two options.
 
 | Redeploy | In-place migration | 
 |---|---|
-| Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager thorough validation. | The in-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). | 
+| Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. | The in-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). | 
 | Redeploy allows customers to: <br><br> - Define resource names. <br><br> - Organize or reuse resources as preferred. <br><br> - Reuse service configuration and definition files with minimal changes. | For in-place migration, the platform: <br><br> - Defines resource names. <br><br> - Organizes each deployment and related resources in individual Resource Groups. <br><br> - Modifies existing configuration and definition file for Azure Resource Manager. | 
 | Customers need to orchestrate traffic to the new deployment. | Migration retains IP address and data path remains the same. | 
 | Customers need to delete the old cloud services in Azure Resource Manager. | Platform deletes the Cloud Services (classic) resources after migration. | 

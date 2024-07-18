@@ -2,15 +2,15 @@
 title: 'Tutorial: Designer - train a no-code regression model'
 titleSuffix: Azure Machine Learning
 description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/10/2022
-ms.custom: UpdateFrequency5, designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022, build-2023
+ms.custom: UpdateFrequency5, designer, build-2023
 ---
 
 # Tutorial: Designer - train a no-code regression model

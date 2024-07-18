@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/27/2023
 ms.author: kesheth
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

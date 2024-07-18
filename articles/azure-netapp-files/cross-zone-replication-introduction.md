@@ -4,7 +4,6 @@ description: Describes what Azure NetApp Files cross-zone replication does.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 02/17/2023
 ms.author: anfdocs
@@ -31,6 +30,8 @@ The preview of cross-zone replication is available in the following regions:
 * East US 2
 * France Central 
 * Germany West Central 
+* Israel Central
+* Italy North
 * Japan East
 * Korea Central
 * North Europe
@@ -60,6 +61,9 @@ Cross-zone replication supports three replication schedules: 10 minutes, hourly,
 * For the hourly replication schedule, the typical RPO is less than two hours. 
 * For the daily replication schedule, the typical RPO is less than two days. 
 
+> [!IMPORTANT]
+> The 10-minute replication schedule isn't supported for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) using cross-zone replication. 
+
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute. 
 
 ## Cost model for cross-zone replication 
@@ -70,4 +74,3 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
-

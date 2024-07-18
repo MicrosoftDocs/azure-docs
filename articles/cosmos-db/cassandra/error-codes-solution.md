@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: troubleshooting
 ms.date: 10/12/2021
-ms.custom: template-how-to, ignite-2022
+ms.custom: template-how-to
 ---
 
 # Server diagnostics for Azure Cosmos DB for Apache Cassandra

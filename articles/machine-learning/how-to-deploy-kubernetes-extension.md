@@ -2,14 +2,14 @@
 title: Deploy Azure Machine Learning extension on Kubernetes cluster
 description: Learn about the Azure Machine Learning extension, available configuration settings and different deployment scenarios, and verify and managed Azure Machine Learning extension
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/19/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
+ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 ---
 
 # Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster
@@ -28,9 +28,9 @@ In this article, you can learn:
 
 ## Prerequisites
 
-* An AKS cluster running in Azure. If you haven't previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
+* An AKS cluster running in Azure. If you haven't previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-resource-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
-  * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
+  * If the cluster is an Azure RedHat OpenShift (ARO) Service cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
 * For production purposes, the Kubernetes cluster must have a minimum of **4 vCPU cores and 14-GB memory**. For more information on resource detail and cluster size recommendations, see [Recommended resource planning](./reference-kubernetes.md).
 * Cluster running behind an **outbound proxy server** or **firewall** needs extra [network configurations](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
 * Install or upgrade Azure CLI to version 2.24.0 or higher.

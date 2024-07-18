@@ -14,11 +14,13 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python installed on your development machine. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
 ```
+
+You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/).
 
 In your local Python environment, install the package as follows:
 

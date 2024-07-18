@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-translator
   ms.topic: landing-page
-  ms.date: 01/16/2024
+  ms.date: 02/09/2024
   ms.author: lajanuar
 
 
@@ -52,7 +52,7 @@ landingContent:
           - text: Text Translation quickstart
             url: quickstart-text-rest-api.md
           - text: Document Translation quickstart
-            url: document-translation/quickstarts/document-translation-rest-api.md
+            url: document-translation/how-to-guides/use-rest-api-programmatically.md
           - text: Custom Translator quickstart
             url: custom-translator/quickstart.md
             
@@ -83,7 +83,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-         - text: Client-library SDKs
+         - text: Client-libraries
            url: document-translation/document-sdk-overview.md
          - text: Document Translation REST APIs
            url: document-translation/reference/rest-api-guide.md
@@ -109,7 +109,7 @@ landingContent:
         links:
           - text: Custom Translation for beginners
             url: custom-translator/beginners-guide.md
-          - text: Create a manage a workspace
+          - text: Create and manage a workspace
             url: custom-translator/how-to/create-manage-workspace.md
           - text: Create and manage a project
             url: custom-translator/how-to/create-manage-project.md

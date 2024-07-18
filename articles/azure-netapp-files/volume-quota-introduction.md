@@ -1,10 +1,9 @@
 ---
 title: Understand volume quota for Azure NetApp Files | Microsoft Docs
-description: Provides an overview about volume quota. Also provides references about monitoring and managing volume and pool capacity.  
+description: Provides an overview about volume quota. Also provides references about monitoring and managing volume and pool capacity.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: anfdocs

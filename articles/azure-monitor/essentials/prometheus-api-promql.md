@@ -4,7 +4,7 @@ description: Describes how to use the API to Query metrics in an Azure Monitor w
 ms.topic: how-to
 author: EdB-MSFT
 ms.author: edbaynash
-ms.date: 09/28/2022
+ms.date: 05/31/2024
 ms.reviewer: aul
 ---
 
@@ -207,7 +207,7 @@ The following limitations are in addition to those detailed in the Prometheus sp
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
 
-[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
+[!INCLUDE [prometheus-case-sensitivity.md](../includes/prometheus-case-sensitivity.md)]
 
 ## Frequently asked questions
 

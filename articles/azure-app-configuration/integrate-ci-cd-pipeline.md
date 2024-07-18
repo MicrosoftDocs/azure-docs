@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.custom: devx-track-csharp, devdivchpfy22
-ms.date: 08/30/2022
+ms.date: 02/20/2024
 ms.author: malev
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
@@ -99,7 +99,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     
     ---
 
-1. To build the app by using the .NET Core CLI, run the following command in the command shell:
+1. To build the app by using the .NET CLI, run the following command in the command shell:
 
     ```console
      dotnet build

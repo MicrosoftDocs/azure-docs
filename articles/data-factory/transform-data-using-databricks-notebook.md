@@ -6,7 +6,6 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.custom: seo-lt-2019
 ms.date: 08/14/2023
 ---
 
@@ -72,7 +71,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot showing the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot showing the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 ## Create linked services
 

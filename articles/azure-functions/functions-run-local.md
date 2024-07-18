@@ -4,7 +4,7 @@ description: Learn how to code and test Azure Functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 11/14/2023
-ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -226,10 +226,12 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 Keep in mind the following considerations when running your functions locally:
 
-+ By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
++ By default, authorization isn't enforced locally for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). You can use the `--enableAuth` option to require authorization when running locally. For more information, see [`func start`](./functions-core-tools-reference.md?tabs=v2#func-start)
 
-+ While there's local storage emulation available, it's often best to validate your triggers and bindings against live services in Azure. You can maintain the connections to these services in the local.settings.json project file. For more information, see [Local settings file](functions-develop-local.md#local-settings-file). Make sure to keep test and production data separate when testing against live Azure services. 
-
++ You can use the local Azurite emulator when locally running functions that require access to Azure Storage services (Queue Storage, Blob Storage, and Table Storage) without having to connect to these services in Azure. When using local emulation, make sure to start Azurite before starting the local host (func.exe). For more information, see [Local storage emulation](functions-develop-local.md#local-storage-emulator).
+::: zone pivot="programming-language-python"
++ You can use local Azurite emulation to meet the storage requirement of the Python v2 worker. 
+::: zone-end
 + You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Run a local function](./functions-run-local.md?tabs=non-http-trigger#run-a-local-function).
 
 + When you include your Application Insights connection information in the local.settings.json file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
@@ -314,7 +316,7 @@ The following considerations apply when using the administrator endpoint for loc
 
 + You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to return a list of administrator URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
-+ Authentication and authorization are bypassed when running locally. The same APIs exist in Azure, but when you try to call the same administrator endpoints in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
++ Authentication and authorization are bypassed when running locally. The same APIs exist in Azure, but when you try to call the same administrator endpoints in Azure, you must provide an access key. To learn more, see [Work with access keys](function-keys-how-to.md). 
 
 + Access keys are valuable shared secrets. When used locally, they must be securely stored outside of source control. Because authentication and authorization aren't required by Functions when running locally, you should avoid using and storing access keys unless your scenarios require it.
 
@@ -495,7 +497,7 @@ When the settings file is encrypted and decrypted, the file's `IsEncrypted` sett
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
-This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported binding were included in the core product extension.
+This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported bindings were included in the core product extension.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -529,8 +531,6 @@ The following considerations apply to Core Tools installations:
 ::: zone pivot="programming-language-csharp,programming-language-javascript"  
 + Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
 ::: zone-end  
-
-When using Visual Studio Code, you can integrate Rosetta with the built-in Terminal. For more information, see [Enable emulation in Visual Studio Code](./functions-develop-vs-code.md#enable-emulation-in-visual-studio-code). 
 
 ## Next steps
 

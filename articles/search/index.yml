@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 01/24/2024
+  ms.date: 02/08/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -36,21 +36,25 @@ landingContent:
             url: search-get-started-portal.md
 
   # Card
-  - title: Vector stores
+  - title: Vector support
     linkLists:
       - linkListType: concept
         links:
           - text: Vectors in Azure AI Search
             url: vector-search-overview.md
-          - text: Integrated vectorization (preview)
+          - text: Built-in vectorization (preview)
             url: vector-search-integrated-vectorization.md
+          - text: Built-in scalar quantization (preview)
+            url: vector-search-how-to-configure-compression-storage.md
           - text: Retrieval Augmented Generation (RAG)
             url: retrieval-augmented-generation-overview.md
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: Create a vector store
+          - text: Create a vector index
             url: search-get-started-vector.md
-          - text: Query a vector store
+          - text: Chat with your data
+            url: search-get-started-retrieval-augmented-generation.md
+          - text: Query a vector index
             url: vector-search-how-to-query.md
       - linkListType: sample
         links:

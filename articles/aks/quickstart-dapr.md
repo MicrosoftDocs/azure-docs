@@ -4,8 +4,8 @@ description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) o
 author: nickomang
 ms.author: nickoman
 ms.topic: quickstart
-ms.date: 12/27/2023
-ms.custom: template-quickstart, mode-other, event-tier1-build-2022, ignite-2022, devx-track-js, devx-track-python, linux-related-content
+ms.date: 07/16/2024
+ms.custom: template-quickstart, mode-other, devx-track-js, devx-track-python
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension for Azure Kubernetes Service (AKS) or Arc-enabled Kubernetes
@@ -232,18 +232,20 @@ Now that both the Node.js and Python applications are deployed, you watch messag
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about other cluster extensions][cluster-extensions].
+> [Learn how to create the Dapr extension][dapr-create-extension]
 
 <!-- LINKS -->
 <!-- INTERNAL -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [cluster-extensions]: ./cluster-extensions.md
-[dapr-overview]: ./dapr.md
+[dapr-overview]: ./dapr-overview.md
 [az-group-delete]: /cli/azure/group#az-group-delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
+[dapr-create-extension]: ./dapr.md
 
 <!-- EXTERNAL -->
 [hello-world-gh]: https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes
 [azure-portal-cache]: https://portal.azure.com/#create/Microsoft.Cache
 [dapr-component-secrets]: https://docs.dapr.io/operations/components/component-secrets/
+

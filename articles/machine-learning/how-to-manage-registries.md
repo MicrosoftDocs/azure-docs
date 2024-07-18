@@ -1,16 +1,16 @@
 ---
 title: Create and manage registries
 titleSuffix: Azure Machine Learning
-description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio 
+description: Learn how create registries with the CLI, REST API, Azure portal and Azure Machine Learning studio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: kritifaujdar
 ms.date: 08/24/2023
 ms.topic: how-to
-ms.custom: ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Manage Azure Machine Learning registries
@@ -152,7 +152,6 @@ To create a registry, use the following command. You can edit the JSON to change
 > [!TIP]
 > We recommend using the latest API version when working with the REST API. For a list of the current REST API versions for Azure Machine Learning, see the [Machine Learning REST API reference](/rest/api/azureml/). The current API versions are listed in the table of contents on the left side of the page.
 
-```bash
 ```bash
 curl -X PUT https://management.azure.com/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/providers/Microsoft.MachineLearningServices/registries/reg-from-rest?api-version=2023-04-01 -H "Authorization:Bearer <YOUR-ACCESS-TOKEN>" -H 'Content-Type: application/json' -d ' 
 {

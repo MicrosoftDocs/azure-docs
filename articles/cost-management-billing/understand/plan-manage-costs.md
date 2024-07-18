@@ -3,13 +3,11 @@ title: Plan to manage Azure costs
 description: Learn how to plan to manage Azure costs and use cost-tracking and management features for your Azure account.
 author: bandersmsft
 ms.reviewer: sapnakeshari
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/05/2024
 ms.author: banders
-ms.custom: contperf-fy21q1
 ---
 
 # Plan to manage Azure costs
@@ -38,11 +36,11 @@ The images in the following sections show example pricing in US Dollars. The men
 
 Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to get an estimated monthly cost of the service that you want to add. You can change the currency to get the estimate in your local currency.
 
-![Screenshot of the pricing calculator menu](./media/plan-manage-costs/pricing-calc.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/pricing-calc.png" alt-text="Screenshot of the pricing calculator menu.":::
 
 You can view estimated cost for any first party Azure service. For example, in the screenshot below, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 per month in compute hours if you leave it running the whole time:
 
-![Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month](./media/plan-manage-costs/pricing-calc-vm.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/pricing-calc-vm.png" alt-text="Screenshot of the pricing calculator showing an A1 Windows VM estimated cost per month.":::
 
 The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
@@ -58,7 +56,7 @@ For other subscription types, you can get standard retail prices with the [Azure
 
 You can view the estimated cost per month while adding a service in the Azure portal. For example, when you choose the size of your Windows VM, you see the estimated monthly cost for the compute hours:
 
-![Example: an A1 Windows VM showing estimated cost per month](./media/plan-manage-costs/vm-size-cost.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/vm-size-cost.png" alt-text="Screenshot showing an A1 Windows VM with estimated cost per month.":::
 
 The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
@@ -80,13 +78,13 @@ Visit the [Cost Management + Billing page in the Azure portal](https://portal.az
 
 Select **Cost analysis** from the left side of the screen to see the current cost broken down by various pivots such as service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to display. By default, cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md#scopes)
 
-![Screenshot of the cost analysis view in Azure portal](./media/plan-manage-costs/cost-analysis.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/cost-analysis.png" alt-text="Screenshot of the cost analysis view in Azure portal.":::
 
 You can filter by various properties such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
 
 Additionally, you can select the labels of the chart to see the daily spend history for that label. For example, in the screenshot below, selecting a virtual machine displays the daily cost of running your VMs.
 
-:::image type="content" source="./media/plan-manage-costs/cost-history.png" alt-text="Screenshot of the spend history view in Azure portal" lightbox="./media/plan-manage-costs/cost-history.png" :::
+:::image type="content" source="./media/plan-manage-costs/cost-history.png" alt-text="Screenshot of the spend history view in Azure portal." lightbox="./media/plan-manage-costs/cost-history.png" :::
 
 ## Optimize and reduce costs
 
@@ -98,7 +96,7 @@ In the Azure portal, you can also optimize and reduce Azure costs with auto shut
 
 Depending on your scenario, you can configure auto shutdown for your VMs in the Azure portal. For more information, see [Auto shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-![Screenshot of auto shutdown option in the portal](./media/plan-manage-costs/auto-shutdown.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/auto-shutdown.png" alt-text="Screenshot of the auto shutdown option in the Azure portal.":::
 
 Auto shutdown isn't the same as when you shut down within the VM with power options. Auto shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
@@ -108,15 +106,26 @@ For more cost-cutting features for your development and test environments, check
 
 [Azure Advisor](../../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
 
-![Screenshot of Azure Advisor button in Azure portal](./media/plan-manage-costs/advisor-button.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/advisor-button.png" alt-text="Screenshot of Azure Advisor button in the Azure portal.":::
 
 Select **Cost** from the left-hand side. You'll see actionable recommendations in the **Cost** tab:
 
-![Screenshot of Advisor cost recommendation example](./media/plan-manage-costs/advisor-action.png)
+:::image type="content" border="true" source="./media/plan-manage-costs/advisor-action.png" alt-text="Screenshot of an Advisor cost recommendation.":::
 
 The mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
 Review the [Optimize costs from recommendations](../costs/tutorial-acm-opt-recommendations.md) tutorial for a guided tutorial about cost-saving Advisor recommendations.
+
+## Prevent unwanted charges
+
+To prevent unwanted charges on a subscription, you can go to **Resources** menu for the subscription and select the resources that you want to delete. If you don't want to have any charges for the subscription, select all of the subscription resources and then **Delete** them. The subscription essentially becomes an empty container with no charges.
+
+:::image type="content" source="./media/plan-manage-costs/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/plan-manage-costs/delete-resources.png" :::
+
+If you have a support plan, you might continue to get charged for it. To delete a support a plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
+
+:::image type="content" source="./media/plan-manage-costs/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/plan-manage-costs/change-renewal-settings.png" :::
+
 
 ## Integrate with billing and Cost Management APIs
 
@@ -124,12 +133,11 @@ Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
-### EA, CSP, and Sponsorship customers
+### CSP and Sponsorship customers
 Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| Enterprise Agreement (EA) | [EA portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), and [Power BI report](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
@@ -140,13 +148,11 @@ If you're managing IT for a large organization, we recommend reading [Azure ente
 Enterprise cost views are currently in Public Preview. Items to note:
 
 - Subscription costs are based on usage and don't include prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level.
-- Amounts shown in the Azure portal might be different than what's in the Enterprise portal. Updates in the Enterprise portal may take a few minutes before the changes are shown in the Azure portal.
 - If you aren't seeing costs, it might be for one of the following reasons:
     - You don't have permissions at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
     - You're an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs.
     - You're a Department Administrator and your Enrollment Administrator has disabled the **DA view charges** setting.  Contact your Enrollment Administrator to get access.
     - You bought Azure through a channel partner, and the partner didn't release pricing information.  
-- If you update settings related to cost,  access in the Enterprise portal, there's a delay of a few minutes before the changes are shown in the Azure portal.
 - Direct EA customers can update cost-related settings in the [Azure portal](https://portal.azure.com/). Navigate to the Policies menu to change settings.
 - Spending limit, and invoice guidance don't apply to EA Subscriptions.
 
@@ -178,6 +184,7 @@ For some services, there are prerequisites for the SLA to apply. For example, vi
 
 For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
-## Next steps
+## Related content
+
 - Learn about using [spending limits](../manage/spending-limit.md) to prevent overspending.
 - Start [analyzing your Azure costs](../costs/quick-acm-cost-analysis.md).

@@ -32,7 +32,6 @@ Trino in HDInsight on AKS enables seamless integration with data sources. You ca
 * [MongoDB](https://trino.io/docs/410/connector/mongodb.html)
 * [MySQL](https://trino.io/docs/410/connector/mysql.html)
 * [Oracle](https://trino.io/docs/410/connector/oracle.html)
-* [Phoenix](https://trino.io/docs/410/connector/phoenix.html)
 * [PostgreSQL](https://trino.io/docs/410/connector/postgresql.html)
 * [Prometheus](https://trino.io/docs/410/connector/prometheus.html)
 * [Redis](https://trino.io/docs/410/connector/redis.html)
@@ -42,3 +41,4 @@ Trino in HDInsight on AKS enables seamless integration with data sources. You ca
 * [Thrift](https://trino.io/docs/410/connector/thrift.html)
 * [TPCDS](https://trino.io/docs/410/connector/tpcds.html)
 * [TPCH](https://trino.io/docs/410/connector/tpch.html)
+* [Sharded SQL server](trino-sharded-sql-connector.md)

@@ -4,7 +4,6 @@ description: Learn to access data in Azure Cosmos DB using Mongoose from an Azur
 author: GeekTrainer
 ms.author: chrhar
 ms.service: static-web-apps
-ms.custom: ignite-2022
 ms.topic: tutorial
 ms.date: 10/10/2022
 ---
@@ -75,7 +74,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
 
 ## 3. Configure database connection string
 
-To allow the web app to communicate with the database, the database connection string is stored as an [application setting](application-settings.md). Setting values are accessible in Node.js using the `process.env` object.
+To allow the web app to communicate with the database, the database connection string is stored as an [application setting](application-settings.yml). Setting values are accessible in Node.js using the `process.env` object.
 
 1. Select **Home** in the upper left corner of the Azure portal (or go back to [https://portal.azure.com](https://portal.azure.com)).
 2. Select **Resource groups**.

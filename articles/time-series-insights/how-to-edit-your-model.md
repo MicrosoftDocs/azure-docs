@@ -8,7 +8,6 @@ ms.reviewer: orspodek
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.custom: seodec18
 ---
 
 # Data modeling in Azure Time Series Insights Gen2

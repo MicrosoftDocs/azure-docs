@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 12/19/2023
+ms.date: 03/07/2024
 ms.custom: enterprise-iot
 ---
 
@@ -15,12 +15,133 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+## July 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Security update](#security-update)  |
+
+### Security update
+
+This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
+
+## June 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Malicious URL path alert](#malicious-url-path-alert)<br> - [Newly supported protocols](#newly-supported-protocols)|
+
+### Malicious URL path alert
+
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+
+For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
+
+### Newly supported protocols
+
+We now support the Open protocol. [See the updated protocol list](concept-supported-protocols.md).
+
+## April 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update-1) |
+
+### Single sign-on for the sensor console
+
+You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites.
+
+Using Microsoft Entra ID simplifies the onboarding and offboarding processes, reduces administrative overhead, and ensures consistent access controls across the organization.
+
+:::image type="content" source="media/set-up-sso/sso-sign-in.png" alt-text="Screenshot of the sensor console login screen with SSO.":::
+
+For more information, see [Set up single sign-on on for the sensor console](set-up-sso.md).
+
+### Sensor time drift detection
+
+This version introduces a new troubleshooting test in the connectivity tool feature, specifically designed to identify time drift issues.
+
+One common challenge when connecting sensors to Defender for IoT in the Azure portal arises from discrepancies in the sensor’s UTC time, which can lead to connectivity problems. To address this issue, we recommend that you configure a Network Time Protocol (NTP) server [in the sensor settings](configure-sensor-settings-portal.md#ntp).
+
+### Security update
+
+This update resolves six CVEs, which are listed in [software version 24.1.3 feature documentation](release-notes.md#version-2413).
+
+## February 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | **Version 24.1.2**:<br> - [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)<br>- [Focused alerts in OT/IT environments](#focused-alerts-in-otit-environments)<br>- [Alert ID now aligned on the Azure portal and sensor console](#alert-id-now-aligned-on-the-azure-portal-and-sensor-console)<br>- [Newly supported protocols](#newly-supported-protocols-1)<br><br>**Cloud features**<br>- [New license renewal reminder in the Azure portal](#new-license-renewal-reminder-in-the-azure-portal) <br><br>- [New OT appliance hardware profile](#new-ot-appliance-hardware-profile) <br><br>- [New fields for SNMP MIB OIDs](#new-fields-for-snmp-mib-oids)|
+
+### Alert suppression rules from the Azure portal (Public preview)
+
+Now you can configure alert suppression rules from the Azure portal to instruct your OT sensors to specified traffic on your network that would otherwise trigger an alert.
+
+- Configure which alerts to suppress by specifying an alert title, IP/MAC address, hostname, subnet, sensor, or site.
+- Set each suppression rule to be active always, or only during a predefined period, such as for a specific maintenance window.
+
+> [!TIP]
+> If you're currently using exclusion rules on the on-premises management console, we recommend that you migrate them to suppression rules on the Azure portal. 
+For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
+
+### Focused alerts in OT/IT environments
+
+Organizations where sensors are deployed between OT and IT networks deal with many alerts, related to both OT and IT traffic. The number of alerts, some of which are irrelevant, can cause alert fatigue and affect overall performance.
+
+To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
+
+This update is available in sensor version 24.1.3 and later.
+
+For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
+
+### Alert ID now aligned on the Azure portal and sensor console
+
+The alert ID in the **Id** column on the Azure portal **Alerts** page now displays the same alert ID as the sensor console. [Learn more about alerts on the Azure portal](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal).
+
+> [!NOTE]
+> If the [alert was merged with other alerts](alerts.md#alert-management-options) from sensors that detected the same alert, the Azure portal displays the alert ID of the first sensor that generated the alerts.
+
+### Newly supported protocols
+
+We now support these protocols:
+
+- HART-IP
+- FANUC FOCAS
+- Dicom
+- ABB NetConfig
+- Rockwell AADvance Discover
+- Rockwell AADvance SNCP/IXL
+- Schneider NetManage
+
+[See the updated protocol list](concept-supported-protocols.md).
+
+### L60 hardware profile is no longer supported
+
+The L60 hardware profile is no longer supported and is removed from support documentation. Hardware profiles now require a minimum of 100GB (the minimum hardware profile is now [L100](ot-virtual-appliances.md)).
+
+To migrate from the L60 profile to a supported profile follow the [Back up and restore OT network sensor](back-up-restore-sensor.md) procedure.
+
+### New license renewal reminder in the Azure portal
+
+When the license for one or more of your OT sites is about to expire, a note is visible at the top of Defender for IoT in the Azure portal, reminding you to renew your licenses. To continue to get security value from Defender for IoT, select the link in the note to renew the relevant licenses in the Microsoft 365 admin center. Learn more about [Defender for IoT billing](billing.md).
+
+:::image type="content" source="media/whats-new/license-renewal-note.png" alt-text="Screenshot of the license renewal reminder note." lightbox="media/whats-new/license-renewal-note.png":::
+
+### New OT appliance hardware profile
+
+The DELL XE4 SFF appliance is now supported for OT sensors monitoring production lines. This is part of the L500 hardware profile, a *Production line* environment, with six cores, 8-GB RAM, and 512-GB disk storage.
+
+For more information, see [DELL XE4 SFF](appliance-catalog/dell-xe4-sff.md).
+
+### New fields for SNMP MIB OIDs
+
+Additional standard, generic fields have been added to the SNMP MiB OIDs. For the full list of fields, see [OT sensor OIDs for manual SNMP configurations](how-to-set-up-snmp-mib-monitoring.md#ot-sensor-oids-for-manual-snmp-configurations).
 
 ## January 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) <br> |
+| **OT networks** | [Sensor update in Azure portal now supports selecting a specific version](#sensor-update-in-azure-portal-now-supports-selecting-a-specific-version) |
 
 ### Sensor update in Azure portal now supports selecting a specific version
 
@@ -31,6 +152,7 @@ You might want to update your sensor to a specific version for various reasons, 
 :::image type="content" source="media/whats-new/send-package-multiple-versions-400.png" alt-text="Screenshot of sensor update pane with option to choose sensor update version." border="false" lightbox="media/whats-new/send-package-multiple-versions.png" :::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md#send-the-software-update-to-your-ot-sensor).
+| **OT networks** |**Version 24.1.0**: <br>- [Alert suppression rules from the Azure portal (Public preview)](#alert-suppression-rules-from-the-azure-portal-public-preview)|
 
 ## December 2023
 
@@ -40,11 +162,11 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ### OT network sensors now run on Debian 11
 
-Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+Sensor version 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 
-Due to the operating system switch, the software update from your legacy version to version 23.2.0 may be longer and heavier than usual. 
+Due to the operating system switch, the software update from your legacy version to version 23.2.0 might be longer and heavier than usual. 
 
 For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -66,7 +188,6 @@ For example, use the privileged *admin* user in the following scenarios:
 > The legacy *support* user is available and supported only on versions earlier than 23.2.0.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-
 
 ### New architecture for hybrid and air-gapped support
 
@@ -101,7 +222,7 @@ For more information, see:
 
 ### Live statuses for cloud-based sensor updates
 
-When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, isn't stuck or has failed. For example:
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
 
@@ -176,7 +297,6 @@ From your sensor, do one of the following to open the **Cloud connectivity troub
 
 - On the **Overview** page, select the **Troubleshoot** link at the top of the page
 - Select **System settings > Sensor management > Health and troubleshooting > Cloud connectivity troubleshooting**
-
 
 For more information, see [Check sensor - cloud connectivity issues](how-to-troubleshoot-sensor.md#check-sensor---cloud-connectivity-issues).
 
@@ -430,7 +550,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -539,7 +659,7 @@ See and filter which devices are defined as *local* or *routed*, according to yo
 Configure your subnets either on the Azure portal or on your OT sensor. For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#subnet)
+- [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#local-subnets)
 - [Fine tune your subnet list](how-to-control-what-traffic-is-monitored.md#fine-tune-your-subnet-list)
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
@@ -1262,7 +1382,7 @@ For more information, see [Update OT system software](update-ot-software.md).
 
 Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-In addition to [migration steps](update-legacy-ot-software.md#migrate-a-cloud-connection-from-the-legacy-method), this new connectivity model requires that you open a new firewall rule. For more information, see:
+In addition to migration steps, this new connectivity model requires that you open a new firewall rule. For more information, see:
 
 - **New firewall requirements**: [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 - **Architecture**: [Sensor connection methods](architecture-connections.md)

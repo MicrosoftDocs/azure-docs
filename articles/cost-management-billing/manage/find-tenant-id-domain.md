@@ -4,7 +4,6 @@ titleSuffix: Microsoft Cost Management
 description: Describes how to find ID and primary domain for your Microsoft Entra tenant.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to

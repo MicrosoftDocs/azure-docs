@@ -6,12 +6,11 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Management operations in Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article defines the management operations and features provided by the service. It also explains the separation of responsibilities between the Azure support team and customers when maintaining standalone and [hybrid](configure-hybrid-cluster.md) clusters.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed. This article defines the management operations and features provided by the service. It also explains the separation of responsibilities between the Azure support team and customers when maintaining [hybrid](configure-hybrid-cluster.md) clusters.
 
 ## Compaction
 
@@ -83,9 +82,9 @@ Snapshot backups are enabled by default and taken every 24 hours. Backups are st
 
 To restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. When filing the support case, you need to:
 
-1. Provide the backup id from portal for the backup you want to restore. This can be found in the portal:
+1. Provide the backup ID from portal for the backup you want to restore. This can be found in the portal:
 
-    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page highlighting backup id." lightbox="./media/management-operations/backup.png" border="true":::
+    :::image type="content" source="./media/management-operations/backup.png" alt-text="Screenshot of backup schedule configuration page highlighting backup ID." lightbox="./media/management-operations/backup.png" border="true":::
     
 1. If restore of the whole cluster is not required, provide the keyspace and table (if applicable) that needs to be restored.
 1. Advise whether you want the backup to be restored in the existing cluster, or in a new cluster.

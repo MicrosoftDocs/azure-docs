@@ -9,17 +9,15 @@ ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
-  - ignite-2022
   - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using DMS (classic)
 
-[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
-> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-online-ads.md).
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](/data-migration/sql-server/managed-instance/database-migration-service).
 >
 > To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
@@ -50,7 +48,7 @@ You learn how to:
 > [!IMPORTANT]
 > Reduce the duration of the online migration process as much as possible to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours before migration process is restarted.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article describes an online migration from SQL Server to a SQL Managed Instance. For an offline migration, see [Migrate SQL Server to a SQL Managed Instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
 
@@ -90,7 +88,7 @@ To complete this tutorial, you need to:
 * Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
-* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal).
 
   > [!NOTE]
   > The Application ID used by the Azure Database Migration Service supports secret (password-based) authentication for service principals. It does not support certificate-based authentication.
@@ -103,9 +101,9 @@ To complete this tutorial, you need to:
   > [!NOTE]
   > When you migrate a database that's protected by [Transparent Data Encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) to a managed instance by using online migration, the corresponding certificate from the on-premises or Azure VM SQL Server instance must be migrated before the database restore. For detailed steps, see [Migrate a TDE cert to a managed instance](/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]
 
 > [!NOTE] 
 > For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](./resource-network-topologies.md).
@@ -151,7 +149,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Select target** screen, specify the **Application ID** and **Key** that the DMS instance can use to connect to the target instance of SQL Managed Instance and the Azure Storage Account.
 
-    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal).
 
 2. Select the **Subscription** containing the target instance of SQL Managed Instance, and then choose the target SQL Managed instance.
 

@@ -1,11 +1,11 @@
 ---
 title: Learn about Azure Analysis Services database backup and restore | Microsoft Docs
 description: This article describes how to backup and restore model metadata and data from an Azure Analysis Services database.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 01/24/2023
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 ms.custom: references_regions 
 

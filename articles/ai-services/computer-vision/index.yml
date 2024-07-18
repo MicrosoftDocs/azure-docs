@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 07/04/2023
+  ms.date: 04/30/2024
 
 highlightedContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -49,7 +49,7 @@ conceptualContent:
           url: /training/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
-          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+          url: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
 
     - title: Image Analysis
       links:
@@ -115,10 +115,10 @@ conceptualContent:
       footerLink:
         text: More
         url: overview-identity.md
-    - title: Spatial Analysis
+    - title: Video Analysis
       links:
         - itemType: overview
-          text: About Spatial Analysis
+          text: About Video Analysis
           url: intro-to-spatial-analysis-public-preview.md
         - itemType: quickstart
           text: Get started with Spatial Analysis
@@ -126,6 +126,9 @@ conceptualContent:
         - itemType: how-to-guide
           text: Configure Spatial Analysis operations
           url: spatial-analysis-operations.md
+        - itemType: how-to-guide
+          text: Call the Video Retrieval APIs
+          url: how-to/video-retrieval.md
         - itemType: concept
           text: Zone and line placement
           url: spatial-analysis-zone-line-placement.md
@@ -137,7 +140,7 @@ conceptualContent:
           url: spatial-analysis-logging.md
       footerLink:
         text: More
-        url: index-spatial-analysis.yml
+        url: intro-to-spatial-analysis-public-preview.md
 
 tools:
   title: Software development kits (SDKs)
@@ -163,7 +166,7 @@ additionalContent:
       - title: REST APIs
         links:
         - text: Optical character recognition (OCR)
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+          url: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
         - text: Image Analysis
           url: https://aka.ms/vision-4-0-ref
         - text: Face

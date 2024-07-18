@@ -2,18 +2,16 @@
 title: Performance tips
 titleSuffix: Azure AI Search
 description: Learn about tips and best practices for maximizing performance on a search service.
-author: mattmsft
+author: mattgotteiner
 ms.author: magottei
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/20/2023
+ms.date: 06/06/2024
 ---
 
 # Tips for better performance in Azure AI Search
 
-This article is a collection of tips and best practices that are often recommended for boosting performance. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
+This article is a collection of tips and best practices for boosting query and indexing performance for keyword search. Knowing which factors are most likely to impact search performance can help you avoid inefficiencies and get the most out of your search service. Some key factors include:
 
 + Index composition (schema and size)
 + Query design
@@ -95,13 +93,17 @@ When query performance is slowing down in general, adding more replicas frequent
 
 One positive side-effect of adding partitions is that slower queries sometimes perform faster due to parallel computing. We've noted parallelization on low selectivity queries, such as queries that match many documents, or facets providing counts over a large number of documents. Since significant computation is required to score the relevancy of the documents, or to count the numbers of documents, adding extra partitions helps queries complete faster.  
 
-To add partitions, use [Azure portal](search-create-service-portal.md), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
+To add partitions, use [Azure portal](search-capacity-planning.md#adjust-capacity), [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md), or a management SDK.
 
 ## Service capacity
 
 A service is overburdened when queries take too long or when the service starts dropping requests. If this happens, you can address the problem by upgrading the service or by adding capacity.
 
 The tier of your search service and the number of replicas/partitions also have a large impact on performance. Each progressively higher tier provides faster CPUs and more memory, both of which have a positive impact on performance.
+
+### Tip: Create a new high capacity search service
+
+Basic and standard services created [in supported regions]([supported regions](search-limits-quotas-capacity.md#supported-regions-with-higher-storage-limits) after April 3, 2024 have more storage per partition than older services. Before upgrading to a higher tier and a higher billable rate, revisit the [tier service limits](search-limits-quotas-capacity.md#service-limits) to see if the same tier on a newer service gives you the necessary storage.
 
 ### Tip: Upgrade to a Standard S2 tier
 
@@ -135,8 +137,7 @@ An important benefit of added memory is that more of the index can be cached, re
 
 ### Tip: Consider alternatives to regular expression queries
 
-[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for complex searches, they also may require a lot of processing power to be executed, especially if the regular expression has a lot of complexity or when searching through a large amount of data. This would result in high search latency. In order to reduce the search latency, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
-
+[Regular expression queries](query-lucene-syntax.md#bkmk_regex) or regex can be particularly expensive. While they can be very useful for advanced searches, execution can require a lot of processing power, especially if the regular expression is complicated or if you're searching through a large amount of data. All of these factors contribute to high search latency. As a mitigation, try to simplify the regular expression or break the complex query down into smaller, more manageable queries. 
 
 ## Next steps
 

@@ -3,6 +3,9 @@ title: Manually scale nodes in an Azure Kubernetes Service (AKS) cluster
 description: Learn how to manually scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.date: 01/22/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Manually scale the node count in an Azure Kubernetes Service (AKS) cluster
@@ -23,7 +26,7 @@ This article describes how to manually increase or decrease the number of nodes 
 ## Scale the cluster nodes
 
 > [!IMPORTANT]
-> Removing nodes from a node pool using the kubectl command is not supported. Doing so can create scaling issues with your AKS cluster.
+> Removing nodes from a node pool using the kubectl command isn't supported. Doing so can create scaling issues with your AKS cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -136,6 +139,9 @@ This article describes how to manually increase or decrease the number of nodes 
 
 Unlike `System` node pools that always require running nodes, `User` node pools allow you to scale to 0. To learn more on the differences between system and user node pools, see [System and user node pools](use-system-pools.md).
 
+> [!IMPORTANT]
+> You can't scale a user node pool with the cluster autoscaler enabled to 0 nodes. To scale a user node pool to 0 nodes, you must disable the cluster autoscaler first. For more information, see [Disable the cluster autoscaler on a node pool](./cluster-autoscaler.md#disable-the-cluster-autoscaler-on-a-node-pool).
+
 ### [Azure CLI](#tab/azure-cli)
 
 * To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set `0` as your node count.
@@ -174,3 +180,4 @@ In this article, you manually scaled an AKS cluster to increase or decrease the 
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale
 [update-azaksnodepool]: /powershell/module/az.aks/update-azaksnodepool
 [service-quotas]: ./quotas-skus-regions.md#service-quotas-and-limits
+

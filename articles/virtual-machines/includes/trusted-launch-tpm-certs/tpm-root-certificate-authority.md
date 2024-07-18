@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 
 <details>
-<summary>Select to download the .crt below for the Azure Virtual TPM Root Certificate Authority 2023</summary>
+<summary>Select to download the .crt that follows for the Azure Virtual TPM Root Certificate Authority 2023</summary>
 
 [Azure Virtual TPM Root Certificate Authority 2023](https://www.microsoft.com/pkiops/certs/Azure%20Virtual%20TPM%20Root%20Certificate%20Authority%202023.crt)
 

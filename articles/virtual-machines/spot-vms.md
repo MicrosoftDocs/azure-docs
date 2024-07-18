@@ -1,13 +1,12 @@
 ---
-title: Use Azure Spot Virtual Machines 
+title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 
@@ -61,7 +60,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P)
+-	Sponsored (0036P and 0136P) - not available in Fairfax
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
@@ -84,11 +83,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Chart**:
 
-:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ### Azure Resource Graph
 

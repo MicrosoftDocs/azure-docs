@@ -6,12 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-ignite-2022
+ms.custom: cliv2
 
-ms.author: xiaoxiaoli
-author: xiaoxiaoli
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 12/22/2022
-ms.reviewer: ssalgado
+ms.reviewer: xiaoxiaoli
 ---
 
 # CLI (v2) Automated ML text classification job YAML schema

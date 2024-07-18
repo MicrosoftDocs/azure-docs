@@ -1,6 +1,6 @@
 ---
-title: Apache Airflow configuration options on Managed Airflow
-description: This article explains how Apache Airflow configuration options can be attached to your Managed Airflow integration runtimes for an Apache Airflow environment as key-value pairs.
+title: Supported Apache Airflow configurations
+description: This article enumerates the Apache Airflow configurations supported by the Workflow Orchestration Manager.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -9,9 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2023
 ---
 
-# Apache Airflow configuration options on Managed Airflow
+# Supported Apache Airflow configurations
 
-Apache Airflow configuration options can be attached to your Azure Data Factory Managed Airflow integration runtime as key-value pairs. We don't expose the `airflow.cfg` in the Managed Airflow UI. However, users can override the Apache Airflow configurations directly on the UI as key-value pairs under the `Airflow Configuration overrides` section. They can continue using all other settings in `airflow.cfg`. In Managed Airflow, developers can override any of the Airflow configurations provided by Apache Airflow except the configurations shown in the table.
+> [!NOTE]
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
+
+In Workflow Orchestration Manager, Apache Airflow configurations can be integrated with the platform's runtime as key-value pairs. While the `airflow.cfg` isn't directly accessible in the UI, users can override these configurations via the UI's "Airflow Configuration overrides" section, retaining access to other `airflow.cfg` settings. Developers have the flexibility to override most Apache Airflow configurations within Workflow Orchestration Manager, `except for those explicitly outlined in a provided table`.
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

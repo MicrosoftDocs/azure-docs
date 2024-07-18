@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: franksolomon
-author: samuel100
-ms.author: samkemp
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: swatig 
 ms.date: 07/13/2023
-ms.custom: data4ml, event-tier1-build-2022
+ms.custom: data4ml
 #Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.
 ---
 
@@ -41,6 +41,20 @@ Azure Data Lake Gen1 | ✓ | ✓|
 Azure Data Lake Gen2| ✓ | ✓|
 
 See [Create datastores](how-to-datastore.md) for more information about datastores.
+
+### Default datastores
+
+Each Azure Machine Learning workspace has a default storage account (Azure storage account) that contains the following datastores:
+
+> [!TIP]
+> To find the ID for your workspace, go to the workspace in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
+
+| Datastore name | Data storage type | Data storage name | Description |
+|---|---|---|---|
+| `workspaceblobstore` | Blob container | `azureml-blobstore-{workspace-id}` | Stores data uploads, job code snapshots, and pipeline data cache. |
+| `workspaceworkingdirectory` | File share | `code-{GUID}` | Stores data for notebooks, compute instances, and prompt flow. |
+| `workspacefilestore` | File share | `azureml-filestore-{workspace-id}` | Alternative container for data upload. |
+| `workspaceartifactstore` | Blob container | `azureml` | Storage for assets such as metrics, models, and components. |
 
 ## Data types
 

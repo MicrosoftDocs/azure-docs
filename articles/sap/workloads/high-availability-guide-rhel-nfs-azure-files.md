@@ -3,12 +3,11 @@ title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| M
 description: Establish high availability for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
 
@@ -116,9 +115,6 @@ During VM configuration, you have an option to create or select exiting load bal
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
 
 ---
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard instance of Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -250,7 +246,7 @@ The following items are prefixed with:
     ```bash
     # mount temporarily the volume
     sudo mkdir -p /saptmp
-    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o vers=4,minorversion=1,sec=sys
+    sudo mount -t nfs sapnfs.file.core.windows.net:/sapnfsafs/sapnw1 /saptmp -o noresvport,vers=4,minorversion=1,sec=sys
     # create the SAP directories
     sudo cd /saptmp
     sudo mkdir -p sapmntNW1
@@ -292,9 +288,9 @@ The following items are prefixed with:
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1sys/ /usr/sap/NW1/SYS  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 
@@ -344,7 +340,7 @@ The following items are prefixed with:
     sudo pcs node standby sap-cl2
    
     sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
-      directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+      directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
       --group g-NW1_ASCS
    
@@ -400,7 +396,7 @@ The following items are prefixed with:
     sudo pcs node standby sap-cl1
     
     sudo pcs resource create fs_NW1_AERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' \
-      directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='sec=sys,vers=4.1' \
+      directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
       op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW1_AERS
    
@@ -686,8 +682,8 @@ The following items are prefixed with:
     ```bash
     vi /etc/fstab
     # Add the following lines to fstab, save and exit
-    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs vers=4,minorversion=1,sec=sys  0  0
-    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
+    sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0
     
     # Mount the file systems
     mount -a 

@@ -10,7 +10,7 @@ ms.date: 12/08/2023
 
 # How to manage data sources in Azure Managed Grafana
 
-In this guide, you learn about data sources supported in each Azure Managed Grana plan and learn how to add, manage and remove these data sources.
+In this guide, you learn about data sources supported in each Azure Managed Grafana plan and learn how to add, manage and remove these data sources.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Azure Managed Grafana supports many popular data sources. The table below lists 
 Within the Standard service tier, users who have subscribed to the Grafana Enterprise option can also access the following data sources.
 
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
-* [Azure Devops](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
+* [Azure DevOps](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
 * [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
 * [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)

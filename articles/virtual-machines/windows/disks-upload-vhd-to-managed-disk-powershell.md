@@ -28,7 +28,7 @@ If you're using [Microsoft Entra ID](../../active-directory/fundamentals/active-
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
 
 ### Restrictions
-[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../includes/disks-azure-ad-upload-download-restrictions.md)]
 
 ### Assign RBAC role
 
@@ -107,7 +107,7 @@ To upload your VHD to Azure, you'll need to create an empty managed disk that is
 
 This kind of managed disk has two unique states:
 
-- ReadyToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
+- ReadyToUpload, which means the disk is ready to receive an upload but, no [secure access signature (SAS)](../../storage/common/storage-sas-overview.md) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]

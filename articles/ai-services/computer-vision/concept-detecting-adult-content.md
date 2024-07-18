@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: seodec18, ignite-2022
 ---
 
 # Adult content detection
@@ -35,6 +34,6 @@ The "adult" classification contains several different categories:
 
 ## Use the API
 
-You can detect adult content with the [Analyze Image 3.2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. When you add the value of `Adult` to the **visualFeatures** query parameter, the API returns three boolean properties&mdash;`isAdultContent`, `isRacyContent`, and `isGoryContent`&mdash;in its JSON response. The method also returns corresponding properties&mdash;`adultScore`, `racyScore`, and `goreScore`&mdash;which represent confidence scores between zero and one for each respective category.
+You can detect adult content with the [Analyze Image 3.2](/rest/api/computervision/analyze-image?view=rest-computervision-v3.2) API. When you add the value of `Adult` to the **visualFeatures** query parameter, the API returns three boolean properties&mdash;`isAdultContent`, `isRacyContent`, and `isGoryContent`&mdash;in its JSON response. The method also returns corresponding properties&mdash;`adultScore`, `racyScore`, and `goreScore`&mdash;which represent confidence scores between zero and one for each respective category.
 
 - [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

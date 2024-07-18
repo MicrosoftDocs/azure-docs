@@ -1,7 +1,7 @@
 ---
 title: Configure a monitoring interface using a Hyper-V vSwitch - Microsoft Defender for IoT
 description: This article describes traffic mirroring with a Hyper-V vSwitch for OT monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+ms.date: 03/14/2024
 ms.topic: install-set-up-deploy
 ---
 

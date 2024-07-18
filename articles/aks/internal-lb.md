@@ -66,7 +66,7 @@ You can create and use an internal load balancer to restrict access to your appl
 
 ## Specify an IP address
 
-When you specify an IP address for the load balancer, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
+When you specify an IP address for the load balancer, the specified IP address must reside in the same virtual network as the AKS cluster, but it can't already be assigned to another resource in the virtual network. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster. Using an IP address that's already assigned to another resource in the same virtual network can cause issues with the load balancer.
 
 You can use the [`az network vnet subnet list`][az-network-vnet-subnet-list] Azure CLI command or the [`Get-AzVirtualNetworkSubnetConfig`][get-azvirtualnetworksubnetconfig] PowerShell cmdlet to get the subnets in your virtual network.
 
@@ -317,3 +317,4 @@ To learn more about Kubernetes services, see the [Kubernetes services documentat
 [get-azvirtualnetworksubnetconfig]: /powershell/module/az.network/get-azvirtualnetworksubnetconfig
 [az-network-private-link-service-list]: /cli/azure/network/private-link-service#az_network_private_link_service_list
 [az-network-private-endpoint-create]: /cli/azure/network/private-endpoint#az_network_private_endpoint_create
+

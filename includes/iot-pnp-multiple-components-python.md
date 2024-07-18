@@ -23,7 +23,7 @@ In this tutorial, you:
 
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
-To complete this tutorial, you need Python 3.7 on your development machine. You can download the latest recommended version for multiple platforms from [python.org](https://www.python.org/). You can check your Python version with the following command:  
+To complete this tutorial, you need Python installed on your development machine. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can check your Python version with the following command:  
 
 ```cmd/sh
 python --version
@@ -41,7 +41,7 @@ In your local Python environment, install the package as follows:
 pip install azure-iot-device
 ```
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Python)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Python)](../articles/iot/tutorial-connect-device.md), you've already cloned the repository.
 
 Clone the Python SDK IoT repository:
 
@@ -51,7 +51,7 @@ git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 The *azure-iot-sdk-python/samples/pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 

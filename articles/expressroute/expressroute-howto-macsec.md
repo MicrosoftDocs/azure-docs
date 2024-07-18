@@ -88,11 +88,11 @@ Follow these steps to begin the configuration:
     ```
     
     > [!NOTE]
-    > CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
-    >
-    > CAK length depends on cipher suite specified:
-    > * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
-    > * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
+    > * CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+    > * CAK length depends on cipher suite specified:
+    >    * For GcmAes128 and GcmAesXpn128, the CAK must be an even-length string with 32 hexadecimal digits (0-9, A-F).
+    >    * For GcmAes256 and GcmAesXpn256, the CAK must be an even-length string with 64 hexadecimal digits (0-9, A-F).
+    > * For CAK, the full length of the key must be used. If the key is shorter than the required length then `0's` will be added to the end of the key to meet the length requirement. For example, CAK of 1234 will be 12340000... for both 128-bit and 256-bit based on the cipher.
 
 1. Grant the user identity the authorization to perform the `GET` operation.
 

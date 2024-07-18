@@ -66,6 +66,8 @@ items:
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
+  - name: Business rules engine integration
+    href: rules-engine/rules-engine-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
@@ -83,38 +85,64 @@ items:
   items:
   - name: Single-tenant Azure Logic Apps
     items:
-    - name: Single-tenant overview
+    - name: Overview
       href: single-tenant-overview-compare.md
     - name: About the Standard workflow designer
       href: designer-overview.md
-    - name: Create single-tenant workflows - Portal
+    - name: Built-in versus Azure connector operations
+      href: ../connectors/compare-built-in-azure-connectors.md
+    - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
-    - name: Create single-tenant workflows - Visual Studio Code
+    - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
-    - name: Set up SQL storage for single-tenant workflows
+    - name: Estimate storage costs
+      href: estimate-storage-costs.md
+    - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
-    - name: Built-in versus Azure connector operations
-      href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Edit host and app settings for logic apps in single-tenant
-      href: edit-app-settings-host-settings.md
-    - name: Create and run .NET Framework code
+    - name: Secure traffic between Standard workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Develop for rules engine integration
+      items:
+      - name: Overview for rules engine integration
+        href: rules-engine/rules-engine-overview.md
+      - name: Create business rules
+        href: rules-engine/create-rules.md
+      - name: Add operators to rules
+        href: rules-engine/add-rules-operators.md
+      - name: Add control functions to rules
+        href: rules-engine/add-rules-control-functions.md
+      - name: Create and manage vocabularies
+        href: rules-engine/create-manage-vocabularies.md
+      - name: Advanced ruleset tasks
+        href: rules-engine/perform-advanced-ruleset-tasks.md
+      - name: Rules engine optimization
+        href: rules-engine/rules-engine-optimization.md
+      - name: Build fact creators and retrievers
+        href: rules-engine/build-fact-creators-retrievers.md
+      - name: Test your ruleset
+        href: rules-engine/test-rulesets.md
+      - name: Create a rules engine project
+        href: rules-engine/create-rules-engine-project.md
+    - name: Create and run .NET code
       href: create-run-custom-code-functions.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: DevOps deployment for single-tenant
-      href: devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Set up DevOps deployment for single-tenant
-      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
-    - name: Secure traffic between single-tenant logic apps and virtual networks
-      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
-    - name: Deploy single-tenant Standard logic apps to private storage accounts
-      href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Estimate storage costs for single-tenant workflows
-      href: estimate-storage-costs.md
-    - name: Create custom built-in connectors for single-tenant workflows
+    - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
+    - name: Set up deployment slots
+      href: set-up-deployment-slots.md
+    - name: DevOps deployment
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up DevOps deployment
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Automate DevOps build and deployment
+      href: automate-build-deployment-standard.md
+    - name: Deploy Standard logic apps to private storage accounts
+      href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
@@ -137,12 +165,8 @@ items:
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
         href: biztalk-server-azure-integration-services-migration-approaches.md
-      - name: Migrate from BizTalk Services
-        href: logic-apps-move-from-mabs.md
   - name: Develop
     items:
-    - name: Create from prebuilt templates
-      href: logic-apps-create-logic-apps-from-templates.md
     - name: Build your workflow with a trigger or action
       href: create-workflow-with-trigger-or-action.md
     - name: Control workflow execution
@@ -161,14 +185,14 @@ items:
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md
-    - name: Add and run code snippets with inline code
-      href: logic-apps-add-run-inline-code.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run JavaScript snippets
+      href: add-run-javascript.md
     - name: Create cross-environment parameters for workflows
       href: create-parameters-workflows.md
-    - name: Add and run code with Azure Functions
-      href: logic-apps-azure-functions.md
-    - name: Call logic apps with Azure Functions
-      href: logic-apps-scenario-function-sb-trigger.md
+    - name: Call Azure Functions
+      href: call-azure-functions-from-workflows.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
@@ -289,6 +313,8 @@ items:
     items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
+    - name: Azure AI Search and Azure OpenAI
+      href: connectors/azure-ai.md
     - name: Azure Blob Storage
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
@@ -315,13 +341,13 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365
+    - name: Dynamics 365 (Deprecated)
       href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
-    - name: File system
+    - name: File System
       href: ../connectors/file-system.md
-    - name: Flat file
+    - name: Flat File
       href: logic-apps-enterprise-integration-flatfile.md
     - name: FTP
       href: ../connectors/connectors-create-api-ftp.md
@@ -341,6 +367,8 @@ items:
       href: ../connectors/connectors-create-api-db2.md
     - name: IBM Host File
       href: ../connectors/integrate-host-files-ibm-mainframe.md
+    - name: IBM i
+      href: ../connectors/integrate-ibmi-apps-distributed-program-calls.md
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
@@ -349,7 +377,7 @@ items:
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
-    - name: Microsoft Dataverse (Common Data Service)
+    - name: Microsoft Dataverse
       href: ../connectors/connect-common-data-service.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
@@ -428,21 +456,23 @@ items:
   - name: Monitor
     items:
       - name: Monitor workflows
+        href: monitor-logic-apps-overview.md
+      - name: View workflow status and run history
         href: monitor-logic-apps.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
+      - name: Enable and view enhanced telemetry for Standard workflows
+        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
         href: monitor-workflows-collect-diagnostic-data.md
       - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md
-      - name: Create monitoring and tracking queries
-        href: create-monitoring-tracking-queries.md
-      - name: Enable and view enhanced telemetry for Standard workflows
-        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Tracking schemas for monitoring messages
         href: tracking-schemas-as2-x12-custom.md
+      - name: Create monitoring and tracking queries
+        href: create-monitoring-tracking-queries.md
   - name: Business continuity and disaster recovery
     items:
     - name: Set up zone redundant logic apps
@@ -476,6 +506,8 @@ items:
     href: /connectors/connector-reference/connector-reference-logicapps-connectors
   - name: Built-in service provider connector reference - Standard
     href: /azure/logic-apps/connectors/built-in/reference
+  - name: Monitoring data reference
+    href: monitor-logic-apps-reference.md
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Azure CLI - Consumption

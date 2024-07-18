@@ -50,6 +50,9 @@ Because the feature is anchored on individual messages and messages can only be 
 > [!NOTE]
 > Message enqueuing time doesn't mean that the message will be sent at the same time. It will get enqueued, but the actual sending time depends on the queue's workload and its state.
 
+> [!NOTE]
+> Due to performance considerations, the activation and cancellation of scheduled messages are independent operations without mutual locking. If a message is in the process of being activated and is simultaneously cancelled, the activation process will not be reversed and the message will still be activated. Moreover, this can potentially lead to a negative count of scheduled messages. To minimize this race condition, it is recommended to avoid scheduling activation and cancellation operations in close succession.
+
 ### Using scheduled messages with workflows
 
 It is common to see longer-running business workflows that have an explicit time component to them, like 5-minute timeouts for 2-factor authentication, hour-long timeouts for users confirming their email address, and multi-day, week, or month long time components in domains like banking and insurance.

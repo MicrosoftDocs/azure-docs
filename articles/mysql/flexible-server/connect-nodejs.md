@@ -4,11 +4,15 @@ description: This quickstart provides several Node.js code samples you can use t
 author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
-ms.date: 06/19/2023
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, linux-related-content
+ms.custom:
+  - mvc
+  - devx-track-js
+  - mode-api
+  - linux-related-content
 ms.devlang: javascript
 ---
 
@@ -74,18 +78,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### [Linux (RHEL/CentOS)](#tab/rhel)
+### [Linux (RHEL)](#tab/rhel)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-    **RHEL/CentOS 7.x**
+    **RHEL 7.x**
 
     ```bash
     sudo yum install -y rh-nodejs8
     scl enable rh-nodejs8 bash
    ```
 
-    **RHEL/CentOS 8.x**
+    **RHEL 8.x**
 
    ```bash
     sudo yum install -y nodejs

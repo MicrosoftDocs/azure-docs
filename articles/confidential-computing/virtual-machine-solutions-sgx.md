@@ -4,11 +4,10 @@ description: Learn about using Intel SGX virtual machines (VMs) in Azure confide
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/12/2023
 ms.author: jushiman
-ms.custom: ignite-fall-2021, devx-track-arm-template
+ms.custom: devx-track-arm-template
 ---
 
 # Solutions on Azure for Intel SGX

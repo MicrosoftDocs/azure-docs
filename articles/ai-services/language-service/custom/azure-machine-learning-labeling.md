@@ -3,12 +3,12 @@ title: Use Azure Machine Learning labeling in Language Studio
 description: Learn how to label your data in Azure Machine Learning, and import it for use in the Language service.
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 # Use Azure Machine Learning labeling in Language Studio

@@ -76,16 +76,16 @@ The following networking features are specific to Azure Red Hat OpenShift:
 * Pod CIDRs should be minimum /18 in size. (The pod network is non-routable IPs, and is only used inside the OpenShift SDN.)
 * Each node is allocated /23 subnet (512 IPs) for its pods. This value can't be changed.
 * You can't attach a pod to multiple networks.
-* You can't configure an egress static IP. (This restriction is an OpenShift feature. For information, see [configuring egress IPs](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)).
+* For private ARO clusters using OVN-Kubernetes network plugin, it is possible to configure egress IPs. For information, see [configuring an egress IP address](https://docs.openshift.com/container-platform/4.13/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html).
 
 ## Network settings
 
 The following network settings are available for Azure Red Hat OpenShift 4 clusters:
 
-* **API Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
+* **API Visibility** - Set the API visibility when running the [az aro create command](create-cluster.md#create-the-cluster).
     * "Public" - API Server is accessible by external networks.
     * "Private" - API Server assigned a private IP from the control plane subnet, only accessible using connected networks (peered virtual networks and other subnets in the cluster).
-* **Ingress Visibility** - Set the API visibility when running the [az aro create command](tutorial-create-cluster.md#create-the-cluster).
+* **Ingress Visibility** - Set the API visibility when running the [az aro create command](create-cluster.md#create-the-cluster).
     * "Public" routes default to a public Standard Load Balancer. (The default can be changed.)
     * "Private" routes default to an internal load balancer. (The default can be changed.)
 

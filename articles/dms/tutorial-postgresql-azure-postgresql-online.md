@@ -9,13 +9,13 @@ ms.date: 04/11/2020
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - devx-track-azurecli
-  - ignite-2022
   - sql-migration-content
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS (classic) via the Azure CLI
+
+[!INCLUDE [postgresql-migration-service](includes/postgresql-migration-service.md)]
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) with minimal downtime. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -490,17 +490,12 @@ If you need to cancel or delete any DMS task, project, or service, perform the c
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask
     ```
 
-3. To cancel a running project, use the following command:
-     ```azurecli
-    az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
-     ```
-
-4. To delete a running project, use the following command:
+3. To delete a project, use the following command:
     ```azurecli
-    az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
+    az dms project delete -n PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
-5. To delete DMS service, use the following command:
+4. To delete DMS service, use the following command:
 
      ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI

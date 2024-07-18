@@ -7,7 +7,7 @@ author: eric-urban
 ms.author: eur
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.date: 7/16/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 ---
@@ -26,7 +26,7 @@ You can specify one or multiple audio files when creating a transcription. We re
 
 ## Supported audio formats and codecs
 
-The batch transcription API supports many different formats and codecs, such as:
+The batch transcription API (and [fast transcription API](./fast-transcription-create.md)) supports multiple formats and codecs, such as:
 
 - WAV
 - MP3
@@ -43,11 +43,11 @@ The batch transcription API supports many different formats and codecs, such as:
 
 
 > [!NOTE]
-> Batch transcription service integrates GStreamer and may accept more formats and codecs without returning errors, while we suggest to use lossless formats such as WAV (PCM encoding) and FLAC to ensure best transcription quality.
+> Batch transcription service integrates GStreamer and might accept more formats and codecs without returning errors. We suggest to use lossless formats such as WAV (PCM encoding) and FLAC to ensure best transcription quality.
 
 ## Azure Blob Storage upload
 
-When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#destination-container-url) to a Blob container.
+When audio files are located in an [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) account, you can request transcription of individual audio files or an entire Azure Blob Storage container. You can also [write transcription results](batch-transcription-create.md#specify-a-destination-container-url) to a Blob container.
 
 > [!NOTE]
 > For blob and container limits, see [batch transcription quotas and limits](speech-services-quotas-and-limits.md#batch-transcription).
@@ -188,7 +188,7 @@ Having restricted access to the Storage account, you need to grant access to spe
 1. Select **Save**.
 
     > [!NOTE]
-    > It may take up to 5 min for the network changes to propagate.
+    > It might take up to 5 min for the network changes to propagate.
 
 Although by now the network access is permitted, the Speech resource can't yet access the data in the Storage account. You need to assign a specific access role for Speech resource managed identity.
 

@@ -3,14 +3,14 @@ title: Convert custom models to MLflow
 titleSuffix: Azure Machine Learning
 description:  Convert custom models to MLflow model format for no code deployment with endpoints.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 04/15/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, event-tier1-build-2022
+ms.custom: devx-track-python, mlflow
 ---
 
 # Convert custom ML models to MLflow formatted models

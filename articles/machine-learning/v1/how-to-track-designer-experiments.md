@@ -3,14 +3,14 @@ title: Log metrics in the designer
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure Machine Learning designer experiments. Enable logging using the Execute Python Script component and view the logged results in the studio.
 services: machine-learning
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, designer, sdkv1, event-tier1-build-2022, devx-track-python
+ms.custom: UpdateFrequency5, designer, sdkv1, devx-track-python
 ---
 
 # Enable logging in Azure Machine Learning designer pipelines

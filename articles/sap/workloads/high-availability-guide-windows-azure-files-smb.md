@@ -2,19 +2,15 @@
 title: Install HA SAP NetWeaver with Azure Files SMB| Microsoft Docs
 description: Learn how to install high availability for SAP NetWeaver on Azure VMs on Windows with Azure Files (SMB) for SAP applications.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: stmuelle
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/01/2021
 ms.author: stmuelle
-
 ---
 
 # Install HA SAP NetWeaver with Azure Files SMB

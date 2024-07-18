@@ -6,14 +6,15 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/15/2024
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 ## Prerequisites
 
-This guide assumes you have followed the steps mentioned in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40). This means:
+This guide assumes you've followed the steps of the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40). This means:
 
-* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
-* You have the appropriate SDK package installed and you have a running [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on the code examples here.
+* You've <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
+* You've installed the appropriate SDK package and have a working [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on the code examples here.
 
 ## Create and authenticate the client
 
@@ -25,33 +26,36 @@ To authenticate against the Image Analysis service, you need a Computer Vision k
 
 
 
-Start by creating a **ImageAnalysisClient** object using one of the constructors. For example:
+Start by creating an [ImageAnalysisClient](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient) object using one of the constructors. For example:
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_client)]
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_client)]
 
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#input-requirements) for supported image formats.
 
 ### Image URL
 
 You can use the following sample image URL.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_url)]
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_url)]
 
 
 ### Image buffer
 
-Alternatively, you can pass in the image as a data array. For example, read from a local image file you want to analyze.
+Alternatively, you can pass in the image as [bytes](https://docs.python.org/3/library/stdtypes.html#bytes-objects) object. For example, read from a local image file you want to analyze.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_file)]
 
 ## Select visual features
 
-The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
+The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the [available visual features](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures), but for practical usage you likely need fewer.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_features)]
+> [!IMPORTANT]
+> The visual features [Captions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-caption) and [DenseCaptions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-dense-captions) are only supported in certain Azure regions. See [Region availability](./../../overview-image-analysis.md#region-availability).
+
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -63,20 +67,20 @@ To use a custom model, create the [ImageAnalysisOptions](/python/api/azure-ai-vi
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/custom-model/main.py?name=model_name)]
 -->
 
-## Call the Analyze API with options
+## Call the analyze_from_url method with options
 
-The following code calls the Analyze API with the features you selected above and additional options, defined below. To analyze from an image buffer instead of URL, replace `image_url=image_url` in the method call with `image_data=image_data`.
+The following code calls the [analyze_from_url](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyzefromurl) method on the client with the features you selected above and other options, defined below. To analyze from an image buffer instead of URL, call the method [analyze](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.imageanalysisclient#azure-ai-vision-imageanalysis-imageanalysisclient-analyze) instead, with `image_data=image_data` as the first argument.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_call)]
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_call)]
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.SMART_CROPS** was selected as part the visual feature list. If you select **VisualFeatures.SMART_CROPS** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SMART_CROPS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) was selected as part the visual feature list. If you select [VisualFeatures.SMART_CROPS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 
 ### Select gender neutral captions
 
-If you're extracting captions or dense captions (using **VisualFeatures.CAPTION** or **VisualFeatures.DENSE_CAPTIONS**), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+If you're extracting captions or dense captions (using [VisualFeatures.CAPTION](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures) or [VisualFeatures.DENSE_CAPTIONS](/python/api/azure-ai-vision-imageanalysis/azure.ai.vision.imageanalysis.models.visualfeatures)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
 
 ### Specify languages
 
@@ -85,9 +89,9 @@ You can specify the language of the returned data. The language is optional, wit
 
 ## Get results from the service
 
-The following code shows you how to parse the results of the various **analyze** operations.
+The following code shows you how to parse the results from the **analyze_from_url** or **analyze** operations.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_result)]
+[!Code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/4-0/how-to.py?name=snippet_result)]
 
 
 <!--
@@ -124,7 +128,7 @@ Reason: PermissionDenied
 Message: Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource.
 ```
 
-Or when you provide an image URL that does not exist or not accessible:
+Or when you provide an image URL that doesn't exist or is not accessible:
 ```
 Status code: 400
 Reason: Bad Request
@@ -161,7 +165,7 @@ handler.setFormatter(formatter)
 
 <!-- END SNIPPET -->
 
-By default logs redact the values of URL query strings, the values of some HTTP request and response headers (including `Ocp-Apim-Subscription-Key` which holds the key), and the request and response payloads. To create logs without redaction, set the method argument `logging_enable = True` when you create `ImageAnalysisClient`, or when you call `analyze` on the client. 
+By default logs redact the values of URL query strings, the values of some HTTP request and response headers (including `Ocp-Apim-Subscription-Key`, which holds the key), and the request and response payloads. To create logs without redaction, set the method argument `logging_enable = True` when you create `ImageAnalysisClient`, or when you call `analyze` on the client. 
 
 <!-- SNIPPET:sample_analyze_all_image_file.create_client_with_logging -->
 

@@ -1,14 +1,14 @@
 ---
-title: Runtime environment in Azure Automation
+title: Runtime environment (preview) in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/24/2024
+ms.date: 07/17/2024
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Runtime environment in Azure Automation
+# Runtime environment (preview) in Azure Automation
 
 This article provides an overview on Runtime environment, scope and its capabilities.
 
@@ -76,14 +76,14 @@ You can't edit these Runtime environments. However, any changes that are made in
 ## Limitations
 
 - Runtime environment is currently supported in all Public regions except Central India, Germany North, Italy North, Israel Central, Poland Central, UAE Central, and Government clouds.
-- Currently only cloud jobs are supported for newly created runbooks linked to user-created Runtime environments. However, you can link the newly created runbook to system generated Automation Runtime Environment to execute it as a hybrid job.
 - Existing runbooks that are automatically moved from old experience to Runtime environment experience would be able to execute as both cloud and hybrid job. 
-- When the runbook is [updated](manage-runtime-environment.md) and linked to a different Runtime environment, it can be executed as cloud job only.
 - PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks only work with System-generated PowerShell-5.1 Runtime environment.
+- Runbooks created in Runtime environment experience with Runtime version PowerShell 7.2 would show as PowerShell 5.1 runbooks in old experience.
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
-- The feature is only supported through Azure portal and [REST API](https://learn.microsoft.com/rest/api/automation/runtime-environments?view=rest-automation-2023-05-15-preview).
+- The feature is only supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2023-05-15-preview&preserve-view=true).
+- Management of modules for Azure Automation State Configuration is not supported through Runtime environment experience. You can continue using the old experience for managing modules and packages for Azure Automation State Configuration.
 
 ## Switch between new and old experience
 
@@ -96,4 +96,3 @@ While the new Runtime environment experience is recommended, you can also switch
 
 * To work with runbooks and Runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
-

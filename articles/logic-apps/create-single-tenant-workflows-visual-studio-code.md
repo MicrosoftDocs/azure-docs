@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
-ms.custom: ignite-fall-2021, engagement-fy23, devx-track-dotnet
+ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
@@ -22,7 +22,12 @@ This how-to guide shows how to create an example integration workflow that runs 
 
 * You can locally create, run, and test workflows using the Visual Studio Code development environment.
 
-  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
+  When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
+
+   > [!NOTE]
+   > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
+   
+    For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md#resource-environment-differences).
 
 While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in Request trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
@@ -70,16 +75,12 @@ As you progress, you'll complete these high-level tasks:
 
 1. Download and install the following Visual Studio Code dependencies for your specific operating system using either method:
 
-   - [Install all dependencies automatically (preview)](#dependency-installer).
+   - [Install all dependencies automatically](#dependency-installer).
    - [Download and install each dependency separately](#install-dependencies-individually).
 
    <a name="dependency-installer"></a>
 
-   **Install all dependencies automatically (preview)**
-
-   > [!IMPORTANT]
-   > This capability is in preview and is subject to the 
-   > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+   **Install all dependencies automatically**
 
    Starting with version **2.81.5**, the Azure Logic Apps (Standard) extension for Visual Studio Code includes a dependency installer that automatically installs all the required dependencies in a new binary folder and leaves any existing dependencies unchanged. For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
@@ -226,7 +227,7 @@ As you progress, you'll complete these high-level tasks:
 
 1. To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
-1. To test the example workflow in this article, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use the [Postman](https://www.postman.com/downloads/) app.
+1. To test the example workflow in this guide, you need a local tool or app that can send calls to the endpoint created by the Request trigger. For example, you can use local tools such as [Insomnia](https://insomnia.rest/) or [Bruno](https://www.usebruno.com/) to send the HTTP request.
 
 1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
@@ -712,41 +713,24 @@ To test your logic app workflow, follow these steps to start a debugging session
 
       ![Screenshot shows workflow overview page with callback URL.](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
-1. To test the callback URL by triggering the logic app workflow, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
+   1. Copy and save the **Callback URL** property value.
 
-   This example continues by using Postman. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
+1. To test the callback URL by sending a request and triggering the workflow, open your preferred tool or app, and follow their instructions for creating and sending HTTP requests.
 
-   1. On the Postman toolbar, select **New**.
+   For this example, use the **GET** method with the copied URL, which looks like the following sample:
 
-      ![Screenshot that shows Postman with New button selected](./media/create-single-tenant-workflows-visual-studio-code/postman-create-request.png)
+   **`GET http://localhost:7071/api/Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`**
 
-   1. On the **Create New** pane, under **Building Blocks**, select **Request**.
+   When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
-   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, **Test workflow trigger**.
-
-   1. Under **Select a collection or folder to save to**, select **Create Collection**.
-
-   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses **Logic Apps requests** as the collection name.
-
-      In Postman, the request pane opens so that you can send a request to the callback URL for the Request trigger.
-
-      ![Screenshot shows Postman with the opened request pane.](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
-
-   1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
-
-   1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
-
-      ![Screenshot shows Postman and callback URL in the address box with Send button selected.](./media/create-single-tenant-workflows-visual-studio-code/postman-test-call-back-url.png)
-
-      The example logic app workflow sends an email that appears similar to this example:
-
-      ![Screenshot shows Outlook email as described in the example.](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-result-email.png)
+   ![Screenshot shows Outlook email as described in the example.](./media/create-single-tenant-workflows-visual-studio-code/workflow-app-result-email.png)
 
 1. In Visual Studio Code, return to your workflow's overview page.
 
    If you created a stateful workflow, after the request that you sent triggers the workflow, the overview page shows the workflow's run status and history.
 
    > [!TIP]
+   >
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 

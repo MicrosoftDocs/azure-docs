@@ -8,7 +8,6 @@ ms.subservice: security
 ms.date: 3/07/2022
 ms.author: mesrivas
 ms.reviewer: wiassaf
-ms.custom: ignite-fall-2021
 ---
 # Azure Synapse access control 
 
