@@ -43,7 +43,7 @@ Here's how to configure the clipboard transfer direction and the types of data t
 
 # [Intune](#tab/intune)
 
-To configure the clipboard using Intune, follow these steps. This process creates an Intune policy. You can assign the policy now or later.
+To configure the clipboard using Intune, follow these steps. This process creates an Intune [settings catalog](/mem/intune/configuration/settings-catalog) policy.
 
 1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
 
@@ -57,7 +57,7 @@ To configure the clipboard using Intune, follow these steps. This process create
 1. Select **Create**.
 1. In **Basics**, enter the following properties:
 
-    - **Name**: Enter a descriptive name for the profile. Name your profiles so you can easily identify them later.
+    - **Name**: Enter a descriptive name for the profile. Name your profile so you can easily identify it later.
     - **Description**: Enter a description for the profile. This setting is optional, but recommended.
 
 1. Select **Next**.
