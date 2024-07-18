@@ -88,7 +88,7 @@ Visual Studio Code will open a diff view between the two API specifications. Any
  
 Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right click on the API code, select **Copilot** from the options, and select **Generate API documentation**. This will create an OpenAPI specification file.
 
-:::image type="content" source="media/use-vscode-extension/generate-api-documentation.gif" alt-text="GIF showing how to use GitHub Copilot to generate an OpenAPI spec from code.":::
+:::image type="content" source="media/use-vscode-extension/generate-api-documentation.gif" alt-text="Animation showing how to use GitHub Copilot to generate an OpenAPI spec from code." source="media/use-vscode-extension/generate-api-documentation.gif":::
 
 After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
 
