@@ -11,17 +11,51 @@ ms.author: kgremban
 ms.custom: devx-track-portal, devx-track-azurecli
 ---
 
-# How to view and update twin properties
+# How to view and update devices based on device twin properties
+
+Use the Azure portal and Azure CLI to manage devices through device twins and module twins. This article focuses on device twins for simplicity, but all of the concepts and processes work in a similar way for module twins.
+
+This article describes that actions that you can take from the Azure portal or Azure CLI to manage device twins remotely. For information about developing device applications to handle device twin changes, see [Get started with device twins](./device-twins-dotnet.md).
+
+In IoT Hub, a *device twin* is a JSON document that stores state information. Every *device identity* is automatically associated with a device twin when it's created. A backend app or user can update two elements of a device twin:
+
+* *Desired properties*: Desired properties are half of a linked set of state information. A backend app or user can update the desired properties on a twin to communicate a desired state change, while a device can update the *reported properties* to communicate its current state.
+* *Tags*: You can use device twin tags to organize and manage devices in your IoT solutions. You can set tags for any meaningful category, like device type, location, or function.
+
+For more information, see [Understand and use device twins in IoT Hub](./iot-hub-devguide-device-twins.md) or [Understand and use module twins in IoT Hub](./iot-hub-devguide-module-twins.md).
 
 ## Prerequisites
 
+### [Azure portal](#tab/portal)
+
+* An IoT hub in your Azure subscription. If you don't have a hub yet, follow the steps in [Create an IoT hub](create-hub.md).
+
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
+
+### [Azure CLI](#tab/cli)
+
 * Azure CLI. You can also run the commands in this article using the [Azure Cloud Shell](../cloud-shell/overview.md), an interactive CLI shell that runs in your browser or in an app such as Windows Terminal. If you use the Cloud Shell, you don't need to install anything. If you prefer to use the CLI locally, this article requires Azure CLI version 2.36 or later. Run `az --version` to find the version. To locally install or upgrade Azure CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, follow the steps in [Create an IoT hub](create-hub.md).
+
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
+
+---
 
 ## Update a device twin
 
-Once a device identity is created, a device twin is implicitly created in IoT Hub. In this section, you update a set of tags on the device twin. You can use device twin tags to organize and manage devices in your IoT solutions. For more information about managing devices using tags, see [How to manage devices using device twin tags in Azure IoT Hub](iot-hubs-manage-device-twin-tags.md).
+Once a device identity is created, a device twin is implicitly created in IoT Hub. You can use the Azure portal or Azure CLI to add, edit, or remove desired properties and tags.
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
+1. Select the name of the device that you want to update.
+
+   >[!TIP]
+   >If you're updating tags, you can select multiple devices then select **Assign tags**
+
+### [Azure CLI](#tab/cli)
 
 1. Run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple tags on the device twin for the device identity we created in the previous section.
 
@@ -91,6 +125,8 @@ Once a device identity is created, a device twin is implicitly created in IoT Hu
       }
     }
     ```
+
+---
 
 ## Query your IoT hub for device twins
 
