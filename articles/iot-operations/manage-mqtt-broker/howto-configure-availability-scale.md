@@ -153,9 +153,9 @@ The following table lists the properties of the broker advanced settings that in
 | encryptInternalTraffic.Disabled     | `string`                 | Disable internal traffic encryption                                       |
 | encryptInternalTraffic.Enabled      | `string`                 | Enable internal traffic encryption                                        |
 | internalCerts                       | CertManagerCertOptions   | Certificate rotation and private key configuration                         |
-| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h|m|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
 | internalCerts.privateKey            | `CertManagerPrivateKey`  | Configuration of certificate private key                                   |
-| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h|m|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
 | internalCerts.privateKey.algorithm  | PrivateKeyAlgorithm      | Algorithm for private key                                                  |
 | internalCerts.privateKey.rotationPolicy | PrivateKeyRotationPolicy | Cert-manager private key rotation policy                                |
 | internalCerts.privateKey.algorithm.Ec256   | `string`| Algorithm - EC256  |
