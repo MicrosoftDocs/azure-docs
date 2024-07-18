@@ -67,10 +67,9 @@ See [Azure Monitor billing meter names](cost-meters.md) for a list of all Azure 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
 
->[!NOTE]
->Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
+> [!NOTE]
+> Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application. (You might need to use the [preview version](https://preview.portal.azure.com/) of the Azure portal to see this option.) 
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
-
 ### Automated mails and alerts
 Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 

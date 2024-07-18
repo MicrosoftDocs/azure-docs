@@ -298,21 +298,6 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Low
 
-### [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference-data.md)
-
-
-**Description**: Disabling local authentication methods improves security by ensuring that Cognitive Services accounts require Azure Active Directory identities exclusively for authentication. Learn more at: https://aka.ms/cs/auth. (Related policy: Cognitive Services accounts should have local authentication methods disabled).
-
-**Severity**: Low
-
-
-### [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243)
-
-**Description**: Network access to Cognitive Services accounts should be restricted. Configure network rules so only applications from allowed networks can access the Cognitive Services account. To allow connections from specific internet or on-premises clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges.
-(Related policy: [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f037eea7a-bd0a-46c5-9a66-03aea78705d3)).
-
-**Severity**: Medium
-
 ### [Cognitive Services accounts should use customer owned storage or enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/aa395469-1687-78a7-bf76-f4614ef72977)
 
 **Description**: This policy audits any Cognitive Services account not using customer owned storage nor data encryption. For each Cognitive Services account with storage, use either customer owned storage or enable data encryption. Aligns with Microsoft Cloud Security Benchmark.
