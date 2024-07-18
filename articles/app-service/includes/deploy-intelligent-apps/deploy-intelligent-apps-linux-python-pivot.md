@@ -19,7 +19,7 @@ You can use Azure App Service to work with popular AI frameworks like LangChain 
 
 For this Flask web application, we are building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#1---sample-application) app and updating the *app.py* file to send and receive requests to an Azure OpenAI OR OpenAI service using LangChain.
 
-First, copy and replace the *index.html* file with the following code:
+First, copy, and replace the *index.html* file with the following code:
 
 ```html
 <!doctype html>
@@ -54,7 +54,7 @@ First, copy and replace the *index.html* file with the following code:
 </html>
 ```
 
-Next, copy and replace the *hello.html* file with the following code:
+Next, copy, and replace the *hello.html* file with the following code:
 
 ```html
 <!doctype html>
@@ -285,7 +285,7 @@ client = AzureOpenAI(
 Once the credentials are added to the application, you’ll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
-2. Once System assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
 3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
 4. Find the Grant access to this resource card and click on **Add role assignment**
 5. Search for the **Cognitive Services OpenAI User** role and click **Next**
