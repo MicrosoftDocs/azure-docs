@@ -84,7 +84,7 @@ Currently, the following VM features aren't supported with Trusted Launch:
 - [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (*Generally available for Windows*).
 - [Managed Image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
 - Nested virtualization (v5 VM size families supported).
-- [Linux VM Hibernation](/linux/hibernate-resume-linux.md)
+- [Linux VM Hibernation](./linux/hibernate-resume-linux.md)
 
 ## Secure Boot
 
