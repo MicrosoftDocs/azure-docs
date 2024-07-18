@@ -25,7 +25,7 @@ To speed up development, you might find it easier to deploy your function app pr
 For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 >[!IMPORTANT]
-> When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
+> When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.Any other files and directories found in the site that aren't being overwritten by the deployment, such as those placed there via FTP or created by your app during runtime, will be preserved.
 
 ## Deployment .zip file requirements
 
