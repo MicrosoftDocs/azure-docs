@@ -262,7 +262,7 @@ Attackers might exclude files from the antimalware scan on your virtual machine 
 
 **Severity**: Medium
 
-### **Fileless Attack Behavior Detected**
+### **Fileless attack behavior detected**
 
 (VM_FilelessAttackBehavior.Linux)
 
@@ -273,7 +273,7 @@ Specific behaviors include: {list of observed behaviors}
 
 **Severity**: Low
 
-### **Fileless Attack Technique Detected**
+### **Fileless attack technique detected**
 
 (VM_FilelessAttackTechnique.Linux)
 
@@ -284,7 +284,7 @@ Specific behaviors include: {list of observed behaviors}
 
 **Severity**: High
 
-### **Fileless Attack Toolkit Detected**
+### **Fileless attack toolkit detected**
 
 (VM_FilelessAttackToolkit.Linux)
 
