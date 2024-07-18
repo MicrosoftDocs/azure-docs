@@ -70,7 +70,7 @@ Virtual network encryption is supported in the following scenarios:
 | Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic will be encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic will be encrypted, but pod traffic won't be encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
 
 > [!NOTE]
-> VM to PaaS injected services requires onboarding of the PaaS services to support encryption using supported VM SKUs.
+> Services that currently don't support virtual network encryption are included in our future roadmap.
 
 ## Next step
 
