@@ -42,7 +42,7 @@ deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 
 ### Get a SAS URI from IoT hub
 
-Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get a file upload details. The SAS URI is used in the next step to upload a file from a device to Blob Storage.
+Call [GetFileUploadSasUriAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.getfileuploadsasuriasync) to get file upload details. The SAS URI is used in the next step to upload a file from a device to Blob Storage.
 
 ```csharp
 const string filePath = "TestPayload.txt";

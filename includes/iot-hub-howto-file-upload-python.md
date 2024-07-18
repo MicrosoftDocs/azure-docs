@@ -121,7 +121,7 @@ device_client.notify_blob_upload_status(storage_info["correlationId"], True, 200
 
 ### Shut down the device client
 
-Shut down the client. Once this method is called, any attempts at further client calls result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
+Shut down the client. Once this method is called, any attempt at further client calls result in a [ClientError](/python/api/azure-iot-device/azure.iot.device.exceptions.clienterror) being raised.
 
 ```python
 device_client.shutdown()

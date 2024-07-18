@@ -28,7 +28,7 @@ In some scenarios, you can't easily map the data your devices send into the rela
 
 These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
-This article is meant to complement a runnable SDK samples that are referenced from within this article.
+This article is meant to complement runnable SDK samples that are referenced from within this article.
 
 For more information, see:
 

@@ -161,10 +161,10 @@ serviceClient.open(function (err) {
 
 To check for file upload notifications:
 
-* Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that will be called when notification messages are received.
+* Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
 * Process file upload notifications in the callback method.
 
-This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status messsage to the console.
+This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status message to the console.
 
 ```javascript
 //Set up the receiveFileUploadNotification notification message callback receiver
