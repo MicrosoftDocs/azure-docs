@@ -6,7 +6,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 07/18/2024
 ms.author: kgremban 
 ms.custom: devx-track-portal, devx-track-azurecli
 ---
@@ -26,6 +26,8 @@ For more information, see [Understand and use device twins in IoT Hub](./iot-hub
 
 ## Prerequisites
 
+Prepare the following prerequisites before you begin.
+
 ### [Azure portal](#tab/portal)
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, follow the steps in [Create an IoT hub](create-hub.md).
@@ -42,181 +44,7 @@ For more information, see [Understand and use device twins in IoT Hub](./iot-hub
 
 ---
 
-## Update a device twin
-
-Once a device identity is created, a device twin is implicitly created in IoT Hub. You can use the Azure portal or Azure CLI to add, edit, or remove desired properties and tags.
-
-### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
-1. Select the name of the device that you want to update.
-
-   >[!TIP]
-   >If you're updating tags, you can select multiple devices then select **Assign tags**
-
-### [Azure CLI](#tab/cli)
-
-1. Run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command, replacing the following placeholders with their corresponding values. In this example, we're updating multiple tags on the device twin for the device identity we created in the previous section.
-
-    *{DeviceName}*. The name of your device.
-
-    *{HubName}*. The name of your IoT hub.
-
-    ```azurecli
-    az iot hub device-twin update --device-id {DeviceName} --hub-name {HubName} \
-            --tags '{"location":{"region":"US","plant":"Redmond43"}}'
-    ```
-
-1. Confirm that the JSON response shows the results of the update operation. In the following JSON response example, we used `SampleDevice` for the `{DeviceName}` placeholder in the `az iot hub device-twin update` CLI command.
-
-    ```json
-    {
-      "authenticationType": "sas",
-      "capabilities": {
-        "iotEdge": false
-      },
-      "cloudToDeviceMessageCount": 0,
-      "connectionState": "Connected",
-      "deviceEtag": "MTA2NTU1MDM2Mw==",
-      "deviceId": "SampleDevice",
-      "deviceScope": null,
-      "etag": "AAAAAAAAAAI=",
-      "lastActivityTime": "0001-01-01T00:00:00+00:00",
-      "modelId": "",
-      "moduleId": null,
-      "parentScopes": null,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2023-02-21T10:40:10.5062402Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
-            "connectivity": {
-              "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
-              "type": {
-                "$lastUpdated": "2023-02-21T10:40:43.8539917Z"
-              }
-            }
-          },
-          "$version": 2,
-          "connectivity": {
-            "type": "cellular"
-          }
-        }
-      },
-      "status": "enabled",
-      "statusReason": null,
-      "statusUpdateTime": "0001-01-01T00:00:00+00:00",
-      "tags": {
-        "location": {
-          "plant": "Redmond43",
-          "region": "US"
-        }
-      },
-      "version": 4,
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      }
-    }
-    ```
-
----
-
-## Query your IoT hub for device twins
-
-IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. In this section, you execute two queries on the set of device twins for your IoT hub: the first query selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through a cellular network. Both queries return only the first 100 devices in the result set. For more information about device twin queries, see [Queries for IoT Hub device and module twins](query-twins.md).
-
-
-1. Run the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command, replacing the following placeholders with their corresponding values. In this example, we're filtering the query to return only the device twins of devices located in the **Redmond43** plant.
-
-    *{HubName}*. The name of your IoT hub.
-
-    ```azurecli
-    az iot hub query --hub-name {HubName} \
-            --query-command "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'" \
-            --top 100
-    ```
-
-1. Confirm that the JSON response shows the results of the query.
-
-    ```json
-    {
-      "authenticationType": "sas",
-      "capabilities": {
-        "iotEdge": false
-      },
-      "cloudToDeviceMessageCount": 0,
-      "connectionState": "Connected",
-      "deviceEtag": "MTA2NTU1MDM2Mw==",
-      "deviceId": "SampleDevice",
-      "deviceScope": null,
-      "etag": "AAAAAAAAAAI=",
-      "lastActivityTime": "0001-01-01T00:00:00+00:00",
-      "modelId": "",
-      "moduleId": null,
-      "parentScopes": null,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2023-02-21T10:40:10.5062402Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
-            "connectivity": {
-              "$lastUpdated": "2023-02-21T10:40:43.8539917Z",
-              "type": {
-                "$lastUpdated": "2023-02-21T10:40:43.8539917Z"
-              }
-            }
-          },
-          "$version": 2,
-          "connectivity": {
-            "type": "cellular"
-          }
-        }
-      },
-      "status": "enabled",
-      "statusReason": null,
-      "statusUpdateTime": "0001-01-01T00:00:00+00:00",
-      "tags": {
-        "location": {
-          "plant": "Redmond43",
-          "region": "US"
-        }
-      },
-      "version": 4,
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      }
-    }
-    ```
-
-1. Run the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command, replacing the following placeholders with their corresponding values. In this example, we're filtering the query to return only the device twins of devices located in the **Redmond43** plant that are also connected through a cellular network.
-
-    *{HubName}*. The name of your IoT hub.
-
-    ```azurecli
-    az iot hub query --hub-name {HubName} \
-            --query-command "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' \
-                    AND properties.reported.connectivity.type = 'cellular'" \
-            --top 100
-    ```
-
-1. Confirm that the JSON response shows the results of the query. The results of this query should match the results of the previous query in this section.
-
-## Use device twin tags to organize related devices
-
-This article demonstrates how to use tags to manage IoT devices using [device twin tags](iot-hub-devguide-device-twins.md#tags-and-properties-format)
+## Understand tags for device organization
 
 Device twin tags can be used as a powerful tool to help you organize your devices. This is especially important when you have multiple kinds of devices within your IoT solutions, you can use tags to set types, locations etc. For example:
 
@@ -240,98 +68,101 @@ Device twin tags can be used as a powerful tool to help you organize your device
 }
 ```
 
-### Add and view device twin tags
+## View and update device twins
 
-#### [Azure portal](#tab/portal)
+Once a device identity is created, a device twin is implicitly created in IoT Hub. You can use the Azure portal or Azure CLI to retrieve the device twin of a given device. You can also add, edit, or remove tags and desired properties.
 
-This section describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
+### [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT Hub.
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
-2. Select the **Device** tab in the left navigation.
+1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
 
-3. Select the desired devices, select **Assign Tags**.
+   On the **Devices** page, you see a list of all devices registered in your IoT hub. If any of the devices already have tags in their device twins, those are shown in the **Tags** column.
+
+1. Select the name of the device that you want to manage.
+
+   >[!TIP]
+   >If you're updating tags, you can select multiple devices then select **Assign tags** to manage them as a group.
+
+1. The device details page displays any current tags for the selected device. Select **edit** next to the **Tags** parameter to add, update, or remove tags.
+
+   >[!TIP]
+   >To add or update nested tags, select the **Advanced** tab and provide the JSON.
+
+1. Select **Device twin** to view and update the device twin JSON.
+
+   You can type directly in the text box to update tags or desired properties. To remove a tag or desired property, set the value of the item to `null`.
+
+1. Select **Save** to save your changes.
+
+1. Back on the device details page, select **Refresh** to update the page to reflect your changes.
+
+If your device has any module identities associated with it, those are displayed on the device details page as well. Select a module name, then select **Module identity twin** to view and update the module twin JSON.
+
+### [Azure CLI](#tab/cli)
+
+Use the [az iot hub device-twin](/cli/azure/iot/hub/device-twin) or [az iot hub module-twin](/cli/azure/iot/hub/module-twin) sets of commands to view and update twins.
+
+The [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command returns the device twin JSON. For example:
+
+```azurecli-interactive
+az iot hub device-twin show --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME>
+```
+
+The [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command patches tags or desired properties in a device twin. For example:
+
+```azurecli-interactive
+az iot hub device-twin update --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME> --tags <INLINE_JSON_OR_PATH_TO_JSON_FILE>
+```
+
+The [az iot hub device-twin replace](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-replace) command replaces an entire device twin. For example:
+
+```azurecli-interactive
+az iot hub device-twin replace --device-id <DEVICE_ID> --hub-name <IOTHUB_NAME> --json <INLINE_JSON_OR_PATH_TO_JSON_FILE>
+```
+
+---
+
+## Query your IoT hub for device twins
+
+IoT Hub exposes the device twins for your IoT hub as a document collection called **devices**. You can query devices based on their device twin values.
+
+This section describes how to run twin queries in the Azure portal and Azure CLI. To learn how to write twin queries, see [Queries for IoT Hub device and module twins](./query-twins.md).
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+
+1. In your IoT hub, select **Devices** from the **Device management** section of the navigation menu.
+
+1. You can either use a filter or a query to find devices based on their device twin details:
+
+   * **Find devices using a filter**:
+
+     1. Finding devices using a filter is the default view in the Azure portal. If you don't see these fields, select **Find devices using a filter**.
+
+     1. Select **Add filter**, and then select **Device tag** as the filter type from the drop-down menu.
+
+     1. Enter the desired tag name and value, select **Apply** to retrieve the list of devices that matches the criteria 
+
+        :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-filter.png" alt-text="Screenshot of filtering devices with tags.":::
    
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-select-device-to-assign-tags.png" alt-text="Screenshot of selecting devices to assign tags.":::
+   * **Find devices using a query**:
 
-4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for the name and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins.md#tags-and-properties-format). Select **Save** to save the tag.
-  
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-add-basic-tag.png" alt-text="Screenshot of assigning tags to devices screen.":::
+     1. Select **Find devices using a query**.
 
-5. After saving, you can view the tags that were added by selecting **Assign Tags** again. 
+     1. Enter your query into the text box, then select **Run query**.
 
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-view-basic-tag.png" alt-text="Screenshot of viewing tags added to devices.":::
+        :::image type="content" source="./media/manage-device-twins/run-query.png" alt-text="Screenshot that shows using the device query filter in the Azure portal.":::
 
-#### [Azure CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
-    ```azurecli
-    az iot hub device-twin update -n {iothub_name} \
-        -d {device_id} --tags '{"country": "USA"}'
-    ```
+Use the [az iot hub query](/cli/azure/iot/hub#az-iot-hub-query) command to return device information based on device twin or module twin queries. For example:
 
-5. Use the command on an existing tag to update the value:
-
-    ```azurecli
-    az iot hub device-twin update --name {your iot hub name} \
-        -d {device_id} --tags '{"country": "Germany"}'
-    ```
-
-6. The following command removes the tag that was added by setting the value to **null**. 
-    ```azurecli
-    az iot hub device-twin update --name {your iot hub name} \
-        -d {device_id} --tags '{"country": null}'
-    ```
----
-
-### Add and view nested tags
-
-#### [Azure portal](#tab/portal)
-
-1. Following the example above, you can add a nested tag by selecting the advanced tab in the **Assign Tags** and add a nested json object with two values.
-
-   ```json
-   {
-	   "deploymentLocation": {
-	       "building": "43",
-	       "floor": "1"
-	   }
-   }
-   ```
-
-1. Select **Save**
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-add-nested-tag.png" alt-text="Screenshot of adding nested tags to devices.":::
-1. Select the devices again and select **Assign Tags** to view the newly added tags
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-view-nested-tag.png" alt-text="Screenshot of viewing nested tags to devices.":::
-
-#### [Azure CLI](#tab/cli)
-
-
-4. You can add complex nested tags by importing a json file or adding json directly to the input:
-
-    ```azurecli
-    az iot hub device-twin update --name {your iot hub name} \
-        -d {device_id} --tags /path/to/file
-    ```
-
-    ```azurecli
-    az iot hub device-twin update --name {your iot hub name} \
-        -d {device_id} --tags '{"country":{"county":"king"}}'
-    ```
+```azurecli
+az iot hub query --hub-name <IOTHUB_NAME> --query-command "SELECT * FROM devices WHERE <QUERY_TEXT>"
+```
 
 ---
 
-## Filter devices with device twin tags
-
-Device twin tags is a great way to group devices by type, location etc., and you can manage your devices by filtering through device tags. 
-
-1. Select **+ Add filter**, and select **Device Tag** as the filter type
-2. Enter the desired tag name and value, select **Apply** to retrieve the list of devices that matches the criteria 
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-filter.png" alt-text="Screenshot of filtering devices with tags.":::
-
-## Update and delete device twin tags from multiple devices using the Azure portal
-
-1. Select the two or more devices, select **Assign Tags**.
-2. In the opened panel, you can update existing tags by typing the target tag name in the **Name** field, and the new string in the **Value** field.
-3. To delete a tag from multiple devices, type the target tag name in the **Name** field, and the select the **Delete Tags** button. 
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-bulk-delete.png" alt-text="Screenshot of marking tag for deletion.":::
-4. Select **Save** to delete the tag from the devices that contains the matching tag name.
