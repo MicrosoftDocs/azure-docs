@@ -102,8 +102,7 @@ az role assignment create --assignee "{assignee}" \
 
 Now that you've created an empty managed disk that is configured for the upload process, you can upload a VHD to it. To upload a VHD to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
-> [!IMPORTANT]
-> As of August 15th, the SAS expiration has been limited to 60 days. Attempting to generate a SAS with an expiration date longer than 60 days results in an error. Any existing SAS with expirations longer than 60 days will instead end in 60 days.
+[!INCLUDE [disks-sas-change](../includes/disks-sas-change.md)]
 
 To generate a writable SAS of your empty managed disk, replace `<yourdiskname>` and `<yourresourcegroupname>`, then use the following command:
 
