@@ -17,7 +17,7 @@ As part of your migration journey to Azure, you assess your on-premises workload
 
 This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Migrate. AVS is a managed service that allows you to run the VMware platform in Azure.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 - Run an assessment based on server metadata and configuration information.
 - Run an assessment based on performance data.
@@ -74,18 +74,17 @@ Run an assessment as follows:
    Target settings | **Storage type** | Defaulted to **vSAN**. This is the default storage type for an AVS private cloud.
    Target settings | **Reserved instance** | Specify whether you want to use reserve instances for Azure VMware Solution nodes when you migrate your VMs. If you decide to use a reserved instance, you can't specify **Discount (%)**. [Learn more](https://learn.microsoft.com/azure/azure-vmware/reserved-instance) about reserved instances.
    VM size | **Node type** | Defaulted to **AV36**. Azure Migrate recommends the node needed to migrate the servers to AVS.
-   VM size | **FTT setting, RAID level** | select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
-   VM size | **CPU Oversubscription** | specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
-   VM size | **Memory overcommit factor** | specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
-   VM size | **Dedupe and compression factor** | specify the anticipated dedupe and compression factor for your workloads. The actual value can be obtained from on-premises vSAN or storage config and this may vary by workload. A value of 3 would mean 3x so for a 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
+   VM size | **FTT setting, RAID level** | Select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
+   VM size | **CPU Oversubscription** | Specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
+   VM size | **Memory overcommit factor** | Specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
+   VM size | **Dedupe and compression factor** | Specify the anticipated dedupe and compression factor for your workloads. The actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for a 300GB disk only 100GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
    Node size | **Sizing criteria** | Set to be *Performance-based* by default, which means Azure Migrate collects performance metrics based on which it provides recommendations.
    Node size | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Node size | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    Node size | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of 8 GB memory, the assessment considers effective memory as 16 GB.
    Pricing | **Offer/Licencing program** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in is displayed. The assessment estimates the cost for that offer.
    Pricing | **Currency** | Select the billing currency for your account.
-   Pricing | **Discount (%)** | Add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. .
-   
+   Pricing | **Discount (%)** | Add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 
 1. Select **Save** if you make changes.
 
@@ -139,7 +138,7 @@ To view an assessment:
 
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It starts in AVS with full AVS support.
     - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance that the assessment suggests.
-    - **Not ready for AVS**: The VM won't start in AVS. For example, if the on-premises VMware VM has an external device attached such as a CD-ROM the VMware VMotion operation fails (if using VMware VMotion).
+    - **Not ready for AVS**: The VM won't start in AVS. For example, if the on-premises VMware VM has an external device attached such as a CD-ROM, the VMware VMotion operation fails (if using VMware VMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 3. Review the suggested tool.
 
