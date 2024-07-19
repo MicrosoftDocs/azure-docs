@@ -79,6 +79,8 @@
       href: vpn-gateway-verify-connection-resource-manager.md
     - name: Reset a connection or a gateway
       href: reset-gateway.md
+    - name: Change a gateway to active-active or active-standby
+      href: gateway-change-active-active.md
     - name: Delete a VPN gateway
       items:
       - name: Azure portal

@@ -1,7 +1,7 @@
 ---
 title: Encrypt persistent volume claims with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO)
 description: Bring your own key (BYOK) / Customer-managed key (CMK) deploy instructions for Azure Red Hat OpenShift
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/24/2021
 author: johnmarco
 ms.author: johnmarc
