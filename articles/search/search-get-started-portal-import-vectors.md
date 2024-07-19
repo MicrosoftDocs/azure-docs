@@ -206,17 +206,38 @@ Use these instructions to assign permissions or get an API key for search servic
 
 The next step is to connect to a data source to use for the search index.
 
-1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **Azure Blob Storage** or **OneLake**.
+### [Azure Storage](#tab/connect-data-storage)
+
+1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **Azure Blob Storage**.
 
 1. Specify the Azure subscription.
 
-1. For OneLake, specify the lakehouse URL, or provide the workspace and lakehouse IDs.
-
-   For Azure Storage, select the account and container that provide the data.
+1. Choose the storage account and container that provide the data.
 
 1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md).
 
+1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
+
 1. Select **Next**.
+
+### [OneLake (preview)](#tab/connect-data-onelake)
+
+Support for OneLake indexing is in preview. For more information about supported shortcuts and limitations, see ([OneLake indexing](search-how-to-index-onelake-files.md)).
+
+1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **OneLake**.
+
+1. Specify the type of connection:
+
+   + Lakehouse URL
+   + Workspace ID and Lakehouse ID
+
+1. For OneLake, specify the lakehouse URL, or provide the workspace and lakehouse IDs.
+
+1. Specify whether you want your search service to connect to OneLake using its system or user managed identity. You must use a managed identity and roles for search connections to OneLake.
+
+1. Select **Next**.
+
+---
 
 ## Vectorize your text
 
