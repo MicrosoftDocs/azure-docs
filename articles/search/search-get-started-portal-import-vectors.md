@@ -36,7 +36,7 @@ Key points about the wizard:
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ [Azure AI Search service](search-create-service-portal.md). It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
++ [Azure AI Search service](search-create-service-portal.md) in the same region as Azure AI. We recommend the Basic tier or higher.
 
 + [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
@@ -46,9 +46,9 @@ Key points about the wizard:
 
   | Provider | Supported models |
   |---|---|
-  | [Azure OpenAI Service](https://aka.ms/oai/access) | `text-embedding-ada-002`, `text-embedding-3-large`, or `text-embedding-3-small`. |
-  | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) |  Azure, Cohere, and Facebook embedding models. |
-  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in a subset of Azure regions. Currently those regions include SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, or JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
+  | [Azure OpenAI Service](https://aka.ms/oai/access) | text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small. |
+  | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) |  Azure, Cohere, and Facebook embedding models. |
+  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions: East US, West US, West US2, North Europe, West Europe, France Central, Sweden Central, Switzerland North, Southeast Asia, Korea Central, Australia East, or Japan East. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
 
 ### Public endpoint requirements
 
@@ -62,19 +62,19 @@ We recommend role assignments for search service connections to other resources.
 
 1. On Azure AI Search, [enable roles](search-security-enable-roles.md).
 
-1. Configure your search service to [use a system-assigned or user-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity).
+1. Configure your search service to [use a managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity).
 
-1. On your data source platform and embedding model provider, create role assignments that allow Azure AI Search to access data and models. [Prepare sample data](#prepare-sample-data) provides instructions for setting up role assignments.
+1. On your data source platform and embedding model provider, create role assignments that allow search service to access data and models. [Prepare sample data](#prepare-sample-data) provides instructions for setting up roles.
 
 A free search service supports RBAC on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. 
 
 For more secure connections:
 
 + Use the Basic tier or higher.
-+ [Configure a managed identity](search-howto-managed-identities-data-sources.md) for Azure AI Search and create role assignments to admit requests from Azure AI Search on other Azure services.
++ [Configure a managed identity](search-howto-managed-identities-data-sources.md) and use roles for authorized access.
 
 > [!NOTE]
-> If you can't progress through the wizard because options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real problem is that the search service doesn't have permission to access them.
+> If you can't progress through the wizard because options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real cause is that the search service doesn't have permission to access them.
 
 ### Check for space
 
