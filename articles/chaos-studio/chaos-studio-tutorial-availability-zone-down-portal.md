@@ -16,7 +16,7 @@ You can use a chaos experiment to verify that your application is resilient to f
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A Virtual Machine Scale Sets instance.
 - An Autoscale Settings instance.
 

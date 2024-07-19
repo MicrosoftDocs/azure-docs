@@ -756,9 +756,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
-> | Microsoft.Network/gatewayLoadBalancerAliases/write | Creates a Gateway LoadBalancer Alias Or Updates An Existing Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/delete | Delete Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/read | Get a Gateway LoadBalancer Alias definition |
 > | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |

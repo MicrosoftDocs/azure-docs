@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage Preview
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 03/21/2024
+ms.date: 06/03/2024
 ms.author: kendownie
 ms.topic: conceptual
 ms.custom: references_regions
@@ -25,8 +25,7 @@ ms.custom: references_regions
 
 * <a id="storage-pool-parameters"></a>
   **What parameters can I specify for the storage pool that's created when Azure Container Storage is installed with the `az aks create` command?**  
-  The following table lists the mandatory and optional storage pool parameters, along with their default values.
-  [!INCLUDE [container-storage-storage-pool-parameters](../../../includes/container-storage-storage-pool-parameters.md)]
+  Refer to [this article](container-storage-storage-pool-parameters.md) for the mandatory and optional storage pool parameters, along with their default values.
 
 * <a id="azure-container-storage-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
@@ -43,6 +42,10 @@ ms.custom: references_regions
 * <a id="azure-container-storage-remove"></a>
   **How do I remove Azure Container Storage?**  
   See [Remove Azure Container Storage](remove-container-storage.md).
+
+* <a id="azure-container-storage-containeros"></a>
+  **Does Azure Container Storage support Windows containers on AKS?**  
+  No, Azure Container Storage only supports AKS containers running on Ubuntu and Azure Linux nodes.
 
 ## Billing and pricing
 

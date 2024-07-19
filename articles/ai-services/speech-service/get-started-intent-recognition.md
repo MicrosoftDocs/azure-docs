@@ -5,6 +5,7 @@ description: In this quickstart, you recognize intents from audio data with the 
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
 ms.topic: quickstart
 ms.date: 4/15/2024
 ms.author: eur

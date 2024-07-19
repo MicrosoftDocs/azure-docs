@@ -5,6 +5,8 @@ ms.date: 03/28/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 ---
 
@@ -14,7 +16,7 @@ In this quickstart, you learn how to propagate resources from an Azure Kubernete
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [resource propagation conceptual overview](./concepts-resource-propagation.md) to understand the concepts and terminology used in this quickstart.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -206,5 +208,5 @@ kubectl delete clusterresourceplacement crp
 
 To learn more about resource propagation, see the following resources:
 
-* [Kubernetes resource propagation from hub cluster to member clusters (Preview)](./concepts-resource-propagation.md)
+* [Intelligent cross-cluster Kubernetes resource placement based on member clusters properties](./intelligent-resource-placement.md)
 * [Upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md)

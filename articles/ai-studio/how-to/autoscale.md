@@ -6,16 +6,17 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: siarora
 ms.author: larryfr
-author: Blackmist 
+author: Blackmist
 ---
 
 # Autoscale Azure AI limits
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 This article provides guidance for how you can manage and increase quotas for resources with Azure AI Studio.
 
@@ -31,7 +32,7 @@ This feature is disabled by default for every new resource. Follow these instruc
 
 Go to your resource's page in the Azure portal, and select the **Overview** tab on the left pane. Under the **Essentials** section, find the **Autoscale** line and select the link to view the **Autoscale Settings** pane and enable the feature.
 
-:::image type="content" source="../../ai-services/media/cognitive-services-autoscale/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right." lightbox="../../ai-services/media/cognitive-services-autoscale/portal-autoscale.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-services/portal-autoscale.png" alt-text="Screenshot of the Azure portal with the autoscale pane on right." lightbox="~/reusable-content/ce-skilling/azure/media/ai-services/portal-autoscale.png":::
 
 #### [Azure CLI](#tab/cli)
 

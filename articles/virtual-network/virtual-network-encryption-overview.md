@@ -6,8 +6,8 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 04/15/2024
-ms.custom: template-overview, references_regions
+ms.date: 07/18/2024
+ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
 ---
@@ -51,10 +51,28 @@ Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
-- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU. 
+- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU.
 
-## Next steps
+- **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
-- For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
 
+## Supported scenarios
 
+Virtual network encryption is supported in the following scenarios:
+
+| Scenario | Support |
+| --- | --- |
+| VMs in the same virtual network (including virtual machine scale sets and their internal load balancer) | Supported on traffic between VMs from these [SKUs](#requirements). |
+| Virtual network peering | Supported on traffic between VMs across regional peering. |
+| Global virtual network peering | Supported on traffic between VMs across global peering. |
+| Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic is encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic is encrypted, but pod traffic isn't encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
+
+> [!NOTE]
+> Other services that currently don't support virtual network encryption are included in our future roadmap.
+
+## Related content
+
+- [Create a virtual network with encryption using the Azure portal](how-to-create-encryption-portal.md).
+- [Virtual network encryption frequently asked questions (FAQ)](virtual-network-encryption-faq.yml).
+- [What is Azure Virtual Network?](virtual-networks-overview.md)

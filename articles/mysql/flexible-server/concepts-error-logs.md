@@ -1,12 +1,13 @@
 ---
-title: 'Error logs - Azure Database for MySQL - Flexible Server'
+title: "Error logs - Azure Database for MySQL - Flexible Server"
 description: This article describes the error logs feature for Azure Database for MySQL - Flexible Server.
+author: code-sidd
+ms.author: sisawant
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd
-ms.author: sisawant
-ms.date: 12/15/2023
 ---
 
 # Error logs in Azure Database for MySQL - Flexible Server (Preview)

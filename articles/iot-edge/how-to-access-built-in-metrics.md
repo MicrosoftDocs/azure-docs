@@ -45,7 +45,7 @@ Choose different and unique host port numbers if you are mapping both the edgeHu
 > [!NOTE]
 > The environment variable `httpSettings__enabled` should not be set to `false` for built-in metrics to be available for collection.
 >
-> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
+> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Available metrics
 

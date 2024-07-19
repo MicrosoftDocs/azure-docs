@@ -6,31 +6,29 @@
     items:
     - name: What is the Trusted Signing service?
       href: overview.md
-  - name: How-To
+  - name: Quickstarts
     items:
-    - name: Signing Integrations with Trusted Signing
+    - name: Set up Trusted Signing
+      href: quickstart.md
+  - name: How-to guides
+    items:
+    - name: Set up signing integrations to use Trusted Signing
       href: how-to-signing-integrations.md
-    - name: Sign CI Policies with Trusted Signing
+    - name: Sign a CI policy by using Trusted Signing
       href: how-to-sign-ci-policy.md
     - name: Access signed transactions in Trusted Signing 
       href: how-to-sign-history.md
     - name: Revoke a certificate profile in Trusted Signing
       href: how-to-cert-revocation.md
-    - name: Renew Trusted Signing Identity Validation
+    - name: Renew Trusted Signing identity validation
       href: how-to-renew-identity-validation.md
-  - name: Quickstart
+    - name: Change Pricing Tier
+      href: how-to-change-sku.md
+  - name: Tutorials
     items:
-    - name: Quickstart onboarding
-      href: quickstart.md
-  - name: Tutorial
-    items:
-    - name: Assigning Roles in Trusted Signing
+    - name: Assign roles in Trusted Signing
       href: tutorial-assign-roles.md
-  - name: FAQ
-    items:
-    - name: FAQ about Trusted Signing
-      href: faq.yml
-  - name: Concept
+  - name: Concepts
     items:
     - name: Trusted Signing trust models
       href: concept-trusted-signing-trust-models.md
@@ -38,3 +36,7 @@
       href: concept-trusted-signing-resources-roles.md
     - name: Trusted Signing certificate management
       href: concept-trusted-signing-cert-management.md
+  - name: FAQ
+    items:
+    - name: Frequently asked questions about Trusted Signing
+      href: faq.yml

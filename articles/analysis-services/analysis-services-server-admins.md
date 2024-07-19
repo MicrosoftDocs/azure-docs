@@ -36,7 +36,7 @@ If server firewall is enabled, server administrator client computer IP addresses
 
 ## PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
 Use [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.

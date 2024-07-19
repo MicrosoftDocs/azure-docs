@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 03/21/2024
+ms.date: 05/13/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: robb
@@ -73,8 +73,10 @@ The following list provides details and more information about the supported Azu
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **AADAuthenticationFailure** - deprecated
+    - **AADTokenExpired** - deprecated
+    - **MicrosoftEntraAuthenticationFailure** - when there's an authentication failure using Microsoft Entra access token
+    - **MicrosoftEntraTokenExpired** - when a Microsoft Entra access token used for authentication isn't renewed and it expires
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.

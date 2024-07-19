@@ -11,7 +11,7 @@ ms.date: 01/10/2024
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://make.powerautomate.com) to a Consumption logic app workflow that runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the workflow designer.
 

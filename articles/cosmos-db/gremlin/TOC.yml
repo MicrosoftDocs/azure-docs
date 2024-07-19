@@ -22,8 +22,6 @@
   items:
     - name: Query data using Gremlin
       href: tutorial-query.md
-    - name: Create Jupyter notebooks
-      href: ../nosql/tutorial-create-notebook.md
     - name: Kusto Query Language (KQL) transformations
       displayName: KQL, workspace, data
       href: ../tutorial-log-transformation.md
@@ -227,12 +225,6 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
-        - name: FAQ
-          href: ../notebooks-faq.yml
     - name: Emulator
       href: ../emulator.md
     - name: Network bandwidth
@@ -269,8 +261,12 @@
       items:
         - name: Set up CI/CD with Azure Pipelines
           href: ../tutorial-setup-ci-cd.md
-        - name: Use Azure Cosmos DB Explorer
-          href: ../data-explorer.md
+        - name: Azure Cosmos DB Explorer
+          items:
+            - name: Use explorer
+              href: ../data-explorer.md
+            - name: Keyboard shortcuts
+              href: ../data-explorer-shortcuts.md
     - name: Analytics and BI with Azure Synapse Link
       items:
         - name: Configure Azure Synapse Link

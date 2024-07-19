@@ -7,18 +7,17 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 05/21/2024
 ---
+
 # Features of Azure AI Search
 
 Azure AI Search provides information retrieval and uses optional AI integration to extract more text and structure content. 
 
 The following table summarizes features by category. For more information about how Azure AI Search compares with other search technologies, see [Compare search options](search-what-is-azure-search.md#compare-search-options).
 
-There's feature parity in all Azure public, private, and sovereign clouds, but some features aren't supported in specific regions. For more information, see [product availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search&regions=all&rar=true).
+There's feature parity in all Azure public, private, and sovereign clouds, but some features aren't supported in specific regions. For more information, see [Choose a region](search-region-support.md).
 
 > [!NOTE]
 > Looking for preview features? See the [preview features list](search-api-preview.md).
@@ -27,24 +26,23 @@ There's feature parity in all Azure public, private, and sovereign clouds, but s
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
-| Data sources | Search indexes can accept text from any source, provided it's submitted as a JSON document. <br/><br/> [**Indexers**](search-indexer-overview.md) are a feature that automates data import from supported data sources to extract searchable content in primary data stores. Indexers handle JSON serialization for you and most support some form of change and deletion detection. You can connect to a [variety of data sources](search-data-sources-gallery.md), including [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md). |
+| Data sources | Search indexes can accept text from any source, provided it's submitted as a JSON document. <br/><br/> [**Indexers**](search-indexer-overview.md) are a feature that automates data import from supported data sources to extract searchable content in primary data stores. Indexers handle JSON serialization for you and most support some form of change and deletion detection. You can connect to a [variety of data sources](search-data-sources-gallery.md), including [OneLake](search-how-to-index-onelake-files.md), [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md), or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md). |
 | Hierarchical and nested data structures | [**Complex types**](search-howto-complex-data-types.md) and collections allow you to model virtually any type of JSON structure within a search index. One-to-many and many-to-many cardinality can be expressed natively through collections, complex types, and collections of complex types.|
-| Linguistic analysis | Analyzers are components used for text processing during indexing and search operations. By default, you can use the general-purpose Standard Lucene analyzer, or override the default with a language analyzer, a custom analyzer that you configure, or another predefined analyzer that produces tokens in the format you require. <br/><br/>[**Language analyzers**](index-add-language-analyzers.md) from Lucene or Microsoft are used to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more. <br/><br/>[**Custom lexical analyzers**](index-add-custom-analyzers.md) are used for complex query forms such as phonetic matching and regular expressions.<br/><br/> |
+| Linguistic analysis | Analyzers are components used for text processing during indexing and search operations. By default, you can use the general-purpose Standard Lucene analyzer, or override the default with a language analyzer, a custom analyzer that you configure, or another predefined analyzer that produces tokens in the format you require. <br/><br/>[**Language analyzers**](index-add-language-analyzers.md) from Lucene or Microsoft are used to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (for example, 'mouse' vs. 'mice'), word decompounding, word-breaking (for languages with no spaces), and more. <br/><br/>[**Custom lexical analyzers**](index-add-custom-analyzers.md) are used for complex query forms such as phonetic matching and regular expressions.<br/><br/> |
 
 ## Vector and hybrid search
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
-| Vector indexing | Within a search index, add [vector fields](vector-search-how-to-create-index.md) to support  [**vector search**](vector-search-overview.md) scenarios. Vector fields can co-exist with nonvector fields in the same search document. |
+| Vector indexing | Within a search index, add [vector fields](vector-search-how-to-create-index.md) to support  [**vector search**](vector-search-overview.md) scenarios. Vector fields can coexist with nonvector fields in the same search document. |
 | Vector queries | [Formulate single and multiple vector queries](vector-search-how-to-query.md). |
 | Vector search algorithms | Use [Hierarchical Navigable Small World (HNSW)](vector-search-ranking.md#when-to-use-hnsw) or [exhaustive K-Nearest Neighbors (KNN)](vector-search-ranking.md#when-to-use-exhaustive-knn) to find similar vectors in a search index. |
 | Vector filters | [Apply filters before or after query execution](vector-search-filters.md) for greater precision during information retrieval. |
 | Hybrid information retrieval | Search for concepts and keywords in a single [hybrid query request](hybrid-search-how-to-query.md). </p>[**Hybrid search**](hybrid-search-overview.md) consolidates vector and text search, with optional semantic ranking and relevance tuning for best results.|
-| Integrated data chunking and vectorization (preview) | Native data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) and native vectorization through [vectorizers](vector-search-how-to-configure-vectorizer.md)  and the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md). </p>[**Integrated vectorization** (preview)](vector-search-integrated-vectorization.md) provides an end-to-end indexing pipeline from source files to queries.|
+| Integrated data chunking and vectorization (preview) | Native data chunking through [Text Split skill](cognitive-search-skill-textsplit.md). Native vectorization through [vectorizers](vector-search-how-to-configure-vectorizer.md) and embedding skills such as [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md), [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md), and the [AML skill](cognitive-search-aml-skill.md) that you can use to connect to endpoints in the Azure AI Studio model catalog. </p>[**Integrated vectorization** (preview)](vector-search-integrated-vectorization.md) provides an end-to-end indexing pipeline from source files to queries.|
 | Integrated vector compression and quantization | Use [built-in scalar quantization](vector-search-how-to-configure-compression-storage.md) to reduce vector index size in memory and on disk. You can also forego storage of vectors you don't need, or assign narrow data types to vector fields for reduced storage requirements. |
-| **Import and vectorize data** (preview)| A [new wizard](search-get-started-portal-import-vectors.md) in the Azure portal that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. |
 
-## AI enrichment and knowledge mining
+## Applied AI and knowledge mining
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
@@ -52,7 +50,7 @@ There's feature parity in all Azure public, private, and sovereign clouds, but s
 | Storing enriched content for analysis and consumption in non-search scenarios | [**Knowledge store**](knowledge-store-concept-intro.md) is persistent storage of enriched content, intended for non-search scenarios like knowledge mining and data science processing. A knowledge store is defined in a skillset, but created in Azure Storage as objects or tabular rowsets.|
 | Cached enrichments | [**Incremental enrichment (preview)**](cognitive-search-incremental-indexing-conceptual.md) refers to cached enrichments that can be reused during skillset execution. Caching is particularly valuable in skillsets that include OCR and image analysis, which are expensive to process. |
 
-## Query and user experience
+## Full text and other query forms
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
@@ -68,14 +66,14 @@ There's feature parity in all Azure public, private, and sovereign clouds, but s
 |-------------------|----------|
 | Data encryption | [**Microsoft-managed encryption-at-rest**](search-security-overview.md#encryption) is built into the internal storage layer and is irrevocable. <br/><br/>[**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) that you create and manage in Azure Key Vault can be used for supplemental encryption of indexes and synonym maps. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.|
 | Endpoint protection | [**IP rules for inbound firewall support**](service-configure-firewall.md) allows you to set up IP ranges over which the search service will accept requests.<br/><br/>[**Create a private endpoint**](service-create-private-endpoint.md) using Azure Private Link to force all requests through a virtual network. |
-| Inbound access | [**Azure role-based access control**](search-security-rbac.md) assigns roles to users and groups in Microsoft Entra ID for controlled access to search content and operations. You can also use [**key-based authentication**](search-security-api-keys.md) if you don't have an Azure tenant.|
+| Inbound access | [**Role-based access control**](search-security-rbac.md) assigns roles to users and groups in Microsoft Entra ID for controlled access to search content and operations. You can also use [**key-based authentication**](search-security-api-keys.md) if you don't have role assignments.|
 | Outbound security (indexers) | [**Data access through private endpoints**](search-indexer-howto-access-private.md) allows an indexer to connect to Azure resources that are protected through Azure Private Link.<br/><br/>[**Data access using a trusted identity**](search-howto-managed-identities-data-sources.md) means that connection strings to external data sources can omit user names and passwords. When an indexer connects to the data source, the resource allows the connection if the search service was previously registered as a trusted service. |
 
 ## Portal features
 
 | Category&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Features |
 |-------------------|----------|
-| Tools for prototyping and inspection | [**Add index**](search-what-is-an-index.md) is an index designer in the portal that you can use to create a basic schema consisting of attributed fields and a few other settings. After saving the index, you can populate it using an SDK or the REST API to provide the data. <br/><br/>[**Import data wizard**](search-import-data-portal.md) creates indexes, indexers, skillsets, and data source definitions. If your data exists in Azure, this wizard can save you significant time and effort, especially for proof-of-concept investigation and exploration. <br/><br/>[**Search explorer**](search-explorer.md) is used to test queries and refine scoring profiles.<br/><br/>[**Create demo app**](search-create-app-portal.md) is used to generate an HTML page that can be used to test the search experience.  <br/><br/>[**Debug Sessions**](cognitive-search-debug-session.md) is a visual editor that lets you debug a skillset interactively. It shows you dependencies, output, and transformations. |
+| Tools for prototyping and inspection | [**Add index**](search-what-is-an-index.md) is an index designer in the portal that you can use to create a basic schema consisting of attributed fields and a few other settings. After saving the index, you can populate it using an SDK or the REST API to provide the data. <br/><br/>[**Import data wizard**](search-import-data-portal.md) creates indexes, indexers, skillsets, and data source definitions. If your data exists in Azure, this wizard can save you significant time and effort, especially for proof-of-concept investigation and exploration. <br/><br/>[**Import and vectorize data**](search-get-started-portal-import-vectors.md) creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all of the objects and configuration settings. <br/><br/>[**Search explorer**](search-explorer.md) is used to test queries and refine scoring profiles.<br/><br/>[**Create demo app**](search-create-app-portal.md) is used to generate an HTML page that can be used to test the search experience.  <br/><br/>[**Debug Sessions**](cognitive-search-debug-session.md) is a visual editor that lets you debug a skillset interactively. It shows you dependencies, output, and transformations. |
 | Monitoring and diagnostics | [**Enable monitoring features**](monitor-azure-cognitive-search.md) to go beyond the metrics-at-a-glance that are always visible in the portal. Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no extra configuration required.|
 
 ## Programmability

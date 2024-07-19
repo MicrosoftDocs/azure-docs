@@ -4,7 +4,7 @@ description: Learn how Private Link works for Azure Database for MySQL - Flexibl
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/10/2023
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual

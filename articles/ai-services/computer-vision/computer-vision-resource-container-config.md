@@ -17,7 +17,7 @@ You can configure the Azure AI Vision Read OCR container's runtime environment b
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+[!INCLUDE [Container shared configuration settings table](../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
@@ -49,7 +49,7 @@ This setting can be found in the following place:
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -67,19 +67,19 @@ Remember to add the `vision/<version>` routing to the endpoint URI as shown in t
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration HTTP proxy settings](../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
-[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Mount settings
 
@@ -108,7 +108,7 @@ Replace {_argument_name_} with your own values:
 | **{API_KEY}** | The endpoint key of the Vision resource on the resource keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | The billing endpoint value is available on the resource overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
 
-[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).

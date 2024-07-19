@@ -16,6 +16,10 @@
           href: ru/introduction.md
         - name: API versions
           items:
+            - name: API version 6.0
+              href: feature-support-60.md
+            - name: API version 5.0
+              href: feature-support-50.md
             - name: API version 4.2
               href: feature-support-42.md
             - name: API version 4.0
@@ -76,8 +80,6 @@
           href: tutorial-update.md
         - name: Deleting data
           href: tutorial-delete.md
-        - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md
         - name: Kusto Query Language (KQL) transformations
           displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
@@ -298,12 +300,6 @@
               href: ../compliance.md
             - name: Data residency
               href: ../data-residency.md
-        - name: Jupyter notebooks
-          items:
-            - name: Overview
-              href: ../notebooks-overview.md
-            - name: FAQ
-              href: ../notebooks-faq.yml              
         - name: Emulator
           href: ../emulator.md
         - name: Network bandwidth
@@ -331,8 +327,14 @@
                   href: connect-using-mongoose.md
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Manage multiple items
+                  href: ../how-to-data-explorer-manage-items.md
+                - name: Keyboard shortcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Develop applications
           items:
             - name: JavaScript

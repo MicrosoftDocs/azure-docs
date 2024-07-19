@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 07/19/2024
 ms.custom: references_regions
 ---
 
@@ -21,11 +21,24 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## July 2024
+
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
+
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+
+
 ## April 2024
  
 ### Changes in Process Automation subscription and service limits and quotas
  
 Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+
+## February 2024
+
+### New version of Start/Stop VMs
+
+Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now and we recommend that you start using version 2, which is now generally available. The new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation. [Learn more](../azure-functions/start-stop-vms/overview.md).
 
 ## January 2024
 
