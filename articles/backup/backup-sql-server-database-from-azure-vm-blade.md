@@ -98,4 +98,4 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
 - [Restore SQL Server databases on Azure VM](restore-sql-database-azure-vm.md)
 - [Manage and monitor backed up SQL Server databases](manage-monitor-sql-database-backup.md)
 - [Troubleshoot backups on an SQL Server database](backup-sql-server-azure-troubleshoot.md)
-- [FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup | Microsoft Learn](faq-backup-sql-server.md)
+- [FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup | Microsoft Learn](/azure/backup/faq-backup-sql-server)
