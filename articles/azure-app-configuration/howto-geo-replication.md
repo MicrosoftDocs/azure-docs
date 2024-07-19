@@ -240,7 +240,7 @@ The failover won't happen for client errors like authentication failures.
 
 ## Load balance with replicas
 
-By default, your application will always request a single endpoint except in the case of failover. However, in addition to failover, replicas can also be used to balance the load of requests. By proactively distributing requests across any available replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
+By default, your application always requests a single endpoint except in the case of failover. However, in addition to failover, replicas can also be used to balance the load of requests. By proactively distributing requests across any available replicas over time, you can avoid exhausting the request quota of a single replica and improve the overall performance of your application.
 
 The App Configuration provider libraries offer built-in support for automatically load balancing across replicas.  You can use the following code samples to enable this feature in your application. 
 
