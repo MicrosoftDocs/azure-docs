@@ -1,6 +1,6 @@
 ---
-title: Azure Operator Nexus troubleshooting BMM provisioning
-description: Troubleshoot BMM provisioning for Azure Operator Nexus.
+title: Azure Operator Nexus troubleshoot bare metal machine provisioning
+description: Troubleshoot bare metal machine provisioning for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
