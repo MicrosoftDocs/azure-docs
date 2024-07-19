@@ -48,6 +48,7 @@ For more information on migrating from Single Server to Flexible Server using ot
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's TLS version from v1.0 or v1.1 to TLS v1.2 before the migration as the older TLS versions have been deprecated for Flexible Server.
 - If your source Azure Database for MySQL Single Server utilizes nondefault ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned nondefault ports aren't supported on Flexible Server.
+- Service tags (SQL) in Outbound Rules are not supported on Azure Database for MySQL Flexible Server. Please use Fully Qualified Domain name(FQDN) in Outbound Rules when configuring teh firewall settings for the Flexible Server.
 
 ## What happens post sunset date (September 16, 2024)?
 
