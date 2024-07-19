@@ -1047,6 +1047,12 @@ items:
         href: concepts/sms/messaging-policy.md
       - name: Pricing
         href: concepts/advanced-messaging/whatsapp/pricing.md
+      - name: Analytics
+        items:
+        - name: Metrics
+          href: concepts/advanced-messaging/metrics.md
+        - name: Logs
+          href: concepts/advanced-messaging/logs.md
       - name: Events
         items:
         - name: Overview
@@ -1056,7 +1062,11 @@ items:
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
   - name: Azure Advisor
-    href: concepts/advisor-overview.md
+    items:
+      - name: Overview
+        href: concepts/advisor-overview.md
+      - name: Metrics
+        href: concepts/metrics.md
 - name: Resources
   items:
   - name: Release notes
