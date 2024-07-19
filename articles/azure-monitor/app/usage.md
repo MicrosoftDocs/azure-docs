@@ -12,16 +12,21 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 This article covers the following areas:
 
-* [Users, Sessions & Events](#the-users-sessions-and-events-segmentation-tool) - Filter your data by pages or custom events. The reports segment the data by properties such as location, environment, and page. You can also add your own filters.
-* [Funnels](#use-funnels-to-discover-how-customers-are-using-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
-* [User Flows](#analyze-user-navigation-patterns-with-user-flows) - Visualize user paths to identify where users are most engaged and where they exit.
-* [Cohorts](#analyze-a-specific-set-of-users-sessions-events-or-operations-repeatedly-with-cohorts) - Define and analyze sets of users or events that share common characteristics.
-* [Impact Analysis](#use-impact-analysis-to-discover-how-load-times-and-other-properties-influence-conversion-rates) - Analyze how different factors such as load times influence user behavior and conversion rates.
-* [HEART](#analyze-product-usage-with-heart) - Utilize the HEART framework to measure user happiness, engagement, adoption, retention, and task success.
+* [Users, Sessions & Events](#the-users-sessions-and-events-segmentation-tool) - Track and analyze user interaction with your application, session trends, and specific events to gain insights into user behavior and app performance.
 
-## Send telemetry from your app
+* [Funnels](#discover-with-funnels-how-customers-use-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
 
-The best experience is obtained by installing Application Insights both in your app server code and in your webpages. The client and server components of your app send telemetry back to the Azure portal for analysis.
+* [User Flows](#analyze-user-navigation-patterns-with-user-flows) - Visualize user paths to identify the most common routes and pinpointing areas where users are most engaged users or may encounter issues.
+
+* [Cohorts](#analyze-a-specific-set-of-users-sessions-events-or-operations-repeatedly-with-cohorts) - Group users or events by common characteristics to analyze behavior patterns, feature usage, and the impact of changes over time.
+
+* [Impact Analysis](#use-impact-analysis-to-discover-how-different-properties-influence-conversion-rates) - Analyze how application performance metrics, like load times, influence user experiene and behavior, to help you to prioritize improvements.
+
+* [HEART](#analyze-product-usage-with-heart) - Utilize the HEART framework to measure and understand user Happiness, Engagement, Adoption, Retention, and Task success.
+
+## Send telemetry from your application
+
+To optimize your experience, consider integrating Application Insights into both your app server code and your webpages. This dual implementation enables telemetry collection from both the client and server components of your application.
 
 1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./opentelemetry-enable.md?tabs=java), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
@@ -44,7 +49,9 @@ The best experience is obtained by installing Application Insights both in your 
 Three of the **Usage** panes use the same tool to slice and dice telemetry from your web app from three perspectives. By filtering and splitting the data, you can uncover insights about the relative use of different pages and features.
 
 * **Users tool**: How many people used your app and its features? Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.
+
 * **Sessions tool**: How many sessions of user activity have included certain pages and features of your app? A session is reset after half an hour of user inactivity, or after 24 hours of continuous use.
+
 * **Events tool**: How often are certain pages and features of your app used? A page view is counted when a browser loads a page from your app, provided you've [instrumented it](./javascript.md).
 
     A custom event represents one occurrence of something happening in your app. It's often a user interaction like a button selection or the completion of a task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent) or use the [Click Analytics](javascript-feature-extensions.md) extension.
@@ -55,10 +62,12 @@ Three of the **Usage** panes use the same tool to slice and dice telemetry from 
 Clicking **View More Insights** displays the following information:
 
 * Application Performance: Sessions, Events, and a Performance evaluation related to users' perception of responsiveness.
+
 * Properties: Charts containing up to six user properties such as browser version, country or region, and operating system.
+
 * Meet Your Users: View timelines of user activity.
 
-### Users & Sessions - Explore usage demographics and statistics
+### Explore usage demographics and statistics
 
 Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using Application Insights.
 
@@ -70,7 +79,7 @@ Find out when people use your web app, what pages they're most interested in, wh
 
 #### Query for certain users
 
-Explore different groups of users by adjusting the query options at the top of the Users tool:
+Explore different groups of users by adjusting the query options at the top of the Users pane:
 
 * **During**: Choose a time range.
 * **Show**: Choose a cohort of users to analyze.
@@ -84,59 +93,56 @@ Explore different groups of users by adjusting the query options at the top of t
 
 The **Meet your users** section shows information about five sample users matched by the current query. Exploring the behaviors of individuals and in aggregate can provide insights about how people use your app.
 
-### Retention: How many users come back?
+### User retention analysis for web applications
 
-Retention helps you understand how often your users return to use their app, based on cohorts of users that performed some business action during a certain time bucket. You can:
+The Application Insights retention feature provides valuable insights into user engagement by tracking the frequency and patterns of users returning to your app and their interactions with specific features. It enables you to compare user behaviors, such as the difference in return rates between users who win or lose a game, offering actionable data to enhance user experience and inform business strategies.
+
+By analyzing cohorts of users based on their actions within a given timeframe, you can identify which features drive repeat usage. This knowledge can help you:
 
 * Understand what specific features cause users to come back more than others.
-* Form hypotheses based on real user data.
 * Determine whether retention is a problem in your product.
+* Form hypotheses based on real user data to help you improve the user experience and your business strategy.
 
 :::image type="content" source="./media/usage-overview/retention.png" alt-text="Screenshot that shows the Retention workbook, which displays information about how often users return to use their app." lightbox="./media/usage-overview/retention.png":::
 
 You can use the retention controls on top to define specific events and time ranges to calculate retention. The graph in the middle gives a visual representation of the overall retention percentage by the time range specified. The graph on the bottom represents individual retention in a specific time period. This level of detail allows you to understand what your users are doing and what might affect returning users on a more detailed granularity.
 
-For more information about the Retention workbook, see [User retention analysis for web applications with Application Insights](usage-retention.md).
+For more information about the Retention workbook, see the section below.
 
-<!-- # User retention analysis for web applications with Application Insights -->
+#### The retention workbook
 
-The retention feature in [Application Insights](./app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve your user experience and your business strategy.
-
-#### The Retention workbook
-
-To use the Retention workbook, in your Application Insights resources go to **Usage** > **Retention** > **Retention Analysis Workbook**. Or on the **Workbooks** tab, select **Public Templates**. Then under **Usage**, select **User Retention Analysis**.
+To use the retention workbook in Application Insights, navigate to the **Workbooks** pane, select **Public Templates** at the top, and locate the **User Retention Analysis** workbook listed under the **Usage** category.
 
 :::image type="content" source="./media/usage-retention/workbooks-gallery.png" alt-text="Screenshot that shows the Workbooks Gallery on the Public Templates tab." lightbox="./media/usage-retention/workbooks-gallery.png":::
-
-#### Use the workbook
-
-:::image type="content" source="./media/usage-retention/retention.png" alt-text="Screenshot that shows the Retention workbook showing a line chart." lightbox="./media/usage-retention/retention.png":::
 
 **Workbook capabilities:**
 
 * By default, retention shows all users who did anything and then came back and did anything else over a defined period. You can select different combinations of events to narrow the focus on specific user activities.
+
 * To add one or more filters on properties, select **Add Filters**. For example, you can focus on users in a particular country or region.
+
 * The **Overall Retention** chart shows a summary of user retention across the selected time period.
+
 * The grid shows the number of users retained. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users might return in more than one period.
+
 * The insights cards show the top five initiating events and the top five returned events. This information gives users a better understanding of their retention report.
 
     :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot that shows the Retention workbook showing the User returned after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
-
-### Events - ...
 
 #### Use business events to track retention
 
 You should measure events that represent significant business activities to get the most useful retention analysis.
 
-For more information and example code, see [Custom business events](usage-overview.md#custom-business-events).
+For more information and example code, see the section below.
 
-To learn more, see [writing custom events](./api-custom-events-metrics.md#trackevent).
-
-#### Custom business events
+### Track user interactions with custom events
 
 To understand user interactions in your app, insert code lines to log custom events. These events track various user actions, like button selections, or important business events, such as purchases or game victories.
 
 You can also use the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md) to collect custom events.
+
+> [!TIP]
+> When you design each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
 
 In some cases, page views can represent useful events, but it isn't true in general. A user can open a product page without buying the product.
 
@@ -145,18 +151,18 @@ With specific business events, you can chart your users' progress through your s
 Events can be logged from the client side of the app:
 
 ```javascript
-      appInsights.trackEvent({name: "incrementCount"});
+appInsights.trackEvent({name: "incrementCount"});
 ```
 
 Or events can be logged from the server side:
 
 ```csharp
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient();
-    tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
-    ...
-    tc.TrackEvent("AddedItemToCart", new Dictionary<string,string> {"Item":item.Name}, null);
-    ...
-    tc.TrackEvent("CompletedPurchase");
+var tc = new Microsoft.ApplicationInsights.TelemetryClient();
+tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
+...
+tc.TrackEvent("AddedItemToCart", new Dictionary<string,string> {"Item":item.Name}, null);
+...
+tc.TrackEvent("CompletedPurchase");
 ```
 
 You can attach property values to these events so that you can filter or split the events when you inspect them in the portal. A standard set of properties is also attached to each event, such as anonymous user ID, which allows you to trace the sequence of activities of an individual user.
@@ -191,12 +197,8 @@ dataset
 // render result in a chart
 | render timechart
 ```
-  
-#### Design the telemetry with the app
 
-When you design each feature of your app, consider how you're going to measure its success with your users. Decide what business events you need to record, and code the tracking calls for those events into your app from the start.
-
-#### A | B testing
+### Determine which feature variant is more successful with A/B testing
 
 If you're unsure which feature variant is more successful, release both and let different users access each variant. Measure the success of each variant, and then transition to a unified version.
 
@@ -207,23 +209,23 @@ In the Application Insights portal, filter and split your data on the property v
 To do this step, [set up a telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 ```csharp
-    // Telemetry initializer class
-    public class MyTelemetryInitializer : ITelemetryInitializer
+// Telemetry initializer class
+public class MyTelemetryInitializer : ITelemetryInitializer
+{
+    // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
+    // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. Make sure that
+    // you set a different assembly version when you deploy your application for A/B testing.
+    static readonly string _version = 
+        System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        
+    public void Initialize(ITelemetry item)
     {
-        // In this example, to differentiate versions, we use the value specified in the AssemblyInfo.cs
-        // for ASP.NET apps, or in your project file (.csproj) for the ASP.NET Core apps. Make sure that
-        // you set a different assembly version when you deploy your application for A/B testing.
-        static readonly string _version = 
-            System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            
-        public void Initialize(ITelemetry item)
-        {
-            item.Context.Component.Version = _version;
-        }
+        item.Context.Component.Version = _version;
     }
+}
 ```
 
-##### [NET 6.0+](#tab/aspnetcore)
+### [.NET Core](#tab/aspnetcore)
 
 For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
 
@@ -233,33 +235,33 @@ using Microsoft.ApplicationInsights.Extensibility;
 builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 ```
 
-##### [.NET Framework 4.8](#tab/aspnet-framework)
+### [.NET Framework 4.8](#tab/aspnet-framework)
 
 In the web app initializer, such as `Global.asax.cs`:
 
 ```csharp
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-            .Add(new MyTelemetryInitializer());
-    }
+protected void Application_Start()
+{
+    // ...
+    TelemetryConfiguration.Active.TelemetryInitializers
+        .Add(new MyTelemetryInitializer());
+}
 ```
 
 ---
 
-## Use funnels to discover how customers are using your application
+## Discover with Funnels how customers use your application
 
 Understanding the customer experience is of great importance to your business. If your application involves multiple stages, you need to know if customers are progressing through the entire process or ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights funnels to gain insights into your users and monitor step-by-step conversion rates.
 
-### Funnel features
-
-Funnels have the following features:
+**Funnel features:**
 
 * If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
+
 * Select a step to see more details on the right.
+
 * The historical conversion graph shows the conversion rates over the last 90 days.
+
 * Understand your users better by accessing the users tool. You can use filters in each step.
 
 ### Create a funnel
@@ -273,11 +275,13 @@ Before you create a funnel, decide on the question you want to answer. For examp
 To create a funnel:
 
 1. On the **Funnels** tab, select **Edit**.
+
 1. Choose your **Top Step**.
 
      :::image type="content" source="./media/usage-funnels/funnel.png" alt-text="Screenshot that shows the Funnel tab and selecting steps on the Edit tab." lightbox="./media/usage-funnels/funnel.png":::
 
 1. To apply filters to the step, select **Add filters**. This option appears after you choose an item for the top step.
+
 1. Then choose your **Second Step** and so on.
 
     > [!NOTE]
@@ -444,11 +448,9 @@ The previous two cohorts were defined by using dropdown boxes. You can also defi
 
 1. Save and name the cohort.
 
-## Use Impact Analysis to discover how load times and other properties influence conversion rates
+## Use Impact Analysis to discover how different properties influence conversion rates
 
 Impact Analysis discovers how any dimension of a page view, custom event, or request affects the usage of a different page view or custom event.
-
-### Still not sure what Impact does?
 
 One way to think of Impact is as the ultimate tool for settling arguments with someone on your team about how slowness in some aspect of your site is affecting whether users stick around. Users might tolerate some slowness, but Impact gives you insight into how best to balance optimization and performance to maximize user conversion.
 
@@ -575,6 +577,7 @@ These dimensions are measured independently, but they interact with each other.
 > To understand how to effectively use the Click Analytics plug-in, see [Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](javascript-feature-extensions.md#use-the-plug-in).
 
 #### Open the workbook
+
 You can find the workbook in the gallery under **Public Templates**. The workbook appears in the section **Product Analytics using the Click Analytics Plugin**.
 
 :::image type="content" source="media/usage-overview/workbook-gallery.png" alt-text="Screenshot that shows the location of the HEART workbooks in Azure Application Insights.":::
@@ -599,6 +602,7 @@ If data isn't flowing as expected, this tab shows the specific attributes with i
 :::image type="content" source="media/usage-overview/development-requirements-2.png" alt-text="Screenshot that shows data discrepancies on the Development Requirements tab of the HEART workbook.":::
 
 ### Workbook structure
+
 The workbook shows metric trends for the HEART dimensions split over seven tabs. Each tab contains descriptions of the dimensions, the metrics contained within each dimension, and how to use them.
 
 The tabs are:
