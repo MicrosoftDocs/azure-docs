@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, devx-track-python, update-code5
-ms.author: amipatel
-author: amibp
+ms.author: franksolomon
+author: fbsolo-ms1
 ms.date: 03/05/2024
-ms.reviewer: franksolomon
+ms.reviewer: amipatel
 ---
 
 # CLI (v2) sweep job YAML schema

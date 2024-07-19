@@ -5,7 +5,7 @@ description: This article explains how to copy a custom model to another workspa
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 07/10/2024
 ms.author: lajanuar
 ms.topic: how-to
 ---

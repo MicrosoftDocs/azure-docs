@@ -7,10 +7,9 @@ ms.custom:
 ms.topic: include
 ms.date: 06/11/2024
 ---
-<!---
 At this time, a test or preview build is not available for the next release.
--->
 
+<!---
 July, 2024 preview release is now available.
 
 |Component|Value|
@@ -40,3 +39,4 @@ July, 2024 preview release is now available.
 
 Release Notes:
 - Arc SQL Server | Automatically start billing for ESU on servers that are enabled for ESU and host SQL Server 2014 instances when SQL Server 2014 ESU program starts
+-->

@@ -47,6 +47,8 @@ Models deployed to [serverless API endpoints](../how-to/deploy-models-serverless
 > * [Meta Llama 3 instruct](../how-to/deploy-models-llama.md) family of models
 > * [Mistral-Small](../how-to/deploy-models-mistral.md)
 > * [Mistral-Large](../how-to/deploy-models-mistral.md)
+> * [Jais](../how-to/deploy-jais-models.md) family of models
+> * [Jamba](../how-to/deploy-models-jamba.md) family of models
 > * [Phi-3](../how-to/deploy-models-phi-3.md) family of models
 
 Models deployed to [managed inference](../concepts/deployments-overview.md):
@@ -57,6 +59,9 @@ Models deployed to [managed inference](../concepts/deployments-overview.md):
 > * Mixtral famility of models
 
 The API is compatible with Azure OpenAI model deployments.
+
+> [!NOTE]
+> The Azure AI model inference API is available in managed inference (Managed Online Endpoints) for __models deployed after June 24th, 2024__. To take advance of the API, redeploy your endpoint if the model has been deployed before such date.
 
 ## Capabilities
 
@@ -98,6 +103,21 @@ model = ChatCompletionsClient(
 )
 ```
 
+If you are using an endpoint with support for Entra ID, you can create your client as follows:
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import AzureDefaultCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureDefaultCredential(),
+)
+```
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
+
 # [JavaScript](#tab/javascript)
 
 Install the package `@azure-rest/ai-inference` using npm:
@@ -119,6 +139,21 @@ const client = new ModelClient(
 );
 ```
 
+For endpoint with support for Microsoft Entra ID, you can create your client as follows:
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureDefaultCredential } from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureDefaultCredential()
+);
+```
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+
 # [REST](#tab/rest)
 
 Use the reference section to explore the API design and which parameters are available. For example, the reference section for [Chat completions](reference-model-inference-chat-completions.md) details how to use the route `/chat/completions` to generate predictions based on chat-formatted instructions:
@@ -136,13 +171,15 @@ Content-Type: application/json
 
 The Azure AI Model Inference API specifies a set of modalities and parameters that models can subscribe to. However, some models may have further capabilities that the ones the API indicates. On those cases, the API allows the developer to pass them as extra parameters in the payload.
 
-By setting a header `extra-parameters: allow`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
+By setting a header `extra-parameters: pass-through`, the API will attempt to pass any unknown parameter directly to the underlying model. If the model can handle that parameter, the request completes.
 
-The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API:
+The following example shows a request passing the parameter `safe_prompt` supported by Mistral-Large, which isn't specified in the Azure AI Model Inference API. 
 
 # [Python](#tab/python)
 
 ```python
+from azure.ai.inference.models import SystemMessage, UserMessage
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -152,7 +189,12 @@ response = model.complete(
         "safe_mode": True
     }
 )
+
+print(response.choices[0].message.content)
 ```
+
+> [!TIP]
+> When using Azure AI Inference SDK, using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
@@ -163,11 +205,14 @@ var messages = [
 ];
 
 var response = await client.path("/chat/completions").post({
+    "extra-parameters": "pass-through",
     body: {
         messages: messages,
         safe_mode: true
     }
 });
+
+console.log(response.choices[0].message.content)
 ```
 
 # [REST](#tab/rest)
@@ -178,7 +223,7 @@ __Request__
 POST /chat/completions?api-version=2024-04-01-preview
 Authorization: Bearer <bearer-token>
 Content-Type: application/json
-extra-parameters: allow
+extra-parameters: pass-through
 ```
 
 ```JSON
@@ -202,8 +247,8 @@ extra-parameters: allow
 
 ---
 
-> [!TIP]
-> Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+> [!NOTE]
+> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
 ### Models with disparate set of capabilities
 
@@ -214,9 +259,9 @@ The following example shows the response for a chat completion request indicatin
 # [Python](#tab/python)
 
 ```python
-from azure.ai.inference.models import ChatCompletionsResponseFormat
-from azure.core.exceptions import HttpResponseError
 import json
+from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletionsResponseFormat
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
@@ -330,6 +375,7 @@ The following example shows the response for a chat completion request that has 
 
 ```python
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
@@ -426,3 +472,27 @@ __Response__
 ## Getting started
 
 The Azure AI Model Inference API is currently supported in certain models deployed as [Serverless API endpoints](../how-to/deploy-models-serverless.md) and Managed Online Endpoints. Deploy any of the [supported models](#availability) and use the exact same code to consume their predictions.
+
+# [Python](#tab/python)
+
+The client library `azure-ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
+
+# [JavaScript](#tab/javascript)
+
+The client library `@azure-rest/ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+
+# [REST](#tab/rest)
+
+Explore the reference section of the Azure AI model inference API to see parameters and options to consume models, including chat completions models, deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
+
+* [Get info](reference-model-inference-info.md): Returns the information about the model deployed under the endpoint.
+* [Text embeddings](reference-model-inference-embeddings.md): Creates an embedding vector representing the input text.
+* [Text completions](reference-model-inference-completions.md): Creates a completion for the provided prompt and parameters.
+* [Chat completions](reference-model-inference-chat-completions.md): Creates a model response for the given chat conversation.
+* [Image embeddings](reference-model-inference-images-embeddings.md): Creates an embedding vector representing the input text and image.
+
+---

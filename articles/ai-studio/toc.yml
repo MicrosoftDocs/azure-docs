@@ -20,10 +20,9 @@ items:
     href: quickstarts/get-started-playground.md
   - name: Get started building a chat app using the prompt flow SDK
     href: quickstarts/get-started-code.md
+    displayName: code
   - name: Get started with Assistants and code interpreter in the playground
     href: ../ai-services/openai/assistants-quickstart.md?context=/azure/ai-studio/context/context
-  - name: Hear and speak with chat in the playground
-    href: quickstarts/hear-speak-playground.md
   - name: Moderate text and images with Content Safety
     href: quickstarts/content-safety.md
   - name: Use Azure AI Studio with a screen reader
@@ -32,8 +31,17 @@ items:
   items:
   - name: Deploy an enterprise chat web app
     href: tutorials/deploy-chat-web-app.md
-  - name: Build your own copilot using prompt flow
+  - name: Build your own copilot with prompt flow UI
     href: tutorials/deploy-copilot-ai-studio.md
+  - name: Build your own copilot with the prompt flow SDK
+    expanded: true
+    items:
+      - name: "Part 1: Build a custom copilot that implements RAG"
+        href: tutorials/copilot-sdk-build-rag.md
+        displayName: code,sdk
+      - name: "Part 2: Evaluate and deploy your custom copilot"
+        href: tutorials/copilot-sdk-evaluate-deploy.md
+        displayName: code,sdk
 - name: How-to
   expanded: true
   items:
@@ -51,6 +59,9 @@ items:
         href: how-to/create-azure-ai-hub-template.md
       - name: Create a hub using the Azure Machine Learning SDK and CLI
         href: how-to/develop/create-hub-project-sdk.md
+        displayName: code
+      - name: Create a hub using Terraform
+        href: how-to/create-hub-terraform.md
     - name: Create a project
       href: how-to/create-projects.md
     - name: Create and manage compute
@@ -63,6 +74,7 @@ items:
         href: how-to/connections-add.md
       - name: Create a connection using the Azure Machine Learning SDK
         href: how-to/develop/connections-add-sdk.md
+        displayName: code
   - name: Select and deploy AI models
     items:
     - name: Model catalog
@@ -134,6 +146,7 @@ items:
       href: how-to/index-add.md
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
+      displayName: code,sdk
   - name: Develop generative AI apps
     items:
     - name: Develop generative AI apps in AI Studio
@@ -176,12 +189,14 @@ items:
       items:
       - name: Overview of SDKs
         href: how-to/develop/sdk-overview.md
+        displayName: code
       - name: Work with AI Studio projects in VS Code
         href: how-to/develop/vscode.md
       - name: Start with an AI template
         href: how-to/develop/ai-template-get-started.md
       - name: Trace your application with prompt flow
         href: how-to/develop/trace-local-sdk.md
+        displayName: code,sdk
   - name: Evaluate generative AI apps
     items:
     - name: Evaluations concepts
@@ -198,10 +213,12 @@ items:
       href: how-to/develop/simulator-interaction-data.md
     - name: Evaluate with the prompt flow SDK
       href: how-to/develop/flow-evaluate-sdk.md
+      displayName: code,accuracy,metrics
     - name: Evaluate with Azure AI Studio
       href: how-to/evaluate-generative-ai-app.md
     - name: View evaluation results in Azure AI Studio
       href: how-to/evaluate-flow-results.md
+      displayName: accuracy,metrics
     - name: Evaluate flows in AI Studio
       items:
         - name: Submit batch run and evaluate a flow
@@ -215,6 +232,7 @@ items:
       displayName: endpoint
     - name: Enable tracing and collect feedback for a flow deployment
       href: how-to/develop/trace-production-sdk.md
+      displayName: code
     - name: Monitor prompt flow deployments
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
@@ -290,6 +308,8 @@ items:
       href: concepts/vulnerability-management.md
     - name: Disaster recovery
       href: how-to/disaster-recovery.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-ai-studio-security-baseline
 - name: Responsible AI
   items:
   - name: Overview

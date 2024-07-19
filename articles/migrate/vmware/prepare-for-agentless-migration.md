@@ -23,7 +23,7 @@ Azure Migrate automatically handles these configuration changes for the followin
 
 - Windows Server 2008 or later
 - Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- CentOS 9.x (Release and Stream), 8.x (Release and Stream), 7.9, 7.7, 7.6, 7.5, 7.4, 6.x
+- CentOS 9.x (Release and Stream)
 - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
@@ -273,7 +273,7 @@ The preparation script executes the following changes based on the OS type of th
 
     Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](../../virtual-machines/extensions/agent-linux.md) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-    Review the list of [required packages](../../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL 8.x/7.x/6.x, CentOS 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7/6 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](../../virtual-machines/extensions/agent-linux.md#installation) for other OS versions.
+    Review the list of [required packages](../../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7/6 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](../../virtual-machines/extensions/agent-linux.md#installation) for other OS versions.
 
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.

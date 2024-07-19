@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/01/2024
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.custom: [references_regions]
 ---
 

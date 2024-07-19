@@ -16,7 +16,8 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
+> [!IMPORTANT]
+> **Azure Database for MySQL - Single Server is on the retirement path** and is scheduled for retirement by **September 16, 2024**.
 
 As part of this retirement, we'll no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023** and Azure CLI beginning **March 19, 2024**. If you still need to create Single Server instances to meet business continuity needs, raise an Azure support ticket. You'll still be able to create read replicas and perform restores (PITR and geo-restore) for your existing single server instance and this will continue to be supported until the sunset date of **September 16, 2024**.
 
@@ -42,8 +43,12 @@ For more information on migrating from Single Server to Flexible Server using ot
 > [!NOTE]  
 > In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
 
-## Prerequisite checks and post-migration actions when migration from Single to Flexible Server
+## Prerequisite checks when migration from Single to Flexible Server
 
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's TLS version from v1.0 or v1.1 to TLS v1.2 before the migration as the older TLS versions have been deprecated for Flexible Server.
+- If your source Azure Database for MySQL Single Server utilizes nondefault ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned nondefault ports aren't supported on Flexible Server.
+- Service tags (SQL) in Outbound Rules are not supported on Azure Database for MySQL Flexible Server. Please use Fully Qualified Domain name(FQDN) in Outbound Rules when configuring teh firewall settings for the Flexible Server.
 
 ## What happens post sunset date (September 16, 2024)?
 

@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 06/14/2024
+ms.date: 07/19/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -40,8 +40,6 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 - Private endpoints for Azure Backup don’t include access to Microsoft Entra ID. Ensure that you enable the access so that IPs and FQDNs required for Microsoft Entra ID to work in a region have outbound access in allowed state in the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Microsoft Entra ID, as applicable.
 
 - You need to re-register the Recovery Services resource provider with the subscription, if you've registered it before *May 1, 2020*. To re-register the provider, go to *your subscription* in the Azure portal > **Resource provider**, and then select **Microsoft.RecoveryServices** > **Re-register**.
-
-- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported, if the vault has private endpoints enabled.
 
 - You can create DNS across subscriptions.
 

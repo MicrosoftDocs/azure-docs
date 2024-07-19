@@ -5,12 +5,12 @@
   - name: About Azure Digital Twins
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
   - name: Get started with 3D Scenes Studio
     href: quickstart-3d-scenes-studio.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Code a client app
@@ -36,13 +36,13 @@
     - name: Converting ontologies
       href: concepts-ontologies-convert.md
     - name: Extending ontologies
-      href: concepts-ontologies-extend.md      
+      href: concepts-ontologies-extend.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
     href: concepts-query-language.md
   - name: Query Units
-    href: concepts-query-units.md 
+    href: concepts-query-units.md
   - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
   - name: Querying with the Azure Data Explorer plugin
@@ -64,7 +64,7 @@
   - name: 3D Scenes Studio
     href: concepts-3d-scenes-studio.md
   - name: Security for Azure Digital Twins solutions
-    href: concepts-security.md  
+    href: concepts-security.md
   - name: High availability and disaster recovery
     href: concepts-high-availability-disaster-recovery.md
 - name: How-to guides
@@ -131,8 +131,6 @@
       href: how-to-create-data-history-connection.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
-    - name: Integrate with Azure Maps
-      href: how-to-integrate-maps.md
   - name: Monitor and troubleshoot
     items:
     - name: Monitor your instance
@@ -152,29 +150,29 @@
       - name: Azure Digital Twins Explorer authentication error
         href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
       - name: CLI parsing failures
-        href: troubleshoot-error-cli-parse.md  
+        href: troubleshoot-error-cli-parse.md
 - name: Reference
   items:
   - name: REST API reference
     href: /rest/api/azure-digitaltwins/
   - name: SDKs
     items:
-      - name: Control plane
-        items:
-        - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins
-        - name: Java SDK
-          href: /java/api/com.azure.resourcemanager.digitaltwins
-      - name: Data plane
-        items:
-        - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins.core-readme
-        - name: Java SDK
-          href: /java/api/overview/azure/digital-twins
-        - name: JavaScript SDK
-          href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
-        - name: Python SDK
-          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
+    - name: Control plane
+      items:
+      - name: .NET (C#) SDK
+        href: /dotnet/api/overview/azure/digitaltwins
+      - name: Java SDK
+        href: /java/api/com.azure.resourcemanager.digitaltwins
+    - name: Data plane
+      items:
+      - name: .NET (C#) SDK
+        href: /dotnet/api/overview/azure/digitaltwins.core-readme
+      - name: Java SDK
+        href: /java/api/overview/azure/digital-twins
+      - name: JavaScript SDK
+        href: /javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true
+      - name: Python SDK
+        href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
     href: /cli/azure/dt
   - name: DTDL v3 Language Description
@@ -183,24 +181,24 @@
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
   - name: Query language reference
     items:
-      - name: Clauses
-        items:
-        - name: SELECT
-          href: reference-query-clause-select.md
-        - name: FROM
-          href: reference-query-clause-from.md
-        - name: MATCH
-          href: reference-query-clause-match.md
-        - name: JOIN
-          href: reference-query-clause-join.md
-        - name: WHERE
-          href: reference-query-clause-where.md
-      - name: Functions
-        href: reference-query-functions.md
-      - name: Operators
-        href: reference-query-operators.md
-      - name: Reserved keywords
-        href: reference-query-reserved.md
+    - name: Clauses
+      items:
+      - name: SELECT
+        href: reference-query-clause-select.md
+      - name: FROM
+        href: reference-query-clause-from.md
+      - name: MATCH
+        href: reference-query-clause-match.md
+      - name: JOIN
+        href: reference-query-clause-join.md
+      - name: WHERE
+        href: reference-query-clause-where.md
+    - name: Functions
+      href: reference-query-functions.md
+    - name: Operators
+      href: reference-query-operators.md
+    - name: Reserved keywords
+      href: reference-query-reserved.md
   - name: Azure Digital Twins Power Platform and Logic Apps connector
     href: /connectors/azuredigitaltwins/
 - name: Resources
@@ -244,7 +242,7 @@
       - name: Go - Source code
         href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/digitaltwins
     - name: Data plane
-      items:    
+      items:
       - name: Data plane Swagger
         href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
       - name: .NET (C#) SDK - NuGet
@@ -269,48 +267,48 @@
     href: https://github.com/Azure/azure-iot-cli-extension/releases
   - name: Terraform modules
     items:
-      - name: Digital Twins instance resource
-        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
-      - name: Digital Twins instance data source
-        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
-      - name: Event Hubs endpoint resource
-        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
-      - name: Event Grid endpoint resource
-        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid
-      - name: Service Bus endpoint resource
-        href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
+    - name: Digital Twins instance resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
+    - name: Digital Twins instance data source
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
+    - name: Event Hubs endpoint resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
+    - name: Event Grid endpoint resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid
+    - name: Service Bus endpoint resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus
   - name: Tools and sample projects
     items:
-      - name: Azure Digital Twins Explorer
-        href: https://explorer.digitaltwins.azure.net
-      - name: 3D Scenes Studio
-        href: https://explorer.digitaltwins.azure.net/3dscenes
-      - name: Azure Digital Twins Postman Collection
-        href: https://github.com/microsoft/azure-digital-twins-postman-samples
-      - name: Sample for ingesting OPC UA data into Azure Digital Twins
-        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
-      - name: DTDL parser sample
-        href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
-      - name: Model Uploader (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
-      - name: Model Deleter (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
-      - name: OWL2DTDL Converter   
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL   
-      - name: SignalR integration sample
-        href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-      - name: Multivariate Anomaly Detection Toolkit
-        href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
+    - name: Azure Digital Twins Explorer
+      href: https://explorer.digitaltwins.azure.net
+    - name: 3D Scenes Studio
+      href: https://explorer.digitaltwins.azure.net/3dscenes
+    - name: Azure Digital Twins Postman Collection
+      href: https://github.com/microsoft/azure-digital-twins-postman-samples
+    - name: Sample for ingesting OPC UA data into Azure Digital Twins
+      href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
+    - name: DTDL parser sample
+      href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
+    - name: Model Uploader (sample)
+      href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
+    - name: Model Deleter (sample)
+      href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
+    - name: OWL2DTDL Converter
+      href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL
+    - name: SignalR integration sample
+      href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+    - name: Multivariate Anomaly Detection Toolkit
+      href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies
     items:
-      - name: Smart buildings
-        href: https://github.com/Azure/opendigitaltwins-building
-      - name: Smart cities
-        href: https://github.com/Azure/opendigitaltwins-smartcities
-      - name: Energy grids
-        href: https://github.com/Azure/opendigitaltwins-energygrid/
-      - name: Manufacturing
-        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
+    - name: Smart buildings
+      href: https://github.com/Azure/opendigitaltwins-building
+    - name: Smart cities
+      href: https://github.com/Azure/opendigitaltwins-smartcities
+    - name: Energy grids
+      href: https://github.com/Azure/opendigitaltwins-energygrid/
+    - name: Manufacturing
+      href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
   - name: DTDL
     items:
     - name: DTDL extension for VS Code
@@ -320,10 +318,10 @@
     - name: DTDL parser sample
       href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
   - name: Learning paths
-    items:  
-    - name: 'Extend IoT solutions by using Azure Digital Twins'
+    items:
+    - name: Extend IoT solutions by using Azure Digital Twins
       href: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/
-    - name: 'Set up a mixed reality project for Azure Digital Twins in Unity'
+    - name: Set up a mixed reality project for Azure Digital Twins in Unity
       href: /training/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
