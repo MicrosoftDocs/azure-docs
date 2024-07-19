@@ -248,6 +248,9 @@ relabelings:
   targetLabel: instance
 ```
 
+> [!NOTE]
+> If you have relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets.
+
 ### Metric Relabelings
 
 Metric relabelings are applied after scraping and before ingestion. Use the `metricRelabelings` section to filter metrics after scraping. The following examples show how to do so.

@@ -1751,22 +1751,23 @@ Size of the proxy virtual machine used to pass traffic to the build VM and valid
 
 ## Properties: autoRun
 
-You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created or updated. It's an enum with two possible values:
-- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created or updated. 
-- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created or updated.
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created. It's an enum with two possible values:
+- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created. 
+- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created.
 
 ```json
 "properties": {
-		"autoRun": "Enabled"
-}
+    "autoRun": {
+        "state": "Enabled"
+ }
 ```
 
 > [!NOTE]
-> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation or update. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
+> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
 >
 > Unlike `autoRun`, automatic image creation via the Azure Image Builder trigger resource ensures that image builds occur consistently. Whenever there are changes to the template, the Azure Image Builder service will automatically trigger the image build process.
 >
-> Choose `autoRun` for immediate image builds upon template creation or update. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
+> Choose `autoRun` for immediate image builds upon template creation. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
 
 ## Properties: managedResourceTags
 
