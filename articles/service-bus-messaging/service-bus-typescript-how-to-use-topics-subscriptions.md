@@ -105,7 +105,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
     > [!IMPORTANT]
     > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/topics/send-topic.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/topic-passwordless-send.ts" :::
 
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
 1. Replace `<TOPIC NAME>` with the name of the topic.
@@ -126,7 +126,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. In the `src` folder, create a file called `sendtotopic.ts` and paste the below code into it. This code will send a message to your topic.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/topics/send-topic.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/topic-connection-string-send.ts" :::
 
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
 1. Replace `<TOPIC NAME>` with the name of the topic.
@@ -153,7 +153,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. In the `src` folder, create a file called `receivefromsubscription.ts` and paste the following code into it. See code comments for details.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/topics/receive-topic.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/topic-passwordless-receive.ts" :::
 
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to the namespace.
 4. Replace `<TOPIC NAME>` with the name of the topic.
@@ -170,7 +170,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. In the `src` folder, create a file called `receivefromsubscription.js` and paste the following code into it. See code comments for details.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/topics/receive-topic.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/topic-connection-string-receive.ts" :::
 
 3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to the namespace.
 4. Replace `<TOPIC NAME>` with the name of the topic.

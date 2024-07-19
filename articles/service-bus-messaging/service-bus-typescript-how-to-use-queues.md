@@ -103,7 +103,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
     > [!IMPORTANT]
     > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/queues/send-queue.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/queue-passwordless-send.ts" :::
 
 3. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
 4. Replace `<QUEUE NAME>` with the name of the queue.
@@ -124,7 +124,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 1. In the `src` folder, create a file called `src/send.ts` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/queues/send-queue.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/queue-connection-string-send.ts" :::
 
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 4. Replace `<QUEUE NAME>` with the name of the queue.
@@ -151,7 +151,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. In the `src` folder, create a file called `receive.ts` and paste the following code into it.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/queues/receive-queue.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/queue-passwordless-receive.ts" :::
 
 3. Replace `<SERVICE-BUS-NAMESPACE>` with your Service Bus namespace.
 4. Replace `<QUEUE NAME>` with the name of the queue.
@@ -167,7 +167,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. In the `src` folder, create a file called `receive.ts` and paste the following code into it.
 
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/queues/receive-queue.ts" :::
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/queue-connection-string-receive.ts" :::
 
 3. Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
 
