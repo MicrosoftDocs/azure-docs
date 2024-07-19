@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/20/2024
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
