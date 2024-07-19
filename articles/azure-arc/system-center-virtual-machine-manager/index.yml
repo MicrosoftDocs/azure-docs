@@ -20,8 +20,6 @@ landingContent:
             url: overview.md
           - text: Plan for deployment
             url: support-matrix-for-system-center-virtual-machine-manager.md
-          - text: Switch to the new version
-            url: switch-to-the-new-version-scvmm.md
                 
   - title: Get started with Arc-enabled SCVMM
     linkLists:
@@ -33,10 +31,6 @@ landingContent:
         links:
           - text: Create a VM on SCVMM using Azure Arc
             url: create-virtual-machine.md
-      - linkListType: concept
-        links:
-          - text: Azure Arc agent
-            url: agent-overview-scvmm.md  
       
   - title: Use Azure to manage SCVMM VMs
     linkLists:
@@ -58,10 +52,6 @@ landingContent:
             url: deliver-esus-for-system-center-virtual-machine-manager-vms.md
           - text: Perform ongoing administration for Arc-enabled SCVMM
             url: administer-arc-scvmm.md
-          - text: Remove your SCVMM environment from Azure Arc
-            url: remove-scvmm-from-azure-arc.md
-          - text: Recover from accidental deletion of resource bridge virtual machine
-            url: disaster-recovery.md
 
   - title: Reference
     linkLists:
