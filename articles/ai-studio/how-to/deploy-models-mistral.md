@@ -76,7 +76,7 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-### Deploy the model
+### A deployed Mistral premium chat models model
 
 Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -85,7 +85,7 @@ Mistral premium chat models can be deployed to Servereless API endpoints. This k
 
 
 
-### Install the inference package
+### The inference package installed
 
 You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
 
@@ -106,11 +106,11 @@ pip install azure-ai-inference
 
 
 
-## Chat completions
+## Work with chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 
@@ -120,8 +120,8 @@ from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
 
 model = ChatCompletionsClient(
-    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
-    credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
 ```
 
@@ -532,7 +532,7 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-### Deploy the model
+### A deployed Mistral premium chat models model
 
 Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -541,7 +541,7 @@ Mistral premium chat models can be deployed to Servereless API endpoints. This k
 
 
 
-### Install the inference package
+### The inference package installed
 
 You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
 
@@ -562,11 +562,11 @@ npm install @azure-rest/ai-inference
 
 
 
-## Chat completions
+## Work with chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 
@@ -576,8 +576,8 @@ import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
 
 const client = new ModelClient(
-    process.env.AZUREAI_ENDPOINT_URL, 
-    new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+    process.env.AZURE_INFERENCE_ENDPOINT, 
+    new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
 ```
 
@@ -1008,7 +1008,7 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 
 
-### Deploy the model
+### A deployed Mistral premium chat models model
 
 Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1017,7 +1017,7 @@ Mistral premium chat models can be deployed to Servereless API endpoints. This k
 
 
 
-### Use the Azure AI model inference API
+### A REST client
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
@@ -1031,11 +1031,11 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 
 
-## Chat completions
+## Work with chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 

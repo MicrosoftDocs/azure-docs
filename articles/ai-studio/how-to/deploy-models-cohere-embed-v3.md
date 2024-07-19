@@ -91,7 +91,7 @@ pip install azure-ai-inference
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 
@@ -101,8 +101,8 @@ from azure.ai.inference import EmbeddingsClient
 from azure.core.credentials import AzureKeyCredential
 
 model = EmbeddingsClient(
-    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
-    credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+    endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
+    credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
 ```
 
@@ -140,7 +140,7 @@ response = model.embed(
 ```
 
 > [!TIP]
-> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -186,13 +186,13 @@ print("Usage:", response.usage)
 ```
 
 > [!TIP]
-> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -220,7 +220,7 @@ response = model.embed(
 )
 ```
 
-${model_name} can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 
 
@@ -296,7 +296,7 @@ npm install @azure-rest/ai-inference
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 
@@ -306,8 +306,8 @@ import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
 
 const client = new ModelClient(
-    process.env.AZUREAI_ENDPOINT_URL, 
-    new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+    process.env.AZURE_INFERENCE_ENDPOINT, 
+    new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
 ```
 
@@ -347,7 +347,7 @@ var response = await client.path("/embeddings").post({
 ```
 
 > [!TIP]
-> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -395,13 +395,13 @@ console.log(response.body.usage);
 ```
 
 > [!TIP]
-> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -429,7 +429,7 @@ var response = await client.path("/embeddings").post({
 });
 ```
 
-${model_name} can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 
 
@@ -498,7 +498,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
 
-First, let's create a client to consume the model.
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
 
 
 
@@ -534,7 +534,7 @@ Create an embedding request to see the output of the model.
 ```
 
 > [!TIP]
-> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -623,13 +623,13 @@ The response is as follows, where you can see the model's usage statistics:
 ```
 
 > [!TIP]
-> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -657,7 +657,7 @@ When working on a query to retrieve such document, you can use the following cod
 }
 ```
 
-${model_name} can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 
 
