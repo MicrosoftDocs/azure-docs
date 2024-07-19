@@ -588,7 +588,7 @@ items:
   - name: Monitor networks
     items:
     - name: Network Watcher
-      href: /azure/network-watcher/network-watcher-monitoring-overview?toc=/azure/azure-monitor/toc.json
+      href: /azure/network-watcher/network-watcher-overview?toc=/azure/azure-monitor/toc.json
     - name: Network Insights
       items:
       - name: Overview
