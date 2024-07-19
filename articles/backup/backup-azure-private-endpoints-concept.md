@@ -151,6 +151,10 @@ The following diagram shows how the name resolution works for storage accounts u
 
 :::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
 
+The following diagram shows how you can do Cross Region Restore over Private Endpoint by replicating the Private Endpoint in a secondary region. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
+
+:::image type="content" source="./media/backup-azure-private-endpoints-concept/cross-region-restore-over-private-endpoint.png" alt-text="Diagram shows how to perform Cross-region restore over Private Endpoint." lightbox="./media/backup-azure-private-endpoints-concept/cross-region-restore-over-private-endpoint.png":::
+
 ## Next steps
 
 - Learn [how to configure and manage private endpoints for Azure Backup](backup-azure-private-endpoints-configure-manage.md).
