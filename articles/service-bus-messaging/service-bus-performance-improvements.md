@@ -298,8 +298,6 @@ Goal: Maximize the throughput of a single queue. The number of senders and recei
 
 * To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from the queue, use multiple message factories to create receivers.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Multiple high-throughput queues
@@ -312,8 +310,6 @@ To obtain maximum throughput across multiple queues, use the settings outlined t
 
 Goal: Minimize latency of a queue or topic. The number of senders and receivers is small. The throughput of the queue is small or moderate.
 
-* Disable client-side batching. The client immediately sends a message.
-* Disable batched store access. The service immediately writes the message to the store.
 * If using a single client, set the prefetch count to 20 times the processing rate of the receiver. If multiple messages arrive at the queue at the same time, the Service Bus client protocol transmits them all at the same time. When the client receives the next message, that message is already in the local cache. The cache should be small.
 * If using multiple clients, set the prefetch count to 0. By setting the count, the second client can receive the second message while the first client is still processing the first message.
 
@@ -326,8 +322,6 @@ Service Bus enables up to 1,000 concurrent connections to a messaging entity. Th
 To maximize throughput, follow these steps:
 
 * If each sender is in a different process, use only a single factory per process.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Queue with a large number of receivers
@@ -339,8 +333,6 @@ Service Bus enables up to 1,000 concurrent connections to an entity. If a queue 
 To maximize throughput, follow these guidelines:
 
 * If each receiver is in a different process, use only a single factory per process.
-* Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request doesn't affect receiver throughput.
-* Leave batched store access enabled. This access reduces the overall load of the entity. It also increases the overall rate at which messages can be written into the queue or topic.
 * Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
 
 ### Topic with a few subscriptions
@@ -351,8 +343,6 @@ To maximize throughput, follow these guidelines:
 
 * To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
 
 ### Topic with a large number of subscriptions
@@ -363,6 +353,4 @@ Topics with a large number of subscriptions typically expose a low overall throu
 
 To maximize throughput, try the following steps:
 
-* Use asynchronous operations to take advantage of client-side batching.
-* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected rate at which messages are received. This count reduces the number of Service Bus client protocol transmissions.
