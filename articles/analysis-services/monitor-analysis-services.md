@@ -30,7 +30,10 @@ For a list of available metrics for Analysis Services, see [Analysis Services mo
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 - For the available resource log categories, associated Log Analytics tables, and the logs schemas for Analysis Services, see [Analysis Services monitoring data reference](monitor-analysis-services-reference.md#resource-logs).
+
 ## Analysis Services resource logs
+
+To learn how to set up diagnostics logging, see [Set up diagnostic logging](analysis-services-logging.md).
 
 When you set up logging for Analysis Services, you can select **Engine** or **Service** events to log, or select **AllMetrics** to log metrics data. For more information, see [Supported resource logs for Microsoft.AnalysisServices/servers](monitor-analysis-services-reference.md#supported-resource-logs-for-microsoftanalysisservicesservers).
 
