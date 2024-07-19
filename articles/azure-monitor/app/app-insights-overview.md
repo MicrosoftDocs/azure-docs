@@ -35,10 +35,10 @@ Application Insights provides many experiences to enhance the performance, relia
 
 ### Usage
 
-* [Users, sessions, and events](usage.md#explore-usage-demographics-and-statistics): Determine when, where, and how users interact with your web app.
-* [Funnels](usage.md#discover-how-customers-are-using-your-application-with-application-insights-funnels): Analyze conversion rates to identify where users progress or drop off in the funnel.
-* [Flows](usage.md#analyze-user-navigation-patterns-with-user-flows-in-application-insights): Visualize user paths on your site to identify high engagement areas and exit points.
-* [Cohorts](usage.md#application-insights-cohorts): Group users by shared characteristics to simplify trend identification, segmentation, and performance troubleshooting.
+* [Users, sessions, and events](usage.md#the-users-sessions-and-events-segmentation-tool): Determine when, where, and how users interact with your web app.
+* [Funnels](usage.md#discover-with-funnels-how-customers-use-your-application): Analyze conversion rates to identify where users progress or drop off in the funnel.
+* [Flows](usage.md#analyze-user-navigation-patterns-with-user-flows): Visualize user paths on your site to identify high engagement areas and exit points.
+* [Cohorts](usage.md#analyze-a-specific-set-of-users-sessions-events-or-operations-repeatedly-with-cohorts): Group users by shared characteristics to simplify trend identification, segmentation, and performance troubleshooting.
 
 ### Code analysis
 

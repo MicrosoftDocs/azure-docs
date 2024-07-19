@@ -8,7 +8,9 @@ ms.reviewer: mmcc
 
 # Usage analysis with Application Insights
 
-Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later? [Application Insights](./app-insights-overview.md) is a powerful tool for monitoring the performance and usage of your applications. It provides insights into how users interact with your app, identifies areas for improvement, and helps you understand the impact of changes. With this knowledge, you can make data-driven decisions about your next development cycles.
+Which features of your web or mobile app are most popular? Do your users achieve their goals with your app? Do they drop out at particular points, and do they return later?
+
+[Application Insights](./app-insights-overview.md) is a powerful tool for monitoring the performance and usage of your applications. It provides insights into how users interact with your app, identifies areas for improvement, and helps you understand the impact of changes. With this knowledge, you can make data-driven decisions about your next development cycles.
 
 This article covers the following areas:
 
@@ -61,11 +63,11 @@ Three of the **Usage** panes use the same tool to slice and dice telemetry from 
 
 Clicking **View More Insights** displays the following information:
 
-* Application Performance: Sessions, Events, and a Performance evaluation related to users' perception of responsiveness.
+* **Application Performance:** Sessions, Events, and a Performance evaluation related to users' perception of responsiveness.
 
-* Properties: Charts containing up to six user properties such as browser version, country or region, and operating system.
+* **Properties:** Charts containing up to six user properties such as browser version, country or region, and operating system.
 
-* Meet Your Users: View timelines of user activity.
+* **Meet Your Users:** View timelines of user activity.
 
 ### Explore usage demographics and statistics
 
@@ -81,13 +83,15 @@ Find out when people use your web app, what pages they're most interested in, wh
 
 Explore different groups of users by adjusting the query options at the top of the Users pane:
 
-* **During**: Choose a time range.
-* **Show**: Choose a cohort of users to analyze.
-* **Who used**: Choose custom events, requests, and page views.
-* **Events**: Choose multiple events, requests, and page views that will show users who did at least one, not necessarily all, of the selected options.
-* **By value x-axis**: Choose how to categorize the data, either by time range or by another property, such as browser or city.
-* **Split By**: Choose a property to use to split or segment the data.
-* **Add Filters**: Limit the query to certain users, sessions, or events based on their properties, such as browser or city.
+| Option          | Description                                                                                                                               |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| During          | Choose a time range.                                                                                                                      |
+| Show            | hoose a cohort of users to analyze.                                                                                                       |
+| Who used        | Choose custom events, requests, and page views.                                                                                           |
+| Events          | Choose multiple events, requests, and page views that will show users who did at least one, not necessarily all, of the selected options. |
+| By value x-axis | Choose how to categorize the data, either by time range or by another property, such as browser or city.                                  |
+| Split By        | Choose a property to use to split or segment the data.                                                                                    |
+| Add Filters     | Limit the query to certain users, sessions, or events based on their properties, such as browser or city.                                 |
 
 #### Meet your users
 
@@ -227,7 +231,7 @@ public class MyTelemetryInitializer : ITelemetryInitializer
 
 ### [.NET Core](#tab/aspnetcore)
 
-For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class.
+For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -316,7 +320,9 @@ The User Flows tool starts from an initial custom event, exception, dependency, 
 To begin answering questions with the User Flows tool, choose an initial custom event, exception, dependency, page view or request to serve as the starting point for the visualization:
 
 1. Select the link in the **What do users do after?** title or select **Edit**.
+
 1. Select a custom event, exception, dependency, page view or request from the **Initial event** dropdown list.
+
 1. Select **Create graph**.
 
 The **Step 1** column of the visualization shows what users did most frequently after the initial event. The items are ordered from top to bottom and from most to least frequent. The **Step 2** and subsequent columns show what users did next. The information creates a picture of all the ways that users moved through your site.
@@ -328,8 +334,11 @@ If some of the page views, custom events, and exceptions aren't relevant to you,
 If page views or custom events are missing that you expect to see in the visualization:
 
 * Check the **Excluded events** section on the **Edit** menu.
+
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
+
 * If the page view or custom event you expect is sent infrequently by users, increase the time range of the visualization on the **Edit** menu.
+
 * Make sure the custom event, exception, dependency, page view or request you expect is set up to be collected by the Application Insights SDK in the source code of your site. Learn more about [collecting custom events](./api-custom-events-metrics.md).
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdown lists above the visualization.
@@ -376,7 +385,9 @@ You might define a cohort of users who have all tried a new feature in your app.
 Your team defines an engaged user as anyone who uses your app five or more times in a given month. In this section, you define a cohort of these engaged users.
 
 1. Select **Create a Cohort**.
+
 1. Select the **Template Gallery** tab to see a collection of templates for various cohorts.
+
 1. Select **Engaged Users -- by Days Used**.
 
     There are three parameters for this cohort:
@@ -470,8 +481,11 @@ To use the Impact analysis workbook, in your Application Insights resources go t
 :::image type="content" source="./media/usage-impact/selected-event.png" alt-text="Screenshot that shows where to choose an initial page view, custom event, or request." lightbox="./media/usage-impact/selected-event.png":::
 
 1. From the **Selected event** dropdown list, select an event.
+
 1. From the **analyze how its** dropdown list, select a metric.
+
 1. From the  **Impacting event** dropdown list, select an event.
+
 1. To add a filter, use the **Add selected event filters** tab or the **Add impacting event filters** tab.
 
 ### Is page load time affecting how many people convert on my page?
@@ -479,7 +493,9 @@ To use the Impact analysis workbook, in your Application Insights resources go t
 To begin answering questions with the Impact workbook, choose an initial page view, custom event, or request.
 
 1. From the **Selected event** dropdown list, select an event.
+
 1. Leave the **analyze how its** dropdown list on the default selection of **Duration**. (In this context, **Duration** is an alias for **Page Load Time**.)
+
 1. From the **Impacting event** dropdown list, select a custom event. This event should correspond to a UI element on the page view you selected in step 1.
 
    :::image type="content" source="./media/usage-impact/impact.png" alt-text="Screenshot that shows an example with the selected event as Home Page analyzed by duration." lightbox="./media/usage-impact/impact.png":::
@@ -491,7 +507,9 @@ Impact supports both standard and custom properties and measurements. Use whatev
 ### Do users from different countries or regions convert at different rates?
 
 1. From the **Selected event** dropdown list, select an event.
+
 1. From the **analyze how its** dropdown list, select **Country or region**.
+
 1. From the **Impacting event** dropdown list, select a custom event that corresponds to a UI element on the page view you chose in step 1.
 
    :::image type="content" source="./media/usage-impact/regions.png" alt-text="Screenshot that shows an example with the selected event as GET analyzed by country and region." lightbox="./media/usage-impact/regions.png":::
@@ -503,6 +521,7 @@ Under the hood, the Impact analysis workbook relies on the [Pearson correlation 
 The basic breakdown of how Impact analysis works is listed here:
 
 * Let *A* = the main page view, custom event, or request you select in the **Selected event** dropdown list.
+
 * Let *B* = the secondary page view or custom event you select in the **impacts the usage of** dropdown list.
 
 Impact looks at a sample of all the sessions from users in the selected time range. For each session, it looks for each occurrence of *A*.
@@ -510,6 +529,7 @@ Impact looks at a sample of all the sessions from users in the selected time ran
 Sessions are then broken into two different kinds of *subsessions* based on one of two conditions:
 
 * A converted subsession consists of a session ending with a *B* event and encompasses all *A* events that occur prior to *B*.
+
 * An unconverted subsession occurs when all *A*s occur without a terminal *B*.
 
 How Impact is ultimately calculated varies based on whether we're analyzing by metric or by dimension. For metrics, all *A*s in a subsession are averaged. For dimensions, the value of each *A* contributes *1/N* to the value assigned to *B*, where *N* is the number of *A*s in the subsession.
@@ -533,7 +553,9 @@ These dimensions are measured independently, but they interact with each other.
 :::image type="content" source="media/usage-overview/heart-funnel.png" alt-text="Diagram that shows the funnel relationship between HEART dimensions. The funnel path is Adoption to Engagement to Retention to Happiness. Task Success is a driver of this funnel.":::
 
 * Adoption, engagement, and retention form a user activity funnel. Only a portion of users who adopt the tool come back to use it.
+
 * Task success is the driver that progresses users down the funnel and moves them from adoption to retention.
+
 * Happiness is an outcome of the other dimensions and not a stand-alone measurement. Users who have progressed down the funnel and are showing a higher level of activity are ideally happier.
 
 ### Get started
@@ -541,8 +563,11 @@ These dimensions are measured independently, but they interact with each other.
 #### Prerequisites
 
 * **Azure subscription**: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+
 * **Application Insights resource**: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
+
 * **Click Analytics**: Set up the [Click Analytics Autocollection plug-in](javascript-feature-extensions.md).
+
 * **Specific attributes**: Instrument the following attributes to calculate HEART metrics.
 
     | Source         | Attribute            | Description                                |
@@ -608,11 +633,17 @@ The workbook shows metric trends for the HEART dimensions split over seven tabs.
 The tabs are:
 
 * **Summary**: Summarizes usage funnel metrics for a high-level view of visits, interactions, and repeat usage.
+
 * **Adoption**: Helps you understand the penetration among the target audience, acquisition velocity, and total user base.
+
 * **Engagement**: Shows frequency, depth, and breadth of usage.
+
 * **Retention**: Shows repeat usage.
+
 * **Task success**: Enables understanding of user flows and their time distributions.
+
 * **Happiness**: We recommend using a survey tool to measure customer satisfaction score (CSAT) over a five-point scale. On this tab, we've provided the likelihood of happiness via usage and performance metrics.
+
 * **Feature metrics**: Enables understanding of HEART metrics at feature granularity.
 
 > [!WARNING]

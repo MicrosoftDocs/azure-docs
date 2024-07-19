@@ -874,7 +874,7 @@ Our [Service Updates](https://azure.microsoft.com/updates/?service=application-i
 
 ## Next steps
 
-* [Explore user flows](./usage.md#analyze-user-navigation-patterns-with-user-flows-in-application-insights) to understand how users move through your app.
+* [Explore user flows](./usage.md#analyze-user-navigation-patterns-with-user-flows) to understand how users move through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./availability-overview.md) to check your app constantly from around the world.
