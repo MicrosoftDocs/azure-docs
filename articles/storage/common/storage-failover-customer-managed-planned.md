@@ -23,10 +23,10 @@ Current: 100 (1779/0)
 There are many scenarios for which planned failover is ideal. These scenarios include: 
 
 - Disaster recovery (DR) planning and testing.
-- Recovery during an outage that doesn't affect your primary region's storage service endpoints, but prevents another Microsoft or 3rd party service from providing access to your workloads.
-- To proactively prepare for large-scale disasters, such as a hurricane, that may impact a region.
+- Proactive preparation for large-scale disasters, such as hurricanes, that may impact a region.
+- Recovery from an outage that doesn't affect your primary region's storage service endpoints, but prevents other services from providing access to your workloads.
 
-During the planned failover process, your storage account's  primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
+During the planned failover process, your storage account's primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary while the original secondary region is promoted and becomes the new primary. <!--After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan.--> The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
 This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 

@@ -132,7 +132,7 @@ az storage account update \
 You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
 
 ```azurecli-interactive
-az storage account migration start  \
+az storage account migration start \
     -- account-name <string> \
     -- g <string> \
     --sku <string> \
@@ -142,9 +142,9 @@ az storage account migration start  \
 To track the current migration status of the conversion initiated on your storage account, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
 
 ```azurecli-interactive
-az storage account migration show 
-    --account-name <string>
-    - g <sting>
+az storage account migration show \
+    --account-name <string> \
+    - g <sting> \
     -n "default"
 ```
 
@@ -250,12 +250,13 @@ Get-AzStorageAccountMigration
 
 # [Azure CLI](#tab/azure-cli)
 
-To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+To track the current migration status of the conversion initiated on your storage account, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
 
-```powershell
-Get-AzStorageAccountMigration
-   -AccountName <String>
-   -ResourceGroupName <String>
+```azurecli-interactive
+az storage account migration show \
+    --account-name <string> \
+    - g <sting> \
+    -n "default"
 ```
 
 ---
