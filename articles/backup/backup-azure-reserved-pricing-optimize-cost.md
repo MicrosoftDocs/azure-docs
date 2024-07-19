@@ -50,7 +50,7 @@ LRS, GRS, RA-GRS, and ZRS redundancies are supported for reservations. For more 
 
 To purchase reserved capacity:
 
-- You must be in the Owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, the policy to add reserved instances must be enabled. For direct EA agreements, the Reserved Instances policy must be enabled in the Azure portal. For indirect EA agreements, the Add Reserved Instances policy must be enabled in the EA portal. Or, if those policy settings are disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can purchase Azure Backup Blob Storage reserved capacity.
 

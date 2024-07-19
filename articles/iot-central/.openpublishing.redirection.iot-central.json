@@ -282,22 +282,32 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-connect-rigado-cascade-500-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-rigado-cascade-500/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-connect-rigado-cascade-500.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-rigado-cascade-500/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-rigado-cascade-500.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-connect-ruuvi-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-ruuvi/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-connect-ruuvi.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-ruuvi/",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-ruuvi.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app/",
       "redirect_document_id": false
     },
     {
@@ -342,17 +352,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-create-custom-analytics-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-custom-analytics.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-custom-analytics.md",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-custom-analytics.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
@@ -522,37 +537,47 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-iot-central-from-cli.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-iot-central-from-cli.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-iot-central-from-cli.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-iot-central-from-portal.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-iot-central-from-portal.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-iot-central-from-portal.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-iot-central-from-powershell.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-iot-central-from-powershell.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-manage-iot-central-from-powershell.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-and-monitor-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1182,7 +1207,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
-      "redirect_url": "/learn/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/tutorial-connect-iot-edge-device.md",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1347,8 +1377,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-scalability-availability.md",
-      "redirect_url": "/azure/iot-central/core/concepts-faq-scalability-availability",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-faq-scalability-availability.md",
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
@@ -1367,7 +1402,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-telemetry-properties-commands.md",
-      "redirect_url": "/azure/iot-develop/concepts-message-payloads/",
+      "redirect_url": "/azure/iot/concepts-message-payloads/",
       "redirect_document_id": false
     },
     {
@@ -1403,6 +1438,16 @@
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-industrial-end-to-end.md",
       "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-iiot-architecture.md",
+      "redirect_url": "/azure/iot/concepts-iot-industrial-solution-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-upload-file-rest-api.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-with-rest-api",
       "redirect_document_id": false
     }
   ]

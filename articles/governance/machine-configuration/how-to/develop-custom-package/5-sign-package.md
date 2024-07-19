@@ -3,6 +3,7 @@ title: How to sign machine configuration packages
 description: You can optionally sign machine configuration content packages and force the agent to only allow signed content
 ms.date: 02/01/2024
 ms.topic: how-to
+ms.custom: linux-related-content
 ---
 
 # How to sign machine configuration packages

@@ -65,7 +65,7 @@
         },
         {
             "source_path_from_root": "/articles/data-factory/how-does-managed-airflow-work.md",
-            "redirect_url": "/azure/confidential-computing/faq-application-enclaves"
+            "redirect_url": "/azure/data-factory/how-does-workflow-orchestration-manager-work"
         },
         {
             "source_path_from_root": "/articles/data-factory/how-to-diagnostic-logs-and-metrics-for-managed-airflow.md",

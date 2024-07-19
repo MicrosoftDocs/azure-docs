@@ -1,7 +1,7 @@
 ---
 title: Use Kubernetes events for troubleshooting
 description: Learn about Kubernetes events, which provide details on pods, nodes, and other Kubernetes objects.
-ms.topic: article
+ms.topic: how-to
 ms.author: nickoman
 author: nickomang
 ms.subservice: aks-monitoring
@@ -95,3 +95,4 @@ Now that you understand Kubernetes events, you can continue your monitoring and 
 [aks-azure-monitor]: ./monitor-aks.md
 [container-insights]: ../azure-monitor/containers/container-insights-enable-aks.md
 [k8s-events]: https://kubernetes.io/docs/reference/kubernetes-api/cluster-resources/event-v1/
+

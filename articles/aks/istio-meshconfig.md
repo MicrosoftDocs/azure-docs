@@ -3,6 +3,7 @@ title: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 description: Configure Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
 ms.custom:
+ms.service: azure-kubernetes-service
 ms.date: 02/14/2024
 ms.author: shasb
 author: shashankbarsin
@@ -16,14 +17,14 @@ This article walks through how to configure Istio-based service mesh add-on for 
 
 ## Prerequisites
 
-This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster.
+This guide assumes you followed the [documentation][istio-deploy-add-on] to enable the Istio add-on on an AKS cluster.
 
 ## Set up configuration on cluster
 
 1. Find out which revision of Istio is deployed on the cluster:
 
     ```bash
-    az aks show -n $CLUSTER -g $RESOURCE_GROUP --query 'serviceMeshProfile'
+    az aks show --name $CLUSTER --resource-group $RESOURCE_GROUP --query 'serviceMeshProfile'
     ```
 
     Output:
@@ -63,11 +64,11 @@ This guide assumes you followed the [documentation][istio-deploy-addon] to enabl
     The values under `defaultConfig` are mesh-wide settings applied for Envoy sidecar proxy.
 
 > [!CAUTION]
-> A default ConfigMap (for example, `istio-asm-1-18` for revision asm-1-18) is created in `aks-istio-system` namespace on the cluster when the Istio addon is enabled. However, this default ConfigMap gets reconciled by the managed Istio addon and thus users should NOT directly edit this ConfigMap. Instead users should create a revision specific Istio shared ConfigMap (for example `istio-shared-configmap-asm-1-18` for revision asm-1-18) in the aks-istio-system namespace, and then the Istio control plane will merge this with the default ConfigMap, with the default settings taking precedence.
+> A default ConfigMap (for example, `istio-asm-1-18` for revision asm-1-18) is created in `aks-istio-system` namespace on the cluster when the Istio add-on is enabled. However, this default ConfigMap gets reconciled by the managed Istio add-on and thus users should NOT directly edit this ConfigMap. Instead users should create a revision specific Istio shared ConfigMap (for example `istio-shared-configmap-asm-1-18` for revision asm-1-18) in the aks-istio-system namespace, and then the Istio control plane will merge this with the default ConfigMap, with the default settings taking precedence.
 
 ### Mesh configuration and upgrades
 
-When you're performing [canary upgrade for Istio](./istio-upgrade.md), you need create a separate ConfigMap for the new revision in the `aks-istio-system` namespace **before initiating the canary upgrade**. This way the configuration is available when the new revision's control plane is deployed on cluster. For example, if you're upgrading the mesh from asm-1-18 to asm-1-19, you need to copy changes over from `istio-shared-configmap-asm-1-18` to create a new ConfigMap called `istio-shared-configmap-asm-1-19` in the `aks-istio-system` namespace.
+When you're performing [canary upgrade for Istio](./istio-upgrade.md), you need to create a separate ConfigMap for the new revision in the `aks-istio-system` namespace **before initiating the canary upgrade**. This way the configuration is available when the new revision's control plane is deployed on cluster. For example, if you're upgrading the mesh from asm-1-18 to asm-1-19, you need to copy changes over from `istio-shared-configmap-asm-1-18` to create a new ConfigMap called `istio-shared-configmap-asm-1-19` in the `aks-istio-system` namespace.
 
 After the upgrade is completed or rolled back, you can delete the ConfigMap of the revision that was removed from the cluster.
 
@@ -75,7 +76,7 @@ After the upgrade is completed or rolled back, you can delete the ConfigMap of t
 
 Fields in `MeshConfig` are classified into three categories: 
 
-- **Blocked**: Disallowed fields are blocked via addon managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
+- **Blocked**: Disallowed fields are blocked via add-on managed admission webhooks. API server immediately publishes the error message to the user that the field is disallowed.
 - **Supported**: Supported fields (for example, fields related to access logging) receive support from Azure support.
 - **Allowed**: These fields (such as proxyListenPort or proxyInboundListenPort) are allowed but they aren't covered by Azure support.
 
@@ -83,66 +84,68 @@ Mesh configuration and the list of allowed/supported fields are revision specifi
 
 ### MeshConfig
 
-| **Field** | **Supported** |
-|-----------|---------------|
-| proxyListenPort | false |
-| proxyInboundListenPort | false |
-| proxyHttpPort | false |
-| connectTimeout | false |
-| tcpKeepAlive | false |
-| defaultConfig | true |
-| outboundTrafficPolicy | true |
-| extensionProviders | true |
-| defaultProvideres | true |
-| accessLogFile | true |
-| accessLogFormat | true |
-| accessLogEncoding | true |
-| enableTracing | true |
-| enableEnvoyAccessLogService | true |
-| disableEnvoyListenerLog | true |
-| trustDomain | false |
-| trustDomainAliases | false |
-| caCertificates | false |
-| defaultServiceExportTo | false |
-| defaultVirtualServiceExportTo | false |
-| defaultDestinationRuleExportTo | false |
-| localityLbSetting | false |
-| dnsRefreshRate | false |
-| h2UpgradePolicy | false |
-| enablePrometheusMerge | true |
-| discoverySelectors | true |
-| pathNormalization | false |
-| defaultHttpRetryPolicy | false |
-| serviceSettings | false |
-| meshMTLS | false |
-| tlsDefaults | false |
+Fields present in [open source MeshConfig reference documentation][istio-meshconfig] that are not covered in the following table are blocked. For example, `configSources` is blocked.
+
+| **Field** | **Supported/Allowed** | **Notes** |
+|-----------|---------------|-----------|
+| proxyListenPort | Allowed | - |
+| proxyInboundListenPort | Allowed | - |
+| proxyHttpPort | Allowed | - |
+| connectTimeout | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-TCPSettings) |
+| tcpKeepAlive | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-TCPSettings) |
+| defaultConfig | Supported | Used to configure [ProxyConfig](https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig) |
+| outboundTrafficPolicy | Supported | Also configurable in [Sidecar CR](https://istio.io/latest/docs/reference/config/networking/sidecar/#OutboundTrafficPolicy) |
+| extensionProviders | Allowed | - |
+| defaultProviders | Allowed | - |
+| accessLogFile | Supported | This field addresses the generation of the access logs. For a managed experience on collection and querying of logs, refer to [Azure Monitor Container Insights on AKS][container-insights-docs] |
+| accessLogFormat | Supported | This field addresses the generation of the access logs. For a managed experience on collection and querying of logs, refer to [Azure Monitor Container Insights on AKS][container-insights-docs] |
+| accessLogEncoding | Supported | This field addresses the generation of the access logs. For a managed experience on collection and querying of logs, refer to [Azure Monitor Container Insights on AKS][container-insights-docs] |
+| enableTracing | Allowed | |
+| enableEnvoyAccessLogService | Supported | This field addresses the generation of the access logs. For a managed experience on collection and querying of logs, refer to [Azure Monitor Container Insights on AKS][container-insights-docs] |
+| disableEnvoyListenerLog | Supported | This field addresses the generation of the access logs. For a managed experience on collection and querying of logs, refer to [Azure Monitor Container Insights on AKS][container-insights-docs] |
+| trustDomain | Allowed | - |
+| trustDomainAliases | Allowed | - |
+| caCertificates | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ClientTLSSettings) |
+| defaultServiceExportTo | Allowed | Configurable in [ServiceEntry](https://istio.io/latest/docs/reference/config/networking/service-entry/#ServiceEntry) |
+| defaultVirtualServiceExportTo | Allowed | Configurable in [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/#VirtualService) |
+| defaultDestinationRuleExportTo | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#DestinationRule) |
+| localityLbSetting | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings) |
+| dnsRefreshRate | Allowed | - |
+| h2UpgradePolicy | Allowed | Configurable in [DestinationRule](https://istio.io/latest/docs/reference/config/networking/destination-rule/#ConnectionPoolSettings-HTTPSettings) |
+| enablePrometheusMerge | Allowed | - |
+| discoverySelectors | Supported | - |
+| pathNormalization | Allowed | - |
+| defaultHttpRetryPolicy | Allowed | Configurable in [VirtualService](https://istio.io/latest/docs/reference/config/networking/virtual-service/#HTTPRetry) |
+| serviceSettings | Allowed | - |
+| meshMTLS | Allowed | - |
+| tlsDefaults | Allowed | - |
 
 ### ProxyConfig (meshConfig.defaultConfig)
 
-| **Field** | **Supported** |
-|-----------|---------------|
-| tracingServiceName | true |
-| drainDuration | true |
-| statsUdpAddress | false |
-| proxyAdminPort | false |
-| tracing | true |
-| concurrency | true |
-| envoyAccessLogService | true |
-| envoyMetricsService | true |
-| proxyMetadata | false |
-| statusPort | false |
-| extraStatTags | false |
-| proxyStatsMatcher | false |
-| terminationDrainDuration | true |
-| meshId | false |
-| holdApplicationUntilProxyStarts | true |
-| caCertificatesPem | false |
-| privateKeyProvider | false |
+Fields present in [open source MeshConfig reference documentation](https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig) that are not covered in the following table are blocked.
 
-Fields present in [open source MeshConfig reference documentation][istio-meshconfig] but not in the above table are blocked. For example, `configSources` is blocked.
+| **Field** | **Supported/Allowed** |
+|-----------|---------------|
+| tracingServiceName | Allowed |
+| drainDuration | Supported |
+| statsUdpAddress | Allowed |
+| proxyAdminPort | Allowed |
+| tracing | Allowed |
+| concurrency | Supported |
+| envoyAccessLogService | Allowed |
+| envoyMetricsService | Allowed |
+| proxyMetadata | Allowed |
+| statusPort | Allowed |
+| extraStatTags | Allowed |
+| proxyStatsMatcher | Allowed |
+| terminationDrainDuration | Supported |
+| meshId | Allowed |
+| holdApplicationUntilProxyStarts | Supported |
+| caCertificatesPem | Allowed |
+| privateKeyProvider | Allowed |
 
 > [!CAUTION]
-> **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio addon. However, these extension providers are outside the support scope of the Istio addon. Any issues associated with extension tools are outside the support boundary of the Istio addon.
+> **Support scope of configurations:** Mesh configuration allows for extension providers such as self-managed instances of Zipkin or Apache Skywalking to be configured with the Istio add-on. However, these extension providers are outside the support scope of the Istio add-on. Any issues associated with extension tools are outside the support boundary of the Istio add-on.
 
 ## Common errors and troubleshooting tips
 
@@ -158,3 +161,5 @@ Fields present in [open source MeshConfig reference documentation][istio-meshcon
 
 [istio-meshconfig]: https://istio.io/latest/docs/reference/config/istio.mesh.v1alpha1/
 [istio-sidecar-race-condition]: https://istio.io/latest/docs/ops/common-problems/injection/#pod-or-containers-start-with-network-issues-if-istio-proxy-is-not-ready
+[istio-deploy-add-on]: istio-deploy-addon.md
+[container-insights-docs]: ../azure-monitor/containers/container-insights-overview.md

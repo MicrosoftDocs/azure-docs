@@ -9,18 +9,18 @@ ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to Create a ticket in Defender for Cloud for my ServiceNow account.
 ---
 
-# Create a ticket in Defender for Cloud 
+# Create a ticket in Defender for Cloud
 
 The integration between Defender for Cloud and ServiceNow allows Defender for Cloud customers to create tickets in Defender for Cloud that connects to a ServiceNow account. ServiceNow tickets are linked to recommendations directly from Defender for Cloud, allowing the two platforms to facilitate efficient incident management.
 
 ## Prerequisites
 
-- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html). 
+- Have an [application registry in ServiceNow](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
 - The following roles are required:
-    - To create an assignment:  Admin permissions to ServiceNow.
+  - To create an assignment:  Admin permissions to ServiceNow.
 
 ## Create a new ticket based on a recommendation to ServiceNow
 

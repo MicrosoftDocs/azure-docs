@@ -5,13 +5,11 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
-# service-fabric-local-linux-cluster-windows.md
 # service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 
@@ -29,7 +27,7 @@ Before you get started, you need:
 * Docker must be running in Linux containers mode
 
 >[!TIP]
-> To install Docker on your Windows machine, follow the steps in the [Docker documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions). After installing, [verify your installation](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).
+> To install Docker on your Windows machine, follow the steps in the [Docker documentation](https://docs.docker.com/desktop/install/windows-install/). After installing, [verify your installation](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).
 >
 
 ## Create a local container and setup Service Fabric
@@ -82,7 +80,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     ```
     
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/_/microsoft-service-fabric-onebox) page.
 
     To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 

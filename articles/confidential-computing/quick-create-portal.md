@@ -7,7 +7,7 @@ ms.subservice: workloads
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: jushiman
-ms.custom: mode-ui
+ms.custom: mode-ui, linux-related-content
 ---
 
 

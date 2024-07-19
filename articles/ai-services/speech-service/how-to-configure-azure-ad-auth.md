@@ -43,7 +43,7 @@ To configure your Speech resource for Microsoft Entra authentication, create a c
 ### Assign roles
 For Microsoft Entra authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
 
-You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.yml) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 <a name='get-an-azure-ad-access-token'></a>
 
@@ -103,7 +103,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get a Microsoft Entra access token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
+To get a Microsoft Entra access token in Python, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
 
 Here's an example of using Azure Identity to get a Microsoft Entra access token from an interactive browser:
 ```Python

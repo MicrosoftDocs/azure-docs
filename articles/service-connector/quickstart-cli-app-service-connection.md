@@ -7,13 +7,13 @@ ms.service: service-connector
 ms.topic: quickstart
 ms.date: 11/17/2023
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2024
 ---
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
 This quickstart describes the steps for creating a service connection in Azure App Service with the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -39,22 +39,6 @@ This quickstart describes the steps for creating a service connection in Azure A
 
 ## Create a service connection
 
-#### [Using an access key](#tab/Using-access-key)
-
-Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
-
-- **Source compute service resource group name:** the resource group name of the App Service.
-- **App Service name:** the name of your App Service that connects to the target service.
-- **Target service resource group name:** the resource group name of the Blob Storage.
-- **Storage account name:** the account name of your Blob Storage.
-
-```azurecli
-az webapp connection create storage-blob --secret
-```
-
-> [!TIP]
-> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
-
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
@@ -73,6 +57,22 @@ az webapp connection create storage-blob
 
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connected it to your App Service instance.
+
+#### [Using an access key](#tab/Using-access-key)
+
+Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
+
+- **Source compute service resource group name:** the resource group name of the App Service.
+- **App Service name:** the name of your App Service that connects to the target service.
+- **Target service resource group name:** the resource group name of the Blob Storage.
+- **Storage account name:** the account name of your Blob Storage.
+
+```azurecli
+az webapp connection create storage-blob --secret
+```
+
+> [!TIP]
+> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
 
 ---
 

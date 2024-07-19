@@ -1,9 +1,9 @@
 ---
 title: Template functions - lambda
 description: Describes the lambda functions to use in an Azure Resource Manager template (ARM template)
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 01/25/2024
+ms.date: 05/13/2024
 ---
 
 # Lambda functions for ARM templates
@@ -14,7 +14,6 @@ This article describes the lambda functions to use in ARM templates. [Lambda fun
 lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
 ```
 
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
 
@@ -22,7 +21,7 @@ lambda(<lambda variable>, [<lambda variable>, ...], <expression>)
 
 ARM template lambda function has these limitations:
 
-- Lambda function can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`groupBy()`](#groupby), [`map()`](#map), [`mapValues()`](#mapvalues), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
 - Using lambda variables (the temporary variables used in the lambda functions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./template-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./template-functions-resource.md#reference) function isn't currently supported.
@@ -92,16 +91,23 @@ The following examples show how to use the `filter` function.
     "oldDogs": {
       "type": "array",
       "value": "[filter(variables('dogs'), lambda('dog', greaterOrEquals(lambdaVariables('dog').age, 5)))]"
+    },
+    "dogNameIndex": {
+      "type": "array",
+      "value": "[filter(variables('dogs'), lambda('val', 'i', and(less(lambdaVariables('i'), 2), equals(substring(lambdaVariables('val').name, 0, 1), 'C'))))]"
     }
   }
 }
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+| dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
+
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dogs whose index number is less than two and whose name starts with the letter "C". 
 
 ```json
 {
@@ -138,6 +144,58 @@ The output from the preceding example:
 | isEven | Array | [0, 2, 4, 6, 8] |
 
 **filterdLoop** shows the numbers in an array that are greater than 5; and **isEven** shows the even numbers in the array.
+
+## groupBy
+
+`groupBy(inputArray, lambda expression)`
+
+Creates an object with array values from an array, using a grouping condition.
+
+In Bicep, use the [groupBy](../bicep/bicep-functions-lambda.md#groupby) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |The array for grouping.|
+| lambda expression |Yes |expression |The lambda expression is applied to each input array element, and group the elements using the grouping condition.|
+
+### Return value
+
+An object.
+
+### Examples
+
+The following example shows how to use the `groupBy` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "inputArray": [
+      "foo",
+      "bar",
+      "baz"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "outObject": {
+      "type": "object",
+      "value": "[groupBy(variables('inputArray'), lambda('x', substring(lambdaVariables('x'), 0, 1)))]"
+    }
+  }
+}
+```
+
+The output from the preceding example shows the dogs that are five or older:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outObject | Object | {"f":["foo"],"b":["bar","baz"]} |
+
+**outObject** shows an object that groups the array elements by their first letters.
 
 ## map
 
@@ -209,9 +267,13 @@ The following example shows how to use the `map` function.
       "type": "array",
       "value": "[map(variables('dogs'), lambda('dog', format('Hello {0}!', lambdaVariables('dog').name)))]"
     },
-    "mapObject": {
+    "mapArray": {
       "type": "array",
       "value": "[map(range(0, length(variables('dogs'))), lambda('i', createObject('i', lambdaVariables('i'), 'dog', variables('dogs')[lambdaVariables('i')].name, 'greeting', format('Ahoy, {0}!', variables('dogs')[lambdaVariables('i')].name))))]"
+    },
+    "mapArrayIndex": {
+      "type": "array",
+      "value": "[map(variables('dogs'), lambda('x', 'i', createObject('index', lambdaVariables('i'), 'val', lambdaVariables('x').name)))]"
     }
   }
 }
@@ -223,9 +285,61 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | dogNames | Array | ["Evie","Casper","Indy","Kira"]  |
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
-| mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArray | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArrayIndex | Array | [{"index":0,"val":"Evie"},{"index":1,"val":"Casper"},{"index":2,"val":"Indy"},{"index":3,"val":"Kira"}] |
 
-**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; **mapArray** and **mapArrayIndex** create another two arrays of objects.
+
+## mapValues
+
+`mapValues(inputObject, lambda expression)`
+
+Creates an object from an input object, using a lambda expression to map values.
+
+In Bicep, use the [mapValues](../bicep/bicep-functions-lambda.md#mapvalues) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputObject |Yes |object |The object to map.|
+| lambda expression |Yes |expression |The lambda expression used to map the values.|
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use the `mapValues` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "inputObject": {
+      "foo": "foo",
+      "bar": "bar"
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "mapObject": {
+      "type": "object",
+      "value": "[mapValues(variables('inputObject'), lambda('val', toUpper(lambdaVariables('val'))))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| mapObject | Object | {foo: 'FOO', bar: 'BAR'} |
+
+**mapObject** creates another object with the values in upper case.
 
 ## reduce
 
@@ -298,6 +412,10 @@ The following examples show how to use the `reduce` function.
     "totalAgeAdd1": {
       "type": "int",
       "value": "[reduce(variables('ages'), 1, lambda('cur', 'next', add(lambdaVariables('cur'), lambdaVariables('next'))))]"
+    },
+    "oddAge": {
+      "type": "int",
+      "value": "[reduce(variables('ages'), 0, lambda('cur', 'next', 'i', if(equals(mod(lambdaVariables('i'), 2), 0), add(lambdaVariables('cur'), lambdaVariables('next')), lambdaVariables('cur'))))]"
     }
   }
 }
@@ -309,8 +427,9 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | totalAge | int | 18 |
 | totalAgeAdd1 | int | 19 |
+| oddAge | int | 7 |
 
-**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
+**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values. **oddAge** sums the ages of dogs that are located at even indices, specifically **5** (Evie) and **2** (Indy).
 
 ```json
 {

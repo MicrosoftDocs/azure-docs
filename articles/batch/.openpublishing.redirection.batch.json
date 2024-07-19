@@ -197,7 +197,7 @@
         },
         {
             "source_path_from_root": "/articles/batch/high-availability-disaster-recovery.md",
-            "redirect_URL": "/azure/reliability/reliability-batch",
+            "redirect_url": "/azure/reliability/reliability-batch",
             "redirect_document_id": false
         },
         {

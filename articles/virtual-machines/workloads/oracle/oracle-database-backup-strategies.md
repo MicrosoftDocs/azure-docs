@@ -2,20 +2,16 @@
 title: Backup strategies for Oracle Database on an Azure Linux VM
 description:  Get options to back up Oracle Database instances in an Azure Linux VM environment.
 author: cro27
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
+ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: jjaygbay1 
-
 ---
 
 # Backup strategies for Oracle Database on an Azure Linux VM
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -67,7 +63,7 @@ The ability to access backup storage across regions is an important aspect of bu
 
 When you're using Azure Files with either the Server Message Block (SMB) protocol or the Network File System (NFS) 4.1 protocol to mount as backup storage, Azure Files doesn't support RA-GRS or RA-GZRS.
 
-If the backup storage requirement is greater than 5 tebibytes (TiB), Azure Files requires you to enable the [large file shares](../../../storage/files/storage-files-planning.md) feature. This feature doesn't support GRS or GZRS redundancy. It supports only LRS.
+Azure Files backup storage can scale up to 100 (TiB), with support for LRS, GRS, and GZRS redundancy options. 
 
 Azure Blob Storage mounted via the NFS 3.0 protocol currently supports only LRS and ZRS redundancy. Azure Blob Storage configured with any redundancy option can be mounted via Blobfuse.
 
@@ -87,7 +83,7 @@ Azure Blob Storage is a cloud-based service for storing large amounts of unstruc
 
 [Blobfuse](../../../storage/blobs/storage-how-to-mount-container-linux.md) is an open-source project that provides a virtual file system backed by Azure Blob Storage. It uses the libfuse open-source library to communicate with the Linux FUSE kernel module. It implements file-system operations by using the Azure Blob Storage REST APIs.
 
-Blobfuse is currently available for Ubuntu and Centos/RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
+Blobfuse is currently available for Ubuntu and RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
 
 Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
 
@@ -109,7 +105,7 @@ You can also help protect Azure file shares by using Azure Backup for a Recovery
 
 You can mount Azure file shares in Linux distributions by using the NFS v4.1 protocol. There are limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features).
 
-[!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 #### Azure Files with SMB 3.0
 

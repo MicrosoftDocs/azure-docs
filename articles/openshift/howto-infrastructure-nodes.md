@@ -358,4 +358,31 @@ Use this procedure for any additional ingress controllers you may have in the cl
     grafana-599d4b948c-btlp2                       3/3     Running   0          2m48s   10.131.4.10   cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
     kube-state-metrics-574c5bfdd7-f7fjk            3/3     Running   0          2m49s   10.131.4.8    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
     ```
+
+### DNS
+
+1. Allow the DNS pods to run on the infrastructure nodes.
+
+   ```
+   oc edit dns.operator/default
+   ```
+
+   ```
+   apiVersion: operator.openshift.io/v1
+   kind: DNS
+   metadata:
+   name: default
+   spec:
+   nodePlacement:
+     tolerations:
+     - operator: Exists
+   ```
     
+1. Verify that DNS pods are scheduled onto all infra nodes.
+
+```
+oc get ds/dns-default -n openshift-dns
+NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+dns-default   7         7         7       7            7           kubernetes.io/os=linux   35d
+```
+   

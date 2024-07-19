@@ -3,6 +3,7 @@ title: Plug in CA certificates for Istio-based service mesh add-on on Azure Kube
 description: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.service: azure-kubernetes-service
 ms.date: 12/04/2023
 ms.author: shasb
 author: shashankbarsin
@@ -34,7 +35,7 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
     az keyvault secret set --vault-name $AKV_NAME --name root-cert --file <path-to-folder/root-cert.pem>
     az keyvault secret set --vault-name $AKV_NAME --name ca-cert --file <path-to-folder/ca-cert.pem>
     az keyvault secret set --vault-name $AKV_NAME --name ca-key --file <path-to-folder/ca-key.pem>
-    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path/cert-chain.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name cert-chain --file <path-to-folder/cert-chain.pem>
     ```
 
 1. Enable [Azure Key Vault provider for Secret Store CSI Driver for your cluster][akv-addon]:
@@ -54,6 +55,9 @@ The add-on requires Azure CLI version 2.57.0 or later installed. You can run `az
 
     az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
     ```
+
+    > [!NOTE]
+    > If you created your Key Vault with Azure RBAC Authorization for your permission model instead of Vault Access Policy, follow the instructions [here][akv-rbac-guide] to create permissions for the managed identity. Add an Azure role assignment for `Key Vault Reader` for the add-on's user-assigned managed identity. 
 
 ## Set up Istio-based service mesh addon with plug-in CA certificates
 
@@ -250,6 +254,7 @@ You may need to periodically rotate the certificate authorities for security or 
 
 [akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
+[akv-rbac-guide]: ../key-vault/general/rbac-guide.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
@@ -257,3 +262,4 @@ You may need to periodically rotate the certificate authorities for security or 
 [az-aks-mesh-disable]: /cli/azure/aks/mesh#az-aks-mesh-disable
 [istio-generate-certs]: https://istio.io/latest/docs/tasks/security/cert-management/plugin-ca-cert/#plug-in-certificates-and-key-into-the-cluster
 [istio-mtls-reference]: https://istio.io/latest/docs/concepts/security/#mutual-tls-authentication
+

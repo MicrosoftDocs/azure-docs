@@ -31,12 +31,8 @@ By combining the low latency streaming features of Apache Flink and the dataflow
 For purposes of this demonstration, we're using a HDInsight Kafka Cluster. Let us prepare HDInsight Kafka topic for the demo.
 
 > [!NOTE]
-> Setup a HDInsight cluster with [Apache Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) and replace broker list with your own list before you get started for both Kafka 2.4 and 3.2.
+> Setup a HDInsight cluster with [Apache Kafka](../../hdinsight/kafka/apache-kafka-get-started.md) and replace broker list with your own list before you get started for both Kafka 3.2.
 
-**Kafka 2.4.1**
-```
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 3 --topic click_events --zookeeper zk0-contsk:2181
-```
 
 **Kafka 3.2.0**
 ```
@@ -182,7 +178,6 @@ public class ClickSource implements SourceFunction<Event> {
 ```
 **Maven pom.xml**
 
-You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, where applicable on the pom.xml.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -200,7 +195,7 @@ You can replace 2.4.1 with 3.2.0 in case you're using Kafka 3.2.0 on HDInsight, 
         <flink.version>1.17.0</flink.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
-        <kafka.version>3.2.0</kafka.version>     ---> Replace 2.4.1 with 3.2.0 , in case you're using HDInsight Kafka 3.2.0
+        <kafka.version>3.2.0</kafka.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->

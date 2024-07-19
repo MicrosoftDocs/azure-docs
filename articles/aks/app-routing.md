@@ -29,20 +29,20 @@ For other configurations, see:
 * [Application routing add-on configuration][custom-ingress-configurations]
 * [Configure internal NGIX ingress controller for Azure private DNS zone][create-nginx-private-controller].
 
-With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on is the default method for all AKS clusters.
+With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the Cloud Native Computing Foundation (CNCF), using the application routing add-on with OSM is not recommended.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - Azure CLI version 2.54.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-- `aks-preview` Azure CLI extension of version 0.5.171 or later installed
 
 ## Limitations
 
 - The application routing add-on supports up to five Azure DNS zones.
 - All global Azure DNS zones integrated with the add-on have to be in the same resource group.
 - All private Azure DNS zones integrated with the add-on have to be in the same resource group.
-- Editing any resources in the `app-routing-system` namespace, including the Ingress-nginx ConfigMap, isn't supported.
+- Editing the ingress-nginx `ConfigMap` in the `app-routing-system` namespace isn't supported.
+- The following snippet annotations are blocked and will prevent an Ingress from being configured: `load_module`, `lua_package`, `_by_lua`, `location`, `root`, `proxy_pass`, `serviceaccount`, `{`, `}`, `'`.
 
 ## Enable application routing using Azure CLI
 
@@ -53,15 +53,24 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying the `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
 
-To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command.
+To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] or the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `http_application_routing`.
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+# az aks approuting enable
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
+
+# az aks enable-addons
+az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons http_application_routing
 ```
 
 # [Open Service Mesh (OSM) (retired)](#tab/with-osm)
@@ -78,7 +87,13 @@ The following add-ons are required to support this configuration:
 Enable application routing on a new AKS cluster using the [`az aks create`][az-aks-create] command specifying the `--enable-app-routing` flag and the `--enable-addons` parameter with the `open-service-mesh` add-on:
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing --enable-addons open-service-mesh 
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --enable-addons open-service-mesh \
+    --generate-ssh-keys 
 ```
 
 ### Enable on an existing cluster
@@ -86,8 +101,8 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command and the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `open-service-mesh`:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
-az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-service-mesh
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
+az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons open-service-mesh
 ```
 
 > [!NOTE]
@@ -103,7 +118,12 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons open-servi
 To enable application routing on a new cluster, use the [`az aks create`][az-aks-create] command, specifying `--enable-app-routing` flag.
 
 ```azurecli-interactive
-az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app-routing
+az aks create \
+    --resource-group <ResourceGroupName> \
+    --name <ClusterName> \
+    --location <Location> \
+    --enable-app-routing \
+    --generate-ssh-keys
 ```
 
 ### Enable on an existing cluster
@@ -111,7 +131,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-app
 To enable application routing on an existing cluster,  use the [`az aks approuting enable`][az-aks-approuting-enable] command:
 
 ```azurecli-interactive
-az aks approuting enable -g <ResourceGroupName> -n <ClusterName>
+az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ---
@@ -123,7 +143,7 @@ To connect to the Kubernetes cluster from your local computer, you use [kubectl]
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command.
 
 ```azurecli-interactive
-az aks get-credentials -g <ResourceGroupName> -n <ClusterName>
+az aks get-credentials --resource-group <ResourceGroupName> --name <ClusterName>
 ```
 
 ## Deploy an application
@@ -513,3 +533,4 @@ When the application routing add-on is disabled, some Kubernetes resources might
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [ingress-backend]: https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api
+

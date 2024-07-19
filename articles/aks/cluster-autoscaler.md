@@ -4,6 +4,9 @@ description: Learn how to use the cluster autoscaler to automatically scale your
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 01/11/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Use the cluster autoscaler in Azure Kubernetes Service (AKS)
@@ -40,7 +43,8 @@ This article requires Azure CLI version 2.0.76 or later. Run `az --version` to f
     --load-balancer-sku standard \
     --enable-cluster-autoscaler \
     --min-count 1 \
-    --max-count 3
+    --max-count 3 \
+    --generate-ssh-keys
     ```
 
     It takes a few minutes to create the cluster and configure the cluster autoscaler settings.
@@ -175,13 +179,14 @@ The following table lists the available settings for the cluster autoscaler prof
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --node-count 1 \
-      --enable-cluster-autoscaler \
-      --min-count 1 \
-      --max-count 3 \
-      --cluster-autoscaler-profile scan-interval=30s
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 1 \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3 \
+        --cluster-autoscaler-profile scan-interval=30s \
+        --generate-ssh-keys
     ```
 
 ### Set the cluster autoscaler profile on an existing cluster
@@ -203,7 +208,7 @@ The following table lists the available settings for the cluster autoscaler prof
     az aks update \
         --resource-group myResourceGroup \
         --name myAKSCluster \
-        --cluster-autoscaler-profile scan-interval=30s, scale-down-delay-after-add=0s,scale-down-delay-after-failure=30s,scale-down-unneeded-time=3m,scale-down-unready-time=3m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=1000,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
+        --cluster-autoscaler-profile scan-interval=30s,scale-down-delay-after-add=0m,scale-down-delay-after-failure=1m,scale-down-unneeded-time=3m,scale-down-unready-time=3m,max-graceful-termination-sec=30,skip-nodes-with-local-storage=false,max-empty-bulk-delete=1000,max-total-unready-percentage=100,ok-total-unready-count=1000,max-node-provision-time=15m
    ```
 ### Configure cluster autoscaler profile for bursty workloads
    ```azurecli-interactive
@@ -295,3 +300,4 @@ To further help improve cluster resource utilization and free up CPU and memory 
 [az-aks-nodepool-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview#enable-cluster-auto-scaler-for-a-node-pool
 [kubernetes-faq]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why
 [kubernetes-cluster-autoscaler]: https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
+

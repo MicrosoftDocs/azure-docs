@@ -102,7 +102,7 @@ You won't incur any management charges or instance fee when using operational ba
 
 - Retention of data because of [Soft delete for blobs](../storage/blobs/soft-delete-blob-overview.md), [Change feed support in Azure Blob Storage](../storage/blobs/storage-blob-change-feed.md), and [Blob versioning](../storage/blobs/versioning-overview.md).
 
-# [Vaukted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup (preview)](#tab/vaulted-backup)
 
 You won't incur backup storage charges or instance fees during the preview. However, you'll incur the source side cost, [associated with Object replication](../storage/blobs/object-replication-overview.md#billing), on the backed-up source account.
 

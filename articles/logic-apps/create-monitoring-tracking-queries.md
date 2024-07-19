@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
 > This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 

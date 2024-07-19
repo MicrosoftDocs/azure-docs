@@ -60,7 +60,7 @@ To complete this tutorial, you must have:
 
 :::zone-end
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Add a managed identity
 
@@ -78,7 +78,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Grant access to App Configuration
 
-The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to assign the App Configuration Data Reader role to App Service. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 1. In the [Azure portal](https://portal.azure.com), select your App Configuration store.
 
@@ -124,7 +124,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     }
     ```
 
-1. Open the *Program.cs* file and add a reference to the `Azure.Identity` and `Microsoft.Azure.Services.AppAuthentication` namespaces:
+1. Open the *Program.cs* file and add a reference to the `Azure.Identity` namespace:
 
     ```csharp-interactive
     using Azure.Identity;

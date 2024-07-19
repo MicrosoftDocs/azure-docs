@@ -4,6 +4,9 @@ description: Learn how to enable the AI toolchain operator add-on on Azure Kuber
 ms.topic: article
 ms.custom: azure-kubernetes-service, devx-track-azurecli
 ms.date: 02/28/2024
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Deploy an AI model on Azure Kubernetes Service (AKS) with the AI toolchain operator (preview)
@@ -12,7 +15,7 @@ The AI toolchain operator (KAITO) is a managed add-on for AKS that simplifies th
 
 This article shows you how to enable the AI toolchain operator add-on and deploy an AI model on AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -93,7 +96,8 @@ The following sections describe how to create an AKS cluster with the AI toolcha
         --resource-group ${AZURE_RESOURCE_GROUP} \
         --name ${CLUSTER_NAME} \
         --enable-oidc-issuer \
-        --enable-ai-toolchain-operator
+        --enable-ai-toolchain-operator \
+        --generate-ssh-keys
     ```
 
     > [!NOTE]
@@ -193,7 +197,7 @@ The following sections describe how to create an AKS cluster with the AI toolcha
 1. Deploy the Falcon 7B-instruct model from the KAITO model repository using the `kubectl apply` command.
 
     ```azurecli-interactive
-    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/kaito_workspace_falcon_7b-instruct.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure/kaito/main/examples/inference/kaito_workspace_falcon_7b-instruct.yaml
     ```
 
 2. Track the live resource changes in your workspace using the `kubectl get` command.
@@ -245,3 +249,4 @@ For more inference model options, see the [KAITO GitHub repository](https://gith
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-show]: /cli/azure/feature#az_feature_show
 [az-provider-register]: /cli/azure/provider#az_provider_register
+

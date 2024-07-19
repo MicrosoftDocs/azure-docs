@@ -2,7 +2,7 @@
 title: Configure node endpoints in Azure Batch pool
 description: How to configure or disable access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 06/13/2024
 ---
 
 # Configure or disable remote access to compute nodes in an Azure Batch pool

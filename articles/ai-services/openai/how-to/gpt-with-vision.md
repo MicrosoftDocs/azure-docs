@@ -20,13 +20,17 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 > [!TIP]
 > To use GPT-4 Turbo with Vision, you call the Chat Completion API on a GPT-4 Turbo with Vision model that you have deployed. If you're not familiar with the Chat Completion API, see the [GPT-4 Turbo & GPT-4 how-to guide](/azure/ai-services/openai/how-to/chatgpt?tabs=python&pivots=programming-language-chat-completions).
 
+## GPT-4 Turbo model upgrade
+
+[!INCLUDE [GPT-4 Turbo](../includes/gpt-4-turbo.md)]
+
 ## Call the Chat Completion APIs
 
 The following command shows the most basic way to use the GPT-4 Turbo with Vision model with code. If this is your first time using these models programmatically, we recommend starting with our [GPT-4 Turbo with Vision quickstart](../gpt-v-quickstart.md). 
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -42,6 +46,9 @@ The following is a sample request body. The format is the same as the chat compl
 
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
+
+> [!IMPORTANT]
+> When uploading images, there is a limit of 10 images per chat request.
 
 ```json
 {
@@ -81,12 +88,12 @@ The following is a sample request body. The format is the same as the chat compl
     api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_key="<your_azure_openai_key>"
     deployment_name = '<your_deployment_name>'
-    api_version = '2023-12-01-preview' # this might change in the future
+    api_version = '2024-02-15-preview' # this might change in the future
     
     client = AzureOpenAI(
         api_key=api_key,  
         api_version=api_version,
-        base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
+        base_url=f"{api_base}openai/deployments/{deployment_name}",
     )
     ```
 
@@ -258,7 +265,7 @@ The **object grounding** integration brings a new layer to data analysis and use
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -498,6 +505,9 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
     > [!TIP]
     > For more detailed instructions on creating a video index, see [Do video retrieval using vectorization](/azure/ai-services/computer-vision/how-to/video-retrieval).
+
+    > [!IMPORTANT]
+    > A video index name can be up to 24 characters long, unless it's a GUID, which can be 36 characters.
         
     ```bash
     curl.exe -v -X PUT "https://<YOUR_ENDPOINT_URL>/computervision/retrieval/indexes/my-video-index?api-version=2023-05-01-preview" -H "Ocp-Apim-Subscription-Key: <YOUR_SUBSCRIPTION_KEY>" -H "Content-Type: application/json" --data-ascii "
@@ -567,7 +577,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
 #### [REST](#tab/rest)
 
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 
@@ -622,9 +632,9 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
 #### [Python](#tab/python)
 
-In your Python script, call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `dataSources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
+In your Python script, call the client's **create** method as in the previous sections, but include the *extra_body* parameter. Here, it contains the `enhancements` and `data_sources` fields. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `video` field, which has a boolean `enabled` property. Use this to request the video retrieval service. 
 
-`dataSources` represents the external resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVisionVideoIndex"` and a `parameters` field. 
+`data_sources` represents the external resource data that's needed for Vision enhancement. It has a `type` field which should be `"AzureComputerVisionVideoIndex"` and a `parameters` field. 
 
 Set the `computerVisionBaseUrl` and `computerVisionApiKey` to the endpoint URL and access key of your Computer Vision resource. Set `indexName` to the name of your video index. Set `videoUrls` to a list of SAS URLs of your videos. 
 
@@ -648,7 +658,7 @@ response = client.chat.completions.create(
         ] } 
     ],
     extra_body={
-        "dataSources": [
+        "data_sources": [
             {
                 "type": "AzureComputerVisionVideoIndex",
                 "parameters": {
@@ -672,12 +682,12 @@ print(response)
 ---
 
 > [!IMPORTANT]
-> The `"dataSources"` object's content varies depending on which Azure resource type and authentication method you're using. See the following reference:
+> The `"data_sources"` object's content varies depending on which Azure resource type and authentication method you're using. See the following reference:
 > 
 > #### [Azure OpenAI resource](#tab/resource)
 > 
 > ```json
-> "dataSources": [
+> "data_sources": [
 > {
 >     "type": "AzureComputerVisionVideoIndex",
 >     "parameters": {
@@ -692,7 +702,7 @@ print(response)
 > #### [Azure AIServices resource + SAS authentication](#tab/resource-sas)
 > 
 > ```json
-> "dataSources": [
+> "data_sources": [
 > {
 >     "type": "AzureComputerVisionVideoIndex",
 >     "parameters": {
@@ -705,7 +715,7 @@ print(response)
 > #### [Azure AIServices resource + Managed Identities](#tab/resource-mi)
 > 
 > ```json
-> "dataSources": [
+> "data_sources": [
 > {
 >     "type": "AzureComputerVisionVideoIndex",
 >     "parameters": {

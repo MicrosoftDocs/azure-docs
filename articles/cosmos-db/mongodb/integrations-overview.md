@@ -10,7 +10,7 @@ ms.subservice: mongodb
 ---
 
 # Integrate Azure Cosmos DB for MongoDB with Azure services
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB for MongoDB is a cloud-native offering and can be integrated seamlessly with other Azure services to build enterprise-grade modern applications. 
 

@@ -23,6 +23,7 @@ In this quickstart, get started with the Azure AI Content Safety service using C
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Content Safety](https://aka.ms/acs-create) Azure resource.
+* Assign `Cognitive Services User` role to your account to ensure the studio experience. Go to [Azure Portal](https://portal.azure.com/), navigate to your Content Safety resource or Azure AI Services resource, and select **Access Control** in the left navigation bar, then click **+ Add role assignment**, choose the `Cognitive Services User` role and select the memeber of your account that you need to assign this role to, then review and assign. It might take few minutes for the assignment to take effect.
 * Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource. 
 
 
@@ -36,26 +37,26 @@ The [Moderate text content](https://contentsafety.cognitive.azure.com/text) page
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters.
+    > See [Input requirements](./overview.md#input-requirements) for maximum text length limitations.
 1. Select **Run test**.
 
 The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
 The **Use blocklist** tab on the right lets you create, edit, and add a blocklist to the moderation workflow. If you have a blocklist enabled when you run the test, you get a **Blocklist detection** panel under **Results**. It reports any matches with the blocklist.
 
-## Detect jailbreak risk
+## Detect user input attacks
 
-The **Jailbreak risk detection** panel lets you try out jailbreak risk detection. Jailbreak attacks are User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective. 
+The **Prompt Shields** panel lets you try out user input risk detection. Detect User Prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or break the rules set in the System Message. These attacks can vary from intricate role-play to subtle subversion of the safety objective.
 
-:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with jailbreak risk detection panel selected.":::
+:::image type="content" source="media/jailbreak-panel.png" alt-text="Screenshot of content safety studio with user input risk detection panel selected.":::
 
-1. Select the **Jailbreak risk detection** panel.
+1. Select the **Prompt Shields** panel.
 1. Select a sample text on the page, or input your own content for testing. You can also upload a CSV file to do a batch test.
 1. Select Run test.
 
-The service returns the jailbreak risk level and type for each sample. You can also view the details of the jailbreak risk detection result by selecting the **Details** button.
+The service returns the risk flag and type for each sample.
 
-For more information, see the [Jailbreak risk detection conceptual guide](./concepts/jailbreak-detection.md).
+For more information, see the [Prompt Shields conceptual guide](./concepts/jailbreak-detection.md).
 
 ## Analyze image content
 The [Moderate image content](https://contentsafety.cognitive.azure.com/image) page provides capability for you to quickly try out image moderation.

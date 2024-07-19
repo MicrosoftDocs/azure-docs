@@ -31,6 +31,9 @@ For more information about the resource types for Azure Functions, see [Azure Fu
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 For a list of available metrics for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#metrics).
 
+>[!NOTE]  
+>App Service metrics (Microsoft.Web/sites) aren't available when your function app runs on Linux in a [Consumption plan](./consumption-plan.md).
+
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 Azure Functions integrates with Azure Monitor Logs to monitor functions. For detailed instructions on how to set up diagnostic settings to configure and route resource logs, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings).

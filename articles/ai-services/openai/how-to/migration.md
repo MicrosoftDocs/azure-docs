@@ -70,11 +70,11 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2023-05-15"
+  api_version="2024-02-01"
 )
 
 response = client.chat.completions.create(
-    model="gpt-35-turbo", # model = "deployment_name".
+    model="gpt-35-turbo", # model = "deployment_name"
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
@@ -98,7 +98,7 @@ import openai
 openai.api_type = "azure"
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # engine = "deployment_name".
@@ -126,7 +126,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-    api_version="2023-12-01-preview",
+    api_version="2024-02-01",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
     
@@ -135,7 +135,7 @@ deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the
 # Send a completion call to generate an answer
 print('Sending a test completion job')
 start_phrase = 'Write a tagline for an ice cream shop. '
-response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
+response = client.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10) # model = "deployment_name"
 print(response.choices[0].text)
 ```
 
@@ -148,7 +148,7 @@ import openai
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
 openai.api_type = 'azure'
-openai.api_version = '2023-05-15' # this might change in the future
+openai.api_version = '2024-02-01' # this might change in the future
 
 deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
@@ -172,7 +172,7 @@ from openai import AzureOpenAI
 
 client = AzureOpenAI(
   api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version = "2023-05-15",
+  api_version = "2024-02-01",
   azure_endpoint =os.getenv("AZURE_OPENAI_ENDPOINT") 
 )
 
@@ -194,7 +194,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = YOUR_API_KEY
 openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.Embedding.create(
     input="Your text string goes here",
@@ -218,10 +218,10 @@ from openai import AsyncAzureOpenAI
 async def main():
     client = AsyncAzureOpenAI(  
       api_key = os.getenv("AZURE_OPENAI_API_KEY"),  
-      api_version = "2023-12-01-preview",
+      api_version = "2024-02-01",
       azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
-    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
+    response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}]) # model = model deployment name
 
     print(response.model_dump_json(indent=2))
 
@@ -236,7 +236,7 @@ from openai import AzureOpenAI
 
 token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
-api_version = "2023-12-01-preview"
+api_version = "2024-02-01"
 endpoint = "https://my-resource.openai.azure.com"
 
 client = AzureOpenAI(
@@ -246,7 +246,7 @@ client = AzureOpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="deployment-name",  # gpt-35-instant
+    model="deployment-name",  # model = "deployment_name"
     messages=[
         {
             "role": "user",
@@ -281,7 +281,7 @@ client = openai.AzureOpenAI(
 )
 
 completion = client.chat.completions.create(
-    model=deployment,
+    model=deployment, # model = "deployment_name"
     messages=[
         {
             "role": "user",

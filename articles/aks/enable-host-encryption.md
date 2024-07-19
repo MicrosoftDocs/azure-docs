@@ -4,6 +4,9 @@ description: Learn how to configure a host-based encryption in an Azure Kubernet
 ms.topic: article
 ms.subservice: aks-security
 ms.date: 07/17/2023 
+author: tamram
+ms.author: tamram
+
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -35,7 +38,13 @@ Before you begin, review the following prerequisites and limitations.
 - Create a new cluster and configure the cluster agent nodes to use host-based encryption using the [`az aks create`][az-aks-create] command with the `--enable-encryption-at-host` flag.
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
+    az aks create \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --storage-pool-sku Standard_DS2_v2 \
+        --location westus2 \
+        --enable-encryption-at-host \
+        --generate-ssh-keys
     ```
 
 ## Use host-based encryption on existing clusters
@@ -60,3 +69,4 @@ Before you begin, review the following prerequisites and limitations.
 [akv-built-in-roles]: ../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+

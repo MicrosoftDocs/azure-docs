@@ -1068,9 +1068,6 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
       },
       "workspaceResourceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
-      },
-      "workspaceKey": {
-        "value": "Npl#3y4SmqG4R30ukKo3oxfixZ5axv1xocXgKR17kgVdtacU4cEf+SNr2TdHGVKTsZHZv3R8QKRXfh+ToVR9dA-="
       }
   }
 }
@@ -1452,7 +1449,7 @@ resource vmDiagnosticsSettings 'Microsoft.Compute/virtualMachines/extensions@202
 ## Next steps
 
 * [Learn more about Azure Monitor agent](./azure-monitor-agent-overview.md)
-* [Learn more about Data Collection rules and associations](./data-collection-rule-azure-monitor-agent.md)
+* [Learn more about Data Collection rules and associations](./azure-monitor-agent-data-collection.md)
 * [Get sample templates for Data Collection rules and associations](./resource-manager-data-collection-rules.md)
 * [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
 * [Learn more about diagnostic extension](./diagnostics-extension-overview.md).

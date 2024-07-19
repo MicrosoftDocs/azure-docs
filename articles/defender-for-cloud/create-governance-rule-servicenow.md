@@ -11,16 +11,16 @@ ai-usage: ai-assisted
 
 # Create automatic tickets with governance rules
 
-The integration of SeviceNow and Defender for Cloud allow you to create governance rules that automatically open tickets in SeviceNow for specific recommendations or severity levels. ServiceNow tickets can be created, viewed, and linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
+The integration of ServiceNow and Defender for Cloud allow you to create governance rules that automatically open tickets in ServiceNow for specific recommendations or severity levels. ServiceNow tickets can be created, viewed, and linked to recommendations directly from Defender for Cloud, enabling seamless collaboration between the two platforms and facilitating efficient incident management.
 
 ## Prerequisites
 
-- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html). 
+- Have an [application registry in ServiceNow](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
 - The following roles are required:
-    - To create an assignment:  Admin permissions to ServiceNow.
+  - To create an assignment:  Admin permissions to ServiceNow.
 
 ## Assign an owner with a governance rule
 

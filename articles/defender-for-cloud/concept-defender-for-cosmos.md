@@ -1,10 +1,10 @@
 ---
 title: Overview of Defender for Azure Cosmos DB
 description: Learn about the benefits and features of Microsoft Defender for Azure Cosmos DB.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/27/2022
+ms.date: 05/30/2024
 ---
 
 # Overview of Microsoft Defender for Azure Cosmos DB
@@ -37,7 +37,7 @@ You can use this information to quickly remediate security issues and improve th
 Alerts include details of the incident that triggered them, and recommendations on how to investigate and remediate threats. Alerts can be exported to Microsoft Sentinel or any other third-party SIEM or any other external tool. To learn how to stream alerts, see [Stream alerts to a SIEM, SOAR, or IT classic deployment model solution](export-to-siem.md).
 
 > [!TIP]
-> For a comprehensive list of all Defender for Azure Cosmos DB alerts, see the [alerts reference page](alerts-reference.md#alerts-for-azure-cosmos-db). This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md).
+> For a comprehensive list of all Defender for Azure Cosmos DB alerts, see the [alerts reference page](alerts-azure-cosmos-db.md). This is useful for workload owners who want to know what threats can be detected and help SOC teams gain familiarity with detections before investigating them. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml).
 
 ## Alert types
 
@@ -52,7 +52,7 @@ Threat intelligence security alerts are triggered for:
 - **Suspicious database activity**: <br>
     For example, suspicious key-listing patterns that resemble known malicious lateral movement techniques and suspicious data extraction patterns.
 
-## Next steps
+## Next step
 
 In this article, you learned about Microsoft Defender for Azure Cosmos DB.
 

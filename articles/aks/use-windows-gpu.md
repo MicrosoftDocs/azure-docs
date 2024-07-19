@@ -1,16 +1,19 @@
 ---
-title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS)
+title: Use GPUs for Windows node pools on Azure Kubernetes Service (AKS) (preview)
 description: Learn how to use Windows GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/18/2024
+author: schaffererin
+ms.author: schaffererin
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads using a Windows os.
 ---
 
-# Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS)
+# Use Windows GPUs for compute-intensive workloads on Azure Kubernetes Service (AKS) (preview)
 
 Graphical processing units (GPUs) are often used for compute-intensive workloads, such as graphics and visualization workloads. AKS supports GPU-enabled Windows and [Linux](./gpu-cluster.md) node pools to run compute-intensive Kubernetes workloads.
 
-This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters.
+This article helps you provision Windows nodes with schedulable GPUs on new and existing AKS clusters (preview).
 
 ## Supported GPU-enabled virtual machines (VMs)
 
@@ -41,7 +44,7 @@ To view supported GPU-enabled VMs, see [GPU-optimized VM sizes in Azure][gpu-sku
 
 Using NVIDIA GPUs involves the installation of various NVIDIA software components such as the [DirectX device plugin for Kubernetes](https://github.com/aarnaud/k8s-directx-device-plugin), GPU driver installation, and more. When you create a Windows node pool with a supported GPU-enabled VM, these components and the appropriate NVIDIA CUDA or GRID drivers are installed. For NC and ND series VM sizes, the CUDA driver is installed. For NV series VM sizes, the GRID driver is installed.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -108,7 +111,7 @@ When creating a Windows node pool with N-series (NVIDIA GPU) VM sizes in AKS, th
 
 AKS has automatic GPU driver installation enabled by default. In some cases, such as installing your own drivers, you may want to skip GPU driver installation.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 

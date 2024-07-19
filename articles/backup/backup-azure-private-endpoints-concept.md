@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 03/04/2024
+ms.date: 07/19/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -41,9 +41,9 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - You need to re-register the Recovery Services resource provider with the subscription, if you've registered it before *May 1, 2020*. To re-register the provider, go to *your subscription* in the Azure portal > **Resource provider**, and then select **Microsoft.RecoveryServices** > **Re-register**.
 
-- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported, if the vault has private endpoints enabled.
-
 - You can create DNS across subscriptions.
+
+- You can create a secondary private endpoint before or after having protected items in the vault. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
 
 ## Recommended and supported scenarios
 

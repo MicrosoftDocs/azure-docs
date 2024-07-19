@@ -14,7 +14,7 @@ ms.custom: deprecation announcement
 
 Azure Database for MariaDB is on the retirement path, and **Azure Database for MariaDB is scheduled for retirement by September 19, 2025**.
 
-As part of this retirement, there is no extended support for creating new MariaDB server instances from the Azure portal beginning **January 19, 2024**, if you still need to create MariaDB instances to meet business continuity needs, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+In alignment with the Azure Database for MariaDB retirement announcement, we stopped support for creating MariaDB instances via the Azure portal or CLI as of **March 19, 2024**.
 
 We're investing in our flagship offering of Azure Database for MySQL - Flexible Server better suited for mission-critical workloads. Azure Database for MySQL - Flexible Server has better features, performance, an improved architecture, and more controls to manage costs across all service tiers compared to Azure Database for MariaDB. We encourage you to migrate to Azure Database for MySQL - Flexible Server before retirement to experience the new capabilities of Azure Database for MySQL - Flexible Server.
 
@@ -52,17 +52,19 @@ A. Your existing Azure Database for MariaDB workloads will continue to function 
 
 A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the sunset date of September 19, 2025. Hence, we advise that you start planning your migration as soon as possible.
 
+On 19 September 2025, workloads that run Azure Database for MariaDB will be deleted, and associated application data will be lost. For more information, see [Azure Database for MariaDB will be retired on 19 September 2025 – Migrate to Azure Database for MySQL Flexible Server](https://azure.microsoft.com/updates/azure-database-for-mariadb-will-be-retired-on-19-september-2025-migrate-to-azure-database-for-mysql-flexible-server/)
+
 **Q. How do I manage my reserved instances for MariaDB?**
 
-A. Since MariaDB service is on deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 19 2025 when MariaDB service will no longer be available. You can exchange your existing MariaDB reservations to MySQL reservations.
+A. Since MariaDB service is on the deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 19 2025 when MariaDB service will no longer be available. [You can exchange your existing MariaDB reservations to MySQL reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 **Q. After the Azure Database for MariaDB retirement announcement, what if I still need to create a new MariaDB server to meet my business needs?**
 
-A. As part of this retirement, we'll no longer support creating new MariaDB instances from the Azure portal beginning **January 19, 2024**. Suppose you still need to create MariaDB instances to meet business continuity needs. In that case, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**.
+A. As part of this retirement, we'll no longer support creating new MariaDB instances from the Azure portal beginning **January 19, 2024**. Suppose you still need to create MariaDB instances to meet business continuity needs. In that case, you can use [Azure CLI](/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-cli) until **March 19, 2024**. After **March 19, 2024** if you still need to create MariaDB instances to address business continuity requirements, please raise an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-**Q. Will I be able to restore instances of Azure Database for MariaDB after March 19, 2024?**
+**Q. Will I be able to create read replicas and perform restores (PITR or Geo-restore) for my Azure Database for MariaDB instances after March 19, 2024?**
 
-A. Yes, you will be able to restore your MariaDB instances from your existing servers until September 19, 2025.
+A. Yes, you can create read replicas and perform restores (PITR and geo-restore) for your existing MariaDB instances until the sunset date of **September 19, 2025**.
 
 **Q. How does the Azure Database for MySQL flexible server's 99.99% availability SLA differ from MariaDB?**
 
@@ -70,7 +72,9 @@ A. Azure Database for MySQL - Flexible server zone-redundant deployment provides
 
 **Q. What migration options help me migrate to a flexible server?**
 
-A. Learn how to [migrate from Azure Database for MariaDB to Azure Database for MySQL - Flexible Server.](https://aka.ms/AzureMariaDBtoAzureMySQL)
+A. To migrate your Azure Database for MariaDB workloads to Azure Database for MySQL – Flexible Server, set up replication between your MariaDB instance and a MySQL - Flexible Server instance so that you can perform a near-zero downtime online migration. To minimize the effort required for application refactoring, it is highly recommended to migrate your Azure MariaDB v10.3 workloads to Azure MySQL v5.7, which is closely compatible, and then subsequently plan for a [major version upgrade to Azure MySQL v8.0](/azure/mysql/flexible-server/how-to-upgrade).
+
+For more information about how you can migrate your Azure Database for MariaDB server to Azure Database for MySQL - Flexible Server, see the blog post [Migrating from Azure Database for MariaDB to Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/migrating-from-azure-database-for-mariadb-to-azure-database-for/ba-p/3838455).
 
 **Q. I have further questions on retirement. How can I get assistance with it?**
 

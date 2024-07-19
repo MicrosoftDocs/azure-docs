@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/10/2024
 ms.author: lajanuar
 ---
 
@@ -39,7 +39,7 @@ To get started, you need  an active Azure subscription. If you don't have an Azu
 
 ## Configure the Translator V3 connector
 
-Now that you've completed the prerequisites, let's get started.
+Now that you completed the prerequisites, let's get started.
 
 1. Sign in to [Power Automate](https://powerautomate.microsoft.com/).
 
@@ -76,7 +76,7 @@ Let's select an action. Choose to translate or transliterate text.
    * **Subscription Key**. Enter one of your keys that you copied from the Azure portal.
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
-      :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+      :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add-connection window.":::
 
       > [!NOTE]
       > After you've setup your connection, you won't be required to reenter your credentials for subsequent Translator flows.
@@ -87,7 +87,7 @@ Let's select an action. Choose to translate or transliterate text.
 1. Enter the **Body Text**.
 1. Select **Save**.
 
-   :::image type="content" source="../media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate text step.":::
+   :::image type="content" source="../media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate-text step.":::
 
 #### [Transliterate text](#tab/transliterate)
 
@@ -100,7 +100,7 @@ Let's select an action. Choose to translate or transliterate text.
    * **Subscription Key**. Enter one of your keys that you copied from the Azure portal.
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
-      :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+      :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add-connection window.":::
 
 1. Next, the **Transliterate** action window appears.
 1. **Language**. Select the language of the text that is to be converted.
@@ -108,7 +108,7 @@ Let's select an action. Choose to translate or transliterate text.
 1. **Target script**. Select the name of transliterated text script.
 1. Select **Save**.
 
-   :::image type="content" source="../media/connectors/transliterate-text-step.png" alt-text="Screenshot showing the transliterate text step.":::
+   :::image type="content" source="../media/connectors/transliterate-text-step.png" alt-text="Screenshot showing the transliterate-text step.":::
 
 ---
 

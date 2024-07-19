@@ -128,7 +128,7 @@ The default value is set to **180 seconds**
 
    :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png" alt-text="Screenshot showing how to add role assignment." border="true" lightbox="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png":::
    
-1. Select the **add role assignment**, 
+1. Select **add role assignment**, 
    1. Assignment type: Privileged administrator roles
    1. Role: **Owner** or **Contributor**
    1. Members: Choose Managed identity and select the **User-assigned managed identity**, which was given during cluster creation phase. 

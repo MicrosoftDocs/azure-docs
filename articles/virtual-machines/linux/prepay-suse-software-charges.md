@@ -5,8 +5,9 @@ author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines
 ms.subservice: billing
+ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 04/15/2024
 ms.author: banders
 ---
 # Prepay for Azure software plans
@@ -17,7 +18,7 @@ When you prepay for your SUSE and RedHat software usage in Azure, you can save m
 
 You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 
-- You must have the owner role for at least one Enterprise or individual subscription with pay-as-you-go pricing.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 - For Enterprise subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). If the setting is disabled, you must be an EA Admin for the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the software plans.
 

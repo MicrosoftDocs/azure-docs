@@ -1,19 +1,21 @@
 ---
-title: 'Tutorial: Deploy Django on AKS cluster by using Azure CLI'
+title: "Tutorial: Deploy Django on AKS cluster by using Azure CLI"
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 05/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: tutorial
-ms.date: 01/16/2024
-ms.custom: mvc, devx-track-azurecli
+ms.custom:
+  - mvc
+  - devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL flexible server using the Azure CLI.
 
@@ -25,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 ## Pre-requisites
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
@@ -211,7 +213,7 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 > If you are using Azure container registry (ACR), then run the `az aks update` command to attach ACR account with the AKS cluster.
 >
 > ```azurecli-interactive
-> az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
+> az aks update --name djangoappcluster --resource-group django-project --attach-acr <your-acr-name>
 > ```
 
 ## Create Kubernetes manifest file

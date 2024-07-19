@@ -35,7 +35,7 @@ This article shows you how to create custom CAs and apply them to your AKS clust
 
 ## Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
@@ -97,7 +97,8 @@ This article shows you how to create custom CAs and apply them to your AKS clust
         --name myAKSCluster \
         --node-count 2 \
         --enable-custom-ca-trust \
-        --custom-ca-trust-certificates pathToFileWithCAs
+        --custom-ca-trust-certificates pathToFileWithCAs \
+        --generate-ssh-keys
     ```
 
 #### CA rotation for availability during node pool boot up
@@ -151,7 +152,8 @@ If your environment can be successfully provisioned without your custom CAs, you
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --node-count 2 \
-        --enable-custom-ca-trust
+        --enable-custom-ca-trust \
+        --generate-ssh-keys
     ```
 
 ## Configure a new AKS cluster to use a custom CA with CAs installed before node boots up
@@ -164,7 +166,8 @@ If your environment can be successfully provisioned without your custom CAs, you
         --name myAKSCluster \
         --node-count 2 \
         --enable-custom-ca-trust \
-        --custom-ca-trust-certificates pathToFileWithCAs
+        --custom-ca-trust-certificates pathToFileWithCAs \
+        --generate-ssh-keys
     ```
 
 ## Configure an existing AKS cluster to have custom CAs installed before node boots up
@@ -236,3 +239,4 @@ For more information on AKS security best practices, see [Best practices for clu
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-provider-register]: /cli/azure/provider#az-provider-register
+

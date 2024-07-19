@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Security concepts"
 description: Security overview for Azure Operator Nexus 
-author: rgendreau
-ms.author: rgendreau
+author: scottsteinbrueck 
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 08/14/2023

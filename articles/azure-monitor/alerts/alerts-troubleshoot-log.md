@@ -177,7 +177,7 @@ This error message can be returned when creating or editing your alert rule quer
 - You're referencing a column that doesn't exist in the table schema.
 - You're referencing a column that wasn't used in a prior project clause of the query.
 
-To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](https://learn.microsoft.com/azure/data-explorer/kusto/query/column-ifexists-function) operator.
+To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](/azure/data-explorer/kusto/query/column-ifexists-function) operator.
 
 ### ScheduledQueryRules API isn't supported for read only OMS Alerts
 

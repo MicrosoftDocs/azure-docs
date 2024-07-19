@@ -9,57 +9,81 @@ ms.author: heidist
 ms.service: cognitive-search
 ---
 
-<!-- 
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace AI Search with the official name of your service.
-2. Search and replace azure-cognitive-search with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_01
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- Most services can use the following sections unchanged. All headings are required unless otherwise noted.
-The sections use #included text you don't have to maintain, which changes when Azure Monitor functionality changes. Add info into the designated service-specific places if necessary. Remove #includes or template content that aren't relevant to your service.
-
-At a minimum your service should have the following two articles:
-
-1. The primary monitoring article (based on the template monitor-service-template.md)
-   - Title: "Monitor AI Search"
-   - TOC title: "Monitor"
-   - Filename: "monitor-azure-cognitive-search.md"
-
-2. A reference article that lists all the metrics and logs for your service (based on this template).
-   - Title: "AI Search monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-azure-cognitive-search-data-reference.md".
--->
-
 # Azure AI Search monitoring data reference
 
-<!-- Intro. Required. -->
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor Azure AI Search](monitor-azure-cognitive-search.md) for details on the data you can collect for Azure AI Search and how to use it.
 
-<!-- ## Metrics. Required section. -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-<!-- Repeat the following section for each resource type/namespace in your service. -->
 ### Supported metrics for Microsoft.Search/searchServices
 The following table lists the metrics available for the Microsoft.Search/searchServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-search-searchservices-metrics-include.md)]
+[!INCLUDE [microsoft-search-searchservices-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-search-searchservices-metrics-include.md)]
 
-SearchQueriesPerSecond shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
+#### Search queries per second
+
+This metric shows the average of the search queries per second (QPS) for the search service. It's common for queries to execute in milliseconds, so only queries that measure as seconds appear in a metric like QPS. The minimum is the lowest value for search queries per second that was registered during that minute. Maximum is the highest value. Average is the aggregate across the entire minute.
+
+| Aggregation type | Description |
+|------------------|-------------|
+| Average | The average number of seconds within a minute during which query execution occurred.|
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | The highest number of search queries per second registered during a minute. |
+| Minimum | The lowest number of search queries per second registered during a minute.  |
+| Sum | The sum of all queries executed within the minute.  |
 
 For example, within one minute, you might have a pattern like this: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-<!-- ## Metric dimensions. Required section. -->
+Another example: if a node emits 100 metrics, where the value of each metric is 40, then "Count" is 100, "Sum" is 4000, "Average" is 40, and "Max" is 40.
+
+#### Search latency
+
+Search latency indicates how long a query takes to complete.
+
+| Aggregation type | Latency |
+|------------------|---------|
+| Average | Average query duration in milliseconds. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | Longest running query in the sample. |
+| Minimum | Shortest running query in the sample.  |
+| Total | Total execution time of all queries in the sample, executing within the interval (one minute).  |
+
+#### Throttled search queries percentage
+
+This metric refers to queries that are dropped instead of processed. Throttling occurs when the number of requests in execution exceed capacity. You might see an increase in throttled requests when a replica is taken out of rotation or during indexing. Both query and indexing requests are handled by the same set of resources.
+
+The service determines whether to drop requests based on resource consumption. The percentage of resources consumed across memory, CPU, and disk IO are averaged over a period of time. If this percentage exceeds a threshold, all requests to the index are throttled until the volume of requests is reduced.
+
+Depending on your client, a throttled request is indicated in these ways:
+
++ A service returns an error `"You are sending too many requests. Please try again later."` 
++ A service returns a 503 error code indicating the service is currently unavailable. 
++ If you're using the portal (for example, Search Explorer), the query is dropped silently and you need to select **Search** again.
+
+To confirm throttled queries, use **Throttled search queries** metric. You can explore metrics in the portal or create an alert metric as described in this article. For queries that were dropped within the sampling interval, use *Total* to get the percentage of queries that didn't execute.
+
+| Aggregation type | Throttling |
+|------------------|-----------|
+| Average | Percentage of queries dropped within the interval. |
+| Count | The number of metrics emitted to the log within the one-minute interval. |
+| Maximum | Percentage of queries dropped within the interval.|
+| Minimum | Percentage of queries dropped within the interval. |
+| Total | Percentage of queries dropped within the interval. |
+
+For **Throttled Search Queries Percentage**, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
+
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-Azure AI Search has the following dimensions associated with the metrics that capture a count of documents or skills that were executed, "Document processed count" and "Skill execution invocation count".
+Azure AI Search has dimensions associated with the following metrics that capture a count of documents or skills that were executed.
 
-| Dimension Name | Description |
+| Metric name  |  Description | Dimensions  | Sample use cases |
+|---|---|---|---|
+| **Document processed count**  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents |
+|  **Skill execution invocation count** | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocations to the number of documents. <br> - Set up to alert on failed skill invocations |
+
+| Dimension name | Description |
 | -------------- | ----------- |
 | **DataSourceName** | A named data source connection used during indexer execution. Valid values are one of the [supported data source types](search-indexer-overview.md#supported-data-sources). |
 | **Failed** | Indicates whether the instance failed. |
@@ -69,16 +93,13 @@ Azure AI Search has the following dimensions associated with the metrics that ca
 | **SkillName** | Name of a skill within a skillset. |
 | **SkillType** | The @odata.type of the skill. |
 
-<!-- ## Resource logs. Required section. -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-<!-- Add at least one resource provider/resource type here. Example: ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
-Repeat this section for each resource type/namespace in your service. -->
 ### Supported resource logs for Microsoft.Search/searchServices
-[!INCLUDE [Microsoft.Search/searchServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-search-searchservices-logs-include.md)]
+[!INCLUDE [microsoft-search-searchservices-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-search-searchservices-logs-include.md)]
 
-<!-- ## Azure Monitor Logs tables. Required section. -->
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
 ### Search Services
 Microsoft.Search/searchServices
 
@@ -104,7 +125,6 @@ The following table lists the properties of resource logs in Azure AI Search. Th
 | resultSignature | Status | The HTTP response status of the operation. |
 | properties | Properties | Any extended properties related to this category of events.  |
 
-<!-- ## Activity log. Required section. -->
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 The following table lists common operations related to Azure AI Search that may be recorded in the activity log. For a complete listing of all Microsoft.Search operations, see [Microsoft.Search resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftsearch).
@@ -119,13 +139,9 @@ Common entries include references to API keys - generic informational notificati
 
 Alternatively, you might gain some insight through change history. In the Azure portal, select the activity to open the detail page and then select "Change history" for information about the underlying operation.
 
-<!-- Refer to https://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations and link to the possible operations for your service, using the format - [<Namespace> resource provider operations](/azure/role-based-access-control/resource-provider-operations#<namespace>).
-If there are other operations not in the link, list them here in table form. -->
-
-<!-- ## Other schemas. Optional section. Please keep heading in this order. If your service uses other schemas, add the following include and information. -->
 <a name="schemas"></a>
 [!INCLUDE [horz-monitor-ref-other-schemas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-other-schemas.md)]
-<!-- List other schemas and their usage here. These can be resource logs, alerts, event hub formats, etc. depending on what you think is important. You can put JSON messages, API responses not listed in the REST API docs, and other similar types of info here.  -->
+
 If you're building queries or custom reports, the data structures that contain Azure AI Search resource logs conform to the following schemas.
 
 For resource logs sent to blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
@@ -143,7 +159,7 @@ The following example illustrates a resource log that includes common properties
 | Resource | String | Resource ID. For example: `/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Search/searchServices/<your-search-service-name>` |
 | Category | String | "OperationLogs". This value is a constant. OperationLogs is the only category used for resource logs. |
 | OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops)). An example is `Query.Search` |
-| OperationVersion | String | The api-version used on the request. For example: `2020-06-30` |
+| OperationVersion | String | The api-version used on the request. For example: `2023-11-01` |
 | ResultType | String |"Success". Other possible values: Success or Failure |
 | ResultSignature | Int | An HTTP result code. For example: `200` |
 | DurationMS | Int | Duration of the operation in milliseconds. |
@@ -160,7 +176,7 @@ The following properties are specific to Azure AI Search.
 | Description_s | String | The operation's endpoint. For example: `GET /indexes('content')/docs` |
 | Documents_d | Int | Number of documents processed. |
 | IndexName_s | String | Name of the index associated with the operation. |
-| Query_s | String | The query parameters used in the request. For example: `?search=beach access&$count=true&api-version=2020-06-30` |
+| Query_s | String | The query parameters used in the request. For example: `?search=beach access&$count=true&api-version=2023-11-01` |
 
 <a name="resource-log-search-ops"></a>
 

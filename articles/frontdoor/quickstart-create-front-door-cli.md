@@ -15,6 +15,10 @@ ms.devlang: azurecli
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure CLI
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Get started with Azure Front Door by using Azure CLI to create a highly available and high-performance global web application.
 
 The Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with a web app resource and a single routing rule using default path matching "/*".
@@ -31,7 +35,7 @@ The Front Door directs web traffic to specific resources in a backend pool. You 
 az extension add --name front-door
 ```
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 

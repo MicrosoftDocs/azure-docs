@@ -1,8 +1,8 @@
 ---
 title: Best practices for Azure Maps Route service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route service from Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -264,6 +264,12 @@ The following image is an example of rendering alternative routes with specified
 ## Use the Routing service in a web app
 
 The Azure Maps Web SDK provides a [Service module]. This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
+
+> [!NOTE]
+>
+> **Azure Maps Web SDK Service Module retirement**
+>
+> The Azure Maps Web SDK Service Module is now deprecated and will be retired on 9/30/26. To avoid service disruptions, we recommend migrating to the Azure Maps JavaScript REST SDK by 9/30/26. For more information, see [JavaScript/TypeScript REST SDK Developers Guide (preview)](how-to-dev-guide-js-sdk.md).
 
 ## Next steps
 

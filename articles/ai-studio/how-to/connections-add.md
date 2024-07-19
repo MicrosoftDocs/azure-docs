@@ -1,13 +1,14 @@
 ---
 title: How to add a new connection in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to add a new connection in Azure AI Studio
+description: Learn how to add a new connection in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: larryfr
 ms.author: larryfr
 author: Blackmist
@@ -15,111 +16,77 @@ author: Blackmist
 
 # How to add a new connection in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to add a new connection in Azure AI Studio.
 
-Connections are a way to authenticate and consume both Microsoft and third-party resources within your Azure AI projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI hub resource. 
+Connections are a way to authenticate and consume both Microsoft and other resources within your Azure AI Studio projects. For example, connections can be used for prompt flow, training data, and deployments. [Connections can be created](../how-to/connections-add.md) exclusively for one project or shared with all projects in the same Azure AI Studio hub. 
 
 ## Connection types
 
-Here's a table of the available connection types in Azure AI Studio with descriptions:
+Here's a table of some of the available connection types in Azure AI Studio. The __Preview__ column indicates connection types that are currently in preview.
 
-| Service connection type | Description |
-| --- | --- |
-| [Azure AI Search](?tabs=azure-ai-search#connection-details) | Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. |
-| [Azure Blob Storage](?tabs=azure-blob-storage#connection-details) | Azure Blob Storage is a cloud storage solution for storing unstructured data like documents, images, videos, and application installers. |
-| [Azure Data Lake Storage Gen 2](?tabs=azure-data-lake-storage-gen-2#connection-details) | Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. |
-| [Azure Content Safety](?tabs=azure-content-safety#connection-details) | Azure AI Content Safety is a service that detects potentially unsafe content in text, images, and videos. |
-| [Azure OpenAI](?tabs=azure-openai#connection-details) | Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
-| [Microsoft OneLake](?tabs=microsoft-onelake#connection-details) | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs. |
-| [Git](?tabs=git#connection-details) | Git is a distributed version control system that allows you to track changes to files. |
-| [API key](?tabs=api-key#connection-details) | API Key connections handle authentication to your specified target on an individual basis. The API key is the most common third-party connection type. |
-| [Custom](?tabs=custom#connection-details) | Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you have to manage authentication on your own. |
+| Service connection type | Preview | Description |
+| --- |:---:| --- |
+| Azure AI Search | ✓ |  Azure AI Search is an Azure resource that supports information retrieval over your vector and textual data stored in search indexes. |
+| Azure Blob Storage | ✓ | Azure Blob Storage is a cloud storage solution for storing unstructured data like documents, images, videos, and application installers. |
+| Azure Data Lake Storage Gen 2 | ✓ | Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. |
+| Azure Content Safety | ✓ | Azure AI Content Safety is a service that detects potentially unsafe content in text, images, and videos. |
+| Azure OpenAI || Azure OpenAI is a service that provides access to the OpenAI GPT-3 model. |
+| Serverless Model | ✓ | Serverless Model connections allow you to [serverless API deployment](deploy-models-serverless.md). |
+| Microsoft OneLake | ✓ | Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs.<br/><br/>In Azure AI Studio you can set up a connection to your OneLake data using a OneLake URI. You can find the information that Azure AI Studio requires to construct a **OneLake Artifact URL** (workspace and item GUIDs) in the URL on the Fabric portal. For information about the URI syntax, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api). |
+| API key || API Key connections handle authentication to your specified target on an individual basis. For example, you can use this connection with the SerpApi tool in prompt flow.  |
+| Custom || Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you wouldn't need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you have to manage authentication on your own. |
 
 ## Create a new connection
 
-1. Sign in to [Azure AI Studio](https://aka.ms/azureaistudio) and select your project via **Build** > **Projects**. If you don't have a project already, first create a project.
-1. Select **AI project settings** from the collapsible left menu. 
-1. Select **View all** from the **Connections** section.
-1. Select **+ Connection** under **Resource connections**.
-1. Select the service you want to connect to from the list of available external resources.
-1. Fill out the required fields for the service connection type you selected, and then select **Create connection**.
+Follow these steps to create a new connection that's only available for the current project.
 
-### Connection details
+1. Go to your project in Azure AI Studio. If you don't have a project, [create a new project](./create-projects.md).
+1. Select **Settings** from the collapsible left menu. 
+1. Select **+ New connection** from the **Connected resources** section.
 
-When you [create a new connection](#create-a-new-connection), you enter the following information for the service connection type you selected. You can create a connection that's only available for the current project or available for all projects associated with the Azure AI hub resource.
+    :::image type="content" source="../media/data-connections/connection-add.png" alt-text="Screenshot of the button to add a new connection." lightbox="../media/data-connections/connection-add.png":::
 
-> [!NOTE]
-> When you create a connection from the **Manage** page, the connection is always created at the Azure AI hub resource level and shared accross all associated projects. 
+1. Select the service you want to connect to from the list of available external resources. For example, select **Azure AI Search**.
 
-# [Azure AI Search](#tab/azure-ai-search)
+    :::image type="content" source="../media/data-connections/connection-add-browse-azure-ai-search.png" alt-text="Screenshot of the page to select Azure AI Search from a list of other resources." lightbox="../media/data-connections/connection-add-browse-azure-ai-search.png":::
 
+1. Browse for and select your Azure AI Search service from the list of available services. Select **Add connection**.
 
-:::image type="content" source="../media/data-connections/connection-add-azure-ai-search.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-ai-search.png":::
+    :::image type="content" source="../media/data-connections/connection-add-azure-ai-search-connect.png" alt-text="Screenshot of the page to select the Azure AI Search service that you want to connect to." lightbox="../media/data-connections/connection-add-azure-ai-search-connect.png":::
 
+1. After the service is connected, select **Close** to return to the **Settings** page.
+1. Select **Connected resources** > **View all** to view the new connection. You might need to refresh the page to see the new connection.
 
-# [Azure Blob Storage](#tab/azure-blob-storage)
+    :::image type="content" source="../media/data-connections/connections-all-refreshed.png" alt-text="Screenshot of all connections after you add the Azure AI Search connection." lightbox="../media/data-connections/connections-all-refreshed.png":::
 
+## Network isolation
 
-:::image type="content" source="../media/data-connections/connection-add-azure-blob-storage.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-blob-storage.png":::
+If your hub is configured for [network isolation](configure-managed-network.md), you might need to create an outbound private endpoint rule to connect to **Azure Blob Storage**, **Azure Data Lake Storage Gen2**, or **Microsoft OneLake**. A private endpoint rule is needed if one or both of the following are true:
 
+- The managed network for the hub is configured to [allow only approved outbound traffic](configure-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). In this configuration, you must explicitly create outbound rules to allow traffic to other Azure resources.
+- The data source is configured to disallow public access. In this configuration, the data source can only be reached through secure methods, such as a private endpoint.
 
-# [Azure Data Lake Storage Gen 2](#tab/azure-data-lake-storage-gen-2)
+To create an outbound private endpoint rule to the data source, use the following steps:
 
+1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure AI Studio hub.
+1. Select **Networking**, then **Workspace managed outbound access**.
+1. To add an outbound rule, select **Add user-defined outbound rules**. From the **Workspace outbound rules** sidebar, provide the following information:
+    
+    - **Rule name**: A name for the rule. The name must be unique for the AI Studio hub.
+    - **Destination type**: Private Endpoint.
+    - **Subscription**: The subscription that contains the Azure resource you want to connect to.
+    - **Resource type**: `Microsoft.Storage/storageAccounts`. This resource provider is used for Azure Storage, Azure Data Lake Storage Gen2, and Microsoft OneLake.
+    - **Resource name**: The name of the Azure resource (storage account).
+    - **Sub Resource**: The sub-resource of the Azure resource. Select `blob` in the case of Azure Blob storage. Select `dfs` for Azure Data Lake Storage Gen2 and Microsoft OneLake. 
+  
+1. Select **Save** to create the rule.
 
-:::image type="content" source="../media/data-connections/connection-add-azure-data-lake-storage-gen-2.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-data-lake-storage-gen-2.png":::
-
-# [Azure Content Safety](#tab/azure-content-safety)
-
-
-:::image type="content" source="../media/data-connections/connection-add-azure-ai-content-safety.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-ai-content-safety.png":::
-
-# [Azure OpenAI](#tab/azure-openai)
-
-
-:::image type="content" source="../media/data-connections/connection-add-azure-openai.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-azure-openai.png":::
-
-# [Microsoft OneLake](#tab/microsoft-onelake)
-
-:::image type="content" source="../media/data-connections/connection-add-microsoft-onelake.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-microsoft-onelake.png":::
-
-> [!TIP]
-> Microsoft OneLake provides open access to all of your Fabric items through Azure Data Lake Storage (ADLS) Gen2 APIs and SDKs. In Azure AI Studio you can set up a connection to your OneLake data using a OneLake URI. You can find the information that Azure AI Studio requires to construct a **OneLake Artifact URL** (workspace and item GUIDs) in the URL on the Fabric portal. For information about the URI syntax, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
-
-
-# [Git](#tab/git)
-
-
-:::image type="content" source="../media/data-connections/connection-add-git.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-git.png":::
-
-> [!TIP]
-> Personal access tokens are an alternative to using passwords for authentication to GitHub when using the GitHub API or the command line. In Azure AI Studio you can set up a connection to your GitHub account using a personal access token. For more information, see [Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-
-
-
-
-# [API key](#tab/api-key)
-
-
-:::image type="content" source="../media/data-connections/connection-add-api-key.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-api-key.png":::
-
-> [!TIP]
-> API Key connections handle authentication to your specified target on an individual basis. This is the most common third-party connection type. For example, you can use this connection with the SerpApi tool in prompt flow. 
-
-
-# [Custom](#tab/custom)
-
-:::image type="content" source="../media/data-connections/connection-add-custom.png" alt-text="Screenshot of a diagram of the technical overview of an LLM walking through rag steps." lightbox="../media/data-connections/connection-add-custom.png":::
-
-> [!TIP]
-> Custom connections allow you to securely store and access keys while storing related properties, such as targets and versions. Custom connections are useful when you have many targets that or cases where you would not need a credential to access. LangChain scenarios are a good example where you would use custom service connections. Custom connections don't manage authentication, so you will have to manage authenticate on your own.
-
----
+1. Select **Save** at the top of the page to save the changes to the managed network configuration.
 
 ## Next steps
 
 - [Connections in Azure AI Studio](../concepts/connections.md)
 - [How to create vector indexes](../how-to/index-add.md)
 - [How to configure a managed network](configure-managed-network.md)
-

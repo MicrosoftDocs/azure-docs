@@ -20,9 +20,6 @@ Text to speech avatar converts text into a digital video of a photorealistic hum
 
 With text to speech avatar's advanced neural network models, the feature empowers users to deliver life-like and high-quality synthetic talking avatar videos for various applications while adhering to [responsible AI practices](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context).
 
-> [!NOTE]
-> The text to speech avatar feature is only available in the following service regions: West US 2, West Europe, and Southeast Asia. 
-
 Azure AI text to speech avatar feature capabilities include:
 
 - Converts text into a digital video of a photorealistic human speaking with natural-sounding voices powered by Azure AI text to speech.
@@ -35,11 +32,11 @@ Azure AI text to speech avatar feature capabilities include:
 With text to speech avatar's advanced neural network models, the feature empowers you to deliver lifelike and high-quality synthetic talking avatar videos for various applications while adhering to responsible AI practices.
 
 > [!TIP]
-> To convert text to speech with a no-code approach, try the [Text to speech avatar tool in Speech Studio](https://aka.ms/speechstudio/talkingavatar).
+> To convert text to speech with a no-code approach, try the [Text to speech avatar tool in Speech Studio](https://speech.microsoft.com/portal/talkingavatar).
 
 ## Avatar voice and language
 
-You can choose from a range of prebuilt voices for the avatar. The language support for text to speech avatar is the same as the language support for text to speech. For details, see [Language and voice support for the Speech service](../language-support.md?tabs=tts). Prebuilt text to speech avatars can be accessed through the [Speech Studio portal](https://aka.ms/speechstudio/talkingavatar) or via API. 
+You can choose from a range of prebuilt voices for the avatar. The language support for text to speech avatar is the same as the language support for text to speech. For details, see [Language and voice support for the Speech service](../language-support.md?tabs=tts). Prebuilt text to speech avatars can be accessed through the [Speech Studio portal](https://speech.microsoft.com/portal/talkingavatar) or via API. 
 
 The voice in the synthetic video could be a prebuilt neural voice available on Azure AI Speech or the [custom neural voice](../custom-neural-voice.md) of voice talent selected by you. 
 
@@ -70,13 +67,13 @@ Sample code for text to speech avatar is available on [GitHub](https://github.co
 
 ## Pricing
 
-- When utilizing the text-to-speech avatar feature, charges will be incurred based on the minutes of video output. However, with the real-time avatar, charges are based on the minutes of avatar activation, irrespective of whether the avatar is actively speaking or remaining silent. To optimize costs for real-time avatar usage, refer to the provided tips in the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar#chat-sample) (search "Use Local Video for Idle").
 - Throughout an avatar real-time session or batch content creation, the text-to-speech, speech-to-text, Azure OpenAI, or other Azure services are charged separately.
-- For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+- Refer to [text to speech avatar pricing note](../text-to-speech.md#text-to-speech-avatar) to learn how billing works for the text-to-speech avatar feature.
+- For the detailed pricing, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2.
 
 ## Available locations
 
-The text to speech avatar feature is only available in the following service regions: West US 2, West Europe, and Southeast Asia. 
+The text to speech avatar feature is only available in the following service regions: Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2. 
 
 ### Responsible AI 
 

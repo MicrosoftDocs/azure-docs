@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Resource Provider source IP address updates (March 2023)
 
+[!INCLUDE [api-management-availability-premium-dev](../../../includes/api-management-availability-premium-dev.md)]
+
 On 31 March, 2023 as part of our continuing work to increase the resiliency of API Management services, we're making the resource providers for Azure API Management zone redundant in each region.  The IP address that the resource provider uses to communicate with your service will change in seven regions:
 
 | Region | Old IP Address | New IP Address |

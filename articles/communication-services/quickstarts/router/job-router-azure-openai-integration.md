@@ -86,12 +86,12 @@ Workers are evaluated based on:
 
 3. Once your Function App is created, right-click on your App and select 'Deploy Function App...'
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
-    - a. Select a model that can perform completions
+   1. Select a model that can perform completions
 
        [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
-    - b. Give your model a Deployment name and select “Create”
+   1. b. Give your model a Deployment name and select “Create”
 
-      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating azure OpenAI model.":::
+      :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating Azure OpenAI model.":::
 
 5. Once your Azure OpenAI Model is created, copy down the 'Endpoint', 'Keys', and 'Region'
 
@@ -113,13 +113,28 @@ Workers are evaluated based on:
 | DefaultAHT      | 10:00            | Default AHT for workers missing this label                         |
 
 
-7. On the Overview blade of your function app, copy the function URL. On the Functions --> Keys blade of your function app, copy the master or default key.
-8. Navigate to your ACS resource and copy down your connection string.
+7. Go to the Overview blade of your function app. 
+
+   1. Select the newly created function.
+       
+      :::image type="content" source="./media/azure-function-overview.png" alt-text="Screenshot of deployed function."::: 
+    
+   1. Select the "Get Function URL" button and copy down the URL.
+        
+      :::image type="content" source="./media/get-function-url.png" alt-text="Screenshot of get function url.":::  
+        
+8. Navigate to your Azure Communication Services resource, click on the "Keys" blade and copy down your Connection string.
 9. Open the JR_AOAI_Integration Console application and open the `appsettings.json` file to update the following config settings.
+
+      > [!NOTE] 
+      > The "AzureFunctionUri" will be the everything in the function url before the "?code=" and the "AzureFunctionKey" will everything after the the "?code=" in the function url.
 
       :::image type="content" source="./media/appsettings-configuration.png" alt-text="Screenshot of AppSettings.":::
 
 10. Run the application and follow the on-screen instructions to Create a Job.
+      - Once a job has been created the console application will let you know who scored the highest and has received the offer. To see the prompts sent to your OpenAI model and scores given to your workers and sent back to Job Router. Go to your Function and select the Monitor Tab and watch the logs as you are creating a job in the console application.
+
+ :::image type="content" source="./media/function-output.png" alt-text="Screenshot of Function Output.":::
 
 ## Experimentation
 

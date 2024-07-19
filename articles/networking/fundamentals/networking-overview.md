@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 04/02/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -15,7 +15,7 @@ ms.custom: template-concept, engagement-fy23
 The networking services in Azure provide various networking capabilities that can be used together or separately. Select any of the following key capabilities to learn more about them:
 - [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, NAT Gateway, Azure DNS, Peering service, Azure Virtual Network Manager, Route Server, and Azure Bastion.
 - [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Load Balancer, Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
-- [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
+- [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
 - [**Network monitoring**](#monitor): Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 ## <a name="connect"></a>Connectivity services
@@ -80,7 +80,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 ### <a name="bastion"></a>Azure Bastion
 
-[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software.
+[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. There are a variety of different SKU/tiers available for Azure Bastion. The tier you select affects the features that are available. For more information, see [About Bastion configuration settings](../../bastion/configuration-settings.md).
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
@@ -182,12 +182,6 @@ The following picture shows an Internet-facing multi-tier application that utili
 The following diagram shows url path-based routing with Application Gateway.
 
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
-
-### <a name="cdn"></a>Content Delivery Network
-
-[Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md). offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.
-
-:::image type="content" source="./media/networking-overview/cdn-overview.png" alt-text="Azure CDN":::
 
 ## <a name="monitor"></a>Network monitoring services
 

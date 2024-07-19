@@ -123,7 +123,7 @@ When a metric value exhibits large fluctuations, dynamic thresholds may build a 
 If you want to alert on a specific metric but you can't see it when you create an alert rule, check to determine:
 
 - If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
+- If you can see some metrics for the resource but can't find a specific metric, [check if that metric is available](/azure/azure-monitor/reference/supported-metrics/metrics-index). If so, see the metric description to check if it's only available in specific versions or editions of the resource.
 - If the metric isn't available for the resource, it might be available in the resource logs and can be monitored by using log alerts. For more information, see how to [collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
 
 ### Can't find the metric to alert on: Virtual machines guest metrics
@@ -136,7 +136,7 @@ To alert on guest operating system metrics of virtual machines, such as memory a
 For more information about collecting data from the guest operating system of a virtual machine, see [this website](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE]
-> If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and start showing data *only* after you create an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
+> If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and start showing data *only* after you create an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#methods-for-creating-a-metric-alert-for-logs).
 
 Currently, monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts. But you can use a [log alert rule](./alerts-unified-log.md). To do so, make sure the guest metrics are collected to a Log Analytics workspace and create a log alert rule on the workspace.
 
@@ -148,7 +148,7 @@ If you want to alert on [specific dimension values of a metric](./alerts-metric-
 - The displayed dimension values are based on metric data collected in the last day.
 - If the dimension value isn't yet emitted or isn't shown, you can use the **Add custom value** option to add a custom dimension value.
 - If you want to alert on all possible values of a dimension and even include future values, choose the **Select all current and future values** option.
-- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and preaggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-preaggregation).
 
 ### You want to configure an alert rule on a custom metric that isn't emitted yet
 
@@ -186,7 +186,7 @@ Refer to [Metrics not supported by dynamic thresholds](alerts-dynamic-thresholds
 
 #### The metric isn't available for the selected scope. This might happen if the metric only applies to a specific version or SKU error
 
-Review the metric description in [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
+Review the metric description in [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) to check if it's only available in specific versions or editions of the resource or this specific type.
 
 For example, in SQL Database resources or Storage file services, there are specific metrics only supported on specific versions of the resource.
 

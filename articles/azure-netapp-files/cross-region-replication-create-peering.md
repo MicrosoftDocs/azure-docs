@@ -91,7 +91,7 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then select **OK**.
 
     > [!NOTE]
-    > Due to various factors, like the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
+    > Due to various factors, such as the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
 
 ## Next steps  
 

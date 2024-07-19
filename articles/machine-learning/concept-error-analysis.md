@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: rai
 ms.topic:  how-to
-ms.author: mesameki
-author: mesameki
-ms.reviewer: lagayhar
-ms.date: 08/17/2022
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mesameki
+ms.date: 03/29/2024
 ms.custom: responsible-ml
 ---
 # Assess errors in machine learning models

@@ -3,7 +3,6 @@ title: Azure Kubernetes Service (AKS) external or internal ingresses for Istio s
 description: Deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service
 ms.topic: how-to
 ms.service: azure-kubernetes-service
-ms.subservice: aks-networking
 author: shashankbarsin
 ms.date: 08/07/2023
 ms.author: shasb
@@ -13,9 +12,12 @@ ms.author: shasb
 
 This article shows you how to deploy external or internal ingresses for Istio service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
+> [!NOTE]
+> When performing a [minor revision upgrade](./istio-upgrade.md#minor-revision-upgrades-with-the-ingress-gateway) of the Istio add-on, another deployment for the external / internal gateways will be created for the new control plane revision.
+
 ## Prerequisites
 
-This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application and set environment variables.
+This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application, and set environment variables.
 
 ## Enable external ingress gateway
 
@@ -38,11 +40,14 @@ NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP    
 aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
 ```
 
+> [!NOTE]
+> Customizations to IP address on internal and external gateways aren't supported yet. IP address customizations on the ingress specifications are reverted back by the Istio add-on.It's planned to allow these customizations in the Gateway API implementation for the Istio add-on in future.
+
 Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: bookinfo-gateway-external
@@ -57,7 +62,7 @@ spec:
     hosts:
     - "*"
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: bookinfo-vs-external
@@ -123,7 +128,6 @@ Use `az aks mesh enable-ingress-gateway` to enable an internal Istio ingress on 
 az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type internal
 ```
 
-
 Use `kubectl get svc` to check the service mapped to the ingress gateway:
 
 ```bash
@@ -137,11 +141,11 @@ NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP    
 aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  <IP>      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
 ```
 
-Applications aren't mapped to the Istio ingress gateway after enabling the ingress gateway. Use the following manifest to map the sample deployment's ingress to the Istio ingress gateway:
+After enabling the ingress gateway, applications need to be exposed through the gateway and routing rules need to be configured accordingly. Use the following manifest to map the sample deployment's ingress to the Istio ingress gateway:
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
   name: bookinfo-internal-gateway
@@ -156,7 +160,7 @@ spec:
     hosts:
     - "*"
 ---
-apiVersion: networking.istio.io/v1alpha3
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: bookinfo-vs-internal
@@ -222,6 +226,12 @@ Confirm that the sample application's product page is accessible. The expected o
 
 ## Delete resources
 
+If you want to clean up the Istio external or internal ingress gateways, but leave the mesh enabled on the cluster, run the following command:
+
+```azure-cli-interactive
+az aks mesh disable-ingress-gateway --ingress-gateway-type <external/internal> --resource-group ${RESOURCE_GROUP}
+```
+
 If you want to clean up the Istio service mesh and the ingresses (leaving behind the cluster), run the following command:
 
 ```azurecli-interactive
@@ -234,4 +244,15 @@ If you want to clean up all the resources created from the Istio how-to guidance
 az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ```
 
+## Next steps
+
+> [!NOTE]
+> In case of any issues encountered with deploying the Istio ingress gateway or configuring ingress traffic routing, refer to [article on troubleshooting Istio add-on ingress gateways][istio-ingress-tsg]
+
+* [Secure ingress gateway for Istio service mesh add-on][istio-secure-gateway]
+* [Scale ingress gateway HPA][istio-scaling-guide]
+
 [istio-deploy-addon]: istio-deploy-addon.md
+[istio-secure-gateway]: istio-secure-gateway.md
+[istio-scaling-guide]: istio-scale.md#scaling
+[istio-ingress-tsg]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-ingress-gateway

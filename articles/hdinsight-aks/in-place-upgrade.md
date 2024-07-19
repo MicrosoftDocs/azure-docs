@@ -8,6 +8,8 @@ ms.date: 03/22/2024
 
 # Upgrade your HDInsight on AKS clusters and cluster pools
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Learn how to update your HDInsight on AKS clusters and cluster pools to the latest AKS patches, security updates, cluster patches, and cluster hotfixes with in-place upgrade.
 
 ## Why to upgrade
@@ -210,7 +212,7 @@ upgraded with cluster pool), and the notification updates reflect the success of
  
 1. The upgrade pane on the right side shows the details of the upgrade on AKS patch versions (current and upgrade path).
 
-   :::image type="content" source="./media/in-place-upgrade/type-of-upgrade.png" alt-text="Screenshot showing the type of the upgrade." border="true" lightbox="./media/in-place-upgrade/type-of-upgrade.png"
+   :::image type="content" source="./media/in-place-upgrade/upgrade-cluster.png" alt-text="Screenshot showing the type of the upgrade as cluster upgrade." border="true" lightbox="./media/in-place-upgrade/upgrade-cluster.png"
  
 1. Once the upgrade commences, the notification icon shows the cluster upgrade is in progress
 

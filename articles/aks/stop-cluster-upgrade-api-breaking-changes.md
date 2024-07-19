@@ -4,14 +4,20 @@ description: Learn how to stop Azure Kubernetes Service (AKS) cluster upgrades a
 ms.topic: article
 ms.custom: azure-kubernetes-service
 ms.subservice: aks-upgrade
-ms.date: 10/19/2023
+ms.date: 07/05/2024
+author: schaffererin
+ms.author: schaffererin
 ---
 
 # Stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes
 
+This article shows you how to stop Azure Kubernetes Service (AKS) cluster upgrades automatically on API breaking changes.
+
+## Overview
+
 To stay within a supported Kubernetes version, you have to upgrade your cluster at least once per year and prepare for all possible disruptions. These disruptions include ones caused by API breaking changes, deprecations, and dependencies such as Helm and Container Storage Interface (CSI). It can be difficult to anticipate these disruptions and migrate critical workloads without experiencing any downtime.
 
-AKS now automatically stops upgrade operations consisting of a minor version change with deprecated APIs and sends you an error message to alert you about the issue.
+You can configure your AKS cluster to automatically stop upgrade operations consisting of a minor version change with deprecated APIs and alert you to the issue. This feature helps you avoid unexpected disruptions and gives you time to address the deprecated APIs before proceeding with the upgrade.
 
 ## Before you begin
 
@@ -33,42 +39,37 @@ Bad Request({
 })
 ```
 
-You have two options to mitigate the issue. You can either [remove usage of deprecated APIs (recommended)](#remove-usage-of-deprecated-apis-recommended) or [bypass validation to ignore API changes](#bypass-validation-to-ignore-api-changes).
+You have two options to mitigate the issue: you can [remove usage of deprecated APIs (recommended)](#remove-usage-of-deprecated-apis-recommended) or [bypass validation to ignore API changes](#bypass-validation-to-ignore-api-changes).
 
 ### Remove usage of deprecated APIs (recommended)
 
-1. In the Azure portal, navigate to your cluster's overview page, and select **Diagnose and solve problems**.
-
-2. Navigate to the **Create, Upgrade, Delete, and Scale** category, and select **Kubernetes API deprecations**.
+1. In the Azure portal, navigate to your cluster resource and select **Diagnose and solve problems**
+2. Select **Create, Upgrade, Delete, and Scale** > **Kubernetes API deprecations**.
 
     :::image type="content" source="./media/upgrade-cluster/applens-api-detection-full-v2.png" alt-text="A screenshot of the Azure portal showing the 'Selected Kubernetes API deprecations' section.":::
 
-3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated API usage to know if it's a [watch][k8s-api].
-
+3. Wait 12 hours from the time the last deprecated API usage was seen. Check the verb in the deprecated API usage to know if it's a [watch][k8s-api]. If it's a watch, you can wait for the usage to drop to zero. (You can also check past API usage by enabling [Container insights][container-insights] and exploring kube audit logs.)
 4. Retry your cluster upgrade.
-
-You can also check past API usage by enabling [Container Insights][container-insights] and exploring kube audit logs. Check the verb in the deprecated API usage to understand if it's a [watch][k8s-api] use case.
 
 ### Bypass validation to ignore API changes
 
 > [!NOTE]
-> This method requires you to use the Azure CLI version 2.53 or later. If you have the `aks-preview` CLI extension installed, you'll need to update to version `0.5.154` or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version may not work long term. We recommend removing them as soon as possible after the upgrade completes.
+> This method requires you to use the Azure CLI version 2.53 or later. If you have the `aks-preview` CLI extension installed, you need to update to version `0.5.154` or later. This method isn't recommended, as deprecated APIs in the targeted Kubernetes version might not work long term. We recommend removing them as soon as possible after the upgrade completes.
 
-* Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command. Specify the `enable-force-upgrade` flag and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
+1. Bypass validation to ignore API breaking changes using the [`az aks update`][az-aks-update] command. Specify the `enable-force-upgrade` flag and set the `upgrade-override-until` property to define the end of the window during which validation is bypassed. If no value is set, it defaults the window to three days from the current time. The date and time you specify must be in the future.
 
     ```azurecli-interactive
-    az aks update --name myAKSCluster --resource-group myResourceGroup --enable-force-upgrade --upgrade-override-until 2023-10-01T13:00:00Z
+    az aks update --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --enable-force-upgrade --upgrade-override-until 2023-10-01T13:00:00Z
     ```
 
     > [!NOTE]
     > `Z` is the zone designator for the zero UTC/GMT offset, also known as 'Zulu' time. This example sets the end of the window to `13:00:00` GMT. For more information, see [Combined date and time representations](https://wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
-* Once the previous command has succeeded, you can retry the upgrade operation.
+2. Retry your cluster upgrade using the [`az aks upgrade`][az-aks-upgrade] command.
 
     ```azurecli-interactive
-    az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version <KUBERNETES_VERSION>
+    az aks upgrade --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --kubernetes-version $KUBERNETES_VERSION
     ```
-
 
 ## Next steps
 
@@ -79,4 +80,5 @@ This article showed you how to stop AKS cluster upgrades automatically on API br
 
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/aks#az_aks_update
+[az-aks-upgrade]: /cli/azure/aks#az_aks_upgrade
 [container-insights]:/azure/azure-monitor/containers/container-insights-log-query#resource-logs

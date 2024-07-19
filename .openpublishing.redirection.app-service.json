@@ -1851,6 +1851,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/get-resource-events.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/overview-monitoring.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-security-attributes.md",
             "redirect_url": "/azure/app-service/security-baseline",
             "redirect_document_id": false

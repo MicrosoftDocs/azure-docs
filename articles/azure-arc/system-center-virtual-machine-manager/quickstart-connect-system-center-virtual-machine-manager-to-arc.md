@@ -1,13 +1,13 @@
 ---
 title: Quickstart for Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)
 description: In this Quickstart, you learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 03/22/2024
+ms.date: 07/11/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -23,7 +23,7 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 >[!Note]
 > - If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) and tar are installed. To install tar, you can copy tar.exe and archiveint.dll from any Windows 11 or Windows Server 2019/2022 machine to *C:\Windows\System32* path on your VMM server machine.
-> - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with AAD authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
+> - If you deploy an older version of appliance (version lesser than 0.2.25), Arc operation fails with the error *Appliance cluster is not deployed with Microsoft Entra ID authentication*. To fix this issue, download the latest version of the onboarding script and deploy the resource bridge again.
 > - Azure Arc Resource Bridge deployment using private link is currently not supported.
 
 | **Requirement** | **Details** |
@@ -35,22 +35,22 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 ## Prepare SCVMM management server
 
--	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 16 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
+-	Create an SCVMM private cloud if you don't have one. The private cloud should have a reservation of at least 32 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
 -	Ensure that SCVMM administrator account has the appropriate permissions.
 
 ## Download the onboarding script
 
 1. Go to [Azure portal](https://aka.ms/SCVMM/MgmtServers).
 1. Search and select **Azure Arc**.
-1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **infrastructure** tab.
+1. In the **Overview** page, select **Add resources** under **Manage resources across environments**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-inline.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png":::
 
-1. In the **Platform** section, in **System Center VMM** select **Add**.
+1. In the **Host environments** section, in **System Center VMM** select **Add**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-inline.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png":::
 
-1. Select **Create new resource bridge** and select **Next**.
+1. Select **Create a new resource bridge** and select **Next : Basics >**.
 1. Provide a name for **Azure Arc resource bridge**. For example: *contoso-nyc-resourcebridge*.
 1. Select a subscription and resource group where you want to create the resource bridge.
 1. Under **Region**, select an Azure location where you want to store the resource metadata. The currently supported regions are **East US** and **West Europe**.
@@ -59,7 +59,9 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
-1. Select **Next: Download and run script**.
+1. Select **Next: Tags >**.
+1. Assign Azure tags to your resources in **Value** under **Physical location tags**. You can add additional tags to help you organize your resources to facilitate administrative tasks using custom tags.
+1. Select **Next: Download and run script >**.
 1. If your subscription isn't registered with all the required resource providers, select **Register** to proceed to next step.
 1. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the workstation.
 1. To see the status of your onboarding after you run the script on your workstation, select **Next:Verification**. The onboarding isn't affected when you close this page.
@@ -124,7 +126,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
  ./resource-bridge-onboarding-script.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
-### Retry command - Linux
+>[!Note]
+>You can find the values for *Subscription*, *ResourceGroup*, *Azlocation*, *ApplianceName*, *CustomLocationName*, and *VMMservername* parameters from the onboarding script.
+
+ ### Retry command - Linux
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```--force``` to clean up and onboard again.
 
@@ -132,7 +137,7 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
     bash resource-bridge-onboarding-script.sh --force
   ```
 >[!IMPORTANT]
-> After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.

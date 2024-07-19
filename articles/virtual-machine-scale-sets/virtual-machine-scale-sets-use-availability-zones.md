@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -42,7 +42,7 @@ A regional Virtual Machine Scale Set is when the zone assignment isn't explicitl
 In the rare case of a full zonal outage, any or all instances within the scale set may be impacted.
 
 ### Fault domains and availability zones
-A fault domain a fault isolation group within an availability zone or datacenter of hardware nodes that share the same power, networking, cooling, and platform maintenance schedule. VM instances that are on different fault domains are not likely to be impacted by the same planned or unplanned outage. You can specify how instances are spread across fault domains within a region or zone.
+A fault domain is a fault isolation group within an availability zone or datacenter of hardware nodes that share the same power, networking, cooling, and platform maintenance schedule. VM instances that are on different fault domains are not likely to be impacted by the same planned or unplanned outage. You can specify how instances are spread across fault domains within a region or zone.
 
 - Max spreading (platformFaultDomainCount = 1)
 - Static fixed spreading (platformFaultDomainCount = 5)
@@ -168,46 +168,9 @@ You can modify a scale to expand the set of zones over which to spread VM instan
 > Updating Virtual Machine Scale Sets to add availability zones is currently in preview. Previews are made available to you on the condition that you agree to the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 > [!IMPORTANT]
-> This preview is intended for stateless workloads on Virtual Machine Scale Sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
+> This feature is intended for stateless workloads on Virtual Machine Scale Sets. Scale sets with stateful workloads or used with **Service Fabric or Azure Kubernetes Services are not supported for zonal expansion**.
 
 This feature can be used with API version 2023-03-01 or greater.
-
-### Enable your subscription to use zonal expansion feature
-
-You must register for four feature flags on your subscription:
-
-### [Azure CLI](#tab/cli-1)
-
-
-```azurecli
-az feature register --namespace Microsoft.Compute --name VmssAllowRegionalToZonalMigration
-az feature register --namespace Microsoft.Compute --name VmssAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowExpansionOfAvailabilityZones
-az feature register --namespace Microsoft.Compute --name VmssFlexAllowRegionalToZonalMigration
-```
-
-You can check the registration status of each feature by using:
-
-```azurecli
-az feature show --namespace Microsoft.Compute --name \<feature-name\>
-```
-
-### [Azure PowerShell](#tab/powershell-1)
-
-
-```powershell
-Register-AzProviderPreviewFeature -Name VmssAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowExpansionOfAvailabilityZones -ProviderNamespace Microsoft.Compute
-Register-AzProviderPreviewFeature -Name VmssFlexAllowRegionalToZonalMigration -ProviderNamespace Microsoft.Compute
-```
-
-You can check the registration status of each feature by using:
-
-```powershell
-Get-AzProviderPreviewFeature -Name <feature-name> -ProviderNamespace Microsoft.Compute
-```
----
 
 ### Expand scale set to use availability zones
 You can update the scale set to scale out instances to one or more additional availability zones, up to the number of availability zones supported by the region. For regions that support zones, the minimum number of zones is 3.
@@ -224,7 +187,7 @@ Expanding to a zonal scale set is done in 3 steps:
 #### Prepare for zonal expansion
 
 > [!WARNING]
-> This preview allows you to add zones to the scale set. You can't go back to a regional scale set or remove zones once they have been added.
+> This feature allows you to add zones to the scale set. You can't go back to a regional scale set or remove zones once they have been added.
 
 In order to prepare for zonal expansion:
 * [Check that you have enough quota](../virtual-machines/quotas.md) for the VM size in the selected region to handle more instances.
@@ -297,9 +260,9 @@ With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md)
 > [!IMPORTANT]
 > Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
 
-### Preview known issues and limitations
+### Known issues and limitations
 
-* The preview is targeted to stateless workloads on Virtual Machine Scale Sets.
+* The feature is targeted to stateless workloads on Virtual Machine Scale Sets.
 
 * Scale sets running Service Fabric or Azure Kubernetes Service are not supported.
 

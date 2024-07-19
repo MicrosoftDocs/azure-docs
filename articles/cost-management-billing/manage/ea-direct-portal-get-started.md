@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 04/23/2024
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ Each role has a varying degree of user limits and permissions. For more informat
 
 For more information about activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA billing administration](direct-ea-administration.md).
 
-If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](ea-transfers.md).
+If you’d like to know more about transferring an Enterprise subscription to a pay-as-you-go subscription, see [Azure Enterprise transfers](ea-transfers.md).
 
 ## View your enterprise department and account lists
 
@@ -63,6 +63,12 @@ To view a usage summary, price sheet, and download reports, see [Review usage ch
 
 As a direct EA customer, you can view and download your Azure EA invoice in the Azure portal. It's a self-serve capability and an EA admin of a direct EA enrollment has access to manage invoices. Your invoice is a representation of your bill and should be reviewed for accuracy. For more information, see [Download or view your Azure billing invoice](direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice).
 
+## Azure Prepayment and unbilled usage
+
+Azure Prepayment, previously called monetary commitment, is an amount paid up front for Azure services. The Azure Prepayment is consumed as services are used. First-party Azure services are billed against the Azure Prepayment. However, some charges are billed separately, and Azure Marketplace services don't consume Azure Prepayment.
+
+For more information about paying overages with Azure Prepayment, see [Pay your overage with your Azure Prepayment](direct-ea-administration.md#pay-your-overage-with-azure-prepayment).
+
 ## View Microsoft Azure Consumption Commitment (MACC)
 
 You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](track-consumption-commitment.md?tabs=portal.md#track-your-macc-commitment).
@@ -71,7 +77,7 @@ You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azu
 
 [Azure EA pricing](./ea-pricing-overview.md) provides details about how usage is calculated. It also explains how charges for various Azure services in the Enterprise Agreement, where the calculations are more complex.
 
-If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](ea-portal-vm-reservations.md).
+If you'd like to know about how Azure reservations for virtual machine (VM) reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](ea-portal-vm-reservations.md).
 
 
 [Azure EA agreements and amendments](./ea-portal-agreements.md) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
@@ -80,7 +86,7 @@ If you'd like to know about how Azure reservations for VM reserved instances can
 
 For explanations about the common tasks that a partner EA administrator accomplishes in the Azure portal, see [EA billing administration for partners in the Azure portal](ea-billing-administration-partners.md).
 
-## Next steps
+## Related content
 
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions and answers about getting started with the EA billing administration.
 - Azure Enterprise administrators should read [Azure EA billing administration](direct-ea-administration.md) to learn about common administrative tasks.

@@ -50,7 +50,11 @@ For pricing information on App Service domains, visit the [App Service Pricing p
     
 1. Select **Next: Contact information** and supply your information as required by [ICANN](https://lookup.icann.org/) for the domain registration. 
 
-    It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+   It's important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to buy the domain.
+
+    > [!NOTE]
+    > Make sure you have access to the email address on your contact information. GoDaddy will send emails directly to your contact information from a "@secureserver.net" email; these will only be important transactional emails.
+    >
 
 1. Select **Next: Hostname assignment** and verify the default hostnames to map to your app:
 
@@ -67,7 +71,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | Setting  | Description |
    | -------- | ----------- |
    | **Auto renewal** | Your App Service domain is registered to you at one-year increments. Enable auto renewal so that your domain registration doesn't expire and that you retain ownership of the domain. Your Azure subscription is automatically charged the yearly domain registration fee at the time of renewal. If you leave it disabled, you must [renew it manually](#renew-the-domain). |
-   | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database. Privacy protection is already included in the yearly domain registration fee. To opt out, select **Disable**. |
+   | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database and is already included in the yearly domain registration fee. To opt out, select **Disable**. Privacy protection is not supported in following top-level domains (TLDs): co.uk, in, org.uk, co.in, and nl. |
 
 1. Select **Next: Tags** and set the tags you want for your App Service domain. Tagging isn't required for using App Service domains, but is a [feature in Azure that helps you manage your resources](../azure-resource-manager/management/tag-resources.md).
 
@@ -136,7 +140,7 @@ If launched from an app's **Custom domains** page, the App Service domain wizard
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, which will charge your payment method when your domain renews the following year. You can also manually renew your domain name up to 90 days ahead of domain expiration.
+The App Service domain you bought is valid for one year from the time of purchase. You can configure to renew your domain automatically, or you can also manually renew your domain name up to 90 days ahead of domain expiration. Upon successful auto or manual renewal, you will be billed for the cost of the domain and your domain expiration will be extended for another year.
 
 > [!NOTE]
 > For .nl domains, you can only manually renew the domain starting 90 days ahead of domain expiration and up to the 20th of the month before the expiration date. You will not be able to renew the domain after this period even if the domain has not yet expired.

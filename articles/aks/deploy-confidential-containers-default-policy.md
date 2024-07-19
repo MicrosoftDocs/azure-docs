@@ -3,6 +3,9 @@ title: Deploy an AKS cluster with Confidential Containers (preview)
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with Confidential Containers (preview) and a default security policy by using the Azure CLI.
 ms.topic: quickstart
 ms.date: 01/10/2024
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: devx-track-azurecli, ignite-fall-2023, mode-api
 ---
 
@@ -40,7 +43,7 @@ In general, getting started with AKS Confidential Containers involves the follow
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -468,3 +471,4 @@ kubectl delete pod pod-name
 [az-attestation-show]: /cli/azure/attestation#az-attestation-show
 [attestation-quickstart-azure-cli]: ../attestation/quickstart-azure-cli.md
 [symptom-role-assignment-changes-are-not-being-detected]: ../role-based-access-control/troubleshooting.md#symptom---role-assignment-changes-are-not-being-detected
+

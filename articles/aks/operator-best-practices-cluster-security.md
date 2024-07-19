@@ -3,8 +3,8 @@ title: Best practices for cluster security
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 03/02/2023
-
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)
@@ -55,7 +55,7 @@ For more information about Microsoft Entra integration, Kubernetes RBAC, and Azu
 
 > [!NOTE]
 > To implement Network Policy, include the attribute `--network-policy azure` when creating the AKS cluster. Use the following command to create the cluster:
-> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+> `az aks create -g myResourceGroup -n myManagedCluster --network-plugin azure --network-policy azure --generate-ssh-keys`
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -111,7 +111,7 @@ To see AppArmor in action, the following example creates a profile that prevents
 1. Create a file named *deny-write.profile*.
 1. Copy and paste the following content:
 
-    ```
+    ```bash
     #include <tunables/global>
     profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
       #include <abstractions/base>
@@ -151,11 +151,11 @@ AppArmor profiles are added using the `apparmor_parser` command.
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-2. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
+1. With the pod deployed, run the following command and verify the *hello-apparmor* pod shows a *Running* status:
 
-    ```
+    ```bash
     kubectl get pods
-
+    
     NAME             READY   STATUS    RESTARTS   AGE
     aks-ssh          1/1     Running   0          4m2s
     hello-apparmor   0/1     Running   0          50s
