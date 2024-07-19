@@ -324,6 +324,8 @@
           href: backup-sql-server-on-availability-groups.md
         - name: Back up a SQL Server VM from the VM pane
           href: backup-sql-server-vm-from-vm-pane.md
+        - name: Back up SQL Server from the Azure VM blade
+          href: backup-sql-server-database-from-azure-vm-blade.md
       - name: Restore
         href: restore-sql-database-azure-vm.md
       - name: Manage

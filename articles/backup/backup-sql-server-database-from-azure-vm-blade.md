@@ -7,9 +7,9 @@ ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
-# Back up a SQL Server from the Azure VM blade
+# Back up an SQL Server from the Azure VM blade
 
-This article describes how to use Azure Backup to back up a SQL Server (running in Azure VM) from the SQL VM resource via the Azure portal.
+This article describes how to use Azure Backup to back up an SQL Server (running in Azure VM) from the SQL VM resource via the Azure portal.
 
 SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
@@ -18,7 +18,7 @@ SQL Server databases are critical workloads that require a low recovery-point ob
 
 ## Prerequisites
 
-Before you back up a SQL Server database, see the [backup criteria](backup-sql-server-database-azure-vms.md#prerequisites).
+Before you back up an SQL Server database, see the [backup criteria](backup-sql-server-database-azure-vms.md#prerequisites).
 
 ## Configure backup for SQLServer database
 
@@ -36,13 +36,19 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
    - **Azure Backup**
    - **Automated Backup**
 
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/select-backups.png" alt-text="Screenshot shows how to select the Backups option on a SQL VM." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/select-backups.png":::
+
 3. On the **Azure Backup** blade, select **Enable** to start configuring the backup for the SQL Server using Azure Backup.
 
 4. To start the backup operation, select an *existing Recovery Services vault* or [create a new  vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault).
 
 5. Select **Discover** to start discovering databases in the VM.
 
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/start-database-discovery.png" alt-text="Screenshot shows how to start discovering an SQL database." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/start-database-discovery.png":::
+
    This operation will take some time to run when performed for the first time.
+
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/database-discovery-in-progress.png" alt-text="Screenshot shows the database discovery operation in progress." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/database-discovery-in-progress.png":::
 
    Azure Backup discovers all SQL Server databases on the VM. During discovery, the following operations run in the background:
 
@@ -56,17 +62,23 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
 
 6. Once the operation is completed, select **Configure backup**.
 
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/start-database-backup-configuration.png" alt-text="Screenshot shows how to start the database backup configuration." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/start-database-backup-configuration.png":::
+
 7. Define a backup policy using one of the following options:
 
    1. Select the default policy as *HourlyLogBackup*.
    2. Select an existing backup policy previously created for SQL.
    3. Create a new policy based on your RPO and retention range.
 
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/select-backup-policy.png" alt-text="Screenshot shows how to select a backup policy for the database." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/select-backup-policy.png":::
+
 8. Select **Add** to view all the registered availability groups and standalone SQL Server instances. 
 
 9. On **Select items to backup**,  expand the list of all the *unprotected databases* in that instance or the *Always On availability group*.
 
 10. Select the *databases* to protect and select **OK**.
+
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png" alt-text="Screenshot shows how to confirm the selection of database for backup." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png":::
 
 11. To optimize backup loads, Azure Backup allows/permits a maximum number of 50 databases in one backup job.
 
@@ -75,11 +87,15 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
 
 12. Select **Enable Backup** to submit the Configure Protection operation and track the configuration progress in the Notifications area of the portal.
 
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png" alt-text="Screenshot shows how to enable the database backup operation." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png":::
+
 13. To get an overview of your configured backups and a summary of backup jobs,  go to **Settings** > **Backups** in the SQL VM resource.   
+
+   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png" alt-text="Screenshot shows how to view the backup jobs summary." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png":::
 
 ## Next steps
 
 - [Restore SQL Server databases on Azure VM](restore-sql-database-azure-vm.md)
 - [Manage and monitor backed up SQL Server databases](manage-monitor-sql-database-backup.md)
-- [Troubleshoot backups on a SQL Server database](backup-sql-server-azure-troubleshoot.md)
+- [Troubleshoot backups on an SQL Server database](backup-sql-server-azure-troubleshoot.md)
 - [FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup | Microsoft Learn](faq-backup-sql-server.md)
