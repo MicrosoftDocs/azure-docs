@@ -37,13 +37,13 @@ SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SA
 
 It can be used with any data source that Defender XDR and Sentinel support, including SAP RISE/ECS. Below shows the stand-alone experience.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Using Copilot for Security with SAP RISE/ECS incidents":::
-   This image shows an example of the Microsoft Copilot for Security experience using an prompt to investigate an SAP incident.
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Screenshot of Copilot for Security experience with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot.png":::
+   This image shows an example of the Microsoft Copilot for Security experience using a prompt to investigate an SAP incident.
 :::image-end:::
 
 In addition to that the Copilot for Security experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Using embedded Copilot for Security experience in Defender with SAP RISE/ECS incidents":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Copilot for Security experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
    This image shows an example of Microsoft Copilot for Security analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
 :::image-end:::
 
@@ -58,7 +58,7 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
 -	Customize based on your needs - build your own detections to monitor sensitive transactions and other business risks
 -	Visualize the data with [built-in workbooks](../../sentinel/sap/sap-audit-log-workbook.md)
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Connecting Sentinel with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="Diagram that shows how to connect Sentinel with SAP RISE/ECS." lightbox="./media/sap-rise-integration/sap-rise-sentinel.png":::
    This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent. Connection to SAP Business Technology Platform (BTP) uses SAP's public APIs for the Audit Log Management Service.
 :::image-end:::
 
@@ -79,7 +79,7 @@ Use prebuilt playbooks for security, orchestration, automation and response capa
 
 For more information on Microsoft Sentinel and SOAR for SAP, see the blog series [From zero to hero security coverage with Microsoft Sentinel for your critical SAP security signals](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png" alt-text="Using Sentinel SOAR capability with SAP RISE/ECS":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png" alt-text="Using Sentinel SOAR capability with SAP RISE/ECS." lightbox="./media/sap-rise-integration/sap-rise-sentinel-adaptive-card.png":::
    This image shows an SAP incident detected by Sentinel offering the option to block the suspicious user on the SAP ERP, SAP Business Technology Platform or Microsoft Entra ID.
 :::image-end:::
 
