@@ -71,7 +71,7 @@ In the following steps, create a Microsoft Entra service principal to use for co
 > [!NOTE]
 > Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. See [steps](../app-service/deploy-github-actions?tabs=openid%2Caspnetcore#1-generate-deployment-credentials).
 
-Create a service principal using the [az ad sp create-for-rbac](/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/az/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
+Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/az/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
 
 ```bash
 
@@ -102,7 +102,17 @@ Copy the JSON output, which should look similar to the following:
 
 ### Add the service principal as a GitHub secret
 
-[!INCLUDE [include](~/../articles/reusable-content/github-actions/create-secrets-service-principal.md)]
+In [GitHub](https://github.com/), browse your repository. Select **Settings > Security > Secrets and variables > Actions > New repository secret**.
+
+Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
+
+When you configure the GitHub workflow file later, you use the secret for the input `creds` of the [Azure/login](https://github.com/marketplace/actions/azure-login). For example:
+
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
 ### Add the workflow file to your GitHub repository
 
