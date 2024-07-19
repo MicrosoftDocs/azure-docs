@@ -4,10 +4,10 @@ author: ecfan
 ms.author: estfan
 ms.topic: include
 ms.date: 07/18/2024
-# Generic text about Postman alternatives.
+# Generic text about tool options for API testing and sending HTTP requests.
 ---
 
-* Install or use a tool that can send HTTP requests, for example:
+* Install or use a tool that can send HTTP requests to test your solution, for example:
 
   - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
   - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
