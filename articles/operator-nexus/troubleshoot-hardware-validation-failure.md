@@ -425,7 +425,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * To update the PXE device state ane name in BMC webui set the value in the following location below then select `Apply` followed by `Apply And Reboot`:
 
-        `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`
+        `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`  
         `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1 Settings` -> `Interface` -> `Embedded NIC 1 Port 1 Partition 1`  
     
     * To update the PXE device name and state with racadm perform the following:
