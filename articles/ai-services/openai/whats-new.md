@@ -46,7 +46,7 @@ Refer to our [Default safety policy documentation](./concepts/default-safety-pol
 API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
 
 - embeddings `encoding_format` & `dimensions` parameters.
-- chat completions `logprops` & `top_logprobs` parameters.
+- chat completions `logprobs` & `top_logprobs` parameters.
 
 Refer to our [data plane inference reference documentation](./reference.md) for more information.
 
