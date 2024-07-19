@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 03/28/2024
+ms.date: 07/19/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: batch
