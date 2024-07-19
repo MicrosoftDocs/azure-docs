@@ -78,7 +78,7 @@ Read the following SAP Notes and papers first:
 > The only supported fencing mechanism for Pacemaker RHEL clusters on Azure is an Azure fence agent.  
 
 > [!IMPORTANT]
-> Pacemaker clusters deployed across multiple VNETS/subnets are not covered by standard support.
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
 
 The following items are prefixed with:
 
