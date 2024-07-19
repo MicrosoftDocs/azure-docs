@@ -78,7 +78,7 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
 
 10. Select the *databases* to protect and select **OK**.
 
-   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png" alt-text="Screenshot shows how to confirm the selection of database for backup." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png":::
+    :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png" alt-text="Screenshot shows how to confirm the selection of database for backup." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/confirm-database-selection.png":::
 
 11. To optimize backup loads, Azure Backup allows/permits a maximum number of 50 databases in one backup job.
 
@@ -87,11 +87,11 @@ To configure backup for SQL Server database from the SQL VM blade, follow these 
 
 12. Select **Enable Backup** to submit the Configure Protection operation and track the configuration progress in the Notifications area of the portal.
 
-   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png" alt-text="Screenshot shows how to enable the database backup operation." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png":::
+    :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png" alt-text="Screenshot shows how to enable the database backup operation." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/enable-database-backup.png":::
 
 13. To get an overview of your configured backups and a summary of backup jobs,  go to **Settings** > **Backups** in the SQL VM resource.   
 
-   :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png" alt-text="Screenshot shows how to view the backup jobs summary." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png":::
+    :::image type="content" source="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png" alt-text="Screenshot shows how to view the backup jobs summary." lightbox="./media/backup-sql-server-database-from-azure-vm-blade/backup-jobs-summary.png":::
 
 ## Next steps
 
