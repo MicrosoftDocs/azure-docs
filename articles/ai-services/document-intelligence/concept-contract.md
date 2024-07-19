@@ -104,7 +104,7 @@ The following are the fields extracted from a contract in the JSON output respon
 | ContractId | String | Contract title| AB12956 |
 | Parties | Array |List of legal parties| |
 | ExecutionDate | Date |Date when the agreement was fully signed and agreed upon by all parties|`On this twenty-third day of February two thousand and twenty two` |
-| ExpirationDate | Date |Date when the contract ends to be in effect| One year |
+| ExpirationDate | Date |Date when the contract ends| One year |
 | EffectiveDate  | Date |Date when the contract starts to be in effect| immediately |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
 | ContractDuration | String | Contract terms | 5 years |
