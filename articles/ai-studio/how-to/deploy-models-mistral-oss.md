@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Mistral family of language models with Azure AI studio
+# How to use Mistral open chat models with Azure AI studio
 
-In this guide, you learn about Mistral models and how to use them with Azure AI studio.
+In this guide, you learn about Mistral open chat models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
@@ -88,6 +88,16 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### Deploy the model
 
+Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+> [!TIP]
+> Notice when deploying Mistral open chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
+
+
+
 ### Install the inference package
 
 You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
@@ -125,6 +135,21 @@ from azure.core.credentials import AzureKeyCredential
 model = ChatCompletionsClient(
     endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
     credential=AzureKeyCredential(os.environ["AZUREAI_ENDPOINT_KEY"]),
+)
+```
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
+
+
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import DefaultAzureCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=DefaultAzureCredential(),
 )
 ```
 
@@ -340,6 +365,16 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### Deploy the model
 
+Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+> [!TIP]
+> Notice when deploying Mistral open chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
+
+
+
 ### Install the inference package
 
 You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
@@ -377,6 +412,21 @@ import { AzureKeyCredential } from "@azure/core-auth";
 const client = new ModelClient(
     process.env.AZUREAI_ENDPOINT_URL, 
     new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
+
+
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { DefaultAzureCredential }  from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new DefaultAzureCredential()
 );
 ```
 
@@ -609,6 +659,16 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### Deploy the model
 
+Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+> [!TIP]
+> Notice when deploying Mistral open chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
+
+
+
 ### Use the Azure AI model inference API
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
@@ -628,6 +688,10 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
 First, let's create a client to consume the model.
+
+
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
 
@@ -853,6 +917,14 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 ## Cost and quotas
+
+### Cost and quota considerations for Mistral family of models deployed to managed compute
+
+Mistral models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the duration it is running.
+
+We recommend starting with a low number of instances and scaling up as needed. You can monitor the cost of the compute instance in the Azure portal.
+
+
 
 ## Additional resources
 

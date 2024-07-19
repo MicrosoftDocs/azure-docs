@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Meta Llama family of language models with Azure AI studio
+# How to use Meta Llama with Azure AI studio
 
-In this guide, you learn about Meta Llama models and how to use them with Azure AI studio.
+In this guide, you learn about Meta Llama and how to use them with Azure AI studio.
 Meta Llama 2 and 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF).
 
 
@@ -69,9 +69,15 @@ To use Meta Llama models with Azure AI studio, you need the following prerequisi
 
 Meta Llama can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
 
 
 Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 > [!TIP]
 > Notice when deploying Meta Llama to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
@@ -364,9 +370,15 @@ To use Meta Llama models with Azure AI studio, you need the following prerequisi
 
 Meta Llama can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
 
 
 Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 > [!TIP]
 > Notice when deploying Meta Llama to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
@@ -681,9 +693,15 @@ To use Meta Llama models with Azure AI studio, you need the following prerequisi
 
 Meta Llama can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
 
 
 Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
 > [!TIP]
 > Notice when deploying Meta Llama to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
