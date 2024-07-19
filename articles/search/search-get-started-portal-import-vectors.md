@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 06/17/2024
+ms.date: 07/19/2024
 ---
 
 # Quickstart: Vectorize text and images by using the Azure portal
@@ -17,12 +17,12 @@ ms.date: 06/17/2024
 > [!IMPORTANT]
 > The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. This wizard calls a user-specified embedding model to vectorize content during indexing and for queries.
+This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. This wizard chunks your content and calls a user-specified embedding model to vectorize content during indexing and for queries.
 
 ## Preview limitations
 
 + Source data is either Azure Blob Storage or OneLake files and shortcuts, using the default parsing mode (one search document per blob or file).
-+ The index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for the title, and `metadata_storage_path` for the document key. This key is represented as `parent_id` in the index.
++ The index schema is nonconfigurable. 
 + Chunking is nonconfigurable. The effective settings are:
 
   ```json
@@ -31,7 +31,7 @@ This quickstart helps you get started with [integrated vectorization (preview)](
   pageOverlapLength: 500
   ```
 
-For fewer limitations or more data source options, try a code-base approach. For more information, see the [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
+For fewer limitations or more data source options, try a code-based approach. For more information, see the [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
 
 ## Prerequisites
 
@@ -39,17 +39,15 @@ For fewer limitations or more data source options, try a code-base approach. For
 
 + For data, either [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
-  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
-  
-  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
-+ For vectorization, an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI Service](https://aka.ms/oai/access) endpoint with deployments.
++ For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI Service](https://aka.ms/oai/access) endpoint with deployments.
 
   For [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval), create an Azure AI service in SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, or JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
 
   You can also use an [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
 
-+ For indexing and queries, Azure AI Search. It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
++ For indexing and queries, have an [Azure AI Search service](search-create-service-portal.md). It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
 
 + Role assignments or API keys for connections to embedding models and data sources. This article provides instructions for role-based access control (RBAC).
 
