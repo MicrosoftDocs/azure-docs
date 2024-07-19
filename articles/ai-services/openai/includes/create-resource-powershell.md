@@ -14,6 +14,7 @@ ms.date: 05/20/2024
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Azure PowerShell. For more information, see [How to install the Azure PowerShell](/powershell/azure/install-azure-powershell).
+- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
 
 
 ## Sign in to the Azure PowerShell

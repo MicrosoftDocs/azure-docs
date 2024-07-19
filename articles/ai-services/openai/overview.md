@@ -35,7 +35,7 @@ At Microsoft, we're committed to the advancement of AI driven by principles that
 
 ## How do I get access to Azure OpenAI?
 
-Currently there is no requirement to access Azure OpenAI Service. 
+A Limited Access registration form is not required to access most Azure OpenAI models. Learn more on the [Azure OpenAI Limited Access page](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context).
 
 ## Comparing Azure OpenAI and OpenAI
 

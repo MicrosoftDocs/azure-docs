@@ -12,6 +12,8 @@ ms.date: 05/20/2024
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
+
 
 
 ## Create a resource
