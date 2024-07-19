@@ -3,7 +3,7 @@ title: Create and publish Azure Managed Application in service catalog
 description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 05/24/2024
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -275,12 +275,12 @@ Connect-AzAccount
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
 $pkgstorageparms = @{
   ResourceGroupName = "packageStorageGroup"
   Name = "<pkgstorageaccountname>"
-  Location = "westus3"
+  Location = "westus"
   SkuName = "Standard_LRS"
   Kind = "StorageV2"
   MinimumTlsVersion = "TLS1_2"
@@ -323,12 +323,12 @@ az login
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
   --name <pkgstorageaccountname> \
   --resource-group packageStorageGroup \
-  --location westus3 \
+  --location westus \
   --sku Standard_LRS \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
@@ -485,7 +485,7 @@ In the portal, the group ID and role ID are configured when you publish the mana
 Create a resource group for your managed application definition.
 
 ```azurepowershell
-New-AzResourceGroup -Name appDefinitionGroup -Location westus3
+New-AzResourceGroup -Name appDefinitionGroup -Location westus
 ```
 
 The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
@@ -495,7 +495,7 @@ $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $pkgsto
 
 $publishparms = @{
   Name = "sampleManagedApplication"
-  Location = "westus3"
+  Location = "westus"
   ResourceGroupName = "appDefinitionGroup"
   LockLevel = "ReadOnly"
   DisplayName = "Sample managed application"
@@ -523,7 +523,7 @@ Some of the parameters used in the preceding example are:
 Create a resource group for your managed application definition.
 
 ```azurecli
-az group create --name appDefinitionGroup --location westus3
+az group create --name appDefinitionGroup --location westus
 ```
 
 The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
@@ -537,7 +537,7 @@ blob=$(az storage blob url \
 
 az managedapp definition create \
   --name "sampleManagedApplication" \
-  --location "westus3" \
+  --location "westus" \
   --resource-group appDefinitionGroup \
   --lock-level ReadOnly \
   --display-name "Sample managed application" \

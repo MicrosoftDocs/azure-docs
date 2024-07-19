@@ -15,7 +15,7 @@ ms.date: 05/20/2024
 
 # Cross-region replication in Azure Cosmos DB for MongoDB vCore (preview)
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 > [!IMPORTANT]
 > Cross-region replication in Azure Cosmos DB for MongoDB vCore is currently in preview.

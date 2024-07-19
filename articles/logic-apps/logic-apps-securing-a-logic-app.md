@@ -87,29 +87,31 @@ You can limit access to the inputs and outputs in the run history for your logic
 
 For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to data in your logic app workflows. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
-To specify the allowed IP ranges, follow these steps for either the Azure portal or your Azure Resource Manager template:
+To specify the allowed IP ranges, follow these steps for your Consumption or Standard logic app in the Azure portal or your Azure Resource Manager template:
 
 #### [Portal](#tab/azure-portal)
 
 ##### Consumption workflows
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
 1. On your logic app's menu, under **Settings**, select **Workflow settings**.
 
-1. Under **Access control configuration** > **Allowed inbound IP addresses**, select **Specific IP ranges**.
+1. In the **Access control configuration** section, under **Allowed inbound IP addresses**, from the **Trigger access option** list, select **Specific IP ranges**.
 
-1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs.
+1. In the **IP ranges for contents** box, specify the IP address ranges that can access content from inputs and outputs.
 
 ##### Standard workflows
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app menu, under **Settings**, select **Networking**.
 
-1. In the **Inbound Traffic** section, select **Access restriction**.
+1. In the **Inbound traffic configuration** section, next to **Public network access**, select **Enabled with no access restriction**.
 
-1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings.
+1. On the **Access restrictions** page, under **App access**, select **Enabled from select virtual networks and IP addresses**.
+
+1. Under **Site access and rules**, on the **Main site** tab, add one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
    For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 
@@ -979,13 +981,15 @@ In the Azure portal, IP address restriction affects both triggers *and* actions,
 
 ##### Standard workflows
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app menu, under **Settings**, select **Networking**.
 
-1. In the **Inbound Traffic** section, select **Access restriction**.
+1. In the **Inbound traffic configuration** section, next to **Public network access**, select **Enabled with no access restriction**.
 
-1. Create one or more rules to either **Allow** or **Deny** requests from specific IP ranges. You can also use the HTTP header filter settings and forwarding settings. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+1. On the **Access restrictions** page, under **App access**, select **Enabled from select virtual networks and IP addresses**.
+
+1. Under **Site access and rules**, on the **Main site** tab, add one or more rules to either **Allow** or **Deny** requests from specific IP ranges. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
    For more information, see [Blocking inbound IP addresses in Azure Logic Apps (Standard)](https://www.serverlessnotes.com/docs/block-inbound-ip-addresses-in-azure-logic-apps-standard).
 

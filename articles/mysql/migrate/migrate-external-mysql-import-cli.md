@@ -15,9 +15,9 @@ ms.custom:
 ms.devlang: azurecli
 ---
 
-# Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure Database for MySQL Import CLI (Public Preview)
+# Migrate MySQL on-premises or Virtual Machine (VM) workload to Azure Database for MySQL - Flexible Server using Azure Database for MySQL Import CLI
 
-Azure Database for MySQL Import for external migrations (Public Preview) enables you to migrate your MySQL on-premises or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server, offering a simple and fast migration path. Post-import operation, you can take advantage of the benefits of a flexible server, which include better price and performance, granular control over database configuration, and custom maintenance windows.
+Azure Database for MySQL Import for external migrations enables you to migrate your MySQL on-premises or Virtual Machine (VM) workload seamlessly to Azure Database for MySQL - Flexible Server. It uses a user-provided physical backup file and restores the source server's physical data files to the target server, offering a simple and fast migration path. Post-import operation, you can take advantage of the benefits of a flexible server, which include better price and performance, granular control over database configuration, and custom maintenance windows.
 
 Based on user-inputs, it takes up the responsibility of provisioning your target Flexible Server and then restoring the user-provided physical backup of the source server stored in the Azure Blob storage account to the target Flexible Server instance.
 
@@ -67,6 +67,7 @@ The following are the steps for using Percona XtraBackup to take a full backup:
 - [Create an Azure Blob container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) and get the Shared Access Signature (SAS) Token ([Azure portal](../../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=Containers#create-sas-tokens-in-the-azure-portal) or [Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md)) for the container. Ensure that you grant Add, Create, and Write in the **Permissions** dropdown list. Copy and paste the Blob SAS token and URL values in a secure location. They're only displayed once and can't be retrieved once the window is closed.
 - Upload the full backup file at {backup_dir_path} to your Azure Blob storage. Follow steps [here]( ../../storage/common/storage-use-azcopy-blobs-upload.md#upload-a-file).
 - To perform an online migration, capture and store the bin-log position of the backup file taken using Percona XtraBackup by running the **cat xtrabackup_info** command and copying the bin_log pos output.
+- The Azure storage account should be publicly accessible using SAS token. Azure storage account with virtual network configuration are not supported.
 
 ## Limitations
 

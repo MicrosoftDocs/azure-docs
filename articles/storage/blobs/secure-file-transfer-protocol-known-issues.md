@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/18/2024
+ms.date: 06/24/2024
 ms.author: normesta
 
 ---
@@ -78,9 +78,11 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
   
 - By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
-- Maximum file upload size via the SFTP endpoint is 100 GB. 
+- Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- To change the storage account's redundancy/replication settings or initiate account failover, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
+- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#azure-data-lake-storage-gen2).
+
+- To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 
 - Special containers such as $logs, $blobchangefeed, $root, $web aren't accessible via the SFTP endpoint. 
 

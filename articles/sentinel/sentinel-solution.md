@@ -11,7 +11,7 @@ ms.collection:
 
 # Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 
-[!INCLUDE [zero-trust-principles](../../includes/security/zero-trust-principles.md)]
+[!INCLUDE [zero-trust-principles](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles.md)]
 
 This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic) initiative. 
 
@@ -46,7 +46,7 @@ Before installing the **Zero Trust (TIC 3.0)** solution, make sure you have the 
 
 - **Microsoft Defender for Cloud requirements**: In Microsoft Defender for Cloud:
 
-    - Add required regulatory standards to your dashboard. Make sure to add both the *Azure Security Benchmark* and *NIST SP 800-53 R5 Assessments* to your Microsoft Defender for Cloud dashboard. For more information, see [add a regulatory standard to your dashboard](/azure/security-center/update-regulatory-compliance-packages?WT.mc_id=Portal-fx#add-a-regulatory-standard-to-your-dashboard) in the Microsoft Defender for Cloud documentation.
+    - Add required regulatory standards to your dashboard. Make sure to add both the *Microsoft Cloud security benchmark* and *NIST SP 800-53 R5 Assessments* to your Microsoft Defender for Cloud dashboard. For more information, see [add a regulatory standard to your dashboard](/azure/security-center/update-regulatory-compliance-packages?WT.mc_id=Portal-fx#add-a-regulatory-standard-to-your-dashboard) in the Microsoft Defender for Cloud documentation.
 
     - Continuously export Microsoft Defender for Cloud data to your Log Analytics workspace. For more information, see [Continuously export Microsoft Defender for Cloud data](../defender-for-cloud/continuous-export.md?tabs=azure-portal).
 

@@ -16,7 +16,7 @@ author: msakande
 
 # How to deploy Azure OpenAI models with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn to create Azure OpenAI model deployments in Azure AI Studio.
 

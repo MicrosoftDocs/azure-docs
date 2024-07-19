@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 06/20/2024
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -139,6 +139,9 @@ This section provides an overview of how BGP communities get used with ExpressRo
 
 For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
 
+> [!NOTE]
+> In order for Azure routes to show regional BGP community values, you first must configure the custom BGP community value for the virtual network.
+
 For Microsoft peering, you're connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region. You also have access to all Microsoft cloud services across all regions within the geopolitical boundary.
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in North Europe and West Europe. 
@@ -154,6 +157,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | East US 2 | 12076:50005 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | West US | 12076:50006 | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
 | West US 2 | 12076:50026 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| West US 3 | 12076:50044 | 12076:51044 | 12076:52044 | 12076:53044 | 12076:54044 | 12076:55044 |
 | West Central US | 12076:50027 | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | North Central US | 12076:50007 | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
 | South Central US | 12076:50008 | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |

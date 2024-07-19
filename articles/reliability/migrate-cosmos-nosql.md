@@ -6,7 +6,7 @@ ms.service: sql
 ms.topic: conceptual
 ms.date: 04/15/2024
 ms.author: anaharris 
-ms.custom: references_regions, subject-reliability
+ms.custom: references_regions, subject-reliability, devx-track-azurecli
 ---
 
 # Migrate Azure Cosmos DB for NoSQL to availability zone support

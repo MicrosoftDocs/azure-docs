@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/20/2024
 ms.author: jainan
 ms.reviewer: mattmcinnes
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # Hibernating Linux virtual machines

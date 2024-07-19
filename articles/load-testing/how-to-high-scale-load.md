@@ -211,7 +211,7 @@ If one or multiple instances show a high resource usage, it could affect the tes
 
 ## Determine requests per second
 
-The maximum number of *requests per second* (RPS) that Azure Load Testing can generate for your load test depends on the application's *latency* and the number of *virtual users* (VUs). Application latency is the total time from sending an application request by the test engine, to receiving the response. The virtual user count is the number of parallel requests that Azure Load Testing performs at a given time.
+The maximum number of *requests per second (RPS)* that Azure Load Testing can generate for your load test depends on the application's *latency* and the number of *virtual users* (VUs). Application latency is the total time from sending an application request by the test engine, to receiving the response. The virtual user count is the number of parallel requests that Azure Load Testing performs at a given time.
 
 To calculate the number of requests per second, apply the following formula: RPS = (# of VUs) * (1/latency in seconds).
 

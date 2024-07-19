@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: article
-ms.date: 04/20/2023
+ms.date: 07/09/2024
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -26,9 +26,6 @@ It offers the following benefits:
 This article shows you how to use Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS.
 
 ## Prerequisites
-
-> [!NOTE]
-> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
 * Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
 * Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.
@@ -94,13 +91,17 @@ Create the cluster, referencing the node subnet using `--vnet-subnet-id` and the
 CLUSTER_NAME="myAKSCluster"
 SUBSCRIPTION="aaaaaaa-aaaaa-aaaaaa-aaaa"
 
-az aks create --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --location $LOCATION \
+az aks create \
+    --name $CLUSTER_NAME \
+    --resource-group $RESOURCE_GROUP_NAME \
+    --location $LOCATION \
     --max-pods 250 \
     --node-count 2 \
     --network-plugin azure \
     --vnet-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_1 \
     --pod-subnet-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME_2 \
-    --enable-addons monitoring
+    --enable-addons monitoring \
+    --generate-ssh-keys
 ```
 
 ### Adding node pool

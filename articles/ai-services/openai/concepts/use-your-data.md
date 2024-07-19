@@ -78,7 +78,9 @@ You might want to consider using an Azure AI Search index when you either want t
 * Reuse an index created before by ingesting data from other data sources.
 
 > [!NOTE]
-> To use an existing index, it must have at least one searchable field.
+> * To use an existing index, it must have at least one searchable field.
+> * Set the CORS **Allow Origin Type** option to `all` and the **Allowed origins** option to `*`. 
+
 
 ### Search types
 
@@ -135,6 +137,7 @@ If you want to implement additional value-based criteria for query execution, yo
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [Vector Database in Azure Cosmos DB for MongoDB](#tab/mongo-db)
 
@@ -202,6 +205,8 @@ To modify the schedule, you can use the [Azure portal](https://portal.azure.com/
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
 
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
+
 # [Upload files (preview)](#tab/file-upload)
 
 Using Azure OpenAI Studio, you can upload files from your machine to try Azure OpenAI On Your Data. You also have the option to create a new Azure Blob Storage account and Azure AI Search resource. The service then stores the files to an Azure storage container and performs ingestion from the container. You can use the [quickstart](../use-your-data-quickstart.md) article to learn how to use this data source option.
@@ -209,6 +214,8 @@ Using Azure OpenAI Studio, you can upload files from your machine to try Azure O
 :::image type="content" source="../media/quickstarts/add-your-data-source.png" alt-text="A screenshot showing options for selecting a data source in Azure OpenAI Studio." lightbox="../media/quickstarts/add-your-data-source.png":::
 
 [!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [URL/Web address (preview)](#tab/web-pages)
 
@@ -223,6 +230,10 @@ You can paste URLs and the service will store the webpage content, using it when
 <!--:::image type="content" source="../media/use-your-data/url.png" alt-text="A screenshot of the Azure OpenAI use your data url/webpage studio configuration page." lightbox="../media/use-your-data/url.png":::-->
 
 Once you have added the URL/web address for data ingestion, the web pages from your URL are fetched and saved to Azure Blob Storage with a container name: `webpage-<index name>`. Each URL will be saved into a different container within the account. Then the files are indexed into an Azure AI Search index, which is used for retrieval when you’re chatting with the model.
+
+[!INCLUDE [ai-search-ingestion](../includes/ai-search-ingestion.md)]
+
+[!INCLUDE [authentication](../includes/on-your-data-authentication.md)]
 
 # [Elasticsearch (preview)](#tab/elasticsearch)
 
@@ -347,7 +358,7 @@ It's possible for the model to return `"TYPE":"UNCITED_REFERENCE"` instead of `"
 
 You can define a system message to steer the model's reply when using Azure OpenAI On Your Data. This message allows you to customize your replies on top of the retrieval augmented generation (RAG) pattern that Azure OpenAI On Your Data uses. The system message is used in addition to an internal base prompt to provide the experience. To support this, we truncate the system message after a specific [number of tokens](#token-usage-estimation-for-azure-openai-on-your-data) to ensure the model can answer questions using your data. If you are defining extra behavior on top of the default experience, ensure that your system prompt is detailed and explains the exact expected customization. 
 
-Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `roleInformation` [parameter in the API](../references/on-your-data.md).
+Once you select add your dataset, you can use the **System message** section in the Azure OpenAI Studio, or the `role_information` [parameter in the API](../references/on-your-data.md).
 
 :::image type="content" source="../media/use-your-data/system-message.png" alt-text="A screenshot showing the system message option in Azure OpenAI Studio." lightbox="../media/use-your-data/system-message.png":::
 
@@ -463,7 +474,7 @@ If the policy above doesn't meet your need, please consider other options, for e
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
-Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) is a service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
 As part of this RAG pipeline, there are three steps at a high-level: 
 
@@ -581,22 +592,24 @@ Each user message can translate to multiple search queries, all of which get sen
 
 ## Regional availability and model support
 
-| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`   | `gpt-turbo (409)` |
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`\*\* | `gpt-4 (turbo-2024-04-09)` |
 |------|---|---|---|---|---|----|----|----|
-| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | |
-| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | |
+| Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | 
+| Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
 | East US | ✅ |   |   |  |✅  |  | ✅ |  |
 | East US 2 | ✅ |  |  |✅ |  |  |✅ | ✅|
-| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | |
-| Japan East | ✅ |   |   |  |   |   |  | | |
+| France Central | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 
+| Japan East | ✅ |   |   |  |   |   |  | | 
 | North Central US | ✅ |   |   | |✅  |   |✅  | |
-| Norway East | ✅ |   |   |✅ |   |  |  | | |
+| Norway East | ✅ |   |   |✅ |   |  |  | | 
 | South Central US |  |   |   | | ✅ |   | ✅ |  |
-| South India |  | ✅ |   |✅ |   |    |  | |  |
+| South India |  | ✅ |   |✅ |   |    |  | |  
 | Sweden Central | ✅ | ✅ | ✅ |✅ |    | ✅ | | ✅|
-| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | | |
-| UK South | ✅ | ✅ | |✅ |✅  |  |  | | |
+| Switzerland North | ✅ |   | ✅ |  |  | ✅ |  | | 
+| UK South | ✅ | ✅ | |✅ |✅  |  |  | |
 | West US  |  |✅ | |✅|   |   | ✅ | |
+
+\*\*This is a text-only implementation
 
 If your Azure OpenAI resource is in another region, you won't be able to use Azure OpenAI On Your Data.
 

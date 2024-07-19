@@ -30,7 +30,6 @@ ms.date:     05/21/2024
 [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](../../ephemeral-os-disks.md): Supported <br>
 Infiniband: Supported, GPUDirect RDMA, 8x400 Gigabit NDR <br>
-NVIDIA NVLink Interconnect: Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 

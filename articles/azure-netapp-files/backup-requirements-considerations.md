@@ -28,7 +28,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * The Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots to the Azure storage. Hourly backups aren't currently supported.
 
-* Azure NetApp Files backup uses the [Zone-Redundant storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (ZRS) account that replicates the data synchronously across three Azure availability zones in the region, except for the regions listed where only [Locally Redundant Storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (LRS) storage is supported:   
+* Azure NetApp Files backup uses the [Zone-Redundant storage](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) (ZRS) account that replicates the data synchronously across three Azure availability zones in the region, except for the regions listed where only [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) storage is supported:   
 
     * West US   
 

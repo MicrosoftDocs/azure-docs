@@ -85,7 +85,7 @@ rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 
 Not every feature of filter expressions is available inside the body of a lambda expression. The limitations differ depending on the data type of the collection field that you want to filter. The following table summarizes the limitations.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure AI Search](./includes/search-query-odata-lambda-limitations.md)]
 
 For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure AI Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure AI Search](search-query-understand-collection-filters.md).
 

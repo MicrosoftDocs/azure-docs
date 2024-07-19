@@ -27,7 +27,7 @@ This article shows how to download a blob using the [Azure Storage client module
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to perform a download operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [Get Blob](/rest/api/storageservices/get-blob#authorization).
+The authorization mechanism must have the necessary permissions to perform a download operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [Get Blob (REST API)](/rest/api/storageservices/get-blob#authorization).
 
 ## Download a blob
 

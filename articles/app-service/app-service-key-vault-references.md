@@ -11,6 +11,8 @@ ms.custom: AppServiceConnectivity
 
 # Use Key Vault references as app settings in Azure App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your App Service or Azure Functions apps. 
 
 [Azure Key Vault](../key-vault/general/overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a key vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need secret management capabilities, they should go into a key vault.

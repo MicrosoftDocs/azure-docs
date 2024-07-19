@@ -259,4 +259,4 @@ Administrators can check the profile folder has been created by following the st
 
 ## Next steps
 
-You can find more detailed information about concepts related to FSlogix Profile Container for Azure Files in [FSLogix Profile Container for Azure Files](fslogix-containers-azure-files.md).
+You can find more detailed information about concepts related to FSlogix profile container in [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).

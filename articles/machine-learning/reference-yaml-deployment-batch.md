@@ -10,9 +10,9 @@ ms.custom:
   - cliv2
   - ignite-2023
   - update-code
-ms.reviewer: mopeakande
-author: santiagxf
-ms.author: fasantia
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 11/15/2023
 ---
 

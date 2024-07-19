@@ -67,7 +67,7 @@ If your cluster has PodDisruptionBudgets that are preventing the deletion of the
 * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
 * [Disruptions][disruptions]
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Register or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 

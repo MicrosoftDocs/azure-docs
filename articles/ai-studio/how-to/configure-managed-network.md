@@ -4,12 +4,10 @@ titleSuffix: Azure AI Studio
 description: Learn how to configure a managed network for Azure AI Studio hubs.
 manager: scottpolly
 ms.service: azure-ai-studio
-ms.custom:
-  - ignite-2023
-  - build-2024
+ms.custom: ignite-2023, build-2024, devx-track-azurecli
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: jhirono
+ms.reviewer: meerakurup 
 ms.author: larryfr
 author: Blackmist
 zone_pivot_groups: azure-ai-studio-sdk-cli
@@ -17,7 +15,7 @@ zone_pivot_groups: azure-ai-studio-sdk-cli
 
 # How to configure a managed network for Azure AI Studio hubs
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 We have two network isolation aspects. One is the network isolation to access an Azure AI Studio hub. Another is the network isolation of computing resources for both your hub and project (such as compute instance, serverless and managed online endpoint.) This document explains the latter highlighted in the diagram. You can use hub built-in network isolation to protect your computing resources.
 
@@ -149,6 +147,7 @@ Before following the steps in this article, make sure you have the following pre
 * The managed virtual network is deleted when the Azure AI is deleted. 
 * Data exfiltration protection is automatically enabled for the only approved outbound mode. If you add other outbound rules, such as to FQDNs, Microsoft can't guarantee that you're protected from data exfiltration to those outbound destinations.
 * Using FQDN outbound rules increases the cost of the managed virtual network because FQDN rules use Azure Firewall. For more information, see [Pricing](#pricing).
+* FQDN outbound rules only support ports 80 and 443.
 * When using a compute instance with a managed network, use the `az ml compute connect-ssh` command to connect to the compute using SSH.
 
 ### Connectivity to other services
@@ -248,7 +247,7 @@ You can configure a managed virtual network using either the `az ml workspace cr
 
 * __Update an existing hub__:
 
-    [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example updates an existing hub. The `--managed-network allow_internet_outbound` parameter configures a managed virtual network for the hub:
 
@@ -467,7 +466,7 @@ You can configure a managed virtual network using either the `az ml workspace cr
 
 * __Update an existing hub__
 
-    [!INCLUDE [managed-vnet-update](../../machine-learning/includes/managed-vnet-update.md)]
+    [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed virtual network for an existing hub:
 
@@ -730,7 +729,7 @@ __Inbound__ service tag rules:
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
 > [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing.For more information, see [Pricing](#pricing).
+> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 > [!NOTE]
 > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.

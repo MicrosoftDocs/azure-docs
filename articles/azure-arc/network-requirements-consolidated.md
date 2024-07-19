@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 05/22/2024
+ms.date: 06/25/2024
 ms.topic: reference
 ---
 
@@ -58,6 +58,14 @@ This section describes additional networking requirements specific to deploying 
 
 For more information, see [Azure Arc resource bridge network requirements](resource-bridge/network-requirements.md).
 
+## Azure Arc-enabled VMware vSphere
+
+Azure Arc-enabled VMware vSphere also requires:
+
+[!INCLUDE [network-requirements](vmware-vsphere/includes/network-requirements.md)]
+
+For more information, see [Support matrix for Azure Arc-enabled VMware vSphere](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
+
 ## Azure Arc-enabled System Center Virtual Machine Manager
 
 Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
@@ -67,16 +75,6 @@ Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
 | SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 
 For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md).
-
-## Azure Arc-enabled VMware vSphere
-
-Azure Arc-enabled VMware vSphere also requires:
-
-| **Service** | **Port** | **URL** | **Direction** | **Notes**|
-| --- | --- | --- | --- | --- |
-| vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
-
-For more information, see [Support matrix for Azure Arc-enabled VMware vSphere](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
 
 ## Additional endpoints
 

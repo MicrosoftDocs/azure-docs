@@ -16,7 +16,7 @@ author: eric-urban
 
 # Quickstart: Hear and speak with chat models in the AI Studio chat playground
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Give your app the ability to hear and speak by pairing Azure OpenAI Service with Azure AI Speech to enable richer interactions.
 
