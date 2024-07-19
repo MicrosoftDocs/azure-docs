@@ -1,6 +1,6 @@
 ---
 title: Azure networking services overview
-description: Learn about networking services in Azure, including networking foundation, load balancing and content delivery, hybrid connectivity, and network security services.
+description: Learn about the various networking services in Azure, including networking foundation, load balancing and content delivery, hybrid connectivity, and network security services.
 services: networking
 author: mbender-ms
 ms.service: virtual-network
@@ -12,23 +12,23 @@ ms.custom: template-concept, engagement-fy23
 
 # Azure networking services overview
 
-The networking services in Azure provide various networking capabilities that can be used together or separately. Select any of the following networking scenarios to learn more about them:
+The networking services in Azure provide various networking capabilities that can be used together or separately. Select each of the following networking scenarios to learn more about them:
 
 - [**Networking foundation**](#foundation): Azure networking foundation services provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Virtual Network Manager, Azure Bastion, Route Server, NAT Gateway, Traffic Manager, Azure Network Watcher, and Azure Monitor.
-- [**Load balancing and content delivery**](#delivery): Azure load balancing and content delivery services allow for management, distribution and optimization to your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
-- [**Hybrid connectivity**](#hybrid): Azure hybrid connectivity services secures communication to your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
-- [**Network security**](#security): Azure network security services protects your web applications and IaaS services from DDoS attacks and malicious actors - Network Security Center, Firewall, Web Application Firewall, and DDoS Protection.
+- [**Load balancing and content delivery**](#delivery): Azure load balancing and content delivery services allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
+- [**Hybrid connectivity**](#hybrid): Azure hybrid connectivity services secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+- [**Network security**](#security): Azure network security services protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
 
 ## <a name="foundation"></a>Networking foundation
  
-This section describes services that provides the building blocks for designing and architecting a network environment in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Virtual Network Manager, Azure Bastion, Route Server, NAT Gateway, Traffic Manager, Azure Network Watcher, and Azure Monitor.
+This section describes services that provide the building blocks for designing and architecting a network environment in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Virtual Network Manager, Azure Bastion, Route Server, NAT Gateway, Traffic Manager, Azure Network Watcher, and Azure Monitor.
 
 ### <a name="vnet"></a>Virtual network
 
 [Azure Virtual Network (VNet)](../../virtual-network/virtual-networks-overview.md) is the fundamental building block for your private network in Azure. You can use VNets to:
 - **Communicate between Azure resources**: You can deploy virtual machines, and several other types of Azure resources to a virtual network, such as Azure App Service Environments, the Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy into a virtual network, see [Virtual network service integration](../../virtual-network/virtual-network-for-azure-services.md).
 - **Communicate between each other**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering or Azure Virtual Network Manager. The virtual networks you connect can be in the same, or different, Azure regions. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) and [Azure Virtual Network Manager](../../virtual-network-manager/overview.md).
-- **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/ip-services/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
+- **Communicate to the internet**: All resources in a virtual network can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](../../virtual-network/ip-services/virtual-network-public-ip-address.md) or public [Load Balancer](../../load-balancer/load-balancer-overview.md) to manage your outbound connections.
 - **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../../expressroute/expressroute-introduction.md).
 - **Encrypt traffic between resources**: You can use [Virtual network encryption](../../virtual-network/virtual-network-encryption-overview.md) to encrypt traffic between resources in a virtual network.
 
@@ -38,7 +38,7 @@ You can filter network traffic to and from Azure resources in an Azure virtual n
 
 #### <a name="serviceendpoints"></a>Service endpoints
 
-[Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
+[Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your virtual network to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
 
 :::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Virtual network service endpoints":::
 
@@ -66,7 +66,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 ### <a name="bastion"></a>Azure Bastion
 
-[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy to let you connect to a virtual machine using your browser and the Azure portal, or via the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. There are a variety of different SKU/tiers available for Azure Bastion. The tier you select affects the features that are available. For more information, see [About Bastion configuration settings](../../bastion/configuration-settings.md).
+[Azure Bastion](../../bastion/bastion-overview.md) is a service that you can deploy in a virtual network to allow you to connect to a virtual machine using your browser and the Azure portal. You can also connect using the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. There are various different SKU/tiers available for Azure Bastion. The tier you select affects the features that are available. For more information, see [About Bastion configuration settings](../../bastion/configuration-settings.md).
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
@@ -83,7 +83,7 @@ For more information, see [What is Azure NAT gateway](../../virtual-network/nat-
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
-[Azure Traffic Manager](../../traffic-manager/traffic-manager-routing-methods.md). is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Traffic Manager provides a range of traffic-routing methods to distribute traffic such as priority, weighted, performance, geographic, multi-value, or subnet.
+[Azure Traffic Manager](../../traffic-manager/traffic-manager-routing-methods.md) is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Traffic Manager provides a range of traffic-routing methods to distribute traffic such as priority, weighted, performance, geographic, multi-value, or subnet.
 
 The following diagram shows endpoint priority-based routing with Traffic Manager:
 
@@ -129,7 +129,7 @@ The following diagram shows url path-based routing with Application Gateway.
 
 ## <a name="hyhrid"></a>Hybrid connectivity
 
-This section describes network connectivity services that provides a secure communication between your on-premises network and Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+This section describes network connectivity services that provide a secure communication between your on-premises network and Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
 
 ### <a name="vpngateway"></a>VPN Gateway
 
@@ -171,13 +171,13 @@ This section describes networking services in Azure that help protect your netwo
 
 ## <a name="security"></a>Network security
 
-This section describes networking services in Azure that protects and monitor your network resources - 
+This section describes networking services in Azure that protects and monitor your network resources - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
 
 ### <a name="security-center"></a>Firewall Manager
 
-[Azure Firewall Manager](../../firewall-manager/overview.md) is a security management service that provides central security policy and routing management for cloud based security perimeters. Firewall manager can provide security management for two different types of network architecture: secure virtual hub and hub virtual network. With Azure Firewall Manager, you can deploy multiple Azure Firewall instances across Azure regions and subscriptions, implement DDoS protection plans, manage web application firewall policies and integrate with partner security-as-a-service for enhanced security.
+[Azure Firewall Manager](../../firewall-manager/overview.md) is a security management service that provides central security policy and routing management for cloud based security perimeters. Firewall manager can provide security management for two different types of network architecture: secure virtual hub and hub virtual network. With Azure Firewall Manager, you can deploy multiple Azure Firewall instances across Azure regions and subscriptions, implement DDoS protection plans, manage web application firewall policies, and integrate with partner security-as-a-service for enhanced security.
 
-:::image type="content" source="./media/overview/trusted-security-partners.png" alt-text="Diagram of managment of muliple Azure Firewall in a secure virtual hub and hub virtual network.":::
+:::image type="content" source="./media/networking-overview/trusted-security-partners.png" alt-text="Diagram of multiple Azure Firewalls in a secure virtual hub and hub virtual network.":::
 
 ### <a name="firewall"></a>Azure Firewall
 
@@ -187,7 +187,7 @@ This section describes networking services in Azure that protects and monitor yo
 
 ### <a name="waf"></a>Web Application Firewall
 
-[Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide extra protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
+[Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide extra protection based on source IP range, and request attributes such as headers, cookies, form data fields, or query string parameters.
 
 Customers can choose to deploy [Azure WAF with Application Gateway](../../web-application-firewall/ag/ag-overview.md), which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../../web-application-firewall/afds/afds-overview.md) which provides protection at the network edge to public endpoints.
 
@@ -200,7 +200,7 @@ Customers can choose to deploy [Azure WAF with Application Gateway](../../web-ap
 Azure DDoS Protection consists of two tiers:
 
 - [DDoS Network Protection](../../ddos-protection/ddos-protection-overview.md#ddos-network-protection), combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network.
-- [DDoS IP Protection](../../ddos-protection/ddos-protection-overview.md#ddos-ip-protection) is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but will differ in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
+- [DDoS IP Protection](../../ddos-protection/ddos-protection-overview.md#ddos-ip-protection) is a pay-per-protected IP model. DDoS IP Protection contains the same core engineering features as DDoS Network Protection, but differs in the following value-added services: DDoS rapid response support, cost protection, and discounts on WAF.
 
 :::image type="content" source="./media/networking-overview/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for a DDoS protected PaaS web application.":::
 
