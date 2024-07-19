@@ -67,7 +67,7 @@ Cons:
 
 Although Option 1 might be easier, it has notable drawbacks as mentioned above. If an API Management instance doesn't reside in the cluster VNet, Mutual TLS authentication (mTLS) is a robust way of ensuring the traffic is secure and trusted in both directions between an API Management instance and an AKS cluster. 
 
-Mutual TLS authentication is [natively supported](./api-management-howto-mutual-certificates.md) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](../aks/ingress-own-tls.md) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the allowed list by Ingress to make sure only API Management has access to the cluster.  
+Mutual TLS authentication is [natively supported](./api-management-howto-mutual-certificates.md) by API Management and can be enabled in Kubernetes by [installing an Ingress Controller](../aks/ingress-own-tls.md) (Fig. 3). As a result, authentication will be performed in the Ingress Controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the allowed list by Ingress to make sure only API Management has access to the cluster. If API Management [Premium Tier](./api-management-using-with-internal-vnet.md) or [Standard V2](./integrate-vnet-outbound.md) tier is used, network level isolation can be achieved. 
 
  
 ![Publish via an ingress controller](./media/api-management-aks/ingress-controller.png)
@@ -80,7 +80,7 @@ Pros:
 
 Cons:
 * Increases complexity of cluster configuration due to extra work to install, configure and maintain the Ingress Controller and manage certificates used for mTLS
-* Security risk due to public visibility of Ingress Controller endpoint(s)
+* Security risk due to public visibility of Ingress Controller endpoint(s) unless API Management Standard v2 or Premium tier is being used. 
 
 
 When you publish APIs through API Management, it's easy and common to secure access to those APIs by using subscription keys. Developers who need to consume the published APIs must include a valid subscription key in HTTP requests when they make calls to those APIs. Otherwise, the calls are rejected immediately by the API Management gateway. They aren't forwarded to the back-end services.
