@@ -17,7 +17,7 @@ ms.date: 07/19/2024
 > [!IMPORTANT]
 > The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. This wizard chunks your content and calls a user-specified embedding model to vectorize content during indexing and for queries.
+This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
 
 Key points about the wizard:
 
@@ -88,7 +88,7 @@ The wizard supports semantic ranking, but only on the Basic tier and higher, and
 
 This section points you to data that works for this quickstart.
 
-### [Azure Storage](#tab/sample-data-storage)
+### [Azure Blob storage](#tab/sample-data-storage)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Storage account.
 
@@ -200,7 +200,7 @@ The wizard supports Azure, Cohere, and Facebook embedding models in the Azure AI
 
 The next step is to connect to a data source to use for the search index.
 
-### [Azure Storage](#tab/connect-data-storage)
+### [Azure Blob storage](#tab/connect-data-storage)
 
 1. On the **Set up your data connection** page, select **Azure Blob Storage**.
 
