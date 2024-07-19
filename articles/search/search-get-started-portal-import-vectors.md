@@ -19,9 +19,9 @@ ms.date: 07/19/2024
 
 This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. This wizard chunks your content and calls a user-specified embedding model to vectorize content during indexing and for queries.
 
-## Preview limitations
+Key points about the wizard:
 
-+ Source data is either Azure Blob Storage or OneLake files and shortcuts
++ Source data is either Azure Blob Storage or OneLake files and shortcuts.
 + Document parsing mode is nonconfigurable. It's the default parsing mode (one search document per blob or file).
 + Index schema is nonconfigurable. The schema provides vector and nonvector fields for chunked data.
 + Chunking is nonconfigurable. The effective settings are:
