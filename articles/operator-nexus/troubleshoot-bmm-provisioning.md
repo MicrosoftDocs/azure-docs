@@ -4,7 +4,7 @@ description: Troubleshoot BMM provisioning for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 07/08/2024
+ms.date: 07/19/2024
 author: bpinto
 ms.author: bpinto
 ---
@@ -15,13 +15,13 @@ As part of cluster deploy action, bare metal machines (BMM) are provisioned with
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md)
-2. Gather the following information:
+2. Collect the following information:
    - Subscription ID (SUBSCRIPTION)
    - Cluster name (CLUSTER)
    - Resource group (CLUSTER_RG)
    - Managed resource group (CLUSTER_MRG)
-3. The user needs access to the subscription to run Azure Operator Nexus network fabric (NF) and network cloud (NC) CLI extension commands
-4. Log in to Azure CLI and select the subscription where the cluster is deployed
+3. Request subscription access to run Azure Operator Nexus network fabric (NF) and network cloud (NC) CLI extension commands.
+4. Log in to Azure CLI and select the subscription where the cluster is deployed.
 
 ## BMM roles
 For a given SKU, there are required roles to manage and operate the underlying kubernetes cluster.
@@ -49,16 +49,16 @@ Where `STATUS` goes through the following phases through the BMM provisioning pr
 
 These phases are defined as follows:
 
-| Phase | Definition |
+| Phase | Actions |
 | --- | --- |
-| `Registering` | Verify BMC connectivity and BMC credentials, add BMM to provisioning service |
-| `Preparing` | Reboot BMM, reset BMC, verify power state |
-| `Inspecting` | Update firmware, apply BIOS settings, and configure storage |
-| `Available` | BMM ready to install OS |
-| `Provisioning` | OS image installing on the BMM and attempts to join cluster |
-| `Provisioned` | BMM successfully provisioned and joined to cluster |
-| `Deprovisioning` | BMM provisioning failed and retrying |
-| `Failed` | BMM provisioning failed and requires recovery action, all retries exhausted |
+| `Registering` | Verifying BMC connectivity/BMC credentials and adding BMM to provisioning service. |
+| `Preparing` | Rebooting BMM, resetting BMC, and verifying power state. |
+| `Inspecting` | Updating firmware, applying BIOS settings, and configuring storage. |
+| `Available` | BMM is ready to install OS. |
+| `Provisioning` | OS image installing on the BMM. BMM will attempt to join cluster. |
+| `Provisioned` | BMM successfully provisioned and joined to cluster. |
+| `Deprovisioning` | BMM provisioning failed. Provisioning service is cleaning up resource for retry. |
+| `Failed` | BMM provisioning failed and requires recovery action. All retries exhausted. |
 
 During any phase, the BMM detailed status is set to failed and the phase is blocked if any of the following occurs:
 - BMC is unavailable
@@ -79,13 +79,13 @@ Where the output is defined as follows:
 | Output | Definition |
 | --- | --- |
 | BMM_NAME | BMM name |
-| RSTATE | Cluster participation status (`True`,`False`) |
-| PROV_STATE | Provisioning state (`Succeeded`,`Failed`) |
-| STATUS | Provisioning detailed status (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`) |
-| STATUS_MSG | Detailed provisioning status message |
-| POWER_STATE | Power state of BMM (`On`,`Off`) |
-| BMM_ROLE | BMM cluster role contains (`control-plane`,`management-plane`,`compute-plane`) |
-| CREATE_DATE | BMM creation date |
+| RSTATE | Cluster participation status (`True`,`False`). |
+| PROV_STATE | Provisioning state (`Succeeded`,`Failed`). |
+| STATUS | Provisioning detailed status (`Registering`,`Preparing`,`Inspecting`,`Available`,`Provisioning`,`Provisioned`,`Deprovisioning`,`Failed`). |
+| STATUS_MSG | Detailed provisioning status message. |
+| POWER_STATE | Power state of BMM (`On`,`Off`). |
+| BMM_ROLE | BMM cluster role (`control-plane`,`management-plane`,`compute-plane`). |
+| CREATE_DATE | BMM creation date. |
 
 For example:
 ```azurecli
@@ -98,7 +98,7 @@ To show details and status of a single BMM:
 ```azurecli
 az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME
 ```
-For additional BMM details used in troubleshooting:
+For BMM details specific to troubleshooting:
 ```azurecli
 az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,Connect:bmcConnectionString,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" -o table
 ```
@@ -109,17 +109,17 @@ The following conditions can cause provisioning failures:
 
 | Error Type | Resolution |
 | ---------- | ---------- |
-| BMC shows `Backplane Comm` critical error | Remote flea drain, physical flea drain, BMM replace action |
-| Boot network data response empty from BMC | Bounce port on fabric device, remote flea drain, physical flea drain, BMM replace action |
-| Disk data response empty from BMC | Reseat disk, re-seat storage controller, remote flea drain, physical flea drain, BMM replace action |
-| BMC unreachable | Bounce port on fabric device, reseat cable, remote flea drain, physical flea drain, BMM replace action |
-| BMC fails log in | Update credentials on BMC, BMM replace action |
-| DIMM, CPU, OEM critical errors | Resolve hardware issue, BMM replace action |
-| Console stuck at grub menu | Reset NVRAM, BMM replace action |
+| BMC shows `Backplane Comm` critical error | Remote flea drain; Physical flea drain; BMM replace action. |
+| Boot network data response empty from BMC | Bounce port on fabric device; Remote flea drain; Physical flea drain; BMM replace action |
+| Disk data response empty from BMC | Reseat disk; Reseat storage controller; Remote flea drain; Physical flea drain; BMM replace action |
+| BMC unreachable | Bounce port on fabric device; Reseat cable; Remote flea drain, Physical flea drain; BMM replace action |
+| BMC fails log in | Update credentials on BMC; BMM replace action |
+| Memory, CPU, OEM critical errors | Resolve hardware issue; BMM replace action |
+| Console stuck at grub menu | Reset NVRAM; BMM replace action |
 
 ### Azure BMM activity log
 
-1. Log in to [Azure Portal](https://portal.azure.com/).
+1. Log in to [Azure portal](https://portal.azure.com/).
 2. Search on the BMM name in the top `Search` box.
 3. Select the `Bare Metal Machine (Operator Nexus)` from the search results.
 4. Select `Activity log` on the left side menu.
@@ -168,11 +168,11 @@ Attempt to run ping against the BMC IPv4 address:
    ```
 
 ### Reset port on fabric device
-If the BMC_IP is not responsive, a reset of the fabric device port retriggers autonegotiation on the port and may bring it back online.
+If the BMC_IP isn't responsive, a reset of the fabric device port retriggers autonegotiation on the port and may bring it back online.
 
 To find the `Network Fabric` port from Azure:
 1. Obtain the `RackID` and `RackSlot` from the previous `BMM Details` section.
-2. In `Azure Portal`, drill down to the `Network Rack` RackID for the BMM.
+2. In Azure portal, drill down to the `Network Rack` RackID for the BMM.
 3. Select `Network Devices` tab and the management (Mgmt) switch for the rack.
 4. Under `Resources`, select `Network Interfaces` and then the BMC (iDRAC) or boot (PXE) interface for the port that requires reset.
 
