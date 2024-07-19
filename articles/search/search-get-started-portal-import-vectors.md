@@ -32,8 +32,6 @@ Key points about the wizard:
   pageOverlapLength: 500
   ```
 
-For more configuration and data source options, try a code-based approach. For more information, see the [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
-
 ## Prerequisites
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
