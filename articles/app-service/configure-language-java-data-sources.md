@@ -1,6 +1,6 @@
 ---
 title: Configure data sources for Tomcat, JBoss, or Java SE apps
-description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service. You'll find instructions for native Windows and Linux container variants.
+description: Learn how to configure data sources for Tomcat, JBoss, or Java SE apps on Azure App Service, including native Windows and Linux container variants.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
 ms.topic: article
@@ -17,6 +17,8 @@ ms.author: cephalin
 This article shows how to configure data sources in a Java SE, Tomcat, or JBoss app in App Service.
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
+
+## Configure the data source
 
 ::: zone pivot="java-javase"
 
@@ -189,7 +191,7 @@ This PowerShell completes the following steps:
 
 A common use case for customizing the built-in Tomcat installation is to modify the `server.xml`, `context.xml`, or `web.xml` Tomcat configuration files. App Service already modifies these files to provide platform features. To continue to use these features, it's important to preserve the content of these files when you make changes to them. To accomplish this, use an [XSL transformation (XSLT)](https://www.w3schools.com/xml/xsl_intro.asp).
 
-Add an XSL transform file called *configure.ps1* to the *%HOME%_\site* directory. You can use the following XSL transform code to add a new connector node to `server.xml`. Note the *Identity Transform*, which preserves the original contents of the file.
+Add an XSL transform file called *configure.ps1* to the *%HOME%_\site* directory. You can use the following XSL transform code to add a new connector node to `server.xml`. The *identity transform* at the beginning  preserves the original contents of the configuration file.
 
 ```xml
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">

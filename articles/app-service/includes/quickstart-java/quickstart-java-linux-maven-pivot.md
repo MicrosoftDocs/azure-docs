@@ -94,7 +94,7 @@ cd petstore-ee7
 mvn clean install
 ```
 
-If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't making any commits, detached HEAD state is appropriate.
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you won't make any commits, detached HEAD state is appropriate.
 
 ---
 

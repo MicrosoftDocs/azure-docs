@@ -57,7 +57,7 @@ Code that is written in any language or framework can get the information that i
 | `name_typ` | string           | The name claim type, which is typically a URI providing scheme information about the `name` claim if one is defined. |
 | `role_typ` | string           | The role claim type, which is typically a URI providing scheme information about the `role` claim if one is defined. |
 
-To process this header, your app needs to decode the payload and iterate through the `claims` array to find the claims of interest. It it be convenient to convert them into a representation used by the app's language framework. Here's an example of this process in C# that constructs a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
+To process this header, your app needs to decode the payload and iterate through the `claims` array to find the claims of interest. It might be convenient to convert them into a representation used by the app's language framework. Here's an example of this process in C# that constructs a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
 
 ```csharp
 using System;
