@@ -41,11 +41,7 @@ Availability zones are supported with Standard logic app workflows, which run in
 
 ### [Consumption](#tab/consumption)
 
-Availability zones are supported with Consumption logic app workflows, which run in multitenant Azure Logic Apps with the following considerations:
-
-* This capability is automatically enabled for *new* Consumption logic app workflows in [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
-
-* Since mid-May 2022, the Azure Logic Apps team has been enabling availability zones for existing Consumption logic app workflows, several Azure regions at a time, in [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+Availability zones are supported with Consumption logic app workflows, which run in multitenant Azure Logic Apps. This capability is automatically enabled for new and existing Consumption logic app workflows in [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
 ---
 
