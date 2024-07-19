@@ -53,8 +53,6 @@ The following methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) 
 
 - [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#BlobClient.StartCopyFromURL)
 
-The `start_copy_from_url` returns a dictionary containing *copy_status* and *copy_id*. The *copy_status* property is **success** if the copy completed synchronously or **pending** if the copy has been started asynchronously.
-
 ## Copy a blob from a source within Azure
 
 If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID (recommended), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
