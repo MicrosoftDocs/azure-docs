@@ -127,7 +127,7 @@ The following diagram shows url path-based routing with Application Gateway.
 
 :::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door service with Web Application Firewall.":::
 
-## <a name="hyhrid"></a>Hybrid connectivity
+## <a name="hybrid"></a>Hybrid connectivity
 
 This section describes network connectivity services that provide a secure communication between your on-premises network and Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
 
