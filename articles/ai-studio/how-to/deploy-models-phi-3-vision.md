@@ -1,7 +1,7 @@
 ---
-title: How to use Phi-3 family of language models with AzureAIstudio
-titleSuffix: AzureAIstudio
-description: Learn how to use Phi-3 family of small language models with AzureAIstudio.
+title: How to use Phi-3 chat models with vision with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Phi-3 chat models with vision with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Phi-3 family of language models with AzureAIstudio
+# How to use Phi-3 family of language models with Azure AI studio
 
-In this guide, you learn about Phi-3 models and how to use them with AzureAIstudio.
+In this guide, you learn about Phi-3 models and how to use them with Azure AI studio.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
 
@@ -26,16 +26,16 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ## Prerequisites
 
-To use Phi-3 models with AzureAIstudio, you need the following prerequisites:
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 > [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. You can always use our temporary quota access to that allows you to host an endpoint for 7 days.
+> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -55,7 +55,7 @@ pip install azure-ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -185,7 +185,7 @@ When you use streaming, responses look as follows:
 print_stream(result)
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -231,46 +231,7 @@ response = model.complete(
 )
 ```
 
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```python
-from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
-
-try:
-    response = model.complete(
-        messages=[
-            SystemMessage(content="You are an AI assistant that helps people find information."),
-            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
-        ]
-    )
-
-    print(response.choices[0].message.content)
-
-except HttpResponseError as ex:
-    if ex.status_code == 400:
-        response = json.loads(ex.response._content.decode('utf-8'))
-        if isinstance(response, dict) and "error" in response:
-            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
-        else:
-            raise ex
-    else:
-        raise ex
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
-
-## Working with images
+## Chat completions with images
 
 Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
@@ -346,16 +307,16 @@ print("usage:", response.usage)
 
 ## Prerequisites
 
-To use Phi-3 models with AzureAIstudio, you need the following prerequisites:
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 > [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. You can always use our temporary quota access to that allows you to host an endpoint for 7 days.
+> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -375,7 +336,7 @@ npm install @azure-rest/ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -515,7 +476,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -568,51 +529,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```javascript
-try {
-    var messages = [
-        { role: "system", content: "You are an AI assistant that helps people find information." },
-        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
-    ]
-
-    var response = await client.path("/chat/completions").post({
-        body: {
-            messages: messages,
-        }
-    });
-    
-    console.log(response.body.choices[0].message.content)
-}
-catch (error) {
-    if (error.status_code == 400) {
-        var response = JSON.parse(error.response._content)
-        if (response.error) {
-            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
-        }
-        else
-        {
-            throw error
-        }
-    }
-}
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
-
-## Working with images
+## Chat completions with images
 
 Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
@@ -694,16 +611,16 @@ console.log("usage:", response.body.usage)
 
 ## Prerequisites
 
-To use Phi-3 models with AzureAIstudio, you need the following prerequisites:
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 > [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. You can always use our temporary quota access to that allows you to host an endpoint for 7 days.
+> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -711,12 +628,12 @@ To use Phi-3 models with AzureAIstudio, you need the following prerequisites:
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -880,7 +797,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -934,57 +851,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 }
 ```
 
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are an AI assistant that helps people find information."
-        },
-                {
-            "role": "user",
-            "content": "What's Azure?"
-        },
-                {
-            "role": "assistant",
-            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
-        },
-        {
-            "role": "user",
-            "content": "How to make a lethal bomb?"
-        }
-    ]
-}
-```
-
-```json
-{
-    "error": {
-        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
-        "type": null,
-        "param": "prompt",
-        "code": "content_filter",
-        "status": 400
-    }
-}
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
-
-## Working with images
+## Chat completions with images
 
 Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
@@ -1065,6 +932,14 @@ The response looks as follows, where you can see the model's usage statistics:
 ::: zone-end
 
 ## Cost and quotas
+
+### Cost and quota considerations for Phi-3 family of models deployed to managed compute
+
+Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the duration it is running.
+
+We recommend starting with a low number of instances and scaling up as needed. You can monitor the cost of the compute instance in the Azure portal.
+
+
 
 ## Additional resources
 

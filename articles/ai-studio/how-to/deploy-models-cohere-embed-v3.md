@@ -1,7 +1,7 @@
 ---
-title: How to use Cohere Command embedding models with AzureAIstudio
-titleSuffix: AzureAIstudio
-description: Learn how to use Cohere Command embeddings models with AzureAIstudio.
+title: How to use Cohere Command embedding models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Cohere Command embeddings models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Cohere Command embedding models with AzureAIstudio
+# How to use Cohere Command embedding models with Azure AI studio
 
-In this guide, you learn about Cohere Command models and how to use them with AzureAIstudio.
+In this guide, you learn about Cohere Command models and how to use them with Azure AI studio.
 The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
 
 
@@ -30,7 +30,7 @@ The Cohere Command family of models for embeddings includes the following models
 
 
 
-# [Cohere Embed v3 - English](#tab/cohere-command-r)
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
@@ -40,7 +40,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 
 
-# [Cohere Embed v3 - Multilingual](#tab/cohere-command-r)
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
 Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
@@ -56,13 +56,13 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with AzureAIstudio, you need the following prerequisites:
+To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -132,7 +132,7 @@ response = model.embed(
 ```
 
 > [!TIP]
-> The context window for {$model_name} is {$capabilities.context_window}. Make sure to not exceed this limit when creating embeddings.
+> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -178,13 +178,13 @@ print("Usage:", response.usage)
 ```
 
 > [!TIP]
-> {$model_name} can take batches of {$capabilities.batch_size} at a time. When creating batches make sure to not exceed this limit.
+> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-{$model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -212,7 +212,7 @@ response = model.embed(
 )
 ```
 
-{$model_name} can optimize the embeddings based on the intention of it.
+${model_name} can optimize the embeddings based on the intention of it.
 
 
 
@@ -227,7 +227,7 @@ The Cohere Command family of models for embeddings includes the following models
 
 
 
-# [Cohere Embed v3 - English](#tab/cohere-command-r)
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
@@ -237,7 +237,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 
 
-# [Cohere Embed v3 - Multilingual](#tab/cohere-command-r)
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
 Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
@@ -253,13 +253,13 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with AzureAIstudio, you need the following prerequisites:
+To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -271,7 +271,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-nce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+nce you have these prerequisites, install the Azure ModelClient REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -339,7 +339,7 @@ var response = await client.path("/embeddings").post({
 ```
 
 > [!TIP]
-> The context window for {$model_name} is {$capabilities.context_window}. Make sure to not exceed this limit when creating embeddings.
+> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -387,13 +387,13 @@ console.log(response.body.usage);
 ```
 
 > [!TIP]
-> {$model_name} can take batches of {$capabilities.batch_size} at a time. When creating batches make sure to not exceed this limit.
+> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-{$model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -421,7 +421,7 @@ var response = await client.path("/embeddings").post({
 });
 ```
 
-{$model_name} can optimize the embeddings based on the intention of it.
+${model_name} can optimize the embeddings based on the intention of it.
 
 
 
@@ -436,7 +436,7 @@ The Cohere Command family of models for embeddings includes the following models
 
 
 
-# [Cohere Embed v3 - English](#tab/cohere-command-r)
+# [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
 Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
@@ -446,7 +446,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 
 
-# [Cohere Embed v3 - Multilingual](#tab/cohere-command-r)
+# [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
 Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
@@ -462,13 +462,13 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with AzureAIstudio, you need the following prerequisites:
+To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -476,7 +476,7 @@ To use Cohere Command models with AzureAIstudio, you need the following prerequi
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
 
@@ -526,7 +526,7 @@ Create an embedding request to see the output of the model.
 ```
 
 > [!TIP]
-> The context window for {$model_name} is {$capabilities.context_window}. Make sure to not exceed this limit when creating embeddings.
+> The context window for ${model_name} is 512. Make sure to not exceed this limit when creating embeddings.
 
 
 
@@ -615,13 +615,13 @@ The response is as follows, where you can see the model's usage statistics:
 ```
 
 > [!TIP]
-> {$model_name} can take batches of {$capabilities.batch_size} at a time. When creating batches make sure to not exceed this limit.
+> ${model_name} can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 
 
 #### Embedding's types
 
-{$model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+${model_name} can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -649,7 +649,7 @@ When working on a query to retrieve such document, you can use the following cod
 }
 ```
 
-{$model_name} can optimize the embeddings based on the intention of it.
+${model_name} can optimize the embeddings based on the intention of it.
 
 
 

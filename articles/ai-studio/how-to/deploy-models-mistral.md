@@ -1,7 +1,7 @@
 ---
-title: How to use Mistral family of language models with AzureAIstudio
-titleSuffix: AzureAIstudio
-description: Learn how to use Mistral family of small language models with AzureAIstudio.
+title: How to use Mistral premium chat models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Mistral premium chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Mistral family of language models with AzureAIstudio
+# How to use Mistral family of language models with Azure AI studio
 
-In this guide, you learn about Mistral models and how to use them with AzureAIstudio.
+In this guide, you learn about Mistral models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
@@ -72,13 +72,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -103,7 +103,7 @@ pip install azure-ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -213,7 +213,7 @@ When you use streaming, responses look as follows:
 print_stream(result)
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -238,7 +238,7 @@ response = model.complete(
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
 
 
 
@@ -434,7 +434,7 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -525,13 +525,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -556,7 +556,7 @@ npm install @azure-rest/ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -676,7 +676,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -703,7 +703,7 @@ var response = await client.path("/chat/completions").post({
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
 
 
 
@@ -902,7 +902,7 @@ var result = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -998,13 +998,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -1012,7 +1012,7 @@ To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
 
@@ -1022,7 +1022,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -1177,7 +1177,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1206,7 +1206,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. When using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
 
 
 
@@ -1498,7 +1498,7 @@ Let's see the response from the model now:
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1550,20 +1550,20 @@ The following example shows how to handle events when the model detects harmful 
 
 ## More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
-|---------------=======-|----------------------------------------|
-| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
-| LangChain             | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
-| Mistral AI            | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
-| LiteLLM               | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) | 
+| **Sample Type**       | **Sample Notebook**                    |
+|-----------------------|----------------------------------------|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample) |
+| OpenAI SDK (experimental)                 | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)            |
+| LangChain                                 | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)     |
+| Mistral AI                                | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)     |
+| LiteLLM                                   | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample)         | 
 
 
 
 
 ## Cost and quotas
 
-### Cost and quota considerations for Mistral family of models deployed as a service
+### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
 
 Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 

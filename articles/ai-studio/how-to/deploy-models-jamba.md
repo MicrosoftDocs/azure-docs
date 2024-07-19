@@ -1,7 +1,7 @@
 ---
-title: How to use Jamba family of language models with AzureAIstudio
-titleSuffix: AzureAIstudio
-description: Learn how to use Jamba family of small language models with AzureAIstudio.
+title: How to use Jamba-Instruct chat models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Jamba-Instruct chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Jamba family of language models with AzureAIstudio
+# How to use Jamba family of language models with Azure AI studio
 
-In this guide, you learn about Jamba models and how to use them with AzureAIstudio.
+In this guide, you learn about Jamba models and how to use them with Azure AI studio.
 The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 > [!TIP]
@@ -29,13 +29,13 @@ The Jamba Instruct model is AI21's production-grade Mamba-based large language m
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jamba models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Jamba-Instruct chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -55,7 +55,7 @@ pip install azure-ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -165,7 +165,7 @@ When you use streaming, responses look as follows:
 print_stream(result)
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -213,7 +213,7 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -257,13 +257,13 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jamba models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Jamba-Instruct chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -283,7 +283,7 @@ npm install @azure-rest/ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -403,7 +403,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -458,7 +458,7 @@ var response = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -507,13 +507,13 @@ catch (error) {
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jamba models with Azure AI studio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
+Jamba-Instruct chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 
 
@@ -521,12 +521,12 @@ To use Jamba models with AzureAIstudio, you need the following prerequisites:
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -681,7 +681,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -737,7 +737,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -789,7 +789,7 @@ The following example shows how to handle events when the model detects harmful 
 
 ## Cost and quotas
 
-### Cost and quota considerations for Jamba family of models deployed as a service
+### Cost and quota considerations for Jamba family of models deployed as serverless API endpoints
 
 Jamba models deployed as a serverless API are offered by AI21 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 

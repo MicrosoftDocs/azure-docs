@@ -1,7 +1,7 @@
 ---
-title: How to use Mistral family of language models with AzureAIstudio
-titleSuffix: AzureAIstudio
-description: Learn how to use Mistral family of small language models with AzureAIstudio.
+title: How to use Mistral open chat models with Azure AI studio
+titleSuffix: Azure AI studio
+description: Learn how to use Mistral open chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Mistral family of language models with AzureAIstudio
+# How to use Mistral family of language models with Azure AI studio
 
-In this guide, you learn about Mistral models and how to use them with AzureAIstudio.
+In this guide, you learn about Mistral models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
@@ -82,7 +82,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
@@ -109,7 +109,7 @@ pip install azure-ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -224,7 +224,7 @@ When you use streaming, responses look as follows:
 print_stream(result)
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -269,45 +269,6 @@ response = model.complete(
     }
 )
 ```
-
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```python
-from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
-
-try:
-    response = model.complete(
-        messages=[
-            SystemMessage(content="You are an AI assistant that helps people find information."),
-            UserMessage(content="Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
-        ]
-    )
-
-    print(response.choices[0].message.content)
-
-except HttpResponseError as ex:
-    if ex.status_code == 400:
-        response = json.loads(ex.response._content.decode('utf-8'))
-        if isinstance(response, dict) and "error" in response:
-            print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
-        else:
-            raise ex
-    else:
-        raise ex
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
 
 ::: zone-end
 
@@ -373,7 +334,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
@@ -400,7 +361,7 @@ npm install @azure-rest/ai-inference
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -525,7 +486,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -577,50 +538,6 @@ var response = await client.path("/chat/completions").post({
     }
 });
 ```
-
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```javascript
-try {
-    var messages = [
-        { role: "system", content: "You are an AI assistant that helps people find information." },
-        { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
-    ]
-
-    var response = await client.path("/chat/completions").post({
-        body: {
-            messages: messages,
-        }
-    });
-    
-    console.log(response.body.choices[0].message.content)
-}
-catch (error) {
-    if (error.status_code == 400) {
-        var response = JSON.parse(error.response._content)
-        if (response.error) {
-            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
-        }
-        else
-        {
-            throw error
-        }
-    }
-}
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
 
 ::: zone-end
 
@@ -686,7 +603,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with AzureAIstudio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
 
 
@@ -696,7 +613,7 @@ To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form https://your-host-name.your-azure-region.inference.ai.azure.com, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
+* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
 * Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
 
 
@@ -706,7 +623,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 
 
-## Working with chat-completions
+## Chat completions
 
 The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
 
@@ -866,7 +783,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters supported by the Azure AI model inference API
+#### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -920,67 +837,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 }
 ```
 
-### Content safety
-
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
-
-
-
-The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
-
-
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are an AI assistant that helps people find information."
-        },
-                {
-            "role": "user",
-            "content": "What's Azure?"
-        },
-                {
-            "role": "assistant",
-            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
-        },
-        {
-            "role": "user",
-            "content": "How to make a lethal bomb?"
-        }
-    ]
-}
-```
-
-```json
-{
-    "error": {
-        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
-        "type": null,
-        "param": "prompt",
-        "code": "content_filter",
-        "status": 400
-    }
-}
-```
-
-> [!TIP]
-> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
-
-
-
 ::: zone-end
 
 ## More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
-|---------------=======-|----------------------------------------|
-| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample)|
-| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)                                    |
-| LangChain             | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)                                  |
-| Mistral AI            | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)                                  |
-| LiteLLM               | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample) | 
+| **Sample Type**       | **Sample Notebook**                    |
+|-----------------------|----------------------------------------|
+| CLI using CURL and Python web requests    | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample) |
+| OpenAI SDK (experimental)                 | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)            |
+| LangChain                                 | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)     |
+| Mistral AI                                | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)     |
+| LiteLLM                                   | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample)         | 
 
 
 

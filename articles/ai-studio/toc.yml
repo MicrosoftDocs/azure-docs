@@ -117,7 +117,7 @@ items:
         - name: Phi-3 chat models with vision
           href: how-to/deploy-models-phi-3-vision.md
     - name: JAIS model
-      href: how-to/deploy-jais-models.md
+      href: how-to/deploy-models-jais.md
     - name: Jamba model
       href: how-to/deploy-models-jamba.md
     - name: TimeGEN-1 model
