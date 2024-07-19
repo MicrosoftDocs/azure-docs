@@ -12,7 +12,7 @@ Learn how to use user-defined data types in Bicep. For system-defined data types
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
-## The syntax
+## Syntax
 
 You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
