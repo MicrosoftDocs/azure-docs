@@ -50,7 +50,7 @@ You can now migrate your existing Ubuntu node pools to Azure Linux by changing t
 
 There are several settings that can block the OS SKU migration request. To ensure a successful migration, review the following guidelines and limitations:
 
-* The OS SKU migration feature isn't available through PowerShell, or the Azure portal.
+* The OS SKU migration feature isn't available through PowerShell or the Azure portal.
 * The OS SKU migration feature isn't able to rename existing node pools.
 * Ubuntu and Azure Linux are the only supported Linux OS SKU migration targets.
 * AgentPool `count` field must not change during the migration.
