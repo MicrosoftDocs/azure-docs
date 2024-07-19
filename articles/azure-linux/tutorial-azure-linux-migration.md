@@ -53,7 +53,6 @@ There are several settings that can block the OS SKU migration request. To ensur
 * The OS SKU migration feature isn't available through PowerShell or the Azure portal.
 * The OS SKU migration feature isn't able to rename existing node pools.
 * Ubuntu and Azure Linux are the only supported Linux OS SKU migration targets.
-* AgentPool `count` field must not change during the migration.
 * An Ubuntu OS SKU with `UseGPUDedicatedVHD` enabled can't perform an OS SKU migration.
 * An Ubuntu OS SKU with CVM 20.04 enabled can't perform an OS SKU migration.
 * Node pools with Kata enabled can't perform an OS SKU migration.
