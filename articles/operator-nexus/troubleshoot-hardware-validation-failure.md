@@ -83,6 +83,44 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+* Serial Number Check Failure (Serial_Number)
+    * The server's serial number is defined in the cluster.
+    * Failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine.
+
+    ```json
+        {
+            "field_name": "Serial_Number",
+            "comparison_result": "Fail",
+            "expected": "1234567",
+            "fetched": "7654321"
+        }
+    ```
+
+* iDRAC License Check
+    * To enable necessary functionality all iDRACs require a perpetual/production iDRAC9 datacenter or enterprise license.
+    * Trial licenses are valid for only 30 days.
+    * Failed `iDRAC License Check` indicates that the required iDRAC license is missing.
+    * The following examples show a failed iDRAC license check for a trial license and missing license respectively.
+
+    ```json
+        {
+            "field_name": "iDRAC License Check",
+            "comparison_result": "Fail",
+            "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
+            "fetched": "iDRAC9 x5 Datacenter Trial License - Trial"
+        }
+    ```
+
+    ```json
+        {
+            "field_name": "iDRAC License Check",
+            "comparison_result": "Fail",
+            "expected": "idrac9 x5 datacenter license or idrac9 x5 enterprise license - perpetual or production",
+            "fetched": ""
+        }
+    ```
+
+
 ### Drive info category
 
 * Disk Check Failure
@@ -177,22 +215,22 @@ Expanding `result_detail` for a given category shows detailed results.
     ```json
         {
             "field_name": "NIC.Slot.3-1-1_SwitchConnectionID",
+            "comparison_result": "Info",
             "expected": "unknown",
-            "fetched": "c0:d6:82:23:0c:7d",
-            "comparison_result": "Info"
+            "fetched": "c0:d6:82:23:0c:7d"
         }
     ```
 
     ```json
         {
             "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
+            "comparison_result": "Info",
             "expected": "unknown",
-            "fetched": "Ethernet10/1",
-            "comparison_result": "Info"
+            "fetched": "Ethernet10/1"
         }
     ```
 
-* Release 3.6 introduced cable checks for bonded interfaces.
+* Cabling Checks for Bonded Interfaces
     * Mismatched cabling is reported in the result_log.
     * Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example PCI 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
 
@@ -211,11 +249,37 @@ Expanding `result_detail` for a given category shows detailed results.
                   }
               ],
               "result_log": [
-                  "Cabling problem detected on PCI Slot 3"
+                  "Cabling problem detected on PCI Slot 3 - server NIC.Slot.3-1-1 connected to switch Ethernet1/1 - server NIC.Slot.3-2-1 connected to switch Ethernet1/3"
               ]
           },
       }
   ```
+
+* iDRAC (BMC) MAC Address Check Failure
+    * The iDRAC MAC address is defined in the cluster for each BMM.
+    * A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
+
+    ```json
+        {
+            "field_name": "iDRAC_MAC",
+            "comparison_result": "Fail",
+            "expected": "aa:bb:cc:dd:ee:ff",
+            "fetched": "aa:bb:cc:dd:ee:gg"
+        }
+    ```
+
+* PXE MAC Address Check Failure
+    * The PXE MAC address is defined in the cluster for each BMM.
+    * A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
+
+    ```json
+        {
+            "field_name": "NIC.Embedded.1-1_PXE_MAC",
+            "comparison_result": "Fail",
+            "expected": "aa:bb:cc:dd:ee:ff",
+            "fetched": "aa:bb:cc:dd:ee:gg"
+        }
+    ```
 
 ### Health info category
 
@@ -260,9 +324,9 @@ Expanding `result_detail` for a given category shows detailed results.
     ```json
         {
             "field_name": "LCLog_Critical_Alarms",
+            "comparison_result": "Fail",
             "expected": "No Critical Errors",
-            "fetched": "53539 2023-07-22T23:44:06-05:00 The system board BP1 PG voltage is outside of range.",
-            "comparison_result": "Fail"
+            "fetched": "53539 2023-07-22T23:44:06-05:00 The system board BP1 PG voltage is outside of range."
         }
     ```
 
@@ -274,9 +338,9 @@ Expanding `result_detail` for a given category shows detailed results.
     ```json
         {
             "field_name": "Server Control Actions",
+            "comparison_result": "Fail",
             "expected": "Success",
-            "fetched": "Failed",
-            "comparison_result": "Fail"
+            "fetched": "Failed"
         }
     ```
 
@@ -294,33 +358,45 @@ Expanding `result_detail` for a given category shows detailed results.
     ```json
         {
             "field_name": "Power Supply 1",
+            "comparison_result": "Warning",
             "expected": "Enabled-OK",
-            "fetched": "UnavailableOffline-Critical",
-            "comparison_result": "Warning"
+            "fetched": "UnavailableOffline-Critical"
         }
     ```
 
     ```json
         {
             "field_name": "System Board PS Redundancy",
+            "comparison_result": "Warning",
             "expected": "Enabled-OK",
-            "fetched": "Enabled-Critical",
-            "comparison_result": "Warning"
+            "fetched": "Enabled-Critical"
         }
     ```
 
 ### Boot info category
 
-* Boot Device Check Considerations
+* Boot Device Name Check Considerations
     * The `boot_device_name` check is currently informational.
     * Mismatched boot device name shouldn't trigger a device failure.
 
     ```json
         {
+            "field_name": "boot_device_name",
             "comparison_result": "Info",
             "expected": "NIC.PxeDevice.1-1",
-            "fetched": "NIC.PxeDevice.1-1",
-            "field_name": "boot_device_name"
+            "fetched": "NIC.PxeDevice.1-1"
+        }
+    ```
+
+* Boot Device State Check Considerations
+    * A failed `boot_device_state` check indicates that the boot device is in a disabled state.
+
+    ```json
+        {
+            "field_name": "boot_device_state",
+            "comparison_result": "Fail",
+            "expected": "enabled",
+            "fetched": "disabled"
         }
     ```
 
@@ -332,19 +408,33 @@ Expanding `result_detail` for a given category shows detailed results.
     ```json
         {
             "field_name": "pxe_device_1_name",
+            "comparison_result": "Fail",
             "expected": "NIC.Embedded.1-1-1",
-            "fetched": "NIC.Embedded.1-2-1",
-            "comparison_result": "Fail"
+            "fetched": "NIC.Embedded.1-2-1"
         }
     ```
 
     ```json
         {
             "field_name": "pxe_device_1_state",
+            "comparison_result": "Fail",
             "expected": "Enabled",
-            "fetched": "Disabled",
-            "comparison_result": "Fail"
+            "fetched": "Disabled"
         }
+    ```
+
+    * To update the PXE device state ane name in BMC webui set the value in the following location below then select `Apply` followed by `Apply And Reboot`:
+
+        `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`
+        `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1 Settings` -> `Interface` -> `Embedded NIC 1 Port 1 Partition 1`  
+    
+    * To update the PXE device name and state with racadm perform the following:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD set bios.NetworkSettings.PxeDev1EnDis Enabled
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD set bios.PxeDev1Settings.PxeDev1Interface NIC.Embedded.1-1-1
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD jobqueue create BIOS.Setup.1-1
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD serveraction powercycle
     ```
 
 ## Adding servers back into the Cluster after a repair
