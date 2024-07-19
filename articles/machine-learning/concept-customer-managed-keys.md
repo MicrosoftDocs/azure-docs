@@ -132,7 +132,7 @@ Set the `enableServiceSideCMKEncryption` on a REST API or in your Bicep or Resou
 | Hub | No |
 | Project | No |
 
-![media](concept-customer-managed-keys/cmk-service-side-encryption.png)
+![media](media/concept-customer-managed-keys/cmk-service-side-encryption.png)
 
 > [!NOTE]
 > During this preview key rotation and data labeling capabilities are not supported.
