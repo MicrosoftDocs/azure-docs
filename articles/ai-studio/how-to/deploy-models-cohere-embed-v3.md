@@ -120,6 +120,14 @@ The response is as follows:
 
 
 
+```console
+{
+    "model_name": "Cohere-embed-v3-english",
+    "model_type": "embeddings",
+    "model_provider_name": "Cohere"
+}
+```
+
 ### Create embeddings
 
 Create an embedding request to see the output of the model.
