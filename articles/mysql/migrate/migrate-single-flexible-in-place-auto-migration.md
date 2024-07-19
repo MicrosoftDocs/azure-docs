@@ -56,13 +56,13 @@ Following described are the ways to review your migration schedule once you rece
 - For Single Servers scheduled for automigration, a new **Migration blade** is lighted on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
 - If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month.
 - If your Single Server has **General Purpose SKU**, you have the other option to enable **High Availability** when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule.
-- If your Single Server has **private endpoints**, perform the following **mandatory** steps when reviewing the migration schedule atleast 7 days before the scheduled migration:
+- If your Single Server has **private endpoints**, perform the following **mandatory** steps when reviewing the migration schedule at least 7 days before the scheduled migration:
   - **Review** the private endpoints listed to be migrated. Ensure they are marked as **Ready to Migrate**. If they are marked as ineligible, select the appropriate subscription and private DNS Zone.
   - Select the **confirmation checkbox** after performing the listed prerequisite checks for migrating private endpoints.
   - Select the **Authenticate** button to authenticate ARM connection required to migrate the private endpoints from source to target server.
   - Select on **Save** to save all the above steps.
   > [!NOTE]  
-  > If the mandatory inputs for migration are not provided atleast 7 days before the scheduled migration, the migration is rescheduled to a later date.
+  > If the mandatory inputs for migration are not provided at least 7 days before the scheduled migration, the migration is rescheduled to a later date.
 
 ## Prerequisite checks for in-place automigration
 
