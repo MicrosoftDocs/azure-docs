@@ -271,7 +271,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 }
 ```
 
-3. To run an in-place OS SKU migraiton, just replace the **os_sku** to **AzureLinux** and re-apply the Terraform plan. 
+3. To run an in-place OS SKU migration, just replace the **os_sku** to **AzureLinux** and re-apply the Terraform plan. 
 
 ##### update.tf
 
