@@ -4,8 +4,8 @@ description: Symptoms, causes, and resolutions of the Azure Backup Vault related
 ms.topic: troubleshooting
 ms.date: 07/18/2024
 ms.service: backup
-author: Rajat Shrivastava
-ms.author: rajats
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot Azure Backup Vault Related Operations
