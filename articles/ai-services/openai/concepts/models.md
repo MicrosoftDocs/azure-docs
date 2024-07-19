@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI Service models
 
-Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region.
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region and cloud. For Azure Government model availability, please refer to [Azure Government OpenAI Service](../../../azure-government/compare-azure-government-global-azure.md#azure-ai-services-openai-service).
 
 | Models | Description |
 |--|--|
@@ -225,14 +225,6 @@ In addition to the regions above which are available to all Azure OpenAI custome
 | `gpt-4` (0314) <br> `gpt-4-32k` (0314) | East US <br> France Central <br> South Central US <br> UK South |  
 | `gpt-4` (0613) <br> `gpt-4-32k` (0613) | East US <br> East US 2 <br> Japan East <br> UK South |  
 
-#### Azure Government regions
-
-The following GPT-4 models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
-
-|Model ID | Model Availability |
-|--|--|
-| `gpt-4` (1106-Preview) | US Gov Virginia<br>US Gov Arizona |
-
 ### GPT-3.5 models
 
 > [!IMPORTANT]
@@ -249,14 +241,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 #### Public cloud regions
 
 [!INCLUDE [GPT-35-Turbo](../includes/model-matrix/standard-gpt-35-turbo.md)]
-
-#### Azure Government regions
-
-The following GPT-3.5 turbo models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
-
-|Model ID | Model Availability |
-|--|--|
-| `gpt-35-turbo` (1106-Preview) | US Gov Virginia |
 
 ### Embeddings models
 
@@ -278,14 +262,6 @@ These models can only be used with Embedding API requests.
 #### Public cloud regions
 
 [!INCLUDE [Embeddings](../includes/model-matrix/standard-embeddings.md)]
-
-#### Azure Government regions
-
-The following Embeddings models are available with [Azure Government](/azure/azure-government/documentation-government-welcome):
-
-|Model ID | Model Availability |
-|--|--|
-|`text-embedding-ada-002` (version 2) |US Gov Virginia<br>US Gov Arizona |
 
 ### DALL-E models
 
