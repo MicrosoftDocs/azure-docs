@@ -40,14 +40,14 @@ You can filter network traffic to and from Azure resources in an Azure virtual n
 
 [Virtual Network (VNet) service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your virtual network to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
 
-:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Virtual network service endpoints":::
+:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Diagram of virtual network service endpoints.":::
 
 ### <a name="privatelink"></a>Azure Private Link
 
 [Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
 Traffic between your virtual network and the service travels through the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
 
-:::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Private endpoint overview":::
+:::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Screenshot of private endpoint overview.":::
 
 ### <a name="dns"></a>Azure DNS
 
@@ -79,7 +79,7 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 Virtual Network NAT(network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
 For more information, see [What is Azure NAT gateway](../../virtual-network/nat-gateway/nat-overview.md)?
 
-:::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Virtual network NAT gateway":::
+:::image type="content" source="./media/networking-overview/flow-map.png" alt-text="Diagram of virtual network NAT gateway.":::
 
 ### <a name="trafficmanager"></a>Traffic Manager
 
@@ -87,7 +87,7 @@ For more information, see [What is Azure NAT gateway](../../virtual-network/nat-
 
 The following diagram shows endpoint priority-based routing with Traffic Manager:
 
-:::image type="content" source="./media/networking-overview/priority.png" alt-text="Azure Traffic Manager 'Priority' traffic-routing method":::
+:::image type="content" source="./media/networking-overview/priority.png" alt-text="Diagram of Azure Traffic Manager 'Priority' traffic-routing method.":::
 
 For more information about Traffic Manager, see [What is Azure Traffic Manager?](../../traffic-manager/traffic-manager-overview.md).
 
@@ -111,7 +111,7 @@ Azure Load Balancer is available in Standard, Regional, and Gateway SKUs.
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
-:::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Azure Load Balancer example":::
+:::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Screenshot of Azure Load Balancer example.":::
 
 ### <a name="applicationgateway"></a>Application Gateway
 
@@ -119,7 +119,7 @@ The following picture shows an Internet-facing multi-tier application that utili
 
 The following diagram shows url path-based routing with Application Gateway.
 
-:::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Application Gateway example":::
+:::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Image of Application Gateway example.":::
 
 ### <a name="frontdoor"></a>Azure Front Door
 
@@ -147,7 +147,7 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 
 [ExpressRoute](../../expressroute/expressroute-introduction.md) enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic doesn't go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.
 
-:::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Azure ExpressRoute" border="false":::
+:::image type="content" source="./media/networking-overview/expressroute-connection-overview.png" alt-text="Screenshot of Azure ExpressRoute." border="false":::
 
 ### <a name="virtualwan"></a>Virtual WAN
 
@@ -183,7 +183,7 @@ This section describes networking services in Azure that protects and monitor yo
 
 [Azure Firewall](../../firewall/overview.md) is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Using Azure Firewall, you can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. 
 
-:::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Firewall overview":::
+:::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Diagram of Firewall overview.":::
 
 ### <a name="waf"></a>Web Application Firewall
 
@@ -191,7 +191,7 @@ This section describes networking services in Azure that protects and monitor yo
 
 Customers can choose to deploy [Azure WAF with Application Gateway](../../web-application-firewall/ag/ag-overview.md), which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../../web-application-firewall/afds/afds-overview.md) which provides protection at the network edge to public endpoints.
 
-:::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Web Application Firewall":::
+:::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Screenshot of Web Application Firewall.":::
 
 ### <a name="ddosprotection"></a>DDoS Protection
 
