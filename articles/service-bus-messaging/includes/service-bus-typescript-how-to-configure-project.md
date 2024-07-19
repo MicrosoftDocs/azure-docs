@@ -36,3 +36,5 @@ ms.custom: "include file"
 1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build and copy the following into the file:
 
     :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
+
+1. Create a `src` folder in the project. This is where you will place the TypeScript files created in this quickstart.

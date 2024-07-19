@@ -98,7 +98,7 @@ The following sample code shows you how to send a message to a queue.
 You must have signed in with the Azure CLI's `az login` in order for your local machine to provide the passwordless authentication required in this code.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
+1. In the `src` folder, create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
     > [!IMPORTANT]
     > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
@@ -122,7 +122,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 ### [Connection string](#tab/connection-string)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-1. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
+1. In the `src` folder, create a file called `src/send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/queues/send-queue.ts" :::
 
@@ -149,7 +149,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 You must have signed in with the Azure CLI's `az login` in order for your local machine to provide the passwordless authentication required in this code.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `receive.js` and paste the following code into it.
+2. In the `src` folder, create a file called `receive.js` and paste the following code into it.
 
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/queues/receive-queue.ts" :::
 
@@ -165,7 +165,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 ### [Connection string](#tab/connection-string)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `receive.js` and paste the following code into it.
+2. In the `src` folder, create a file called `receive.js` and paste the following code into it.
 
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/queues/receive-queue.ts" :::
 
