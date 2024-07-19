@@ -60,7 +60,7 @@ A vTPM evidence consists of a TPM quote and endorsements used to verify the quot
 
 ### How is vTPM Evidence verified?
 
-The verifier ([Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation)) verified the vTPM evidence based on the trusted chain, as shown in the figure below. Successful verification implies that the attested Azure confidential VM is trustworthy and protected by the hardware.
+The verifier ([Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation)) verifies the vTPM evidence based on the trusted chain, as shown in the figure below. Successful verification implies that the attested Azure confidential VM is trustworthy and protected by the hardware.
 
 ![Figure of vTPM-based Evidence Trust Chain](media/guest-attestation-confidential-vms-design/azure-cvm-trusted-chain.png)
 
