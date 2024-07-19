@@ -11,6 +11,8 @@ ms.topic: overview
 
 # Prerequisites for Azure Update Manager
 
+This article summarizes the prerequisites, the extensions for Azure VM extensions and Azure Arc-enabled servers and details on how to prepare your network to support Update Manager.
+
 ## Prerequisites
 
 Azure Update Manager is an out of the box, zero onboarding service. Before you start using this service, consider the following list: 
