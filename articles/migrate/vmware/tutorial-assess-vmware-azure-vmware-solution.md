@@ -165,7 +165,7 @@ Server Assessment assigns a confidence rating to performance-based assessments. 
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file or an RVTools XLSX file-.
+> Confidence ratings aren't assigned if you create an assessment based on a CSV file or an RVTools XLSX file.
 
 Confidence ratings are as follows.
 
