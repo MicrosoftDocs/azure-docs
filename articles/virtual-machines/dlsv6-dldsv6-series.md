@@ -17,13 +17,13 @@ Applies to ✔️ Linux VMs ✔️ Windows VMs ✔️ Flexible scale sets ✔️
 > [!NOTE]
 > Azure Virtual Machine Series Dsv6 and Ddsv6 are currently in **Preview**. See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Dlsv6 and Dldsv6-series Virtual Machines runs on Intel® Xeon® Platinum 8473C (Emerald Rapids) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration. This new processor features an all core turbo clock speed of 3.0 GHz with [Intel® Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Advanced-Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel® Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Dlsv6 and Dldsv6 VM series provides 2GiBs of RAM per vCPU and optimized for workloads that require less RAM per vCPU than standard VM sizes. Target workloads include web servers, gaming, video encoding, AI/ML, and batch processing.
+The Dlsv6 and Dldsv6-series Virtual Machines runs on Intel® Xeon® Platinum 8537C (Emerald Rapids) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration. This new processor features an all core turbo clock speed of 3.0 GHz with [Intel® Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel® Advanced-Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel® Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Dlsv6 and Dldsv6 VM series provides 2GiBs of RAM per vCPU and optimized for workloads that require less RAM per vCPU than standard VM sizes. Target workloads include web servers, gaming, video encoding, AI/ML, and batch processing.
 
 These new Intel based VMs have two variants: Dlsv6 without local SSD and Dldsv6 with local SSD.
 
 ## Dlsv6-series
 
-Dlsv6-series virtual machines run on 5<sup>th</sup> Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) CPU processor reaching an all- core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 128 vCPU and 256 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications.
+Dlsv6-series virtual machines run on 5<sup>th</sup> Generation Intel® Xeon® Platinum 8537C (Emerald Rapids) CPU processor reaching an all- core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 128 vCPU and 256 GiB of RAM. These VM sizes can reduce cost when running non-memory intensive applications.
 
 Dlsv6-series virtual machines do not have any temporary storage thus lowering the price of entry. You can attach Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -43,7 +43,7 @@ Dlsv6-series virtual machines do not have any temporary storage thus lowering th
 
 ## Dldsv6-series
 
-Dldsv6-series virtual machines run on the 5th Generation Intel® Xeon® Platinum 8473C (Emerald Rapids) processor reaching an all- core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 128 vCPU and 256 GiB of RAM as well as fast, local SSD storage up to 4x1760 GiB. These VM sizes can reduce cost when running non-memory intensive applications.
+Dldsv6-series virtual machines run on the 5th Generation Intel® Xeon® Platinum 8537C (Emerald Rapids) processor reaching an all- core turbo clock speed of up to 3.0 GHz. These virtual machines offer up to 128 vCPU and 256 GiB of RAM as well as fast, local SSD storage up to 4x1760 GiB. These VM sizes can reduce cost when running non-memory intensive applications.
 
 Dldsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
