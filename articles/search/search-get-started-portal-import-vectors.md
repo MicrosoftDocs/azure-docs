@@ -96,7 +96,7 @@ This section points you to data that works for this quickstart.
 
 1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
 
-1. On **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role on the container to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
+1. On the left pane, under **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
 
 ### [OneLake](#tab/sample-data-onelake)
 
@@ -133,15 +133,11 @@ This section points you to data that works for this quickstart.
 
 ## Set up embedding models
 
-Integrated vectorization and the **Import and vectorize data** wizard tap into deployed embedding models during indexing to convert text and images into vectors.
-
-You can use embedding models deployed in Azure OpenAI, in Azure AI Vision for multimodal embeddings, or in the model catalog in Azure AI Studio.
+The wizard can use embedding models deployed from Azure OpenAI, Azure AI Vision, or from the model catalog in Azure AI Studio.
 
 ### [Azure OpenAI](#tab/model-aoai)
 
-**Import and vectorize data** supports `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small`. Internally, the wizard uses the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) to connect to Azure OpenAI.
-
-Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information available before you run the wizard.
+The wizard supports text-embedding-ada-002, text-embedding-3-large, and text-embedding-3-small. Internally, the wizard calls the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) to connect to Azure OpenAI.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure OpenAI resource.
 
@@ -167,7 +163,7 @@ Use these instructions to assign permissions or get an API key for search servic
 
 ### [Azure AI Vision](#tab/model-ai-vision)
 
-**Import and vectorize data** supports Azure AI Vision image retrieval through multimodal embeddings (version 4.0). Internally, the wizard uses the [multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md) to connect to Azure AI Vision.
+The wizard supports Azure AI Vision image retrieval through multimodal embeddings (version 4.0). Internally, the wizard calls the [multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md) to connect to Azure AI Vision.
 
 1. [Create an Azure AI Vision service in a supported region](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp#prerequisites).
 
@@ -182,11 +178,9 @@ After you finish these steps, you should be able to select the Azure AI Vision v
 
 ### [Azure AI Studio model catalog](#tab/model-catalog)
 
-**Import and vectorize data** supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support the OpenAI CLIP model. Internally, the wizard uses the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
+The wizard supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support the OpenAI CLIP model. Internally, the wizard calls the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
 
-Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information available before you run the wizard.
-
-1. For the model catalog, you should have an [Azure OpenAI resource](/azure/ai-services/openai/how-to/create-resource), a [hub in Azure AI Studio](/azure/ai-studio/how-to/create-projects), and a [project](/azure/ai-studio/how-to/create-projects). Hubs and projects that have the same name can share connection information and permissions.
+1. For the model catalog, you should have an [Azure OpenAI resource](/azure/ai-services/openai/how-to/create-resource), a [hub in Azure AI Studio](/azure/ai-studio/how-to/create-projects), and a [project](/azure/ai-studio/how-to/create-projects). Hubs and projects having the same name can share connection information and permissions.
 
 1. Deploy a supported embedding model to the model catalog in your project.
 
@@ -208,7 +202,7 @@ The next step is to connect to a data source to use for the search index.
 
 ### [Azure Storage](#tab/connect-data-storage)
 
-1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **Azure Blob Storage**.
+1. On the **Set up your data connection** page, select **Azure Blob Storage**.
 
 1. Specify the Azure subscription.
 
@@ -224,7 +218,7 @@ The next step is to connect to a data source to use for the search index.
 
 Support for OneLake indexing is in preview. For more information about supported shortcuts and limitations, see ([OneLake indexing](search-how-to-index-onelake-files.md)).
 
-1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **OneLake**.
+1. On the **Set up your data connection** page, select **OneLake**.
 
 1. Specify the type of connection:
 
