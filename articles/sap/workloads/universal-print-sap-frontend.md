@@ -58,6 +58,7 @@ SAP defines front-end printing with several [constraints](https://help.sap.com/d
 
 - [Deploy the SAP backend printing Starter Pack](https://github.com/Azure/universal-print-for-sap-starter-pack)
 - [Learn more from our SAP with Universal Print blog post](https://community.sap.com/t5/technology-blogs-by-members/it-has-never-been-easier-to-print-from-sap-with-microsoft-universal-print/ba-p/13672206)
+- [Learn about running classic SAP printing solutions highly-available on Azure](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-deploy-sap-print-server-highly-available-architecture-on/ba-p/3901761)
 
 Check out the documentation:
 
