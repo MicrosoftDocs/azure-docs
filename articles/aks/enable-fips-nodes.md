@@ -206,7 +206,7 @@ Existing node pools can be updated to enable FIPS. When you update an existing n
         --enable-fips-image
     ```
 
-The above command will trigger a reimage. This reimage will occur during the node pool update, no additional steps are required.
+The above command will trigger a reimage of the node pool immediately to deploy the FIPS compliant Operating System. This reimage will occur during the node pool update, no additional steps are required.
 
 2. Verify that your node pool is FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
 
