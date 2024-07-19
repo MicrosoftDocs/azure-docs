@@ -29,51 +29,11 @@ For this Spring Boot application, we're building off the [quickstart](../../quic
   }
 ```
 
-### Secure your app with managed identity
-
-Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you're not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
-
-To secure your application:
-
-Add the Azure OpenAI dependency package. This package enables using Azure credentials in your app.
-
-```java
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-ai-openai</artifactId>
-    <version>1.0.0-beta.9</version>
-</dependency>
-```
-
-Next, include the default Azure default credentials when creating the client
-
-```java
-TokenCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
-
-OpenAIClient client = new OpenAIClientBuilder()
-    .credential(defaultCredential)
-    .endpoint("{endpoint}")
-    .buildClient();
-```
-
-Once the credentials are added to the application, you need to enable managed identity in your application and grant access to the resource.
-
-1. In your web app resource, navigate to the **Identity** page and turn on **System assigned** and select **Save**.
-2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
-3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** page on the left pane.  
-4. Find the Grant access to this resource card and select **Add role assignment**.
-5. Search for the **Cognitive Services OpenAI User** role and select **Next**.
-6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
-7. Next, select **+Select Members**  and find your web app.
-8. Select **Review + assign**.
-
-Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
-
 ### API Keys and Endpoints
 
 First, you need to grab the keys and endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. For our application, you need the following values:
+For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `endpoint` value. Otherwise, you need each of the following:
 
 - `endpoint`
 - `apiKey`
@@ -139,11 +99,11 @@ For OpenAI:
 
 Before you can create the client, you first need to add the Azure SDK dependency. Add the following Azure OpenAI package to the *pom.xl* file and run the **mvn package** command to build the package.
 
-```python
+```java
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-ai-openai</artifactId>
-    <version>1.0.0-beta.6</version>
+    <version>1.0.0-beta.9</version>
 </dependency>
 ```
 
@@ -179,6 +139,36 @@ import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
 ```
+
+### Secure your app with managed identity
+
+Although optional, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. Skip this step if you are not using Azure OpenAI. This enables your application to access the Azure OpenAI resource without needing to manage API keys.
+
+Follow the steps below to secure your application:
+
+The Azure SDK package previously installed in the previous section enables the use of default credentials in your app. Include the default Azure default credentials when you create the client.
+
+```java
+TokenCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
+
+OpenAIClient client = new OpenAIClientBuilder()
+    .credential(defaultCredential)
+    .endpoint(endpoint)
+    .buildClient();
+```
+
+Once the credentials are added to the application, enable managed identity in your application and grant access to the resource:
+
+1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and select **Save**.
+2. Once System assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** page on the left pane.
+4. Find the **Grant access to this resource** card and select **Add role assignment**.
+5. Search for the **Cognitive Services OpenAI User** role and select **Next**.
+6. On the **Members** tab, find **Assign access to** and choose the **Managed identity** option.
+7. Next, select **+Select Members**  and find your web app.
+8. Select **Review + assign**.
+
+Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
 
 ### Set up prompt and call to OpenAI
 
