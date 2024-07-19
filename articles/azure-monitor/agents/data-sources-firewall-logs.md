@@ -11,7 +11,7 @@ ms.reviewer: jeffwo
 
 # Collect firewall logs with Azure Monitor Agent (Preview)
 Windows Firewall is a Microsoft Windows application that filters information coming to your system from the Internet and blocks potentially harmful programs. Windows Firewall logs are generated on both client and server operating systems. These logs provide valuable information about network traffic, including dropped packets and successful connections. Parsing Windows Firewall log files can be done using methods like Windows Event Forwarding (WEF) or forwarding logs to a SIEM product like Azure Sentinel. You can turn it on or off by following these steps on any Windows system:
-1. Select Start, then open Settings
+1. Select Start, then open Settings.
 1. Under Update & Security, select Windows Security, Firewall & network protection.
 1. Select a network profile: domain, private, or public.
 1. Under Microsoft Defender Firewall, switch the setting to On or Off.
@@ -24,7 +24,7 @@ To complete this procedure, you need:
 - A Virtual Machine, Virtual Machine Scale Set, or Arc-enabled on-premises machine that is running firewall. 
 
 ## Add Firewall table to Log Analytics Workspace
-Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screen shot below. If the table isn't present you'll get a DCR deployment error stating that the table isn't present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](/azure/azure-monitor/reference/tables/windowsfirewall)
+Unlike other tables that are created by default in LAW, the Windows Firewall table must be manually created. Search for the Security and Audit solution and create it. See screenshot below. If the table isn't present you'll get a DCR deployment error stating that the table isn't present in LAW.  The schema for the firewall table that gets created is located here: [Windows Firewall Schema](/azure/azure-monitor/reference/tables/windowsfirewall)
 
 [ ![Screenshot that shows how to add the security and audit solution.](media/data-collection-firewall-log/security-and-audit-solution.png) ](./media/data-collection-firewall-log/security-and-audit-solution.png#lightbox)
 
