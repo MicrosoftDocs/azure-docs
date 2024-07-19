@@ -43,53 +43,8 @@ To create a data collection rule using the Azure CLI, PowerShell, API, or ARM te
 > Create your data collection rule in the same region as your destination Log Analytics workspace or Azure Monitor workspace. You can associate the data collection rule to machines or containers from any subscription or resource group in the tenant. To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## [Portal](#tab/portal)
+The Azure portal provides a simplified experience for creating a DCR for virtual machines and virtual machine scale sets. Using this method, you don't need to understand the structure of a DCR unless you want to want to implement an advanced feature such as a transformation. The process for creating this DCR with various data sources is described in [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md).
 
-On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the page to create a new data collection rule.
-   
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
-
-Configure the settings in each step of the wizard, as detailed below.
- 
-### Basics 
-
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics step of the Data Collection Rule screen.":::
-
-| Screen element | Description |
-|:---|:---|
-| **Rule name** | Enter a name for the data collection rule. |
-| **Subscription** | Associate the data collection rule to a subscription. |
-| **Resource Group** | Associate the data collection rule to a resource group. |
-| **Region** | Create your data collection rule in the same region as your destination Log Analytics workspace. You can associate the data collection rule to machines from any subscription or resource group in the tenant. |
-| **Platform Type** | Select **Windows** or **Linux**, or **All**, which allows for both Windows and Linux platforms. |
-| **Data Collection Endpoint** | To collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**, select an existing data collection endpoint or create a new endpoint.<br>You don't need an endpoint to collect performance counters and Windows event logs.<br>On this tab, you can only select a data collection endpoint in the same region as the data collection rule. The agent sends collected data to this data collection endpoint. For more information, see [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-dce). |
-
-### Resources
-
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-virtual-machines-with-endpoint.png" alt-text="Screenshot that shows the Resources tab of the Data Collection Rule screen.":::
-
-| Screen element | Description |
-|:---|:---|
-| **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have the agent installed.|
-|**Enable Data Collection Endpoints**| If the machine you're monitoring is not in the same region as your destination Log Analytics workspace, enable data collection endpoints and select an endpoint in the region of the monitored machine to collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**.<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-dce).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).|
-|**Agent extension identity**| Use a system-assigned managed identity, or select an existing user-assigned identity assigned to the virtual machine. For more information, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).|
-
-### Collect and deliver
-
-On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
-
-:::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" alt-text="Screenshot that shows the Collect and deliver tab of the Data Collection Rule wizard. On this tab, you define which data source Azure Monitor Agent collects data from and where the agent sends the data." border="false":::
-
-| Screen element | Description |
-|:---|:---|
-| **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the various data source types, see [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md)|
-| **Destination** | Add one or more destinations for each source. You can select multiple destinations of the same or different types.  |
-
-### Review + create
-
-Review the data collection rule details and select **Create** to create the data collection rule.
-
-> [!NOTE]
-> It can take up to 5 minutes for data to be sent to the destinations when you create a data collection rule using the data collection rule wizard.
 
 ### [CLI](#tab/CLI)
 Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file using the Azure CLI as shown in the following example.

@@ -35,9 +35,11 @@ There are two fundamental ways that DCRs are specified for a particular data col
 ### Data collection rule associations (DCRA)
 Data collection rule associations (DCRAs) are used to associate a DCR with a monitored resource. This is a many-to-many relationship, where a single DCR can be associated with multiple resources, and a single resource can be associated with multiple DCRs. This allows you to develop a strategy for maintaining your monitoring across sets of resources with different requirements.
 
+:::image type="content" source="media/data-collection-rule-overview/data-collection-rule-associations.png" lightbox="media/data-collection-rule-overview/data-collection-rule-associations.png" alt-text="Diagram that shows DCRAs connected to a DCR." border="false":::
+
 For example, the following diagram illustrates data collection for [Azure Monitor agent (AMA)](../agents/azure-monitor-agent-overview.md) running on a virtual machine. When the agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. In this scenario, the DCR specifies events and performance data to collect, which the agent uses to determine what data to collect from the machine and send to Azure Monitor. Once the data is delivered, the cloud pipeline runs any transformation specified in the DCR to filter and modify the data and then sends the data to the specified workspace and table.
 
-:::image type="content" source="media/data-collection-rule-overview/overview-agent.png" lightbox="media/data-collection-rule-overview/overview-agent.png" alt-text="Diagram that shows basic operation for DCR using Azure Monitor Agent." border="false":::
+:::image type="content" source="media/data-collection-rule-overview/api-call.png" lightbox="media/data-collection-rule-overview/api-call.png" alt-text="Diagram that shows application specifying DCR in an API call." border="false":::
 
 ### Direct ingestion
 With direct ingestion, a particular DCR is specified to process the incoming data. For example, the following diagram illustrates data from a custom application using [Logs ingestion API](../logs/logs-ingestion-api-overview.md). Each API call specifies the DCR that will process its data. The DCR understands the structure of the incoming data, includes a transformation that ensures that the data is in the format of the target table, and specifies a workspace and table to send the transformed data.
