@@ -31,11 +31,11 @@ Each number in the version indicates general compatibility with the previous ver
 * **Patch version numbers** change when backwards-compatible bug fixes are made. Patch releases are made available frequently and are intended for critical bug fixes within a minor version. The type of issues fixed under patch release includes fixes for security vulnerabilities or major bugs.
 
 ## Version support guidelines
-1. All changes to version support and any version specific upgrade instructions will be communicated in release notes.
-2. Nexus will only support Long Term Support (LTS) storage versions. Purity LTS versions contain an odd number minor version, such as 6.1.x, 6.5.x etc.
-3. Nexus will support up to two LTS versions at any time.
-4. Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it will be appropriately tested and documented.
-5. Each Pure LTS release listed as supported is tested equally with each new Nexus release to ensure comprehensive compatibility.
+- All changes to version support and any version specific upgrade instructions will be communicated in release notes.
+- Nexus will only support Long Term Support (LTS) storage versions. Purity LTS versions contain an odd number minor version, such as 6.1.x, 6.5.x etc.
+- Nexus will support up to two LTS versions at any time.
+- Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it will be appropriately tested and documented.
+- Each Pure LTS release listed as supported is tested equally with each new Nexus release to ensure comprehensive compatibility.
 
 
 ## Release process
