@@ -89,7 +89,7 @@ const captionsReceivedHandler : CaptionsHandler = (data: CaptionsInfo) => {
         captionContainer.style['borderBottom'] = '1px solid';
         captionContainer.style['whiteSpace'] = 'pre-line';
         captionContainer.textContent = captionText;
-        captionContainer.classList.add(newClassName);
+        captionContainer.classList.add(outgoingCaption);
 
         captionArea.appendChild(captionContainer);
     } else {
@@ -171,7 +171,7 @@ try {
 
 ### Add a listener to receive captions kind changed status
 Captions kind can change from Captions to TeamsCaptions if a Teams/CTE user joins the call or if the call changes
-to an interop call type. Resubscription to [Teams Captions listeners](../../../../how-tos/calling-sdk/includes/closed-captions/closed-captions-teams-interop-web.md) is required to continue the Captions experience. TeamsCaptions kind can not be switched or changed back to Captions kind in a call once TeamsCaptions is utilized in the call.
+to an interop call type. Resubscription to [Teams Captions listeners](../../../../how-tos/calling-sdk/closed-captions-teams-interop-how-to.md) is required to continue the Captions experience. TeamsCaptions kind can not be switched or changed back to Captions kind in a call once TeamsCaptions is utilized in the call.
 
 ```typescript
 const captionsKindChangedHandler = () => {
