@@ -30,7 +30,7 @@ The Deidentification service has the following built-in roles available:
 |Role |Description |
 |-----|------------|
 |DeID Data Owner |Full access to deidentification functionality. |
-|DeID Realtime Data User |Execute requests against deidentification API endpoints. |
+|DeID Real-time Data User |Execute requests against deidentification API endpoints. |
 |DeID Batch Owner |Create and manage deidentification batch jobs. |
 |DeID Batch Reader |Read-only access to deidentification batch jobs. |
 
