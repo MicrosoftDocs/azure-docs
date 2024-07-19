@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Connected Machine agent connection issues
 description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc-enabled servers when trying to connect to the service.
 ms.date: 10/13/2022
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Connected Machine agent connection issues
