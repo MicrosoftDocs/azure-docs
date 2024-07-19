@@ -13,7 +13,9 @@ ms.custom: subject-cost-optimization
 
 # Plan and manage costs for Azure Blob Storage
 
-This article helps you plan and manage costs for Azure Blob Storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
+This article helps you plan and manage costs for Azure Blob Storage. 
+
+Start by understanding the billing meters and where to find the prices of those meters. Then, you can estimate your cost by using the Azure pricing calculator. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
 Keep in mind that costs for Blob Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -21,14 +23,9 @@ Keep in mind that costs for Blob Storage are only a portion of the monthly costs
 
 Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue. 
 
-This section describes the meters that lead to charges on your bill. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter. There are two types of meters.
+### How you're charged for Azure Blob Storage
 
-- Meters for storage, operations, and data movement
-- Meters for features and capabilities
-
-### Meters for storage, operations, and data movement
-
-The following table describes each meter.
+When you create or use Blob Storage resources, you'll be charged for the following meters:
 
 | Meter | Unit |
 |---|---|
@@ -36,9 +33,23 @@ The following table describes each meter.
 | Index | Per GB / per month<sup>1 |
 | Operations | Per transaction |
 | Data transfer | Per GB | 
-| Data retrieval | Per GB |
+| Data retrieval | Per GB<sup>2 |
+| Blob index tags | Per tag<sup>3   |
+| Change feed | Per logged change<sup>3  |
+| SSH File Transfer Protocol (SFTP) | Per hour |
+| Blob inventory | Per million objects scanned | 
+| Encryption scopes | Per month<sup>3  |
+| Query acceleration | Per GB scanned & Per GB returned |
+| Point-in-time restore Data Processed | Per MB restored |
 
 <sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
+<sup>2</sup>Applies only to the cool, cold, and archive tiers.<br />
+<sup>2</sup> Applies only if you enable the feature.<br />
+
+> [!NOTE]
+> There is no cost to enable Blob Storage features. However, there can be storage, operation, and data movement costs associated with using them. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
+
+At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter. 
 
 #### Data storage and index meters
 
@@ -75,8 +86,6 @@ Costs
   - List any transaction costs over and above normal transaction costs here (pending question)
   - For archive tier metadata, capacity is charged at cold tier. If transaction fees apply at a different tier (other than cold, list them here).
 
-Data retreival Applies only to the cool, cold, and archive tiers. 
-  
 #### Operations meters
 
 - Explain the difference between operations and transactions.
@@ -99,26 +108,9 @@ To determine the price of each operation, you must first determine how that oper
 - Explain network egress fees and when they would apply.
 - Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 - Provide examples
+- Data retreival Applies only to the cool, cold, and archive tiers. 
 
-### Meters for features and capabilities 
-
-The following table describes each meter.
-
-| Meter | Unit | 
-|---|---|
-| Blob index tags | Per tag<sup>2   |
-| Change feed | Per logged change<sup>2  |
-| SSH File Transfer Protocol (SFTP) | Per hour |
-| Blob inventory | Per million objects scanned | 
-| Encryption scopes | Per month<sup>2  |
-| Query acceleration | Per GB scanned & Per GB returned. |
-| Point-in-time restore Data Processed | Per MB restored |
-
-<sup>2</sup> Applies only if you enable the feature.<br />
-
-There is no cost to enable a feature. However, there can be storage, operation, and data movement costs associated with using a feature. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
-
-## Finding the unit price for each meter
+## Find the unit price for each meter
 
 To find unit prices, open the correct pricing page and select the appropriate file structure. Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
