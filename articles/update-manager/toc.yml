@@ -5,12 +5,20 @@ items:
   items:
   - name: About Azure Update Manager
     href: overview.md
-  - name: Support matrix
-    href: support-matrix.md
+  - name: How Update Manager works
+    href: workflow-update-manager.md
   - name: What's New 
     href: whats-new.md
   - name: FAQ
     href: update-manager-faq.md
+- name: Getting started
+  items:
+  - name: Prerequisites
+    href: prerequisites.md
+  - name: Roles and Permissions
+    href: roles-permissions.md
+  - name: Support matrix
+    href: support-matrix.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
