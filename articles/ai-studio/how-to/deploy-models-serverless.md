@@ -117,7 +117,7 @@ For non-Microsoft models offered through the Azure Marketplace, you can deploy t
 
     # [AI Studio](#tab/azure-ai-studio)
 
-    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety** to open the deployment wizard.
+    1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
 
     1. Select the project in which you want to deploy your models. To use the serverless API model deployment offering, your project must belong to one of the [regions that are supported for serverless deployment](deploy-models-serverless-availability.md) for the particular model.
 
@@ -244,14 +244,14 @@ Once you've created a subscription for a non-Microsoft model, you can deploy the
 
 The serverless API endpoint provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-In this article, you create an endpoint with the name **meta-llama3-8b-qwerty**.
+In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
 1. Create the serverless endpoint
 
     # [AI Studio](#tab/azure-ai-studio)
 
     1. To deploy a Microsoft model that doesn't require subscribing to a model offering:
-        1. Select **Deploy** and then select **Serverless API with Azure AI Content Safety** to open the deployment wizard.
+        1. Select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
         1. Select the project in which you want to deploy your model. Notice that not all the regions are supported.
 
     1. Alternatively, for a non-Microsoft model that requires a model subscription, if you've just subscribed your project to the model offer in the previous section, continue to select **Deploy**. Alternatively, select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this project*).
