@@ -21,7 +21,7 @@ For more information about the resource types for Virtual Network, see [Azure Vi
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-For a list of available metrics for Virtual Network, see [Azure Virtual Network monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md#metrics).
+For a list of available metrics for Virtual Network, see [Azure Virtual Network monitoring data reference](monitor-virtual-network-reference.md#metrics).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -54,14 +54,14 @@ For the available resource log categories, their associated Log Analytics tables
 
 ### Virtual Network alert rules
 
-The following table lists some suggested alert rules for Virtual Network. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Virtual Network monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md).
+The following table lists some suggested alert rules for Virtual Network. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Virtual Network monitoring data reference](monitor-virtual-network-reference.md).
 
 The following table lists common and recommended activity alert rules for Azure virtual network.
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Create or Update Virtual Network | Event Level: All selected, Status: All selected, Event initiated by: All services and users | When a user creates or makes configuration changes to the virtual network. |
-| Delete Virtual Network | Event Level: All selected, Status: Started | When a user deletes a virtual network. |
+| Create or Update Virtual Network | Event Level: All selected, Status: All selected, Event initiated by: All services and users | When a user creates or makes configuration changes to the virtual network |
+| Delete Virtual Network | Event Level: All selected, Status: Started | When a user deletes a virtual network |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
