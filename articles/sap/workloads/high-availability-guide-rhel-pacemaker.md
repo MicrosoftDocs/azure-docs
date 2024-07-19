@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.custom: linux-related-content
-ms.date: 10/09/2023
+ms.date: 07/19/2024
 ms.author: radeltch
 ---
 
@@ -76,6 +76,9 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support a software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For more information, see [Support Policies for RHEL High-Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 >
 > The only supported fencing mechanism for Pacemaker RHEL clusters on Azure is an Azure fence agent.  
+
+> [!IMPORTANT]
+> Pacemaker clusters deployed across multiple VNETS/subnets are not covered by standard support.
 
 The following items are prefixed with:
 
