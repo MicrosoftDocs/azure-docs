@@ -222,7 +222,7 @@ The next step is to connect to a data source to use for the search index.
 
 ### [OneLake (preview)](#tab/connect-data-onelake)
 
-Support for OneLake indexing is in preview. For more information about supported shortcuts and limitations, see ([OneLake indexing](earch-how-to-index-onelake-files.md)).
+Support for OneLake indexing is in preview. For more information about supported shortcuts and limitations, see ([OneLake indexing](search-how-to-index-onelake-files.md)).
 
 1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **OneLake**.
 
