@@ -1,22 +1,21 @@
 ---
-title: How to use Mistral family of language models with Azure AI studio
-titleSuffix: Azure AI studio
-description: Learn how to use Mistral family of small language models with Azure AI Studio.
+title: How to use Mistral family of language models with AzureAIstudio
+titleSuffix: AzureAIstudio
+description: Learn how to use Mistral family of small language models with AzureAIstudio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 07/19/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
 author: msakande
-ms.custom: references_regions, build-2024
+ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Mistral family of language models with Azure AI studio
+# How to use Mistral family of language models with AzureAIstudio
 
-In this guide, you will learn about Mistral models and how to use them with Azure AI studio.
-
+In this guide, you learn about Mistral models and how to use them with AzureAIstudio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
@@ -83,7 +82,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -91,13 +90,13 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### Install the inference package
 
-Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
 
 * Python 3.8 or later installed, including pip.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
   
-To install the Azure AI Inferencing package use the following command:
+Once you have these prerequisites, install the Azure AI inference package with the following command:
 
 ```bash
 pip install azure-ai-inference
@@ -129,9 +128,9 @@ model = ChatCompletionsClient(
 )
 ```
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
@@ -139,7 +138,8 @@ The `/info` route returns information about the model deployed behind the endpoi
 model.get_model_info()
 ```
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -150,9 +150,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```python
@@ -167,11 +167,12 @@ response = model.complete(
 ```
 
 > [!NOTE]
-> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```python
@@ -180,11 +181,11 @@ print("Model:", response.model)
 print("Usage:", response.usage)
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -200,7 +201,7 @@ result = model.complete(
 )
 ```
 
-To visualize the output, let's define a helper function to print the stream.
+To visualize the output, define a helper function to print the stream.
 
 
 ```python
@@ -215,7 +216,7 @@ def print_stream(result):
         time.sleep(0.05)
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -223,9 +224,9 @@ Responses look as follows when using streaming:
 print_stream(result)
 ```
 
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```python
@@ -251,9 +252,9 @@ response = model.complete(
 
 
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -271,7 +272,7 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -304,7 +305,7 @@ except HttpResponseError as ex:
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 
@@ -372,7 +373,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -380,13 +381,13 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### Install the inference package
 
-You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
 
 * LTS versions of `Node.js` with `npm`.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+nce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -418,9 +419,9 @@ const client = new ModelClient(
 );
 ```
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
@@ -428,7 +429,8 @@ The `/info` route returns information about the model deployed behind the endpoi
 await client.path("info").get()
 ```
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -439,9 +441,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```javascript
@@ -458,11 +460,12 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```javascript
@@ -475,11 +478,11 @@ console.log(response.body.model);
 console.log(response.body.usage);
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -496,7 +499,7 @@ var response = await client.path("/chat/completions").post({
 }).asNodeStream();
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -522,9 +525,9 @@ for await (const event of sses) {
 }
 ```
 
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```javascript
@@ -552,9 +555,9 @@ var response = await client.path("/chat/completions").post({
 
 
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -577,7 +580,7 @@ var response = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -615,7 +618,7 @@ catch (error) {
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 
@@ -683,7 +686,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -711,13 +714,14 @@ First, let's create a client to consume the model.
 
 
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -728,9 +732,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```json
@@ -749,11 +753,12 @@ Let's create a simple chat completion request to see the output of the model.
 ```
 
 > [!NOTE]
-> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When using the Azure AI model inference API, system messages are translated to user messages which is the closer capability available. This translation is offered for convenience but it's important to verify that the model is following the instructions in the system message with the right level of confidence.
+> Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```json
@@ -782,11 +787,11 @@ The response looks as follows, where you can see the model's usage statistics.
 }
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -809,7 +814,7 @@ To get the content sooner as it's being generated, you can 'stream' the content.
 }
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -861,9 +866,9 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```json
@@ -893,9 +898,9 @@ Explore additional parameters that can be indicated in the inference client. For
 
 
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -917,7 +922,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -961,7 +966,7 @@ The following example shows how to handle events when the model detects harmful 
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 

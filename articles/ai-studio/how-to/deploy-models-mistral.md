@@ -1,38 +1,27 @@
 ---
-title: How to use Mistral family of language models with Azure AI studio
-titleSuffix: Azure AI studio
-description: Learn how to use Mistral family of small language models with Azure AI Studio.
+title: How to use Mistral family of language models with AzureAIstudio
+titleSuffix: AzureAIstudio
+description: Learn how to use Mistral family of small language models with AzureAIstudio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 07/19/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
 author: msakande
-ms.custom: references_regions, build-2024
+ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Mistral family of language models with Azure AI studio
+# How to use Mistral family of language models with AzureAIstudio
 
-In this guide, you will learn about Mistral models and how to use them with Azure AI studio.
-
-<<<<<<< HEAD
+In this guide, you learn about Mistral models and how to use them with AzureAIstudio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
 
 
 ::: zone pivot="programming-language-python"
-=======
-In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
-Mistral AI offers two categories of models in the [Azure AI Studio](https://ai.azure.com). These models are available in the [model catalog](model-catalog-overview.md):
-
-* __Premium models__: Mistral Large and Mistral Small. These models can be deployed as serverless APIs with pay-as-you-go token-based billing.
-* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models can be deployed to managed computes in your own Azure subscription.
-
-You can browse the Mistral family of models in the model catalog by filtering on the Mistral collection.
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 
 ## Mistral family of models
 
@@ -83,116 +72,34 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
-<<<<<<< HEAD
 
-=======
-- An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for eligible models in the Mistral family is only available with hubs created in these regions:
-
-    - East US
-    - East US 2
-    - North Central US
-    - South Central US
-    - West US
-    - West US 3
-    - Sweden Central
-
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
-
-- An [Azure AI Studio project](../how-to/create-projects.md).
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 
 ### Deploy the model
 
-Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
 
 
 
 ### Install the inference package
 
-Install the inference package: You can consume predictions from this model using the `azure-ai-inference` package with Python.
+You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
 
 * Python 3.8 or later installed, including pip.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
   
-To install the Azure AI Inferencing package use the following command:
+Once you have these prerequisites, install the Azure AI inference package with the following command:
 
-<<<<<<< HEAD
 ```bash
 pip install azure-ai-inference
-=======
-       :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/mistral/mistral-large-deploy-starting-from-project.png"::: 
-
-    1. Select **Confirm** to open a serverless API deployment window for the model.
-
-    :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="../media/deploy-monitor/mistral/mistral-large-deploy-pay-as-you-go.png":::
-
-1. Select the project in which you want to deploy your model. To use the serverless API model deployment offering, your project must belong to one of the regions listed in the [prerequisites](#prerequisites).
-1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
-
-    :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/mistral/mistral-large-existing-subscription.png":::
-
-1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-    :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/mistral/mistral-large-deployment-name.png":::
-
-1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Select **Open in playground** to start interacting with the model.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
-
-To learn about billing for the Mistral AI model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Mistral family of models deployed as a service](#cost-and-quota-considerations-for-mistral-family-of-models-deployed-as-a-service).
-
-### Consume the Mistral family of models as a service
-
-You can consume Mistral family models by using the chat API.
-
-1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
-
-1. Find and select the deployment you created.
-
-1. Copy the **Target** URL and the **Key** value.
-
-1. Make an API request using to either the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`.
-
-For more information on using the APIs, see the [reference](#reference-for-mistral-family-of-models-deployed-as-a-service) section.
-
-## Reference for Mistral family of models deployed as a service
-
-Mistral models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Mistral Chat API](#mistral-chat-api) on `/v1/chat/completions`. 
-
-### Azure AI Model Inference API
-
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
-
-### Mistral Chat API
-
-Use the method `POST` to send the request to the `/v1/chat/completions` route:
-
-__Request__
-
-```rest
-POST /v1/chat/completions HTTP/1.1
-Host: <DEPLOYMENT_URI>
-Authorization: Bearer <TOKEN>
-Content-type: application/json
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 ```
 
 
 
-<<<<<<< HEAD
 > [!TIP]
 > Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
-=======
-#### Request example
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 
 
 
@@ -215,9 +122,9 @@ model = ChatCompletionsClient(
 )
 ```
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
@@ -225,7 +132,8 @@ The `/info` route returns information about the model deployed behind the endpoi
 model.get_model_info()
 ```
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -236,9 +144,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```python
@@ -252,7 +160,8 @@ response = model.complete(
 )
 ```
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```python
@@ -261,11 +170,11 @@ print("Model:", response.model)
 print("Usage:", response.usage)
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -281,7 +190,7 @@ result = model.complete(
 )
 ```
 
-To visualize the output, let's define a helper function to print the stream.
+To visualize the output, define a helper function to print the stream.
 
 
 ```python
@@ -296,7 +205,7 @@ def print_stream(result):
         time.sleep(0.05)
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -304,9 +213,9 @@ Responses look as follows when using streaming:
 print_stream(result)
 ```
 
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```python
@@ -344,9 +253,9 @@ response = model.complete(
 )
 ```
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -525,7 +434,7 @@ response = model.complete(
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -558,7 +467,7 @@ except HttpResponseError as ex:
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 
@@ -572,10 +481,6 @@ except HttpResponseError as ex:
 The Mistral family of models includes the following models:
 
 
-<<<<<<< HEAD
-=======
-#### Response example
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -620,25 +525,25 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
 
 
 
 ### Install the inference package
 
-You can consume predictions from this model using the `@azure-rest/ai-inference` package from `npm`. You need the following prerequisites:
+You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
 
 * LTS versions of `Node.js` with `npm`.
-* To construct the client library, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Install the Azure ModelClient REST client REST client library for JavaScript with `npm`:
+nce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -670,9 +575,9 @@ const client = new ModelClient(
 );
 ```
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
@@ -680,7 +585,8 @@ The `/info` route returns information about the model deployed behind the endpoi
 await client.path("info").get()
 ```
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -691,9 +597,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```javascript
@@ -709,7 +615,8 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```javascript
@@ -722,11 +629,11 @@ console.log(response.body.model);
 console.log(response.body.usage);
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -743,7 +650,7 @@ var response = await client.path("/chat/completions").post({
 }).asNodeStream();
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -769,10 +676,9 @@ for await (const event of sses) {
 }
 ```
 
-<<<<<<< HEAD
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```javascript
@@ -816,9 +722,9 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -996,7 +902,7 @@ var result = await client.path("/chat/completions").post({
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1034,7 +940,7 @@ catch (error) {
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 
@@ -1092,13 +998,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with AzureAIstudio, you need the following prerequisites:
 
 
 
 ### Deploy the model
 
-Mistral models can be [deployed as serverless APIs](how-to/deploy-models-serverless.md) with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If you haven't deploy the model yet, use [the Azure Machine Learning SDK, the Azure CLI, or ARM templates to deploy the model](how-to/deploy-models-serverless.md).
+{$model_group_name} can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](/deploy-models-serverless.md).
 
 
 
@@ -1124,13 +1030,14 @@ First, let's create a client to consume the model.
 
 
 
-### Model capabilities
+### Get the model's capabilities
 
-The `/info` route returns information about the model deployed behind the endpoint. Such information can be obtained by calling the following method:
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
 
 
-The response looks as follows.
+The response is as follows:
+
 
 
 ```console
@@ -1141,9 +1048,9 @@ The response looks as follows.
 }
 ```
 
-### Working with chat completions
+### Create a chat completion request
 
-Let's create a simple chat completion request to see the output of the model.
+Create a chat completion request to see the output of the model.
 
 
 ```json
@@ -1161,7 +1068,8 @@ Let's create a simple chat completion request to see the output of the model.
 }
 ```
 
-The response looks as follows, where you can see the model's usage statistics.
+The response is as follows, where you can see the model's usage statistics:
+
 
 
 ```json
@@ -1190,11 +1098,11 @@ The response looks as follows, where you can see the model's usage statistics.
 }
 ```
 
-#### Streaming content
+#### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-To get the content sooner as it's being generated, you can 'stream' the content. This allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when calling the model. This will return an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -1217,7 +1125,7 @@ To get the content sooner as it's being generated, you can 'stream' the content.
 }
 ```
 
-Responses look as follows when using streaming:
+When you use streaming, responses look as follows:
 
 
 
@@ -1269,9 +1177,9 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Parameters
+#### Explore more parameters supported by the Azure AI model inference API
 
-Explore additional parameters that can be indicated in the inference client. For a full list of all the supported parameters and their corresponding documentation you can see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
 ```json
@@ -1344,9 +1252,9 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
 }
 ```
 
-### Extra parameters
+### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Make sure your model supports the actual parameter when passing extra parameters to the Azure AI model inference API.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
 
@@ -1590,7 +1498,7 @@ Let's see the response from the model now:
 
 ### Content safety
 
-The Azure AI model inference API supports [Azure AI Content Safety](https://aka.ms/azureaicontentsafety). When using deployments with Azure AI Content Safety on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1634,7 +1542,7 @@ The following example shows how to handle events when the model detects harmful 
 ```
 
 > [!TIP]
-> To learn more about how you can configure and control Azure AI Content Safety settings, check the [Azure AI Content Safety documentation](https://aka.ms/azureaicontentsafety).
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
 
 
@@ -1652,17 +1560,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-=======
-#### More inference examples
-
-| **Sample Type**                        | **Sample Notebook**                                                  |
-|----------------------------------------|----------------------------------------------------------------------|
-| CLI using CURL and Python web requests | [webrequests.ipynb](https://aka.ms/mistral-large/webrequests-sample) |
-| OpenAI SDK (experimental)              | [openaisdk.ipynb](https://aka.ms/mistral-large/openaisdk)            |
-| LangChain                              | [langchain.ipynb](https://aka.ms/mistral-large/langchain-sample)     |
-| Mistral AI                             | [mistralai.ipynb](https://aka.ms/mistral-large/mistralai-sample)     |
-| LiteLLM                                | [litellm.ipynb](https://aka.ms/mistral-large/litellm-sample)         |
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee
 
 ## Cost and quotas
 
@@ -1688,9 +1585,3 @@ Here are some additional reference:
 * [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
 * [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
 
-<<<<<<< HEAD
-=======
-- [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
->>>>>>> f3be22b0a9aee4d2ce3855f9d6a8806d3040c2ee

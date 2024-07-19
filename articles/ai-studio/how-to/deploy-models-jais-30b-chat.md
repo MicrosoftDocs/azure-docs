@@ -1,7 +1,7 @@
 ---
-title: How to use Jamba family of language models with AzureAIstudio
+title: How to use Jais family of language models with AzureAIstudio
 titleSuffix: AzureAIstudio
-description: Learn how to use Jamba family of small language models with AzureAIstudio.
+description: Learn how to use Jais family of small language models with AzureAIstudio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/19/2024
@@ -13,13 +13,14 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Jamba family of language models with AzureAIstudio
+# How to use Jais family of language models with AzureAIstudio
 
-In this guide, you learn about Jamba models and how to use them with AzureAIstudio.
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
+In this guide, you learn about Jais models and how to use them with AzureAIstudio.
+JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
 
-> [!TIP]
-> See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
+* **Context length:** JAIS supports a context length of 8K.
+* **Input:** Model input is text only.
+* **Output:** Model generates text only.
 
 
 
@@ -29,7 +30,7 @@ The Jamba Instruct model is AI21's production-grade Mamba-based large language m
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jais models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -90,9 +91,9 @@ The response is as follows:
 
 ```console
 {
-    "model_name": "Jamba-Instruct",
+    "model_name": "jais-30b-chat",
     "model_type": "chat-completions",
-    "model_provider_name": "AI21"
+    "model_provider_name": "G42"
 }
 ```
 
@@ -189,7 +190,7 @@ response = model.complete(
 ```
 
 > [!WARNING]
-> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -257,7 +258,7 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jais models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -318,9 +319,9 @@ The response is as follows:
 
 ```console
 {
-    "model_name": "Jamba-Instruct",
+    "model_name": "jais-30b-chat",
     "model_type": "chat-completions",
-    "model_provider_name": "AI21"
+    "model_provider_name": "G42"
 }
 ```
 
@@ -429,7 +430,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -507,7 +508,7 @@ catch (error) {
 
 ## Prerequisites
 
-To use Jamba models with AzureAIstudio, you need the following prerequisites:
+To use Jais models with AzureAIstudio, you need the following prerequisites:
 
 
 
@@ -546,9 +547,9 @@ The response is as follows:
 
 ```console
 {
-    "model_name": "Jamba-Instruct",
+    "model_name": "jais-30b-chat",
     "model_type": "chat-completions",
-    "model_provider_name": "AI21"
+    "model_provider_name": "G42"
 }
 ```
 
@@ -581,7 +582,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Jamba-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -638,7 +639,7 @@ When you use streaming, responses look as follows:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Jamba-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -662,7 +663,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Jamba-Instruct",
+    "model": "jais-30b-chat",
     "choices": [
         {
             "index": 0,
@@ -709,7 +710,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```
 
 > [!WARNING]
-> Notice that Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Notice that Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -789,9 +790,9 @@ The following example shows how to handle events when the model detects harmful 
 
 ## Cost and quotas
 
-### Cost and quota considerations for Jamba family of models deployed as a service
+### Cost and quota considerations for Jais family of models deployed as a service
 
-Jamba models deployed as a serverless API are offered by AI21 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Jais models deployed as a serverless API are offered by G42 through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
