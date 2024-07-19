@@ -52,9 +52,9 @@ The content filtering system integrated in the Azure OpenAI Service contains:
 
 
 
-[!INCLUDE [text severity-levels, four-level](../../content-safety/includes/severity-levels-text-four.md)]
+[!INCLUDE [severity-levels text, four-level](../../content-safety/includes/severity-levels-text-four.md)]
 
-[!INCLUDE [image severity-levels](../../content-safety/includes/severity-levels-image.md)]
+[!INCLUDE [severity-levels image](../../content-safety/includes/severity-levels-image.md)]
 
 
 ## Configurability (preview)
