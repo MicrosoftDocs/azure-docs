@@ -44,13 +44,25 @@ landingContent:
         links:  
           - text: Enable SCVMM inventory resources in Azure
             url: enable-scvmm-inventory-resources.md
+          - text: Enable virtual hardware and VM CRUD capabilities in an SCVMM machine with Arc agent installed
+            url: enable-virtual-hardware-scvmm.md
           - text: Set up and manage self-service access to SCVMM resources
             url: set-up-and-manage-self-service-access-scvmm.md
+          - text: Manage SCVMM VMs in Azure through Arc-enabled SCVMM
+            url: perform-vm-ops-on-scvmm-through-azure.md
           - text: Install Arc agent at scale for your SCVMM VMs
             url: enable-guest-management-at-scale.md
+          - text: Install Arc agent at scale for your SCVMM VMs
+            url: install-arc-agents-using-script.md
           - text: Deliver ESUs for SCVMM VMs through Arc
             url: deliver-esus-for-system-center-virtual-machine-manager-vms.md
-          
+          - text: Perform ongoing administration for Arc-enabled SCVMM
+            url: administer-arc-scvmm.md
+          - text: Remove your SCVMM environment from Azure Arc
+            url: remove-scvmm-from-azure-arc.md
+          - text: Recover from accidental deletion of resource bridge virtual machine
+            url: disaster-recovery.md
+
   - title: Reference
     linkLists:
       - linkListType: reference
