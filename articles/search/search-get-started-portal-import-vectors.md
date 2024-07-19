@@ -38,17 +38,19 @@ For more configuration and data source options, try a code-based approach. For m
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
++ [Azure AI Search service](search-create-service-portal.md). It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
+
 + [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
   Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
-+ A deployed text or multimodal embedding model. [Deployment instructions](#set-up-embedding-models) are provided in this article. Supported model providers include:
++ An embedding model on a supported platform. [Deployment instructions](#set-up-embedding-models) are provided in this article.
 
-  + [Azure OpenAI Service](https://aka.ms/oai/access) with `text-embedding-ada-002`, `text-embedding-3-large`, or `text-embedding-3-small`.
-  + [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with embedding model deployments.
-  + [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) if you want to use [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in a subset of Azure regions. Currently those regions include SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, or JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
-  
-+ [Azure AI Search service](search-create-service-portal.md). It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
+  | Provider | Supported models |
+  |---|---|
+  | [Azure OpenAI Service](https://aka.ms/oai/access) | `text-embedding-ada-002`, `text-embedding-3-large`, or `text-embedding-3-small`. |
+  | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) |  Azure, Cohere, and Facebook embedding models. |
+  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in a subset of Azure regions. Currently those regions include SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, or JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
 
 ### Public endpoint requirements
 
@@ -60,11 +62,11 @@ If private endpoints are already present and you can't disable them, the alterna
 
 We recommend role assignments for search service connections to other resources.
 
-1. On Azure AI Search, [enable RBAC](search-security-enable-roles.md).
+1. On Azure AI Search, [enable roles](search-security-enable-roles.md).
 
 1. Configure your search service to [use a system-assigned or user-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity).
 
-In the following sections, you can assign the search service's managed identity to roles in other services. The sections provide steps for role assignments where applicable.
+1. On your data source platform and embedding model provider, create role assignments that allow Azure AI Search to access data and models. [Prepare sample data](#prepare-sample-data) provides instructions for setting up role assignments.
 
 A free search service supports RBAC on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. 
 
@@ -78,7 +80,7 @@ For more secure connections:
 
 ### Check for space
 
-If you're starting with the free service, you're limited to three indexes, three data sources, three skillsets, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
+If you're starting with the free service, you're limited to 3 indexes, data sources, skillsets, and indexers. Basic limits you to 15. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
 ### Check for semantic ranking
 
