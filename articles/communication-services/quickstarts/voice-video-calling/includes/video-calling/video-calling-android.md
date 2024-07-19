@@ -623,7 +623,8 @@ When you use event listeners that are defined within the same class, bind the li
 
 If you try to pass the listener in directly as an argument, you lose the reference to that listener. Java creates new instances of these listeners, not referencing previously created ones. You can't remove prior instances, because you don’t have a reference to them.
 
-> Note: When a user joins a call, they can access the current remote participants through the `getRemoteParticipants()` method. The `addOnRemoteParticipantsUpdatedListener` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `getRemoteParticipants()` method. The `addOnRemoteParticipantsUpdatedListener` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
 
 ### Remote video stream updates
 
