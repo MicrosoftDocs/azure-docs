@@ -128,7 +128,7 @@ When server-side encryption using customer-managed keys in customer-controlled h
 - Significant setup, configuration, and ongoing maintenance costs
 - Increased dependency on network availability between the customer datacenter and Azure datacenters.
 
-## Support services
+## Supporting services
 
 The Azure services that support each encryption model:
 
