@@ -31,7 +31,7 @@ To allow/disallow access key authentication for an Azure App Configuration resou
 
 1. Set the **Enable access keys** toggle to **Enabled**.
 
-    :::image type="content" border="true" source="./media/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration":::
+    :::image type="content" border="true" source="./media/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -61,7 +61,7 @@ To check if access key authentication is enabled for an Azure App Configuration 
 
 1. Check if there are access keys displayed and if the toggled state of **Enable access keys** is enabled.
 
-    :::image type="content" border="true" source="./media/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource":::
+    :::image type="content" border="true" source="./media/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource.":::
 
 # [Azure CLI](#tab/azure-cli)
 
