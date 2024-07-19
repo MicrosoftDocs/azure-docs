@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/07/2024
+ms.date: 07/19/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
@@ -203,6 +203,7 @@ The following properties are supported for Microsoft Fabric Lakehouse Table data
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **LakehouseTable**. | Yes                         |
+| schema | The name of your schema. | Yes |
 | table | The name of your table. | Yes |
 
 **Example:**
@@ -217,9 +218,9 @@ The following properties are supported for Microsoft Fabric Lakehouse Table data
             "type": "LinkedServiceReference" 
         }, 
         "typeProperties": { 
+            "schema": "<schema_name>",
             "table": "<table_name>"   
-        }, 
-        "schema": [< physical schema, optional, retrievable during authoring >] 
+        }
     } 
 }
 ```
