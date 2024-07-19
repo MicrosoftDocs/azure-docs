@@ -25,6 +25,13 @@ ms.custom: "include file"
     ```json
     "type":"module",
     ```
+1. Edit the `scripts` property to compile the TypeScript files. Add the `build` script.
+
+    ```json
+    "build": "tsc"
+    ```
+    
+
 1. Create a `tsconfig.json` in the project file to configure the TypeScript ESM build and copy the following into the file:
 
     :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
