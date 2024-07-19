@@ -1047,7 +1047,7 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
    This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
  
 - Currently, only `en-US` is supported for topics in pronunciation assessment. There is no length limit for the topic parameter.
-- If your audio file exceeds 30 seconds, use continuous mode for processing. For how to use streaming mode, refer to [Use pronunciation assessment in streaming mode](#use-pronunciation-assessment-in-streaming-mode).
+- If your audio file exceeds 30 seconds, use continuous mode for processing.
 
 ## Related content
 
