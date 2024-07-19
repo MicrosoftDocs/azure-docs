@@ -51,11 +51,11 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 #### Data storage and index meters
 
-You're billed per GB on a monthly basis for the cost to store an object and it's metadata. Metadata is stored as part of the object and includes properties and key-value pairs. It does not include blob index tags as those are stored as a sub resource and have their own billing meter. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
+Data storage and metadata are billed per GB on a monthly basis. Metadata is stored as part of the object and includes properties and key-value pairs. It does not include blob index tags as those are stored as a sub resource and have their own billing meter. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
 
 The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. 
 
-Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. While the line items in your bill will contain GB as a unit of measurement, those units are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
 
@@ -68,34 +68,28 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 
 #### Operations meters
 
-- Explain the difference between operations and transactions.
-- Transactions are billed per 10,000. Divide the price of a transaction by 10,000 to get the cost of one individual transaction. 
-- Provide an example. 
+Each request made by a client arrives to the service in the form of a REST operation. You can monitor your resource logs to see which operations are executing against your data. 
 
-Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. 
+The pricing pages don't list a price for each individual operation but instead lists the price of an operation type. To determine the price of an operation, you must first determine how that operation is classified by it's type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
-These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
+The price that appears beside an operation type is not the price you pay for each individual operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price listed for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. 
 
-- [Map of AzCopy v10 commands to Azure Blob Storage REST operations](storage-ref-azcopy-map-commands-to-rest-operations.md)
-- [Map of NFS 3.0 commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/network-file-system-protocol-map-commands-to-rest-operations.md)
-- [Map of SFTP commands to Azure Blob Storage REST operations for Azure Blob Storage](../blobs/secure-file-transfer-map-commands-to-rest-operations.md)
-
-To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
+To model the cost of various types of operations, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Data transfer and data retrieval meters
 
-- Explain when data transfer fees apply. 
-- Explain network egress fees and when they would apply.
-- Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
-- Provide examples
-- Data retreival Applies only to the cool, cold, and archive tiers. 
+Any data that is copied to another region, incurs data transfer fees and network egress charges. To learn more about network egress charges, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/). This charge applies no matter how data is copied. For example, you might use AzCopy for a one-off copy operation, configure an object replication policy, or write data to a Data to a geo-redundant or geo-zone-redundant storage account. The data retrieval meter applies only to data read from cool, cold, and archive tiers. 
 
+For examples of how data transfer, egress, and data retrieval are calculated, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Feature-related meters
 
-There is no cost to enable Blob Storage features. However, there can be storage, operation, and data movement costs associated with using them. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
+There is no cost to enable Blob Storage features. You are billed for the storage space occupied by the output of a feature and the operations required to interact with that feature. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. 
 
-Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+Some features have added meters. For a complete list, se the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
+
+> [!TIP]
+> Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 ## Find the unit price for each meter
 
