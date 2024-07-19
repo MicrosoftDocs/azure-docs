@@ -1,8 +1,8 @@
 ---
 title: Monitoring data reference for Public IP addresses
 description: This article contains important reference material you need when you monitor Azure Public IP addresses.
-ms.date: 07/18/2024
-ms.custom: horz-monitor, subject-monitoring
+ms.date: 07/21/2024
+ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
