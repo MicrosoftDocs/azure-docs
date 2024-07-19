@@ -325,7 +325,7 @@ Once the migration is complete on your test clusters, you should verify the foll
 ### Run the OS SKU migration on your production clusters
 
 1. Update your existing templates to set `OSSKU=AzureLinux`. In ARM templates, you use `"OSSKU: "AzureLinux"` in the `agentPoolProfile` section. In Bicep, you use `osSku: "AzureLinux"` in the `agentPoolProfile` section. Lastly, for Terraform, you use `"os_sku = "AzureLinux"` in the `default_node_pool` section. Make sure that your `apiVersion` is set to `2023-07-01` or later.
-2. Redeploy your ARM, Bicep or Terraform template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster behaves as if it's taking a node image upgrade. Your cluster surges capacity, and then reboots your existing nodes one by one into the latest AKS image from your new OS SKU.
+2. Redeploy your ARM, Bicep, or Terraform template for the cluster to apply the new `OSSKU` setting. During this deploy, your cluster behaves as if it's taking a node image upgrade. Your cluster surges capacity, and then reboots your existing nodes one by one into the latest AKS image from your new OS SKU.
 
 ### Rollback
 
