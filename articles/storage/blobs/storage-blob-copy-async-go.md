@@ -61,26 +61,26 @@ If you're copying a blob within the same storage account, the operation can comp
 
 If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
-The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
+The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example assumes you provide your own SAS. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails. We also set the access tier for the destination blob to `Cool` using the [StartCopyFromURLOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#StartCopyFromURLOptions) struct.
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_copy_from_source_async":::
+
+The following example shows sample usage:
+
+:::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_copy_from_source_async_usage":::
 
 > [!NOTE]
 > User delegation SAS tokens offer greater security, as they're signed with Microsoft Entra credentials instead of an account key. To create a user delegation SAS token, the Microsoft Entra security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
 
 ## Copy a blob from a source outside of Azure
 
-You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
+You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL:
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_copy_from_external_source_async":::
 
-## Check the status of a copy operation
+The following example shows sample usage:
 
-To check the status of an asynchronous `Copy Blob` operation, you can poll the [get_blob_properties](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-get-blob-properties) method and check the copy status.
-
-The following code example shows how to check the status of a pending copy operation:
-
-:::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_check_copy_status":::
+:::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_copy_from_external_source_async_usage":::
 
 ## Abort a copy operation
 
@@ -88,15 +88,19 @@ Aborting a pending `Copy Blob` operation results in a destination blob of zero l
 
 To abort a pending copy operation, call the following operation:
 
-- [abort_copy](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-abort-copy)
+- [AbortCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.AbortCopyFromURL)
 
 This method wraps the [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) REST API operation, which cancels a pending `Copy Blob` operation. The following code example shows how to abort a pending `Copy Blob` operation:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_blob.py" id="Snippet_abort_copy":::
+:::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_abort_copy":::
 
 ## Resources
 
 To learn more about copying blobs with asynchronous scheduling using the Azure Blob Storage client module for Go, see the following resources.
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/blob-storage-devguide-go/blob/main/cmd/copy-blob-async/copy_blob_async.go)
 
 ### REST API operations
 
@@ -104,9 +108,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_blob.py)
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]

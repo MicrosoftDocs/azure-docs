@@ -62,21 +62,21 @@ For large objects, you might choose to work with individual blocks. The followin
 
 If you're copying a blob from a source within Azure, access to the source blob can be authorized via Microsoft Entra ID (recommended), a shared access signature (SAS), or an account key.
 
-The following example shows a scenario for copying a source blob within Azure. In this example, we also set the access tier for the destination blob to `Cool` using the [UploadBlobFromURLOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadBlobFromURLOptions) struct.
+The following code example shows a scenario for copying a source blob within Azure. In this example, we also set the access tier for the destination blob to `Cool` using the [UploadBlobFromURLOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#UploadBlobFromURLOptions) struct.
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url":::
 
-The following example shows sample usage to copy a blob from one storage account to another:
+The following example shows sample usage:
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url":::
 
 ## Copy a blob from a source outside of Azure
 
-You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
+You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following code example shows a scenario for copying a blob from an accessible source object URL.
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url":::
 
-The following example shows sample usage to copy a blob from an external source object URL:
+The following example shows sample usage:
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url_external_usage":::
 
