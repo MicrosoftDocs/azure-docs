@@ -8,7 +8,7 @@ ms.date: 07/19/2024
 ms.topic: overview
 ---
  
-# Roles and permissions
+# Roles and permissions in Azure Update Manager
 
 To manage an Azure VM or an Azure Arc-enabled server using Azure Update Manager, you must have the appropriate roles assigned. You can either use predefined roles or create custom roles with the specific permissions you need. For more information, see the [permissions](#permissions).
 

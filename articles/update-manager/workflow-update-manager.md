@@ -52,7 +52,7 @@ To view the available extensions for a VM in the Azure portal:
 1. On the **Extensions** tab, you can view the available extensions.
 ---
 
-### Update source
+## Update source
 
 Azure Update Manager honors the update source settings on the machine and will fetch updates accordingly. AUM doesn't publish or provide updates. 
 
@@ -75,7 +75,7 @@ AUM performs the following steps:
 > 1. The machines will report their update status based on the source they are configured to synchronize with. If the Windows Update service is configured to report to WSUS, the results in Update Manager might differ from what Microsoft Update shows, depending on when WSUS last synchronized with Microsoft Update. This behavior is the same for Linux machines that are configured to report to a local repository instead of a public package repository.
 > 1. Update Manager will only find updates that the Windows Update service finds when you select the local **Check for updates** button on the local Windows system. On Linux systems only updates on the local repository will be discovered.
 
-### Updates data stored in Azure Resource Graph
+## Updates data stored in Azure Resource Graph
 
 Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) where data is retained for below time periods:
 
@@ -86,7 +86,7 @@ Update Manager extension pushes all the pending updates information and update i
  
 For more information, see [log structure of Azure Resource Graph](query-logs.md) and [sample queries](sample-query-logs.md).
 
-### How patches are installed in Azure Update Manager
+## How patches are installed in Azure Update Manager
 
 In Azure Update Manager, patches are installed in the following manner:
 

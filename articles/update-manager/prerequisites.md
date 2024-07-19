@@ -13,7 +13,7 @@ ms.topic: overview
 
 ## Prerequisites
 
-Azure Update Manager is an out of the box, zero onboarding service. Following are the  only a few things that you must consider before starting to use the service. 
+Azure Update Manager is an out of the box, zero onboarding service. Before you start using this service, consider the following list: 
 
 ### Arc-enabled servers
 Arc-enabled servers must be connected to Azure Arc to use Azure Update Manager. For more information, see [how to enable Arc on non-Azure machines](https://aka.ms/onboard-to-arc-aum-migration).
