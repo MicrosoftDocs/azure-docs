@@ -58,7 +58,7 @@ Service Bus operates several background processes that can affect compute utiliz
 7. Deduplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It is advisable to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
+If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It is recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
 
 ### Sharding across namespaces
 
