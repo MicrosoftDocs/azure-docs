@@ -21,35 +21,26 @@ Keep in mind that costs for Blob Storage are only a portion of the monthly costs
 
 Azure Blob Storage runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue. 
 
-### How you're charged for Azure Blob Storage
+This section describes the meters that lead to charges on your bill. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter. There are two types of meters.
 
-This section describes the meters that lead to charges on your bill. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter.
+- Meters for storage, operations, and data movement
+- Meters for features and capabilities
 
-When you create or use Blob Storage resources, you'll be charged for the following meters:
+### Meters for storage, operations, and data movement
 
-These are the basic meters.
+The following table describes each meter.
 
-| Meter | Unit | More information |
-|---|---|----|
-| Data storage | Per GB / per month| See the [Data storage](#data-storage) section of this article. |
-| Index | Per GB / per month| Gen2 only. Describe what this is. |
-| Operations | Per transaction | See the [Operations](#operations) section of this article. |
-| Data transfer | Per GB | See the [Data transfer](#data-transfer) section of this article. |
-| Data retrieval | Per GB | Applies only to the cool, cold, and archive tiers. |
+| Meter | Unit |
+|---|---|
+| Data storage | Per GB / per month |
+| Index | Per GB / per month<sup>1 |
+| Operations | Per transaction |
+| Data transfer | Per GB | 
+| Data retrieval | Per GB |
 
-These are feature-related meters. You're never charged for enabling a feature. Other than standard transaction and capacity requirements of the feature. The pricing and billing sections of the content for each feature describe all of that. Here are other meters.
+<sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
 
-| Meter | Unit | More information |
-|---|---|----|
-| Blob index tags | Per tag  | Applies only if you enable the feature. |
-| Change feed | Per logged change | Applies only if you enable the feature. |
-| SSH File Transfer Protocol (SFTP) | Per hour | Applies only if you enable the feature. |
-| Blob inventory | Per million objects scanned | Applies to each report generated. |
-| Encryption scopes | Per month | Applies only if you enable the feature. |
-| Query acceleration | Per GB | Per GB scanned & Per GB returned.  |
-| Point-in-time restore Data Processed | Per MB | Applies only when you perform a restore operation and is based on the amount of data being restored. |
-
-#### Data storage
+#### Data storage and index meters
 
 Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
@@ -83,8 +74,10 @@ Costs
   - HNS metadata always stored and billed at the hot tier as per the Index GB meter.
   - List any transaction costs over and above normal transaction costs here (pending question)
   - For archive tier metadata, capacity is charged at cold tier. If transaction fees apply at a different tier (other than cold, list them here).
+
+Data retreival Applies only to the cool, cold, and archive tiers. 
   
-#### Operations
+#### Operations meters
 
 - Explain the difference between operations and transactions.
 - Transactions are billed per 10,000. Divide the price of a transaction by 10,000 to get the cost of one individual transaction. 
@@ -100,20 +93,38 @@ These articles map AzCopy, NFS 3.0, and SFTP commands to REST operations:
 
 To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. To see how each operation maps to an operation type, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 
-#### Data transfer
+#### Data transfer and data retrieval meters
 
 - Explain when data transfer fees apply. 
 - Explain network egress fees and when they would apply.
 - Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 - Provide examples
 
-### Finding the unit price for each meter
+### Meters for features and capabilities 
+
+The following table describes each meter.
+
+| Meter | Unit | 
+|---|---|
+| Blob index tags | Per tag<sup>2   |
+| Change feed | Per logged change<sup>2  |
+| SSH File Transfer Protocol (SFTP) | Per hour |
+| Blob inventory | Per million objects scanned | 
+| Encryption scopes | Per month<sup>2  |
+| Query acceleration | Per GB scanned & Per GB returned. |
+| Point-in-time restore Data Processed | Per MB restored |
+
+<sup>2</sup> Applies only if you enable the feature.<br />
+
+There is no cost to enable a feature. However, there can be storage, operation, and data movement costs associated with using a feature. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
+
+## Finding the unit price for each meter
 
 To find unit prices, open the correct pricing page and select the appropriate file structure. Then, apply the appropriate redundancy, region, and currency filters. Prices for each meter appear in a table. Prices differ based on other settings in your account such as data redundancy options, access tier and performance tier.
 
 The correct pricing page and file structure matter mostly to the cost of reading and writing data as the cost to store data is essentially unchanged by those selections. To accurately estimate the cost of reading and writing data, start by determining which [Storage account endpoint](storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads will use to read and write data.  
 
-#### Pricing requests to the blob service endpoint
+### Pricing requests to the blob service endpoint
 
 The format of the blob service endpoint is `https://<storage-account>.blob.core.windows.net` and is the most common endpoint used by tools and applications that interact with Blob Storage. 
 
@@ -133,7 +144,7 @@ Requests to this endpoint can also occur in accounts that have a hierarchical na
 
 If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
 
-#### Pricing requests to the Data Lake Storage endpoint
+### Pricing requests to the Data Lake Storage endpoint
 
 The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
 
