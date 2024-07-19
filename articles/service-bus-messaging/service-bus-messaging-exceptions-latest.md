@@ -200,6 +200,41 @@ We recommend that you follow these verification steps, depending on the type of 
 - [Verify the SAS token was generated correctly](service-bus-sas.md)
 - [Verify the correct role-based access control (RBAC) roles were granted](service-bus-managed-service-identity.md)
 
+## Geo-Replication exceptions
+
+### ServerBusyException
+
+#### Cause
+
+- During asynchronous replication (replication lag greater than zero), the client tries to perform an operation on a service bus entity (queue, topic) or performs a management operation, but the operation cannot be completed because the replication lag between the primary and the secondary regions has exceeded the maximum allowed replication lag in seconds. 
+
+#### Resolution 
+
+The client should back off to give time for the service to process its given workload, then the client should retry. 
+
+### TimeoutException 
+
+#### Cause 
+
+- A timeout exception in Geo DR means that the operation did not complete within the client-provided timeout. 
+    - In synchronous replication, an operation’s primary region write and replication to secondary regions are within the scope of the operation’s timeout. 
+    - In asynchronous replication, an operation’s primary region write is within the scope of the operation’s timeout, but an operation’s replication to secondary regions is not within the scope of the operation’s timeout. 
+
+#### Resolution
+
+The client should retry the operation. 
+
+Note that some steps of a timed-out operation may have been completed. It’s possible that a timed-out operation may have been written to the primary region and some secondary regions. If an operation has been written to the primary region, it will eventually be replicated to all secondary regions regardless of client timeout. 
+
+### BadRequest 
+
+#### Cause
+
+- During a planned failover, the primary region is temporarily set as read-only in order to allow the secondary region to catch up. If the client attempts a write operation to the primary region while it is in this temporary read-only state, then the client will be receive a BadRequest exception. 
+
+#### Resolution
+
+The client must wait for planned failover to complete before write operations will succeed. 
 
 ## Next steps
 
