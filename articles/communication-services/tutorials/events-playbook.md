@@ -1,7 +1,7 @@
 ---
 title: Build a custom event management platform with Microsoft Teams, Microsoft Graph and Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to use Microsoft Teams, Graph and Azure Communication Services to build a custom event management platform.
+description: Learn how to use Microsoft Teams, Graph, and Azure Communication Services to build a custom event management platform.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -18,7 +18,7 @@ The goal of this document is to reduce the time it takes for Event Management Pl
 
 ## What are virtual events and event management platforms?
 
-Microsoft empowers event platforms to integrate event capabilities using [Microsoft Teams](/microsoftteams/quick-start-meetings-live-events), [Microsoft Graph](/graph/api/application-post-onlinemeetings?tabs=http&view=graph-rest-beta&preserve-view=true) and [Azure Communication Services](../overview.md). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, applying in-platform capabilities and gamification. Learn more about [Teams Meetings, Webinars and Live Events](/microsoftteams/quick-start-meetings-live-events) that are used throughout this article to enable virtual event scenarios. 
+Microsoft empowers event platforms to integrate event capabilities using [Microsoft Teams](/microsoftteams/quick-start-meetings-live-events), [Microsoft Graph](/graph/api/application-post-onlinemeetings?tabs=http&view=graph-rest-beta&preserve-view=true) and [Azure Communication Services](../overview.md). Virtual Events are a communication modality where event organizers schedule and configure a virtual environment for event presenters and participants to engage with content through voice, video, and chat. Event management platforms enable users to configure events and for attendees to participate in those events, within their platform, applying in-platform capabilities and gamification. Learn more about [Teams Meetings, Webinars, and Live Events](/microsoftteams/quick-start-meetings-live-events) that are used throughout this article to enable virtual event scenarios. 
 
 ## What are the building blocks of an event management platform?
 
@@ -34,7 +34,7 @@ To get started, event organizers must schedule and configure the event. This pro
 
 ### 2. Attendee experience
 
-For event attendees, they are presented with an experience that enables them to attend, participate, and engage with an event’s content. This experience might include capabilities like watching content, sharing their camera stream, asking questions, responding to polls, and more. Microsoft provides two options for attendees to consume events powered by Teams and Azure Communication Services:
+For event attendees, they're presented with an experience that enables them to attend, participate, and engage with an event’s content. This experience might include capabilities like watching content, sharing their camera stream, asking questions, responding to polls, and more. Microsoft provides two options for attendees to consume events powered by Teams and Azure Communication Services:
 
 - Teams Client (Web or Desktop): Attendees can directly join events using a Teams Client by using a provided join link. They get access to the full Teams experience.
   
@@ -48,7 +48,7 @@ Event hosts and organizers require the ability to present content, manage attend
 
 ## Building a custom solution for event management with Azure Communication Services and Microsoft Graph
 
-Throughout the rest of this tutorial, we will focus on how using Azure Communication Services and Microsoft Graph to build a custom event management platform. We will be using the sample architecture below. Based on that architecture we will be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
+Throughout the rest of this tutorial, we'll focus on how using Azure Communication Services and Microsoft Graph to build a custom event management platform. We'll be using the sample architecture below. Based on that architecture we'll be focusing on setting up scheduling and registration flows and embedding the attendee experience right on the event platform to join the event.
 
 :::image type="content" source="./media/event-management-platform-architecture.svg" alt-text="Diagram showing sample architecture for event management platform":::
 
@@ -65,7 +65,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
     1. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will receive notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of reminders.
 
-    2. As part of the application setup, the service account is used to login into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](/entra/identity-platform/access-tokens). and [refresh tokens](/entra/identity-platform/refresh-tokens).
+    2. As part of the application setup, the service account is used to log in into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](/entra/identity-platform/access-tokens). and [refresh tokens](/entra/identity-platform/refresh-tokens).
 
     3. The application will require "on behalf of" permissions with the [offline scope](/entra/identity-platform/permissions-consent-overview#offline_access) to act on behalf of the service account for the purpose of creating meetings. Individual Microsoft Graph APIs require different scopes, learn more in the links detailed below as we introduce the required APIs.
 
@@ -102,7 +102,7 @@ Through Azure Communication Services, developers can use SMS and Email capabilit
 >[!NOTE]
 > Limitations when using Azure Communication Services as part of a Teams Webinar experience. Please visit our [documentation for more details.](../concepts/join-teams-meeting.md#limitations-and-known-issues)
 
-Attendee experience can be directly embedded into an application or platform using [Azure Communication Services](../overview.md) so that your attendees never need to leave your platform. It provides low-level calling and chat SDKs which support [interoperability with Teams Events](../concepts/teams-interop.md), as well as a turn-key UI Library which can be used to reduce development time and easily embed communications. Azure Communication Services enables developers to have flexibility with the type of solution they need. Review [limitations](../concepts/join-teams-meeting.md#limitations-and-known-issues) of using Azure Communication Services for webinar scenarios.
+Attendee experience can be directly embedded into an application or platform using [Azure Communication Services](../overview.md) so that your attendees never need to leave your platform. It provides low-level calling and chat SDKs that support [interoperability with Teams Events](../concepts/teams-interop.md), as well as a turn-key UI Library, which can be used to reduce development time and easily embed communications. Azure Communication Services enables developers to have flexibility with the type of solution they need. Review [limitations](../concepts/join-teams-meeting.md#limitations-and-known-issues) of using Azure Communication Services for webinar scenarios.
 
 1.	To start, developers can leverage Microsoft Graph APIs to retrieve the join URL. This URL is provided uniquely per attendee during [registration](/graph/api/externalmeetingregistrant-post?tabs=http&view=graph-rest-beta&preserve-view=true). Alternatively, it can be [requested for a given meeting](/graph/api/onlinemeeting-get?tabs=http&view=graph-rest-beta&preserve-view=true).
 
@@ -110,11 +110,11 @@ Attendee experience can be directly embedded into an application or platform usi
 
 3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript&preserve-view=true) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/client-and-server-architecture.md).
 
-4.	Developers can leverage [headless SDKs](../concepts/teams-interop.md) or [UI Library](https://azure.github.io/communication-ui-library/) using the join link URL to join the Teams meeting through [Teams Interoperability](../concepts/teams-interop.md). Details below:
+4.	Developers can leverage [headless SDKs](../concepts/teams-interop.md) or [UI Library](../concepts/ui-library/ui-library-overview.md) using the join link URL to join the Teams meeting through [Teams Interoperability](../concepts/teams-interop.md). Details below:
 
 |Headless SDKs                           | UI Library                            |
 |----------------------------------------|---------------------------------------|
-| Developers can leverage the [calling](../quickstarts/voice-video-calling/get-started-teams-interop.md?pivots=platform-javascript&preserve-view=true) and [chat](../quickstarts/chat/meeting-interop.md?pivots=platform-javascript&preserve-view=true) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-meeting-basicexample--basic-example) or pure [call](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example) composites to build their experience. Alternatively, developers can leverage [composable components](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-uicomponents--page) to build a custom Teams interop experience.|
+| Developers can leverage the [calling](../quickstarts/voice-video-calling/get-started-teams-interop.md?pivots=platform-javascript&preserve-view=true) and [chat](../quickstarts/chat/meeting-interop.md?pivots=platform-javascript&preserve-view=true) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-meeting-basicexample--basic-example) or pure [call](../concepts/ui-library/ui-library-overview.md) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example) composites to build their experience. Alternatively, developers can leverage [composable components](../concepts/ui-library/ui-library-use-cases.md) to build a custom Teams interop experience.|
 
 
 >[!NOTE]

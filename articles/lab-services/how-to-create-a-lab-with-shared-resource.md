@@ -9,6 +9,8 @@ ms.service: lab-services
 
 # How to create a lab with a shared resource in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 > [!NOTE]

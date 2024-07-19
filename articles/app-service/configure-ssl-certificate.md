@@ -311,18 +311,19 @@ After the certificate renews inside your key vault, App Service automatically sy
 
 ## Frequently asked questions
 
-- [How can I automate adding a bring-your-owncertificate to an app?](#how-can-i-automate-adding-a-bring-your-owncertificate-to-an-app)
-- [Frequently asked questions for App Service certificates](configure-ssl-app-service-certificate.md#frequently-asked-questions)
-#### How can I automate adding a bring-your-owncertificate to an app?
+### How can I automate adding a bring-your-owncertificate to an app?
 
 - [Azure CLI: Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
 - [Azure PowerShell Bind a custom TLS/SSL certificate to a web app using PowerShell](scripts/powershell-configure-ssl-certificate.md)
 
-#### Can I configure a private CA certificate on my app?
-
-App Service has a list of Trusted Root Certificates which you cannot modify in the multi-tenant variant version of App Service, but you can load your own CA certificate in the Trusted Root Store in an App Service Environment (ASE), which is a single-tenant environment in App Service. (The Free, Basic, Standard, and Premium App Service Plans are all multi-tenant, and the Isolated Plans are single-tenant.)
-- [Private client certificate](environment/overview-certificates.md)
-
+### Can I use a private CA (certificate authority) certificate for inbound TLS on my app?
+You can use a private CA certificate for inbound TLS in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). This isn't possible in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I make outbound calls using a private CA (certificate authority) client certificate from my app?
+This is only supported for Windows container apps in multi-tenant App Service. In addition, you can make outbound calls using a private CA client certificate with both code-based and container-based apps in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I load a private CA (certificate authority) certificate in my App Service Trusted Root Store?
+You can load your own CA certificate into the Trusted Root Store in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ## More resources
 

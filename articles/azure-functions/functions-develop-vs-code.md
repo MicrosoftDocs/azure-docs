@@ -4,13 +4,7 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: conceptual
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom:
-  - devdivchpfy22
-  - vscode-azure-extension-update-complete
-  - devx-track-extended-java
-  - devx-track-js
-  - devx-track-python
-  - ignite-2023
+ms.custom: devdivchpfy22, vscode-azure-extension-update-complete, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
 ms.date: 03/14/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
@@ -123,7 +117,7 @@ The Functions extension lets you create the required function app project at the
 
 1. For the function name, enter **HttpExample**, select Enter, and then select **Function** authorization.
 
-   This authorization level requires that you provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
+   This authorization level requires that you provide a [function key](function-keys-how-to.md) when you call the function endpoint.
 
    :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
 

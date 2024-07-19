@@ -3,7 +3,7 @@ title: Publish and subscribe MQTT messages using Azure IoT MQ
 description: Use Azure IoT MQ to publish and subscribe to messages. Destinations include other MQTT brokers, Azure IoT Data Processor, and Azure cloud services.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
 ms.custom:
   - ignite-2023

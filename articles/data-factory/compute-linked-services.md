@@ -520,7 +520,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
             "newClusterVersion": "4.0.x-scala2.11",
             "accessToken": {
                 "type": "SecureString",
-                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+                "value": "YourAccessToken"
             }
         }
     }
@@ -532,14 +532,14 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 ```json
 {
-    "name": " AzureDataBricksLinedService",
+    "name": " AzureDataBricksLinkedService",
     "properties": {
       "type": " AzureDatabricks",
       "typeProperties": {
         "domain": "https://westeurope.azuredatabricks.net",
         "accessToken": {
             "type": "SecureString", 
-            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+            "value": "YourAccessToken"
           },
         "existingClusterId": "{clusterId}"
         }
@@ -563,7 +563,6 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads. This field is required for new cluster                | No               |
 | newClusterSparkConf  | a set of optional, user-specified Spark configuration key-value pairs. Users can also pass in a string of extra JVM options to the driver and the executors via spark.driver.extraJavaOptions and spark.executor.extraJavaOptions respectively. | No  |
 | newClusterInitScripts| a set of optional, user-defined initialization scripts for the new cluster. You can specify the init scripts in workspace files (recommended) or via the DBFS path (legacy). | No  |
-
 
 ## Azure SQL Database linked service
 
@@ -629,7 +628,7 @@ You create an Azure Function linked service and use it with the [Azure Function 
 | --- | --- | --- |
 | type   | The type property must be set to: **AzureFunction** | yes |
 | function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
-| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Work with access keys](../azure-functions/function-keys-how-to.md) | yes |
 |   |   |   |
 
 ## Related content

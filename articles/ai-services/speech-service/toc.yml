@@ -65,7 +65,9 @@ items:
         href: get-speech-recognition-results.md
       - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
-    - name: Batch transcription
+    - name: Fast transcription API (Preview)
+      href: fast-transcription-create.md
+    - name: Batch transcription API
       items:
       - name: What is batch transcription?
         href: batch-transcription.md
@@ -200,6 +202,8 @@ items:
       - name: What is text to speech avatar?
         href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
         displayName: avatar
+      - name: Content credentials
+        href: text-to-speech-avatar/content-credentials.md
       - name: How to synthesize text to speech avatar
         items:
         - name: Real-time synthesis
@@ -573,9 +577,9 @@ items:
           href: rest-text-to-speech.md
           displayName: reference, tts output, output format
         - name: Custom voice REST API
-          href: /rest/api/speechapi/operation-groups?&preserve-view=true=rest-speechapi-2023-12-01-preview
+          href: /rest/api/aiservices/speechapi/operation-groups
         - name: Batch synthesis REST API
-          href: /rest/api/batchtexttospeech/operation-groups?&preserve-view=true=rest-batchtexttospeech-2024-04-01
+          href: /rest/api/batchtexttospeech/operation-groups
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 

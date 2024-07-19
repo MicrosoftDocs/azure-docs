@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 01/30/2024
-ms.custom: template-tutorial
+ms.custom: template-tutorial, linux-related-content
 ---
 
 # Tutorial: Integrate a NAT gateway with a public load balancer using the Azure portal

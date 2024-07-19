@@ -500,7 +500,6 @@ The [query metrics](query-metrics.md) will help determine where the query is spe
 * Learn about Performance guidelines for the [Java SDK v4](performance-tips-java-sdk-v4.md)
 * Learn about the best practices for the [Java SDK v4](best-practice-java.md)
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [Connection limit on a host machine]: #connection-limit-on-host

@@ -35,7 +35,7 @@ The following versions of Azure Storage service APIs are supported with Data Box
 
 ### Azure Data Box 3.0 onwards
 
-[!INCLUDE [data-box-rest-supported-api-versions](~/reusable-content/ce-skilling/azure/includes/data-box-rest-supported-api-versions.md)]
+[!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
 
 ## Supported Azure client libraries
 
@@ -45,7 +45,7 @@ For Data Box Blob storage, there are specific client libraries and specific endp
 
 The following Azure client library versions are supported for Data Box Blob storage.
 
-[!INCLUDE [data-box-rest-supported-azure-client-libraries](~/reusable-content/ce-skilling/azure/includes/data-box-rest-supported-azure-client-libraries.md)]
+[!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
 ### Install PHP client via Composer - current
 

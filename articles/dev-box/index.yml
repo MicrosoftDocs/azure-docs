@@ -39,6 +39,10 @@ landingContent:
             url: quickstart-configure-dev-box-service.md
           - text: Create a dev box
             url: quickstart-create-dev-box.md
+      - linkListType: deploy
+        links:
+          - text: Microsoft Dev Box deployment guide
+            url: concept-dev-box-deployment-guide.md
 
   # Card
   - title: Quota management

@@ -110,7 +110,7 @@ sections:
 
           Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../reliability/availability-zones-service-support.md)
           
-          [!INCLUDE [Azure App Configuration availability zones table](~/reusable-content/ce-skilling/azure/includes/azure-app-configuration-availability-zones.md)]
+          [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |

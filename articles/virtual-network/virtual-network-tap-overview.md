@@ -3,7 +3,7 @@ title: Azure virtual network TAP overview
 description: Learn about virtual network TAP. Virtual network TAP provides you with a copy of virtual machine network traffic that can be streamed to a packet collector.
 author: asudbring
 ms.service: virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/28/2023
 ms.author: allensu
 ---
@@ -46,6 +46,8 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [cPacket Cloud Visbility](https://www.cpacket.com/resources/ccloud/)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
+
+- [Corelight, Inc.](https://corelight.com/)
 
 ### Security analytics, network/application performance management
 

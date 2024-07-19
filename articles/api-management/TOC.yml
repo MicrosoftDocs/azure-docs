@@ -397,6 +397,8 @@
       href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
+    - name: Customize developer portal on WordPress
+      href: developer-portal-wordpress-plugin.md
   - name: Self-host the developer portal
     items:
     - name: Create self-hosted portal
@@ -666,6 +668,7 @@
     - name: Workspaces breaking changes (June 2024)
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: stv1 compute platform retirement (August 2024)
+      href: breaking-changes/stv1-platform-retirement-august-2024.md
     - name: Git configuration retirement (March 2025)
       href: breaking-changes/git-configuration-retirement-march-2025.md
     - name: Direct management API retirement (March 2025)

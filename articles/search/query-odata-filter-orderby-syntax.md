@@ -95,7 +95,7 @@ Field paths are used in many parameters of the [Azure AI Search REST APIs](/rest
 
 ## Constants
 
-Constants in OData are literal values of a given [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure AI Search. Constants of collection types aren't supported.
+Constants in OData are literal values of a given [Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model) type. See [Supported data types](/rest/api/searchservice/supported-data-types) for a list of supported types in Azure AI Search. Constants of collection types aren't supported.
 
 The following table shows examples of constants for each of the nonvector data types that support OData expressions:
 

@@ -9,7 +9,7 @@ ms.date: 11/15/2023
 
 # Understand event domains for managing Event Grid topics
 
-An event domain is a management tool for large number of Event Grid topics related to the same application. You can think of it as a meta-topic that can have thousands of individual topics. It provides one publishing endpoint for all the topics in the domain. When publishing an event, the publisher must specify the target topic in the domain to which it wants to publish. The publisher can send an array or a batch of events where events are sent to different topics in the domain. See the [Publishing events to an event domain](#publishing-to-an-event-domain) section for details. 
+An event domain provides an endpoint for thousands of individual topics related to the same application. You can think of it as a meta-topic that can have thousands of individual topics. It provides one publishing endpoint for all the topics in the domain. When publishing an event, the publisher must specify the target topic in the domain to which it wants to publish. The publisher can send an array or a batch of events where events are sent to different topics in the domain. See the [Publishing events to an event domain](#publishing-to-an-event-domain) section for details. 
 
 Domains also give you authentication and authorization control over each topic so you can partition your tenants. This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications. Use event domains to:
 

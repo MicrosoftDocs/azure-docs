@@ -1,8 +1,8 @@
 ---
 title: Get information about Azure Monitor metrics and logs using Microsoft Copilot in Azure
 description: Learn about scenarios where Microsoft Copilot in Azure can provide information about Azure Monitor metrics and logs.
-ms.date: 05/28/2024
-ms.topic: conceptual
+ms.date: 07/03/2024
+ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
   - ignite-2023
@@ -65,6 +65,20 @@ Here are a few examples of the kinds of prompts you can use to get information a
 - "List all the alerts for the subscription"
 - "Show me all alerts triggered during the last 24 hours"
 
+## Answer questions about Azure Monitor Investigator (preview)
+
+Use Microsoft Copilot in  Azure (preview) to ask questions about your resources and to run Azure Monitor Investigator. You can ask to run an investigation on a resource to learn about what happened, possible causes, and ways to troubleshoot the issue.
+
+### Sample prompts
+
+Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor Investigator. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
+
+- "Why is this resource not working properly?"
+- "Is there any anomaly in my AKS resource?"  
+- "Run investigation on my resource"
+- "What is causing the issue in this resource?"
+- "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me"
+- "Run anomaly detection at 10/27/2023, 8:48:53 PM"
 
 ## Next steps
 

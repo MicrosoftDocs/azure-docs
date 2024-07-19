@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 
 # Estimate storage costs for Standard logic app workflows in single-tenant Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. In traditional *multitenant* Azure Logic Apps, any storage usage and costs are attached to the logic app. Now, in *single-tenant* Azure Logic Apps, you can use your own storage account. These storage costs are listed separately in your Azure billing invoice. This capability gives you more flexibility and control over your logic app data.
 

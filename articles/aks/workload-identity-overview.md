@@ -8,7 +8,6 @@ ms.subservice: aks-security
 ms.custom: build-2023
 ms.date: 05/28/2024
 ms.author: tamram
-
 ---
 
 # Use Microsoft Entra Workload ID with Azure Kubernetes Service (AKS)

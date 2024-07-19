@@ -25,7 +25,7 @@ In this tutorial, you:
 
 If you don’t have a service subscription, create a [free trial account](//azure.microsoft.com/free/ai-services). 
 
-A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java).
+A complete working example of the code contained in this tutorial (with some extra additions) can be found here: [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleCriticalResultInferenceAsync.java).
 
 ## Prerequisites
 
@@ -159,7 +159,7 @@ If you created a resource or resource group for this tutorial, these resources c
 
 ## Related content
 
-* [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleFollowupRecommendationInferenceAsync.java)
+* [SampleFollowupRecommendationInferenceAsync](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/src/samples/java/com/azure/health/insights/radiologyinsights/SampleCriticalResultInferenceAsync.java)
 * [Deploy Azure AI Health Insights using the Azure portal](../deploy-portal.md)
 <!---* [Deploy Azure Health Insights using CLI or PowerShell](get-started-CLI.md)--->
 * [Azure Cognitive Services Health Insights Radiology Insights client library for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthinsights/azure-health-insights-radiologyinsights/README.md)

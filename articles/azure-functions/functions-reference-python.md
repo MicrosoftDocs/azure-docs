@@ -216,7 +216,7 @@ Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction
 
 For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
 To connect to Azure Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
 

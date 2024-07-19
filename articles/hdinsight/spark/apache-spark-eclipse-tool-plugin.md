@@ -4,7 +4,7 @@ description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark a
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Use Azure Toolkit for Eclipse to create Apache Spark applications for an HDInsight cluster
