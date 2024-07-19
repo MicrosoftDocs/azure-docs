@@ -1,10 +1,10 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 04/20/2023
+ms.date: 07/18/2024
 ms.topic: overview
-author: tfitzmac
-ms.author: tomfitz
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 # What are Azure management groups?
 
@@ -14,7 +14,7 @@ above subscriptions. You organize subscriptions into management groups; the gove
 cascade by inheritance to all associated subscriptions.
 
 Management groups give you enterprise-grade management at scale, no matter what type of subscriptions you might have.
-However, all subscriptions within a single management group must trust the same Entra ID tenant.
+However, all subscriptions within a single management group must trust the same Microsoft Entra ID tenant.
 
 For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all nested management groups, subscriptions, and resources and allow VM creation only in authorized regions.
 
@@ -56,7 +56,7 @@ subscriptions.
 Each directory is given a single top-level management group called the **root** management group. The
 root management group is built into the hierarchy to have all management groups and subscriptions
 fold up to it. This root management group allows for global policies and Azure role assignments to
-be applied at the directory level. The [Entra ID Global Administrator needs to elevate
+be applied at the directory level. The [Microsoft Entra ID Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
 assign any Azure role to other directory users or groups to manage the hierarchy. As an administrator,
@@ -64,7 +64,7 @@ you can assign your account as the owner of the root management group.
 
 ### Important facts about the root management group
 
-- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Entra ID tenant ID.
+- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Microsoft Entra ID tenant ID.
 - To change the display name, your account must be assigned the **Owner** or **Contributor** role on the
   root management group. See
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
@@ -78,7 +78,7 @@ you can assign your account as the owner of the root management group.
   that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in
     the hierarchy.
-  - No one is given default access to the root management group. Entra ID Global Administrators are
+  - No one is given default access to the root management group. Microsoft Entra ID Global Administrators are
     the only users that can elevate themselves to gain access. Once they have access to the root
     management group, the global administrators can assign any Azure role to other users to manage
     it.
@@ -98,7 +98,7 @@ The reason for this process is to make sure there's only one management group hi
 directory. The single hierarchy within the directory allows administrative customers to apply global
 access and policies that other customers within the directory can't bypass. Anything assigned on the
 root will apply to the entire hierarchy, which includes all management groups, subscriptions,
-resource groups, and resources within that Entra ID tenant.
+resource groups, and resources within that Microsoft Entra ID tenant.
 
 ## Management group access
 
@@ -141,7 +141,7 @@ will inherit down the hierarchy like any built-in role. For information about th
 
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) doesn't
 change with the inclusion of management groups. Use the full path to define the management group
-**/providers/Microsoft.Management/managementgroups/{_groupId_}**.
+`/providers/Microsoft.Management/managementgroups/{_groupId_}`.
 
 Use the management group's ID and not the management group's display name. This common error happens
 since both are custom-defined fields when creating a management group.
@@ -154,11 +154,11 @@ since both are custom-defined fields when creating a management group.
   "IsCustom": true,
   "Description": "This role provides members understand custom roles.",
   "Actions": [
-    "Microsoft.Management/managementgroups/delete",
-    "Microsoft.Management/managementgroups/read",
-    "Microsoft.Management/managementgroup/write",
-    "Microsoft.Management/managementgroup/subscriptions/delete",
-    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.Management/managementGroups/delete",
+    "Microsoft.Management/managementGroups/read",
+    "Microsoft.Management/managementGroups/write",
+    "Microsoft.Management/managementGroups/subscriptions/delete",
+    "Microsoft.Management/managementGroups/subscriptions/write",
     "Microsoft.resources/subscriptions/read",
     "Microsoft.Authorization/policyAssignments/*",
     "Microsoft.Authorization/policyDefinitions/*",

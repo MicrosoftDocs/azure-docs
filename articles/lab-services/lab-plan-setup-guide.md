@@ -7,6 +7,8 @@ ms.date: 11/23/2021
 
 # Lab plan setup guide
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab plan* within your Azure subscription. A lab plan is associated one or more labs, and it takes only a few minutes to set up.
 
 This guide includes three sections:

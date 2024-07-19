@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: concept-article
-author: ccrestana
-ms.author: cacrest
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - ignite-2023

@@ -82,4 +82,4 @@ Bandwidth is a function of the amount of data sent. Data is compressed as it's s
 
 - [Connect computers without internet access by using the Log Analytics gateway in Azure Monitor](gateway.md)
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
-- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) to collect data from the agent and send it to Azure Monitor.
+- [Create a data collection rule](azure-monitor-agent-data-collection.md) to collect data from the agent and send it to Azure Monitor.
