@@ -11,7 +11,7 @@ ms.author: bpinto
 
 # Troubleshoot BMM provisioning in Azure Operator Nexus cluster
 
-As part of cluster deploy action, bare metal machines (BMM) are provisioned with required roles to participate in the cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure portal, and the server baseboard management controller (BMC). For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC.
+As part of cluster deploy action, bare metal machines (BMM) are provisioned with required roles to participate in the cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure portal, and the server baseboard management controller (BMC). For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC. Provisioning uses the Preboot eXecution Environment (PXE) interface to load the Opearating System (OS) on the BMM.
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md)
@@ -55,10 +55,10 @@ These phases are defined as follows:
 | `Preparing` | Rebooting BMM, resetting BMC, and verifying power state. |
 | `Inspecting` | Updating firmware, applying BIOS settings, and configuring storage. |
 | `Available` | BMM is ready to install OS. |
-| `Provisioning` | OS image installing on the BMM. BMM will attempt to join cluster. |
+| `Provisioning` | OS image installing on the BMM. After OS is installed, BMM attempts to join cluster. |
 | `Provisioned` | BMM successfully provisioned and joined to cluster. |
 | `Deprovisioning` | BMM provisioning failed. Provisioning service is cleaning up resource for retry. |
-| `Failed` | BMM provisioning failed and requires recovery action. All retries exhausted. |
+| `Failed` | BMM provisioning failed and manual recovery is required. All retries exhausted. |
 
 During any phase, the BMM detailed status is set to failed and the phase is blocked if any of the following occurs:
 - BMC is unavailable
@@ -109,13 +109,13 @@ The following conditions can cause provisioning failures:
 
 | Error Type | Resolution |
 | ---------- | ---------- |
-| BMC shows `Backplane Comm` critical error | Remote flea drain; Physical flea drain; BMM replace action. |
-| Boot network data response empty from BMC | Bounce port on fabric device; Remote flea drain; Physical flea drain; BMM replace action |
-| Disk data response empty from BMC | Reseat disk; Reseat storage controller; Remote flea drain; Physical flea drain; BMM replace action |
-| BMC unreachable | Bounce port on fabric device; Reseat cable; Remote flea drain, Physical flea drain; BMM replace action |
-| BMC fails log in | Update credentials on BMC; BMM replace action |
-| Memory, CPU, OEM critical errors | Resolve hardware issue; BMM replace action |
-| Console stuck at grub menu | Reset NVRAM; BMM replace action |
+| BMC shows `Backplane Comm` critical error | 1) Execute remote flea drain. 2) Perform physical flea drain. 3) Execute BMM `replace` action. |
+| Boot network data response empty from BMC | 1) Bounce port on fabric device. 2) Execute remote flea drain. 3) Perform physical flea drain. 4) Execute BMM `replace` action. |
+| Disk data response empty from BMC | 1) Remove/replace disk. 2) Remove/replace storage controller. 3) Execute remote flea drain. 4) Perform physical flea drain. 5) Execute BMM `replace` action. |
+| BMC unreachable | 1) Bounce port on fabric device. 2) Remove/replace cable. 3) Execute remote flea drain. 4) Perform physical flea drain. 5) Execute BMM `replace` action. |
+| BMC fails log in | 1) Update credentials on BMC. 2) Execute BMM `replace` action. |
+| Memory, CPU, OEM critical errors | 1) Resolve hardware issue with remove/replace. 2) Execute remote flea drain. 3) Perform physical flea drain. 4) Execute BMM `replace` action. |
+| Console stuck at grub menu | 1) Execute NVRAM reset. 2) Execute BMM `replace` action. |
 
 ### Azure BMM activity log
 
