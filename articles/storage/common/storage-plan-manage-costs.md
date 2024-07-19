@@ -32,30 +32,32 @@ When you create or use Blob Storage resources, you'll be charged for the followi
 | Data storage | Per GB / per month |
 | Index | Per GB / per month<sup>1 |
 | Operations | Per transaction |
-| Data transfer | Per GB | 
-| Data retrieval | Per GB<sup>2 |
-| Blob index tags | Per tag<sup>3   |
-| Change feed | Per logged change<sup>3  |
-| SSH File Transfer Protocol (SFTP) | Per hour |
-| Blob inventory | Per million objects scanned | 
-| Encryption scopes | Per month<sup>3  |
+| Data transfer | Per GB<sup>2 | 
+| Data retrieval | Per GB<sup>3 |
+| Blob index tags | Per tag<sup>4   |
+| Change feed | Per logged change<sup>4  |
+| SSH File Transfer Protocol (SFTP) | Per hour<sup>4 |
+| Blob inventory | Per million objects scanned<sup>4 | 
+| Encryption scopes | Per month<sup>4  |
 | Query acceleration | Per GB scanned & Per GB returned |
 | Point-in-time restore Data Processed | Per MB restored |
 
 <sup>1</sup> Applies only to accounts that have a hierarchical namespace.<br />
-<sup>2</sup>Applies only to the cool, cold, and archive tiers.<br />
-<sup>2</sup> Applies only if you enable the feature.<br />
-
-> [!NOTE]
-> There is no cost to enable Blob Storage features. However, there can be storage, operation, and data movement costs associated with using them. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
+<sup>2</sup> Applies only when copying data to another region.<br />
+<sup>3</sup> Applies only to the cool, cold, and archive tiers.<br />
+<sup>4</sup> Applies only if you enable the feature.<br />
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter. 
 
 #### Data storage and index meters
 
-Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. You can use a similar approach to estimating the cost of encryption scopes that are in use for less than a month. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+You're billed per GB on a monthly basis for the cost to store an object and it's metadata. Metadata is stored as part of the object and includes properties and key-value pairs. It does not include blob index tags as those are stored as a sub resource and have their own billing meter. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
 
-Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. Line items on your bill that contain GB as a unit of measurement (For example, per GB / per month) are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
+The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. 
+
+Data storage and metadata are billed per GB on a monthly basis. For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+
+Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. While the line items in your bill will contain GB as a unit of measurement, those units are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
 
 | Acronym | Unit | Definition |
 |---|---|--|
@@ -63,28 +65,6 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 | MiB | mebibyte | 1,024 KiB (1,048,576 bytes) |
 | GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
 | TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
-
-> [!TIP]
-> You can save money on storage costs for blob data with Azure Storage reserved capacity. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
-
-- Metadata can be stored both as part of the object or outside of the object.
-- Part of the object:
-  - Properties of the object. Maximum size is 8K so it is insignificant to your calculation costs (in most cases)
-  - Tags (name value pairs)
-  - Metadata (name value pairs)
-- Outside of the object (as separate objects)
-  - Only for HNS accounts. This is all of the space required to facilitate the hierarchical structure, connected metadata, and ACLs. Always stored and billed as hot tier.
-  - Put proportion of space that customers can expect here (pending answer to question)
-  - Archive tier blobs
-    An archived blob's metadata remains available for read access, so that you can list the blob and its properties, metadata, and index tags. Metadata for a blob in the archive tier is read-only, while blob index tags can be read or written. Storage costs for metadata of archived blobs will be charged on cool tier rates. Snapshots aren't supported for archived blobs.
-
-Costs
-- Metadata capacity and transactions against that metadata are billed using the same capacity and transaction rates according to the object's tier. 
-- Tags have an additional billing model that is over and above the space and access costs of regular embedded metadata.
-- How is metadata outside of the object billed?
-  - HNS metadata always stored and billed at the hot tier as per the Index GB meter.
-  - List any transaction costs over and above normal transaction costs here (pending question)
-  - For archive tier metadata, capacity is charged at cold tier. If transaction fees apply at a different tier (other than cold, list them here).
 
 #### Operations meters
 
@@ -109,6 +89,13 @@ To determine the price of each operation, you must first determine how that oper
 - Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 - Provide examples
 - Data retreival Applies only to the cool, cold, and archive tiers. 
+
+
+#### Feature-related meters
+
+There is no cost to enable Blob Storage features. However, there can be storage, operation, and data movement costs associated with using them. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions.  
+
+Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 ## Find the unit price for each meter
 
