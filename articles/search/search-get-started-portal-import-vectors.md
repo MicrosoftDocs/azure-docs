@@ -22,8 +22,8 @@ This quickstart helps you get started with [integrated vectorization (preview)](
 Key points about the wizard:
 
 + Source data is either Azure Blob Storage or OneLake files and shortcuts.
-+ Document parsing mode is nonconfigurable. It's the default parsing mode (one search document per blob or file).
-+ Index schema is nonconfigurable. The schema provides vector and nonvector fields for chunked data.
++ Document parsing mode is the default (one search document per blob or file).
++ Index schema is nonconfigurable. It provides vector and nonvector fields for chunked data.
 + Chunking is nonconfigurable. The effective settings are:
 
   ```json
@@ -32,53 +32,55 @@ Key points about the wizard:
   pageOverlapLength: 500
   ```
 
-For fewer limitations or more data source options, try a code-based approach. For more information, see the [integrated vectorization sample](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/integrated-vectorization/azure-search-integrated-vectorization-sample.ipynb).
-
 ## Prerequisites
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ For data, either [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
++ [Azure AI Search service](search-create-service-portal.md) in the same region as Azure AI. We recommend the Basic tier or higher.
+
++ [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
   Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
-+ For vectorization, have an [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) or [Azure OpenAI Service](https://aka.ms/oai/access) endpoint with deployments.
++ An embedding model on a supported platform. [Deployment instructions](#set-up-embedding-models) are provided in this article.
 
-  For [multimodal with Azure AI Vision](/azure/ai-services/computer-vision/how-to/image-retrieval), create an Azure AI service in SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, or JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list.
+  | Provider | Supported models |
+  |---|---|
+  | [Azure OpenAI Service](https://aka.ms/oai/access) | text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small. |
+  | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) |  Azure, Cohere, and Facebook embedding models. |
+  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions: East US, West US, West US2, North Europe, West Europe, France Central, Sweden Central, Switzerland North, Southeast Asia, Korea Central, Australia East, or Japan East. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
 
-  You can also use an [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) (and hub and project) with model deployments.
-
-+ For indexing and queries, have an [Azure AI Search service](search-create-service-portal.md). It must be in the same region as your Azure AI service. We recommend the Basic tier or higher.
-
-+ Role assignments or API keys for connections to embedding models and data sources. This article provides instructions for role-based access control (RBAC).
+### Public endpoint requirements
 
 All of the preceding resources must have public access enabled so that the portal nodes can access them. Otherwise, the wizard fails. After the wizard runs, you can enable firewalls and private endpoints on the integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 If private endpoints are already present and you can't disable them, the alternative option is to run the respective end-to-end flow from a script or program on a virtual machine. The virtual machine must be on the same virtual network as the private endpoint. [Here's a Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. The same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) has samples in other programming languages.
 
-A free search service supports RBAC on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. For connections that are more secure:
-
-+ Use the Basic tier or higher.
-+ [Configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services.
-
-> [!NOTE]
-> If you can't progress through the wizard because options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real problem is that the search service doesn't have permission to access them.
-
-## Check for space
-
-If you're starting with the free service, you're limited to three indexes, three data sources, three skillsets, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
-
-## Check for service identity
+### Role-based access control requirements
 
 We recommend role assignments for search service connections to other resources.
 
-1. On Azure AI Search, [enable RBAC](search-security-enable-roles.md).
+1. On Azure AI Search, [enable roles](search-security-enable-roles.md).
 
-1. Configure your search service to [use a system-assigned or user-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity).
+1. Configure your search service to [use a managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity).
 
-In the following sections, you can assign the search service's managed identity to roles in other services. The sections provide steps for role assignments where applicable.
+1. On your data source platform and embedding model provider, create role assignments that allow search service to access data and models. [Prepare sample data](#prepare-sample-data) provides instructions for setting up roles.
 
-## Check for semantic ranking
+A free search service supports RBAC on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This level of support means you must use key-based authentication on connections between a free search service and other Azure services. 
+
+For more secure connections:
+
++ Use the Basic tier or higher.
++ [Configure a managed identity](search-howto-managed-identities-data-sources.md) and use roles for authorized access.
+
+> [!NOTE]
+> If you can't progress through the wizard because options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real cause is that the search service doesn't have permission to access them.
+
+### Check for space
+
+If you're starting with the free service, you're limited to 3 indexes, data sources, skillsets, and indexers. Basic limits you to 15. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
+
+### Check for semantic ranking
 
 The wizard supports semantic ranking, but only on the Basic tier and higher, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check whether semantic ranking is enabled.
 
