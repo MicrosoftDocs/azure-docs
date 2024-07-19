@@ -7,7 +7,7 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-In this section, you create a function app and related resources in your Azure subscription.
+In this section, you create a function app and related resources in your Azure subscription. Many of the resource creation decisions are made for you based on default behaviors.
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create Function App in Azure...`. 
 

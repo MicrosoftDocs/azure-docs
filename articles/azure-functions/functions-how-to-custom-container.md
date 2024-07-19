@@ -40,13 +40,13 @@ Functions makes it easy to deploy and run your function apps as Linux containers
 
 For a complete example of how to create the local containerized function app from the command line and publish the image to a container registry, see [Create a function app in a local container](functions-create-container-registry.md). 
 
-### Generate the Dockerfile
+## Generate the Dockerfile
 
 Functions tooling provides a Docker option that generates a Dockerfile with your functions code project. You can use this file with Docker to create your functions in a container that derives from the correct base image (language and version). 
 
 The way you create a Dockerfile depends on how you create your project.
 
-#### [Command line](#tab/core-tools)
+### [Command line](#tab/core-tools)
 
 + When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md), include the `--docker` option when you run the [`func init`](./functions-core-tools-reference.md#func-init) command, as in the following example:
 
@@ -61,7 +61,7 @@ The way you create a Dockerfile depends on how you create your project.
 
 For a complete example, see [Create a function app in a local container](functions-create-container-registry.md#create-and-test-the-local-functions-project).
 
-#### [Visual Studio Code](#tab/vs-code)
+### [Visual Studio Code](#tab/vs-code)
 
 The Azure Functions extension for Visual Studio Code creates your Dockerfile when it creates your code project. To create a containerized code project:
 
@@ -71,7 +71,7 @@ The Azure Functions extension for Visual Studio Code creates your Dockerfile whe
 
 1. After your project is created, you can open and review the Dockerfile in the root folder you chose for your     project.
 
-#### [Visual Studio](#tab/vs)
+### [Visual Studio](#tab/vs)
 
 + When you create a Functions project, make sure to check the **Enable Docker** option on the **Additional Information** page of the new project dialog. 
 
@@ -83,7 +83,7 @@ The Azure Functions extension for Visual Studio Code creates your Dockerfile whe
 
 ---
 
-### Creating your function app in a container
+## Create your function app in a container
 
 With a Functions-generated Dockerfile in your code project, you can use Docker to create the containerized function app on your local computer. The following `docker build` command creates an image of your containerized functions from the project in the local directory:
 
@@ -278,7 +278,7 @@ You can add, edit, and delete profiles in your environment. For an example, see 
 When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, like in this example:
 
 ```azurecli
-az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime <LANGUAGE_STACK> --image <IMAGE_URI>  --workload-profile-name <PROFILE_NAME> --cpu <CPU_COUNT> --memory <MEMORY_SIZE> 
+az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime <LANGUAGE_STACK> --image <IMAGE_URI> --workload-profile-name <PROFILE_NAME> --cpu <CPU_COUNT> --memory <MEMORY_SIZE> 
 ```
 
 In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you. 

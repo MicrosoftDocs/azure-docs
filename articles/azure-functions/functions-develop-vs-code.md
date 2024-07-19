@@ -302,15 +302,15 @@ The `@queue_output` decorator on the function is used to define a named binding 
 
 Before you can publish your Functions project to Azure, you must have a function app and related resources in your Azure subscription to run your code. The function app provides an execution context for your functions. When you publish from Visual Studio Code to a function app in Azure, the project is packaged and deployed to the selected function app in your Azure subscription.
 
-When you create a function app in Azure, you can choose either a quick function app create path using defaults or an advanced path. This way, you have more control over creating the remote resources.
+When you create a function app in Azure, you can choose either a quick function app create path using defaults or a path that gives you advanced options, such as using existing Azure resources. This way, you have more control over creating the remote resources.
 
-### Quick function app create
+#### [Quick create](#tab/quick-create)
 
 [!INCLUDE [functions-create-azure-resources-vs-code](../../includes/functions-create-azure-resources-vs-code.md)]
 
-### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
+#### [Advanced options](#tab/advanced-options)
 
-The following steps publish your project to a new function app created with advanced create options:
+You can't use the [quick create](#quick-function-app-create) if you want more control over the function app that gets created, such as using an existing resouce group, storage account, or Application Insights intance. These steps create a function app with the ability to use existing Azure resources:
 
 1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
@@ -324,14 +324,74 @@ The following steps publish your project to a new function app created with adva
    | Select a runtime stack. | Choose the language version that you're locally running. |
    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux. |
    | Select a resource group for new resources. | Choose **Create new resource group**, and enter a resource group name such as **myResourceGroup**. You can also select an existing resource group. |
-   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. If you chose an existing resource group, that location is used and you don't see this prompt. |
    | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're charged only when your functions run. |
    | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and at the prompt, enter a name for the instance used to store runtime data from your functions. |
 
    A notification appears after your function app is created, and the deployment package is applied. To view the creation and deployment results, including the Azure resources that you created, select **View Output** in this notification.
 
-### <a name="get-the-url-of-the-deployed-function"></a>Get the URL of an HTTP triggered function in Azure
+---
+
+## Create an Azure Container Apps deployment
+
+You use Visual Studio Code to create Azure resources for a containerized code project. When the extension detects the presence of a Dockerfile during resource creation, it asks you if you want to deploy the container image instead of just the code. Visual Studio Code creates an Azure Container Apps environment for your containerized code project that's integrated with Azure Functions. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
+
+>[!NOTE]  
+>Container deployment requires the [Azure Container Apps extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps). This extension is currently in preview.
+
+The create process depends on whether you choose a quick create or you need to use advanced options:
+
+#### [Quick create](#tab/quick-create)
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create Function App in Azure...`. 
+ 
+1. When prompted choose **Container image**.
+
+1. Provide the following information at the prompts:
+
+    |Prompt|Selection|
+    |--|--|
+    |**Select subscription**| Choose the subscription to use. You won't see this prompt when you have only one subscription visible under **Resources**. |
+    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
+    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
+
+    The extension shows the status of individual resources as they're being created in Azure in the **Azure: Activity Log** panel.
+
+#### [Advanced options](#tab/advanced-options)
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create Function App in Azure...(Advanced)`. 
+ 
+1. When prompted choose **Container image**.
+
+1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
+
+1. Following the prompts, provide this information:
+
+   | Prompt |  Selection |
+   | ------ |  --------- |
+   | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | Select a resource group for new resources. | Choose **Create new resource group**, and enter a resource group name such as **myResourceGroup**. You can also select an existing resource group. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. If you chose an existing resource group, that location is used and you don't see this prompt. |
+   | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
+   | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and at the prompt, enter a name for the instance used to store runtime data from your functions. |
+ 
+   A notification appears after your function app is created, and the deployment package is applied. To view the creation and deployment results, including the Azure resources that you created, select **View Output** in this notification.
+
+---
+
+For more information about the resources required to run your containerized functions in Container Apps, see [Required resources](functions-infrastructure-as-code.md?pivots=container-apps#required-resources).
+
+>[!NOTE]  
+>You can't currently deploy a containerized function app to an Azure Functions-integrated Container Apps environment. You must publish your container image to a container registry and then set that image in the registry as the deployment source for your Container Apps-hosted function app. For more information, see [Create your function app in a container](functions-how-to-custom-container.md#create-your-function-app-in-a-container) and [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry).
+
+## <a name="republish-project-files"></a>Deploy project files
+
+We recommend setting up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure is updated when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can take advantage of the [Zip deploy technology](functions-deployment-technologies.md#zip-deploy).
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
+
+## <a name="get-the-url-of-the-deployed-function"></a>Get the URL of an HTTP triggered function in Azure
 
 To call an HTTP-triggered function from a client, you need the function's URL, which is available after deployment to your function app. This URL includes any required function keys. You can use the extension to get these URLs for your deployed functions. If you just want to run the remote function in Azure, [use the Execute function now](#run-functions-in-azure) functionality of the extension.
 
@@ -342,12 +402,6 @@ To call an HTTP-triggered function from a client, you need the function's URL, w
 The function URL is copied to the clipboard, along with any required keys passed by the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser to submit GET requests to the remote function.  
 
 When the extension gets the URL of a function in Azure, the extension uses your Azure account to automatically retrieve the keys needed to start the function. [Learn more about function access keys](security-concepts.md#function-access-keys). Starting non-HTTP triggered functions requires using the admin key.
-
-## <a name="republish-project-files"></a>Deploy project files
-
-We recommend setting up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure is updated when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can take advantage of the [Zip deploy technology](functions-deployment-technologies.md#zip-deploy).
-
-[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ## Run functions
 
