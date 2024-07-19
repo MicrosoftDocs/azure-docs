@@ -29,7 +29,7 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 
 
 > [!IMPORTANT]
-> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
+> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools.
 >
 > FIPS-enabled node images may have different version numbers, such as kernel version, than images that aren't FIPS-enabled. The update cycle for FIPS-enabled node pools and node images may differ from node pools and images that aren't FIPS-enabled.
 
