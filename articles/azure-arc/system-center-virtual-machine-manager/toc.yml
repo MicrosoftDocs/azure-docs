@@ -41,7 +41,7 @@
     - name: Install Arc agents using a script
       href: install-arc-agents-using-script.md
     - name: Arc VM extensions management
-      href: /servers/manage-vm-extensions.md
+      href: azure/azure-arc/servers/manage-vm-extensions
   - name: Enable Extended Security Updates
     items:
     - name: Deliver ESUs for SCVMM VMs through Arc
