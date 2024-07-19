@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 07/18/2024
+ms.date: 07/19/2024
 ms.author: juergent
 ---
 
@@ -55,6 +55,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- July 19, 2024: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a statement around clusters spanning Virtual networks(VNets)/subnets 
 - July 18, 2024: Add note about metadata heavy workload to Azure Premium Files in [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - June 26, 2024: Adapt [Azure Storage types for SAP workload](./planning-guide-storage.md) to latest features, like snapshot capabilities for Premium SSD v2 and Ultra disk. Adapt ANF to support of mix of NFS and block storage between /hana/data and /hana/log
 - June 26, 2024: Fix wrong memory stated for some VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md) and [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
