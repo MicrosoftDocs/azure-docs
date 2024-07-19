@@ -35,7 +35,7 @@ monikerRange: '<=doc-intel-4.0.0'
 
 Document Intelligence uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Document Intelligence, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
+Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type before invoking the extraction model. Classifier models are available starting with the ```2023-07-31 (GA)``` API. A classification model can be paired with a custom extraction model to analyze and extract specific and/or custom fields from your forms and documents. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range=">=doc-intel-3.0.0"
 
@@ -51,7 +51,7 @@ To create a custom extraction model, label a dataset of documents with the value
 
 > [!IMPORTANT]
 >
-> Starting with version 4.0 — 2024-02-29-preview API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
+> Starting with version 4.0 → 2024-02-29-preview API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
 >
 
 The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
@@ -76,7 +76,7 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx)|
+    |Model | PDF |Image: </br>`jpeg/jpg`, `png`, `bmp`,`tiff`, `heif` | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx)|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, and later)  |
@@ -105,7 +105,7 @@ If the language of your documents and extraction scenarios supports custom neura
 
 ### Build mode
 
-The build custom model operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
+The `build custom model` operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 * Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 
