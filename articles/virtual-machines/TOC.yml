@@ -240,6 +240,8 @@
           href: ddv5-ddsv5-series.md
         - name: Dasv5 and Dadsv5 series
           href: dasv5-dadsv5-series.md
+        - name: Dasv6 and Dadsv6 series
+          href: dasv6-dadsv6-series.md
         - name: Dalsv6 and Daldsv6 series
           href: dalsv6-daldsv6-series.md
         - name: Dpsv5 and Dpdsv5 series
@@ -271,8 +273,6 @@
           href: dcasccv5-dcadsccv5-series.md
         - name: DCesv5 and DCedsv5 series
           href: dcesv5-dcedsv5-series.md  
-        - name: Dasv6 and Dadsv6 series
-          href: dasv6-dadsv6-series.md
     - name: Compute optimized
       items:
       - name: F family

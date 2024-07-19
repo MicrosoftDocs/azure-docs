@@ -141,7 +141,7 @@ will inherit down the hierarchy like any built-in role. For information about th
 
 [Defining and creating a custom role](../../role-based-access-control/custom-roles.md) doesn't
 change with the inclusion of management groups. Use the full path to define the management group
-**/providers/Microsoft.Management/managementgroups/{_groupId_}**.
+`/providers/Microsoft.Management/managementgroups/{_groupId_}`.
 
 Use the management group's ID and not the management group's display name. This common error happens
 since both are custom-defined fields when creating a management group.
@@ -154,11 +154,11 @@ since both are custom-defined fields when creating a management group.
   "IsCustom": true,
   "Description": "This role provides members understand custom roles.",
   "Actions": [
-    "Microsoft.Management/managementgroups/delete",
-    "Microsoft.Management/managementgroups/read",
-    "Microsoft.Management/managementgroup/write",
-    "Microsoft.Management/managementgroup/subscriptions/delete",
-    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.Management/managementGroups/delete",
+    "Microsoft.Management/managementGroups/read",
+    "Microsoft.Management/managementGroups/write",
+    "Microsoft.Management/managementGroups/subscriptions/delete",
+    "Microsoft.Management/managementGroups/subscriptions/write",
     "Microsoft.resources/subscriptions/read",
     "Microsoft.Authorization/policyAssignments/*",
     "Microsoft.Authorization/policyDefinitions/*",
