@@ -23,7 +23,7 @@ Refer [support matrix](support-matrix.md) to find out about updates and the upda
 
 ### Roles and permissions
 
-To manage machines from Azure Update Manager, see roles and permissions.
+To manage machines from Azure Update Manager, see [roles and permissions](roles-permissions.md).
 
 ### VM extensions
 
