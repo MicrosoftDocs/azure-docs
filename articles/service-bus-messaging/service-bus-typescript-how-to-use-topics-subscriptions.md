@@ -100,7 +100,7 @@ The following sample code shows you how to send a batch of messages to a Service
 You must have signed in with the Azure CLI's `az login` in order for your local machine to provide the passwordless authentication required in this code.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. In the `src` folder, create a file called `sendtotopic.js` and paste the below code into it. This code will send a message to your topic.
+2. In the `src` folder, create a file called `sendtotopic.ts` and paste the below code into it. This code will send a message to your topic.
 
     > [!IMPORTANT]
     > The passwordless credential is provided with the [**DefaultAzureCredential**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential).
@@ -124,7 +124,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 ### [Connection string](#tab/connection-string)
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. In the `src` folder, create a file called `sendtotopic.js` and paste the below code into it. This code will send a message to your topic.
+2. In the `src` folder, create a file called `sendtotopic.ts` and paste the below code into it. This code will send a message to your topic.
 
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/connection-strings/topics/send-topic.ts" :::
 
@@ -151,7 +151,7 @@ You must have signed in with the Azure CLI's `az login` in order for your local 
 You must have signed in with the Azure CLI's `az login` in order for your local machine to provide the passwordless authentication required in this code.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. In the `src` folder, create a file called `receivefromsubscription.js` and paste the following code into it. See code comments for details.
+2. In the `src` folder, create a file called `receivefromsubscription.ts` and paste the following code into it. See code comments for details.
 
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/src/passwordless/topics/receive-topic.ts" :::
 
