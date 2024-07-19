@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 ## What is Message Analysis? 
 
-Message Analysis is an AI-driven feature that evaluates and understands the content of messages sent via platforms like WhatsApp using Azure OpenAI resource brought by Contoso themselves. At a basic level, it takes text messages as input and processes them to determine the language of the text. It then identifies the intent behind the message, such as a question about a service or a complaint, and identifies key phrases or topics discussed. The output is a set of data points about these aspects, which can be used to better respond to and engage with the message sender. 
+Message Analysis is an AI-driven feature that evaluates and understands the content of messages sent via platforms like WhatsApp using Azure OpenAI resources brought by Contoso themselves. At a basic level, it takes text messages as input and processes them to determine the language of the text. It then identifies the intent behind the message, such as a question about a service or a complaint, and identifies key phrases or topics discussed. The output is a set of data points about these aspects, which can be used to better respond to and engage with the message sender. 
 
 ## What can Message Analysis do?  
 
