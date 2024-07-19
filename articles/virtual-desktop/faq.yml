@@ -51,7 +51,11 @@ sections:
           All service resources have a location associated with them. A host pool's location determines which geography the service metadata for the host pool is stored in. An application group can't exist without a host pool. If you add apps to a RemoteApp application group, you also need a session host to determine the start menu apps. For any application group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the application group's location should be the same as the host pool's.
           
           Workspaces also must be in the same location as their application groups. Whenever the workspace updates, the related application group updates along with it. Like with application groups, the service requires that all workspaces are associated with application groups created in the same location.
-          
+
+      - question: |
+         Can a host pool be associated to multiple workspaces?
+        answer: |
+          No, a host pool cannot be associated with multiple workspaces. Once a host pool is associated with an application group, which is registered to a Workspace, you must unregister the Application Group(s) from the workspace to associate the Host Pool with a new Workspace.
       - question: |
          How do you expand an object's properties in PowerShell?
         answer: |
@@ -189,7 +193,7 @@ sections:
          If I store my host pools and VMs in different regions, what would happen in a disaster scenario where the host pool region goes down but the VM region stays online?
         answer: |
          Metadata of a host pool is replicated within a geography for resiliency. If the region your host pool is in goes down, it fails over to its replica. During this failover period, Azure Virtual Desktop doesn't accept new user connections to the session host VMs in that host pool until the failover is complete. Any existing sessions on the session host VMs in that host pool remain connected and unaffected. To learn more about how service resilience is implemented for Azure Virtual Desktop, see [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
-
+      
       - question: |
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
         answer: |
