@@ -21,8 +21,9 @@ This quickstart helps you get started with [integrated vectorization (preview)](
 
 ## Preview limitations
 
-+ Source data is either Azure Blob Storage or OneLake files and shortcuts, using the default parsing mode (one search document per blob or file).
-+ The index schema is nonconfigurable. 
++ Source data is either Azure Blob Storage or OneLake files and shortcuts
++ Document parsing mode is nonconfigurable. It's the default parsing mode (one search document per blob or file).
++ Index schema is nonconfigurable. The schema provides vector and nonvector fields for chunked data.
 + Chunking is nonconfigurable. The effective settings are:
 
   ```json
