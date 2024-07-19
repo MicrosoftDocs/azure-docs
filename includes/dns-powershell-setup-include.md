@@ -14,7 +14,7 @@
 
 ### Before you begin
 
-[!INCLUDE [requires-azurerm](requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](./requires-azurerm.md)]
 
 Verify that you have the following items before beginning your configuration.
 

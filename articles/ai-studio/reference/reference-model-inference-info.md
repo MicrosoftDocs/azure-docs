@@ -6,17 +6,17 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
 
 # Reference: Info | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Returns the information about the model deployed under the endpoint.
 

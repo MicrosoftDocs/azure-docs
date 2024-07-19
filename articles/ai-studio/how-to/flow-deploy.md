@@ -16,7 +16,7 @@ author: lgayhardt
 
 # Deploy a flow for real-time inference
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 After you build a prompt flow and test it properly, you might want to deploy it as an online endpoint. Deployments are hosted within an endpoint, and can receive data from clients and send responses back in real-time.
 
@@ -106,7 +106,6 @@ This step allows you to configure the basic settings of the deployment.
 |Virtual machine| The VM size to use for the deployment.|
 |Instance count| The number of instances to use for the deployment. Specify the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades.|
 |Inference data collection| If you enable this, the flow inputs and outputs are auto collected in an Azure Machine Learning data asset, and can be used for later monitoring.|
-|Application Insights diagnostics| If you enable this, system metrics during inference time (such as token count, flow latency, and flow request) will be collected into Azure AI Studio hub default Application Insights.|
 
 After you finish the basic settings, you can directly **Review + Create** to finish the creation, or you can select **Next** to configure advanced settings.
 
@@ -149,6 +148,9 @@ If you created the associated endpoint with **User Assigned Identity**, the user
 
 See detailed guidance about how to grant permissions to the endpoint identity in [Grant permissions to the endpoint](#grant-permissions-to-the-endpoint).
 
+> [!IMPORTANT]
+> If your flow uses Microsoft Entra ID based authentication connections, no matter you use system-assigned identity or user-assigned identity, you always need to grant the managed identity appropriate roles of the corresponding resources so that it can make API calls to that resource. For example, if your Azure OpenAI connection uses Microsoft Entra ID based authentication, you need to grant your endpoint managed identity **Cognitive Services OpenAI User or Cognitive Services OpenAI Contributor role** of the corresponding Azure OpenAI resources.
+
 ### Advanced settings - Outputs & Connections
 
 In this step, you can view all flow outputs, and specify which outputs to include in the response of the endpoint you deploy. By default all flow outputs are selected.
@@ -163,6 +165,10 @@ Once you configured and reviewed all the steps above, you can select **Review + 
 > Expect the endpoint creation to take approximately more than 15 minutes, as it contains several stages including creating endpoint, registering model, creating deployment, etc.
 >
 > You can understand the deployment creation progress via the notification starts by **Prompt flow deployment**.
+
+#### Enable tracing by turning-on Application Insights diagnostics (preview)
+
+If you enable this, tracing data and system metrics during inference time (such as token count, flow latency, flow request, and etc.) will be collected into workspace linked Application Insights. To learn more, see [prompt flow serving tracing data and metrics](./develop/trace-production-sdk.md).
 
 ## Grant permissions to the endpoint
 
@@ -245,3 +251,4 @@ If you aren't going use the endpoint after completing this tutorial, you should 
 
 - Learn more about what you can do in [Azure AI Studio](../what-is-ai-studio.md)
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml)
+- [Enable trace and collect feedback for your deployment] (./develop/trace-production-sdk.md)

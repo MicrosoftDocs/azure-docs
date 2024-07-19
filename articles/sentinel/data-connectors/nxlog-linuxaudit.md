@@ -5,6 +5,7 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
+ms.custom: linux-related-content
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
@@ -74,4 +75,4 @@ Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nxlogltd1589381969261.nxlog_linuxaudit_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://nxlog.co/news-and-blog/posts/sending-logs-to-azure-sentinel).

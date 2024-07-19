@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 11/28/2023
+ms.date: 07/02/2024
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -106,11 +106,14 @@ clusterName="myOverlayCluster"
 resourceGroup="myResourceGroup"
 location="westcentralus"
 
-az aks create -n $clusterName -g $resourceGroup \
-  --location $location \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16
+az aks create \
+    --name $clusterName \
+    --resource-group $resourceGroup \
+    --location $location \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --generate-ssh-keys
 ```
 
 ## Add a new nodepool to a dedicated subnet
@@ -141,9 +144,6 @@ az aks nodepool add --resource-group $resourceGroup --cluster-name $clusterName 
 > - Doesn't use the dynamic pod IP allocation feature.
 > - Doesn't have network policies enabled. Network Policy engine can be uninstalled before the upgrade, see [Uninstall Azure Network Policy Manager or Calico](use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview)
 > - Doesn't use any Windows node pools with docker as the container runtime.
-
-> [!NOTE]
-> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
 
 > [!NOTE]
 > Upgrading an existing cluster to CNI Overlay is a non-reversible process.
@@ -239,13 +239,15 @@ The following attributes are provided to support dual-stack clusters:
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create --location <region> --resource-group <resourceGroupName> --name <clusterName> \
-      --network-plugin azure \
-      --network-plugin-mode overlay \
-      --ip-families ipv4,ipv6
+    az aks create \
+        --location <region> \
+        --resource-group <resourceGroupName> \
+        --name <clusterName> \
+        --network-plugin azure \
+        --network-plugin-mode overlay \
+        --ip-families ipv4,ipv6 \
+        --generate-ssh-keys
     ```
-
----
 
 ## Create an example workload
 
@@ -376,4 +378,3 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-

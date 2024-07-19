@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 
 # Customer intent: As a self-service user, I want to provision a VM using vCenter resources through Azure so that I can deploy my code
@@ -59,7 +59,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 10. (Optional) Add tags to the VM resource if necessary.
 
-11. Select **Create** after reviewing all the properties.  It should take a few minutes to create the VM.
+11. Select **Create** after reviewing all the properties. It should take a few minutes to create the VM.
 
 ## Next steps
 

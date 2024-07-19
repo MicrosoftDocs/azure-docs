@@ -1,7 +1,7 @@
 ---
 title: Supported Kubernetes versions in Azure Kubernetes Service (AKS).
 description: Learn the Kubernetes version support policy and lifecycle of clusters in Azure Kubernetes Service (AKS).
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2023
 author: nickomang
 ms.author: nickoman
@@ -47,8 +47,8 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024 | Until 1.30 GA |
 | 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
 | 1.28 | Aug 2023 | Sep 2023 | Nov 2023 | Nov 2024 | Until 1.32 GA|
-| 1.29 | Dec 2023 | Feb 2024 | Mar 2024 | | Until 1.33 GA |
-| 1.30 | Apr 2024 | May 2024 | Jun 2024 | | Until 1.34 GA |
+| 1.29 | Dec 2023 | Feb 2024 | Mar 2024 | Mar 2025 | Until 1.33 GA |
+| 1.30 | Apr 2024 | Jun 2024 | Jul 2024 | Jul 2025 | Until 1.34 GA |
 
 *\* Indicates the version is designated for Long Term Support*
 
@@ -58,16 +58,35 @@ If you prefer to see this information visually, here's a Gantt chart with all th
 
 :::image type="content" source="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png" alt-text="Gantt chart showing the lifecycle of all Kubernetes versions currently active in AKS." lightbox="./media/supported-kubernetes-versions/kubernetes-versions-gantt.png":::
 
-## AKS Components Breaking Changes by Version
+## AKS components breaking changes by version
 
 Note the following important changes before you upgrade to any of the available minor versions:
 
-|Kubernetes Version | AKS Managed Addons  | AKS Components | OS components | Breaking Changes | Notes
-|--------------|------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|----------------|---------------------------|
-| 1.26 | Azure policy 1.3.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.1<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0<br>azurefile-csi-driver 1.26.10<br>| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|azurefile-csi-driver 1.26.10 |None
-| 1.27 | Azure policy 1.3.0<br>azuredisk-csi driver v1.28.5<br>azurefile-csi driver v1.28.10<br>blob-csi v1.22.4<br>csi-attacher v4.3.0<br>csi-resizer v1.8.0<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2<br>Metrics-Server 0.6.3<br>Keda 2.11.2<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>azurefile-csi-driver 1.28.7<br>KMS 0.5.0<br>CSI Secret store driver 1.3.4-1<br>|Cilium 1.13.10-1<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|Keda 2.11.2<br>Cilium 1.13.10-1<br>azurefile-csi-driver 1.28.7<br>azuredisk-csi driver v1.28.5<br>blob-csi v1.22.4<br>csi-attacher v4.3.0<br>csi-resizer v1.8.0<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2|Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
-| 1.28 | Azure policy 1.3.0<br>azurefile-csi-driver 1.29.2<br>csi-node-driver-registrar v2.9.0<br>csi-livenessprobe 2.11.0<br>azuredisk-csi-linux v1.29.2<br>azuredisk-csi-windows v1.29.2<br>csi-provisioner v3.6.2<br>csi-attacher v4.5.0<br>csi-resizer v1.9.3<br>csi-snapshotter v6.2.2<br>snapshot-controller v6.2.2<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.2.0<br>MDC Defender Security Publisher 1.0.68<br>CSI Secret store driver 1.3.4-1<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1|Cilium 1.13.10-1<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br>Tigera-Operator 1.28.13| OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|azurefile-csi-driver 1.29.2<br>csi-resizer v1.9.3<br>csi-attacher v4.4.2<br>csi-provisioner v4.4.2<br>blob-csi v1.23.2<br>azurefile-csi driver v1.29.2<br>azuredisk-csi driver v1.29.2<br>csi-livenessprobe v2.11.0<br>csi-node-driver-registrar v2.9.0|None
-| 1.29 | Azure policy 1.3.0<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.3<br>Azure Workload identity v1.2.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1<br>CSI Secret store driver 1.3.4-1<br>azurefile-csi-driver 1.29.3<br>|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br>Tigera-Operator 1.30.7<br>| OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V2<br>ContainerD 1.6<br>|Tigera-Operator 1.30.7<br>csi-provisioner v4.0.0<br>csi-attacher v4.5.0<br>csi-snapshotter v6.3.3<br>snapshot-controller v6.3.3 |None
+### Kubernetes 1.30
+
+| AKS managed add-ons | AKS components | OS components | Breaking changes | Notes |
+|---------------------|----------------|---------------|------------------|-------|
+| • Azure Policy 1.3.0<br> • cloud-provider-node-manager v1.30.0<br> • csi-provisioner v4.0.0<br> • csi-attacher v4.5.0<br> • csi-snapshotter v6.3.3<br> • snapshot-controller v6.3.3<br> • Metrics-Server 0.6.3<br> • KEDA 2.14.0<br> • Open Service Mesh 1.2.7<br> • Core DNS V1.9.4<br> • Overlay VPA 0.13.0<br> • Azure-Keyvault-SecretsProvider 1.4.1<br> • Application Gateway Ingress Controller (AGIC) 1.7.2<br> • Image Cleaner v1.2.3<br> • Azure Workload identity v1.2.0<br> • MDC Defender Security Publisher 1.0.68<br> • MDC Defender Old File Cleaner 1.3.68<br> • MDC Defender Pod Collector 1.0.78<br> • MDC Defender Low Level Collector 1.3.81<br> • Azure Active Directory Pod Identity 1.8.13.6<br> • GitOps 1.8.1<br> • CSI Secrets Store Driver 1.3.4-1<br> • azurefile-csi-driver 1.29.3<br>| • Cilium 1.13.5<br> • CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> • Cluster Autoscaler 1.27.3<br> • Tigera-Operator 1.30.7<br>| • OS Image Ubuntu 22.04 Cgroups V2 <br> • ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br> • Azure Linux 2.0<br> • Cgroups V2<br> • ContainerD 1.6<br>| • KEDA 2.14.0 | N/A |
+
+### Kubernetes 1.29
+
+| AKS managed add-ons | AKS components | OS components | Breaking changes | Notes |
+|---------------------|----------------|---------------|------------------|-------|
+| • Azure Policy 1.3.0<br> • csi-provisioner v4.0.0<br> • csi-attacher v4.5.0<br> • csi-snapshotter v6.3.3<br> • snapshot-controller v6.3.3<br> • Metrics-Server 0.6.3<br> • KEDA 2.11.2<br> • Open Service Mesh 1.2.7<br> • Core DNS V1.9.4<br> • Overlay VPA 0.13.0<br> • Azure-Keyvault-SecretsProvider 1.4.1<br> • Application Gateway Ingress Controller (AGIC) 1.7.2<br> • Image Cleaner v1.2.3<br> • Azure Workload identity v1.2.0<br> • MDC Defender Security Publisher 1.0.68<br> • MDC Defender Old File Cleaner 1.3.68<br> • MDC Defender Pod Collector 1.0.78<br> • MDC Defender Low Level Collector 1.3.81<br> • Azure Active Directory Pod Identity 1.8.13.6<br> • GitOps 1.8.1<br> • CSI Secrets Store Driver 1.3.4-1<br> • azurefile-csi-driver 1.29.3<br>| • Cilium 1.13.5<br> • CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> • Cluster Autoscaler 1.27.3<br> • Tigera-Operator 1.30.7<br>| • OS Image Ubuntu 22.04 Cgroups V2 <br> • ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br> • Azure Linux 2.0<br> • Cgroups V2<br> • ContainerD 1.6<br>| • Tigera-Operator 1.30.7<br> • csi-provisioner v4.0.0<br> • csi-attacher v4.5.0<br> • csi-snapshotter v6.3.3<br> • snapshot-controller v6.3.3 | N/A |
+
+### Kubernetes 1.28
+
+| AKS managed add-ons | AKS components | OS components | Breaking changes | Notes |
+|---------------------|----------------|---------------|------------------|-------|
+| • Azure Policy 1.3.0<br> • azurefile-csi-driver 1.29.2<br> • csi-node-driver-registrar v2.9.0<br> • csi-livenessprobe 2.11.0<br> • azuredisk-csi-linux v1.29.2<br> • azuredisk-csi-windows v1.29.2<br> • csi-provisioner v3.6.2<br> • csi-attacher v4.5.0<br> • csi-resizer v1.9.3<br> • csi-snapshotter v6.2.2<br> • snapshot-controller v6.2.2<br> • Metrics-Server 0.6.3<br> • KEDA 2.11.2<br> • Open Service Mesh 1.2.7<br> • Core DNS V1.9.4<br> • Overlay VPA 0.13.0<br> • Azure-Keyvault-SecretsProvider 1.4.1<br> • Application Gateway Ingress Controller (AGIC) 1.7.2<br> • Image Cleaner v1.2.3<br> • Azure Workload identity v1.2.0<br> • MDC Defender Security Publisher 1.0.68<br> • CSI Secrets Store Driver 1.3.4-1<br> • MDC Defender Old File Cleaner 1.3.68<br> • MDC Defender Pod Collector 1.0.78<br> • MDC Defender Low Level Collector 1.3.81<br> • Azure Active Directory Pod Identity 1.8.13.6<br> • GitOps 1.8.1<br> | • Cilium 1.13.10-1<br> • CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> • Cluster Autoscaler 1.27.3<br> • Tigera-Operator 1.28.13| • OS Image Ubuntu 22.04 Cgroups V2 <br> • ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br> • Azure Linux 2.0<br> • Cgroups V1<br> • ContainerD 1.6<br>| • azurefile-csi-driver 1.29.2<br> • csi-resizer v1.9.3<br> • csi-attacher v4.4.2<br> • csi-provisioner v4.4.2<br> • blob-csi v1.23.2<br> • azurefile-csi driver v1.29.2<br> • azuredisk-csi driver v1.29.2<br> • csi-livenessprobe v2.11.0<br> • csi-node-driver-registrar v2.9.0| N/A |
+
+### Kubernetes 1.27
+
+| AKS managed add-ons | AKS components | OS components | Breaking changes | Notes |
+|---------------------|----------------|---------------|------------------|-------|
+| • Azure Policy 1.3.0<br> • azuredisk-csi driver v1.28.5<br> • azurefile-csi driver v1.28.10<br> • blob-csi v1.22.4<br> • csi-attacher v4.3.0<br> • csi-resizer v1.8.0<br> • csi-snapshotter v6.2.2<br> • snapshot-controller v6.2.2<br> • Metrics-Server 0.6.3<br> • KEDA 2.11.2<br> • Open Service Mesh 1.2.3<br> • Core DNS V1.9.4<br> • Overlay VPA 0.11.0<br> • Azure-Keyvault-SecretsProvider 1.4.1<br> • Application Gateway Ingress Controller (AGIC) 1.7.2<br> • Image Cleaner v1.2.3<br> • Azure Workload identity v1.0.0<br> • MDC Defender 1.0.56<br> • Azure Active Directory Pod Identity 1.8.13.6<br> • GitOps 1.7.0<br> • azurefile-csi-driver 1.28.7<br> • KMS 0.5.0<br> • CSI Secrets Store Driver 1.3.4-1<br>| • Cilium 1.13.10-1<br> • CNI 1.4.44<br> • Cluster Autoscaler 1.8.5.3<br> | • OS Image Ubuntu 22.04 Cgroups V2 <br> • ContainerD 1.7 for Linux and 1.6 for Windows<br> • Azure Linux 2.0<br> • Cgroups V1<br> • ContainerD 1.6<br>| • KEDA 2.11.2<br> • Cilium 1.13.10-1<br> • azurefile-csi-driver 1.28.7<br> • azuredisk-csi driver v1.28.5<br> • blob-csi v1.22.4<br> • csi-attacher v4.3.0<br> • csi-resizer v1.8.0<br> • csi-snapshotter v6.2.2<br> • snapshot-controller v6.2.2| Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards. |
+
+
 ## Alias minor version
 
 > [!NOTE]
@@ -93,7 +112,7 @@ AKS defines a generally available (GA) version as a version available in all reg
 
 * The latest GA minor version released in AKS (which we refer to as *N*).
 * Two previous minor versions.
-  * Each supported minor version also supports a maximum of two stable patches.
+  * Each supported minor version can support any number of patches at a given time. AKS reserves the right to deprecate patches if a critical CVE or security vulnerability is detected. For awareness on patch availability and any ad-hoc deprecation, please refer to version release notes and visit the [AKS release status webpage][aks-tracker].
 
 AKS might also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
@@ -120,22 +139,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 
 When AKS releases 1.30, all the 1.27 versions go out of support 30 days later.
 
-AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
-
-```
-Current Supported Version List
-------------------------------
-1.29.2, 1.29.1, 1.28.7, 1.28.6, 1.27.11, 1.27.10
-```
-
-If AKS releases `1.29.3` and `1.28.8`, the oldest patch versions are deprecated and removed, and the supported version list becomes:
-
-```
-New Supported Version List
-----------------------
-1.29.3, 1.29.2, 1.28.8, 1.28.7, 1.27.11, 1.27.10
-```
-
+AKS may support any number of **patches** based on upstream community release availability for a given minor version. AKS reserves the right to deprecate any of these patches at any given time due to a CVE or potential bug concern. You're always encouraged to use the latest patch for a minor version.  
 ## Platform support policy
 
 Platform support policy is a reduced support plan for certain unsupported Kubernetes versions. During platform support, customers only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components aren't supported.

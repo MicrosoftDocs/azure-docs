@@ -12,7 +12,7 @@ ms.author: mbullwin
 author: mrbullwinkle
 ---
 
-[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ author: mrbullwinkle
     | **Deployment** | This is where you set which model deployment to use with your assistant. |
     | **Functions**| Create custom function definitions for the models to formulate API calls and structure data outputs based on your specifications. Not used in this quickstart. |
     | **Code interpreter** | Code interpreter provides access to a sandboxed Python environment that can be used to allow the model to test and execute code. |
-    | **Files** | You can upload up to 20 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
+    | **Files** | You can upload up to 10,000 files, with a max file size of 512 MB to use with tools. Not used in this quickstart. |
     
     :::image type="content" source="../media/quickstarts/assistants-ai-studio-playground.png" alt-text="Screenshot of the Assistant configuration screen without all the values filled in." lightbox="../media/quickstarts/assistants-ai-studio-playground.png":::
 

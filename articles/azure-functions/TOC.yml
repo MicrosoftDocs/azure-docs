@@ -189,6 +189,26 @@
           - name: Azure SQL
             displayName: Connect to a database, Azure SQL
             href: functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python
+    - name: Connect to OpenAI
+      items:
+        - name: C#
+          href: functions-add-openai-text-completion.md?pivots=programming-language-csharp
+          displayName: Connect to OpenAI, text completion
+        - name: Java
+          href: functions-add-openai-text-completion.md?pivots=programming-language-java
+          displayName: Connect to OpenAI, text completion
+        - name: JavaScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-javascript
+          displayName: Connect to OpenAI, text completion
+        - name: PowerShell
+          href: functions-add-openai-text-completion.md?pivots=programming-language-powershell
+          displayName: Connect to OpenAI, text completion
+        - name: Python
+          href: functions-add-openai-text-completion.md?pivots=programming-language-python
+          displayName: Connect to OpenAI, text completion
+        - name: TypeScript
+          href: functions-add-openai-text-completion.md?pivots=programming-language-typescript
+          displayName: Connect to OpenAI, text completion
 - name: Tutorials
   items:
     - name: Functions with Logic Apps
@@ -222,10 +242,14 @@
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
     - name: Create a serverless web app
       href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
-    - name: Machine learning with TensorFlow
-      href: functions-machine-learning-tensorflow.md
-    - name: Image classification with PyTorch
-      href: machine-learning-pytorch.md
+    - name: Data + AI
+      items:
+        - name: Azure OpenAI for text completion
+          href: functions-add-openai-text-completion.md   
+        - name: Machine learning with TensorFlow
+          href: functions-machine-learning-tensorflow.md
+        - name: Image classification with PyTorch
+          href: machine-learning-pytorch.md
     - name: Functions on IoT Edge device
       href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
     - name: Java with Azure Cosmos DB and Event Hubs
@@ -497,6 +521,8 @@
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally
               href: functions-debug-event-grid-trigger-local.md
+        - name: Load testing
+          href: ../load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
         - name: Dependency injection
           href: functions-dotnet-dependency-injection.md
         - name: Manage connections
@@ -621,6 +647,8 @@
           href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
     - name: Secure
       items:
+        - name: Work with access keys
+          href: function-keys-how-to.md
         - name: Add SSL cert
           href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
         - name: Restrict IPs
@@ -737,20 +765,6 @@
       href: functions-app-settings.md
     - name: Triggers and bindings
       items:
-        - name: Blob storage
-          items:
-            - name: Overview
-              displayName: Blob storage
-              href: functions-bindings-storage-blob.md
-            - name: Trigger
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-trigger.md
-            - name: Input
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-input.md
-            - name: Output
-              displayName: Blob storage
-              href: functions-bindings-storage-blob-output.md
         - name: Azure Cache for Redis
           items: 
             - name: Overview
@@ -854,6 +868,20 @@
             - name: Output
               href: functions-bindings-azure-sql-output.md
               displayName: Azure SQL
+        - name: Blob storage
+          items:
+            - name: Overview
+              displayName: Blob storage
+              href: functions-bindings-storage-blob.md
+            - name: Trigger
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Input
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-input.md
+            - name: Output
+              displayName: Blob storage
+              href: functions-bindings-storage-blob-output.md              
         - name: Dapr
           items: 
             - name: Overview
@@ -914,6 +942,17 @@
             - name: Output
               href: functions-bindings-event-hubs-output.md
               displayName: Azure Event Hubs
+        - name: HTTP and webhooks
+          items:
+            - name: Overview
+              href: functions-bindings-http-webhook.md
+              displayName: HTTP
+            - name: Trigger
+              href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP, keys, authorization keys, function keys, access keys
+            - name: Output
+              href: functions-bindings-http-webhook-output.md
+              displayName: HTTP              
         - name: IoT Hub
           items:
             - name: Overview
@@ -933,17 +972,6 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: HTTP and webhooks
-          items:
-            - name: Overview
-              href: functions-bindings-http-webhook.md
-              displayName: HTTP
-            - name: Trigger
-              href: functions-bindings-http-webhook-trigger.md
-              displayName: HTTP, keys, authorization keys, function keys, access keys
-            - name: Output
-              href: functions-bindings-http-webhook-output.md
-              displayName: HTTP
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -1084,7 +1112,7 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
-      href: https://www.youtube.com/c/AzureFunctions
+      href: https://www.youtube.com/@AzureDevelopers/search?query=functions
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-functions.html
     - name: Stack Overflow

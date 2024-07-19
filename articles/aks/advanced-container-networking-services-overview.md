@@ -6,7 +6,7 @@ ms.author: kparekh
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: overview
-ms.date: 05/24/2024
+ms.date: 05/28/2024
 ---
 
 # What is Advanced Container Networking Services?
@@ -27,7 +27,7 @@ For more information about Advanced Network Observability, see [What is Advanced
 
 ## Pricing
 > [!IMPORTANT]
-> Advanced Container Networking Services will be a paid offering starting June 4th, 2024. 
+> Advanced Container Networking Services will be a paid offering. For more information about pricing, see [Advanced Container Networking Services - Pricing](https://azure.microsoft.com/pricing/details/azure-container-networking-services/)
 
 ## Next steps
 

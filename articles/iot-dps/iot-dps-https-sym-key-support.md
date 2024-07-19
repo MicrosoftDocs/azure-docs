@@ -238,7 +238,7 @@ To learn more about using SAS tokens with DPS and their structure, see [Control 
   
 ## Register your device
 
-You call the [Register Device](/rest/api/iot-dps/device/device-registration-state) REST API to provision your device through DPS.
+You call the [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) REST API to provision your device through DPS.
 
 Use the following curl command:
 

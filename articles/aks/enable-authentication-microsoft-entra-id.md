@@ -54,7 +54,12 @@ The following requirements need to be met in order to properly install the AKS a
 2. Create an AKS cluster and enable administration access for your Microsoft Entra group using the [`az aks create`][az-aks-create] command.
 
     ```azurecli-interactive
-    az aks create --resource-group myResourceGroup --name myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+    az aks create \
+        --resource-group myResourceGroup \
+        --name myManagedCluster \
+        --enable-aad \
+        --aad-admin-group-object-ids <id> [--aad-tenant-id <id>] \
+        --generate-ssh-keys
     ```
 
     A successful creation of an AKS-managed Microsoft Entra ID cluster has the following section in the response body:
@@ -201,6 +206,6 @@ If you lack administrative access to a valid Microsoft Entra group, you can foll
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
-[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
+[open-id-connect]: /entra/identity-platform/v2-protocols-oidc
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [kubelogin-authentication]: kubelogin-authentication.md

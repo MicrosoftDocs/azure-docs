@@ -4,12 +4,12 @@ description: This article describes the compute and storage options in Azure Dat
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
+ms.topic: concept-article
 ms.custom:
   - build-2024
-ms.topic: concept-article
 # customer intent: As a reader, I want to understand the service tiers and compute options available in Azure Database for MySQL - Flexible Server.
 ---
 
@@ -221,7 +221,7 @@ Azure Database for MySQL flexible server offers pre-provisioned IOPS, allowing y
 
 ## Autoscale IOPS
 
-The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads. This can be improved by enabling the server to automatically scale its database servers' performance (IO) seamlessly depending on the workload needs. This opt-in feature enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enabled, you can now enjoy worry-free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.
+The cornerstone of Azure Database for MySQL flexible server is its ability to achieve the best performance for tier 1 workloads. This can be improved by enabling the server to automatically scale its database servers' performance (IO) seamlessly depending on the workload needs. This opt-in feature enables users to scale IOPS on demand without having to pre-provision a certain amount of IO per second. With the Autoscale IOPS featured enabled, you can now enjoy worry-free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs. AutoScale IOPS automatically scales up to the ‘Max Supported IOPS’ for each service tier and compute size, as specified in the [service tiers documentation](#service-tiers-size-and-server-types). This ensures optimal performance without the need for manual scaling efforts
 
 With Autoscale IOPS, you pay only for the IO the server uses and no longer need to provision and pay for resources they aren't fully using, saving time and money. In addition, mission-critical Tier-1 applications can achieve consistent performance by making additional IO available to the workload anytime. Autoscale IOPS eliminates the administration required to provide the best performance at the least cost for Azure Database for MySQL flexible server customers.
 

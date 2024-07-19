@@ -8,16 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 06/18/2024
 ---
 
 # Service administration for Azure AI Search in the Azure portal
 
 > [!div class="op_single_selector"]
 >
-> * [PowerShell](search-manage-powershell.md)
-> * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](search-manage-rest.md)
+> + [PowerShell](search-manage-powershell.md)
+> + [Azure CLI](search-manage-azure-cli.md)
+> + [REST API](search-manage-rest.md)
 
 In Azure AI Search, the [Azure portal](https://portal.azure.com) supports a broad range of administrative and content management operations so that you don't have to write code unless you want automation. 
 
@@ -25,26 +25,16 @@ Each search service is managed as a standalone resource. Your role assignment de
 
 ## Portal and administrator permissions
 
-Portal access is through [role assignments](search-security-rbac.md). By default, all search services start with at least one Owner. Owners, service administrators, and co-administrators have permission to create other administrators and other role assignments. They have full access to all portal pages and operations.
+Portal access is through [role assignments](search-security-rbac.md). By default, all search services start with at least one Service Administrator or Owner. Service administrators, co-administrators, and owners have permission to create other administrators and other role assignments. They have full access to all portal pages and operations on a default search service.
 
-Contributors and Search Service Contributors have the same access as Owner, minus the ability to assign roles.
-
-Readers have access to service information in the Essentials section and in the Monitoring tab. Access is limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existence of objects on the service. 
-
-For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-rbac.md#disable-api-key-authentication), here's the portal experience for the following roles:
-
-* Search Index Data Contributor can see the list of indexers, and access an individual one to see its historical runs and status, but cannot run, reset, create, update, or delete it.
-
-* A Search Index Data Reader can query the indexes.
-
-In short, if you want unrestricted access to portal features, including the ability to run the Import data wizards, you should have Contributor or Search Servicer Contributor permissions.
+If you disable API keys on a search service and use roles only, administrators must grant themselves data plane role assignments for full access to objects and data. These role assignments include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader.
 
 > [!TIP]
 > By default, any owner or administrator can create or delete services. To prevent accidental deletions, you can [lock resources](../azure-resource-manager/management/lock-resources.md).
 
 ## Azure portal at a glance
 
-The overview page is the "home" page of each service. In the following screenshot, the red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
+The overview page is the home page of each service. In the following screenshot, the red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
@@ -61,6 +51,42 @@ You can't change the search service name, subscription, resource group, region (
 
 On a new search service, we recommend these configuration tasks.
 
+### Enable role-based access
+
+A search service is always created with [API keys](search-security-api-keys.md) and uses key-based authentication by default. However, using Microsoft Entra ID and role assignments is a more secure option because it eliminates storing and passing keys in plain text.
+
+1. [Enable roles](search-security-enable-roles.md) on your search service. We recommend the roles-only option.
+
+1. For administration, [assign data plane roles](search-security-rbac.md) to replace the functionality lost when you disable API keys. Role assignments include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader. You need all three.
+
+   Sometimes it can take five to ten minutes for role assignments to take effect. Until that happens, the following message appears in the portal pages used for data plane operations.
+
+   :::image type="content" source="media/search-security-rbac/you-do-not-have-access.png" alt-text="Screenshot of portal message indicating insufficient permissions.":::
+
+1. Continue to [add more role assignments](search-security-rbac.md) for solution developers and apps.
+
+### Configure a managed identity
+
+If you plan to use indexers for automated indexing, applied AI, or integrated vectorization, you should [configure the search service to use a managed identity](search-howto-managed-identities-data-sources.md). You can then add role assignments on other Azure services that authorize your search service to access data and operations.
+
+For integrated vectorization, a search service identity needs:
+
++ Storage Blob Data Reader on Azure Storage
++ Cognitive Services Data User on an Azure AI multiservice account
+
+It can take several minutes for role assignments to take effect.
+
+Before moving on to network security, consider testing all points of connection to validate role assignments. Run either the [Import data wizard](search-get-started-portal.md) or the [Import and vectorize data wizard](search-get-started-portal-image-search.md) to test permissions. 
+
+### Configure network security
+
+By default, a search service accepts authenticated and authorized requests over public internet connections. Network security restricts access through firewall rules, or by disabling public connections and allowing requests only from Azure virtual networks.
+
++ [Configure network access](service-configure-firewall.md) to restrict access by IP addresses.
++ [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network.
+
+[Security in Azure AI Search](search-security-overview.md) explains inbound and outbound calls in Azure AI Search.
+
 ### Check capacity and understand billing
 
 By default, a search service is created in a minimum configuration of one replica and partition each. You can [add capacity](search-capacity-planning.md) by adding replicas and partitions, but we recommend waiting until volumes require it. Many customers run production workloads on the minimum configuration.
@@ -70,44 +96,22 @@ Some features add to the cost of running the service:
 + [How you're charged for Azure AI Search](search-sku-manage-costs.md#how-youre-charged-for-azure-ai-search) explains which features have billing impact.
 + [(Optional) disable semantic ranking](semantic-how-to-enable-disable.md) at the service level to prevent usage of the feature.
 
-### Configure network security
-
-By default, a search service accepts authenticated and authorized requests over public internet connections. Network security restricts access through firewall rules, or by disabling public connections and allowing requests only from Azure virtual networks.
-
-* [Configure IP firewall rules](service-configure-firewall.md) to restrict access by IP address.
-* [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network.
-
-[Security in Azure AI Search](search-security-overview.md) explains inbound and outbound calls in Azure AI Search.
-
 ### Enable diagnostic logging
 
 [Enable diagnostic logging](monitor-azure-cognitive-search.md) to track user activity. If you skip this step, you still get [activity logs](../azure-monitor/essentials/activity-log.md)  and [platform metrics](../azure-monitor/essentials/data-platform-metrics.md#types-of-metrics) automatically, but if you want index and query usage information, you should enable diagnostic logging and choose a destination for logged operations. 
 
 We recommend Log Analytics Workspace for durable storage so that you can run system queries in the portal.
 
-Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
-
-| Monitoring data | Retention |
-|-----------------|-----------|
-| Activity logs | 90 days on a rolling schedule |
-| Platform metrics | 93 days on a rolling schedule, except that portal visualization is limited to a 30 day window |
-| Resource logs | User-managed |
-| Telemetry | One and a half years |
+Internally, Microsoft collects telemetry data about your service and the platform. To learn more about data retention, see [Retention of metrics](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 
 > [!NOTE]
 > See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
 
 ### Enable semantic ranking
 
-Semantic ranking is free for the first 1,000 requests per month, but you must opt-in to get the free quota. 
+Semantic ranking is free for the first 1,000 requests per month, but you must opt in to get the free quota. 
 
 In Azure portal, under **Settings** on the leftmost pane, select **Semantic ranker** and then choose the Free plan. For more information, see [Enable semantic ranker](semantic-how-to-enable-disable.md).
-
-### Configure user access
-
-Initially, only an owner has access to search service information and operations. [Assign roles](search-security-rbac.md) to extend access, or provide users with a search endpoint with an API key.
-
-A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-rbac.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
 
 ### Provide connection information to developers
 

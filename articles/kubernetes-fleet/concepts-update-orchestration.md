@@ -21,9 +21,10 @@ Platform admins managing large number of clusters often have problems with stagi
 * **Update group**: Each update stage contains one or more update groups, which are used to select the member clusters to be updated. Update groups are also used to order the application of updates to member clusters. Within an update stage, updates are applied to all the different update groups in parallel; within an update group, member clusters update sequentially. Each member cluster of the fleet can only be a part of one update group.
 * **Update strategy**: An update strategy describes the update sequence with stages and groups. You can reuse a strategy in your update runs instead of defining the sequence repeatedly in each run.
 
-Currently, the supported update operations on the cluster are upgrades. There are two types of upgrades you can choose from:
+Currently, the supported update operations on the cluster are upgrades. There are three types of upgrades you can choose from:
 
 - Upgrade Kubernetes versions for the Kubernetes control plane and the nodes (which includes upgrading the node images).
+- Upgrade Kubernetes versions for only the control planes of the clusters
 - Upgrade only the node images.
 
 You can specify the target Kubernetes version to upgrade to, but you can't specify the exact target node image versions as the latest available node image versions may vary depending on the region of the cluster (check [release tracker](../aks/release-tracker.md) for more information).

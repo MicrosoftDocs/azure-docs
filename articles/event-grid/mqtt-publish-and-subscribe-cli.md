@@ -102,7 +102,7 @@ az eventgrid namespace permission-binding create -g {Resource Group} --namespace
 Use the command to create the second permission binding. Update the command with your resource group, namespace name, and permission binding name. This permission binding is for subscribers.
 
 ```azurecli-interactive
-az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission publisher --topic-space-name {Topicspace Name}
+az eventgrid namespace permission-binding create -g {Resource Group} --namespace-name {Namespace Name} -n {Name of second Permission Binding} --client-group-name '$all' --permission subscriber --topic-space-name {Topicspace Name}
 ```
 
 ## Publish and subscribe to MQTT messages
