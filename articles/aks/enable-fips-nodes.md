@@ -150,7 +150,7 @@ FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* lab
 Existing node pools can be updated to enable or disable FIPS. If you are planning to migrate your node pools from non-FIPS to FIPS, first validate that your application is working properly in a test environment before migrating it to a production environment. Validating your application in a test environment should prevent issues caused by the FIPS kernel blocking some weak cipher or encryption algorithm, such as an MD4 algorithm that is not FIPS compliant.
 ### Limitations
 * FIPS cannot be enabled via node pool update for for Windows node pools
-* You need the Azure CLI version 5.0.0b3 or later installed and configured to use the `--enable-fips-image` and `--disable-fips-image` fields with the `az aks nodepool update` command. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* Make sure you have installed Azure CLI version 2.56.0 or later, together with the [aks-preview](https://github.com/cli/azure/azure-cli-extensions-list) extension. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 [!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
