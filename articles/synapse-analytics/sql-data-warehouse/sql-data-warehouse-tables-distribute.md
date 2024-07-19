@@ -1,14 +1,15 @@
 ---
 title: Distributed tables design guidance
 description: Recommendations for designing hash-distributed and round-robin distributed tables using dedicated SQL pool.
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 03/20/2023
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mariyaali
-ms.custom: azure-synapse
+ms.date: 07/19/2024
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # Guidance for designing distributed tables using dedicated SQL pool in Azure Synapse Analytics
@@ -35,7 +36,7 @@ As part of table design, understand as much as possible about your data and how 
 
 A hash-distributed table distributes table rows across the Compute nodes by using a deterministic hash function to assign each row to one [distribution](massively-parallel-processing-mpp-architecture.md#distributions).
 
-:::image type="content" source="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png" alt-text="Distributed table" lightbox="./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png":::
+:::image type="content" source="media/sql-data-warehouse-tables-distribute/hash-distributed-table.png" alt-text="Diagram of a distributed table.":::
 
 Since identical values always hash to the same distribution, SQL Analytics has built-in knowledge of the row locations. In dedicated SQL pool this knowledge is used to minimize data movement during queries, which improves query performance.
 
@@ -121,7 +122,7 @@ For best performance, all of the distributions should have approximately the sam
   
 To balance the parallel processing, select a distribution column or set of columns that:
 
-- **Has many unique values.** The distribution column(s) can have duplicate values.  All rows with the same value are assigned to the same distribution. Since there are 60 distributions, some distributions can have > 1 unique values while others may end with zero values.  
+- **Has many unique values.** The distribution column(s) can have duplicate values.  All rows with the same value are assigned to the same distribution. Since there are 60 distributions, some distributions can have > 1 unique values while others can end with zero values.  
 - **Does not have NULLs, or has only a few NULLs.** For an extreme example, if all values in the distribution column(s) are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing.
 - **Is not a date column**. All data for the same date lands in the same distribution, or will cluster records by date. If several users are all filtering on the same date (such as today's date), then only 1 of the 60 distributions do all the processing work.
 
@@ -153,7 +154,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 To identify which tables have more than 10% data skew:
 
 1. Create the view `dbo.vTableSizes` that is shown in the [Tables overview](sql-data-warehouse-tables-overview.md#table-size-queries) article.  
-2. Run the following query:
+1. Run the following query:
 
 ```sql
 select *
@@ -178,7 +179,7 @@ To avoid data movement during a join:
 - The tables involved in the join must be hash distributed on **one** of the columns participating in the join.
 - The data types of the join columns must match between both tables.
 - The columns must be joined with an equals operator.
-- The join type may not be a `CROSS JOIN`.
+- The join type cannot be a `CROSS JOIN`.
 
 To see if queries are experiencing data movement, you can look at the query plan.  
 
@@ -233,8 +234,7 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-## Next steps
-
+## Related content
 To create a distributed table, use one of these statements:
 
 - [CREATE TABLE (dedicated SQL pool)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
