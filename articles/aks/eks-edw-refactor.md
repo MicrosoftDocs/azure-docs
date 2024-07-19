@@ -25,7 +25,7 @@ For the data plane, the producer message body (payload) is JSON, and it doesn't 
 
 ### AWS implementation
 
-The AWS workload uses a resource-based policy that defines full access to an Amazon Simple Queue Service (SQS) resource:
+The AWS workload uses an IAM role policy that defines full access to an Amazon Simple Queue Service (SQS) resource:
 
 ```json
 {
@@ -40,7 +40,7 @@ The AWS workload uses a resource-based policy that defines full access to an Ama
 }
 ```
 
-The AWS workload uses a resource-based policy that defines full access to a DynamoDB resource:
+The AWS workload uses an IAM role policy that defines full access to an Amazon DynamoDB resource:
 
 ```json
 {
@@ -70,9 +70,9 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure implementation
 
-Let's explore how to perform similar AWS service-to-service logic within the Azure environment using AKS.
+Let's explore how to perform similar AWS service communication logic within the Azure environment using AKS.
 
-You apply two Azure RBAC role definitions to control data plane access to the Azure Storage Queue and the Azure Storage Table. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. Azure RBAC roles aren't bundled with the resource. Instead, you assign the roles to a service principal associated with a given resource.
+You apply two Azure RBAC role definitions to control data plane access to the Azure Storage Queue and the Azure Storage Table. These roles are like the IAM role policies that AWS uses to control access to SQS and DynamoDB. Azure RBAC roles aren't bundled with the resource. Instead, you assign the roles to a service principal associated with a given resource.
 
 In the Azure implementation of the EDW workload, you assign the roles to a user-assigned managed identity linked to a workload identity in an AKS pod. The Azure Python SDKs for the Azure Storage Queue and Azure Storage Table automatically use the context of the security principal to access data in both resources.
 
@@ -116,7 +116,7 @@ To see a working example, refer to the `deploy.sh` script in our [GitHub reposit
 
 ### AWS implementation
 
-The AWS workload uses the AWS boto3 Python library to interact with AWS SQS queues to configure storage queue access. The AWS IAM `AssumeRole` capability authenticates to the SQS endpoint using the IAM identity associated with the EKS pod hosting the application.
+The AWS workload uses the AWS boto3 Python library to interact with Amazon SQS queues to configure storage queue access. The AWS IAM `AssumeRole` capability authenticates to the SQS endpoint using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 import boto3
@@ -155,7 +155,7 @@ You can review the code for the queue producer (`aqs-producer.py`) in our [GitHu
 
 ### AWS implementation
 
-The original AWS code for DynamoDB access uses the AWS boto3 Python library to interact with AWS SQS queues. The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. The consumer also contains Python code to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint using the IAM identity associated with the EKS pod hosting the application.
+The original AWS code for DynamoDB access uses the AWS boto3 Python library to interact with Amazon SQS queues. The consumer part of the workload uses the same code as the producer for connecting to the Amazon SQS queue to read messages. The consumer also contains Python code to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 # presumes policy deployment ahead of time such as: aws iam create-policy --policy-name <policy_name> --policy-document <policy_document.json>

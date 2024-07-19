@@ -87,7 +87,10 @@ The following steps show you how to create a dev box definition by using an exis
 1. Select **Create**.
 
 > [!NOTE]
-> Dev box definitions with 4 core SKUs are no longer supported. You need to update to an 8 core SKU or delete the dev box definition.
+> Microsoft Dev Box doesn't support:
+> - Preview builds from the Windows Insider Program.
+> - Dev box definitions with 4 core SKUs.
+
 
 ## Update a dev box definition
 

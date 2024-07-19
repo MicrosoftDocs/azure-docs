@@ -243,7 +243,6 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
 * [Scale istiod and ingress gateway HPA][istio-scaling-guide]
 
-
 <!--- External Links --->
 [install-aks-cluster-istio-bicep]: https://github.com/Azure-Samples/aks-istio-addon-bicep
 [uninstall-istio-oss]: https://istio.io/latest/docs/setup/install/istioctl/#uninstall-istio

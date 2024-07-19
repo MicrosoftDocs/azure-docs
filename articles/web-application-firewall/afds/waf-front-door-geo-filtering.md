@@ -4,7 +4,7 @@ description: In this article, you learn about the geo-filtering policy for Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/05/2023
 ms.author: victorh
 ---

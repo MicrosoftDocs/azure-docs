@@ -74,7 +74,7 @@ To create an exemption rule:
 
 ## After creating the exemption
 
-After creating the exemption, it can take up to 30 minutes to take effect. After it takes effect:
+After creating the exemption, it can take up to 24 hours to take effect. After it takes effect:
 
 - The recommendation or resources won't impact your secure score.
 - If you exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.

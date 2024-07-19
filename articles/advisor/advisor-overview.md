@@ -2,7 +2,7 @@
 title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
 ms.topic: overview
-ms.date: 04/07/2022
+ms.date: 07/08/2024
 ---
 
 # Introduction to Azure Advisor
@@ -22,11 +22,11 @@ You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordas
 
 The Advisor dashboard displays personalized recommendations for all your subscriptions. The recommendations are divided into five categories: 
 
-* **Reliability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
+* **Reliability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-reference-reliability-recommendations.md).
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
-* **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
-* **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
-* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
+* **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-reference-performance-recommendations.md).
+* **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-reference-cost-recommendations.md).
+* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. For more information, see [Advisor Operational Excellence recommendations](advisor-reference-operational-excellence-recommendations.md).
 
 You can apply filters to display recommendations for specific subscriptions and resource types.
 
@@ -65,8 +65,8 @@ To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor score](azure-advisor-score.md)
-* [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Reliability recommendations](advisor-reference-reliability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor Performance recommendations](advisor-reference-performance-recommendations.md)
+* [Advisor Cost recommendations](advisor-reference-cost-recommendations.md)
+* [Advisor Operational Excellence recommendations](advisor-reference-operational-excellence-recommendations.md)

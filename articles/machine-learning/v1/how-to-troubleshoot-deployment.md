@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 11/16/2022
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: sehan
 ms.topic: troubleshooting
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.

@@ -6,16 +6,16 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/22/2024
+ms.date: 5/21/2024
 ms.author: eur
 ---
 
 # What is speech to text?
 
-In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text) or [batch transcription](#batch-transcription) of audio streams into text. 
+In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text), [batch transcription](#batch-transcription-api), or [fast transcription](./fast-transcription-create.md) of audio streams into text. 
 
 > [!NOTE]
-> To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
+> To compare pricing of [real-time](#real-time-speech-to-text), [batch transcription](#batch-transcription-api), and [fast transcription](./fast-transcription-create.md), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
 For a full list of available speech to text languages, see [Language and voice support](language-support.md?tabs=stt).
 
@@ -31,7 +31,19 @@ With real-time speech to text, the audio is transcribed as speech is recognized 
 
 Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md). 
 
-## Batch transcription
+## Fast transcription (Preview)
+
+Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
+
+- Quick audio or video transcription, subtitles, and edit. 
+- Video translation  
+
+> [!NOTE]
+> Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview and later. 
+
+To get started with fast transcription, see [use the fast transcription API (preview)](fast-transcription-create.md).
+
+## Batch transcription API
 
 [Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
 - Transcriptions, captions, or subtitles for prerecorded audio

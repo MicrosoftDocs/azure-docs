@@ -351,7 +351,7 @@ When an email address is rate limited, a notification is sent to communicate tha
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is sent to Microsoft Entra ID **user** or **group** members of the role. This includes support for roles assigned through Azure Lighthouse.
 
 > [!NOTE]
-> Action Groups only supports emailing the following roles: Owner, Contirbutor, Reader, Monitoring Contributor, Monitoring Reader.
+> Action Groups only supports emailing the following roles: Owner, Contributor, Reader, Monitoring Contributor, Monitoring Reader.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 

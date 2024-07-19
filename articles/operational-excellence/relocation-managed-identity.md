@@ -14,7 +14,7 @@ ms.custom:
 
 # Relocate managed identities for Azure resources to another region
 
-There are situations in which you'd want to move your existing user-assigned managed identities from one region to another. For example, you may need to move a solution that uses user-assigned managed identities to another region. You may also want to move an existing identity to another region as part of disaster recovery planning, and testing.
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
 Moving user-assigned managed identities across Azure regions isn't supported.  You can however, recreate a user-assigned managed identity in the target region.
 
