@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 07/19/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -23,10 +23,14 @@ Reproducible output is only currently supported with the following:
 
 ### Supported models
 
-* `gpt-35-turbo` (1106) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
-* `gpt-35-turbo` (0125) - [region availability](../concepts/models.md#gpt-35-turbo-model-availability)
-* `gpt-4` (1106-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability)
-* `gpt-4` (0125-Preview) - [region availability](../concepts/models.md#gpt-4-and-gpt-4-turbo-model-availability)
+* `gpt-35-turbo` (1106)
+* `gpt-35-turbo` (0125)
+* `gpt-4` (1106-Preview)
+* `gpt-4` (0125-Preview)
+* `gpt-4` (turbo-2024-04-09)
+* `gpt-4o` (2024-05-13)
+
+Consult the [models page](../concepts/models.md) for the latest information on model regional availability.
 
 ### API Version
 
