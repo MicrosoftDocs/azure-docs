@@ -89,7 +89,7 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
 1. For models offered through the Azure Marketplace, ensure that your account has the **Azure AI Developer** role permissions on the resource group, or that you meet the [permissions required to subscribe to model offerings](#permissions-required-to-subscribe-to-model-offerings).
 
-    Models that are offered by non-Microsoft providers (for example, Llama and Mistral models) are billed through the Azure Marketplace. For such models, you're required to subscribe your project to the particular model offering. Models that are offered by Microsoft (for example, Phi-3 models) don't have this requirement, as billing is done differently. For details about billing for serverless deployment of models in the model catalog, see [Billing for serverless APIs](concept-model-catalog.md#pay-for-model-usage-in-maas).
+    Models that are offered by non-Microsoft providers (for example, Llama and Mistral models) are billed through the Azure Marketplace. For such models, you're required to subscribe your workspace to the particular model offering. Models that are offered by Microsoft (for example, Phi-3 models) don't have this requirement, as billing is done differently. For details about billing for serverless deployment of models in the model catalog, see [Billing for serverless APIs](concept-model-catalog.md#pay-for-model-usage-in-maas).
 
 1. Go to your workspace. To use the serverless API model deployment offering, your workspace must belong to one of the [regions that are supported for serverless deployment](concept-endpoint-serverless-availability.md) for the particular model you want to deploy.
 
@@ -102,11 +102,11 @@ In this article, you learn how to deploy a model from the model catalog as a ser
 
     :::image type="content" source="media/how-to-deploy-models-serverless/model-card.png" alt-text="A screenshot showing a model's details page." lightbox="media/how-to-deploy-models-serverless/model-card.png":::
 
-The next section covers the steps for subscribing your project to a model offering. You can skip this section and go to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint), if you're deploying a Microsoft model.
+The next section covers the steps for subscribing your workspace to a model offering. You can skip this section and go to [Deploy the model to a serverless API endpoint](#deploy-the-model-to-a-serverless-api-endpoint), if you're deploying a Microsoft model.
 
-## Subscribe your project to the model offering
+## Subscribe your workspace to the model offering
 
-For non-Microsoft models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the project, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
+For non-Microsoft models offered through the Azure Marketplace, you can deploy them to serverless API endpoints to consume their predictions. If it's your first time deploying the model in the workspace, you have to subscribe your workspace for the particular model offering from the Azure Marketplace. Each workspace has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending.
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for deployment to serverless API endpoints in specific regions. Check [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md) to verify which models and regions are available. If the one you need is not listed, you can deploy to a workspace in a supported region and then [consume serverless API endpoints from a different workspace](how-to-connect-models-serverless.md).
@@ -254,7 +254,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
     1. To deploy a Microsoft model that doesn't require subscribing to a model offering, select **Deploy** and then select **Serverless API with Azure AI Content Safety (preview)** to open the deployment wizard.
 
-    1. Alternatively, for a non-Microsoft model that requires a model subscription, if you've just subscribed your project to the model offer in the previous section, continue to select **Deploy**. Alternatively, select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this workspace*). 
+    1. Alternatively, for a non-Microsoft model that requires a model subscription, if you've just subscribed your workspace to the model offer in the previous section, continue to select **Deploy**. Alternatively, select **Continue to deploy** (if your deployment wizard had the note *You already have an Azure Marketplace subscription for this workspace*). 
 
         :::image type="content" source="media/how-to-deploy-models-serverless/deploy-pay-as-you-go-subscribed-workspace.png" alt-text="A screenshot showing a workspace that is already subscribed to the offering." lightbox="media/how-to-deploy-models-serverless/deploy-pay-as-you-go-subscribed-workspace.png":::
 
@@ -427,7 +427,7 @@ In this section, you create an endpoint with the name **meta-llama3-8b-qwerty**.
 
 1. At this point, your endpoint is ready to be used.
 
-1. If you need to consume this deployment from a different workspace, or you plan to use prompt flow to build intelligent applications, you need to create a connection to the serverless API deployment. To learn how to configure an existing serverless API endpoint on a new project or hub, see [Consume deployed serverless API endpoints from a different workspace or from Prompt flow](how-to-connect-models-serverless.md).
+1. If you need to consume this deployment from a different workspace, or you plan to use prompt flow to build intelligent applications, you need to create a connection to the serverless API deployment. To learn how to configure an existing serverless API endpoint on a new workspace or hub, see [Consume deployed serverless API endpoints from a different workspace or from Prompt flow](how-to-connect-models-serverless.md).
 
     > [!TIP]
     > If you're using prompt flow in the same workspace where the deployment was deployed, you still need to create the connection.
