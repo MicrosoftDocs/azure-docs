@@ -11,7 +11,7 @@ ms.author: bpinto
 
 # Troubleshoot BMM provisioning in Azure Operator Nexus cluster
 
-As part of cluster deploy action, bare metal machines (BMM) are provisioned with required roles to participate in the cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure portal, and the server baseboard management controller (BMC). For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC. Provisioning uses the Preboot eXecution Environment (PXE) interface to load the Opearating System (OS) on the BMM.
+As part of cluster deploy action, bare metal machines (BMM) are provisioned with required roles to participate in the cluster. This document supports troubleshooting for common provisioning issues using Azure CLI, Azure portal, and the server baseboard management controller (BMC). For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC. Provisioning uses the Preboot eXecution Environment (PXE) interface to load the Operating System (OS) on the BMM.
 
 ## Prerequisites
 1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md)
@@ -109,13 +109,15 @@ The following conditions can cause provisioning failures:
 
 | Error Type | Resolution |
 | ---------- | ---------- |
-| BMC shows `Backplane Comm` critical error | 1) Execute remote flea drain. 2) Perform physical flea drain. 3) Execute BMM `replace` action. |
-| Boot network data response empty from BMC | 1) Bounce port on fabric device. 2) Execute remote flea drain. 3) Perform physical flea drain. 4) Execute BMM `replace` action. |
-| Disk data response empty from BMC | 1) Remove/replace disk. 2) Remove/replace storage controller. 3) Execute remote flea drain. 4) Perform physical flea drain. 5) Execute BMM `replace` action. |
-| BMC unreachable | 1) Bounce port on fabric device. 2) Remove/replace cable. 3) Execute remote flea drain. 4) Perform physical flea drain. 5) Execute BMM `replace` action. |
-| BMC fails log in | 1) Update credentials on BMC. 2) Execute BMM `replace` action. |
-| Memory, CPU, OEM critical errors | 1) Resolve hardware issue with remove/replace. 2) Execute remote flea drain. 3) Perform physical flea drain. 4) Execute BMM `replace` action. |
-| Console stuck at grub menu | 1) Execute NVRAM reset. 2) Execute BMM `replace` action. |
+| BMC shows `Backplane Comm` critical error. | 1) Execute BMM remote flea drain. 2) Perform BMM physical flea drain. 3) Execute BMM `replace` action. |
+| Boot (PXE) network data response empty from BMC. | 1) Reset port on fabric device. 2) Execute BMM remote flea drain. 3) Perform BMM physical flea drain. 4) Execute BMM `replace` action. |
+| Boot (PXE) MAC address mismatch. | 1) Validate BMM MAC address data against BMC data. 2) Execute BMM remote flea drain. 3) Perform BMM physical flea drain. 4) Execute BMM `replace` action. |
+| BMC MAC address mismatch | 1) Validate BMM MAC address data against BMC data. 2) Execute BMM remote flea drain. 3) Perform BMM physical flea drain. 4) Execute BMM `replace` action. |
+| Disk data response empty from BMC. | 1) Remove/replace disk. 2) Remove/replace storage controller. 3) Execute BMM remote flea drain. 4) Perform BMM physical flea drain. 5) Execute BMM `replace` action. |
+| BMC unreachable. | 1) Reset port on fabric device. 2) Remove/replace cable. 3) Execute BMM remote flea drain. 4) Perform BMM physical flea drain. 5) Execute BMM `replace` action. |
+| BMC fails log in. | 1) Update credentials on BMC. 2) Execute BMM `replace` action. |
+| Memory, CPU, OEM critical errors on BMC. | 1) Resolve hardware issue with remove/replace. 2) Execute BMM remote flea drain. 3) Perform BMM physical flea drain. 4) Execute BMM `replace` action. |
+| Console stuck at boot loader (GRUB) menu. | 1) Execute NVRAM reset. 2) Execute BMM `replace` action. |
 
 ### Azure BMM activity log
 
@@ -149,7 +151,7 @@ racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "MAC Addres
 racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "NIC.Embedded.1-1-1"  #Boot MAC
 ```
 
-If the MAC address supplied to the Cluster is incorrect, use the BMM replace action at [BMM actions](howto-baremetal-functions.md) to correct the addresses.
+If the MAC address supplied to the cluster is incorrect, use the BMM `replace` action at [BMM actions](howto-baremetal-functions.md) to correct the addresses.
 
 ### Ping test BMC connectivity
 
@@ -217,9 +219,9 @@ If the activity log indicates invalid credentials on the BMC, run the following 
 racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
 ```
 
-## Adding servers back into the Cluster after a repair
+## Adding servers back into the cluster after a repair
 
-After hardware is fixed, run BMM replace action following instructions from the following page [BMM actions](howto-baremetal-functions.md).
+After hardware is fixed, run BMM `replace` action following instructions from the following page [BMM actions](howto-baremetal-functions.md).
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 For more information about support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
