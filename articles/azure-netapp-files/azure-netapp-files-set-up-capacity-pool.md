@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 05/20/2024
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
