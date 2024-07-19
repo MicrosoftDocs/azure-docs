@@ -24,7 +24,7 @@ A private cloud includes clusters with:
 
 Private clouds are installed and managed within an Azure subscription. The number of private clouds within a subscription is scalable.
 
-The following diagram describes the architectural components of the Azure VMware Solution.
+The following diagram describes the architectural components of the NC2 on Azure.
 
 :::image type="content" source="media/nc2-on-azure-architecture-overview.png" alt-text="Diagram illustrating the NC2 on Azure architecutural overview." border="false"  lightbox="media/nc2-on-azure-architecture-overview.png":::
 
