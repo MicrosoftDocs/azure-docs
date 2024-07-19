@@ -1,11 +1,10 @@
 ---
 title: Assess VMware servers for migration to Azure VMware Solution (AVS) with Azure Migrate
 description: Learn how to assess servers in VMware environment for migration to AVS with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
+author: jobingeorge-microsoft
+ms.author: jobingeorge
 ms.topic: tutorial
-ms.date: 02/26/2024
+ms.date: 07/19/2024
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, MVC, engagement-fy23
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
@@ -166,7 +165,7 @@ Server Assessment assigns a confidence rating to performance-based assessments. 
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
 > [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
+> Confidence ratings aren't assigned if you create an assessment based on a CSV file or an RVTools XLSX file-.
 
 Confidence ratings are as follows.
 
