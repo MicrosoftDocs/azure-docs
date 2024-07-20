@@ -41,9 +41,19 @@ Write operations in the vCore based service for Azure Cosmos DB for MongoDB are 
 # Storage heavy workloads and large disks
 - There are no min storage requirements on each of the available compute cluster tiers. The M30 cluster tier can have a 32TB disk attached to it. Conversely, the M200 cluster tier can have a 32GB disk attached to it.
 - The smallest cluster tier can provision a 32TB disk. Similarly, the largest cluster tier can provision the smallest storage SKU.
-- Storage heavy workloads in particular can significantly benefit by provisioning much larger disks. Let's consider the following scenario:
- - A 200TB workload that is logically sharded
- - 
+- Storage heavy workloads in particular can significantly benefit by provisioning much larger disks.
+
+## Lower TCO with large disks (32TB and beyond)
+Typically, NoSQL databases with a vCore based model limit the storage per physical shard at 4TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32TB disks with plans to expand to 64TB and 128TB disks per shard in the near future. For storage heavy workloads, a 4TB storage capacity per physical shard will require a massive fleet of compute resources just so sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. An immediate response to minimize compute costs in such scenarios is to "tier" the data by limiting the data in the transactional data store to just the immediately accessed hot data and separate the larger volume of cold data in a cold store. This causes technical complexity in the application layer. Furthermore, the availability of the entire system is now dependent on the resiliency of multiple data stores.
+
+Let's consider the lower TCO with the vCore based Azure Cosmos DB for MongDB for a storage heavy workload with 200TB of data. 
+| Storage size per shard      | Min shards needed to sustain 200TB | 
+|-----------------------------|------------------------------------|
+| 4TB                         | 50                                 | 
+| 32 TiB                      | 7                                  | 
+| 64 TiB (Coming soon)        | 4                                  | 
+
+The reduction in Compute requirements reduces sharply with larger disks. While 7 or 4 physical shards may not be sufficient to sustain the throughput requirements of the workload and more shards may be needed, even doubling or tripling the shard count along with the larger disks will be significantly more cost optimal than a 50 shard cluster with smaller disks.
 
 ## Next steps
 - [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
