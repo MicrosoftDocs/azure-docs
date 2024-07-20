@@ -5,7 +5,7 @@ description: Learn how to troubleshoot and diagnose errors with batch endpoints 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.topic: concept-article
+ms.topic: troubleshooting-general
 author: msakande
 ms.author: mopeakande
 ms.date: 07/19/2024
