@@ -51,9 +51,9 @@
     - name: Scalability
       items: 
        - name: Scalability Overview
-       - href: scalability-overview.md
+         href: scalability-overview.md
        - name: Compute and Storage
-       - href: compute-storage.md 
+         href: compute-storage.md 
     - name: Migration options
       href: migration-options.md
     - name: Service limits
