@@ -182,6 +182,8 @@
       href: ./sizes/overview.md
     - name: General purpose
       items:
+      - name: Dsv6 and Ddsv6-series
+        href: dsv6-ddsv6-series.md
       - name: Dlsv6 and Dldsv6-series
         href: dlsv6-dldsv6-series.md
       - name: Dasv6 and Dadsv6-series
@@ -238,6 +240,8 @@
           href: ddv5-ddsv5-series.md
         - name: Dasv5 and Dadsv5 series
           href: dasv5-dadsv5-series.md
+        - name: Dasv6 and Dadsv6 series
+          href: dasv6-dadsv6-series.md
         - name: Dalsv6 and Daldsv6 series
           href: dalsv6-daldsv6-series.md
         - name: Dpsv5 and Dpdsv5 series
@@ -269,8 +273,6 @@
           href: dcasccv5-dcadsccv5-series.md
         - name: DCesv5 and DCedsv5 series
           href: dcesv5-dcedsv5-series.md  
-        - name: Dasv6 and Dadsv6 series
-          href: dasv6-dadsv6-series.md
     - name: Compute optimized
       items:
       - name: F family
@@ -291,6 +293,19 @@
           href: fx-series.md
     - name: Memory optimized
       items:
+      - name: Esv6 and Edsv6-series
+        href: esv6-edsv6-series.md
+      - name: Overview
+        displayName: memory optimized, sizes, size, vm size, memory
+        href: sizes-memory.md
+      - name: Dv2 and DSv2-series 11-15
+        href: dv2-dsv2-series-memory.md
+      - name: Ev3 and Esv3-series
+        href: ev3-esv3-series.md
+      - name: Eav4 and Easv4-series
+        href: eav4-easv4-series.md
+      - name: Easv6 and Eadsv6-series
+        href: easv6-eadsv6-series.md
       - name: E family
         items:
         - name: Overview
