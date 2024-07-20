@@ -38,11 +38,12 @@ Write operations in the vCore based service for Azure Cosmos DB for MongoDB are 
 - The service supports upto 32TB disks per shard, offering significantly more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
 
 
-
-# Cost benefits of scaling compute and storage independently
-- There are no min storage SKU requirements on each of the available compute cluster tiers.
+# Storage heavy workloads and large disks
+- There are no min storage requirements on each of the available compute cluster tiers. The M30 cluster tier can have a 32TB disk attached to it. Conversely, the M200 cluster tier can have a 32GB disk attached to it.
 - The smallest cluster tier can provision a 32TB disk. Similarly, the largest cluster tier can provision the smallest storage SKU.
-- Storage heavy workloads in particular can significantly benefit by provisioning much larger disks. 
+- Storage heavy workloads in particular can significantly benefit by provisioning much larger disks. Let's consider the following scenario:
+ - A 200TB workload that is logically sharded
+ - 
 
 ## Next steps
 - [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
