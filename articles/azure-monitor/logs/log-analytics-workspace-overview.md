@@ -2,12 +2,21 @@
 title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace, which stores data for Azure Monitor Logs.
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 07/20/2024
+
+# Customer intent: As a Log Analytics administrator, I want to understand to set up and manage my workspace, so that I can best address my business needs, including data access, cost management, and workspace health. As a Log Analytics user, I want to understand the workspace configuration options available to me, so I can best address my analysis.
 ---
 
 # Log Analytics workspace overview
 
-A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services, such as Microsoft Sentinel and Microsoft Defender for Cloud. Each workspace has its own data repository and configuration but might combine data from multiple services. This article provides an overview of concepts related to Log Analytics workspaces and provides links to other documentation for more details on each.
+A Log Analytics workspace is a centralized data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. Workspace configuration options let you manage all of your log data in one workspace to meet the operations, analysis, and auditing needs of different personas in your organization through: 
+
+- Azure Monitor features, such as built-in insights experiences, alerts, and automatic actions
+- Other Azure services, such as Microsoft Sentinel, Microsoft Defender for Cloud, and Logic Apps
+- Microsoft tools, such as Power BI and Excel
+- Integration with custom and third-party applications
+
+This article provides an overview of concepts related to Log Analytics workspaces.
 
 > [!IMPORTANT]
 > You might see the term *Microsoft Sentinel workspace* used in [Microsoft Sentinel](../../sentinel/overview.md) documentation. This workspace is the same Log Analytics workspace described in this article, but it's enabled for Microsoft Sentinel. All data in the workspace is subject to Microsoft Sentinel pricing as described in the [Cost](#cost) section.
@@ -43,7 +52,7 @@ For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.
 
 For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transformation for the table that collects the resource logs that filters this data for only records that you want. This method saves you the ingestion cost for records you don't need. You might also want to extract important data from certain columns and store it in other columns in the workspace to support simpler queries.
 
-## Data retention and archive
+## Data retention
 
 Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or archived with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
 
