@@ -21,36 +21,13 @@ This article provides an overview of concepts related to Log Analytics workspace
 > [!IMPORTANT]
 > You might see the term *Microsoft Sentinel workspace* used in [Microsoft Sentinel](../../sentinel/overview.md) documentation. This workspace is the same Log Analytics workspace described in this article, but it's enabled for Microsoft Sentinel. All data in the workspace is subject to Microsoft Sentinel pricing as described in the [Cost](#cost) section.
 
-You can use a single workspace for all your data collection. You can also create multiple workspaces based on requirements such as:
+## Log tables
 
-- The geographic location of the data.
-- Access rights that define which users can access data.
-- Configuration settings like pricing tiers and data retention.
+Each Log Analytics workspace contains multiple tables in which Azure Monitor Logs stores data you collect.
 
-To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
+Azure Monitor Logs automatically creates tables required to store monitoring data you collect from your Azure environment. You create custom tables to store data you collect from non-Azure resources and applications, based on the data model of the log data you collect and how you want to store and use the data.
 
-## Data structure
-
-Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns. Rows of data provided by the data source share those columns. Log queries define columns of data to retrieve and provide output to different features of Azure Monitor and other services that use workspaces.
-
-:::image type="content" source="media/data-platform-logs/logs-structure.png" lightbox="media/data-platform-logs/logs-structure.png" alt-text="Diagram that shows the Azure Monitor Logs structure.":::
-
-> [!WARNING]
-> Table names are used for billing purposes so they should not contain sensitive information.
-
-## Cost
-
-There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the log data plan of each table, as described in [Log data plan](../logs/basic-logs-configure.md).
-
-For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
-
-## Workspace transformation DCR
-
-[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all data sources don't yet support DCRs, each workspace can have a [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md).
-
-[Transformations](../essentials/data-collection-transformations.md) in the workspace transformation DCR are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. These transformations only apply to workflows that don't already use a DCR. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a DCR to define data collected from virtual machines. This data won't be subject to any ingestion-time transformations defined in the workspace.
-
-For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transformation for the table that collects the resource logs that filters this data for only records that you want. This method saves you the ingestion cost for records you don't need. You might also want to extract important data from certain columns and store it in other columns in the workspace to support simpler queries.
+Table management settings let you control access to specific tables, and manage the data model, retention, and cost of data in each table. For more information, see [Manage tables in a Log Analytics workspace](manage-logs-tables.md). 
 
 ## Data retention
 
@@ -62,11 +39,47 @@ Each table in your Log Analytics workspace lets you retain data up to 12 years i
 
 For more information, see [Manage data retention in a Log Analytics workspace](data-retention-configure.md).
 
-## Permissions
+## Data access
 
-Permission to access data in a Log Analytics workspace is defined by the [access control mode](manage-access.md#access-control-mode), which is a setting on each workspace. You can give users explicit access to the workspace by using a [built-in or custom role](../roles-permissions-security.md). Or, you can allow access to data collected for Azure resources to users with access to those resources.
+Permission to access data in a Log Analytics workspace is defined by the [access control mode](manage-access.md#access-control-mode) setting on each workspace. You can give users explicit access to the workspace by using a [built-in or custom role](../roles-permissions-security.md). Or, you can allow access to data collected for Azure resources to users with access to those resources.
 
-See [Manage access to log data and workspaces in Azure Monitor](manage-access.md) for information on the different permission options and how to configure permissions.
+For more information, see [Manage access to log data and workspaces in Azure Monitor](manage-access.md).
+
+## Data consumption
+
+:::image type="content" source="media/data-platform-logs/logs-structure.png" lightbox="media/data-platform-logs/logs-structure.png" alt-text="Diagram that shows the Azure Monitor Logs structure.":::
+
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
+
+## Data collection
+
+## View Log Analytics workspace usage and health
+
+## Transform data you ingest into your Log Analytics workspace
+
+[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all data sources don't yet support DCRs, each workspace can have a [workspace transformation DCR](../essentials/data-collection-transformations-workspace.md).
+
+[Transformations](../essentials/data-collection-transformations.md) in the workspace transformation DCR are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. These transformations only apply to workflows that don't already use a DCR. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a DCR to define data collected from virtual machines. This data won't be subject to any ingestion-time transformations defined in the workspace.
+
+For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transformation for the table that collects the resource logs that filters this data for only records that you want. This method saves you the ingestion cost for records you don't need. You might also want to extract important data from certain columns and store it in other columns in the workspace to support simpler queries.
+
+## Cost
+
+There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the log data plan of each table, as described in [Log data plan](../logs/basic-logs-configure.md).
+
+For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
+
+## Designing a Log Analytics workspace architecture to address specific business needs
+
+You can use a single workspace for all your data collection. You can also create multiple workspaces based on requirements such as:
+
+- The geographic location of the data.
+- Access rights that define which users can access data.
+- Configuration settings like pricing tiers and data retention.
+
+To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
+
 
 ## Next steps
 
