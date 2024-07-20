@@ -20,16 +20,16 @@ ms.date: 07/26/2024
 
 Sometimes you have to convert content into token form or break down a large document into smaller pieces before you can use this content with some actions. For example, actions such as **Azure AI Search** or **Azure OpenAI** expect tokenized input and can handle only a limited number of tokens, which are words or chunks of characters.
 
-For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively convert content, such as a PDF document, CSV file, Excel file, and so on, into a tokenized string and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
+For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively convert content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
 
 > [!TIP]
 >
 > To learn more, you can ask Azure Copilot these questions:
 >
+> - *What is parsing in AI?*
 > - *What is a token in AI?*
 > - *What is tokenized input?*
-> - *What is parsing in AI?*
-> - *What is a tokenized string?*
+> - *What is tokenized string output?*
 > - *What is chunking in AI?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
@@ -196,5 +196,5 @@ The following example includes other actions that create a complete workflow pat
 
 ## Related content
 
-[Integrate Azure AI services with Standard workflows in Azure Logic Apps](connectors/azure-ai.md)
-[Chunking large documents for vector search](/azure/search/vector-search-how-to-chunk-documents)
+- [Integrate Azure AI services with Standard workflows in Azure Logic Apps](connectors/azure-ai.md)
+- [Chunking large documents for vector search](/azure/search/vector-search-how-to-chunk-documents)
