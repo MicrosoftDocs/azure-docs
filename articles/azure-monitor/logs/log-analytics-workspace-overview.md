@@ -11,9 +11,9 @@ ms.date: 07/20/2024
 
 A Log Analytics workspace is a centralized data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. Workspace configuration options let you manage all of your log data in one workspace to meet the operations, analysis, and auditing needs of different personas in your organization through: 
 
-- Azure Monitor features, such as built-in insights experiences, alerts, and automatic actions
-- Other Azure services, such as Microsoft Sentinel, Microsoft Defender for Cloud, and Logic Apps
-- Microsoft tools, such as Power BI and Excel
+- Azure Monitor features, such as built-in [insights experiences](../insights/insights-overview.md), [alerts](../alerts/alerts-create-log-alert-rule.md), and [automatic actions](../autoscale/autoscale-overview.md)
+- Other Azure services, such as [Microsoft Sentinel](/azure/sentinel/overview), [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), and [Logic Apps](/azure/connectors/connectors-azure-monitor-logs)
+- Microsoft tools, such as [Power BI](log-powerbi.md) and [Excel](log-excel.md)
 - Integration with custom and third-party applications
 
 This article provides an overview of concepts related to Log Analytics workspaces.
@@ -54,16 +54,13 @@ For example, you might have [diagnostic settings](../essentials/diagnostic-setti
 
 ## Data retention
 
-Data in each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) is retained for a specified period of time after which it's either removed or archived with a reduced retention fee. Set the retention time to balance your requirement for having data available with reducing your cost for data retention.
+A Log Analytics workspace retains data in two states - **interactive retention** and **long-term retention**. 
 
-To access archived data, you must first retrieve data from it in an Analytics Logs table by using one of the following methods:
+During the interactive retention period, you retrieve the data from the table through queries, and the data is available for visualizations, alerts, and other features and services, based on the table plan. 
 
-| Method | Description |
-|:---|:---|
-| [Search jobs](search-jobs.md) | Retrieve data matching particular criteria. |
-| [Restore](restore.md) | Retrieve data from a particular time range. |
+Each table in your Log Analytics workspace lets you retain data up to 12 years in low-cost, long-term retention. Retrieve specific data you need from long-term retention to interactive retention using a search job. This means that you manage your log data in one place, without moving data to external storage, and you get the full analytics capabilities of Azure Monitor on older data, when you need it.
 
-:::image type="content" source="media/log-analytics-workspace-overview/workspace-plan-overview.png" lightbox="media/log-analytics-workspace-overview/workspace-plan-overview.png" alt-text="Diagram that shows an overview of data plans and archive.":::
+For more information, see [Manage data retention in a Log Analytics workspace](data-retention-configure.md).
 
 ## Permissions
 
