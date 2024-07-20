@@ -127,6 +127,8 @@ items:
         href: rules-engine/create-rules-engine-project.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
+    - name: Parse and chunk text
+      href: parse-document-chunk-text.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
