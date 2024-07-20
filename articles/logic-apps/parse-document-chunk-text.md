@@ -43,7 +43,7 @@ This how-to guide shows how to add and set up these operations in your workflow.
 
 For this example, suppose your workflow starts with the **Request** trigger named **When a HTTP request is received**. This trigger waits to receive an HTTP request sent from another component, such as an Azure function or another logic app workflow. The HTTP request indicates that content is available for the workflow to retrieve and parse. An **HTTP** action immediately follows the trigger and gets the content from its storage location.
 
-Other example triggers you might use include Azure Blob Storage, Office 365 Outlook, or another service-based trigger. Other example actions that can retrieve content include Azure Blob Storage, File System, FTP, and so on.
+If you use other content sources, such as Azure Blob Storage, Office 365 Outlook, or other services, you can check whether they include appropriate triggers. You can also check for other actions that can retrieve content, such as Azure Blob Storage, File System, FTP, and so on.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
