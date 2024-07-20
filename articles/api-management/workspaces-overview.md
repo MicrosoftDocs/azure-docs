@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: concept-article
-ms.date: 07/18/2024
+ms.date: 07/19/2024
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -54,7 +54,7 @@ The following is a sample workflow for creating and using a workspace.
 
 ## API management in a workspace
 
-Teams manage their own APIs, products, subscriptions, backends, policies, loggers, and other resources within workspaces. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview) for a full list of resources and operations supported in workspaces.
+Teams manage their own APIs, products, subscriptions, backends, policies, loggers, and other resources within workspaces. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces. 
 
 While workspaces are managed independently from the API Management service and other workspaces, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
 
@@ -88,7 +88,16 @@ Manage gateway capacity by manually adding or removing scale units, similar to t
 
 ### Regional availability
 
-Workspace gateways need to be in the same Azure region and subscription as the API Management service. Currently, workspace gateways are available in a subset of the regions where API Management is available.
+Workspace gateways need to be in the same Azure region and subscription as the API Management service. Currently, workspace gateways are supported in a subset of the regions where API Management is available:
+
+* East US 2
+* North Central US
+* West US
+* North Europe
+* UK South
+* Southeast Asia
+* Australia East
+* East Asia
 
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
