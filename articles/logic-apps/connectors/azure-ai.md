@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 02/29/2024
 ---
 
-# Integrate Azure AI services with Standard workflows in Azure Logic Apps (preview)
+# Integrate Azure AI services with Standard workflows in Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
