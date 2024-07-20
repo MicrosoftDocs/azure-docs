@@ -14,7 +14,7 @@ The vCore based service for Azure Cosmos DB for MongoDB offers the ability to sc
 
 # Vertical Scaling
 Vertical scaling offers the following benefits:
-- Application teams may not always have a clear path to logically shard their data. Moreover, logical sharding is defined per collection. In a dataset with several un-sharded collections, data modeling to partition the data can quickly become tedious. Simply scaling up the cluster can circumvent the need for logical sharding while meeting the growing storage and compute needs of the application.
+- Application teams may not always have a clear path to logically shard their data. Moreover, logical sharding is defined per collection. In a dataset with several unsharded collections, data modeling to partition the data can quickly become tedious. Simply scaling up the cluster can circumvent the need for logical sharding while meeting the growing storage and compute needs of the application.
 - Vertical scaling does not require data rebalancing. The number of physical shards remains the same and only the capacity of the cluster is increased with no impact to the application.
 - Scaling up and down are zero down-time operations with no disruptions to the service. No application changes are needed and steady state operations can continue unperturbed.
 - Compute and Storage resources can also be scaled down during known time windows of low activity. Once again, scaling down avoids the need to rebalance data across a fewer number of physical shards and is a zero down-time operation with no disruption to the service. Here too, no application changes are needed after scaling down the cluster.
@@ -23,8 +23,8 @@ Vertical scaling offers the following benefits:
 
 # Horizontal Scaling
 Eventually, the application grows to a point where scaling vertically is not sufficient. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards are needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
-- If the data is logically sharded, no user intervention is needed to balance data across the underlying physical shards. The service automatically maps logical shards to physical shards. When nodes are added or removed, data is automatically rebalanaced the database under the covers.
-- Similarly, requests are automatically routed to the relevant physical shard that owns the hash range for the data being queried.
+- Logically sharded datasets do not require user intervention to balance data across the underlying physical shards. The service automatically maps logical shards to physical shards. When nodes are added or removed, data is automatically rebalanaced the database under the covers.
+- Requests are automatically routed to the relevant physical shard that owns the hash range for the data being queried.
 - Geo-distributed clusters have a homogeneous multi-node configuration. Thus logical to physical shard mappings are consistent across the primary and replica regions of a cluster.
 
 
@@ -35,22 +35,22 @@ Compute and memory resources influence read operations in the vCore based servic
 
 Disk IOPS influences write operations in the vCore based service for Azure Cosmos DB for MongoDB more than the CPU and memory capacities of the compute resources.
 - Write operations always persist data to disk (in addition to persisting data in memory to optimize reads). Larger disks with more IOPS provide higher write throughput, particularly when running at scale.
-- The service supports upto 32TB disks per shard, with more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
+- The service supports upto 32 TB disks per shard, with more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
 
 
 # Storage heavy workloads and large disks
 ## No minimum storage requirements per cluster tier
-As mentioned earlier, storage and compute resources are decoupled for billing and provisioning. While they function as a cohesive unit, they can be scaled independently. The M30 cluster tier can have 32TB disks provisioned. Similarly, the M200 cluster tier can have 32GB disks provisioned to optimize for both storage and compute costs. 
+As mentioned earlier, storage and compute resources are decoupled for billing and provisioning. While they function as a cohesive unit, they can be scaled independently. The M30 cluster tier can have 32 TB disks provisioned. Similarly, the M200 cluster tier can have 32 GB disks provisioned to optimize for both storage and compute costs. 
 
-## Lower TCO with large disks (32TB and beyond)
-Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32TB disks and plans to expand to 64TB and 128TB disks per shard soon. For storage heavy workloads, a 4TB storage capacity per physical shard will require a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
+## Lower TCO with large disks (32 TB and beyond)
+Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4 TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32 TB disks and plans to expand to 64 TB and 128 TB disks per shard soon. For storage heavy workloads, a 4 TB storage capacity per physical shard will require a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
 
-Let's consider a storage heavy workload with 200TB of data. 
-| Storage size per shard      | Min shards needed to sustain 200TB | 
-|-----------------------------|------------------------------------|
-| 4TB                         | 50                                 | 
-| 32 TiB                      | 7                                  | 
-| 64 TiB (Coming soon)        | 4                                  | 
+Let's consider a storage heavy workload with 200 TB of data. 
+| Storage size per shard      | Min shards needed to sustain 200 TB | 
+|-----------------------------|-------------------------------------|
+| 4 TB                        | 50                                  | 
+| 32 TiB                      | 7                                   | 
+| 64 TiB (Coming soon)        | 4                                   | 
 
 The reduction in Compute requirements reduces sharply with larger disks. While more than the minimum number of physical shards may be needed sustain the throughput requirements of the workload, even doubling or tripling the number of shards will be more cost effective than a 50 shard cluster with smaller disks.
 
