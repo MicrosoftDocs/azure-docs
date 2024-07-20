@@ -31,11 +31,11 @@ Eventually, the application grows to a point where scaling vertically is not suf
 # Compute and Storage scaling
 Compute and memory resources influence read operations in the vCore based service for Azure Cosmos DB for MongoDB more than disk IOPS. 
 - Read operations first consult the cache in the compute layer and fall back to the disk when data could not be retrieved from the cache. For workloads with a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources leads to higher throughput.
-- In addition to read throughput, workloads with a high volume of data per read operation also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory facilitate larger payload sizes per document as well as a larger number of smaller documents.
+- In addition to read throughput, workloads with a high volume of data per read operation also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory facilitate larger payload sizes per document and a larger number of smaller documents per response.
 
 Disk IOPS influences write operations in the vCore based service for Azure Cosmos DB for MongoDB more than the CPU and memory capacities of the compute resources.
 - Write operations always persist data to disk (in addition to persisting data in memory to optimize reads). Larger disks with more IOPS provide higher write throughput, particularly when running at scale.
-- The service supports upto 32TB disks per shard, with significantly more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
+- The service supports upto 32TB disks per shard, with more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
 
 
 # Storage heavy workloads and large disks
@@ -43,19 +43,19 @@ Disk IOPS influences write operations in the vCore based service for Azure Cosmo
 As mentioned earlier, storage and compute resources are decoupled for billing and provisioning. While they function as a cohesive unit, they can be scaled independently. The M30 cluster tier can have 32TB disks provisioned. Similarly, the M200 cluster tier can have 32GB disks provisioned to optimize for both storage and compute costs. 
 
 ## Lower TCO with large disks (32TB and beyond)
-Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32TB disks and plans to expand to 64TB and 128TB disks per shard in the near future. For storage heavy workloads, a 4TB storage capacity per physical shard will require a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
+Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32TB disks and plans to expand to 64TB and 128TB disks per shard soon. For storage heavy workloads, a 4TB storage capacity per physical shard will require a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
 
-Let's consider the example below for a storage heavy workload with 200TB of data. 
+Let's consider a storage heavy workload with 200TB of data. 
 | Storage size per shard      | Min shards needed to sustain 200TB | 
 |-----------------------------|------------------------------------|
 | 4TB                         | 50                                 | 
 | 32 TiB                      | 7                                  | 
 | 64 TiB (Coming soon)        | 4                                  | 
 
-The reduction in Compute requirements reduces sharply with larger disks. While 7 or 4 physical shards may not be sufficient to sustain the throughput requirements of the workload and more shards may be needed, even doubling or tripling the shard count will be significantly more cost effective than a 50 shard cluster with smaller disks.
+The reduction in Compute requirements reduces sharply with larger disks. While more than the minimum number of physical shards may be needed sustain the throughput requirements of the workload, even doubling or tripling the number of shards will be more cost effective than a 50 shard cluster with smaller disks.
 
 ## Skip storage tiering with large disks
-An immediate response to compute costs in storage heavy scenarios is to "tier" the data. Data in the transactional database is limited to the most frequently accessed "hot" data while the larger volume of "cold" data is detached to a cold store. This causes operational complexity. Latencies will also be unpredictable depending upon the data tier being accessed. Furthermore, the availability of the entire system is dependent on the resiliency of both the hot and cold data stores combined. With large disks in the vCore service, there is no need for tiered storage as the cost of storage heavy workloads is significantly minimized.
+An immediate response to compute costs in storage heavy scenarios is to "tier" the data. Data in the transactional database is limited to the most frequently accessed "hot" data while the larger volume of "cold" data is detached to a cold store. This causes operational complexity. Performance is also unpredictable and dependent upon the data tier that is accessed. Furthermore, the availability of the entire system is dependent on the resiliency of both the hot and cold data stores combined. With large disks in the vCore service, there is no need for tiered storage as the cost of storage heavy workloads is minimized.
 
 ## Next steps
 - [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
