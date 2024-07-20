@@ -1,7 +1,7 @@
 ---
 title: Scalability Overview
 titleSuffix: Overview of compute and storage scalability on Azure Cosmos DB for MongoDB vCore
-description: Cost and performance advantages of scalability functionality for Azure Cosmos DB for MongoDB vCore clusters
+description: Cost and performance advantages of scalability for Azure Cosmos DB for MongoDB vCore
 author: abinav2307
 ms.author: abramees
 ms.service: cosmos-db
@@ -10,21 +10,44 @@ ms.topic: conceptual
 ms.date: 07/22/2024
 ---
 
-The vCore based service for Azure Cosmos DB for MongoDB offers vertical scalability as well as horizontal scalability. While Compute and Storage components behave as a single entity, users have the flexibility to provision desired SKUs of both independently based on the needs of their workload.
+The vCore based service for Azure Cosmos DB for MongoDB offers the ability to scale clusters both vertical and horizontally. While the Compute cluster tier and Storage disk functionally depend on each other, the scalability and cost of compute and storage are decoupled in the vCore service.
 
 # Vertical Scaling
-A unique benefit of the vCore based offering for Azure Cosmos DB for MongoDB is the ability to scale compute and storage vertically. Compute and Storage SKU can be scaled up and down to meet the workload's requirements.
-
 Vertical scaling offers the following benefits:
-- There may not always be a clear path to sharding the data within the cluster. Moreover, logical sharding must be defined per collection. In a dataset with several un-sharded collections, this can quickly become tedious. Simply scaling up the cluster can circumvent the need to logically shard the dataset to meet the growing needs of the application.
-- As an immediate mitigation to the growing compute and storage needs of an application, the cluster can simply be scaled up and avoid data rebalancing between more or fewer nodes in the cluster. Scaling up and down are zero down-time operations with no disruptions to the service. There are no application changes needed and steady state operations will continue without any impact.
-- Similarly, compute and storage can also be scaled down during known time windows of lower activity. Once again, scaling down avoids the need to rebalance data across a fewer number of physical shards and is a zero down-time operation with no disruption to the service. Here too, no application changes are needed after scaling down the resources of the cluster. 
-
+- Application teams may not always have a clear path to logically sharding their data. Moreover, logical sharding is defined per collection. In a dataset with several un-sharded collections, data modeling to partition the data can quickly become tedious. Simply scaling up the cluster can circumvent the need for logical sharding and still meet the growing needs of the application.
+- Data is not rebalanced during a vertical scaling operation. In addition, scaling up and down are zero down-time operations with no disruptions to the service. No application changes are needed and steady state operations can continue with a larger cluster capacity.
+- Similarly, compute and storage can also be scaled down during known time windows of lower activity. Once again, scaling down avoids the need to rebalance data across a fewer number of physical shards and is a zero down-time operation with no disruption to the service. Here too, no application changes are needed after scaling down the resources of the cluster.
+- Most importantly, Compute and Storage can be scaled independently. If more cores and memory are needed, the disk SKU can be left as is and the cluster tier can be scaled up. Conversely, if more storage and IOPS are needed, the cluster tier can be left as is and the Storage SKU can be scaled up independently. If both Compute and Storage need to be scaled, scaling both can be optimized for each entity individually, without the scaling of Compute impacting the scaling of Storage and vice versa.
 
 
 # Horizontal Scaling
+Eventually, scaling up may not be enough. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards will be needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
+- If the data is logically sharded, no user intervention is needed to balance the data across the physical shards in the cluster. Logical shards are automatically mapped to the underlying physical shards by the service. When nodes are added or removed, the shards are similarly rebalanced and reassigned by the service.
+- Similarly, requests are auto routed to the relevant physical shard that owns the hash range for the logical shards being queried.
+- Geo-distributed clusters have a homogeneous multi-node configuration. Thus logical to physical shard mappings are consistent across the primary and replica regions for a cluster.
 
-# Independently scale Compute and Storage
+
+# Compute and Storage scaling
+Read operations in the vCore based service for Azure Cosmos DB for MongoDB are more impacted by the cluster tier's compute and memory resources and less impacted by the IOPS of the attached storage disk. 
+- Read operations first consult the cache in the compute layer for fast access and fall back to the disk when data could not be fetched from the cache. For workloads that require a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources will lead to a higher throughput.
+- In addition to read throughput, workloads with a higher volume of data per read operation will also benefit from compute scaling. For instance, compute cluster tiers with more memory can facilitate 
+ larger payload sizes per document as well as a larger number of smaller documents that are part of the same query operation.
+
+Write operations in the vCore based service for Azure Cosmos DB for MongoDB are more impacted by the IOPS capacity of the disk SKU as opposed to the CPU and memory capacities of the compute resources.
+- Write operations always need to persist data to disk (in addition to persisting data in memory to optimize reads). Larger disks with more IOPS will provide higher write throughput, particularly when running at scale.
+- The service supports upto 32TB disks per shard, offering significantly more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
 
 
+
+# Cost benefits of scaling compute and storage independently
+- There are no min storage SKU requirements on each of the available compute cluster tiers.
+- The smallest cluster tier can provision a 32TB disk. Similarly, the largest cluster tier can provision the smallest storage SKU.
+- Storage heavy workloads in particular can significantly benefit by provisioning much larger disks. 
+
+## Next steps
+- [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
+- [Check out indexing best practices](./how-to-create-indexes.md)
+
+> [!div class="nextstepaction"]
+> [Migration options for Azure Cosmos DB for MongoDB vCore](migration-options.md)
 
