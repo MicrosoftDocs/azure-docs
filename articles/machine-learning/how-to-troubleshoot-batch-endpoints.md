@@ -5,7 +5,7 @@ description: Learn how to troubleshoot and diagnose errors with batch endpoints 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.topic: troubleshooting-general
+ms.topic: concept-article
 author: msakande
 ms.author: mopeakande
 ms.date: 07/19/2024
@@ -162,7 +162,7 @@ You can configure the `timeout` and `max_retries` properties for each deployment
 
 ### Exception in ScriptExecution.StreamAccess.Authentication
 
-For batch deployment to succeed, the managed identity for the compute cluster must have permission to mount the data asset storage. When the managed identity has insufficient permissions, the script causes an exception. This failure can also cause the [data asset storage to not mount](#storage-not-mounted-dataset-initialization-fails).
+For batch deployment to succeed, the managed identity for the compute cluster must have permission to mount the data asset storage. When the managed identity has insufficient permissions, the script causes an exception. This failure can also cause the [data asset storage to not mount](#no-mounted-storage-no-dataset-initialization).
 
 **Message logged**: "ScriptExecutionException was caused by StreamAccessException. StreamAccessException was caused by AuthenticationException."
 
