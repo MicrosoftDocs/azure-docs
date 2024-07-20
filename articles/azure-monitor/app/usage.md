@@ -14,17 +14,12 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 This article covers the following areas:
 
-* [Users, Sessions & Events](#the-users-sessions-and-events-segmentation-tool) - Track and analyze user interaction with your application, session trends, and specific events to gain insights into user behavior and app performance.
-
-* [Funnels](#discover-with-funnels-how-customers-use-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
-
-* [User Flows](#analyze-user-navigation-patterns-with-user-flows) - Visualize user paths to identify the most common routes and pinpointing areas where users are most engaged users or may encounter issues.
-
-* [Cohorts](#analyze-a-specific-set-of-users-sessions-events-or-operations-repeatedly-with-cohorts) - Group users or events by common characteristics to analyze behavior patterns, feature usage, and the impact of changes over time.
-
-* [Impact Analysis](#use-impact-analysis-to-discover-how-different-properties-influence-conversion-rates) - Analyze how application performance metrics, like load times, influence user experiene and behavior, to help you to prioritize improvements.
-
-* [HEART](#analyze-product-usage-with-heart) - Utilize the HEART framework to measure and understand user Happiness, Engagement, Adoption, Retention, and Task success.
+* [Users, Sessions & Events](#users-sessions-and-events---analyze-telemetry-from-three-perspectives) - Track and analyze user interaction with your application, session trends, and specific events to gain insights into user behavior and app performance.
+* [Funnels](#funnels---discover-how-customers-use-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
+* [User Flows](#user-flows---analyze-user-navigation-patterns) - Visualize user paths to identify the most common routes and pinpointing areas where users are most engaged users or may encounter issues.
+* [Cohorts](#cohorts---analyze-a-specific-set-of-users-sessions-events-or-operations) - Group users or events by common characteristics to analyze behavior patterns, feature usage, and the impact of changes over time.
+* [Impact Analysis](#impact-analysis---discover-how-different-properties-influence-conversion-rates) - Analyze how application performance metrics, like load times, influence user experiene and behavior, to help you to prioritize improvements.
+* [HEART](#heart---five-dimensions-of-customer-experience) - Utilize the HEART framework to measure and understand user Happiness, Engagement, Adoption, Retention, and Task success.
 
 ## Send telemetry from your application
 
@@ -64,9 +59,7 @@ Three of the **Usage** panes use the same tool to slice and dice telemetry from 
 Clicking **View More Insights** displays the following information:
 
 * **Application Performance:** Sessions, Events, and a Performance evaluation related to users' perception of responsiveness.
-
 * **Properties:** Charts containing up to six user properties such as browser version, country or region, and operating system.
-
 * **Meet Your Users:** View timelines of user activity.
 
 ### Explore usage demographics and statistics
@@ -260,12 +253,9 @@ Understanding the customer experience is of great importance to your business. I
 
 **Funnel features:**
 
-* If your app is sampled, you'll see a sampling banner. Selecting the banner opens a context pane that explains how to turn off sampling.
-
+* If your app is sampled, you'll see a banner. Selecting it opens a context pane that explains how to turn off sampling.
 * Select a step to see more details on the right.
-
 * The historical conversion graph shows the conversion rates over the last 90 days.
-
 * Understand your users better by accessing the users tool. You can use filters in each step.
 
 ### Create a funnel
@@ -320,9 +310,7 @@ The User Flows tool starts from an initial custom event, exception, dependency, 
 To begin answering questions with the User Flows tool, choose an initial custom event, exception, dependency, page view or request to serve as the starting point for the visualization:
 
 1. Select the link in the **What do users do after?** title or select **Edit**.
-
 1. Select a custom event, exception, dependency, page view or request from the **Initial event** dropdown list.
-
 1. Select **Create graph**.
 
 The **Step 1** column of the visualization shows what users did most frequently after the initial event. The items are ordered from top to bottom and from most to least frequent. The **Step 2** and subsequent columns show what users did next. The information creates a picture of all the ways that users moved through your site.
@@ -331,15 +319,12 @@ By default, the User Flows tool randomly samples only the last 24 hours of page 
 
 If some of the page views, custom events, and exceptions aren't relevant to you, select **X** on the nodes you want to hide. After you've selected the nodes you want to hide, select **Create graph**. To see all the nodes you've hidden, select **Edit** and look at the **Excluded events** section.
 
-If page views or custom events are missing that you expect to see in the visualization:
+If page views or custom events you expect to see in the visualization are missing that:
 
 * Check the **Excluded events** section on the **Edit** menu.
-
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
-
 * If the page view or custom event you expect is sent infrequently by users, increase the time range of the visualization on the **Edit** menu.
-
-* Make sure the custom event, exception, dependency, page view or request you expect is set up to be collected by the Application Insights SDK in the source code of your site. Learn more about [collecting custom events](./api-custom-events-metrics.md).
+* Make sure the custom event, exception, dependency, page view or request you expect is set up to be collected by the Application Insights SDK in the source code of your site.
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdown lists above the visualization.
 
@@ -481,11 +466,8 @@ To use the Impact analysis workbook, in your Application Insights resources go t
 :::image type="content" source="./media/usage-impact/selected-event.png" alt-text="Screenshot that shows where to choose an initial page view, custom event, or request." lightbox="./media/usage-impact/selected-event.png":::
 
 1. From the **Selected event** dropdown list, select an event.
-
 1. From the **analyze how its** dropdown list, select a metric.
-
 1. From the  **Impacting event** dropdown list, select an event.
-
 1. To add a filter, use the **Add selected event filters** tab or the **Add impacting event filters** tab.
 
 ### Is page load time affecting how many people convert on my page?
@@ -521,7 +503,6 @@ Under the hood, the Impact analysis workbook relies on the [Pearson correlation 
 The basic breakdown of how Impact analysis works is listed here:
 
 * Let *A* = the main page view, custom event, or request you select in the **Selected event** dropdown list.
-
 * Let *B* = the secondary page view or custom event you select in the **impacts the usage of** dropdown list.
 
 Impact looks at a sample of all the sessions from users in the selected time range. For each session, it looks for each occurrence of *A*.
@@ -529,7 +510,6 @@ Impact looks at a sample of all the sessions from users in the selected time ran
 Sessions are then broken into two different kinds of *subsessions* based on one of two conditions:
 
 * A converted subsession consists of a session ending with a *B* event and encompasses all *A* events that occur prior to *B*.
-
 * An unconverted subsession occurs when all *A*s occur without a terminal *B*.
 
 How Impact is ultimately calculated varies based on whether we're analyzing by metric or by dimension. For metrics, all *A*s in a subsession are averaged. For dimensions, the value of each *A* contributes *1/N* to the value assigned to *B*, where *N* is the number of *A*s in the subsession.
@@ -586,7 +566,7 @@ These dimensions are measured independently, but they interact with each other.
     | pageViews      | appName              | Unique Application Insights app identifier |
     | pageViews      | timestamp            | Datetime of event                          |
     | pageViews      | operation_Id         | Correlate telemetry events                 |
-    | pageViews      | user_Id              | Unique user identifier                 n   |
+    | pageViews      | user_Id              | Unique user identifier                     |
 
 * If you're setting up the authenticated user context, instrument the below attributes:
 
@@ -633,17 +613,11 @@ The workbook shows metric trends for the HEART dimensions split over seven tabs.
 The tabs are:
 
 * **Summary**: Summarizes usage funnel metrics for a high-level view of visits, interactions, and repeat usage.
-
 * **Adoption**: Helps you understand the penetration among the target audience, acquisition velocity, and total user base.
-
 * **Engagement**: Shows frequency, depth, and breadth of usage.
-
 * **Retention**: Shows repeat usage.
-
 * **Task success**: Enables understanding of user flows and their time distributions.
-
 * **Happiness**: We recommend using a survey tool to measure customer satisfaction score (CSAT) over a five-point scale. On this tab, we've provided the likelihood of happiness via usage and performance metrics.
-
 * **Feature metrics**: Enables understanding of HEART metrics at feature granularity.
 
 > [!WARNING]
@@ -664,7 +638,9 @@ Common happiness metrics include values such as **Average Star Rating** and **Cu
 Engagement is a measure of user activity. Specifically, user actions are intentional, such as clicks. Active usage can be broken down into three subdimensions:
 
 * **Activity frequency**: Measures how often a user interacts with the product. For example, users typically interact daily, weekly, or monthly.
+
 * **Activity breadth**: Measures the number of features users interact with over a specific time period. For example, users interacted with a total of five features in June 2021.
+
 * **Activity depth**: Measures the number of features users interact with each time they launch the product. For example, users interacted with two features on every launch.
 
 Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, which makes it an important metric to track. But for a product like a paycheck portal, measurement might make more sense at a monthly or weekly level.
@@ -713,11 +689,11 @@ A task is considered unsuccessful if any of the preceding requirements isn't met
 
 Set up a custom task by using the following parameters.
 
-| Parameter         | Description                                                                                                                                                                                                                         |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| First step           | The feature that starts the task. In the cart/purchase example, **Adding items to a cart** is the first step.                                                                                                          |
+| Parameter              | Description                                                                                                                                                                                                                        |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| First step             | The feature that starts the task. In the cart/purchase example, **Adding items to a cart** is the first step.                                                                                                                      |
 | Expected task duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint are considered a failure. Not all tasks necessarily have a time constraint. For such tasks, select **No Time Expectation**. |
-| Last step        | The feature that completes the task. In the cart/purchase example, **Purchasing items from the cart** is the last step.                                                                                               |
+| Last step              | The feature that completes the task. In the cart/purchase example, **Purchasing items from the cart** is the last step.                                                                                                            |
 
 ## Frequently asked questions
 
@@ -730,6 +706,7 @@ The initial event on the visualization only represents the first time a user sen
 Use the **Split by** options on the **Edit** menu:
 
 1. Select the event you want to break down on the **Event** menu.
+
 1. Select a dimension on the **Dimension** menu. For example, if you have an event called **Button Clicked**, try a custom property called **Button Name**.
 
 ### I defined a cohort of users from a certain country/region. When I compare this cohort in the Users tool to setting a filter on that country/region, why do I see different results?
@@ -737,6 +714,7 @@ Use the **Split by** options on the **Edit** menu:
 Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter `Country or region = United Kingdom`:
 
 * The cohort version shows all events from users who sent one or more events from the United Kingdom in the current time range. If you split by country or region, you likely see many countries and regions.
+
 * The filters version only shows events from the United Kingdom. If you split by country or region, you see only the United Kingdom.
 
 ### How do I view the data at different grains (daily, monthly, or weekly)?
@@ -765,9 +743,7 @@ Yes. When you select the public template of the workbook:
 
    :::image type="content" source="media/usage-overview/workbook-save-faq.png" alt-text="Screenshot that shows the Save icon at the top of the workbook template that becomes available after you make edits.":::
 
-1. To view your saved workbook, under **Monitoring**, go to the **Workbooks** section and then select the **Workbooks** tab.
-
-   A copy of your customized workbook appears there. You can make any further changes you want in this copy.
+1. To view your saved workbook, under **Monitoring**, go to the **Workbooks** section and then select the **Workbooks** tab. A copy of your customized workbook appears there. You can make any further changes you want in this copy.
 
    :::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot that shows the Workbooks tab next to the Public Templates tab, where the edited copy of the workbook is located.":::
 
@@ -776,6 +752,5 @@ For more on editing workbook templates, see [Azure Workbooks templates](../visua
 ## Next steps
 
 * Check out the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection plug-in.
-* Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
 * Learn more about the [Google HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
 * To learn more about workbooks, see the [Workbooks overview](../visualize/workbooks-overview.md).
