@@ -46,7 +46,7 @@ To optimize your experience, consider integrating Application Insights into both
 
     Publish your app to monitor your app's performance and find out what your users are doing with your app.
 
-## The Users, Sessions, and Events segmentation tool
+## Users, Sessions, and Events - Analyze telemetry from three perspectives
 
 Three of the **Usage** panes use the same tool to slice and dice telemetry from your web app from three perspectives. By filtering and splitting the data, you can uncover insights about the relative use of different pages and features.
 
@@ -97,7 +97,7 @@ Explore different groups of users by adjusting the query options at the top of t
 
 The **Meet your users** section shows information about five sample users matched by the current query. Exploring the behaviors of individuals and in aggregate can provide insights about how people use your app.
 
-### User retention analysis for web applications
+### User retention analysis
 
 The Application Insights retention feature provides valuable insights into user engagement by tracking the frequency and patterns of users returning to your app and their interactions with specific features. It enables you to compare user behaviors, such as the difference in return rates between users who win or lose a game, offering actionable data to enhance user experience and inform business strategies.
 
@@ -202,7 +202,7 @@ dataset
 | render timechart
 ```
 
-### Determine which feature variant is more successful with A/B testing
+### Determine feature success with A/B testing
 
 If you're unsure which feature variant is more successful, release both and let different users access each variant. Measure the success of each variant, and then transition to a unified version.
 
@@ -229,7 +229,7 @@ public class MyTelemetryInitializer : ITelemetryInitializer
 }
 ```
 
-### [.NET Core](#tab/aspnetcore)
+#### [.NET Core](#tab/aspnetcore)
 
 For [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) applications, add a new telemetry initializer to the Dependency Injection service collection in the `Program.cs` class:
 
@@ -239,7 +239,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 builder.Services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 ```
 
-### [.NET Framework 4.8](#tab/aspnet-framework)
+#### [.NET Framework 4.8](#tab/aspnet-framework)
 
 In the web app initializer, such as `Global.asax.cs`:
 
@@ -254,7 +254,7 @@ protected void Application_Start()
 
 ---
 
-## Discover with Funnels how customers use your application
+## Funnels - Discover how customers use your application
 
 Understanding the customer experience is of great importance to your business. If your application involves multiple stages, you need to know if customers are progressing through the entire process or ending the process at some point. The progression through a series of steps in a web application is known as a *funnel*. You can use Application Insights funnels to gain insights into your users and monitor step-by-step conversion rates.
 
@@ -297,7 +297,7 @@ To create a funnel:
 
 1. To save your funnel to view at another time, select **Save** at the top. Use **Open** to open your saved funnels.
 
-## Analyze user navigation patterns with User Flows
+## User Flows - Analyze user navigation patterns
 
 :::image type="content" source="./media/usage-flows/flows.png" lightbox="./media/usage-flows/flows.png" alt-text="Screenshot that shows the Application Insights User Flows tool.":::
 
@@ -367,7 +367,7 @@ Keep in mind that **Session Ended** nodes are based only on telemetry collected 
 
 Look for a page view or custom event that's repeated by many users across subsequent steps in the visualization. This activity usually means that users are performing repetitive actions on your site. If you find repetition, think about changing the design of your site or adding new functionality to reduce repetition. For example, you might add bulk edit functionality if you find users performing repetitive actions on each row of a table element.
 
-## Analyze a specific set of users, sessions, events, or operations repeatedly with Cohorts
+## Cohorts - Analyze a specific set of users, sessions, events, or operations
 
 A cohort is a set of users, sessions, events, or operations that have something in common. In Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you're interested in.
 
@@ -459,7 +459,7 @@ The previous two cohorts were defined by using dropdown boxes. You can also defi
 
 1. Save and name the cohort.
 
-## Use Impact Analysis to discover how different properties influence conversion rates
+## Impact Analysis - Discover how different properties influence conversion rates
 
 Impact Analysis discovers how any dimension of a page view, custom event, or request affects the usage of a different page view or custom event.
 
@@ -534,7 +534,7 @@ Sessions are then broken into two different kinds of *subsessions* based on one 
 
 How Impact is ultimately calculated varies based on whether we're analyzing by metric or by dimension. For metrics, all *A*s in a subsession are averaged. For dimensions, the value of each *A* contributes *1/N* to the value assigned to *B*, where *N* is the number of *A*s in the subsession.
 
-## Analyze product usage with HEART
+## HEART - Five dimensions of customer experience
 
 This article describes how to enable and use the Heart Workbook on Azure Monitor. The HEART workbook is based on the HEART measurement framework, which was originally introduced by Google. Several Microsoft internal teams use HEART to deliver better software.
 
@@ -779,6 +779,3 @@ For more on editing workbook templates, see [Azure Workbooks templates](../visua
 * Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [sample app](https://go.microsoft.com/fwlink/?linkid=2152871) for more guidance.
 * Learn more about the [Google HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
 * To learn more about workbooks, see the [Workbooks overview](../visualize/workbooks-overview.md).
-* To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
-* [Export to Power BI](../logs/log-powerbi.md) if you've [migrated to a workspace-based resource](convert-classic-resource.md).
-* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
