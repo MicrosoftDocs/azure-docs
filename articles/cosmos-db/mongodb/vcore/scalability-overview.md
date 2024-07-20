@@ -22,14 +22,14 @@ Vertical scaling offers the following benefits:
 
 
 # Horizontal Scaling
-Eventually, the application will grow to a point where scaling vertically will not be sufficient. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards will be needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
+Eventually, the application grows to a point where scaling vertically will not be sufficient. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards are needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
 - If the data is logically sharded, no user intervention is needed to balance data across the underlying physical shards. Logical shards are automatically mapped to physical shards by the service. When nodes are added or removed, data is automatically rebalanaced the database under the covers.
 - Similarly, requests are automatically routed to the relevant physical shard that owns the hash range for the data being queried.
 - Geo-distributed clusters have a homogeneous multi-node configuration. Thus logical to physical shard mappings are consistent across the primary and replica regions of a cluster.
 
 
 # Compute and Storage scaling
-Read operations in the vCore based service for Azure Cosmos DB for MongoDB are more influenced by the cluster tier's compute and memory resources and less impacted by the IOPS capacity of the attached storage disk. 
+Read operations in the vCore based service for Azure Cosmos DB for MongoDB are more influenced by compute and memory. Disk IOPS have a lower impact on read throughput. 
 - Read operations first consult the cache in the compute layer and fall back to the disk when data could not be retrieved from the cache. For workloads with a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources will lead to higher throughput.
 - In addition to read throughput, workloads with a high volume of data per read operation will also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory can facilitate larger payload sizes per document as well as a larger number of smaller documents that are part of the same query operation.
 
