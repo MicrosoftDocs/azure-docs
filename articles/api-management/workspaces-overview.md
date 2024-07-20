@@ -54,7 +54,7 @@ The following is a sample workflow for creating and using a workspace.
 
 ## API management in a workspace
 
-Teams manage their own APIs, products, subscriptions, backends, policies, loggers, and other resources within workspaces. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview) for a full list of resources and operations supported in workspaces. 
+Teams manage their own APIs, products, subscriptions, backends, policies, loggers, and other resources within workspaces. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview) for a full list of resources and operations supported in workspaces.
 
 While workspaces are managed independently from the API Management service and other workspaces, by design they can reference selected service-level resources. See [Workspaces and other API Management features](#workspaces-and-other-api-management-features), later in this article.
 
@@ -153,3 +153,4 @@ Deleting a workspace deletes all its child resources (APIs, products, and so on)
 * [Create a workspace](how-to-create-workspace.md)
 * [Workspaces breaking changes - June 2024](breaking-changes/workspaces-breaking-changes-june-2024.md)
 * [Workspaces breaking changes - March 2025](breaking-changes/workspaces-breaking-changes-march-2025.md)
+* [Limits - API Management workspaces](../../includes/api-management-workspace-limits.md)
