@@ -127,7 +127,7 @@ items:
         href: rules-engine/create-rules-engine-project.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
-    - name: Parse and chunk text
+    - name: Parse and chunk content
       href: parse-document-chunk-text.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
