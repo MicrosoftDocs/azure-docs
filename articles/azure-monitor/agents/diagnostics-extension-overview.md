@@ -106,6 +106,78 @@ See the following articles for information on installing and configuring the dia
 - [Install and configure Azure Diagnostics extension for Windows](diagnostics-extension-windows-install.md)
 - [Use Linux diagnostics extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md)
 
+## Supported operating systems
+
+The following tables list the operating systems that are supported by WAD and LAD. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
+
+### Windows
+
+| Operating system                                                                                  | Support | 
+|:--------------------------------------------------------------------------------------------------|:-------:|
+| Windows Server 2022                                                                               |         |
+| Windows Server 2022 Core                                                                          |         |
+| Windows Server 2019                                                                               | X       |
+| Windows Server 2019 Core                                                                          |         |
+| Windows Server 2016                                                                               | X       |
+| Windows Server 2016 Core                                                                          | X       |
+| Windows Server 2012 R2                                                                            | X       |
+| Windows Server 2012                                                                               | X       |
+| Windows Server 2008 R2 SP1                                                                        | X       |
+| Windows Server 2008 R2                                                                            | X       |
+| Windows Server 2008 SP2                                                                           |         |
+| Windows 11 client OS                                                                              |         |
+| Windows 10 1803 (RS4) and higher                                                                  |         |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>) | X       | 
+| Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)                               |         |
+| Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                                              |         |
+| Azure Stack HCI                                                                                   |         |
+
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
+<sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
+
+### Linux
+
+| Operating system                                      | Support        | 
+|:------------------------------------------------------|:--------------:|
+| AlmaLinux                                             |                |
+| Amazon Linux 2017.09                                  |                |
+| Amazon Linux 2                                        |                |
+| CentOS Linux 8                                        |                |
+| CentOS Linux 7                                        | X              |
+| CentOS Linux 6                                        |                |
+| CentOS Linux 6.5+                                     | X              |
+| Debian 11 <sup>1</sup>                                |                |
+| Debian 10 <sup>1</sup>                                |                |
+| Debian 9                                              | X              |
+| Debian 8                                              |                |
+| Debian 7                                              | X              |
+| OpenSUSE 13.1+                                        | X              |
+| Oracle Linux 8                                        |                |
+| Oracle Linux 7                                        | X              |
+| Oracle Linux 6                                        |                |
+| Oracle Linux 6.4+                                     | X              |
+| Red Hat Enterprise Linux Server 8.5, 8.6              |                |
+| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4 |                |
+| Red Hat Enterprise Linux Server 7                     | X              |
+| Red Hat Enterprise Linux Server 6                     |                |
+| Red Hat Enterprise Linux Server 6.7+                  | X              |
+| Rocky Linux                                           |                |
+| SUSE Linux Enterprise Server 15.2                     |                |
+| SUSE Linux Enterprise Server 15.1                     |                |
+| SUSE Linux Enterprise Server 15 SP1                   |                |
+| SUSE Linux Enterprise Server 15                       |                |
+| SUSE Linux Enterprise Server 12 SP5                   | X              |
+| SUSE Linux Enterprise Server 12                       | X              |
+| Ubuntu 22.04 LTS                                      |                |
+| Ubuntu 20.04 LTS                                      | X <sup>4</sup> |
+| Ubuntu 18.04 LTS                                      | X              |
+| Ubuntu 16.04 LTS                                      | X              |
+| Ubuntu 14.04 LTS                                      | X              |
+
+<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
+<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
+
 ## Other documentation
 
 See the following articles for more information.
