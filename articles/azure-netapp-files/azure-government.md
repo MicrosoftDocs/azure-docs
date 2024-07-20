@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 07/17/2024
 ms.author: anfdocs
 ---
 
