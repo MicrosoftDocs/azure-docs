@@ -55,8 +55,8 @@ Azure tables have predefined schemas. To store log data in a different schema, u
 > [!IMPORTANT]
 > Custom tables have a suffix of **_CL**; for example, *tablename_CL*. The Azure portal adds the **_CL** suffix to the table name automatically. When you create a custom table using a different method, you need to add the **_CL** suffix yourself. The *tablename_CL* in the [DataFlows Streams](../essentials/data-collection-rule-structure.md#dataflows) properties in your data collection rules must match the *tablename_CL* name in the Log Analytics workspace.
 
-> [!NOTE]
-> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log-table).
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
 
 # [Portal](#tab/azure-portal-1)
 
