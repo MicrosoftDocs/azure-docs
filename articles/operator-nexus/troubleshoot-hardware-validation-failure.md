@@ -11,7 +11,7 @@ ms.author: vanjanikolin
 
 # Troubleshoot hardware validation failure in Nexus Cluster
 
-This article describes how to troubleshoot a failed server hardware validation. Hardware validation is run as part of cluster deploy action.
+This article describes how to troubleshoot a failed server hardware validation. Hardware validation (HWV) is run as part of cluster deploy action as well as a bare metal replace action. HWV validates a bare metal machine (BMM) by executing test cases against the baseboard management controller (BMC). The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use the integrated Dell remote access controller (iDRAC) which is the equivalent of a BMC.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This article describes how to troubleshoot a failed server hardware validation. 
 1. Navigate to cluster resource group in the subscription
 2. Expand the cluster Log Analytics Workspace (LAW) resource for the cluster
 3. Navigate to the Logs tab
-4. Hardware validation results can be fetched with a query against the HWVal_CL table as per the following example
+4. Hardware validation results can be fetched with a query against the `HWVal_CL` table as per the following example
 
 :::image type="content" source="media\hardware-validation-cluster-law.png" alt-text="Screenshot of cluster LAW custom table query." lightbox="media\hardware-validation-cluster-law.png":::
 
@@ -46,8 +46,7 @@ Expanding `result_detail` for a given category shows detailed results.
 ### System info category
 
 * Memory/RAM related failure (memory_capacity_GB)
-    * Memory specs are defined in the SKU.
-    * Memory below threshold value indicates missing or failed DIMM(s). Failed DIMM(s) would also be reflected in the `health_info` category.
+    * Memory specs are defined in the SKU. Memory below threshold value indicates missing or failed DIMM(s). Failed DIMM(s) would also be reflected in the `health_info` category. The following example shows a failed memory check.
 
     ```json
         {
@@ -58,9 +57,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check memory information in BMC webui:
+
+        `BMC` -> `System` -> `Memory`
+
+    * To check memory information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory | grep SysMemTotalSize
+    ```
+
+    * To troubleshoot a memory problem engage vendor.
+
 * CPU Related Failure (cpu_sockets)
-    * CPU specs are defined in the SKU.
-    * Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch.
+    * CPU specs are defined in the SKU. Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
 
     ```json
         {
@@ -71,8 +81,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check CPU information in BMC webui:
+
+        `BMC` -> `System` -> `CPU`
+
+    * To check CPU information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory | grep PopulatedCPUSockets
+    ```
+
+    * To troubleshoot a CPU problem engage vendor.
+
 * Model Check Failure (Model)
-    * Failed `Model` check indicates that wrong server is racked in the slot or there's a cabling mismatch.
+    * Failed `Model` check indicates that wrong server is racked in the slot or there's a cabling mismatch. The following example shows a failed model check.
 
     ```json
         {
@@ -83,9 +105,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check model information in BMC webui:
+
+        `BMC` -> `Dashboard` - Shows Model
+
+    * To check model information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep Model
+    ```
+
+    * To troubleshoot this problem ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+
 * Serial Number Check Failure (Serial_Number)
-    * The server's serial number is defined in the cluster.
-    * Failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine.
+    * The server's serial number, also referred as the service tag, is defined in the cluster. Failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine. The following example shows a failed serial number check.
 
     ```json
         {
@@ -96,11 +129,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-* iDRAC License Check
-    * To enable necessary functionality all iDRACs require a perpetual/production iDRAC9 datacenter or enterprise license.
-    * Trial licenses are valid for only 30 days.
-    * Failed `iDRAC License Check` indicates that the required iDRAC license is missing.
-    * The following examples show a failed iDRAC license check for a trial license and missing license respectively.
+    * To check serial number information in BMC webui:
+
+        `BMC` -> `Dashboard` - Shows Service Tag
+
+    * To check serial number information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "Service Tag"
+    ```
+
+    * To troubleshoot this problem ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+
+* iDRAC License Check Failure
+    * To enable necessary functionality all iDRACs require a perpetual/production iDRAC9 datacenter or enterprise license. Trial licenses are valid for only 30 days. A failed `iDRAC License Check` indicates that the required iDRAC license is missing. The following examples show a failed iDRAC license check for a trial license and missing license respectively.
 
     ```json
         {
@@ -120,13 +162,15 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To troubleshoot this problem engage vendor to obtain the correct license. Apply the license using the iDRAC webui in the following location:
+
+        `BMC` -> `Configuration` -> `Licenses`
+
 
 ### Drive info category
 
 * Disk Check Failure
-    * Drive specs are defined in the SKU
-    * Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots.
-    * Missing capacity and type fetched values indicate drives that are failed, missing or inserted in to incorrect slots.
+    * Drive specs are defined in the SKU. Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots. Missing capacity and type fetched values indicate drives that are failed, missing or inserted in to incorrect slots.
 
     ```json
         {
@@ -155,13 +199,22 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check disk information in BMC webui:
+
+        `BMC` -> `Storage` -> `Physical Disks`
+
+    * To check disk information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD raid get pdisks -o -p State,Size
+    ```
+
+    * To troubleshoot ensure that disks are inserted int he correct slots. If the problem persists engage vendor.
+
 ### Network info category
 
 * NIC Check Failure
-    * Dell server NIC specs are defined in the SKU.
-    * Mismatched link status indicates loose or faulty cabling or crossed cables.
-    * Mismatched model indicates incorrect NIC card is inserted in to slot.
-    * Missing link/model fetched values indicate NICs that are failed, missing or inserted in to incorrect slots.
+    * Dell server NIC specs are defined in the SKU. A mismatched link status indicates loose or faulty cabling or crossed cables. A mismatched model indicates incorrect NIC card is inserted in to slot. Missing link/model fetched values indicate NICs that are failed, missing or inserted in to incorrect slots.
 
     ```json
         {
@@ -208,9 +261,26 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check NIC information in BMC webui:
+
+        `BMC` -> `System` -> `Network Devices`
+
+    * To check all NIC information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory NIC
+    ```
+
+    * To check a specific NIC with racadm provide the FQDD:
+
+     ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD hwinventory NIC.Embedded.1-1-1
+    ```
+
+    * To troubleshoot ensure that servers are cabled correctly and that ports are linked up. Bounce port on the fabric. Perform flea drain. If the problem persists engage vendor.
+
 * NIC Check L2 Switch Information
-    * HW Validation reports L2 switch information for each of the server interfaces.
-    * The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
+    * HW Validation reports L2 switch information for each of the server interfaces. The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
 
     ```json
         {
@@ -231,8 +301,7 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
 * Cabling Checks for Bonded Interfaces
-    * Mismatched cabling is reported in the result_log.
-    * Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example PCI 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
+    * Mismatched cabling is reported in the result_log. Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example PCI 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
 
   ```json
       {
@@ -255,9 +324,10 @@ Expanding `result_detail` for a given category shows detailed results.
       }
   ```
 
+    * To fix the issue insert cables in to the correct interfaces.
+
 * iDRAC (BMC) MAC Address Check Failure
-    * The iDRAC MAC address is defined in the cluster for each BMM.
-    * A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
+    * The iDRAC MAC address is defined in the cluster for each BMM. A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
 
     ```json
         {
@@ -268,9 +338,10 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To troubleshoot this problem ensure that correct MAC address is defined in the cluster. If MAC is correct attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+
 * PXE MAC Address Check Failure
-    * The PXE MAC address is defined in the cluster for each BMM.
-    * A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
+    * The PXE MAC address is defined in the cluster for each BMM. A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
 
     ```json
         {
@@ -281,12 +352,12 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To troubleshoot this problem ensure that correct MAC address is defined in the cluster. If MAC is correct attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+
 ### Health info category
 
 * Health Check Sensor Failure
-    * Server health checks cover various hardware component sensors.
-    * A failed health sensor indicates a problem with the corresponding hardware component.
-    * The following examples indicate fan, drive and CPU failures respectively.
+    * Server health checks cover various hardware component sensors. A failed health sensor indicates a problem with the corresponding hardware component. The following examples indicate fan, drive and CPU failures respectively.
 
     ```json
         {
@@ -315,11 +386,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+     * To check health information in BMC webui:
+
+        `BMC` -> `Dashboard` - Shows Health Information
+
+    * To check health information with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsensorinfo
+    ```
+
+    * To troubleshoot a server health failure engage vendor.
+
 * Health Check Lifecycle Log (LC Log) Failures
-    * Dell server health checks fail for recent Critical LC Log Alarms.
-    * The hardware validation plugin logs the alarm ID, name, and timestamp.
-    * Recent LC Log critical alarms indicate need for further investigation.
-    * The following example shows a failure for a critical Backplane voltage alarm.
+    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
     ```json
         {
@@ -330,10 +410,20 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check LC logs in BMC webui:
+
+        `BMC` -> `Maintenance` -> `Lifecycle Log`
+
+    * To check LC log critical alarms with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD lclog view -s critical
+    ```
+
+    * If `Backplane Comm` critical errors are encountered attempt a flea drain. To troubleshoot any other LC log critical failures engage vendor.
+
 * Health Check Server Power Action Failures
-    * Dell server health check fail for failed server power-up or failed iDRAC reset.
-    * A failed server control action indicates an underlying hardware issue.
-    * The following example shows failed power on attempt.
+    * Dell server health checks fail for failed server power-up or failed iDRAC reset. A failed server control action indicates an underlying hardware issue. The following example shows failed power on attempt.
 
     ```json
         {
@@ -350,10 +440,20 @@ Expanding `result_detail` for a given category shows detailed results.
         ]
     ```
 
+    * To power server on in BMC webui:
+
+        `BMC` -> `Dashboard` -> `Power On System`
+
+    * To power server on with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD serveraction powerup
+    ```
+
+    * To troubleshoot server power on failure attempt a flea drain. If problem persists engage vendor.
+
 * Health Check Power Supply Failure and Redundancy Considerations
-    * Dell server health checks warn when one power supply is missing or failed.
-    * Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively.
-    * A failure of one power supply doesn't trigger an HW validation device failure.
+    * Dell server health checks warn when one power supply is missing or failed. Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively. A failure of one power supply doesn't trigger an HW validation device failure.
 
     ```json
         {
@@ -373,6 +473,18 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * To check power supplies in BMC webui:
+
+        `BMC` -> `System` -> `Power`
+
+    * To check power supplies with racadm:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsensorinfo | grep PS
+    ```
+
+    * To troubleshoot attempt a power supply reseat. If problem persists engage vendor.
+
 ### Boot info category
 
 * Boot Device Name Check Considerations
@@ -385,18 +497,6 @@ Expanding `result_detail` for a given category shows detailed results.
             "comparison_result": "Info",
             "expected": "NIC.PxeDevice.1-1",
             "fetched": "NIC.PxeDevice.1-1"
-        }
-    ```
-
-* Boot Device State Check Considerations
-    * A failed `boot_device_state` check indicates that the boot device is in a disabled state.
-
-    ```json
-        {
-            "field_name": "boot_device_state",
-            "comparison_result": "Fail",
-            "expected": "enabled",
-            "fetched": "disabled"
         }
     ```
 
@@ -423,12 +523,12 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To update the PXE device state ane name in BMC webui set the value in the following location below then select `Apply` followed by `Apply And Reboot`:
+    * To update the PXE device state and name in BMC webui set the value in the following location below then select `Apply` followed by `Apply And Reboot`:
 
         `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1` -> `Enabled`  
         `BMC` -> `Configuration` -> `BIOS Settings` -> `Network Settings` -> `PXE Device1 Settings` -> `Interface` -> `Embedded NIC 1 Port 1 Partition 1`  
     
-    * To update the PXE device name and state with racadm perform the following:
+    * To update the PXE device state and name with racadm perform the following:
 
     ```bash
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD set bios.NetworkSettings.PxeDev1EnDis Enabled
@@ -436,6 +536,29 @@ Expanding `result_detail` for a given category shows detailed results.
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD jobqueue create BIOS.Setup.1-1
         racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD serveraction powercycle
     ```
+
+### Device login check
+
+* Device Login Check Considerations
+    * The `device_login` check will fail if the iDRAC is not accessible or if the hardware validaton plugin is not able to log in.
+
+    ```json
+        {
+            "device_login": "Fail"
+        }
+    ```
+
+    * To set password in BMC webui:
+
+        `BMC` -> `iDRAC Settings` -> `Users` -> `Local Users` -> `Edit`
+
+    * To set password with racadm:
+
+    ```bash
+        racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
+    ```
+
+    * To troubleshoot ping the iDRAC from a jumpserver with access to the BMC network. If iDRAC pings check that passwords match.
 
 ## Adding servers back into the Cluster after a repair
 
