@@ -153,7 +153,7 @@ For **Chunking Strategy** set to **FixedLength**:
 |------|-------|-----------|-------------|-------|
 | **MaxPageLength** | <*max-char-per-chunk*> | Integer | The maximum number of characters per content chunk. <br><br>Default: **5000** ||
 | **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. ||
-| **Language** | <*language*> | String | The [language](/azure/ai-services/language-service/language-detection/language-support) to use for the resulting chunks. <br><br>Default: **en-us**. | Not applicable |
+| **Language** | <*language*> | String | The [language](/azure/ai-services/language-service/language-detection/language-support) to use for the resulting chunks. <br><br>Default: **en-us** | Not applicable |
 
 For **Chunking Strategy** set to **TokenSize**:
 
