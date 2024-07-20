@@ -29,6 +29,9 @@ Azure Monitor Logs automatically creates tables required to store monitoring dat
 
 Table management settings let you control access to specific tables, and manage the data model, retention, and cost of data in each table. For more information, see [Manage tables in a Log Analytics workspace](manage-logs-tables.md). 
 
+:::image type="content" source="media/data-platform-logs/logs-structure.png" lightbox="media/data-platform-logs/logs-structure.png" alt-text="Diagram that shows the Azure Monitor Logs structure.":::
+
+
 ## Data retention
 
 A Log Analytics workspace retains data in two states - **interactive retention** and **long-term retention**. 
@@ -44,13 +47,6 @@ For more information, see [Manage data retention in a Log Analytics workspace](d
 Permission to access data in a Log Analytics workspace is defined by the [access control mode](manage-access.md#access-control-mode) setting on each workspace. You can give users explicit access to the workspace by using a [built-in or custom role](../roles-permissions-security.md). Or, you can allow access to data collected for Azure resources to users with access to those resources.
 
 For more information, see [Manage access to log data and workspaces in Azure Monitor](manage-access.md).
-
-## Data consumption
-
-:::image type="content" source="media/data-platform-logs/logs-structure.png" lightbox="media/data-platform-logs/logs-structure.png" alt-text="Diagram that shows the Azure Monitor Logs structure.":::
-
-> [!WARNING]
-> Table names are used for billing purposes so they should not contain sensitive information.
 
 ## Data collection
 
