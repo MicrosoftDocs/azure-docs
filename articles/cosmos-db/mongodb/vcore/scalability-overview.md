@@ -22,20 +22,20 @@ Vertical scaling offers the following benefits:
 
 
 # Horizontal Scaling
-Eventually, the application grows to a point where scaling vertically will not be sufficient. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards are needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
-- If the data is logically sharded, no user intervention is needed to balance data across the underlying physical shards. Logical shards are automatically mapped to physical shards by the service. When nodes are added or removed, data is automatically rebalanaced the database under the covers.
+Eventually, the application grows to a point where scaling vertically is not sufficient. Workload requirements can grow beyond the capacity of the largest cluster tier and eventually more shards are needed. Horizontal scaling in the vCore based offering for Azure Cosmos DB for MongoDB offers the following benefits:
+- If the data is logically sharded, no user intervention is needed to balance data across the underlying physical shards. The service automatically maps logical shards to physical shards. When nodes are added or removed, data is automatically rebalanaced the database under the covers.
 - Similarly, requests are automatically routed to the relevant physical shard that owns the hash range for the data being queried.
 - Geo-distributed clusters have a homogeneous multi-node configuration. Thus logical to physical shard mappings are consistent across the primary and replica regions of a cluster.
 
 
 # Compute and Storage scaling
-Read operations in the vCore based service for Azure Cosmos DB for MongoDB are more influenced by compute and memory. Disk IOPS have a lower impact on read throughput. 
-- Read operations first consult the cache in the compute layer and fall back to the disk when data could not be retrieved from the cache. For workloads with a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources will lead to higher throughput.
-- In addition to read throughput, workloads with a high volume of data per read operation will also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory can facilitate larger payload sizes per document as well as a larger number of smaller documents that are part of the same query operation.
+Compute and memory resources influence read operations in the vCore based service for Azure Cosmos DB for MongoDB more than disk IOPS. 
+- Read operations first consult the cache in the compute layer and fall back to the disk when data could not be retrieved from the cache. For workloads with a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources leads to higher throughput.
+- In addition to read throughput, workloads with a high volume of data per read operation also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory facilitate larger payload sizes per document as well as a larger number of smaller documents.
 
-Write operations in the vCore based service for Azure Cosmos DB for MongoDB are more influenced by the IOPS capacity of the disk SKU as opposed to the CPU and memory capacities of the compute resources.
-- Write operations always need to persist data to disk (in addition to persisting data in memory to optimize reads). Larger disks with more IOPS will provide higher write throughput, particularly when running at scale.
-- The service supports upto 32TB disks per shard, offering significantly more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
+Disk IOPS influences write operations in the vCore based service for Azure Cosmos DB for MongoDB more than the CPU and memory capacities of the compute resources.
+- Write operations always persist data to disk (in addition to persisting data in memory to optimize reads). Larger disks with more IOPS provide higher write throughput, particularly when running at scale.
+- The service supports upto 32TB disks per shard, with significantly more IOPS per shard to benefit write heavy workloads, particularly when running at scale.
 
 
 # Storage heavy workloads and large disks
