@@ -12,12 +12,12 @@ ms.author: cwatson
 
 In the previous deployment step, you enabled the User and Entity Behavior Analytics (UEBA) feature to streamline your analysis process. In this article, you learn how to set up interactive and long-term data retention, to make sure your organization retains the data that's important in the long term. This article is part of the [Deployment guide for Microsoft Sentinel](deploy-overview.md).
 
-## Configure data retention and archive
+## Configure data retention
 
 Retention policies define when to remove data, or mark it for long-term retention, in a Log Analytics workspace. Long-term retention lets you keep older, less used data in your workspace at a reduced cost. To set up data retention plans, consult [Log retention plans in Microsoft Sentinel](log-plans.md), and use one or both of these methods, depending on your use case:
 
-- [Configure data retention and archive for one or more tables](../azure-monitor/logs/data-retention-archive.md) (one table at a time)
-- [Configure data retention and archive for multiple tables](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Archive-Log-Tool) at once
+- [Configure interactive and long-term data retention for one or more tables](../azure-monitor/logs/data-retention-archive.md) (one table at a time)
+- [Configure data retention for multiple tables](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Archive-Log-Tool) at once
 
 ## Next steps
 

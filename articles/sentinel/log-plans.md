@@ -50,7 +50,7 @@ Some examples of primary data sources include logs from antivirus or enterprise 
 
 Logs containing primary security data should be stored using the **Analytics logs** plan. This plan keeps data in an **interactive retention** state for **90 days** by default, extensible for up to two years. In this state, your data can be queried in unlimited fashion and with high performance.
 
-When the interactive retention period ends, data goes into a **long-term retention** state, remaining in its original table. Long-term retention is not defined by default, but you can define it to last up to 12 years. This state preserves your data for regulatory compliance or internal policy purposes. Data in this state can be queried in limited fashion and with much slower performance, but you can use a [**search job**](../azure-monitor/logs/search-jobs.md) or [**restore**](../azure-monitor/logs/restore.md) to pull out limited sets of data into interactive retention, where you can bring the full query capabilities to bear on it.
+When the interactive retention period ends, data goes into a **long-term retention** state, remaining in its original table. Long-term retention is not defined by default, but you can define it to last up to 12 years. This state preserves your data for regulatory compliance or internal policy purposes. Data in this state can be queried in limited fashion and with much slower performance, but you can use a [**search job**](investigate-large-datasets.md) or [**restore**](restore.md) to pull out limited sets of data into interactive retention, where you can bring the full query capabilities to bear on it.
 
 ### Secondary security data
 
@@ -68,7 +68,7 @@ Some examples of secondary data log sources are cloud storage access logs, NetFl
 
 Logs containing secondary security data should be stored using the **Auxiliary logs** plan. This plan keeps data in an **interactive retention** state for **30 days**. In this state, your data can be queried with limited capabilities and with lower performance.
 
-When the interactive retention period ends, data goes into a **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to rehydrate data is with a [**search job**](../azure-monitor/logs/search-jobs.md). [Restore](../azure-monitor/logs/restore.md) is not supported for auxiliary logs.
+When the interactive retention period ends, data goes into a **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to rehydrate data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for auxiliary logs.
 
 ## Log management plans
 

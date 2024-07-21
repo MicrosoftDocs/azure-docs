@@ -1,6 +1,6 @@
 ---
 title: Configure data retention for logs in Microsoft Sentinel or Azure Monitor
-description: In this tutorial, you'll configure an archive policy for a table in a Log Analytics workspace. 
+description: In this tutorial, you'll configure a data retention policy for a table in a Log Analytics workspace. 
 author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
@@ -36,41 +36,42 @@ To complete the steps in this tutorial, you must have the following resources an
 
 - Log Analytics workspace.
 
-## Review interactive and long-term retention policies
-
-On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention period**. The long-term retention (archive) period equals the total retention period in days minus the interactive retention in days. For example, you set the following values:
-
-   | Field | Value |
-   | ----- | ----- |
-   | Interactive retention | 90 days |
-   | Total retention period | 1.1 years |
-
-So the **Tables** page shows the following an archive period of 310 days.
-
-:::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
-
 ## Set the retention policy for a table
 
-In your Log Analytics workspace, clear the **Use default workspace settings** setting if you want to change the interactive retention period from its default of 90 days (for Microsoft Sentinel workspaces) or 31 days (for other workspaces). Then, change the total retention policy for a table like **SecurityAlert** to 3 years of data. The *total retention* period is the sum of the *interactive* and *auxiliary* (archive) retention periods.
+In your Log Analytics workspace, change the interactive retention policy of the **SecurityEvent** table  from the workspace default of 90 days to 180 days, and the total retention policy to 3 years. The *total retention* period is the sum of the *interactive* and *long-term* (archive) retention periods.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. In the Azure portal, search for and open **Log Analytics workspaces**.
+
 1. Select the appropriate workspace.
+
 1. Under **Settings**, select **Tables**.
-1. On a table like **SecurityAlert**, open the context menu (...).
+
+1. Find the **SecurityEvent** table in the list, and open the context menu (...).
+
 1. Select **Manage table**.
+
    :::image type="content" source="media/configure-data-retention/data-retention-tables.png" alt-text="Screenshot of the manage table option on the context menu for a table in the tables view.":::
-1. Under **Data retention**, enter the following values.
+
+1. Under **Data retention settings**, enter the following values.
 
    | Field | Value |
    | ----- | ----- |
-   | Use default workspace settings | Clear the checkbox |
-   | Interactive retention | 120 days |
+   | Interactive retention | 180 days |
    | Total retention period | 3 years |
 
    :::image type="content" source="media/configure-data-retention/data-retention-settings.png" alt-text="Screenshot of the data retention settings that shows the changes to the fields under the data retention section.":::
 
+   See that the time graph shows that the long-term retention period equals the total retention period in days minus the interactive retention period in days. In this case, 915 days, or 2.5 years.
+
 1. Select **Save**.
+
+## Review interactive and total retention policies
+
+On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention**. 
+
+:::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
 
 ## Clean up resources
 
@@ -79,4 +80,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md?tabs=portal-1%2cportal-2)
+> [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md?tabs=portal-1%2cportal-2)

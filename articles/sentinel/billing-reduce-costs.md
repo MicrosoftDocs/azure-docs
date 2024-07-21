@@ -68,19 +68,15 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 
 For more information about dedicated clusters, see [Log Analytics dedicated clusters](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
 
-## Reduce long-term data retention costs with Azure Data Explorer or archived logs (preview)
+## Reduce data retention costs with long-term retention
 
-Microsoft Sentinel data retention is free for the first 90 days. To adjust the data retention period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
+Microsoft Sentinel interactive data retention is free for the first 90 days. To adjust the data retention period in Log Analytics, select **Usage and estimated costs** in the left navigation, then select **Data retention**, and then adjust the slider.
 
 Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
 
-To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers long-term retention. Data that ages out of its interactive retention state can still be retained for up to twelve years, at a much-reduced cost, and with limitations on its usage. For more information, see [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
-Alternatively, you can use Azure Data Explorer for long-term data retention at lower cost. Azure Data Explorer provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
-
-With Azure Data Explorer, you can store data at a lower price, but still explore the data using the same Kusto Query Language (KQL) queries as in Microsoft Sentinel. You can also use the Azure Data Explorer proxy feature to do cross-platform queries. These queries aggregate and correlate data spread across Azure Data Explorer, Application Insights, Microsoft Sentinel, and Log Analytics.
-
-For more information, see [Integrate Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md).
+You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan (now in Preview). This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md). While the auxiliary logs plan remains in Preview, you also have the option of enrolling these tables in the **Basic logs** plan. Basic logs offers similar functionality to auxiliary logs, but with less of a cost savings.
 
 ## Use data collection rules for your Windows Security Events
 

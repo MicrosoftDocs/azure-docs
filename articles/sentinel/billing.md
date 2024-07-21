@@ -44,7 +44,7 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Microsoft Sentinel: Analytics logs and basic logs
+- Microsoft Sentinel: Analytics logs and auxiliary/basic logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
 - Azure Monitor: Search Queries and Search Jobs
