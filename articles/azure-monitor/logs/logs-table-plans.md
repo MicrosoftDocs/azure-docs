@@ -58,7 +58,7 @@ To switch a table's plan in the Azure portal:
 
     The **Table plan** dropdown is enabled only for [tables that support Basic logs](#when-should-i-use-basic-logs).
 
-    :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot that shows the Table plan dropdown on the table configuration screen.":::
+    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" alt-text="Screenshot that shows the data retention settings on the table configuration screen.":::
 
 1. Select **Save**.
 
