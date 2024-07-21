@@ -4808,6 +4808,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
+            "redirect_url": "/azure/openshift/howto-byok",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
