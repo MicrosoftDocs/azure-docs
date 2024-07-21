@@ -11,7 +11,7 @@ ms.custom: include file
 # azure-netapp-files-create-volumes
 ---
 
-Regular volumes quotas are between 100 GiB and 100 TiB. Large volume quotas range from 50 TiB to 500 TiB in size. If you intend for the volume quota to fall in the large volume range, select **Yes**. 
+Regular volumes quotas are between 100 GiB and 100 TiB. Large volume quotas range from 50 TiB to 1 PiB in size. If you intend for the volume quota to fall in the large volume range, select **Yes**. Volume quotas are entered in GiB.
 
 >[!IMPORTANT]
 > If this is your first time using large volumes, you must first [register the feature](../large-volumes-requirements-considerations.md#register-the-feature) and request [an increase in regional capacity quota](../azure-netapp-files-resource-limits.md#request-limit-increase).
