@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 07/21/2024
 ---
 
 # Query data in a Basic and Auxiliary table in Azure Monitor Logs
@@ -22,7 +22,7 @@ For more information about Basic and Auxiliary table plans, see [Azure Monitor L
 
 Queries on data in Basic and Auxiliary tables are subject to the following limitations:
 
-### Kusto Query Language (KQL) language limitations
+#### Kusto Query Language (KQL) language limitations
 
 Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/data-explorer/kusto/query/scalar-functions) and [aggregation](azure/data-explorer/kusto/query/aggregation-functions) functions. However, Basic or Auxiliary table queries are limited to a single table. Therefore, these limitations apply:  
 
@@ -33,17 +33,21 @@ Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/dat
 - [Cross-service](/azure/azure-monitor/logs/cross-workspace-query) and [cross-resource](/azure-monitor/logs/azure-monitor-data-explorer-proxy) queries aren't supported.
 
 
-### Time range
+#### Time range
 Specify the time range in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.
 
-### Query scope
+#### Query scope
 
 Set the Log Analytics workspace as the scope of your query. You can't run queries using another resource for the scope. For more information about query scope, see [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
 
-### Concurrent queries
+#### Concurrent queries
 You can run two concurrent queries per user. 
 
-### Purge
+#### Auxiliary log query performance
+
+Queries of data in Auxiliary tables are unoptimized and might take longer to return results than queries you run on Analytics and Basic tables.
+
+#### Purge
 You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic and Auxiliary tables. 
 
 ## Run a query on a Basic or Auxiliary table
