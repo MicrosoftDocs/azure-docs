@@ -35,7 +35,7 @@ The following lists include the Defender for Containers security alerts which we
 
 **Severity**: Medium
 
-### **A possible connection to malicious location has been detected.**
+### **A possible connection to malicious location has been detected**
 
 (K8S.NODE_ThreatIntelCommandLineSuspectDomain)
 

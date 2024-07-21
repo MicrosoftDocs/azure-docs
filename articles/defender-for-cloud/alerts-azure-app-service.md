@@ -146,7 +146,7 @@ The command ran in the web application context. While this behavior can be legit
 
 **Severity**: High
 
-### **Fileless Attack Behavior Detected**
+### **Fileless attack behavior detected**
 
 (AppServices_FilelessAttackBehaviorDetection)
 
@@ -158,7 +158,7 @@ Specific behaviors include: {list of observed behaviors}
 
 **Severity**: Medium
 
-### **Fileless Attack Technique Detected**
+### **Fileless attack technique detected**
 
 (AppServices_FilelessAttackTechniqueDetection)
 
@@ -170,7 +170,7 @@ Specific behaviors include: {list of observed behaviors}
 
 **Severity**: High
 
-### **Fileless Attack Toolkit Detected**
+### **Fileless attack toolkit detected**
 
 (AppServices_FilelessAttackToolkitDetection)
 
