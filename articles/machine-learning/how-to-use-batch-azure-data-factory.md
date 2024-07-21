@@ -21,6 +21,9 @@ Big data requires a service that can orchestrate and operationalize processes to
 
 Azure Data Factory allows the creation of pipelines that can orchestrate multiple data transformations and manage them as a single unit. Batch endpoints are an excellent candidate to become a step in such processing workflow. In this example, learn how to use batch endpoints in Azure Data Factory activities by relying on the Web Invoke activity and the REST API.
 
+> [!TIP]
+> When using data pipelines in Fabric, you can invoke batch endpoint directly using the Azure Machine Learning activity. We recommend using Fabric for data orchestration whenever possible to take advantage of the newest capabilities. The Azure Machine Learning activity in Azure Data Factory can only work with assets from Azure Machine Learning V1. Learn more at [Run Azure Machine Learning models from Fabric, using batch endpoints (preview)](how-to-use-batch-fabric.md).
+
 ## Prerequisites
 
 * This example assumes that you have a model correctly deployed as a batch endpoint. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
