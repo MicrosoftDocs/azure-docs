@@ -314,7 +314,7 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
    |VMs|Enter the names of the virtual machines using the following syntax: `["VM1","VM2","VM3"]`|
    |Action|Enter `stop` or `start`.|
 
-1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start sequentially, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
+1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start in parallel, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
 
 ## Clean up resources
 

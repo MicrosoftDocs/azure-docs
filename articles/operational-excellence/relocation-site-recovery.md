@@ -14,7 +14,6 @@ ms.custom:
 # Relocate Azure Recovery Vault and Site Recovery to another region
 
 
-
 This article shows you how to relocate [Azure Recovery Vault and Site Recovery](../site-recovery/site-recovery-overview.md) when moving your workload to another region.
 
 

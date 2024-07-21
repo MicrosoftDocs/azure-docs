@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -31,7 +31,7 @@ If you still require IP filtering, you can get the [IP addresses details using s
    > * Once you enable **Selected Networks and Private Endpoints**, you must use the **Virtual Network** endpoint to call the Translator. You can't use the standard translator endpoint (`api.cognitive.microsofttranslator.com`) and you can't authenticate with an access token.
    > * For more information, *see* [**Virtual Network Support**](reference/v3-0-reference.md#virtual-network-support).
 
-1. To grant access to an internet IP range, enter the IP address or address range (in [CIDR format](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (`non-reserved`) addresses are accepted.
+1. To grant access to an internet IP range, enter the IP address or address range (in [`CIDR` notation](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (`non-reserved`) addresses are accepted.
 
 Running Microsoft Translator from behind a specific IP filtered firewall is **not recommended**. The setup is likely to break in the future without notice.
 
