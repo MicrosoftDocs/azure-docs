@@ -30,7 +30,7 @@ Eventually, the application grows to a point where scaling vertically is not suf
 - Geo-distributed clusters have a homogeneous multi-node configuration. Thus logical to physical shard mappings are consistent across the primary and replica regions of a cluster.
 
 
-# Compute and Storage scaling
+## Compute and Storage scaling
 Compute and memory resources influence read operations in the vCore based service for Azure Cosmos DB for MongoDB more than disk IOPS. 
 - Read operations first consult the cache in the compute layer and fall back to the disk when data could not be retrieved from the cache. For workloads with a higher rate of read operations per second, scaling up the cluster tier to get more CPU and memory resources leads to higher throughput.
 - In addition to read throughput, workloads with a high volume of data per read operation also benefit from scaling the compute resources of the cluster. For instance, cluster tiers with more memory facilitate larger payload sizes per document and a larger number of smaller documents per response.
@@ -47,12 +47,13 @@ As mentioned earlier, storage and compute resources are decoupled for billing an
 ### Lower TCO with large disks (32 TB and beyond)
 Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4 TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32 TB disks and plans to expand to 64 TB and 128 TB disks per shard soon. For storage heavy workloads, a 4 TB storage capacity per physical shard requires a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
 
-Let's consider a storage heavy workload with 200 TB of data. 
-| Storage size per shard      | Min shards needed to sustain 200 TB | 
-|-----------------------------|-------------------------------------|
-| 4 TB                        | 50                                  | 
-| 32 TiB                      | 7                                   | 
-| 64 TiB (Coming soon)        | 4                                   | 
+Let's consider a storage heavy workload with 200 TB of data.
+
+| Storage size per shard | Min shards needed to sustain 200 TB | 
+|------------------------|-------------------------------------|
+| 4 TB                   | 50                                  | 
+| 32 TiB                 | 7                                   | 
+| 64 TiB (Coming soon)   | 4                                   | 
 
 The reduction in Compute requirements reduces sharply with larger disks. While more than the minimum number of physical shards may be needed sustain the throughput requirements of the workload, even doubling or tripling the number of shards are more cost effective than a 50 shard cluster with smaller disks.
 
