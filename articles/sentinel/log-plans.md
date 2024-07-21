@@ -22,7 +22,7 @@ This article discusses categories of data storage and accessibility, and describ
 >
 > The **Auxiliary Logs** log type is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> <!--[!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)] -->
+> [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
 
 ## Categories of ingested data
 
