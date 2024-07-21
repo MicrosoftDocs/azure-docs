@@ -34,7 +34,7 @@ For information about what each table plan offers and which use cases it's optim
 
 You can set the table plan to Auxiliary only when you [create a custom table](../logs/create-custom-table.md#create-a-custom-table) by using the API. Built-in Azure tables don't currently support the Auxiliary plan. After you create a table with an Auxiliary plan, you can't switch the table's plan. 
 
-All tables support the Analytics plan and all DCR-based custom tables and some Azure tables support the Basic log plan. You can switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. 
+All tables support the Analytics plan and all DCR-based custom tables and [some Azure tables support the Basic log plan](basic-logs-azure-tables.md). You can switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. 
 
 When you change a table's plan from Analytics to Basic, Azure monitor treats any data that's older than 30 days as long-term retention data based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the long-term retention period](../logs/data-retention-archive.md). 
 
@@ -56,7 +56,7 @@ To switch a table's plan in the Azure portal:
 
 1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
 
-    The **Table plan** dropdown is enabled only for [tables that support Basic logs](#when-should-i-use-basic-logs).
+    The **Table plan** dropdown is enabled only for [tables that support Basic logs](basic-logs-azure-tables.md).
 
     :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-auxiliary.png" alt-text="Screenshot that shows the data retention settings on the table configuration screen.":::
 
@@ -160,7 +160,8 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ---
 
-## Next step
+## Related content
 
-- [Manage data retention](../logs/data-retention-archive.md)
+- [Manage data retention](../logs/data-retention-archive.md).
+- [Tables that support the Basic table plan in Azure Monitor Logs](basic-logs-azure-tables.md).
 
