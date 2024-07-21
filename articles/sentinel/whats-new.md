@@ -21,6 +21,7 @@ The listed features were released in the last three months. For information abou
 ## July 2024
 
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+- [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 
 ### Microsoft unified security platform now generally available
 
@@ -30,6 +31,12 @@ Microsoft Sentinel is now generally available within the Microsoft unified secur
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
 - [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+
+### New Auxiliary logs retention plan (Preview)
+
+The new **Auxiliary logs** retention plan for Log Analytics tables allows you to ingest large quantities of high-volume logs with supplemental value for security at a much lower cost. Auxiliary logs are available with interactive retention for 30 days, in which you can run simple, single-table queries on them, such as to summarize and aggregate the data. Following that 30-day period, auxiliary log data goes to long-term retention, which you can define for up to 12 years, at ultra-low cost. This plan also allows you to run search jobs on the data in long-term retention, extracting only the records you want to a new table that you can treat like a regular Log Analytics table, with full query capabilities.
+
+To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 ## June 2024
 
