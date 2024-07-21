@@ -79,7 +79,7 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | Query performance                                      | Fast                                                         | Fast                                                         | Slower<br> Good for auditing. Not optimized for real-time analysis.                                                       |
 | [Alerts](../alerts/alerts-overview.md)                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
 | [Insights](../insights/insights-overview.md)                                             | ✅                                                            |     ❌                                                        |                                             ❌               |
-| [Dashboards](../visualize/tutorial-logs-dashboards.md)                                             | ✅                                                            |     ✅ At an additional cost per query for dashboard refreshes.                                                        |                                             Possible, but slow to refresh, at an additional cost per query.               |
+| [Dashboards](../visualize/tutorial-logs-dashboards.md)                                             | ✅                                                            |     ✅ Cost per query for dashboard refreshes not included.                                                        |                                             Possible, but slow to refresh, cost per query for dashboard refreshes not included.               |
 | [Data export](logs-data-export.md)                                             | ✅                                                            |     ❌                                                        |                                             ❌               |
 | [Microsoft Sentinel](/azure/sentinel/overview.md)                                             | ✅                                                         |     ✅                                                        |                                             ✅               |
 | [Search jobs](../logs/search-jobs.md)                  | ✅                                                            | ✅                                                            | ✅                                                            |
@@ -118,7 +118,7 @@ This table lists the tools Azure Monitor provides for collecting data from vario
 
 ## Working with Microsoft Sentinel and Microsoft Defender for Cloud
 
-[Security monitoring](../best-practices-plan.md#security-monitoring-solutions) in Azure is performed by [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md).
+[Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) perform [Security monitoring](../best-practices-plan.md#security-monitoring-solutions) in Azure.
 
 These services store their data in Azure Monitor Logs so that it can be analyzed with other log data collected by Azure Monitor.
 
