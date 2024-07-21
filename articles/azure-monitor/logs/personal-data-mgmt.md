@@ -6,7 +6,7 @@ author: guywild
 ms.author: guywild
 ms.reviewer: meirm
 ms.date: 06/28/2022
-# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs Azure Monitor collects.
+# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs that Azure Monitor collects.
 
 ---
 
@@ -115,6 +115,9 @@ To manage system resources, we limit purge requests to 50 requests an hour. Batc
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
+
+> [!NOTE]
+> You cannot purge data from tables that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans).
 
 #### Application data
 
