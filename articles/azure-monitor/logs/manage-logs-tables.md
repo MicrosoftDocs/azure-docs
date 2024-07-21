@@ -51,6 +51,9 @@ To access data in long-term retention, [run a search job](../logs/search-jobs.md
 
 Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
 
+> [!NOTE]
+> Tables with the [Auxiliary table plan](data-platform-logs.md) do not currently support data transformation. For more details, see [Auxiliary table plan public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).
+
 ## View table properties
 
 > [!NOTE]
