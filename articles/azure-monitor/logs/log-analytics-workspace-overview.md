@@ -48,8 +48,6 @@ Permission to access data in a Log Analytics workspace is defined by the [access
 
 For more information, see [Manage access to log data and workspaces in Azure Monitor](manage-access.md).
 
-## Data collection
-
 ## View Log Analytics workspace insights
 
 [Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md) helps you manage and optimize your Log Analytics workspaces with a comprehensive view of your workspace usage, performance, health, ingestion, queries, and change log. 
