@@ -70,13 +70,9 @@ For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.
 
 ## Design a Log Analytics workspace architecture to address specific business needs
 
-You can use a single workspace for all your data collection. You can also create multiple workspaces based on requirements such as:
+You can use a single workspace for all your data collection. However, you can also create multiple workspaces based on specific business requirements such as regulatory or compliance requirements to store data in specific locations, split billing, and resilience.
 
-- The geographic location of the data.
-- Access rights that define which users can access data.
-- Configuration settings like pricing tiers and data retention.
-
-For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
+For considerations related to creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
 
 
 ## Next steps

@@ -31,7 +31,7 @@ The following table presents criteria to consider when you design your workspace
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region. You might have regulatory or compliance requirements to store data in specific locations. |
 | [Data ownership](#data-ownership) | You might choose to create separate workspaces to define data ownership. For example, you might create workspaces by subsidiaries or affiliated companies. | 
 | [Split billing](#split-billing) | By placing workspaces in separate subscriptions, they can be billed to different parties. |
-| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
+| [Data retention](#data-retention-and-archive) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
@@ -87,11 +87,11 @@ You might need to split billing between different parties or perform charge back
 - **If you don't need to split billing or perform charge back:** Use a single workspace for all cost owners.
 - **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
-### Data retention and archive
-You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
+### Data retention
+You can configure default [data retention settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-table-level-retention). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
 
-- **If you can use the same retention and archive settings for all data in each table:** Use a single workspace for all resources.
-- **If you require different retention and archive settings for different resources in the same table:** Use a separate workspace for different resources.
+- **If you can use the same retention settings for all data in each table:** Use a single workspace for all resources.
+- **If you require different retention settings for different resources in the same table:** Use a separate workspace for different resources.
 
 ### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a specific amount of daily data. You might choose to consolidate data in a single workspace to reach the level of a particular tier. This same volume of data spread across multiple workspaces wouldn't be eligible for the same tier, unless you have a dedicated cluster.
