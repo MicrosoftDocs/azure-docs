@@ -37,7 +37,7 @@ Table management settings let you control access to specific tables, and manage 
 A Log Analytics workspace retains data in two states - **interactive retention** and **long-term retention**. 
 
 During the interactive retention period, you retrieve the data from the table through queries, and the data is available for visualizations, alerts, and other features and services, based on the table plan. 
-
+ 
 Each table in your Log Analytics workspace lets you retain data up to 12 years in low-cost, long-term retention. Retrieve specific data you need from long-term retention to interactive retention using a search job. This means that you manage your log data in one place, without moving data to external storage, and you get the full analytics capabilities of Azure Monitor on older data, when you need it.
 
 For more information, see [Manage data retention in a Log Analytics workspace](data-retention-configure.md).
@@ -50,7 +50,11 @@ For more information, see [Manage access to log data and workspaces in Azure Mon
 
 ## Data collection
 
-## View Log Analytics workspace usage and health
+## View Log Analytics workspace insights
+
+[Log Analytics Workspace Insights](log-analytics-workspace-insights-overview.md) helps you manage and optimize your Log Analytics workspaces with a comprehensive view of your workspace usage, performance, health, ingestion, queries, and change log. 
+
+:::image type="content" source="media/log-analytics-workspace-insights-overview/at-resource.png" alt-text="Screenshot that shows the Log Analytics Workspace insights overview tab." lightbox="media/log-analytics-workspace-insights-overview/at-resource.png":::
 
 ## Transform data you ingest into your Log Analytics workspace
 
@@ -66,7 +70,7 @@ There's no direct cost for creating or maintaining a workspace. You're charged f
 
 For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
 
-## Designing a Log Analytics workspace architecture to address specific business needs
+## Design a Log Analytics workspace architecture to address specific business needs
 
 You can use a single workspace for all your data collection. You can also create multiple workspaces based on requirements such as:
 
@@ -74,7 +78,7 @@ You can use a single workspace for all your data collection. You can also create
 - Access rights that define which users can access data.
 - Configuration settings like pricing tiers and data retention.
 
-To create a new workspace, see [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md). For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
+For considerations on creating multiple workspaces, see [Design a Log Analytics workspace configuration](./workspace-design.md).
 
 
 ## Next steps
