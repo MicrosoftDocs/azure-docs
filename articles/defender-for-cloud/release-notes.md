@@ -53,7 +53,7 @@ As we approach the agent's retirement in August 2024, the following MMA-related 
 - [The capability](quickstart-onboard-machines.md#connect-on-premises-machines-by-using-the-azure-portal) to onboard new non-Azure servers to Defender for Servers via Log Analytics workspaces will be removed from both the **Inventory** and **Getting Started** blades.  
 
 > [!NOTE]
-> We recommend current users with servers onboarded through the [legacy method](quickstart-onboard-machines#connect-on-premises-machines-by-using-the-azure-portal) to activate Defender for Servers Plan 2 on their Azure subscriptions connected to those servers. This will prevent any loss of security coverage associated with the Log Analytics agent retirement.
+> We recommend current users with servers onboarded through the [legacy method](quickstart-onboard-machines.md#connect-on-premises-machines-by-using-the-azure-portal) to activate Defender for Servers Plan 2 on their Azure subscriptions connected to those servers. This will prevent any loss of security coverage associated with the Log Analytics agent retirement.
 
 To maintain security continuity, we advise customers with Defender for Servers Plan 2 to enable [agentless machine scanning](enable-agentless-scanning-vms.md) and [integration with Microsoft Defender for Endpoint](enable-defender-for-endpoint.md) on their subscriptions.
 
