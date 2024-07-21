@@ -17,7 +17,7 @@ A Log Analytics workspace lets you collect log data from Azure and non-Azure res
 
 This diagram provides an overview of the table configuration options in Azure Monitor Logs:
 
-:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and interactive retention and long-term retention." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
+:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, schema, plan, and interactive and long-term retention." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
 
 ### Table type and schema
 
