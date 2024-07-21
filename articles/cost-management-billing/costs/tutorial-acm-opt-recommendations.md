@@ -87,6 +87,9 @@ After you choose a suitable size, select **Resize** to start the resize action.
 
 Resizing requires an actively running virtual machine to restart. If the virtual machine is in a production environment, we recommend that you run the resize operation after business hours. Scheduling the restart can reduce disruptions caused by momentarily unavailability.
 
+> [!TIP]  
+> If you are unsure whether you can shut down an idle VM without causing a chaos, you can firstly restrict access to the VM. Make sure the VM's role is restricted, too. Leave the VM up for a few weeks and if nobody has connected to it or has complained, chances are the resource can be shut down safely.
+
 ## Verify the action
 
 When the VM resizing completes successfully, an Azure notification is shown.
