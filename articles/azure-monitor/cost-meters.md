@@ -45,7 +45,7 @@ The **Free Benefit - M365 Defender Data Ingestion** meter is used to record the 
 | ----------- | --------- | --------------- |
 | Log Analytics | Pay-as-you-go Data Retention | yes |
 | Insight and Analytics | Standard Data Retention | no |
-| Azure Monitor | Data Archive | yes |
+| Azure Monitor | Long-Term Retention | yes |
 | Azure Monitor | Search Queries Scanned | yes |
 | Azure Monitor | Search Jobs Scanned | yes |
 | Azure Monitor | Data Restore | yes |
