@@ -291,7 +291,7 @@
     href: resource-dependencies.md
   - name: Modules (module)
     href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry,public module registry
+    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
   - name: Outputs (output)
     href: outputs.md
     displayName: dynamic number of outputs,modules
@@ -301,6 +301,7 @@
   - name: Conditions (if)
     href: conditional-resource-deployment.md
   - name: Using (using)
+    displayName: avm,azure verified modules 
     href: bicep-using.md
   - name: Scopes (targetScope)
     items:
@@ -549,6 +550,9 @@
       - name: Use resource symbol reference
         displayName: linter
         href: linter-rule-use-resource-symbol-reference.md
+      - name: Use safe access
+        displayName: linter
+        href: linter-rule-use-safe-access.md
       - name: Use secure value for secure inputs
         displayName: linter
         href: linter-rule-use-secure-value-for-secure-inputs.md
@@ -609,10 +613,10 @@
       href: bicep-error-bcp035.md
     - name: BCP036
       href: bicep-error-bcp036.md
-    - name: BCP040
-      href: bicep-error-bcp040.md
     - name: BCP037
       href: bicep-error-bcp037.md
+    - name: BCP040
+      href: bicep-error-bcp040.md
     - name: BCP072
       href: bicep-error-bcp072.md
     - name: BCP073

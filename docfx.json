@@ -1195,6 +1195,8 @@
         "articles/ai-services/**/*.yml": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.md": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.yml": "ce-skilling-ai-copilot",
+        "articles/copilot/*.md": "ce-skilling-ai-copilot",
+        "articles/copilot/*.yml": "ce-skilling-ai-copilot",
         "articles/search/**/*.md": "ce-skilling-ai-copilot",
         "articles/search/**/*.yml": "ce-skilling-ai-copilot",
         "articles/machine-learning/*.md": "ce-skilling-ai-copilot",
