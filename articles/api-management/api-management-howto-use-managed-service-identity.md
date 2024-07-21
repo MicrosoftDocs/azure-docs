@@ -39,7 +39,7 @@ To set up a managed identity in the Azure portal, you'll first create an API Man
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 
@@ -338,7 +338,7 @@ To set up a managed identity in the portal, you'll first create an API Managemen
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 

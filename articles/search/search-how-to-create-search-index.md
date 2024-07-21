@@ -1,5 +1,5 @@
 ---
-title: Create a search index
+title: Create an index
 titleSuffix: Azure AI Search
 description: Create a search index using the Azure portal, REST APIs, or an Azure SDK.
 
@@ -8,33 +8,33 @@ author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 07/01/2024
 ---
 
 # Create an index in Azure AI Search
 
-In Azure AI Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
-
-In this article, learn the steps for defining and publishing a search index. Creating an index establishes the physical data structures on your search service. Once the index definition exists, [**loading the index**](search-what-is-data-import.md) follows as a separate task. 
+In this article, learn the steps for defining a schema for a [**search index**](search-what-is-an-index.md) and pushing it to a search service. Creating an index establishes the physical data structures on your search service. Once the index exists, [**load the index**](search-what-is-data-import.md) as a separate task. 
 
 ## Prerequisites
 
-+ Write permissions. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're using [role-based access control](search-security-rbac.md), send a request as a member of the Search Contributor role.
++ Write permissions as a [**Search Service Contributor**](search-security-rbac.md) or an [admin API key](search-security-api-keys.md) for key-based authentication.
 
-+ An understanding of the data you want to index. Creating an index is a schema definition exercise, so you should have a clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable (see the [schema checklist](#schema-checklist) for guidance).
++ An understanding of the data you want to index. A search index is based on external content that you want to make searchable. Searchable content is stored as fields in an index. You should have a clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable (see the [schema checklist](#schema-checklist) for guidance).
 
-  You must also have a unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
++ You must also have a unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
-+ A stable index location. Moving an existing index to a different search service isn't supported out-of-the-box. Revisit application requirements and make sure that your existing search service, its capacity and location, are sufficient for your needs.
++ A stable index location. Moving an existing index to a different search service isn't supported out-of-the-box. Revisit application requirements and make sure that your existing search service (capacity and location), are sufficient for your needs.
 
-+ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you're experimenting on the Free tier, you can only have three indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
++ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you're experimenting on the Free tier, you can only have three indexes at any given time. Within the index itself, there are [limits on vectors](search-limits-quotas-capacity.md#vector-index-size-limits) and [index limits](search-limits-quotas-capacity.md#index-limits) on the number of simple and complex fields.
 
 ## Document keys
 
-A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure AI Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
+A search index has two requirements: it must have a name and a document key. 
+
+A document key is the unique identifier of a search document, and a search document is a collection of fields that completely describes something. For example, if you're indexing a [movies data set](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows), a search document contains the title, genre, and duration of a single movie.
+
+In Azure AI Search, a document key must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service doesn't generate key values, but in some scenarios (such as the [Azure table indexer](search-howto-indexing-azure-tables.md)) it synthesizes existing values to create a unique key for the documents being indexed.
 
 During incremental indexing, where new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
@@ -44,32 +44,44 @@ Use this checklist to assist the design decisions for your search index.
 
 1. Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
 
-1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type affects how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
+1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type affects how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine. The most common data type for a vector field is `Edm.Single` but you can use other types as well.
 
 1. Identify a [document key](#document-keys). A document key is an index requirement. It's a single string field and it's populated from a source data field that contains unique values. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key because it uniquely identifies each blob in the container.
 
-1. Identify the fields in your data source that contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
+1. Identify the fields in your data source that contribute searchable content in the index.
+
+   Searchable nonvector content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized. 
+
+   Searchable vector content can be images or text (in any language) that exists as a mathematical representation. You can use narrow data types or vector compression to make vector fields smaller.
 
    [Field attribute assignments](search-what-is-an-index.md#index-attributes) determine both search behaviors and the physical representation of your index on the search service. Determining how fields should be specified is an iterative process for many customers. To speed up iterations, start with sample data so that you can drop and rebuild easily.
 
 1. Identify which source fields can be used as filters. Numeric content and short text fields, particularly those with repeating values, are good choices. When working with filters, remember:
 
+   + Filters can be used in vector and nonvector queries, but the filter itself is applied alphanumeric (nonvector) fields in your index.
+
    + Filterable fields can optionally be used in faceted navigation.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-1. Determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. 
+1. For vector fields, specify a vector search configuration and the algorithms used for creating navigation paths and filling the embedding space. For more information, see [Add vector fields](vector-search-how-to-create-index.md).
+
+   Vector fields have extra properties that nonvector fields don't have, such as which algorithms to use and vector compression.
+
+   Vector fields omit attributes that aren't useful on vector data, such as sorting, filtering, and faceting. 
+
+1. For nonvector fields, determine whether to use the default analyzer (`"analyzer": null`) or a different analyzer. [Analyzers](search-analyzers.md) are used to tokenize text fields during indexing and query execution. 
 
    For multi-lingual strings, consider a [language analyzer](index-add-language-analyzers.md).
 
    For hyphenated strings or special characters, consider [specialized analyzers](index-add-custom-analyzers.md#built-in-analyzers). One example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This behavior is useful for data like zip codes, IDs, and some product names. For more information, see [Partial term search and patterns with special characters](search-query-partial-matching.md).
 
 > [!NOTE]
-> Full text search is conducted over terms that are tokenized during indexing. If your queries fail to return the results you expect, [test for tokenization](/rest/api/searchservice/test-analyzer) to verify the string actually exists. You can try different analyzers on strings to see how tokens are produced for various analyzers.
+> Full text search is conducted over terms that are tokenized during indexing. If your queries fail to return the results you expect, [test for tokenization](/rest/api/searchservice/indexes/analyze) to verify the string you're searchin for actually exists. You can try different analyzers on strings to see how tokens are produced for various analyzers.
 
 ## Create an index
 
-When you're ready to create the index, use a search client that can send the request. You can use the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create the index, use a search client that can send the request. You can use the Azure portal or REST APIs for early development and proof-of-concept testing, otherwise it's common to use the Azure SDKs.
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
@@ -79,10 +91,12 @@ Index design through the portal enforces requirements and schema rules for speci
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
+1. Check for space. Search services are subject to [maximum number of indexes](search-limits-quotas-capacity.md), varying by service tier. Make sure you have room for a second index.
+
 1. In the search service Overview page, choose either option for creating a search index: 
 
    + **Add index**, an embedded editor for specifying an index schema
-   + [**Import data wizard**](search-import-data-portal.md)
+   + [**Import wizards**](search-import-data-portal.md)
 
    The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
 
@@ -95,7 +109,7 @@ The following screenshot highlights where **Add index** and **Import data** appe
 
 ### [**REST**](#tab/index-rest)
 
-[**Create Index (REST API)**](/rest/api/searchservice/create-index) is used to create an index. You need a REST client to connect to your search service and send requests. See [Quickstart: Text search using REST](search-get-started-rest.md) to get started.
+[**Create Index (REST API)**](/rest/api/searchservice/indexes/create) is used to create an index. You need a REST client to connect to your search service and send requests. See [Quickstart: Full text search using REST](search-get-started-rest.md) or [Quickstart: Vector search using REST](search-get-started-vector.md) to get started.
 
 The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
@@ -192,7 +206,7 @@ The following properties can be set for CORS:
 
 ## Allowed updates on existing indexes
 
-[**Create Index**](/rest/api/searchservice/create-index) creates the physical data structures (files and inverted indexes) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
+[**Create Index**](/rest/api/searchservice/indexes/create) creates the physical data structures (files and inverted indexes) on your search service. Once the index is created, your ability to effect changes using [**Create or Update Index**](/rest/api/searchservice/indexes/create-or-update) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
 
 Alternatively, you can [create an index alias](search-how-to-alias.md) that serves as a stable reference in your application code. Instead of updating your code, you can update an index alias to point to newer index versions.
 
@@ -205,6 +219,7 @@ To minimize churn in the design process, the following table describes which ele
 | Field names and types | No |
 | Field attributes (searchable, filterable, facetable, sortable) | No |
 | Field attribute (retrievable) | Yes |
+| Stored (applies to vectors) | No |
 | [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify `searchAnalyzer`. All other assignments and modifications require a rebuild. |
 | [Scoring profiles](index-add-scoring-profiles.md) | Yes |
 | [Suggesters](index-add-suggesters.md) | No |
@@ -216,5 +231,7 @@ To minimize churn in the design process, the following table describes which ele
 Use the following links to become familiar with loading an index with data, or extending an index with a synonyms map.
 
 + [Data import overview](search-what-is-data-import.md)
-+ [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 
++ [Add vector fields](vector-search-how-to-create-index.md)
++ [Load documents](search-how-to-load-search-index.md)
++ [Update an index](search-howto-reindex.md)
 + [Synonym maps](search-synonyms.md)

@@ -203,7 +203,7 @@ api-key: {{admin-api-key}}
 
 **Key points:**
 
-+ Semantic ranking accepts up to 50 results from the merged response. Set "k" and "top" to 50 for equal representation of both queries.
++ Semantic ranking accepts up to 50 results from the merged response.
 
 + "queryType" and "semanticConfiguration" are required.
 
@@ -338,14 +338,28 @@ The examples in this article used a "select" statement to specify text (nonvecto
 
 ### Number of results
 
-A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the response:
+A query might match to any number of documents, as many as all of them if the search criteria are weak (for example "search=*" for a null query). Because it's seldom practical to return unbounded results, you should specify a maximum for the *overall response*:
 
++ `"top": n` results for keyword-only queries (no vector)
 + `"k": n` results for vector-only queries
-+ `"top": n` results for hybrid queries that include a "search" parameter
++ `"top": n` results for hybrid queries (with or without semantic) that include a "search" parameter
 
 Both "k" and "top" are optional. Unspecified, the default number of results in a response is 50. You can set "top" and "skip" to [page through more results](search-pagination-page-layout.md#paging-results) or change the default.
 
-If you're using semantic ranking, it's a best practice to set both "k" and "top" to at least 50. The semantic ranker can take up to 50 results. By specifying 50 for each query, you get equal representation from both search subsystems.
+> [!NOTE]
+> If you're using hybrid search in 2024-05-01-preview API, you can control the number of results from the keyword query using [maxTextRecallSize](#set-maxtextrecallsize-and-countandfacetmode-preview). Combine this with a setting for "k" to control the representation from each search subsystem (keyword and vector).
+
+#### Semantic ranker results
+
+> [!NOTE]
+> The semantic ranker can take up to 50 results. 
+
+If you're using semantic ranking in 2024-05-01-preview API, it's a best practice to set "k" and "maxTextRecallSize" to sum to at least 50 total.  You can then restrict the results returned to the user with the "top" parameter. 
+
+If you're using semantic ranking in previous APIs do the following:
+
++ if doing keyword-only search (no vector) set "top" to 50
++ if doing hybrid search set "k" to 50, to ensure that the semantic ranker gets at least 50 results. 
 
 ### Ranking
 

@@ -142,11 +142,6 @@ To use the Image Analysis APIs, you must create your Azure AI Vision resource in
 | Japan East |  ✅ |  |  | ✅ | |
 
 
-
-### Query rates
-
-tbd
-
 ## Data privacy and security
 
 As with all of the Azure AI services, developers using the Azure AI Vision service should be aware of Microsoft's policies on customer data. See the [Azure AI services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.

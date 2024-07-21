@@ -3,7 +3,7 @@ title: Create and publish Azure Managed Application in service catalog
 description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 05/29/2024
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition

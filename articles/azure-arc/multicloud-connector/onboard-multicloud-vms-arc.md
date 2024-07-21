@@ -24,7 +24,7 @@ In addition to the [general prerequisites](connect-to-aws.md#prerequisites) for 
 - You must have **AmazonEC2FullAccess** permissions in your public cloud.
 - EC2 instances must meet the [general prerequisites for installing the Connected Machine agent](../servers/prerequisites.md).
 - EC2 instances must have the SSM agent installed. Most EC2 instances have this preconfigured.
-- EC2 instances must have a tag with the key of `arc` (case-sensitive) and empty value. This tag can be assigned manually or via a policy.
+- EC2 instances must have a tag with the key of `arc` and any value. This tag can be assigned manually or via a policy.
 - The **ArcForServerSSMRole** IAM role [attached on each EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role). This role attachment must be done after you upload your Cloud Formation Template in the Connector creation steps.
 
 ## AWS resource representation in Azure

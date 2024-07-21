@@ -545,7 +545,7 @@ To address the situations where the VM SKU is not found or there is a capacity i
 
 Selected virtual machine can't be moved to availability zone due to insufficient quota.
 
-**Recommended Action:** In-sufficient quota found. Refer to link and contact [support](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**Recommended Action:** In-sufficient quota found. Refer to link and contact [support](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 

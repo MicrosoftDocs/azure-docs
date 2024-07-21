@@ -7,7 +7,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -97,7 +97,7 @@ Learn more: [Send a sign out request](./openid-connect.md#send-a-sign-out-reques
 
 For the following instructions, use the directory that contains your Azure AD B2C tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as Global Administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as at least B2C IEF Policy Administrator of your Azure AD B2C tenant.
 2. In the portal toolbar, select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.

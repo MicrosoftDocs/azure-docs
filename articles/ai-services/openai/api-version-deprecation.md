@@ -5,7 +5,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 05/20/2024
+ms.date: 07/09/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure OpenAI API preview lifecycle
 
-This article is to help you understand the support lifecycle for the Azure OpenAI API previews. New preview APIs target a monthly release cadence. After July 1, 2024, the latest three preview APIs will remain supported while older APIs will no longer be supported unless support is explicitly indicated.
+This article is to help you understand the support lifecycle for the Azure OpenAI API previews. New preview APIs target a monthly release cadence. After February 3rd, 2025, the latest three preview APIs will remain supported while older APIs will no longer be supported unless support is explicitly indicated.
 
 > [!NOTE]
 > The `2023-06-01-preview` API will remain supported at this time, as `DALL-E 2` is only available in this API version. `DALL-E 3` is supported in the latest API releases. The `2023-10-01-preview` API will also remain supported at this time.
@@ -54,22 +54,9 @@ This version contains support for the latest Azure OpenAI features including:
 
 ## Latest GA API release
 
-Azure OpenAI API version [2024-02-01](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json)
-is currently the latest GA API release. This API version is the replacement for the previous`2023-05-15` GA API release.
+Azure OpenAI API version [2024-06-01](./reference.md) is currently the latest GA API release. This API version is the replacement for the previous`2024-02-01` GA API release.
 
 This version contains support for the latest GA features like Whisper, DALL-E 3, fine-tuning, on your data, etc. Any preview features that were released after the `2023-12-01-preview` release like Assistants, TTS, certain on your data datasources, are only supported in the latest preview API releases.
-
-## Retiring soon
-
-On July 1, 2024 the following API preview releases will be retired and will stop accepting API requests:
-
-- 2023-03-15-preview
-- 2023-07-01-preview
-- 2023-08-01-preview
-- 2023-09-01-preview
-- 2023-12-01-preview
-
-To avoid service disruptions, you must update to use the latest preview version before the retirement date.
 
 ## Updating API versions
 

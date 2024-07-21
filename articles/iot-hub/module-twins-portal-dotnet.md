@@ -32,9 +32,9 @@ In this article, you will learn how to:
 
 * Visual Studio.
 
-* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 ## Module authentication
 
@@ -78,7 +78,7 @@ To create an app that updates the module twin, reported properties, follow these
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
-Module identity and module twin is only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
+The module identity and module twin features are only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
 
 1. In Visual Studio, open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**.
 

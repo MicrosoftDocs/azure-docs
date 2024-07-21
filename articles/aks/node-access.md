@@ -6,7 +6,6 @@ ms.subservice: aks-security
 ms.date: 01/08/2024
 author: nickomang
 ms.author: nickoman
-
 ms.reviewer: mattmcinnes
 ms.custom:
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -291,4 +290,4 @@ To learn about managing your SSH keys, see [Manage SSH configuration][manage-ssh
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [agent-pool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
-[azure-bastion-linux]:../bastion/bastion-connect-vm-ssh-linux.md
+[azure-bastion-linux]: /azure/bastion/bastion-connect-vm-ssh-linux

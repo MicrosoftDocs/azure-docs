@@ -33,7 +33,7 @@ items:
     items:
   - name: Agent-based migration
     items:
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Migrate VMware vSphere VMs with agent-based migration
       href: tutorial-migrate-vmware-agent.md    

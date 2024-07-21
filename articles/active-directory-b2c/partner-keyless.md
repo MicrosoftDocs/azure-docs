@@ -7,7 +7,8 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
+
 ms.author: gasinh
 ms.subservice: B2C
 
@@ -61,7 +62,7 @@ Use the following sections to add an IdP, configure the IdP, and create a user f
 
 To add a new Identity provider:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator of the Azure AD B2C tenant. 
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as at least B2C IEF Policy Administrator of the Azure AD B2C tenant. 
 2. Select **Directories + subscriptions**.
 3. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
 4. Select **Switch**.
