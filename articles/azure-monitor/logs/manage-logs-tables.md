@@ -4,7 +4,7 @@ description: Learn how to manage table settings in a Log Analytics workspace bas
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 07/04/2024
+ms.date: 07/21/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to understand how table properties work and how to view and manage table properties so that I can manage the data and costs related to a Log Analytics workspace effectively.
 
 ---
@@ -37,9 +37,9 @@ Your Log Analytics workspace can contain the following types of tables:
 [Configure a table's plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
 - The **Analytics** plan is suited for continuous monitoring, real-time detection, and performance analytics. This plan makes log data available for interactive multi-table queries and use by features and services for 30 days to two years.  
 - The **Basic** plan is suited for troubleshooting and incident response. This plan offers discounted ingestion and optimized single-table queries for 30 days. 
-- The **Auxiliary** plan is suited for low-touch data, such as verbose logs, and data required for auditing and compliance. This plans offers low-cost ingestion and unoptimized single-table queries for 30 days.
+- The **Auxiliary** plan is suited for low-touch data, such as verbose logs, and data required for auditing and compliance. This plan offers low-cost ingestion and unoptimized single-table queries for 30 days.
 
-For full details about Azure Monitor Logs table plans, see [Azure Montior Logs: Table plans](../logs/data-platform-logs.md#table-plans).
+For full details about Azure Monitor Logs table plans, see [Azure Monitor Logs: Table plans](../logs/data-platform-logs.md#table-plans).
 
 ### Long-term retention
 
