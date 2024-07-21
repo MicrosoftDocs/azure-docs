@@ -7,7 +7,7 @@ ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
-# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including archived and basic logs.
+# Customer intent: As a data scientist or workspace administrator, I want an efficient way to search through large volumes of data in a table, including data in long-term retention.
 ---
 
 # Run search jobs in Azure Monitor
@@ -24,13 +24,12 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.
 
-Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
+Search jobs also let you retrieve records from [long-term retention](data-retention-archive.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analaytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
 
-- [Restoring data from Archived Logs](restore.md) for a specific time range.<br/>
-    Use restore when you have a temporary need to run many queries on a large volume of data. 
+- [Restoring data from long-term retention](restore.md) for a specific time range. 
 
-- Querying Basic Logs directly and paying for each query.<br/>
-    To determine which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of running a search job and storing the search job results.
+- Querying Basic and Auxiliary tables directly and paying for each query.<br/>
+    To determine which alternative is more cost-effective, compare the cost of querying Basic and Auxiliary tables with the cost of running a search job and storing the search job results.
 
 ## What does a search job do?
 
@@ -282,5 +281,5 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 ## Next steps
 
 - [Learn more about data retention and archiving data.](data-retention-archive.md)
-- [Learn about restoring data, which is another method for retrieving archived data.](restore.md)
-- [Learn about directly querying Basic Logs.](basic-logs-query.md)
+- [Learn about restoring data, which is another method for retrieving data from long-term retention.](restore.md)
+- [Learn about directly querying Basic and Auxiliary tables.](basic-logs-query.md)
