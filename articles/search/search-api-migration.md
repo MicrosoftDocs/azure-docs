@@ -43,7 +43,7 @@ Azure AI Search breaks backward compatibility as a last resort. Upgrade is neces
 
 ## How to upgrade
 
-In your application code that makes direct calls to the REST APIs, modify the `api-version` parameter on the requst header. For more information about structuring a REST call, see [Quickstart: using REST](search-get-started-rest.md#set-up-visual-studio-code).
+The `api-version` parameter is specified in the request header. In your application code that makes direct calls to the REST APIs, search for all instances of the existing version and then replace it with the new version. For more information about structuring a REST call, see [Quickstart: using REST](search-get-started-rest.md#set-up-visual-studio-code).
 
 If you're using an Azure SDK, those packages target specific versions of the REST API. Package updates might coincide with a REST API update, but each SDK is on it's own release schedule that ships independently of Azure AI Search REST API versions. Check the change log of your SDK package to determine whether a package release targets the latest REST API version.
 
