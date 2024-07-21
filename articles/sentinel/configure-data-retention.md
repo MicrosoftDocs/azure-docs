@@ -14,13 +14,13 @@ ms.custom: template-tutorial
 
 In this tutorial, you'll set a retention policy for a table in your Log Analytics workspace that you use for Microsoft Sentinel or Azure Monitor. These steps allow you to keep older, less used data in your workspace at a reduced cost.
 
-Retention policies in a Log Analytics workspace define when to migrate data tables in the workspace to low-cost, minimal-access *auxiliary retention* (formerly known as archive) plans. By default, all tables in your workspace inherit the workspace's *interactive retention* setting and have no auxiliary retention (archive) policy. You can modify the interactive and auxiliary retention policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
+Retention policies in a Log Analytics workspace define when to transition old records in data tables in the workspace to the low-cost, minimal-access *long-term retention* (formerly known as archive) state. By default, all tables in your workspace inherit the workspace's *interactive retention* setting and have no long-term retention (archive) policy. You can modify the interactive and long-term retention policies of individual tables, except for workspaces in the legacy Free Trial pricing tier.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Set the retention policy for a table
-> * Review interactive and auxiliary retention policies
+> * Review interactive and long-term retention policies
 
 ## Prerequisites
 
@@ -36,9 +36,9 @@ To complete the steps in this tutorial, you must have the following resources an
 
 - Log Analytics workspace.
 
-## Review interactive and auxiliary retention policies
+## Review interactive and long-term retention policies
 
-On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention period**. The auxiliary retention (archive) period equals the total retention period in days minus the interactive retention in days. For example, you set the following values:
+On the **Tables** page for the table you updated, review the field values for **Interactive retention** and **Total retention period**. The long-term retention (archive) period equals the total retention period in days minus the interactive retention in days. For example, you set the following values:
 
    | Field | Value |
    | ----- | ----- |
@@ -51,7 +51,7 @@ So the **Tables** page shows the following an archive period of 310 days.
 
 ## Set the retention policy for a table
 
-In your Log Analytics workspace, clear the **Use default workspace settings** setting if you want to change the interactive retention period from its default of 31 days (90 days for Microsoft Sentinel workspaces). Then, change the total retention policy for a table like **SecurityAlert** to 3 years of data. The *total retention* period is the sum of the *interactive* and *auxiliary* (archive) retention periods.
+In your Log Analytics workspace, clear the **Use default workspace settings** setting if you want to change the interactive retention period from its default of 90 days (for Microsoft Sentinel workspaces) or 31 days (for other workspaces). Then, change the total retention policy for a table like **SecurityAlert** to 3 years of data. The *total retention* period is the sum of the *interactive* and *auxiliary* (archive) retention periods.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, search for and open **Log Analytics workspaces**.

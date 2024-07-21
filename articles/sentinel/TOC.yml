@@ -31,10 +31,8 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
-  - name: Plan data retention and archive
-    href: ../azure-monitor/logs/data-retention-archive.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-  - name: Select table plans based on data usage
-    href: ../azure-monitor/logs/basic-logs-configure.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Plan interactive and long-term data retention
+    href: log-plans.md
   - name: Plan costs
     href: billing.md
   - name: Availability and support
@@ -61,7 +59,7 @@
     href: use-multiple-workspaces.md
   - name: Enable User and Entity Behavior Analytics (UEBA)
     href: enable-entity-behavior-analytics.md
-  - name: Configure data retention and archive 
+  - name: Configure interactive and long-term data retention 
     href: configure-data-retention-archive.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
