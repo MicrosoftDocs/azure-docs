@@ -129,7 +129,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
       | Assign access to | User, group, or service principal |
       | Members | Your Data Factory username |
 
-      :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows the page for adding a role assignment in the Azure portal.":::
+      :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot that shows the page for adding a role assignment in the Azure portal.":::
 
 7. Validate your data factory and all pipeline settings by selecting **Validate all** or **Validate** on the factory or pipeline toolbar. Close **Factory Validation Output** or **Pipeline Validation Output** by selecting the double arrow (**>>**) button.  
 
