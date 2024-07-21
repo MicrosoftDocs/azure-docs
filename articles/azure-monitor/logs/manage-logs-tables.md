@@ -86,8 +86,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.plan | string  | The table plan. Either `Analytics` or `Basic`. |
-|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is eight days, fixed. In `Analytics Logs`, the value is between four and 730 days.|
+|properties.plan | string  | The table plan. `Analytics`, `Basic`, or `Auxiliary`. |
+|properties.retentionInDays | integer  | The table's interactive retention in days. For `Basic` and `Auxiliiary`, this value is 30 days. For `Analytics`, the value is between four and 730 days.|
 |properties.totalRetentionInDays | integer  | The table's total data retention, including interactive and long-term retention.|
 |properties.archiveRetentionInDays|integer|The table's long-term retention period (read-only, calculated).|
 |properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
