@@ -191,13 +191,13 @@ It is not necessary to resolve all cases of data skew. Distributing data is a ma
 
 To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload. You can use the steps in the [Query monitoring](sql-data-warehouse-manage-monitor.md) article to monitor the effect of skew on query performance. Specifically, look for how long it takes large queries to complete on individual distributions.
 
-Since you cannot change the distribution columns on an existing table, the typical way to resolve data skew is to re-create the table with a different distribution columns.
+Since you cannot change the distribution columns on an existing table, the typical way to resolve data skew is to re-create the table with different distribution columns.
 
 <a id="re-create-the-table-with-a-new-distribution-column"></a>
 
 ### Re-create the table with a new distribution column set
 
-This example uses [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to re-create a table with a different hash distribution column or columns.
+This example uses [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to re-create a table with different hash distribution columns.
 
 First use `CREATE TABLE AS SELECT` (CTAS) the new table with the new key. Then re-create the statistics and finally, swap the tables by renaming them.
 
