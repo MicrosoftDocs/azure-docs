@@ -28,25 +28,31 @@ The following are scenarios that require splitting an Azure Monitor workspace in
     When working with more than one sovereign cloud, create an Azure Monitor workspace in each cloud.
 
 - Compliance or regulatory requirements.   
-    You may be subject to regulations that mandate the storage of data in specific regions. Create an Azure Monitor workspace per region as per your requirements. 
+    If you're subject to regulations that mandate the storage of data in specific regions. Create an Azure Monitor workspace per region as per your requirements. 
+
 - Regional scaling.  
-    When you need to manage metrics for regionally diverse organizations such as large services or financial institutions with regional accounts, create an Azure Monitor workspace per region.
+    When you're managing metrics for regionally diverse organizations such as large services or financial institutions with regional accounts, create an Azure Monitor workspace per region.
+
 - Azure tenants.
     For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Querying data across tenants isn't supported.
-- Deployment environments.
-    Create a separate workspace for each of your deployment environments to maintain discrete metrics for development, test, pre-production, and production environments.
-- Service limits and quotas
-  There's no degradation in performance in terms of availability and efficiency due to the volume of data in your Azure Monitor workspace. Multiple services can send data to the same workspace simultaneously. There is however, a limit on how much data can be ingested into an workspace. If the volume of ingestion is expected to be more than 1 Bn active time series or 1 Bn events/min, consider using multiple workspaces to meet that scale. 
+
+- Deployment environments  
+    Create a separate workspace for each of your deployment environments to maintain discrete metrics for development, test, preproduction, and production environments.
+
+- Service limits and quotas   
+  **Azure Monitor workspaces are built for hyperscale. There's no reduction in performance in terms of availability and efficiency due to the amount of data in your Azure Monitor workspace. Multiple services, apps, and clusters can send data to the same workspace simultaneously. Azure Monitor workspaces start with default limits and quotas, but these limits can be increased via support tickets to support your scale needs as you grow. For customers operating at large scale, such as 100Mn+ events/min or time series, we recommend you contact your Azure representative.  
+.  
+  Duplicated below - rework**
 
 ## Service limits and quotas
 
-Azure Monitor workspaces have default quotas and limitations for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity requirements are exceptionally large and your data ingestion needs can no longer be met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. Use the Azure monitor workspace platform metrics to monitor utilization and limits. For more information on limits and quotas, see [Azure Monitor service limits and quotas](/azure/azure-monitor/service-limits#prometheus-metrics).
+Azure Monitor workspaces have default quotas and limitations for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity requirements are exceptionally large and your data ingestion needs are not met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. Use the Azure monitor workspace platform metrics to monitor utilization and limits. For more information on limits and quotas, see [Azure Monitor service limits and quotas](/azure/azure-monitor/service-limits#prometheus-metrics).
 
 Consider the following best practices for managing Azure Monitor workspace limits ????:
 
 ### Monitor and create an alert on Azure Monitor workspace ingestion limits and utilization
 
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to Metrics and verify that the metrics Active Time Series % Utilization and Events Per Minute Ingested % Utilization are below 100%. Set an Azure Monitor Alert to monitor the utilization and fire when the utilization is greater than 80% of the limit. For mor information on monitoring utilization and limits, see [How can I monitor the service limits and quotas](/azure/azure-monitor/essentials/prometheus-metrics-overview#how-can-i-monitor-the-service-limits-and-quota)
+In the Azure portal, navigate to your Azure Monitor Workspace. Go to Metrics and verify that the metrics Active Time Series % Utilization and Events Per Minute Ingested % Utilization are below 100%. Set an Azure Monitor Alert to monitor the utilization and fire when the utilization is greater than 80% of the limit. For more information on monitoring utilization and limits, see [How can I monitor the service limits and quotas](/azure/azure-monitor/essentials/prometheus-metrics-overview#how-can-i-monitor-the-service-limits-and-quota)
 
 ### Request for a limit increase when the utilization is more than 80% of the current limit
 
@@ -55,12 +61,14 @@ As your Azure usage grows, the volume of data ingested is likely to increase. We
 
 ### Estimate your projected scale
 
-As your usage grows and you ingest into your workspace, make an estimate of the projected scale and rate of growth. Based on your projections, request an increase in the limit.
+As your usage grows and you ingest more metrics into your workspace, make an estimate of the projected scale and rate of growth. Based on your projections, request an increase in the limit.
 
 ### Ingestion with Remote-write 
 
-If you're using the Azure monitor side-car container and remote-write to ingest metrics into an Azure Monitor wporkspace, Considder the following 
+If you're using the Azure monitor side-car container and remote-write to ingest metrics into an Azure Monitor workspace, consider the following:
+
 - The side-car container can process up to 150,000 unique time series. 
+
 - The container might throw errors serving requests over 150,000 due to the high number of concurrent connections. Mitigate this issue by increasing the remote batch size from the 500 default, to 1,000. Changing the remote batch size reduces the number of open connections.
  
 ### DCR/DCE limits
@@ -75,13 +83,13 @@ Limits apply to the data collection rules (DCR) and data collection endpoints (D
 To optimize ingestion, consider the following best practices:
 
 - Identify High cardinality Metrics.  
-  Identify metrics that have a high cardinality (or are generating a lot of timeseries). Once you have identified high-cardinality metrics, you can then optimize them to reduce the number of timeseries by dropping unnecessary labels.
+  Identify metrics that have a high cardinality, or are generating many time series. Once you identify high-cardinality metrics, you can then optimize them to reduce the number of time series by dropping unnecessary labels.
 
 - Use Prometheus config to optimize ingestion.  
-  Azure Managed Prometheus provides Configmaps which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) These configurations follow the same format as the Prometheus configuration file.  
-FOr information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration). For example, consider the following:
+  Azure Managed Prometheus provides Configmaps, which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) These configurations follow the same format as the Prometheus configuration file.  
+For information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration). For example, consider the following:
     -  **Tune Scrape Intervals**. The default scrape frequency is 30 seconds, which can be changed per default target using the configmap. Adjust the `scrape_interval` and `scrape_timeout` based on the criticality of metrics to balance the trade-off between data granularity and resource usage. 
-    - **Drop unnecessary labels for high cardinality metrics**. For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of timeseries. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).
+    - **Drop unnecessary labels for high cardinality metrics**. For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of time series. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).
 
 Use the configmap, changing the settings as required, and apply the configmap to kube-system namespace for your cluster. If you're using remote-writing into and Azure Monitor workspace, apply the customizations during ingestion directly in your Prometheus configuration
 
@@ -91,21 +99,21 @@ To optimize queries, consider the following best practices:
 
 #### Using Recording rules to optimize query
 
-Prometheus recording rules are used to pre-compute frequently needed or computationally expensive queries, making them more efficient and faster to query later. This is especially useful for high volume metrics where querying raw data can be slow and resource-intensive. For more information, see [Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules). Azure Managed Prometheus provides a managed and scalable way to create and update recording rules with the help of [Azure Managed Prometheus Rule Groups.](azure/azure-monitor/essentials/prometheus-rule-groups#rule-types)
-To make the recording rules faster, you can also limit them in scope to a specific cluster. For more information see [Limiting rules to a specific cluster](/azure/azure-monitor/essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster).
+Prometheus recording rules are used to precompute frequently needed or computationally expensive queries, making them more efficient and faster to query later. Recording rules are especially useful for high volume metrics where querying raw data can be slow and resource-intensive. For more information, see [Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules). Azure Managed Prometheus provides a managed and scalable way to create and update recording rules with the help of [Azure Managed Prometheus Rule Groups.](azure/azure-monitor/essentials/prometheus-rule-groups#rule-types)
+To make the recording rules faster, you can also limit them in scope to a specific cluster. For more information, see [Limiting rules to a specific cluster](/azure/azure-monitor/essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster).
 
 Recording rules have the following benefits:
 
 
 - **Reduce resource consumption**.
-    Recording rules reduce the load on Prometheus by pre-computing complex queries.
+    Recording rules reduce the load on Prometheus by precomputing complex queries.
 
 - **Improve query performance**.  
-  Recording rules can be used to pre-compute complex queries, making them faster to query later.
+  Recording rules can be used to precompute complex queries, making them faster to query later.
 
 - **Performance**. Precomputing complex queries reduces the load on Prometheus when these metrics are queried.
 
-- **Efficiency and Reduced query time**.  Recording rules pre-compute the query results, reducing the time taken to query the data. This is especially useful for dashboards with multiple panels or high cardinality metrics.
+- **Efficiency and Reduced query time**  Recording rules precompute the query results, reducing the time taken to query the data. This is especially useful for dashboards with multiple panels or high cardinality metrics.
 
 - **Simplicity**. Recording rules Simplify queries in Grafana or other visualization tools, as they can reference precomputed metrics.
  
@@ -118,7 +126,7 @@ The following example shows a recording rule as defined in Azure Managed Prometh
 "enabled": true
 ```
 
-For more complex metrics, you can create recording rules that aggregate multiple metrics or perform more advanced calculations. In the following example, `instance:node_cpu_utilisation:rate5m` computes the cpu utilization when the cpu is not idle
+For more complex metrics, you can create recording rules that aggregate multiple metrics or perform more advanced calculations. In the following example, `instance:node_cpu_utilisation:rate5m` computes the cpu utilization when the cpu isn't idle
 
 ```yaml
 "record": "instance:node_cpu_utilisation:rate5m",
@@ -138,7 +146,7 @@ For more complex metrics, you can create recording rules that aggregate multiple
 
 #### Create Recording rules with Azure Managed Prometheus
 
-To create recording rules for Prometheus metrics, create an Azure Managed Prometheus rule group. \For more information on creating rule ,see [Rule groups in Azure Monitor Managed Service for Prometheus](/azure/azure-monitor/essentials/prometheus-rule-groups).
+To create recording rules for Prometheus metrics, create an Azure Managed Prometheus rule group. \For more information on creating rule, see [Rule groups in Azure Monitor Managed Service for Prometheus](/azure/azure-monitor/essentials/prometheus-rule-groups).
   
 Once the rule groups are created, Azure Managed Prometheus automatically loads and starts evaluating them.
 
@@ -151,14 +159,14 @@ Once the recording rules have been created, you can query them from the Azure Mo
 
 Optimizing Prometheus queries using filters involves refining the queries to return only the necessary data, reducing the amount of data processed and improving performance. The following are some common techniques to refine Prometheus queries.
 
-- Use label filters. Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit timeseries is to use the “cluster” filter.  
+- Use label filters. Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit time series is to use the `cluster` filter.  
 
   For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`
 
 - Apply time range selectors.
 Using specific time ranges can significantly reduce the amount of data queried.
 
-    For example, instead of querying all data points for the last 7 days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`
+    For example, instead of querying all data points for the last seven days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`
 
 - Use aggregation and grouping. Aggregation functions can be used to summarize data, which can be more efficient than processing raw data points. When aggregating data, use `by` to group by specific labels, or `without` to exclude specific labels.
 
@@ -172,7 +180,7 @@ Using specific time ranges can significantly reduce the amount of data queried.
 
     For example, instead of `http_requests_total{job=~"myapp.*"}`, use `http_requests_total{job="myapp"}`
 
-- Use offset for historical data. If you are comparing current data with historical data, use the offset modifier.
+- Use offset for historical data. If you're comparing current data with historical data, use the offset modifier.
     
     For example, for current requests verses requests from 24 hours ago use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`
 
@@ -191,17 +199,17 @@ Running a high number of parallel queries in Prometheus can lead to performance 
 -	Staggered Queries 
      Schedule queries to run at different intervals to avoid peaks of simultaneous query executions.
 
-If you are still seeing issues with running many parallel queries, create a support ticket to request an increase in the query limits.
+If you're still seeing issues with running many parallel queries, create a support ticket to request an increase in the query limits.
 
 
 ### Alerts and recording rules
 
 #### Optimizing alerts and recording rules for high scale
 
-Prometheus alerts and recording rules can be defined as Prometheus rule groups. One rule group can contain up to twenty alerts or recording rules. Create upt to 500 rule groups for each workspace to accommodate the number of alerts/rules required. To raise this limit, open a support ticket
+Prometheus alerts and recording rules can be defined as Prometheus rule groups. One rule group can contain up to 20 alerts or recording rules. Create up to 500 rule groups for each workspace to accommodate the number of alerts/rules required. To raise this limit, open a support ticket
 
-When defining the recording rules, take into account the evaluation interval to optimize the number of timeseries per rule and the performance of rule evaluations. Evaluation intervals can be between 1 minute and 24 hours. The default is 1 minute.
+When defining the recording rules, take into account the evaluation interval to optimize the number of time series per rule and the performance of rule evaluations. Evaluation intervals can be between 1 minute and 24 hours. The default is 1 minute.
 
 ### Use Resource Health to view queries from recording rule status
 
-Setup Resource Health to view the health of your Prometheus rule group in the portal. Resource Health allows you to detect problems in your recording rules, such as incorrect configuration, or query throttling problems. For more information on setting up Resource Health, see [View the resource health states of your Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups#view-the-resource-health-states-of-your-prometheus-rule-groups)
+Set up Resource Health to view the health of your Prometheus rule group in the portal. Resource Health allows you to detect problems in your recording rules, such as incorrect configuration, or query throttling problems. For more information on setting up Resource Health, see [View the resource health states of your Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups#view-the-resource-health-states-of-your-prometheus-rule-groups)
