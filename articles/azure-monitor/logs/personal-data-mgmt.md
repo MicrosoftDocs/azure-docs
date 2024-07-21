@@ -91,7 +91,11 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 
 Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
 
+> [!NOTE]
+> You can't use the Log Analytics query API on that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans). Instead, use the [Log Analytics /search API](basic-logs-query.md#api).
+
 You need to implement the logic for converting the data to an appropriate format for delivery to your users. [Azure Functions](https://azure.microsoft.com/services/functions/) is a great place to host such logic.
+
 
 ### Delete
 
@@ -117,7 +121,7 @@ To manage system resources, we limit purge requests to 50 requests an hour. Batc
     ```
 
 > [!NOTE]
-> You cannot purge data from tables that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans).
+> You can't purge data from tables that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans).
 
 #### Application data
 
