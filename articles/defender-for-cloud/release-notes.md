@@ -52,6 +52,8 @@ Labels that are already configured to **Items -> files**, will automatically mig
 
 The second condition isn't affected and the label must still have an automatic labeling rule configured.
 
+Learn more about [setting the threshold for sensitive data labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels).
+
 ### Sensitivity label consent changes 
 
 **Estimated date for change**: August 29, 2024 
