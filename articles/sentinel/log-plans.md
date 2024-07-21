@@ -78,7 +78,7 @@ Microsoft Sentinel provides two different log storage plans, or types, to accomm
 
 - **Auxiliary logs** are designed to store secondary security data at very low cost for long periods of time, while still allowing for limited accessibility.
 
-    There is a third plan, known as **Basic logs**, that provide similar functionality to auxiliary logs, but at a higher cost (though not as high as analytics logs). While the auxiliary logs plan remains in preview, basic logs can be an option for long-term, low-cost retention if your organization doesn't use preview features.
+    There is a third plan, known as **Basic logs**, that provides similar functionality to auxiliary logs, but at a higher cost (though not as high as analytics logs). While the auxiliary logs plan remains in preview, basic logs can be an option for long-term, low-cost retention if your organization doesn't use preview features.
 
 :::image type="content" source="media/log-plans/analytics-auxiliary-log-plans.png" alt-text="Diagram of available log plans in Microsoft Sentinel.":::
 

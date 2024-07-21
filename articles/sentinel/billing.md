@@ -73,7 +73,7 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
     To set and change your Commitment tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
-#### Basic logs and Auxiliary logs
+#### Auxiliary logs and Basic logs
 
 Basic logs are a low-cost option, and Auxiliary logs a super-low-cost option, for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
 
@@ -82,10 +82,10 @@ Basic logs are a low-cost option, and Auxiliary logs a super-low-cost option, fo
 - No support for scheduled alerts
 
 These two log types are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
-- [Log sources to use for Basic Logs or Auxiliary Logs ingestion](basic-logs-use-cases.md)
-- [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+- [Log retention plans in Microsoft Sentinel](log-plans.md)
+- [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
 
-To learn about the difference between **interactive retention** and **auxiliary (archival) retention**, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-archive.md).
+To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-archive.md).
 
 > [!IMPORTANT]
 >
@@ -205,15 +205,14 @@ Learn about pricing for these services:
 
 Any other services you use might have associated costs.
 
-## Data retention and archived logs costs
+## Interactive and long-term data retention costs
 
 After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
-- Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). Archived logs are in public preview. ***IS THIS THE SAME THING AS AUXILIARY LOGS? -YL***
-
-The 90 day retention doesn't apply to Basic or Auxiliary logs. If you want to extend data retention for basic logs beyond 30 days, store that data in archived logs for up to seven ***(TWELVE?)*** years.
+- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention layer for data preservation for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). 
+- Enroll tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 ## Other CEF ingestion costs
 
