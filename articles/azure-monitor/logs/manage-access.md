@@ -165,7 +165,7 @@ Each workspace can have multiple accounts associated with it. Each account can h
 | Add and remove monitoring solutions. | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write`<br><br>These permissions need to be granted at resource group or subscription level. |
 | View data in the **Backup** and **Site Recovery** solution tiles. | Administrator/Co-administrator<br><br>Accesses resources deployed by using the classic deployment model. |
 | Run a search job. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/searchJobs/write`|
-| Restore data from archived table. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/restoreLogs/write`|
+| Restore data from long-term retention. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/restoreLogs/write`|
 
 ### Built-in roles
 
@@ -211,7 +211,7 @@ Members of the Log Analytics Contributor role can:
 - Configure the collection of logs from Azure Storage.
 - Configure data export rules.
 - [Run a search job.](search-jobs.md)
-- [Restore archived logs.](restore.md)
+- [Restore data from long-term retention.](restore.md)
 
 > [!WARNING]
 > You can use the permission to add a virtual machine extension to a virtual machine to gain full control over a virtual machine.
@@ -288,11 +288,11 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
 
-**Example 6: Restrict a user from restoring archived logs.**
+**Example 6: Restrict a user from restoring data from long-term retention.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Assign the user to the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role.
-- Add the following NonAction to block users from restoring archived logs: `Microsoft.OperationalInsights/workspaces/restoreLogs/write`
+- Add the following NonAction to block users from restoring data from long-term retention: `Microsoft.OperationalInsights/workspaces/restoreLogs/write`
 
 
 ## Set table-level read access

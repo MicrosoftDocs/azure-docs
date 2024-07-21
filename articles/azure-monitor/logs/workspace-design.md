@@ -7,7 +7,7 @@ ms.date: 05/30/2024
 
 # Design a Log Analytics workspace architecture
 
-A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be sufficient for many environments that use Azure Monitor and Microsoft Sentinel. But many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces. It also discusses the configuration and placement of those workspaces to meet your requirements while optimizing your costs.
+A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be sufficient for many environments that use Azure Monitor and Microsoft Sentinel. But many organizations create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces. It also discusses the configuration and placement of those workspaces to meet your requirements while optimizing your costs.
 
 > [!NOTE]
 > This article discusses Azure Monitor and Microsoft Sentinel because many customers need to consider both in their design. Most of the decision criteria apply to both services. If you use only one of these services, you can ignore the other in your evaluation.
@@ -17,9 +17,9 @@ Here's a video about the fundamentals of Azure Monitor Logs and best practices a
 > [!VIDEO https://www.youtube.com/embed/7RBp9j0P_Ao?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Design strategy
-Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number that will match your requirements.
+Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number of workspace to meet your requirements.
 
-Designing a workspace configuration includes evaluation of multiple criteria. But some of the criteria might be in conflict. For example, you might be able to reduce egress charges by creating a separate workspace in each Azure region. Consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria independently. Consider your requirements and priorities to determine which design will be most effective for your environment.
+Designing a workspace configuration includes evaluation of multiple criteria. But some of the criteria might be in conflict. For example, you might be able to reduce egress charges by creating a separate workspace in each Azure region. Consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria independently. Consider your requirements and priorities to determine which design is most effective for your environment.
 
 ## Design criteria
 The following table presents criteria to consider when you design your workspace architecture. The sections that follow describe the criteria.
@@ -130,7 +130,7 @@ To ensure that critical data in your workspace is available in the event of a re
 This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
 
 ## Work with multiple workspaces
-Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
+Many designs include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
 
 - [Create a log query across multiple workspaces and apps in Azure Monitor](cross-workspace-query.md)
 - [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md)
