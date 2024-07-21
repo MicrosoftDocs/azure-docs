@@ -310,7 +310,7 @@ When you create a function app in Azure, you can choose either a quick function 
 
 #### [Advanced options](#tab/advanced-options)
 
-You can't use the [quick create](#quick-function-app-create) if you want more control over the function app that gets created, such as using an existing resouce group, storage account, or Application Insights intance. These steps create a function app with the ability to use existing Azure resources:
+You can't use the [quick create](functions-develop-vs-code.md?tabs=quick-create#publish-to-azure) if you want more control over the function app that gets created, such as using an existing resouce group, storage account, or Application Insights intance. These steps create a function app with the ability to use existing Azure resources:
 
 1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
@@ -383,7 +383,7 @@ The create process depends on whether you choose a quick create or you need to u
 For more information about the resources required to run your containerized functions in Container Apps, see [Required resources](functions-infrastructure-as-code.md?pivots=container-apps#required-resources).
 
 >[!NOTE]  
->You can't currently deploy a containerized function app to an Azure Functions-integrated Container Apps environment. You must publish your container image to a container registry and then set that image in the registry as the deployment source for your Container Apps-hosted function app. For more information, see [Create your function app in a container](functions-how-to-custom-container.md#create-your-function-app-in-a-container) and [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry).
+>You can't currently use Visual Studio Code to deploy a containerized function app to an Azure Functions-integrated Container Apps environment. You must instead publish your container image to a container registry and then set that registry image as the deployment source for your Container Apps-hosted function app. For more information, see [Create your function app in a container](functions-how-to-custom-container.md#create-your-function-app-in-a-container) and [Update an image in the registry](functions-how-to-custom-container.md#update-an-image-in-the-registry).
 
 ## <a name="republish-project-files"></a>Deploy project files
 

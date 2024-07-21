@@ -150,7 +150,7 @@ You should also consider [enabling continuous deployment](#enable-continuous-dep
 :::zone pivot="azure-functions"  
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
+When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
 
 The following steps create and deploy an existing containerized function app from a container registry.
 
@@ -190,7 +190,7 @@ The following steps create and deploy an existing containerized function app fro
 :::zone pivot="container-apps"  
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Creating your function app in a container](#creating-your-function-app-in-a-container).
+When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
 
 The following steps create and deploy an existing containerized function app from a container registry.
 

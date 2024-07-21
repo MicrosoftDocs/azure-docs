@@ -2,22 +2,39 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
-ms.date: 03/16/2024
+ms.date: 07/19/2024
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
 
 # Continuous delivery by using GitHub Actions
 
-You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
+You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. This article supports both code deployments to Azure Functions (using the `Azure/functions-action` action) and image deployments to a container registry (using `Azure/functions-container-action`). 
 
-A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. A GitHub Actions workflow for Functions performs the following tasks, regardless of language: 
+A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+
+### [Code deployment](#tab/code-only)
+
+A GitHub Actions workflow for Functions performs the following tasks, regardless of language: 
 
 1. Set up the environment.
 1. Build the code project.
 1. Deploy the package to a function app in Azure.
 
 The Azure Functions action handles the deployment to an existing function app in Azure. 
+
+### [Container deployment](#tab/container2)
+
+A GitHub Actions workflow for containerized function apps performs the following tasks: 
+
+1. Set up the environment.
+1. Build the Docker container.
+1. Push the image to the registry.
+1. Deploy the container to Azure
+
+The Azure Functions container action handles the deployment from an existing container registry to Azure. 
+
+---
 
 You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates in one of these ways:  
 
@@ -33,22 +50,36 @@ If you don't want to create your YAML file by hand, select a different method at
 
 + A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-+ A working function app hosted on Azure with source code in a GitHub repository. 
-:::zone pivot="method-cli"
++ Project source code in a GitHub repository.
+
++ One of these deployment targets:
+
+    + A working function app hosted on Azure. This function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments).
+
+    + An existing container registry, such as [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
+::: zone pivot="method-cli,method-manual,method-template"
 + [Azure CLI](/cli/azure/install-azure-cli), when developing locally. You can also use the Azure CLI in Azure Cloud Shell.
-:::zone-end
+::: zone-end
 ::: zone pivot="method-manual,method-template"
 
 ## Generate deployment credentials
 
-Since GitHub Actions uses your publish profile to access your function app during deployment, you first need to get your publish profile and store it securely as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets).  
+Since GitHub Actions requires credentials to be able to access your function app (code deployment) your container registry (container deployment), you first need to get the credentials you need from your Azure service and store them securely as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets).  
+
+### Get the service access credentals
 
 >[!IMPORTANT]
->The publish profile is a valuable credential that allows access to Azure resources. Make sure you always transport and store it securely. In GitHub, the publish profile must only be stored in GitHub secrets.
+>In this section you are working with valuable credentials that allow access to Azure resources. Make sure you always transport and store credentials securely. In GitHub, these credentials must only be stored as GitHub secrets.
 
-### Download your publish profile
+### [Code deployment](#tab/code-only)
 
 [!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
+
+### [Container deployment](#tab/container2)
+
+The most secure way to access Azure Container Registry from your GitHub account is by using Azure role-based access control (Azure RBAC). Use these steps to create the   
+
+---
 
 ### Add the GitHub secret
 
@@ -74,57 +105,72 @@ The best way to manually create a workflow configuration is to start from the of
 
 1. Choose either **Windows** or **Linux** to make sure that you get the template for the correct operating system.
 
-    # [Windows](#tab/windows)
+    ### [Windows](#tab/windows)
     
-    Deployments to Windows use `runs-on: windows-latest`.
+    Deployments to Windows use `runs-on: windows-latest`. Containerized deployments require Linux.
     
-    # [Linux](#tab/linux)
+    ### [Linux](#tab/linux)
     
-    Deployments to Linux use `runs-on: ubuntu-latest`.
+    Deployments to Linux use `runs-on: ubuntu-latest`. Use Linux for containerized deployments.
     
     ---
 
 1. Copy the language-specific template from the Azure Functions actions repository using the following link:  
 
-    # [.NET](#tab/dotnet/windows)
+    ### [.NET](#tab/dotnet/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-dotnet-functionapp-on-azure.yml> 
     
-    # [.NET](#tab/dotnet/linux)
+    ### [.NET](#tab/dotnet/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-dotnet-functionapp-on-azure.yml>
     
-    # [Java](#tab/java/windows)
+    ### [Java](#tab/java/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-java-functionapp-on-azure.yml>
     
-    # [Java](#tab/java/linux)
+    ### [Java](#tab/java/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-java-functionapp-on-azure.yml>
     
-    # [JavaScript](#tab/javascript/windows)
+    ### [JavaScript](#tab/javascript/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-node.js-functionapp-on-azure.yml> 
     
-    # [JavaScript](#tab/javascript/linux)
+    ### [JavaScript](#tab/javascript/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-node.js-functionapp-on-azure.yml>
     
-    # [Python](#tab/python/windows)
+    ### [Python](#tab/python/windows)
     
     Python functions aren't supported on Windows. Choose Linux instead.
     
-    # [Python](#tab/python/linux)
+    ### [Python](#tab/python/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-python-functionapp-on-azure.yml>
     
-    # [PowerShell](#tab/powershell/windows)
+    ### [PowerShell](#tab/powershell/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-powershell-functionapp-on-azure.yml>
     
-    # [PowerShell](#tab/powershell/linux)
+    ### [PowerShell](#tab/powershell/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-powershell-functionapp-on-azure.yml> 
+
+    ### [Container](#tab/container/windows)
+    
+    Container deployments aren't supported on Windows. Choose Linux instead.
+    
+    ### [Container](#tab/Container/linux)
+    
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
+
+    Remember to do the following before you use this YAML file:
+    
+    + Add `AZURE_CREDENTIALS` to your GitHub repository secrets.
+    + Add `REGISTRY_USERNAME` to your GitHub repository secrets.
+    + Add `REGISTRY_PASSWORD` to your GitHub repository secrets.
+    + Update the values of `REGISTRY`, `NAMESPACE`, `IMAGE`, and `TAG` based on your container registry. 
     
     --- 
 
@@ -223,53 +269,53 @@ If for some reason, you need to update or change an existing workflow configurat
 
 The following template example uses version 1 of the `functions-action` and a `publish profile` for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
 
-# [Windows](#tab/windows)
+### [Windows](#tab/windows)
 
 If your function app runs on Linux, select **Linux**.
 
-# [Linux](#tab/linux)
+### [Linux](#tab/linux)
 
 If your function app runs on Windows, select **Windows**.
 
 ---
 
-# [.NET](#tab/dotnet/windows)
+### [.NET](#tab/dotnet/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
 
-# [.NET](#tab/dotnet/linux)
+### [.NET](#tab/dotnet/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
 
-# [Java](#tab/java/windows)
+### [Java](#tab/java/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
-# [Java](#tab/java/linux)
+### [Java](#tab/java/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
-# [JavaScript](#tab/javascript/windows)
+### [JavaScript](#tab/javascript/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
 
-# [JavaScript](#tab/javascript/linux)
+### [JavaScript](#tab/javascript/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
 
-# [Python](#tab/python/windows)
+### [Python](#tab/python/windows)
 
 Python functions aren't supported on Windows. Choose Linux instead.
 
-# [Python](#tab/python/linux)
+### [Python](#tab/python/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-47"::: 
 
-# [PowerShell](#tab/powershell/windows)
+### [PowerShell](#tab/powershell/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
 
-# [PowerShell](#tab/powershell/linux)
+### [PowerShell](#tab/powershell/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
 
@@ -277,7 +323,7 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 ## Azure Functions action
 
-The Azure Functions action (`Azure/azure-functions`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+The Azure Functions action (`Azure/functions-action`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
 
 ### Parameters
 

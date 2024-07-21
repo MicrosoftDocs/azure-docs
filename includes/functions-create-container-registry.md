@@ -54,11 +54,11 @@ If you don't have an [Azure subscription](../articles/guides/developer/azure-dev
 <!---Requirements specific to Docker -->
 To publish the containerized function app image you create to a container registry, you need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
 
-# [Azure Container Registry](#tab/acr)
+### [Azure Container Registry](#tab/acr)
 
 You also need to complete the [Create a container registry](../articles/container-registry/container-registry-get-started-portal.md#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully qualified login server name.
 
-# [Docker Hub](#tab/docker)
+### [Docker Hub](#tab/docker)
 
 You should be all set.
 
@@ -100,15 +100,15 @@ func init --worker-runtime node --language typescript --docker
 ::: zone pivot="programming-language-java"  
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
 
-# [Bash](#tab/bash)
+### [Bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
-# [Cmd](#tab/cmd)
+### [Cmd](#tab/cmd)
 ```cmd
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
@@ -340,11 +340,11 @@ After verifying the function app in the container, press **Ctrl**+**C** (**Comma
 
 To make your container image available for deployment to a hosting environment, you must push it to a container registry.
 
-# [Azure Container Registry](#tab/acr)
+### [Azure Container Registry](#tab/acr)
 
 Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
 
-1. Use the following command to sign in to your registry instance:
+1. Use this command to sign in to your registry instance using your current Azure credentials:
 
     ```azurecli
     az acr login --name <REGISTRY_NAME>
@@ -352,7 +352,7 @@ Azure Container Registry is a private registry service for building, storing, an
 
     In the previous command, replace `<REGISTRY_NAME>` with the name of your Container Registry instance.
 
-1. Use the following command to tag your image with the fully qualified name of your registry login server:
+1. Use this command to tag your image with the fully qualified name of your registry login server:
 
     ```docker
     docker tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 
@@ -360,12 +360,12 @@ Azure Container Registry is a private registry service for building, storing, an
     
     Replace `<LOGIN_SERVER>` with the fully qualified name of your registry login server and `<DOCKER_ID>` with your Docker ID.
 
-1.  Use the following command to push the container to your registry instance:
+1.  Use this command to push the container to your registry instance:
  
     ```docker
     docker push <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
     ```
-1. Use the following command to enable the built-in admin account so that Functions can connect to the registry with a username and password:
+<!---1. Use the following command to enable the built-in admin account so that Functions can connect to the registry with a username and password:
 
     ```azurecli
     az acr update -n <REGISTRY_NAME> --admin-enabled true
@@ -373,7 +373,7 @@ Azure Container Registry is a private registry service for building, storing, an
 
 <!---Hide until Functions + ACA supports managed identities
     > [!IMPORTANT]
-    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  -->
+    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  --\>
 
 1. Use the following command to retrieve the admin username and password, which Functions needs to connect to the registry:
 
@@ -382,9 +382,9 @@ Azure Container Registry is a private registry service for building, storing, an
     ```
 
     > [!IMPORTANT]
-    > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository.
+    > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository. -->
  
-# [Docker Hub](#tab/docker)
+### [Docker Hub](#tab/docker)
 
 Docker Hub is a container registry that hosts images and provides image and container services. 
 
