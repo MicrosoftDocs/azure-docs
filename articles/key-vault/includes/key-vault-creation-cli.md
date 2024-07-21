@@ -20,11 +20,7 @@ Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az-keyvault-create) c
 - The location: **EastUS**.
 
 ```azurecli
-<<<<<<<< HEAD:includes/key-vault/kv-creation-cli.md
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup"
-========
-az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --enable-rbac-authorization
->>>>>>>> 307add44ffd00977af235a1311fb0b764acfa227:articles/key-vault/includes/key-vault-creation-cli.md
 ```
 
 The output of this command shows properties of the newly created key vault. Take note of these two properties:
