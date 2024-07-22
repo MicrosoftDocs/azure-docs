@@ -29,7 +29,7 @@ In this article, you learn how to:
 * Create a storage account and configure diagnostics
 * Test the application gateway
 
-![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+:::image type="content" source="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

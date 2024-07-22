@@ -44,7 +44,7 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
     - For metric alerts: `Microsoft.Insights/metricAlerts`
         > [!NOTE]
         > - We recommend that you create the metric alert using the same resource group as your target resource.
-        > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+        > - Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-manager-templates).
         > - If you are creating a metric alert for a single resource, the template uses the `ResourceId` of the target resource. If you are creating a metric alert for multiple resources, the template uses the `scope`, `TargetResourceType`, and `TargetResourceRegion` for the target resources.
     - For log search alerts: `Microsoft.Insights/scheduledQueryRules`
     - For activity log, service health, and resource health alerts: `microsoft.Insights/activityLogAlerts`

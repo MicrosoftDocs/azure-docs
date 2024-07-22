@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom: devx-track-bicep
 ms.date: 07/28/2023
 ---
+
 # Shared variable file pattern
 
 Reduce the repetition of shared values in your Bicep files. Instead, load those values from a shared JSON file within your Bicep file. When using arrays, concatenate the shared values with deployment-specific values in your Bicep code.

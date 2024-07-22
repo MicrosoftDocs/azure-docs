@@ -62,6 +62,8 @@
           href: learn/quick-windows-container-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-windows-container-deploy-portal.md
+        - name: Use Terraform
+          href: learn/quick-windows-container-deploy-terraform.md
     - name: Work with package managers
       expanded: true
       items:
@@ -92,11 +94,13 @@
 - name: Concepts
   items:
     - name: Core concepts
-      href: concepts-clusters-workloads.md
+      href: core-aks-concepts.md
     - name: Pricing tiers for AKS
       href: free-standard-pricing-tiers.md
     - name: Maintain and upgrade an AKS cluster
       href: upgrade.md
+    - name: Resource reservations
+      href: node-resource-reservations.md
     - name: Backup and recover cluster
       href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Observability
@@ -150,6 +154,12 @@
           href: concepts-network-services.md
         - name: Ingress
           href: concepts-network-ingress.md
+    - name: AI and machine learning
+      items:
+        - name: Small and large language models
+          href: concepts-ai-ml-language-models.md
+        - name: Fine-tuning language models
+          href: concepts-fine-tune-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -172,7 +182,7 @@
       href: concepts-sustainable-software-engineering.md
     - name: Preview API life cycle
       href: concepts-preview-api-life-cycle.md
-    - name: Dapr
+    - name: Dapr extension
       href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
@@ -331,7 +341,17 @@
             - name: Use the Azure portal
               href: virtual-nodes-portal.md
     - name: Workloads
-      items:    
+      items:   
+        - name: Stateful workloads 
+          items:
+            - name: Deploy a highly available PostgreSQL database
+              items:
+                - name: Overview
+                  href: postgresql-ha-overview.md
+                - name: Create infrastructure resources
+                  href: create-postgresql-ha.md
+                - name: Deploy and test PostgreSQL
+                  href: deploy-postgresql-ha.md
         - name: GPU workloads
           items:
             - name: Use GPUs
@@ -479,6 +499,8 @@
                   href: workload-identity-overview.md
                 - name: Deploy and configure workload identity for a cluster
                   href: workload-identity-deploy-cluster.md
+                - name: Configure cross-tenant workload identity
+                  href: workload-identity-cross-tenant.md
                 - name: Migrate your app from pod identity to workload identity
                   href: workload-identity-migrate-from-pod-identity.md
             - name: Microsoft Entra pod identity
@@ -581,6 +603,8 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+            - name: Diagnose and solve UDP packet drops
+              href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers
@@ -685,8 +709,10 @@
             href: cost-analysis.md
         - name: Network Observability
           items:
+            - name: Network Observability
+              href: network-observability-managed-cli.md
             - name: Advanced Network Observability - Azure managed Prometheus and Grafana
-              href: advanced-network-observability-cli.md 
+              href: advanced-network-observability-cli.md
             - name: Advanced Network Observability - Bring Your Own Prometheus and Grafana
               href: advanced-network-observability-bring-your-own-cli.md
     - name: Service Mesh
@@ -755,6 +781,8 @@
               href: keda-deploy-add-on-arm.md
             - name: Use Azure CLI
               href: keda-deploy-add-on-cli.md
+            - name: Securely scale your applications using the Kubernetes Event-driven Autoscaling (KEDA) add-on and workload identity
+              href: keda-workload-identity.md
             - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
               href: keda-integrations.md
             - name: Troubleshoot Kubernetes Event-driven Autoscaler (KEDA)
@@ -801,6 +829,8 @@
           href: rdp.md
         - name: Use HostProcess containers
           href: use-windows-hpc.md
+        - name: Use Windows Annual Channel for Containers
+          href: windows-annual-channel.md
         - name: Upgrade from Windows Server 2019 to 2022
           href: upgrade-windows-2019-2022.md
         - name: Create Dockerfiles for Windows Server containers
@@ -849,7 +879,7 @@
               href: deploy-application-az-cli.md
         - name: Dapr
           items:
-            - name: Create the Dapr extension
+            - name: Install the Dapr extension
               href: dapr.md
             - name: Configure the Dapr extension
               href: dapr-settings.md
@@ -872,7 +902,7 @@
             - name: Azure App Configuration extension reference
               href: /azure/azure-app-configuration/reference-kubernetes-provider?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Troubleshoot the Azure App Configuration extension
-              href: /troubleshoot/azure/azure-kubernetes/troubleshoot-app-configuration-extension-installation-errors?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: AI and machine learning
       items:
         - name: Deploy an application that uses OpenAI on Azure Kubernetes Service (AKS) 
@@ -881,6 +911,8 @@
           href: open-ai-secure-access-quickstart.md
         - name: Deploy an AI model with the AI toolchain operator
           href: ai-toolchain-operator.md
+        - name: Deploy data and ML pipelines with Flyte
+          href: use-flyte.md
     - name: DevOps
       items:
         - name: Azure DevOps Project
@@ -895,6 +927,24 @@
           href: /azure/developer/jenkins/deploy-from-github-to-aks?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Use Ansible to create AKS clusters
           href: /azure/developer/ansible/aks-configure-clusters?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+    - name: AKS for Amazon EKS professionals
+      items:
+      - name: Migrate EKS event-driven workloads
+        items:
+        - name: Overview
+          href: eks-edw-overview.md
+        - name: Understand platform differences
+          href: eks-edw-understand.md
+        - name: Rearchitect for AKS
+          href: eks-edw-rearchitect.md
+        - name: Refactor app
+          href: eks-edw-refactor.md
+        - name: Prepare for deployment
+          href: eks-edw-prepare.md
+        - name: Deploy to Azure
+          href: eks-edw-deploy.md
+- name: FAQ
+  href: faq.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -934,8 +984,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-container-service
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-    - name: FAQ
-      href: faq.md
 - name: Support and troubleshooting
   items:
     - name: Support options for AKS

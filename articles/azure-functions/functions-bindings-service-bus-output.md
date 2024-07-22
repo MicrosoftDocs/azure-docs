@@ -29,7 +29,7 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -515,7 +515,7 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 When the parameter value is null when the function exits, Functions doesn't create a message.
 

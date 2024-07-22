@@ -1,10 +1,10 @@
 ---
 title: Use Logstash to stream logs with pipeline transformations via DCR-based API
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
-author: limwainstein
+author: yelevin
 ms.topic: how-to
-ms.date: 11/07/2022
-ms.author: lwainstein
+ms.date: 07/14/2024
+ms.author: yelevin
 ---
 
 # Use Logstash to stream logs with pipeline transformations via DCR-based API
@@ -41,9 +41,7 @@ The Logstash engine is composed of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.2.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
->
->   This version, v1.2.0, now supports Managed Identity authentication on both Azure VMs and Azure Arc-connected machines. For more version information, see the [changelog](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/CHANGELOG.md). Older versions do not support managed identity.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
@@ -71,7 +69,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 - Install a supported version of Logstash. The plugin supports the following Logstash versions: 
     - 7.0 - 7.17.13
     - 8.0 - 8.9
-    - 8.11
+    - 8.11 - 8.13
 
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
@@ -472,4 +470,4 @@ The following table lists the firewall requirements for scenarios where Azure vi
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

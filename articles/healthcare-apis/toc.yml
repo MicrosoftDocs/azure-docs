@@ -27,10 +27,10 @@
   items: 
     - name: Workspace overview
       href: workspace-overview.md
-    - name: Workspace quickstart
-      href: healthcare-apis-quickstart.md
     - name: Deployment overview
       href: health-data-services-get-started.md
+    - name: Azure Health Data Services quickstart
+      href: healthcare-apis-quickstart.md
     - name: Deploy services programatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
@@ -54,7 +54,7 @@
       href: configure-private-link.md
     - name: Configure events
       href: ./events/events-deploy-portal.md
-    - name: Enable diagnostic logging
+    - name: Enable logging
       href: logging.md
     - name: Built-in policy definitions
       href: azure-health-data-services-policy-reference.md

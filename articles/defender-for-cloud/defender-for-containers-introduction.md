@@ -7,7 +7,7 @@ ms.author: dacurwin
 ms.date: 01/09/2024
 ---
 
-# Overview of Container security in Microsoft Defender for Containers
+# Overview-Container protection in Defender for Cloud
 
 Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
@@ -50,9 +50,11 @@ You can learn more by watching this video from the Defender for Cloud in the Fie
 
   :::image type="content" source="media/defender-for-containers/resource-filter.png" alt-text="Screenshot showing you where the resource filter is located." lightbox="media/defender-for-containers/resource-filter.png":::
 
-  For details included with this capability, check out the [containers section](recommendations-reference.md#container-recommendations) of the recommendations reference table, and look for recommendations with type "Control plane"
+  For details included with this capability, review [container recommendations](recommendations-reference-container.md ), and look for recommendations with type "Control plane"
 
 ### Sensor-based capabilities
+
+**Binary drift detection** - Defender for Containers provides a sensor-based capability that alerts you about potential security threats by detecting unauthorized external processes within containers. You can define drift policies to specify conditions under which alerts should be generated, helping you distinguish between legitimate activities and potential threats. For more information, see [Binary drift protection (preview)](binary-drift-detection.md).
 
 **Kubernetes data plane hardening** - To protect the workloads of your Kubernetes containers with best practice recommendations, you can install the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md). Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -94,7 +96,7 @@ The security alerts page opens:
 
    :::image type="content" source="media/defender-for-containers/view-containers-alerts.png" alt-text="Screenshot showing you where to view the list of alerts." lightbox="media/defender-for-containers/view-containers-alerts.png":::
 
-Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.  For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
+Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.  For a full list of the cluster level alerts, see the [reference table of alerts](alerts-containers.md).
 
 Defender for Containers also includes host-level threat detection with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload.
 

@@ -41,12 +41,12 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
-For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects via an Azure Cosmos DB for Apache Gremlin.
+For this call, specify a [preview REST API version](search-api-preview.md) to create a data source that connects via an Azure Cosmos DB for Apache Gremlin. You can use 2021-04-01-preview or later. We recommend the latest preview API.
 
-1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition: 
+1. [Create or update a data source](/rest/api/searchservice/data-sources/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to set its definition: 
 
    ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -102,10 +102,10 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 
 In a [search index](search-what-is-an-index.md), add fields to accept the source JSON documents or the output of your custom query projection. Ensure that the search index schema is compatible with your graph. For content in Azure Cosmos DB, your search index schema should correspond to the [Azure Cosmos DB items](../cosmos-db/resource-model.md#azure-cosmos-db-items) in your data source.
 
-1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
+1. [Create or update an index](/rest/api/searchservice/indexes/create-or-update) to define search fields that will store data:
 
    ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30-Preview
+    POST https://[service name].search.windows.net/indexes?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -164,10 +164,10 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
+1. [Create or update an indexer](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexers?api-version=2024-05-01-preview
     Content-Type: application/json
     api-key: [search service admin key]
     {
@@ -196,10 +196,10 @@ An indexer runs automatically when it's created. You can prevent this by setting
 
 ## Check indexer status
 
-To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/indexers/get-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-05-01-preview
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -276,7 +276,7 @@ When graph data is deleted, you might want to delete its corresponding document 
 The following example creates a data source with a soft-deletion policy:
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: [Search service admin key]
 

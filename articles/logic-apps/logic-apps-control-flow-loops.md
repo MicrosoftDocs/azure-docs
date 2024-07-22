@@ -10,7 +10,7 @@ ms.date: 09/13/2023
 
 # Create loops to repeat actions in workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Azure Logic Apps includes the following loop actions that you can use in your workflow:
 

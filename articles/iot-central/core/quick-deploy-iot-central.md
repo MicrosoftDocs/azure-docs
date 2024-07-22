@@ -83,7 +83,7 @@ Keep this page open. In the next section, you scan this QR code using the smartp
 
 To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the smartphone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
 
-[!INCLUDE [iot-phoneapp-install](~/reusable-content/ce-skilling/azure/includes/iot-phoneapp-install.md)]
+[!INCLUDE [iot-phoneapp-install](../../../includes/iot-phoneapp-install.md)]
 
 To connect the **IoT Plug and Play** app to your Iot Central application:
 

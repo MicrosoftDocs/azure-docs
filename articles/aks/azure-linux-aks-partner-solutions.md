@@ -4,16 +4,17 @@ titleSuffix: Azure Linux AKS Container Host partner solutions
 description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.topic: conceptual
 ms.custom: linux-related-content
-ms.date: 04/15/2024
+ms.date: 06/13/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
 
 Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
-Our third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
+The third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
@@ -31,6 +32,8 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
+#### iFactoryEHS
+
 :::image type="icon" source="./media/azure-linux-aks-partner-solutions/advantech.png":::
 
 | Solution | Categories |
@@ -40,6 +43,24 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 The right EHS management system can strengthen organizations behind the scenes and enable them to continuously put their best foot forward. iFactoryEHS solution is designed to help manufacturers manage employee health, improve safety, and analyze environmental footprints while ensuring operational continuity.
 
 For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/en/global/solutions/ifactory/ifactory_ehs).
+
+#### FactoryOEE
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/factoryoee.png":::
+
+| Solution | Categories |
+|----------|------------|
+| FactoryOEE | DevOps |
+
+Advantech FactoryOEE is an innovative factory management tool that enhances production efficiency and focuses on energy consumption and carbon emissions.
+
+<details> <summary> See more </summary><br>
+
+Through advanced data analytics, it monitors energy usage in real-time, reducing carbon footprint. We're committed to creating an efficient, eco-friendly production model, optimizing your factory for peak performance while minimizing environmental impact. Choose FactoryOEE for the perfect balance of efficiency and sustainability.
+
+</details>
+
+For more information, see [Advantech & FactoryOEE solutions](https://wise-paas.advantech.com/marketplace/product/advantech.FactoryOEE) and [Advantech on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/advantech.ifactory_tpm?tab=Overview).
 
 ### Akuity
 

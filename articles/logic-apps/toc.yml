@@ -125,7 +125,7 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Create and run .NET Framework code
+    - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
@@ -455,9 +455,9 @@ items:
       href: logic-apps-deploy-azure-resource-manager-templates.md
   - name: Monitor
     items:
-      - name: Overview
-        href: monitor-logic-apps-overview.md
       - name: Monitor workflows
+        href: monitor-logic-apps-overview.md
+      - name: View workflow status and run history
         href: monitor-logic-apps.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md

@@ -34,16 +34,13 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
   1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
-  1. ```
-      mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
-      ```
-  
-  1. ```
-     mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.17.0-*.*.*.*.jar /opt/flink-webssh/lib/
-     ```
+    ```console
+    mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
+    mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.17.0-*.*.*.*.jar /opt/flink-webssh/lib/
+    ```
   
   1. Add the following keys in the `flink` configuration management under core-site.xml section:
-     ```
+     ```console
      fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
      flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
      ```

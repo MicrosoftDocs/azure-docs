@@ -1,5 +1,5 @@
 ---
-title: Query with semantic ranking
+title: Add semantic ranking
 titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
@@ -10,16 +10,18 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 06/13/2024
 ---
 
-# Create a semantic query in Azure AI Search
+# Add semantic ranking to queries in Azure AI Search
 
-In this article, learn how to invoke a semantic ranking over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
+This article explains how to invoke the semantic ranker on queries. You can apply semantic ranking to text queries, hybrid queries, and vector queries if your search documents contain string fields and the [vector query has a text representation](vector-search-how-to-query.md#query-with-integrated-vectorization-preview).
+
+Semantic ranking iterates over an initial result set, applying an L2 ranking methodology that promotes the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
 ## Prerequisites
 
-+ A search service, Basic tier or higher, with [semantic ranking](semantic-how-to-enable-disable.md).
++ A search service, basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + An existing search index with a [semantic configuration](semantic-how-to-configure.md) and rich text content.
 
@@ -30,7 +32,7 @@ In this article, learn how to invoke a semantic ranking over a result set, promo
 
 ## Choose a client
 
-Choose a search client that supports semantic ranking. Here are some options:
+You can use any of the following tools and SDKs to build a query that uses semantic ranking:
 
 + [Azure portal](https://portal.azure.com), using the index designer to add a semantic configuration.
 + [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
@@ -86,7 +88,7 @@ In this step, add parameters to the query request. To be successful, your query 
         "count": true
     }
    ```
-   
+
 ### [**REST API**](#tab/rest-query)
 
 Use [Search Documents](/rest/api/searchservice/documents/search-post) to formulate the request.
@@ -219,6 +221,20 @@ The response for the above example query returns the following match as the top 
   ...
 ]
 ```
+
+## Expected workloads
+
+For semantic ranking, you should expect a search service to support up to 10 concurrent queries per replica. 
+
+The service throttles semantic ranking requests if volumes are too high. An error message that includes these phrases indicate the service is at capacity for semantic ranking:
+
+```json
+Error in search query: Operation returned an invalid status 'Partial Content'`
+@search.semanticPartialResponseReason`
+CapacityOverloaded
+```
+
+If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
 
 ## Next steps
 

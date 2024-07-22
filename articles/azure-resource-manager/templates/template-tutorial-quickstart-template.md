@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Use quickstart templates
 description: Learn how to use Azure Quickstart Templates to complete your template development.
-ms.date: 07/28/2023
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom:
 ---

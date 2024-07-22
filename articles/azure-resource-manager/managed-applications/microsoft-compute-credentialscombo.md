@@ -2,7 +2,7 @@
 title: CredentialsCombo UI element
 description: Describes the Microsoft.Compute.CredentialsCombo UI element for Azure portal.
 ms.topic: reference
-ms.date: 08/01/2022
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Compute.CredentialsCombo UI element
@@ -25,9 +25,9 @@ For Linux with **SSH public key** selected, the SSH key control is displayed:
 
 The **SSH public key source** has three options:
 
-- **Generate new key pair**: Provide a name to create a new SSH key pair in Azure.
-- **Use existing key stored in Azure**: Select an existing SSH public key that's stored in Azure.
-- **Use existing public key**: Use an SSH public key that you've already created. For example, an SSH public key that was created on a local computer.
+- **Generate new key pair**: Provide a name to create a new SSH key pair.
+- **Use existing key stored in Azure**: Select an existing SSH public key stored in Azure.
+- **Use existing public key**: Use an SSH public key that you already created. For example, an SSH public key that was created on a local computer.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-compute-credentialscombo-linux-key-options.png" alt-text="Screenshot of the credentials combo user-interface element with options for Linux SSH public key.":::
 
@@ -117,7 +117,7 @@ If `osPlatform` is **Linux** and the user provided an SSH public key, the contro
 ```
 
 - When **Generate new key pair** is selected, the `sshPublicKey` property is empty. The reason is because on the **Review+Create** tab the keys are generated after you select **Create** and **Download private key and create resource**.
-- The `sshKeyName` property contains a name only when a new SSH key pair is generated in Azure or for a key that's already stored in Azure.
+- The `sshKeyName` property contains a name only when a new SSH key pair is generated in Azure or for a key already stored in Azure.
 - The `generateNewSshKey` is **false** when you use an existing key. When a new key pair is generated, the value is **true**.
 
 ## Remarks

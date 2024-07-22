@@ -422,6 +422,9 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
     2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
     3.  Click **Purchase** to disable disk encryption on a running Linux VM.
 
+> [!WARNING]
+> Once decryption has begun, it is advisable not to interfere with the process.
+
 ### Remove the encryption extension
 
 If you want to decrypt your disks and remove the encryption extension, you must disable encryption **before** removing the extension; see [disable encryption](#disable-encryption).

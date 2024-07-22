@@ -10,7 +10,7 @@ ms.date: 12/13/2023
 
 # Data operation code samples for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Here are the code samples for the data operation action definitions in the article, [Perform data operations](../logic-apps/logic-apps-perform-data-operations.md). You can use these samples for when you want to try the examples with your own logic app's underlying workflow definition, Azure subscription, and API connections. Just copy and paste these action definitions into the code view editor for your logic app's workflow definition, and then modify the definitions for your specific workflow. 
 
