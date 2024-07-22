@@ -138,7 +138,7 @@ To create a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -321,7 +321,7 @@ To update a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzManagmentGroupDeploymentStack `
+Set-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -784,7 +784,7 @@ To apply deny settings at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -876,7 +876,7 @@ To export a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Save-AzManagmentGroupDeploymentStack `
+Save-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ManagementGroupId "<management-group-id>"
 ```

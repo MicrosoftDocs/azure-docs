@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 :::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

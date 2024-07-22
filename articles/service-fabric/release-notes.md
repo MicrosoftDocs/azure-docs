@@ -57,7 +57,7 @@ We're excited to announce that the 10.0 release of the Service Fabric runtime ha
 |---|---|---|
 | September 09, 2023 | Azure Service Fabric 10.0 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
 | November 1, 2023 | Azure Service Fabric 10.0 First Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
-| April 1, 2024 | Azure Service Fabric 10.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
+| April 1, 2024 | Azure Service Fabric 10.0 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
 | June 15, 2024 | Azure Service Fabric 10.0 Fourth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU4.md) |
 
 ## Service Fabric 9.1

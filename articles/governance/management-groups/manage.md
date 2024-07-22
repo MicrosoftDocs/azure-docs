@@ -1,11 +1,11 @@
 ---
 title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 12/01/2022
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.author: tomfitz
-author: tfitzmac
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Manage your Azure subscriptions at scale with management groups
 
@@ -19,7 +19,7 @@ Management groups give you enterprise-grade management at a large scale no matte
 subscriptions you might have. To learn more about management groups, see
 [Organize your resources with Azure management groups](./overview.md).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 > [!IMPORTANT]
 > Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are

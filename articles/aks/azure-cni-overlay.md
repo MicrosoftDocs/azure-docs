@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 11/28/2023
+ms.date: 07/02/2024
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -144,9 +144,6 @@ az aks nodepool add --resource-group $resourceGroup --cluster-name $clusterName 
 > - Doesn't use the dynamic pod IP allocation feature.
 > - Doesn't have network policies enabled. Network Policy engine can be uninstalled before the upgrade, see [Uninstall Azure Network Policy Manager or Calico](use-network-policies.md#uninstall-azure-network-policy-manager-or-calico-preview)
 > - Doesn't use any Windows node pools with docker as the container runtime.
-
-> [!NOTE]
-> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
 
 > [!NOTE]
 > Upgrading an existing cluster to CNI Overlay is a non-reversible process.

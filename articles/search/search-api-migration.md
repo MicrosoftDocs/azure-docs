@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: conceptual
-ms.date: 06/24/2024
+ms.date: 07/19/2024
 ---
 
 # Upgrade to the latest REST API in Azure AI Search
@@ -20,7 +20,7 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 
 + [`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
 
-+ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. 
++ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) is the most recent preview API version. 
 
 Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
@@ -40,6 +40,12 @@ Azure AI Search breaks backward compatibility as a last resort. Upgrade is neces
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
 + Your code persists API requests and tries to resend them to the new API version. For example, this might happen if your application persists continuation tokens returned from the Search API (for more information, look for `@search.nextPageParameters` in the [Search API Reference](/rest/api/searchservice/Search-Documents)).
+
+## How to upgrade
+
+The `api-version` parameter is specified in the request header. In your application code that makes direct calls to the REST APIs, search for all instances of the existing version and then replace it with the new version. For more information about structuring a REST call, see [Quickstart: using REST](search-get-started-rest.md#set-up-visual-studio-code).
+
+If you're using an Azure SDK, those packages target specific versions of the REST API. Package updates might coincide with a REST API update, but each SDK is on it's own release schedule that ships independently of Azure AI Search REST API versions. Check the change log of your SDK package to determine whether a package release targets the latest REST API version.
 
 ## Breaking change for client code that reads connection information
 
