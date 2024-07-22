@@ -97,7 +97,7 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - Only SSH version 2 is supported.
 
-- Avoid blob or directory names that end with a dot (.), a forward slash (/), a backslash (\), or a sequence or combination of the two. No path segments should end with a dot (.). For more information, see [Naming and Referencing Containers, Blobs, and Metadata](../../../../rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata.md).
+- Avoid blob or directory names that end with a dot (.), a forward slash (/), a backslash (\), or a sequence or combination of the two. No path segments should end with a dot (.). For more information, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ## Blob Storage features
 
