@@ -202,7 +202,7 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 1. Sign in to the Azure portal.
 
-1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
 
 1. Select **Create**.
 
@@ -254,7 +254,7 @@ kubectl delete clusterresourceplacement crp
 
 If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
 
-1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
 
 1. Select the cluster resource placement objects you want to delete, then select **Delete**.
 

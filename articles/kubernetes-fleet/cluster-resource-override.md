@@ -252,7 +252,7 @@ rules:
 
 ### [Portal](#tab/azure-portal)
 
-1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource Placements**.
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
 
 1. Select **Create**.
 
