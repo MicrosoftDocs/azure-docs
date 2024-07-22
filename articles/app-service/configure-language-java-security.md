@@ -64,11 +64,11 @@ To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_
 
 ::: zone-end
 
-<!-- ::: zone pivot="java-jboss"
+::: zone pivot="java-jboss"
 
-For JBoss EAP, `[TODO]`.
+For JBoss EAP, see the Tomcat tab.
 
-::: zone-end -->
+::: zone-end
 
 ## Configure TLS/SSL
 
