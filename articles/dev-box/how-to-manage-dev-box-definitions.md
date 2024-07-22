@@ -96,6 +96,8 @@ The following steps show you how to create a dev box definition by using an exis
 
 Over time, your needs for dev boxes can change. You might want to move from a Windows 10 base operating system to a Windows 11 base operating system, or increase the default compute specification for your dev boxes. Your initial dev box definitions might no longer be appropriate for your needs. You can update a dev box definition so new dev boxes use the new configuration.
 
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network.
+
 You can update the image, image version, compute, and storage settings for a dev box definition:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

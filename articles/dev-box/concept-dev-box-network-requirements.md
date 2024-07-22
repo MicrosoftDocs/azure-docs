@@ -250,6 +250,12 @@ If you're experiencing IPv6 issues, check that the *Microsoft.AzureActiveDirecto
 
 For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
+### Updating dev box definition image issues
+
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network.
+
+For more information about updating dev box definition images, see [Update a dev box definition](how-to-manage-dev-box-definitions.md#update-a-dev-box-definition).
+
 
 ## Related content
 
