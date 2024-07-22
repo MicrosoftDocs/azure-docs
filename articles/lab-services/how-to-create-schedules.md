@@ -2,10 +2,12 @@
 title: Create schedule for labs  in Azure Lab Services | Microsoft Docs
 description: Learn how to create schedules for labs in Azure Lab Services so that VMs in the labs start up and shut down at a specified time. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/15/2024
 ---
 
 # Create and manage schedules for labs in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Schedules allow you to configure a lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a lab:
 
@@ -19,9 +21,8 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 > [!NOTE]
 > Before we get started, here's how schedules affect lab virtual machines:
 >
->- Template virtual machine is not included in schedules.
->- Only assigned virtual machines are started. This means, if a machine is not claimed by an end user (student), the machine will not start on the scheduled hours.
->- All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
+>- Only assigned virtual machines are started. If a machine is not claimed by an end user (student), then the machine will not start on the scheduled hours. Schedules also don't start template VMs.
+>- All virtual machines (whether claimed or unclaimed, template or non template) are stopped based on the lab schedule.
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar.
 

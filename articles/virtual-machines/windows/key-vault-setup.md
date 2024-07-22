@@ -4,19 +4,17 @@ description: How to set up Key Vault for use with a virtual machine using PowerS
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: security
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
-ms.author: mimckitt 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.author: mimckitt
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Set up Key Vault for virtual machines using Azure PowerShell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
 In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
 

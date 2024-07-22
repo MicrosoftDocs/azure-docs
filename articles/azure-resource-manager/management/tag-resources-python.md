@@ -6,6 +6,7 @@ ms.date: 01/27/2024
 ms.custom: devx-track-python
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Apply tags with Python

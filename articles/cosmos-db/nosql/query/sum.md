@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the sum of the values in the expression.
   
 ## Syntax
   
-```sql
+```nosql
 SUM(<numeric_expr>)  
 ```  
   
@@ -42,7 +43,7 @@ For this example, consider a container with multiple items that may contain a `q
 
 The `SUM` function is used to sum the values of the `quantity` field, when it exists, into a single aggregated value.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/sum/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/sum/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/sum/result.json":::
 

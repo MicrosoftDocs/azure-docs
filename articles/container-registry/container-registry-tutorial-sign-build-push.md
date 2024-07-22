@@ -30,35 +30,27 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.0.1 on a Linux amd64 environment. You can also download the package for other environments by following the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/).
+1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.0.1/notation_1.0.1_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.1.0/notation_1.1.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin on a Linux amd64 environment. You can also download the package for other environments by following the [Notation AKV plugin installation guide](https://github.com/Azure/notation-azure-kv#installation-the-akv-plugin).
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.1.0 on a Linux amd64 environment.
 
     > [!NOTE]
-    > The plugin directory varies depending upon the operating system being used. The directory path below assumes Ubuntu. Please read the [Notation directory structure for system configuration](https://notaryproject.dev/docs/user-guides/how-to/directory-structure/) for more information.
-    
+    > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
+
     ```bash
-    # Create a directory for the plugin
-    mkdir -p ~/.config/notation/plugins/azure-kv
-    
-    # Download the plugin
-    curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v1.0.1/notation-azure-kv_1.0.1_linux_amd64.tar.gz 
-    
-    # Extract to the plugin directory
-    tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.1.0/notation-azure-kv_1.1.0_linux_amd64.tar.gz --sha256sum 2fc959bf850275246b044203609202329d015005574fabbf3e6393345e49b884
     ```
 
-3. List the available plugins.
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.1.0` is included in the list. 
 
     ```bash
     notation plugin ls
@@ -72,6 +64,8 @@ In this tutorial:
 1. Configure AKV resource names.
 
     ```bash
+    AKV_SUB_ID=myAkvSubscriptionId
+    AKV_RG=myAkvResourceGroup
     # Name of the existing AKV used to store the signing keys
     AKV_NAME=myakv
     # Name of the certificate created in AKV
@@ -83,6 +77,8 @@ In this tutorial:
 2. Configure ACR and image resource names.
 
     ```bash
+    ACR_SUB_ID=myAcrSubscriptionId
+    ACR_RG=myAcrResourceGroup
     # Name of the existing registry example: myregistry.azurecr.io
     ACR_NAME=myregistry
     # Existing full domain of the ACR
@@ -103,28 +99,74 @@ az login
 
 To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Assign access policy in AKV (Azure CLI)
+## Secure access permissions to ACR and AKV
 
-A user principal with the correct access policy permissions is needed to create a self-signed certificate and sign artifacts. This principal can be a user principal, service principal, or managed identity. At a minimum, this principal needs the following permissions:
+When working with ACR and AKV, it’s essential to grant the appropriate permissions to ensure secure and controlled access. You can authorize access for different entities, such as user principals, service principals, or managed identities, depending on your specific scenarios. In this tutorial, the access is authorized to a signed-in Azure user.
 
-- `Create` permissions for certificates
-- `Get` permissions for certificates
-- `Sign` permissions for keys
+### Authorize access to ACR
 
-In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+The `AcrPull` and `AcrPush` roles are required for signing container images in ACR.
 
-### Set the subscription that contains the AKV resource
+1. Set the subscription that contains the ACR resource
 
-```bash
-az account set --subscription <your_subscription_id>
-```
+    ```bash
+    az account set --subscription $ACR_SUB_ID
+    ```
 
-### Set the access policy in AKV
+2. Assign the roles
 
-```bash
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
-```
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID --scope "/subscriptions/$ACR_SUB_ID/resourceGroups/$ACR_RG/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
+    ```
+
+### Authorize access to AKV
+
+In this section, we’ll explore two options for authorizing access to AKV.
+
+#### Use Azure RBAC (Recommended)
+
+The following roles are required for signing using self-signed certificates:
+- `Key Vault Certificates Officer` for creating and reading certificates
+- `Key Vault Certificates User`for reading existing certificates
+- `Key Vault Crypto User` for signing operations
+
+To learn more about Key Vault access with Azure RBAC, see [Use an Azure RBAC for managing access](/azure/key-vault/general/rbac-guide).
+
+1. Set the subscription that contains the AKV resource
+
+    ```bash
+    az account set --subscription $AKV_SUB_ID
+    ```
+
+2. Assign the roles
+
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "Key Vault Certificates Officer" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
+    ```
+
+#### Assign access policy in AKV (legacy)
+
+The following permissions are required for an identity:
+- `Create` permissions for creating a certificate
+- `Get` permissions for reading existing certificates
+- `Sign` permissions for signing operations
+
+To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+
+1. Set the subscription that contains the AKV resource:
+
+    ```bash
+    az account set --subscription $AKV_SUB_ID
+    ```
+
+2. Set the access policy in AKV:
+
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
+    ```
 
 > [!IMPORTANT]
 > This example shows the minimum permissions needed for creating a certificate and signing a container image. Depending on your requirements, you may need to grant additional permissions.
@@ -208,6 +250,28 @@ The following steps show how to create a self-signed certificate for testing pur
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
     ```
+
+    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+ 
+    - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
+    - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
+    - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
+    - [Azure CLI credential](/dotnet/api/azure.identity.azureclicredential)
+    
+    If you want to specify a credential type, use an additional plugin configuration called `credential_type`. For example, you can explicitly set `credential_type` to `azurecli` for using Azure CLI credential, as demonstrated below:
+    
+    ```bash
+    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true --plugin-config credential_type=azurecli $IMAGE
+    ```
+
+    See below table for the values of `credential_type` for various credential types.
+
+    | Credential type              | Value for `credential_type` |
+    | ---------------------------- | -------------------------- |
+    | Environment credential       | `environment`              |
+    | Workload identity credential | `workloadid`               |
+    | Managed identity credential  | `managedid`                |
+    | Azure CLI credential         | `azurecli`                 |
     
 5. View the graph of signed images and associated signatures.
 

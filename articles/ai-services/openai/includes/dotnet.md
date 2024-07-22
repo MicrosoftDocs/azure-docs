@@ -26,12 +26,42 @@ ms.date: 07/26/2023
 
 ## Set up
 
-[!INCLUDE [Create a new .NET application](./dotnet-new-application.md)]
+### Create a new .NET Core application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-openai-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+
+```dotnetcli
+dotnet new console -n azure-openai-quickstart
+```
+
+Change your directory to the newly created app folder. You can build the application with:
+
+```dotnetcli
+dotnet build
+```
+
+The build output should contain no warnings or errors.
+
+```output
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+Install the OpenAI .NET client library with:
+
+```console
+dotnet add package Azure.AI.OpenAI --version 1.0.0-beta.17
+```
+
+> [!NOTE]
+> The completions API is only available in version `1.0.0-beta.17` and earlier of the `Azure.AI.OpenAI` client library. For the latest `2.0.0` and higher version of `Azure.AI.OpenAI`, the recommended approach to generate completions is to use the [chat completions API](/azure/ai-services/openai/chatgpt-quickstart). 
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
 [!INCLUDE [environment-variables](environment-variables.md)]
-
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Set-up)
@@ -46,13 +76,15 @@ using Azure.AI.OpenAI;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
-string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
+string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
+var client = new OpenAIClient(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
 CompletionsOptions completionsOptions = new()
 {
-    DeploymentName = "gpt-35-turbo-instruct", 
+    DeploymentName = "gpt-35-turbo-instruct",
     Prompts = { "When was Microsoft founded?" },
 };
 
@@ -82,7 +114,7 @@ Microsoft was founded on April 4, 1975.
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource you must first delete any deployed models.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

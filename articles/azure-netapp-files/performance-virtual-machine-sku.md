@@ -1,10 +1,9 @@
 ---
 title: Azure virtual machine SKUs best practices for Azure NetApp Files | Microsoft Docs
-description: Describes Azure NetApp Files best practices about Azure virtual machine SKUs, including differences within and between SKUs.   
+description: Describes Azure NetApp Files best practices about Azure virtual machine SKUs, including differences within and between SKUs.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.author: anfdocs

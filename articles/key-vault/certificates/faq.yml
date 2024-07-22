@@ -4,8 +4,7 @@ metadata:
   description: Frequently asked questions about Azure Key Vault certificates
   services: key-vault
   author: msmbaldwin
-  tags: azure-resource-manager
-  
+    
   ms.service: key-vault
   ms.subservice: certificates
   ms.topic: overview

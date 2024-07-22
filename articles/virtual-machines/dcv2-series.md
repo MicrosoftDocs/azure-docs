@@ -25,7 +25,7 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 
 ## Configuration
 
-[Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Supported (Tenant VM will report 3.7 GHz, but will reach Turbo Speeds)<br>
+[Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Supported<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage Caching](premium-storage-performance.md): Supported<br>

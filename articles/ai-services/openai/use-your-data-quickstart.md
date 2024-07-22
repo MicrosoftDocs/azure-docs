@@ -9,7 +9,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 ms.topic: quickstart
 author: aahill
 ms.author: aahi
-ms.date: 11/22/2023
+ms.date: 03/04/2024
 recommendations: false
 zone_pivot_groups: openai-use-your-data
 ---
@@ -51,11 +51,11 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
   Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 
-- An Azure OpenAI resource in a [supported region](./concepts/use-your-data.md#azure-openai-on-your-data-regional-availability) with a chat model deployed (for example, GPT-3 or GPT-4). For more information about model deployment, see the [resource deployment guide](./how-to/create-resource.md).
-
-  - Your chat model can use version `gpt-35-turbo (0301)`, `gpt-35-turbo-16k`, `gpt-4`, and `gpt-4-32k`. You can view or change your model version in [Azure OpenAI Studio](./how-to/working-with-models.md#model-updates).
+- An Azure OpenAI resource deployed in a [supported region and with a supported model](./concepts/use-your-data.md#regional-availability-and-model-support).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
+
+- Download the example data from [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/openai/contoso_benefits_document_example.pdf) if you don't have your own data.
 
 ::: zone pivot="programming-language-javascript"
 
@@ -119,7 +119,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Azure AI services resources](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure AI Search resources](/azure/search/search-get-started-portal#clean-up-resources)

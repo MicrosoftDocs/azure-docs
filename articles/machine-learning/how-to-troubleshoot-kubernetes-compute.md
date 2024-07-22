@@ -2,27 +2,27 @@
 title: Troubleshoot Kubernetes compute for machine learning tasks
 description: Learn how to troubleshoot common Kubernetes compute errors for training jobs and model deployments.
 titleSuffix: Azure Machine Learning
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: chenlujiao
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/11/2022
+ms.date: 02/11/2024
 ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Troubleshoot Kubernetes Compute
 
-In this article, you learn how to troubleshoot common workload (including training jobs and endpoints) errors on the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md). 
+In this article, you learn how to troubleshoot common workload errors on the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md). Common errors include training jobs and endpoint errors. 
 
 ## Inference guide
 
-The common Kubernetes endpoint errors on Kubernetes compute are categorized into two scopes: **compute scope** and **cluster scope**. The compute scope errors are related to the compute target, such as the compute target is not found, or the compute target is not accessible. The cluster scope errors are related to the underlying Kubernetes cluster, such as the cluster itself is not reachable, or the cluster is not found.
+The common Kubernetes endpoint errors on Kubernetes compute are categorized into two scopes: **compute scope** and **cluster scope**. The compute scope errors are related to the compute target, such as the compute target isn't found, or the compute target isn't accessible. The cluster scope errors are related to the underlying Kubernetes cluster, such as the cluster itself isn't reachable, or the cluster isn't found.
 
 ### Kubernetes compute errors
 
- The common error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guidelines:
+ The following are common error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference. You can trouble shoot by following the linked sections for guidelines:
 
 
 * [ERROR: GenericComputeError](#error-genericcomputeerror)
@@ -110,6 +110,8 @@ Below is a list of error types in **cluster scope** that you might encounter whe
 * [ERROR: GenericClusterError](#error-genericclustererror)
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
 * [ERROR: ClusterNotFound](#error-clusternotfound)
+* [ERROR: ClusterServiceNotFound](#error-clusterservicenotfound)
+* [ERROR: ClusterUnauthorized](#error-clusterunauthorized)
 
 #### ERROR: GenericClusterError
 
@@ -162,6 +164,33 @@ This error should occur when the system cannot find the AKS/Arc-Kubernetes clust
 You can check the following items to troubleshoot the issue:
 * First, check the cluster resource ID in the Azure portal to verify whether Kubernetes cluster resource still exists and is running normally.
 * If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
+#### ERROR: ClusterServiceNotFound
+
+The error message is as follows:
+
+````bash
+AzureML extension service not found in cluster.
+````
+
+This error should occur when the extension-owned ingress service doesn't have enough backend pods.
+
+You can:
+
+* Access the cluster and check the status of the service `azureml-ingress-nginx-controller` and its backend pod under the `azureml` namespace.
+* If the cluster doesn't have any running backend pods, check the reason by describing the pod. For example, if the pod doesn't have enough resources to run, you can delete some pods to free enough resources for the ingress pod.
+
+#### ERROR: ClusterUnauthorized
+
+The error message is as follows:
+
+````bash
+Request to Kubernetes cluster unauthorized.
+````
+
+This error should only occur in the TA-enabled cluster, which means the access token expired during the deployment.
+
+You can try again after several minutes.
 
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
@@ -307,7 +336,7 @@ We could use the method to check private link setup by logging into one pod in t
 
 *  Find workspace ID in Azure portal or get this ID by running `az ml workspace show` in the command line.
 *  Show all azureml-fe pods run by `kubectl get po -n azureml -l azuremlappname=azureml-fe`.
-*  Login into any of them run `kubectl exec -it -n azureml {scorin_fe_pod_name} bash`.
+*  Sign in into any of them run `kubectl exec -it -n azureml {scorin_fe_pod_name} bash`.
 *  If the cluster doesn't use proxy run `nslookup {workspace_id}.workspace.{region}.api.azureml.ms`.
 If you set up private link from VNet to workspace correctly, then the internal IP in VNet should be responded through the *DNSLookup* tool.
 
@@ -316,13 +345,13 @@ If you set up private link from VNet to workspace correctly, then the internal I
 curl https://{workspace_id}.workspace.westcentralus.api.azureml.ms/metric/v2.0/subscriptions/{subscription}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/api/2.0/prometheus/post -X POST -x {proxy_address} -d {} -v -k
 ```
 
-When the proxy and workspace are correctly set up with a private link, you should observe an attempt to connect to an internal IP. A response with an HTTP 401 status code is expected in this scenario if a token is not provided.
+When the proxy and workspace are correctly set up with a private link, you should observe an attempt to connect to an internal IP. A response with an HTTP 401 status code is expected in this scenario if a token isn't provided.
 
 ## Other known issues
 
-### Kubernetes compute update does not take effect
+### Kubernetes compute update doesn't take effect
 
-At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace does not take effect.
+At this time, the CLI v2 and SDK v2 don't allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace doesn't take effect.
 
 ### Workspace or resource group name end with '-' 
 

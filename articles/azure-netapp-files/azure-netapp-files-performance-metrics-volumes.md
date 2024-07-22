@@ -4,7 +4,6 @@ description: Learn about benchmark testing recommendations for volume performanc
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 05/08/2023
 ---

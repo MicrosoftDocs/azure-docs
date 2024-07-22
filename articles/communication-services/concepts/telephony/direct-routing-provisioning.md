@@ -105,6 +105,7 @@ Omnichannel for Customer Service customers, refer to [these instructions](/dynam
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
+- [Try Phone Calling](./try-phone-calling.md)
 
 ### Quickstarts
 

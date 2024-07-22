@@ -13,6 +13,9 @@ ms.custom: mode-other
 
 # Quickstart: Create, train, and publish your QnA Maker knowledge base
 
+> [!NOTE]
+> [Azure OpenAI On Your Data](../../openai/concepts/use-your-data.md) utilizes large language models (LLMs) to produce similar results to QnA Maker. If you wish to migrate your QnA Maker project to Azure OpenAI On Your Data, please check out our [guide](../How-To/migrate-to-openai.md).
+
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions.

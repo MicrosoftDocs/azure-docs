@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/18/2023
+ms.date: 03/06/2024
 ms.author: glenga
 ---
 
@@ -44,12 +44,12 @@ Messages are sent to the queue when the function completes. The way you define t
 For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=java#manually-add-bindings-based-on-examples).  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-### [v3](#tab/node-v3)
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24" :::
-
 ### [v4](#tab/node-v4)
 
 Example binding for Node.js model v4 not yet available.
+
+### [v3](#tab/node-v3)
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24" :::
 
 --- 
 
@@ -74,13 +74,15 @@ For more information, including links to example binding code that you can refer
 The way you define the output binding depends on the version of your Python model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=python#manually-add-bindings-based-on-examples).   
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-### [v3](#tab/node-v3)
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24":::
-
 ### [v4](#tab/node-v4)
 
 Example binding for Node.js model v4 not yet available.
 
+### [v3](#tab/node-v3)
+
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24":::
+
 --- 
+
 The way you define the output binding depends on the version of your Node.js model. For more information, including links to example binding code that you can refer to, see [Add bindings to a function](../articles/azure-functions/add-bindings-existing-function.md?tabs=typescript#manually-add-bindings-based-on-examples).
 ::: zone-end

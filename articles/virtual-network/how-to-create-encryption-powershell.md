@@ -68,6 +68,26 @@ New-AzVirtualNetwork @net
 
 ```
 
+## Enable on existing virtual network
+
+You can also enable encryption on an existing virtual network using [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+
+```azurepowershell-interactive
+## Place the virtual network configuration into a variable. ##
+$net = @{
+    Name = 'vnet-1'
+    ResourceGroupName = 'test-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Enable encryption on the virtual network ##
+$vnet.Encryption = @{
+    Enabled = 'true'
+    Enforcement = 'allowUnencrypted'
+}
+$vnet | Set-AzVirtualNetwork
+```
+
 > [!IMPORTANT]
 > Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 

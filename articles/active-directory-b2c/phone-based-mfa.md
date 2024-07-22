@@ -5,11 +5,9 @@ description: Learn tips for securing phone-based multifactor authentication in y
 
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.topic: how-to
-
-ms.date: 01/11/2024
+ms.date: 03/01/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -91,7 +89,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
      
    - [Enable the email one-time passcode feature (OTP)](phone-authentication-user-flows.md) for MFA (applies to both sign-up and sign-in flows).
    - [Configure a Conditional Access policy](conditional-access-user-flow.md) to block sign-ins based on location (applies to sign-in flows only, not sign-up flows).
-   - Use API connectors to [integrate with an anti-bot solution like reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (applies to sign-up flows).
+   - To prevent automated attacks on your consumer-facing apps, [enable CAPTCHA](add-captcha.md). Azure AD B2C’s CAPTCHA supports both audio and visual CAPTCHA challenges, and applies to both sign-up and sign-in flows for your local accounts.
 
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     

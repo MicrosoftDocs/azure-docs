@@ -6,8 +6,7 @@ metadata:
   ms.author: duau
   ms.service: frontdoor
   ms.topic: faq
-  ms.workload: infrastructure-services
-  ms.date: 11/08/2023
+  ms.date: 06/17/2024
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -74,7 +73,6 @@ sections:
           - API Management
           - Application Gateway
           - Public IP address
-          - Traffic Manager
           - Azure Spring Apps
           - Container Instances
           - Container Apps
@@ -148,6 +146,11 @@ sections:
           > Custom TLS/SSL certificate updates might take longer, from several minutes up to an hour, to be deployed globally.
           
           Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
+
+      - question: |
+          Does Azure Front Door support gRPC?
+        answer:  |
+          No. Currently, Azure Front Door only supports HTTP/1.1 from the edge to the origin. For gRPC to work, HTTP/2 is required.
           
   - name: Configuration
     questions:
@@ -257,7 +260,7 @@ sections:
         answer: |
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
-          You can choose to use TLS 1.0, 1.1 or 1.2 with Front Door, but TLS 1.3 isn't supported yet. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          You can choose to use TLS 1.0, 1.1, 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
                   
   - name: Billing
     questions:

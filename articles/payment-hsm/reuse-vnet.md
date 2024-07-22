@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: payment-hsm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 # How to reuse an existing virtual network
@@ -17,7 +17,7 @@ You can create a payment HSM on an existing virtual network by skipping the "Cre
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a subnet, you must know the name, resource group, and address space of the existing virtual network.  To find them, use the Azure CLI [az network vnet list](/cli/azure/network/vnet#az-network-vnet-list) command. The output is easier to read if you format it as a table using the -o flag:
+To create a subnet, you must know the name, resource group, and address space of the existing virtual network. To find them, use the Azure CLI [az network vnet list](/cli/azure/network/vnet#az-network-vnet-list) command. The output is easier to read if you format it as a table using the -o flag:
 
 ```azurecli-interactive
 az network vnet list -o table
@@ -37,7 +37,7 @@ To verify that the VNet and subnet were created correctly, use the Azure CLI [az
 az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNet" -n myPHSMSubnet
 ```
 
-Make note of the subnet's ID, as it is needed for the next step.  The ID of the subnet ends with the name of the subnet:
+Make note of the subnet's ID, as it is needed for the next step. The ID of the subnet ends with the name of the subnet:
 
 ```json
 "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -45,7 +45,7 @@ Make note of the subnet's ID, as it is needed for the next step.  The ID of the 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create a subnet, you must know the name, resource group, and address space of the existing virtual network.  To find them, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet
+To create a subnet, you must know the name, resource group, and address space of the existing virtual network. To find them, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetwork
@@ -91,7 +91,7 @@ To verify that the subnet was added correctly, use the Azure PowerShell [Get-AzV
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 ```
 
-Make note of the subnet's ID, as it is needed for the next step.  The ID of the subnet ends with the name of the subnet:
+Make note of the subnet's ID, as it is needed for the next step. The ID of the subnet ends with the name of the subnet:
 
 ```json
 "Id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -101,7 +101,7 @@ Make note of the subnet's ID, as it is needed for the next step.  The ID of the 
 
 ## Create a payment HSM
 
-Now that you've added a subnet to your existing virtual network, you can create a payment HSM by following the steps in [Create a payment HSM](create-payment-hsm.md#create-a-payment-hsm).  You need the resource group; name and address space of the virtual network; and name, address space, and ID of the subnet.
+Now that the subnet is added to your existing virtual network, you can create a payment HSM by following the steps in [Create a payment HSM](create-payment-hsm.md#create-a-payment-hsm). You need the resource group; name and address space of the virtual network; and name, address space, and ID of the subnet.
 
 ## Next steps
 

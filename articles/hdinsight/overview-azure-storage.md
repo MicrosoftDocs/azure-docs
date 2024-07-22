@@ -3,7 +3,7 @@ title: Azure Storage overview in HDInsight
 description: Overview of Azure Storage in HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Azure Storage overview in HDInsight
@@ -18,7 +18,7 @@ If you choose to secure your storage account with the **Firewalls and virtual ne
 
 The following diagram provides an abstract view of the HDInsight architecture of Azure Storage:
 
-:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="HDInsight Storage Architecture" border="false":::
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="HDInsight Storage Architecture." border="false":::
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 

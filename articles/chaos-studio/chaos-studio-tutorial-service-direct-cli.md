@@ -2,7 +2,8 @@
 title: Create an experiment using a service-direct fault with Azure CLI
 description: Create an experiment that uses a service-direct fault with the Azure CLI.
 author: prasha-microsoft
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
@@ -18,7 +19,7 @@ You can use these same steps to set up and run an experiment for any service-dir
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, you can [create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 - At least one read and one write region setup for your Azure Cosmos DB account.
 

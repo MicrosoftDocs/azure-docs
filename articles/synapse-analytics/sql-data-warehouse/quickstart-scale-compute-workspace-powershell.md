@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This quickstart assumes you already have a dedicated SQL pool that was created in a Synapse workspace. If you need, [Create an Azure Synapse workspace](../quickstart-create-workspace.md) and then [create a dedicated SQL pool using Synapse Studio](../quickstart-create-sql-pool-studio.md).
 

@@ -19,7 +19,6 @@ As a developer, you can create environments associated with a [project](concept-
 ## Prerequisites
 
 - [Create and configure a dev center](quickstart-create-and-configure-devcenter.md).
-- [Create and configure a project](quickstart-create-and-configure-projects.md).
 
 ## Create an environment
 

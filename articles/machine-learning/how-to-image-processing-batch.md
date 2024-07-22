@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 10/10/2022
-ms.reviewer: mopeakande
-ms.custom: devplatv2, devx-track-azurecli, update-code
+ms.reviewer: cacrest
+ms.custom: devplatv2, update-code, devx-track-azurecli
 ---
 
 # Image processing with batch model deployments

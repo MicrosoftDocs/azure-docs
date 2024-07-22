@@ -5,7 +5,7 @@ description: How to create and manage a project in the Azure AI Translator Custo
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 07/10/2024
 ms.author: lajanuar
 ms.topic: how-to
 ---
@@ -49,7 +49,7 @@ Creating a project is the first step in building and publishing a model.
 
 1. Select **Create project**.
 
-   :::image type="content" source="../media/how-to/create-project-dialog.png" alt-text="Screenshot illustrating the create project fields.":::
+   :::image type="content" source="../media/how-to/create-project-dialog.png" alt-text="Screenshot illustrating the create-project fields.":::
 
 ## Edit a project
 
@@ -73,7 +73,7 @@ To modify the project name, project description, or domain description:
 
 1. Follow the [**Edit a project**](#edit-a-project) steps 1-3 above.
 
-1. Select **Delete** and read the delete message before you select **Delete project** to confirm.
+1. Select **Delete** and read the deleted message before you select **Delete project** to confirm.
 
    :::image type="content" source="../media/how-to/delete-project-1.png" alt-text="Screenshot illustrating delete project fields.":::
 

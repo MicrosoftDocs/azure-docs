@@ -1,17 +1,16 @@
 ---
-title: Azure Elastic SAN Preview networking concepts
-description: An overview of Azure Elastic SAN Preview networking options, including storage service endpoints, private endpoints, and iSCSI.
+title: Azure Elastic SAN networking concepts
+description: Learn about available Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 05/31/2024
 ms.author: rogarana
-ms.custom: references_regions
 ---
 
-# Learn about networking configurations for Elastic SAN Preview
+# Learn about networking configurations for Elastic SAN
 
-Azure Elastic storage area network (SAN) Preview allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
+Azure Elastic storage area network (SAN) allows you to secure and control the level of access to your Elastic SAN volumes that your applications and enterprise environments require. This article describes the options for allowing users and applications access to Elastic SAN volumes from an [Azure virtual network infrastructure](../../virtual-network/vnet-integration-for-azure-services.md).
 
 You can configure Elastic SAN volume groups to only allow access over specific endpoints on specific virtual network subnets. The allowed subnets can belong to a virtual network in the same subscription, or those in a different subscription, including subscriptions belonging to a different Microsoft Entra tenant. Once network access is configured for a volume group, the configuration is inherited by all volumes belonging to the group.
 
@@ -29,10 +28,6 @@ After configuring endpoints, you can configure network rules to further control 
 ## Public network access
 
 You can enable or disable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
-
-### Regional availability
-
-[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Storage service endpoints
 
@@ -82,4 +77,4 @@ iSCSI sessions can periodically disconnect and reconnect over the course of the 
 
 ## Next steps
 
-[Configure Elastic SAN networking Preview](elastic-san-networking.md)
+[Configure Elastic SAN networking](elastic-san-networking.md)

@@ -4,12 +4,10 @@ description: Azure PowerShell script sample -  Export/Copy the VHD of a managed 
 services: virtual-machines-windows
 author: ramankumarlive
 manager: kavithag
-tags: azure-service-management
 ms.custom: devx-track-azurepowershell
 ms.service: virtual-machines
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 03/01/2023
 ms.author: ramankum
 ---
@@ -20,7 +18,7 @@ This script exports the VHD of a managed disk to a storage account in different 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
  
 

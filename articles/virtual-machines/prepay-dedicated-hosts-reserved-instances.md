@@ -2,11 +2,10 @@
 title: Prepay for Azure Dedicated Hosts to save money
 description: Learn how to buy Azure Dedicated Hosts Reserved Instances to save on your compute costs.
 services: virtual-machines
-author: yashar
+author: primittal
 ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 06/05/2023
+ms.date: 04/15/2024
 ms.author: banders
 ms.reviewer: mattmcinnes
 ---
@@ -47,7 +46,7 @@ You can buy a reserved instance of an Azure Dedicated Host instance in the [Azu
 
 Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md). These requirements apply to buying a reserved Dedicated Host instance:
 
-- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
 
 - For EA subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin for the subscription.
 
@@ -140,5 +139,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
 
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
-
-

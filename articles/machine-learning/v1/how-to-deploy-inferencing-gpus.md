@@ -5,9 +5,9 @@ description: This article teaches you how to use Azure Machine Learning to deplo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: vaidyas
-author: csteegz
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: vaidyas
 ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, sdkv1
@@ -290,6 +290,5 @@ aks_target.delete()
 
 ## Next steps
 
-* [Deploy model on FPGA](how-to-deploy-fpga-web-service.md)
-* [Deploy model with ONNX](../concept-onnx.md#deploy-onnx-models-in-azure)
+* [Deploy model with ONNX](../concept-onnx.md#onnx-model-deployment-in-azure)
 * [Train TensorFlow DNN Models](../how-to-train-tensorflow.md)

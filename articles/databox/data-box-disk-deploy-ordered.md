@@ -6,15 +6,14 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 10/21/2022
+ms.date: 04/22/2024
 ms.author: shaas
-# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 
 # Doc scores:
-#    10/21/22: 75 (1921/15)
 #    09/24/23: 100 (1996/0)
-
+# Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order an Azure Data Box Disk
 
@@ -42,9 +41,18 @@ Before you begin, make sure that:
 
 * You have a client computer available from which you can copy the data. Your client computer must:
   * Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-  * Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it's a Windows client.  
+  * Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it's a Windows client.
+
+> [!IMPORTANT]
+> Hardware encryption support for Data Box Disk is currently available for regions within the US, Europe, and Japan.
+>
+> Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.  
 
 ## Order Data Box Disk
+
+You can order Data Box Disks using either the Azure portal or Azure CLI.
+
+### [Portal](#tab/azure-portal)
 
 Sign in to:
 
@@ -53,15 +61,15 @@ Sign in to:
 
 Take the following steps to order Data Box Disk.
 
-1. In the upper left corner of the portal, click **+ Create a resource**, and search for *Azure Data Box*. Click **Azure Data Box**.
+1. In the upper left corner of the portal, select **+ Create a resource**, and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   :::image type="content" source="media/data-box-disk-deploy-ordered/search-data-box11-sml.png" alt-text="Search Azure Data Box 1" lightbox="media/data-box-disk-deploy-ordered/search-data-box11.png":::
+   :::image type="content" source="media/data-box-disk-deploy-ordered/data-box-import-01.png" alt-text="Screenshot highlighting the location of the Search box while searching for Data Box Disk":::
 
-1. Click **Create**.
+1. Select **Create**.
 
-1. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**.
+1. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
-    :::image type="content" source="media/data-box-disk-deploy-ordered/select-data-box-sku-1-sml.png" alt-text="Select Data Box Disk option" lightbox="media/data-box-disk-deploy-ordered/select-data-box-sku-1.png":::
+    :::image type="content" source="media/data-box-disk-deploy-ordered/data-box-import-03.png" alt-text="Select Data Box Disk option":::
 
     |Setting|Value|
     |---|---|
@@ -73,9 +81,14 @@ Take the following steps to order Data Box Disk.
   
 1. Select **Data Box Disk**. The maximum capacity of the solution for a single order of five disks is 35 TB. You could create multiple orders for larger data sizes.
 
-     :::image type="content" alt-text="Select Data Box Disk option 2" source="media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png":::
+     :::image type="content" alt-text="Screenshot showing the location of the Data Box Disk option's Select button." source="media/data-box-disk-deploy-ordered/data-box-import-04.png" lightbox="media/data-box-disk-deploy-ordered/data-box-import-04-lrg.png":::
 
 1. In **Order**, specify the **Order details** in the **Basics** tab. Enter or select the following information.
+
+    > [!IMPORTANT]
+    > Hardware encryption support for Data Box Disk is currently available for regions within the US, Europe, and Japan.
+    >
+    > Hardware encrypted drives are only supported when using SATA 3 connections to Linux-based systems. Software encrypted drives use BitLocker technology, and can connect Data Box disks to either Windows- or Linux-based systems using USB or SATA connections.    
 
     |Setting|Value|
     |---|---|
@@ -84,6 +97,7 @@ Take the following steps to order Data Box Disk.
     |Import order name|Provide a friendly name to track the order.<br /> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br /> The name must start and end with a letter or a number. |
     |Number of disks per order| Enter the number of disks you would like to order. <br /> There can be a maximum of five disks per order  (1 disk = 7TB). |
     |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br /> Provide a 12-character to 32-character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br /> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
+    |Disk encryption type| Select between **Software (BitLocker) encryption** or **Hardware(Self-encrypted)** options. Hardware-encrypted disks require a SATA 3 connection and are only supported for Linux-based systems. |
 
     :::image type="content" alt-text="Screenshot of order details" source="media/data-box-disk-deploy-ordered/data-box-disk-order-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-disk-order.png":::
 
@@ -100,13 +114,18 @@ Take the following steps to order Data Box Disk.
 
     :::image type="content" alt-text="Screenshot of Data Box Disk data destination." source="media/data-box-disk-deploy-ordered/data-box-disk-order-destination-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-disk-order-destination.png":::
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts those into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs to the staging storage account and then converts them into managed disks and moves to the resource groups. For more information, see Verify data upload to Azure.
+
+    > [!NOTE]
+    > Data Box supports copying only 1 MiB aligned, fixed-size `.vhd` files for creating managed disks. Dynamic VHDs, differencing VHDs, `.vmdk` or `.vhdx` files are not supported.
+    >
+    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
 1. Select **Next: Security>** to continue.
 
     The **Security** screen lets you use your own encryption key.
 
-    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings apply.
 
 1. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -179,7 +198,7 @@ Take the following steps to order Data Box Disk.
 
     :::image type="content" alt-text="Screenshot of user identity 2." source="media/data-box-disk-deploy-ordered/data-box-disk-user-identity-2-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-disk-user-identity-2.png":::
 
-1. In the **Contact details** tab, select **Add address** and enter the address details. Click Validate address. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+1. In the **Contact details** tab, select **Add address** and enter the address details. Select Validate address. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
     If you have chosen self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
@@ -191,11 +210,75 @@ Take the following steps to order Data Box Disk.
 
 1. Review the information in the **Review + Order** tab related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-1. Click **Order**. The order takes a few minutes to be created.
+1. Select **Order**. The order takes a few minutes to be created.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use these Azure CLI commands to create a Data Box Disk job.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+
+1. To create a Data Box Disk order, you need to associate it with a resource group and provide a storage account. If a new resource group is needed, use the [az group create](/cli/azure/group#az-group-create) command to create a resource group as shown in the following example:
+
+   ```azurecli
+   az group create --name databox-rg --location westus
+   ```
+
+1. As with the previous step, you can use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a storage account if necessary. The following example uses the name of the resource group created in the previous step:
+
+   ```azurecli
+   az storage account create --resource-group databox-rg --name databoxtestsa
+   ```
+
+1. Next, use the [az databox job create](/cli/azure/databox/job#az-databox-job-create) command to create a Data Box job with using the SKU parameter value `DataBoxDisk`. The following example uses the names of the resource group and storage account created in the previous steps:
+
+   ```azurecli
+   az databox job create --resource-group databox-rg --name databoxdisk-job --sku DataBoxDisk \
+       --contact-name "Mark P. Daniels" --email-list markpdaniels@contoso.com \
+       --phone=4085555555–-city Sunnyvale --street-address1 "1020 Enterprise Way" \
+       --postal-code 94089 --country US --state-or-province CA --location westus \
+       --storage-account databoxtestsa --expected-data-size 1
+   ```
+
+1. If needed, you can update the job using the [az databox job update](/cli/azure/databox/job#az-databox-job-update). The following example updates the contact information for a job named `databox-job`.
+
+   ```azurecli
+   az databox job update -g databox-rg --name databox-job \
+      --contact-name "Larry Gene Holmes" --email-list larrygholmes@contoso.com
+   ```
+
+   The [az databox job show](/cli/azure/databox/job#az-databox-job-show) command allows you to display a job's information as shown in the following example:
+
+   ```azurecli
+   az databox job show --resource-group databox-rg --name databox-job
+   ```
+
+   To display all Data Box jobs for a particular resource group, use the [az databox job list]( /cli/azure/databox/job#az-databox-job-list) command as shown:
+
+   ```azurecli
+   az databox job list --resource-group databox-rg
+   ```
+
+   A job can be canceled and deleted by using the [az databox job cancel](/cli/azure/databox/job#az-databox-job-cancel) and [az databox job delete](/cli/azure/databox/job#az-databox-job-delete) commands, respectively. The following examples illustrate the use of these commands:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "New cost center."
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+1. Finally, you can use the [az databox job list-credentials](/cli/azure/databox/job#az-databox-job-list-credentials) command to list the credentials for a particular Data Box job:
+
+   ```azurecli
+   az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+   ```
+
+After the order is created, the device is prepared for shipment.
+
+---
 
 ## Track the order
 
-After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
+After you place the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state.
 
 :::image type="content" alt-text="Data Box Disk status ordered." source="media/data-box-disk-deploy-ordered/data-box-portal-ordered-sml.png" lightbox="media/data-box-disk-deploy-ordered/data-box-portal-ordered.png":::
 
@@ -207,17 +290,30 @@ If the disks aren't available, you receive a notification. If the disks are avai
 
 When the disk preparation is complete, the portal shows the order in **Processed** state.
 
-Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
+Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state. 
 
 ## Cancel the order
 
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
+### [Portal](#tab/azure-portal)
 
-You can only cancel when the disks are ordered, and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order.
+To cancel this order using the Azure portal, navigate to the **Overview** section and select **Cancel** from the command bar.
+
+You can only cancel and order while it's being processed for shipment. The order can't be canceled after processing is complete.
 
 :::image type="content" alt-text="Cancel order." source="media/data-box-disk-deploy-ordered/cancel-order1-sml.png" lightbox="media/data-box-disk-deploy-ordered/cancel-order1.png":::
 
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
+
+### [CLI](#tab/azure-cli)
+
+ A job can be canceled using the Azure CLI. Using the [az databox job cancel](/cli/azure/databox/job#az-databox-job-cancel) and [az databox job delete](/cli/azure/databox/job#az-databox-job-delete) commands to cancel and delete the job, respectively. The following examples illustrate the use of these commands:
+
+   ```azurecli
+   az databox job cancel –resource-group databox-rg --name databox-job --reason "Billing to new cost center."
+   az databox job delete –resource-group databox-rg --name databox-job
+   ```
+
+---
 
 ## Next steps
 

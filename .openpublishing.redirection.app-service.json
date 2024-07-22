@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/app-service/security-recommendations.md",
+            "redirect_url": "/security/benchmark/azure/baselines/app-service-security-baseline",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/scenario-secure-app-authentication-app-service-as-user.md",
             "redirect_url": "/azure/app-service/scenario-secure-app-authentication-app-service",
             "redirect_document_id": false
@@ -1846,6 +1851,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/get-resource-events.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/overview-monitoring.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-security-attributes.md",
             "redirect_url": "/azure/app-service/security-baseline",
             "redirect_document_id": false
@@ -2654,6 +2669,21 @@
             "source_path": "articles/app-service/quickstart-dotnet-framework.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/quickstart-arm-template-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-arm-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/app-service/quickstart-dotnetcore-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/app-service/quickstart-java-uiex.md",
+            "redirect_url": "/azure/app-service/quickstart-java",
+            "redirect_document_id": true
         }
     ]
 }

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a boolean value indicating if the type of the specified expression is a 
 
 ## Syntax
 
-```sql
+```nosql
 IS_OBJECT(<expr>)  
 ```  
   
@@ -38,7 +39,7 @@ Returns a boolean expression.
 
 The following example various values to see if they're an object.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/is-object/query.sql" highlight="2-10":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/is-object/query.sql" highlight="2-10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/is-object/result.json":::
 

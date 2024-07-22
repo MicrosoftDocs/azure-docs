@@ -3,12 +3,11 @@ title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
 author: ju-shim
 ms.service: virtual-machines
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/31/2024
 ms.author: jushiman
 ms.reviewer: mattmcinnes
-ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, devx-track-terraform
 ---
 
 # Change the size of a virtual machine 

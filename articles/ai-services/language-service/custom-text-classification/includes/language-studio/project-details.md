@@ -1,12 +1,12 @@
 ---
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 1. Go to your **project settings** page in [Language Studio](https://aka.ms/languageStudio).

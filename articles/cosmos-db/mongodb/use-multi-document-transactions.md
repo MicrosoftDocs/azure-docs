@@ -11,7 +11,7 @@ ms.devlang: javascript
 ---
 
 # Use Multi-document transactions in Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 In this article, you'll create a Mongo shell app that executes a multi-document transaction on a fixed collection in Azure Cosmos DB for MongoDB with server version 4.0.
 
@@ -62,10 +62,9 @@ All drivers that support wire protocol version 4.0 or greater will support Azure
        throw error;
    }
 
-    // commit transaction
-    session.commitTransaction();
-
-    ```
+   // commit transaction
+   session.commitTransaction();
+   ```
 
 3. Run the following command to execute the multi-document transaction. The host, port, user, and key can be found in the Azure portal.
 

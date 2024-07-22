@@ -4,13 +4,14 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: tomkerkhove
 
 ms.service: api-management
-ms.workload: mobile
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 12/17/2021
 ---
 
 # Deploy self-hosted gateway to Kubernetes with OpenTelemetry integration
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster and automatically send all metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/).
 
@@ -23,8 +24,6 @@ You learn how to:
 > * Deploy the self-hosted gateway with OpenTelemetry metrics.
 > * Generate metrics by consuming APIs on the self-hosted gateway.
 > * Use the metrics from the OpenTelemetry Collector.
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 

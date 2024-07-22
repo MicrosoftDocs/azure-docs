@@ -4,7 +4,6 @@ description: Learn how to access Azure NetApp Files and create a NetApp account 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: anfdocs

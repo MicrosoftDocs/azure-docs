@@ -5,8 +5,7 @@ author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-dedicated-host
 ms.topic: how-to
-ms.workload: infrastructure
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2023
 ms.reviewer: vamckMS
 ---
@@ -221,7 +220,7 @@ If you would like to create a VM with ultra disks support, make sure the host gr
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
 1. Complete the rest of the fields on the **Basics** tab as needed.
 1. If you want to specify which host to use for your VM, then at the top of the page, select the **Advanced** tab and in the **Host** section, select *myHostGroup* for **Host group** and *myHost* for the **Host**. Otherwise, your VM will automatically be placed on a host with capacity.
-	![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
+    ![Select host group and host](./media/dedicated-hosts-portal/advanced.png)
 1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
 1. When you see the message that validation has passed, select **Create**.
 
@@ -329,13 +328,14 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 ---
 
-## Add an existing VM
+## Reassign an existing VM
 
-You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can reassign an existing multitenant VM or dedicated host VM to a different dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
-- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information about this topic, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information about this topic, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group).
+
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
@@ -727,6 +727,39 @@ $hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ## Resize a host
 
 [!INCLUDE [dedicated-hosts-resize](includes/dedicated-hosts-resize.md)]
+
+
+
+## Redeploy a host [Preview]
+
+If a VM or the underlying host remains unresponsive after following all the potential troubleshooting steps users can trigger service healing of the host and not wait for the platform to initiate the repair. Redeploying a host will move the host and all associated VMs to a different node of the same SKU. None of the host parameters would change except for the ‘Host asset ID’, which corresponds to the underlying Node Id.
+
+> [!WARNING]
+> Redeploy operation involves service healing hence would result in loss of any non-persistent data such as data stored on ephemeral disks. Save your work before redeploying.
+
+### [Portal](#tab/portal)
+
+1. Search for and select the host.
+1. In the top menu bar, select the **Redeploy** button.
+1. In the **Essentials** section of the Host Resource Pane, host's provisioning state will switch to **Updating** during the redeploy operation.
+1. Once the redeploy operation is completed, host's provisioning state will revert to **Provisioning succeeded**.
+1.  In the **Essentials** section of the Host Resource Pane, **Host asset ID** would be updated to a new ID
+
+### [CLI](#tab/cli)
+
+Redeploying the host using [az vm host redeploy](/cli/azure/vm#az-vm-host-redeploy).
+
+```azurecli-interactive
+az vm host redeploy \
+ --resource-group myResourceGroup \
+ --host-group myHostGroup \
+ --name myDedicatedHost
+```
+### [PowerShell](#tab/powershell)
+
+PowerShell support coming soon.
+
+---
 
 ## Deleting a host
 

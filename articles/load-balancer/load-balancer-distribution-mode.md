@@ -7,7 +7,6 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurecli
-ms.workload: infrastructure-services
 ms.date: 01/22/2024
 ms.author: mbender
 ---
@@ -50,7 +49,7 @@ The following options are available:
 
 # [**PowerShell**](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
@@ -70,7 +69,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 # [**CLI**](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
 

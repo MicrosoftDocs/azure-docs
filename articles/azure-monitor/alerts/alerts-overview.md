@@ -31,7 +31,7 @@ An **alert** is triggered if the conditions of the alert rule are met. The alert
 Alerts are stored for 30 days and are deleted after the 30-day retention period. You can see all alert instances for all of your Azure resources on the [Alerts page](alerts-manage-alert-instances.md) in the Azure portal.
 
 Alerts consist of:
- - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
+ - **Action groups**: These groups can trigger notifications to let users know that an alert has been triggered or start automated workflows. Action groups can include:
      - Notification methods, such as email, SMS, and push notifications.
      - Automation runbooks.
      - Azure functions.
@@ -41,7 +41,7 @@ Alerts consist of:
      - Webhooks.
      - Event hubs.
 - **Alert conditions**: These conditions are set by the system. When an alert fires, the alert condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the alert condition is set to **resolved**.
-- **User response**: The response is set by the user and doesn't change until the user changes it.
+- **User response**: The response is set by the user and doesn't change until the user changes it. The User response can be **New**, **Acknowledged**, or **Closed**. 
 - **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 ## Types of alerts
 
@@ -50,7 +50,7 @@ This table provides a brief description of each alert type. For more information
 |Alert type|Description|
 |:---------|:---------|
 |[Metric alerts](alerts-types.md#metric-alerts)|Metric alerts evaluate resource metrics at regular intervals. Metrics can be platform metrics, custom metrics, logs from Azure Monitor converted to metrics, or Application Insights metrics. Metric alerts can also apply multiple conditions and dynamic thresholds.|
-|[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
+|[Log search alerts](alerts-types.md#log-alerts)|Log search alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches defined conditions. Resource Health alerts and Service Health alerts are activity log alerts that report on your service and resource health.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 |[Prometheus alerts](alerts-types.md#prometheus-alerts)|Prometheus alerts are used for alerting on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). The alert rules are based on the PromQL open-source query language.|
@@ -59,7 +59,9 @@ This table provides a brief description of each alert type. For more information
 
 Alerts can be stateful or stateless.
 - Stateless alerts fire each time the condition is met, even if fired previously.
-- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
+- Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved. 
+
+Each alert rule is evaluated individually. There is no validation to check if there is another alert configured for the same conditions. If there is more than one alert rule configured for the same conditions, each of those alerts will fire when the conditions are met. 
 
 Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
@@ -77,14 +79,14 @@ The alert condition for stateful alerts is `fired`, until it is considered resol
 
 For stateful alerts, while the alert itself is deleted after 30 days, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved.
 
-Stateful log alerts have limitations - details [here](/azure/azure-monitor/service-limits#alerts).
+See [service limits](/azure/azure-monitor/service-limits#alerts) for alerts limitations, including limitations for stateful log alerts.
 
 This table describes when a stateful alert is considered resolved:
 
 |Alert type |The alert is resolved when |
 |---------|---------|
 |Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
+|Log search alerts| The alert condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5 to 15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes to 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 ## Recommended alert rules
 
@@ -112,13 +114,13 @@ For metric alert rules for Azure services that don't support multiple resources,
 
 Each metric alert rule is charged based on the number of time series that are monitored.
 
-### Log alerts
+### Log search alerts
 
-Use [log alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log alerts rule. 
+Use [log search alert rules](alerts-create-log-alert-rule.md) to monitor all resources that send data to the Log Analytics workspace. These resources can be from any subscription or region. Use data collection rules when setting up your Log Analytics workspace to collect the required data for your log search alert rule. 
 
 You can also create resource-centric alerts instead of workspace-centric alerts by using **Split by dimensions**. When you split on the resourceId column, you will get one alert per resource that meets the condition.
 
-Log alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
+Log search alert rules that use splitting by dimensions are charged based on the number of time series created by the dimensions resulting from your query. If the data is already collected to a Log Analytics workspace, there is no additional cost. 
 
 If you use metric data at scale in the Log Analytics workspace, pricing will change based on the data ingestion.
 

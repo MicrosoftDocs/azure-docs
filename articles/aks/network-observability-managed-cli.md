@@ -1,5 +1,5 @@
 ---
-title: "Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
+title: "Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana"
 description: Get started with AKS Network Observability for your AKS cluster using Azure managed Prometheus and Grafana.
 author: asudbring
 ms.author: allensu
@@ -10,13 +10,9 @@ ms.date: 06/20/2023
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
-# Setup of Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
+# Set up Network Observability for Azure Kubernetes Service (AKS) - Azure managed Prometheus and Grafana
 
 AKS Network Observability is used to collect the network traffic data of your AKS cluster. Network Observability enables a centralized platform for monitoring application and network health. Prometheus collects AKS Network Observability metrics, and Grafana visualizes them. Both Cilium and non-Cilium data plane are supported. In this article, learn how to enable the Network Observability add-on and use Azure managed Prometheus and Grafana to visualize the scraped metrics.
-
-> [!IMPORTANT]
-> AKS Network Observability is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
@@ -24,12 +20,71 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Minimum version of **Azure CLI** required for the steps in this article is **2.44.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Create cluster
+
+> [!NOTE]
+>For Kubernetes version >= 1.29, Network Observability is included in clusters with Azure Managed Prometheus. Metric scraping is defined via the [AMA metrics profile](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).
+>
+>For lower Kubernetes versions, extra steps are required to enable Network Observability.
+
+### [**Kubernetes version >= 1.29**](#tab/newer-k8s-versions)
+
+#### Create a resource group
+
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group with [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **eastus** location:
+
+```azurecli-interactive
+az group create \
+    --name myResourceGroup \
+    --location eastus
+```
+
+#### Create AKS cluster
+
+Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create).
+The following examples each create an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group.
+
+##### Example 1: **Non-Cilium**
+
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a non-Cilium AKS cluster.
+
+```azurecli-interactive
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --location eastus \
+    --generate-ssh-keys \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --kubernetes-version 1.29
+```
+
+#### Example 2: **Cilium**
+
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a Cilium AKS cluster.
+
+```azurecli-interactive
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --generate-ssh-keys \
+    --location eastus \
+    --max-pods 250 \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --network-dataplane cilium \
+    --node-count 2 \
+    --pod-cidr 192.168.0.0/16
+```
+
+### [**Kubernetes version < 1.29**](#tab/older-k8s-versions)
+
+#### Install the `aks-preview` Azure CLI extension
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -39,7 +94,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register the `NetworkObservabilityPreview` feature flag
+#### Register the `NetworkObservabilityPreview` feature flag
 
 ```azurecli-interactive 
 az feature register --namespace "Microsoft.ContainerService" --name "NetworkObservabilityPreview"
@@ -69,7 +124,7 @@ When the feature is registered, refresh the registration of the Microsoft.Contai
 az provider register -n Microsoft.ContainerService
 ```
 
-## Create a resource group
+#### Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group with [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named **myResourceGroup** in the **eastus** location:
 
@@ -79,17 +134,15 @@ az group create \
     --location eastus
 ```
 
-## Create AKS cluster
+#### Create or Update AKS cluster
 
-Create an AKS cluster with [az aks create](/cli/azure/aks#az-aks-create). The following example creates an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group:
+The following examples each create or update an AKS cluster named **myAKSCluster** in the **myResourceGroup** resource group.
 
-# [**Non-Cilium**](#tab/non-cilium)
+##### Example 1: **Non-Cilium**
 
-Non-Cilium clusters support the enablement of Network Observability on an existing cluster or during the creation of a new cluster. 
+###### Create cluster
 
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Network Observability and non-Cilium.
-
-## New cluster
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a non-Cilium AKS cluster with Network Observability.
 
 ```azurecli-interactive
 az aks create \
@@ -100,23 +153,23 @@ az aks create \
     --network-plugin azure \
     --network-plugin-mode overlay \
     --pod-cidr 192.168.0.0/16 \
-    --enable-network-observability
+    --enable-advanced-network-observability
 ```
 
-## Existing cluster
+###### Update Existing cluster
 
-Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing cluster.
+Use [az aks update](/cli/azure/aks#az-aks-update) to enable Network Observability for an existing non-Cilium cluster.
 
 ```azurecli-interactive
 az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --enable-network-observability 
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --enable-advanced-network-observability
 ```
 
-# [**Cilium**](#tab/cilium)
+##### Example 2: **Cilium**
 
-Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create an AKS cluster with Network Observability and Cilium.
+Use [az aks create](/cli/azure/aks#az-aks-create) in the following example to create a Cilium AKS cluster.
 
 ```azurecli-interactive
 az aks create \
@@ -192,18 +245,13 @@ az aks update \
     --grafana-resource-id $grafanaId
 ```
 
----
-
-## Get cluster credentials 
+## Get cluster credentials
 
 ```azurecli-interactive
 az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
-
-## Enable visualization on Grafana
-
-# [**Non-Cilium**](#tab/non-cilium)
+## Visualize using Grafana
 
 > [!NOTE]
 > The following section requires deployments of Azure managed Prometheus and Grafana.
@@ -223,77 +271,11 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
     ama-metrics-win-node-tkrm8            2/2     Running   0 (26h ago)   26h
     ```
 
-1. Select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder.
+1. Navigate to your Grafana instance in a web browser.
 
-1. Check if the Metrics in **Kubernetes / Networking** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
+1. We have created a sample dashboard. It can be found under **Dashboards > Azure Managed Prometheus > Kubernetes / Networking / Clusters**.
 
-# [**Cilium**](#tab/cilium)
-
-> [!NOTE]
-> The following section requires deployments of Azure managed Prometheus and Grafana.
-
->[!WARNING]
-> File should only be named as **`prometheus-config`**. Do not add any extensions like .yaml or .txt.
-
-1. Use the following example to create a file named **`prometheus-config`**. Copy the code in the example into the file created.
-
-    ```yaml
-    global:
-      scrape_interval: 30s
-    scrape_configs:
-      - job_name: "cilium-pods"
-        kubernetes_sd_configs:
-          - role: pod
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_pod_container_name]
-            action: keep
-            regex: cilium-agent
-          - source_labels:
-              [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-            separator: ":"
-            regex: ([^:]+)(?::\d+)?
-            target_label: __address__
-            replacement: ${1}:${2}
-            action: replace
-          - source_labels: [__meta_kubernetes_pod_node_name]
-            action: replace
-            target_label: instance
-          - source_labels: [__meta_kubernetes_pod_label_k8s_app]
-            action: replace
-            target_label: k8s_app
-          - source_labels: [__meta_kubernetes_pod_name]
-            action: replace
-            regex: (.*)
-            target_label: pod
-        metric_relabel_configs:
-          - source_labels: [__name__]
-            action: keep
-            regex: (.*)
-    ```
-
-1. To create the `configmap`, use the following example:
-
-    ```azurecli-interactive
-    kubectl create configmap ama-metrics-prometheus-config \
-        --from-file=./prometheus-config \
-        --namespace kube-system
-    ```
-
-1. Azure Monitor pods should restart themselves, if they don't, rollout restart with following command:
-    
-    ```azurecli-interactive
-    kubectl rollout restart deploy -n kube-system ama-metrics
-    ```
-
-1. Once the Azure Monitor pods have been deployed on the cluster, port forward to the `ama` pod to verify the pods are being scraped. Use the following example to port forward to the pod:
-
-    ```azurecli-interactive
-    kubectl port-forward -n kube-system $(kubectl get po -n kube-system -l rsName=ama-metrics -oname | head -n 1) 9090:9090
-    ```
-
-1. Open `http://localhost:9090` in your browser and navigate to **Status** > **Targets**, verify if **cilium-pods** are present and state says up.
-
-1. Sign in to Azure Managed Grafana and import dashboard with the ID: [16611](https://grafana.com/grafana/dashboards/16611-cilium-metrics/). Also, select **Dashboards** from the left navigation menu, open **Kubernetes / Networking** dashboard under **Managed Prometheus** folder. Metrics should be visible in both these dashboards.
+1. Check if the metrics in the **Kubernetes / Networking / Clusters** Grafana dashboard are visible. If metrics aren't shown, change time range to last 15 minutes in top right dropdown box.
 
 ---
 
@@ -309,8 +291,8 @@ the AKS cluster and the other resources created in this article with the followi
 
 ## Next steps
 
-In this how-to article, you learned how to install and enable AKS Network Observability for your AKS cluster.
+In this how-to article, you learned how to set up AKS Network Observability for your AKS cluster.
 
 - For more information about AKS Network Observability, see [What is Azure Kubernetes Service (AKS) Network Observability?](network-observability-overview.md).
 
-- To create an AKS cluster with Network Observability and BYO Prometheus and Grafana, see [Setup Network Observability for Azure Kubernetes Service (AKS) BYO Prometheus and Grafana](network-observability-byo-cli.md).
+- If you're interested in more granular Network Observability and other advanced features, see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).

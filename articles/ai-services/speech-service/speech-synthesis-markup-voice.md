@@ -36,11 +36,11 @@ For information about the supported values for attributes of the `voice` element
 
 #### Single voice example
 
-This example uses the `en-US-JennyNeural` voice. 
+This example uses the `en-US-AvaMultilingualNeural` voice. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -50,15 +50,15 @@ This example uses the `en-US-JennyNeural` voice.
 
 Within the `speak` element, you can specify multiple voices for text to speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
 
-This example alternates between the `en-US-JennyNeural` and `en-US-ChristopherNeural` voices. 
+This example alternates between the `en-US-AvaMultilingualNeural` and `en-US-AndrewMultilingualNeural` voices. The neural multilingual voices can speak different languages based on the input text.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         Good morning!
     </voice>
-    <voice name="en-US-ChristopherNeural">
-        Good morning to you too Jenny!
+    <voice name="en-US-AndrewMultilingualNeural">
+        Good morning to you too Ava!
     </voice>
 </speak>
 ```
@@ -83,7 +83,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
     
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural" effect="eq_car">
+    <voice name="en-US-AvaMultilingualNeural" effect="eq_car">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -102,7 +102,7 @@ The following table describes the usage of the `mstts:express-as` element's attr
 | ---------- | ---------- | ---------- |
 | `style` | The voice-specific speaking style. You can express emotions like cheerfulness, empathy, and calmness. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant. If the style value is missing or invalid, the entire `mstts:express-as` element is ignored and the service uses the default neutral speech. For custom neural voice styles, see the [custom neural voice style example](#custom-neural-voice-style-example). | Required |
 | `styledegree` | The intensity of the speaking style. You can specify a stronger or softer style to make the speech more expressive or subdued. The range of accepted values are: `0.01` to `2` inclusive. The default value is `1`, which means the predefined style intensity. The minimum unit is `0.01`, which results in a slight tendency for the target style. A value of `2` results in a doubling of the default style intensity. If the style degree is missing or isn't supported for your voice, this attribute is ignored.| Optional |
-| `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name isn't be changed. If the role is missing or isn't supported for your voice, this attribute is ignored. | Optional |
+| `role`| The speaking role-play. The voice can imitate a different age and gender, but the voice name isn't changed. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name isn't changed. If the role is missing or isn't supported for your voice, this attribute is ignored. | Optional |
 
 The following table describes each supported `style` attribute:
 
@@ -118,7 +118,7 @@ The following table describes each supported `style` attribute:
 |`style="customerservice"`|Expresses a friendly and helpful tone for customer support.|
 |`style="depressed"`|Expresses a melancholic and despondent tone with lower pitch and energy.|
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
-|`style="documentary-narration"`|Narrates documentaries in a relaxed, interested, and informative style suitable for dubbing documentaries, expert commentary, and similar content.|
+|`style="documentary-narration"`|Narrates documentaries in a relaxed, interested, and informative style suitable for documentaries, expert commentary, and similar content.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
 |`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|
@@ -249,13 +249,11 @@ The following table describes the usage of the `<lang xml:lang>` element's attri
 
 Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the following example table. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
-| Voice | Supported language number | Supported languages | Auto-detected default locale for each language |
-|-------------|---------------------------|-----------------------|----------------|
-|`en-US-AndrewMultilingualNeural`<sup>1,2</sup> (Male)<br/>`en-US-AvaMultilingualNeural`<sup>1,2</sup> (Female)<br/>`en-US-BrianMultilingualNeural`<sup>1,2</sup> (Male)<br/>`en-US-EmmaMultilingualNeural`<sup>1,2</sup> (Female)| 77 | Afrikaans, Albanian, Amharic, Arabic, Armenian, Azerbaijani, Bahasa Indonesian, Bangla, Basque, Bengali, Bosnian, Bulgarian, Burmese, Catalan, Chinese Cantonese, Chinese Mandarin, Chinese Taiwanese, Croatian, Czech, Danish, Dutch, English, Estonian, Filipino, Finnish, French, Galician, Georgian, German, Greek, Hebrew, Hindi, Hungarian, Icelandic, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latvian, Lithuanian, Macedonian, Malay, Malayalam, Maltese, Mongolian, Nepali, Norwegian Bokmål, Pashto, Persian, Polish, Portuguese, Romanian, Russian, Serbian, Sinhala, Slovak, Slovene, Somali, Spanish, Sundanese, Swahili, Swedish，Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Zulu |`af-ZA`, `am-ET`, `ar-EG`, `az-AZ`, `bg-BG`, `bn-BD`, `bn-IN`, `bs-BA`, `ca-ES`, `cs-CZ`, `cy-GB`, `da-DK`, `de-DE`, `el-GR`, `en-US`, `es-ES`, `et-EE`, `eu-ES`, `fa-IR`, `fi-FI`, `fil-PH`, `fr-FR`, `ga-IE`, `gl-ES`, `he-IL`, `hi-IN`, `hr-HR`, `hu-HU`, `hy-AM`, `id-ID`, `is-IS`, `it-IT`, `ja-JP`, `jv-ID`, `ka-GE`, `kk-KZ`, `km-KH`, `kn-IN`, `ko-KR`, `lo-LA`, `lt-LT`, `lv-LV`, `mk-MK`, `ml-IN`, `mn-MN`, `ms-MY`, `mt-MT`, `my-MM`, `nb-NO`, `ne-NP`, `nl-NL`, `pl-PL`, `ps-AF`, `pt-BR`, `ro-RO`, `ru-RU`, `si-LK`, `sk-SK`, `sl-SI`, `so-SO`, `sq-AL`, `sr-RS`, `su-ID`, `sv-SE`, `sw-KE`, `ta-IN`, `te-IN`, `th-TH`, `tr-TR`, `uk-UA`, `ur-PK`, `uz-UZ`, `vi-VN`, `zh-CN`, `zh-HK`, `zh-TW`, `zu-ZA`.|
+| Voice                                                        | Auto-detected language number | Auto-detected language (locale)                              | All locales number | All languages (locale) supported from SSML                   |
+| ------------------------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ------------------ | ------------------------------------------------------------ |
+|`en-US-AndrewMultilingualNeural`<sup>1</sup> (Male)<br/>`en-US-AvaMultilingualNeural`<sup>1</sup> (Female)<br/>`en-US-BrianMultilingualNeural`<sup>1</sup> (Male)<br/>`en-US-EmmaMultilingualNeural`<sup>1</sup> (Female)| 77                            | Afrikaans (`af-ZA`), Albanian (`sq-AL`), Amharic (`am-ET`), Arabic (`ar-EG`), Armenian (`hy-AM`), Azerbaijani (`az-AZ`), Bahasa Indonesian (`id-ID`), Bangla (`bn-BD`), Basque (`eu-ES`), Bengali (`bn-IN`), Bosnian (`bs-BA`), Bulgarian (`bg-BG`), Burmese (`my-MM`), Catalan (`ca-ES`), Chinese Cantonese (`zh-HK`), Chinese Mandarin (`zh-CN`), Chinese Taiwanese (`zh-TW`), Croatian (`hr-HR`), Czech (`cs-CZ`), Danish (`da-DK`), Dutch (`nl-NL`), English (`en-US`), Estonian (`et-EE`), Filipino (`fil-PH`), Finnish (`fi-FI`), French (`fr-FR`), Galician (`gl-ES`), Georgian (`ka-GE`), German (`de-DE`), Greek (`el-GR`), Hebrew (`he-IL`), Hindi (`hi-IN`), Hungarian (`hu-HU`), Icelandic (`is-IS`), Irish (`ga-IE`), Italian (`it-IT`), Japanese (`ja-JP`), Javanese (`jv-ID`), Kannada (`kn-IN`), Kazakh (`kk-KZ`), Khmer (`km-KH`), Korean (`ko-KR`), Lao (`lo-LA`), Latvian (`lv-LV`), Lithuanian (`lt-LT`), Macedonian (`mk-MK`), Malay (`ms-MY`), Malayalam (`ml-IN`), Maltese (`mt-MT`), Mongolian (`mn-MN`), Nepali (`ne-NP`), Norwegian Bokmål (`nb-NO`), Pashto (`ps-AF`), Persian (`fa-IR`), Polish (`pl-PL`), Portuguese (`pt-BR`), Romanian (`ro-RO`), Russian (`ru-RU`), Serbian (`sr-RS`), Sinhala (`si-LK`), Slovak (`sk-SK`), Slovene (`sl-SI`), Somali (`so-SO`), Spanish (`es-ES`), Sundanese (`su-ID`), Swahili (`sw-KE`), Swedish (`sv-SE`), Tamil (`ta-IN`), Telugu (`te-IN`), Thai (`th-TH`), Turkish (`tr-TR`), Ukrainian (`uk-UA`), Urdu (`ur-PK`), Uzbek (`uz-UZ`), Vietnamese (`vi-VN`), Welsh (`cy-GB`), Zulu (`zu-ZA`) | 91                 | Afrikaans (South Africa) (`af-ZA`), Albanian (Albania) (`sq-AL`), Amharic (Ethiopia) (`am-ET`), Arabic (Egypt) (`ar-EG`), Arabic (Saudi Arabia) (`ar-SA`), Armenian (Armenia) (`hy-AM`), Azerbaijani (Azerbaijan) (`az-AZ`), Basque (Basque) (`eu-ES`), Bengali (India) (`bn-IN`), Bosnian (Bosnia and Herzegovina) (`bs-BA`), Bulgarian (Bulgaria) (`bg-BG`), Burmese (Myanmar) (`my-MM`), Catalan (Spain) (`ca-ES`), Chinese (Cantonese, Traditional) (`zh-HK`), Chinese (Mandarin, Simplified) (`zh-CN`), Chinese (Taiwanese Mandarin) (`zh-TW`), Croatian (Croatia) (`hr-HR`), Czech (Czech) (`cs-CZ`), Danish (Denmark) (`da-DK`), Dutch (Belgium) (`nl-BE`), Dutch (Netherlands) (`nl-NL`), English (Australia) (`en-AU`), English (Canada) (`en-CA`), English (Hong Kong SAR) (`en-HK`), English (India) (`en-IN`), English (Ireland) (`en-IE`), English (United Kingdom) (`en-GB`), English (United States) (`en-US`), Estonian (Estonia) (`et-EE`), Filipino (Philippines) (`fil-PH`), Finnish (Finland) (`fi-FI`), French (Belgium) (`fr-BE`), French (Canada) (`fr-CA`), French (France) (`fr-FR`), French (Switzerland) (`fr-CH`), Galician (Galician) (`gl-ES`), Georgian (Georgia) (`ka-GE`), German (Austria) (`de-AT`), German (Germany) (`de-DE`), German (Switzerland) (`de-CH`), Greek (Greece) (`el-GR`), Hebrew (Israel) (`he-IL`), Hindi (India) (`hi-IN`), Hungarian (Hungary) (`hu-HU`), Icelandic (Iceland) (`is-IS`), Indonesian (Indonesia) (`id-ID`), Irish (Ireland) (`ga-IE`), Italian (Italy) (`it-IT`), Japanese (Japan) (`ja-JP`), Javanese (Indonesia) (`jv-ID`), Kannada (India) (`kn-IN`), Kazakh (Kazakhstan) (`kk-KZ`), Khmer (Cambodia) (`km-KH`), Korean (Korea) (`ko-KR`), Lao (Laos) (`lo-LA`), Latvian (Latvia) (`lv-LV`), Lithuanian (Lithuania) (`lt-LT`), Macedonian (North Macedonia) (`mk-MK`), Malay (Malaysia) (`ms-MY`), Malayalam (India) (`ml-IN`), Maltese (Malta) (`mt-MT`), Mongolian (Mongolia) (`mn-MN`), Nepali (Nepal) (`ne-NP`), Norwegian (Bokmål, Norway) (`nb-NO`), Pashto (Afghanistan) (`ps-AF`), Persian (Iran) (`fa-IR`), Polish (Poland) (`pl-PL`), Portuguese (Brazil) (`pt-BR`), Portuguese (Portugal) (`pt-PT`), Romanian (Romania) (`ro-RO`), Russian (Russia) (`ru-RU`), Serbian (Serbia) (`sr-RS`), Sinhala (Sri Lanka) (`si-LK`), Slovak (Slovakia) (`sk-SK`), Slovenian (Slovenia) (`sl-SI`), Somali (Somalia) (`so-SO`), Spanish (Mexico) (`es-MX`), Spanish (Spain) (`es-ES`), Sundanese (Indonesia) (`su-ID`), Swahili (Kenya) (`sw-KE`), Swedish (Sweden) (`sv-SE`), Tamil (India) (`ta-IN`), Telugu (India) (`te-IN`), Thai (Thailand) (`th-TH`), Turkish (Türkiye) (`tr-TR`), Ukrainian (Ukraine) (`uk-UA`), Urdu (Pakistan) (`ur-PK`), Uzbek (Uzbekistan) (`uz-UZ`), Vietnamese (Vietnam) (`vi-VN`), Welsh (United Kingdom) (`cy-GB`), Zulu (South Africa) (`zu-ZA`)|
 
-<sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](regions.md): East US, West Europe, and Southeast Asia. 
-
-<sup>2</sup> Those are neural multilingual voices in Azure AI Speech. All multilingual voices (except `en-US-JennyMultilingualNeural`) can speak in the language in default locale of the input text without [using SSML](#adjust-speaking-languages). However, you can still use the `<lang xml:lang>` element to adjust the speaking accent of each language to set preferred accent such as British accent (`en-GB`) for English. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`. Check the [full list](https://speech.microsoft.com/portal/voicegallery) of supported locales through SSML.
+<sup>1</sup> Those are neural multilingual voices in Azure AI Speech. All multilingual voices can speak in the language in default locale of the input text without [using SSML](#adjust-speaking-languages). However, you can still use the `<lang xml:lang>` element to adjust the speaking accent of each language to set preferred accent such as British accent (`en-GB`) for English. The primary locale for each voice is indicated by the prefix in its name, such as the voice `en-US-AndrewMultilingualNeural`, its primary locale is `en-US`. 
 
 > [!NOTE] 
 > Multilingual voices don't fully support certain SSML elements, such as `break`, `emphasis`, `silence`, and `sub`.
@@ -264,13 +262,13 @@ Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-
 
 For information about the supported values for attributes of the `lang` element, see [Adjust speaking language](#adjust-speaking-languages). 
 
-You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-JennyMultilingualNeural` is `en-US`. 
+You must specify `en-US` as the default language within the `speak` element, whether or not the language is adjusted elsewhere. In this example, the primary language for `en-US-AvaMultilingualNeural` is `en-US`. 
 
-This SSML snippet shows how to use `<lang xml:lang>` to speak `de-DE` with the `en-US-JennyMultilingualNeural` neural voice.
+This SSML snippet shows how to use `<lang xml:lang>` to speak `de-DE` with the `en-US-AvaMultilingualNeural` neural voice.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-JennyMultilingualNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lang xml:lang="de-DE">
             Wir freuen uns auf die Zusammenarbeit mit Ihnen!
         </lang>
@@ -282,7 +280,7 @@ Within the `speak` element, you can specify multiple languages including `en-US`
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-JennyMultilingualNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <lang xml:lang="es-MX">
             ¡Esperamos trabajar con usted!
         </lang>
@@ -322,7 +320,7 @@ This SSML snippet illustrates how the `rate` attribute is used to change the spe
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody rate="+30.00%">
             Enjoy using text to speech.
         </prosody>
@@ -336,7 +334,7 @@ This SSML snippet illustrates how the `volume` attribute is used to change the v
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody volume="+20.00%">
             Enjoy using text to speech.
         </prosody>
@@ -350,7 +348,7 @@ This SSML snippet illustrates how the `pitch` attribute is used so that the voic
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         Welcome to <prosody pitch="high">Enjoy using text to speech.</prosody>
     </voice>
 </speak>
@@ -362,7 +360,7 @@ This SSML snippet illustrates how the `contour` attribute is used to change the 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
             Were you the only person in the room?
         </prosody>
@@ -393,7 +391,7 @@ This SSML snippet demonstrates how you can use the `emphasis` element to add
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-AndrewMultilingualNeural">
     I can help you join your <emphasis level="moderate">meetings</emphasis> fast.
     </voice>
 </speak>
@@ -425,7 +423,7 @@ This SSML snippet illustrates how to use `src` attribute to insert audio from tw
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -457,7 +455,7 @@ In this example, the original audio is around 15 seconds. The `mstts:audiodurati
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name="en-US-JennyNeural">
+<voice name="en-US-AvaMultilingualNeural">
 <mstts:audioduration value="20s"/>
 If we're home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
 A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
@@ -494,7 +492,7 @@ For information about the supported values for attributes of the `mstts:backgrou
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

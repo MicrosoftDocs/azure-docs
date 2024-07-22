@@ -2,9 +2,9 @@
 title: Set up AutoML with Python (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up an AutoML training run for tabular data with the Azure Machine Learning CLI and Python SDK v2.
-ms.author: rasavage
-author: rsavage2
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: rasavage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -99,7 +99,7 @@ Training data must be accessible from the remote compute. Automated ML v2 (Pytho
 
 # [Python SDK](#tab/python)
 
-You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable/mltable) as in the following example:
 
 ```python
 import mltable
@@ -698,7 +698,7 @@ limits:
 
 ### Distributed training for forecasting
 
-To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training) article. To use distributed training for forecasting, you need to set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
+To learn how distributed training works for forecasting tasks, see our [forecasting at scale](concept-automl-forecasting-at-scale.md#distributed-dnn-training-preview) article. To use distributed training for forecasting, you need to set the `training_mode`, `enable_dnn_training`, `max_nodes`, and optionally the `max_concurrent_trials` properties of the job object.
 
 Property | Description
 -- | --

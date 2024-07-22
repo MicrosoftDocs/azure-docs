@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 05/22/2024
 ms.author: jianleishen
 ---
 
@@ -15,6 +15,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!IMPORTANT]
+>MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
 
 ## Supported capabilities
 
@@ -288,11 +291,22 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MariaDB driver version: 
 
-1. Create a new MariaDB linked service and configure it by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
+1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
 1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
 
-1. More MariaDB versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
+1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
+
+## Differences between the recommended and the legacy driver version
+
+The table below shows the data type mapping differences between MariaDB using the recommended and the legacy driver version.
+
+|MariaDB data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|:---|:---|:---|
+|bit(1)| UInt64|Boolean|
+|bit(M), M>1|UInt64|Byte[]|
+|bool|Boolean|Int16|
+|JSON|String|Byte[]|
 
 ## Related content
 

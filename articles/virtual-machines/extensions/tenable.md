@@ -22,8 +22,6 @@ Tenable now supports a One-Click deployment of Nessus Agents via Microsoft's Azu
 
 Azure VM running any of the following:
 
-* CentOS 7 (x86_64)
-
 * Debian 11 (x86_64)
 
 * Oracle Linux 7 and 8 (x86_64)

@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: tutorial
 ms.date: 01/25/2023
 ms.author: raynew
-ms.custom: mvc
+ms.custom: mvc, linux-related-content
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Linux VMs to another Azure region.
 ---
 

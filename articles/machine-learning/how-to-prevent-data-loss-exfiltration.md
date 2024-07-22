@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/31/2024
 ms.custom: engagement-fy23, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
@@ -145,8 +145,10 @@ For more information, see [How to secure training environments](./v1/how-to-secu
 
 ## 3. Enable storage endpoint for the subnet
 
+Use the following steps to enable a storage endpoint for the subnet that contains your Azure Machine Learning compute clusters and compute instances:
+
 1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure Machine Learning workspace.
-1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
+1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster and compute instance.
 1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
 1. Apply the service endpoint policy to your workspace subnet.
 

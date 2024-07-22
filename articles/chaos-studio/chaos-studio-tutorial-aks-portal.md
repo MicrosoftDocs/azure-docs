@@ -4,7 +4,8 @@ description: Create an experiment that uses an AKS Chaos Mesh fault by using Azu
 author: prasha-microsoft
 ms.topic: how-to
 ms.date: 04/21/2022
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to
 ---
@@ -17,7 +18,7 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An AKS cluster with a Linux node pool. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or the [Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
 ## Limitations
@@ -31,10 +32,10 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 Before you can run Chaos Mesh faults in Chaos Studio, you must install Chaos Mesh on your AKS cluster.
 
-1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
+1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `MyManagedCluster` and `MyResourceGroup` with the name of your cluster and resource group.
 
     ```azurecli
-    az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+    az aks get-credentials --admin --name MyManagedCluster --resource-group MyResourceGroup
     ```
     
     ```bash

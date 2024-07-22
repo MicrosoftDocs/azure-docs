@@ -3,9 +3,9 @@ title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning CLI and Python SDK
 services: machine-learning
-author: EricWrightAtWork
-ms.author: erwright
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: erwright
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -52,7 +52,7 @@ AutoML forecasting jobs require that your training data is represented as an **M
 
 # [Python SDK](#tab/python)
 
-You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable/mltable) as in the following example:
 
 ```python
 import mltable
@@ -1585,7 +1585,7 @@ Also see the [demand forecasting with hierarchical time series notebook](https:/
 
 ## Forecasting at scale: distributed DNN training
 
-* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). 
+* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training-preview). 
 * See our [setup distributed training for tabular data](how-to-configure-auto-train.md#automl-at-scale-distributed-training) article section for code samples. 
 
 ## Example notebooks

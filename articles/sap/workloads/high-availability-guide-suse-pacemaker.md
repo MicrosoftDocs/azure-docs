@@ -7,9 +7,8 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
-ms.custom: devx-track-azurepowershell
-ms.date: 01/22/2024
+ms.custom: devx-track-azurepowershell, linux-related-content
+ms.date: 04/08/2024
 ms.author: radeltch
 ---
 
@@ -124,7 +123,7 @@ To create the iSCSI disks for the clusters to be used by your SAP systems, run t
 - **nw1-xscs-0** and **nw1-xscs-1**: The hostnames of the **NW1** ASCS cluster nodes.
 - **nw1-db-0** and **nw1-db-1**: The hostnames of the database cluster nodes.
 
-In the following instructions, replace the bold-formatted placeholder text with the hostnames of your cluster nodes and the SID of your SAP system.
+In the following instructions, replace adjust the hostnames of your cluster nodes and the SID of your SAP system.
 
 1. Create the root folder for all SBD devices.
 
@@ -343,7 +342,7 @@ Run the following commands on the nodes of the new cluster that you want to crea
     # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
     ```
 
-    The command lists three device IDs for every SBD device. We recommend using the ID that starts with scsi-1. In the preceding example, the IDs are:
+    The command lists three device IDs for every SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the IDs are:
 
     - **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
     - **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
@@ -471,21 +470,13 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
 ### Set up an Azure shared disk SBD device
 
-1. **[A]** Install iSCSI package.
+1. **[A]** Enable the SBD services.
 
    ```bash
-   sudo zypper install open-iscsi
-   ```
-
-2. **[A]** Enable the iSCSI and SBD services.
-
-   ```bash
-   sudo systemctl enable iscsid
-   sudo systemctl enable iscsi
    sudo systemctl enable sbd
    ```
 
-3. **[A]** Make sure that the attached disk is available.
+2. **[A]** Make sure that the attached disk is available.
 
    ```bash
    # lsblk
@@ -508,7 +499,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
    ```
 
-4. **[A]** Retrieve the IDs of the attached disks.
+3. **[A]** Retrieve the IDs of the attached disks.
 
    ```bash
    # ls -l /dev/disk/by-id/scsi-* | grep sdc
@@ -518,7 +509,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
 
    The commands list device IDs for the SBD device. We recommend using the ID that starts with scsi-3. In the preceding example, the ID is **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**.
 
-5. **[1]** Create the SBD device.
+4. **[1]** Create the SBD device.
 
    Use the device ID from step 2 to create the new SBD devices on the first cluster node.
 
@@ -526,7 +517,7 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
    # sudo sbd -d /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -1 60 -4 120 create
    ```
 
-6. **[A]** Adapt the SBD configuration.
+5. **[A]** Adapt the SBD configuration.
 
    a. Open the SBD config file.
 
@@ -549,13 +540,13 @@ If you want to deploy resources by using the Azure CLI or the Azure portal, you 
     > [!NOTE]
     > If the SBD_DELAY_START property value is set to "no", change the value to "yes". You must also check the SBD service file to ensure that the value of TimeoutStartSec is greater than the value of SBD_DELAY_START. For more information, see [SBD file configuraton](https://documentation.suse.com/sle-ha/15-SP5/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config)
 
-7. Create the `softdog` configuration file.
+6. Create the `softdog` configuration file.
 
    ```bash
    echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    ```
 
-8. Load the module.
+7. Load the module.
 
    ```bash
    sudo modprobe -v softdog
@@ -628,7 +619,7 @@ Assign the custom role "Linux Fence Agent Role" that was created in the last cha
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
 
@@ -708,12 +699,14 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.swappiness = 10
    ```
 
-5. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
+5. **[A]** Check the  *cloud-netconfig-azure* package version.
 
-   > [!NOTE]
-   > Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
+   Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
 
-   To prevent the cloud network plug-in from removing the virtual IP address (Pacemaker must control the assignment), change the configuration file for the network interface as shown in the following code. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+   > [!TIP]
+   > If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in.
+
+   **Only if the version of cloud-netconfig-azure is lower than 1.3**, change the configuration file for the network interface as shown in the following code to prevent the cloud network plug-in from removing the virtual IP address (Pacemaker must control the assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
    ```bash
    # Edit the configuration file
@@ -767,7 +760,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    ```
 
    > [!IMPORTANT]
-   > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
+   > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.
 
    > [!IMPORTANT]
    > If using managed identity, the installed version of the *fence-agents* package must be -
@@ -880,7 +873,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     sudo vi /etc/corosync/corosync.conf
     ```
 
-    a. Add the following bold-formatted content to the file if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
+    a. Check the following section in the file and adjust, if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     ```text
     [...]
@@ -952,12 +945,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    > [!NOTE]
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
-   > Refer to the bold section in the following command.
 
 #### [Managed identity](#tab/msi)
 
    ```bash
-   # replace the bold strings with your subscription ID and resource group of the VM
+   # Adjust the command with your subscription ID and resource group of the VM
 
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
@@ -970,7 +962,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 #### [Service principal](#tab/spn)
 
    ```bash
-   # replace the bold strings with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   # Adjust the command with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
@@ -1044,7 +1036,8 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
 
    ```bash
    sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
-   meta allow-unhealthy-nodes=true \ 
+   meta allow-unhealthy-nodes=true failure-timeout=120s \ 
+   op start start-delay=60s \ 
    op monitor interval=10s
 
    sudo crm configure clone health-azure-events-cln health-azure-events

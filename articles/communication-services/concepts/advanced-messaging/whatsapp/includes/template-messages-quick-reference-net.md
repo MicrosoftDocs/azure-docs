@@ -1,15 +1,16 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: azure-communication-services
-author: memontic-ms
+author: glorialimicrosoft
 ms.service: azure-communication-services
 ms.subservice: messages
-ms.date: 10/02/2023
+ms.date: 02/02/2024
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
 ---
+
 ### Templates with no parameters
 
 If the template takes no parameters, you don't need to supply the values or bindings when creating the `MessageTemplate`.
@@ -37,14 +38,15 @@ Message template assembly:
 ```csharp
 var param1 = new MessageTemplateText(name: "first", text: "First Parameter");
 var param2 = new MessageTemplateText(name: "second", text: "Second Parameter");
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    param1,
-    param2
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    body: new[] { param1.Name, param2.Name });
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings); 
+
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Body.Add(new(param1.Name));
+bindings.Body.Add(new(param2.Name));
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+messageTemplate.Values.Add(param1);
+messageTemplate.Values.Add(param2);
 ``````
 
 #### Examples
@@ -82,14 +84,12 @@ Message template assembly for image media:
 var url = new Uri("< Your media URL >");
 
 var media = new MessageTemplateImage("image", url);
-IEnumerable<MessageTemplateValue> values =  new List<MessageTemplateValue>
-{
-    media
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    header: new[] { media.Name });
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Header.Add(new(media.Name));
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+template.Bindings = bindings;
+template.Values.Add(media);
 ``````
 
 #### Examples
@@ -135,20 +135,17 @@ Message template assembly:
 var yes = new MessageTemplateQuickAction(name: "Yes", payload: "User said yes");
 var no = new MessageTemplateQuickAction(name: "No", payload: "User said no");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    yes,
-    no
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    button: new[] {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(yes.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply),
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(no.Name,
-            MessageTemplateValueWhatsAppSubType.QuickReply)
-    });
+var yesButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), yes.Name);
+var noButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.QuickReply.ToString(), no.Name);
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Buttons.Add(yesButton);
+bindings.Buttons.Add(noButton);
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+template.Values.Add(yes);
+template.Values.Add(no);
 ``````
 
 For more information on the payload in quick reply responses from the user, see WhatsApp's documentation for [Received Callback from a Quick Reply Button](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples#received-callback-from-a-quick-reply-button).
@@ -189,18 +186,14 @@ Message template assembly:
 ```csharp
 var urlSuffix = new MessageTemplateQuickAction(name: "text", text: "url-suffix-text");
 
-IEnumerable<MessageTemplateValue> values = new List<MessageTemplateValue>
-{
-    urlSuffix
-};
-var bindings = new MessageTemplateWhatsAppBindings(
-    button: new[]
-    {
-        new KeyValuePair<string, MessageTemplateValueWhatsAppSubType>(urlSuffix.Name,
-            MessageTemplateValueWhatsAppSubType.Url)
-    });
+var urlButton = new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.Url.ToString(), urlSuffix.Name);
 
-var messageTemplate = new MessageTemplate(templateName, templateLanguage, values, bindings);
+WhatsAppMessageTemplateBindings bindings = new();
+bindings.Buttons.Add(urlButton);
+
+var messageTemplate = new MessageTemplate(templateName, templateLanguage);
+messageTemplate.Bindings = bindings;
+messageTemplate.Values.Add(urlSuffix);
 ``````
 
 #### Example

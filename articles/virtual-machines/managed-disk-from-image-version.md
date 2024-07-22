@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 12/12/2022
 ms.author: mattmcinnes
 ms.reviewer: olayemio

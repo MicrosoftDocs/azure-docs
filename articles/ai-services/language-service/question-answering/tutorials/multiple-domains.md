@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create a FAQ bot for multiple categories with Azure AI Bot Service"
-description: In this tutorial, create a no code FAQ Bot for production use cases with question answering and Azure AI Bot Service.
+description: In this tutorial, create a no code FAQ Bot for production use cases with custom question answering and Azure AI Bot Service.
 ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
@@ -40,7 +40,7 @@ For the bot on Surface products, you can take the following steps to create a bo
    >[!div class="mx-imgBorder"]
    >[![Screenshot of metadata example.](../media/multiple-domains/product-metadata.png)](../media/multiple-domains/product-metadata.png#lightbox)
 
-4. Now, in order to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the question answering REST API.
+4. Now, in order to restrict the system to search for the response across a particular product you would need to pass that product as a filter in the custom question answering REST API.
 
     The REST API prediction URL can be retrieved from the Deploy project pane:
 
@@ -99,4 +99,4 @@ When the user question is received by the service, you would need to pass on the
 
 ## Create a separate language resource for each domain
 
-Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access projects on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.
+Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access projects on Surface and Xbox. In this case, it is advised to create two custom question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.

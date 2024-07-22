@@ -3,11 +3,10 @@ title: Direct EA billing invoice documents
 description: Learn how to understand the invoice files associated with your direct enterprise agreement.
 author: bandersmsft
 ms.reviewer: sahilkhurana
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -126,6 +125,6 @@ The transactions file is a CSV file that includes the same information as the in
 | Total | The sum of the net amount and tax amount. |
 | Is Third Party | Indicates whether the product or service is a third-party product. |
 
-## Next steps
+## Related content
 
 - Learn how to download your Direct EA billing invoice documents at [View your Azure usage summary details and download reports for direct EA enrollments](direct-ea-azure-usage-charges-invoices.md).

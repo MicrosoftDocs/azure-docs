@@ -3,8 +3,9 @@ title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Control plane operations are handled by Azure Resource Manager. Data plane operations are handled by a service.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/10/2020
+ms.date: 03/19/2024
 ---
+
 # Azure control plane and data plane
 
 Azure operations can be divided into two categories - control plane and data plane. This article describes the differences between those two types of operations.

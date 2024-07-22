@@ -2,6 +2,7 @@
 title: Secure a custom DNS with a TLS/SSL binding
 description: Secure HTTPS access to your custom domain by creating a TLS/SSL binding with a certificate. Improve your website's security by enforcing HTTPS or TLS 1.2.
 tags: buy-ssl-certificates
+ms.custom: devx-track-azurepowershell
 
 ms.topic: article
 ms.date: 04/20/2023

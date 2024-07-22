@@ -2,13 +2,13 @@
 title: Custom text to speech avatar overview - Speech service
 titleSuffix: Azure AI services
 description: Get an overview of the custom text to speech avatar feature of speech service, which allows you to create a customized, one-of-a-kind synthetic talking avatar for your application.
-author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: custom text to speech avatar
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
 # What is custom text to speech avatar? (preview)

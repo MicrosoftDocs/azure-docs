@@ -1,12 +1,11 @@
 ---
 title: Configure Windows Push Notification Service in Azure Notification Hubs | Microsoft Docs
-description: Learn how to configure Windows Push Notification Service settings for an Azure notification hub. 
+description: Learn how to configure Windows Push Notification Service settings for an Azure notification hub.
 services: notification-hubs
 author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: sethm

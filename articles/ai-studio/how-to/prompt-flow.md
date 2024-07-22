@@ -2,24 +2,25 @@
 title: Prompt flow in Azure AI Studio
 titleSuffix: Azure AI Studio
 description: This article introduces prompt flow in Azure AI Studio.
-manager: nitinme
+manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 5/21/2024
 ms.reviewer: eur
-ms.author: eur
-author: eric-urban
+ms.author: lagayhar
+author: lgayhardt
 ---
 
 # Prompt flow in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Prompt flow is a development tool designed to streamline the entire development cycle of AI applications powered by Large Language Models (LLMs). Prompt flow provides a comprehensive solution that simplifies the process of prototyping, experimenting, iterating, and deploying your AI applications.
 
-Prompt flow is available independently as an open-source project on [GitHub](https://github.com/microsoft/promptflow), with its own SDK and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow). Prompt flow is also available and recommended to use as a feature within both [Azure AI Studio](https://aka.ms/AzureAIStudio) and [Azure Machine Learning studio](https://aka.ms/AzureAIStudio). This set of documentation focuses on prompt flow in Azure AI Studio.
+Prompt flow is available independently as an open-source project on [GitHub](https://github.com/microsoft/promptflow), with its own SDK and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow). Prompt flow is also available and recommended to use as a feature within both [Azure AI Studio](https://ai.azure.com) and [Azure Machine Learning studio](https://ml.azure.com). This set of documentation focuses on prompt flow in Azure AI Studio.
 
 Definitions:
 - *Prompt flow* is a feature that can be used to generate, customize, or run a flow.

@@ -15,7 +15,7 @@ ms.author: gistefan
 
 ## Set up prerequisites
 
-- [Python](https://www.python.org/downloads/) 3.7+.
+- [Python](https://www.python.org/downloads/) 3.8+.
 
 ## Final code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/manage-teams-identity-mobile-and-desktop).
@@ -57,7 +57,7 @@ pip install msal
 
 ### Step 1: Receive the Microsoft Entra user token and object ID via the MSAL library
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md). In Azure portal, configure the Redirect URI of your "Mobile and Desktop application" as `http://localhost`. The code below retrieves Microsoft Entra client ID and tenant ID from environment variables named `AAD_CLIENT_ID` and `AAD_TENANT_ID`. It's essential to configure the MSAL client with the correct authority, based on the `AAD_TENANT_ID` environment variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `user_object_id` variable.
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](/entra/identity-platform/reference-v2-libraries). In Azure portal, configure the Redirect URI of your "Mobile and Desktop application" as `http://localhost`. The code below retrieves Microsoft Entra client ID and tenant ID from environment variables named `AAD_CLIENT_ID` and `AAD_TENANT_ID`. It's essential to configure the MSAL client with the correct authority, based on the `AAD_TENANT_ID` environment variable, to be able to retrieve the Object ID (`oid`) claim corresponding with a user in Fabrikam's tenant and initialize the `user_object_id` variable.
 
 ```python
 # This code demonstrates how to fetch your Azure AD client ID and tenant ID

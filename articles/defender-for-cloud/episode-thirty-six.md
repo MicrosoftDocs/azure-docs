@@ -18,7 +18,7 @@ ms.date: 08/29/2023
 
 ## Recommended resources
 
-- [Learn more](/azure/defender-for-cloud/concept-cloud-security-posture-management)
+- [Learn more](concept-cloud-security-posture-management.md)
 - Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/playlist?list=PL3ZTgFEc7LysiX4PfHhdJPR7S8mGO14YS)
 - Learn more about [Microsoft Security](https://msft.it/6002T9HQY)
 

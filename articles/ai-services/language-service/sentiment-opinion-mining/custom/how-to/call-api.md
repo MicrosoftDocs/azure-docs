@@ -3,12 +3,12 @@ title: Send a Custom sentiment analysis request to your custom model
 description: Learn how to send requests for Custom sentiment analysis.
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: language-service-custom-ner
@@ -17,7 +17,7 @@ ms.custom: language-service-custom-ner
 # Send a Custom sentiment analysis request to your custom model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the client libraries (Azure SDK). 
+You can query the deployment programmatically using the [Prediction API](/rest/api/language/text-analysis-runtime/analyze-text) or through the client libraries (Azure SDK). 
 
 ## Test a deployed Custom sentiment analysis model
 

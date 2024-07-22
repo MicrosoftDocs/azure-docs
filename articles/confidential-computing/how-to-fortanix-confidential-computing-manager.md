@@ -4,7 +4,6 @@ description: Learn how to deploy Fortanix Confidential Computing Manager (CCM) i
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jushiman

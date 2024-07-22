@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Provision the Azure resources for the application using a Resource Manager template.
 > * Publish the application to Azure using Visual Studio.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

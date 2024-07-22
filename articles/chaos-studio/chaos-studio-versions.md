@@ -5,7 +5,8 @@ services: chaos-studio
 author: rsgel 
 ms.topic: overview
 ms.date: 01/26/2024
-ms.author: carlsonr
+ms.author: abbyweisberg
+ms.reviewer: carlsonr
 ms.service: chaos-studio
 ---
 
@@ -22,12 +23,12 @@ The Chaos Studio agent is tested for compatibility with the following operating 
 | Windows Server 2019             | ✓ |   |
 | Windows Server 2016             | ✓ |   |
 | Windows Server 2012 R2          | ✓ |   |
+| Azure Linux (Mariner)           | ✓ | Installing `stress-ng` [manually](https://github.com/ColinIanKing/stress-ng) required for CPU Pressure, Physical Memory Pressure, Disk I/O Pressure, and Stress-ng faults |
 | Red Hat Enterprise Linux 8      | ✓ | Currently tested up to 8.9 |
 | openSUSE Leap 15.2              | ✓ |   |
-| CentOS 8                        | ✓ |   |
 | Debian 10 Buster                | ✓ | Installation of `unzip` utility required |
 | Oracle Linux 8.3                | ✓ |   |
-| Ubuntu Server 18.04 LTS         | ✓ |   |
+| Ubuntu Server 20.04/22.04 LTS         | ✓ |   |
 
 The agent isn't currently tested against custom Linux distributions or hardened Linux distributions (for example, FIPS or SELinux).
 
@@ -45,6 +46,7 @@ Chaos Studio currently tests with the following version combinations.
 
 | Chaos Studio fault version | Kubernetes version | Chaos Mesh version | Notes |
 |:---:|:---:|:---:|:---:|
+| 2.1 | 1.27 | 2.6.3 | |
 | 2.1 | 1.25.11 | 2.5.1 | |
 
 The *Chaos Studio fault version* column refers to the individual fault version for each AKS Chaos Mesh fault used in the experiment JSON, for example `urn:csci:microsoft:azureKubernetesServiceChaosMesh:podChaos/2.1`. If a past version of the corresponding Chaos Studio fault remains available from the Chaos Studio API (for example, `...podChaos/1.0`), it is within support.

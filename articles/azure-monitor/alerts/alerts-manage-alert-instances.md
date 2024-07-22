@@ -1,11 +1,14 @@
 ---
 title: Manage your alert instances
 description: The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days and allows you to manage your alert instances.
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 01/21/2024
 ms.reviewer: harelbr
 ---
+
 # Manage your alert instances
+
 The **Alerts** page summarizes all alert instances in all your Azure resources generated in the last 30 days. Alerts are stored for 30 days and are deleted after the 30-day retention period. 
 For stateful alerts, while the alert itself is deleted after 30 days, and isn't viewable on the alerts page, the alert condition is stored until the alert is resolved, to prevent firing another alert, and so that notifications can be sent when the alert is resolved. For more information, see [Alerts and state](alerts-overview.md#alerts-and-state).
 
@@ -75,7 +78,7 @@ You can save up to 10 views of the alerts timeline. The **default** view is the 
 
 The **Alert details** page provides more information about the selected alert:
 
- - To change the user response to the alert, select the pencil near **User response**.
+ - To change the user response to the alert, select the pencil near **User response**. The User response can be **New**, **Acknowledged**, or **Closed**.
  - To see the details of the alert, expand the **Additional details** section.
  - To see all closed alerts, select the **History** tab.  
 

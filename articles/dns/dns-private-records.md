@@ -3,9 +3,8 @@ title: Private DNS records overview - Azure Private DNS
 description: Overview of support for DNS records in Azure Private DNS.
 author: greg-lindsay
 ms.service: dns
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 12/04/2023
+ms.topic: concept-article
+ms.date: 02/07/2024
 ms.author: greglin
 ---
 
@@ -25,7 +24,10 @@ An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For exam
 
 Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an 'A' record, which maps a name to an IPv4 address. Another common type is an 'MX' record, which maps a name to a mail server.
 
-Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT.
+Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT.
+
+> [!NOTE]
+>  The **Host** field in the SOA record isn't editable.
 
 ### Record sets
 

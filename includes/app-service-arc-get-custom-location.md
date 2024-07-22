@@ -10,7 +10,7 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-Get the following information about the custom location from your cluster administrator (see [Create a custom location](../articles/app-service/manage-create-arc-environment.md#create-a-custom-location)).
+Get the following information about the custom location from your cluster administrator (see [Create a custom location](/azure/app-service/manage-create-arc-environment#create-a-custom-location)).
 
 ```azurecli-interactive
 customLocationGroup="<resource-group-containing-custom-location>"

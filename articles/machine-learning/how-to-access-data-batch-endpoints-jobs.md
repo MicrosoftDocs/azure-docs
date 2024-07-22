@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.date: 5/01/2023
-ms.reviewer: larryfr
+ms.reviewer: cacrest
 ms.custom:
   - devplatv2
   - devx-track-azurecli
@@ -18,15 +18,19 @@ ms.custom:
 
 # Create jobs and input data for batch endpoints
 
-Batch endpoints can be used to perform long batch operations over large amounts of data. Such data can be placed in different places. Some type of batch endpoints can also receive literal parameters as inputs. In this tutorial we'll cover how you can specify those inputs, and the different types or locations supported.
+Batch endpoints can be used to perform long batch operations over large amounts of data. Such data can be placed in different places. Some types of batch endpoints can also receive literal parameters as inputs. This article covers how to specify those inputs.
 
-## Before invoking an endpoint
+<!-- , and the different types or locations supported. -->
+
+## Prerequisites
 
 To successfully invoke a batch endpoint and create jobs, ensure you have the following:
 
-* You have permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+* A batch endpoint and deployment. If you don't have one already, see [Deploy models for scoring in batch endpoints](how-to-use-batch-model-deployments.md) to create a deployment.
 
-* You have a valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. For testing purposes, you can use your own credentials for the invocation as mentioned below.
+* Permissions to run a batch endpoint deployment. **AzureML Data Scientist**, **Contributor**, and **Owner** roles can be used to run a deployment. For custom role definitions see [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) to know the specific permissions needed.
+
+* A valid Microsoft Entra ID token representing a security principal to invoke the endpoint. This principal can be a user principal or a service principal. In any case, once an endpoint is invoked, a batch deployment job is created under the identity associated with the token. You can use your own credentials for the invocation as follows:
 
     # [Azure CLI](#tab/cli)
     
@@ -42,22 +46,22 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
-    ml_client = MLClient.from_config(DefaultAzureCredentials())
+    ml_client = MLClient.from_config(DefaultAzureCredential())
     ```
     
     If running outside of Azure Machine Learning compute, you need to specify the workspace where the endpoint is deployed:
     
     ```python
     from azure.ai.ml import MLClient
-    from azure.identity import DefaultAzureCredentials
+    from azure.identity import DefaultAzureCredential
     
     subscription_id = "<subscription>"
     resource_group = "<resource-group>"
     workspace = "<workspace>"
     
-    ml_client = MLClient(DefaultAzureCredentials(), subscription_id, resource_group, workspace)
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
        
     # [REST](#tab/rest)
@@ -73,12 +77,191 @@ To successfully invoke a batch endpoint and create jobs, ensure you have the fol
     
     ---
 
-    To learn more about how to authenticate with multiple type of credentials read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md).
+    To learn more about how to start batch deployment jobs, using different types of credential, see [How to run jobs using different types of credentials](how-to-authenticate-batch-endpoint.md#how-to-run-jobs-using-different-types-of-credentials).
 
 * The **compute cluster** where the endpoint is deployed has access to read the input data. 
 
     > [!TIP]
     > If you are using a credential-less data store or external Azure Storage Account as data input, ensure you [configure compute clusters for data access](how-to-authenticate-batch-endpoint.md#configure-compute-clusters-for-data-access). **The managed identity of the compute cluster** is used **for mounting** the storage account. The identity of the job (invoker) is still used to read the underlying data allowing you to achieve granular access control.
+
+## Create jobs basics
+
+To create a job from a batch endpoint you have to invoke it. Invocation can be done using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoint that receives a single input data folder for processing. See [Understanding inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understanding-inputs-and-outputs) for examples with different inputs and outputs.
+
+# [Azure CLI](#tab/cli)
+ 
+Use the `invoke` operation under batch endpoints:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the method `MLClient.batch_endpoints.invoke()` to specify the name of the experiment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Make a `POST` request to the invocation URL of the endpoint. You can get the invocation URL from Azure Machine Learning portal, in the endpoint's details page.
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        }
+    }
+}
+```
+
+__Request__
+
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+---
+
+### Invoke a specific deployment
+
+Batch endpoints can host multiple deployments under the same endpoint. The default endpoint is used unless the user specifies otherwise. You can change the deployment that is used as follows:
+
+# [Azure CLI](#tab/cli)
+ 
+Use the argument `--deployment-name` or `-d` to specify the name of the deployment:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --deployment-name $DEPLOYMENT_NAME \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the parameter `deployment_name` to specify the name of the deployment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    deployment_name=deployment.name,
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Add the header `azureml-model-deployment` to your request, including the name of the deployment you want to invoke.
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        }
+    }
+}
+```
+
+__Request__
+ 
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+azureml-model-deployment: DEPLOYMENT_NAME
+```
+---
+
+### Configure job properties
+
+You can configure some of the properties in the created job at invocation time.
+
+> [!NOTE]
+> Configuring job properties is only available in batch endpoints with Pipeline component deployments by the moment.
+
+#### Configure experiment name
+
+# [Azure CLI](#tab/cli)
+ 
+Use the argument `--experiment-name` to specify the name of the experiment:
+
+```azurecli
+az ml batch-endpoint invoke --name $ENDPOINT_NAME \
+                            --experiment-name "my-batch-job-experiment" \
+                            --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+```
+
+# [Python](#tab/sdk)
+
+Use the parameter `experiment_name` to specify the name of the experiment:
+
+```python
+job = ml_client.batch_endpoints.invoke(
+    endpoint_name=endpoint.name,
+    experiment_name="my-batch-job-experiment",
+    inputs={
+        "heart_dataset": Input("https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"),
+    }
+)
+```
+
+# [REST](#tab/rest)
+
+Use the key `experimentName` in `properties` section to indicate the experiment name:
+
+__Body__
+ 
+```json
+{
+    "properties": {
+        "InputData": {
+           "heart_dataset": {
+               "JobInputType" : "UriFolder",
+               "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+           }
+        },
+        "properties":
+        {
+            "experimentName": "my-batch-job-experiment"
+        }
+    }
+}
+```
+
+__Request__
+
+```http
+POST jobs HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
+---
 
 ## Understanding inputs and outputs
 
@@ -97,7 +280,7 @@ The following table summarizes the inputs and outputs for batch deployments:
 
 | Deployment type | Input's number | Supported input's types | Output's number | Supported output's types |
 |--|--|--|--|--|
-| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployment) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
 | [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 > [!TIP]
@@ -135,7 +318,7 @@ Literal inputs are only supported in pipeline component deployments. See [Create
 Data outputs refer to the location where the results of a batch job should be placed. Outputs are identified by name, and Azure Machine Learning automatically assigns a unique path to each named output. However, you can specify another path if required. 
 
 > [!IMPORTANT]
-> Batch endpoints only support writing outputs in Azure Blob Storage datastores. 
+> Batch endpoints only support writing outputs in Azure Blob Storage datastores. If you need to write to an storage account with hierarchical namespaces enabled (also known as Azure Datalake Gen2 or ADLS Gen2), notice that such storage service can be registered as a Azure Blob Storage datastore since the services are fully compatible. In this way, you can write outputs from batch endpoints to ADLS Gen2.
 
 
 ## Create jobs with data inputs
@@ -711,7 +894,7 @@ The following example shows how to change the location where an output named `sc
 
     ```python
     data_path = "batch-jobs/my-unique-path"
-    output = Output(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    output = Output(type=AssetTypes.URI_FILE, path=f"{default_ds.id}/paths/{data_path})
     ```
 
     For completeness, let's also create a data input:
@@ -780,48 +963,8 @@ The following example shows how to change the location where an output named `sc
     Content-Type: application/json
     ```
 
-## Invoke a specific deployment
 
-Batch endpoints can host multiple deployments under the same endpoint. The default endpoint is used unless the user specifies otherwise. You can change the deployment that is used as follows:
-
-# [Azure CLI](#tab/cli)
- 
-Use the argument `--deployment-name` or `-d` to specify the name of the deployment:
-
-```azurecli
-az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input $INPUT_DATA
-```
-
-# [Python](#tab/sdk)
-
-Use the parameter `deployment_name` to specify the name of the deployment:
-
-```python
-job = ml_client.batch_endpoints.invoke(
-    endpoint_name=endpoint.name,
-    deployment_name=deployment.name,
-    inputs={
-        "heart_dataset": input,
-    }
-)
-```
-
-# [REST](#tab/rest)
-
-Add the header `azureml-model-deployment` to your request, including the name of the deployment you want to invoke.
-
-__Request__
- 
-```http
-POST jobs HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-azureml-model-deployment: DEPLOYMENT_NAME
-```
----
-
-## Next steps
+## Related content
 
 * [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
 * [Customize outputs in model deployments batch deployments](how-to-deploy-model-custom-output.md).

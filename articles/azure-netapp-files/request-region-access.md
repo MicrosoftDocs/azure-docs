@@ -4,7 +4,6 @@ description: Describes how to request access to a region for using Azure NetApp 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: anfdocs

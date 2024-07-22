@@ -1,10 +1,10 @@
 ---
 title: Azure NetApp Files performance benchmarks for Linux | Microsoft Docs
-description: Describes performance benchmarks Azure NetApp Files delivers for Linux. 
+description: Describes performance benchmarks Azure NetApp Files delivers for Linux.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 09/29/2021
 ms.author: anfdocs

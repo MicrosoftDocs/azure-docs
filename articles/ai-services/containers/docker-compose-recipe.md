@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/22/2024
 ms.author: aahi
 
 # SME: Brendan Walsh
@@ -150,7 +150,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 ## Verify the service availability
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../includes/cognitive-services-containers-docker-list-tip.md)]
 
 Here's some example output:
 

@@ -84,13 +84,10 @@ $certificateName = '<YourCert>'
 $password = '<YourPwd>'
 
 $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
-$secretByte = [Convert]::FromBase64String($pfxSecret)
-$x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
-$x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
+$certBytes = [Convert]::FromBase64String($pfxSecret)
 
 # Write to a file
-[IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+Set-Content -Path cert.pfx -Value $certBytes -AsByteStream
 
 ```
 

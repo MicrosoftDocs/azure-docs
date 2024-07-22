@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/16/2024
+ms.date: 05/22/2024
 ms.author: jianleishen
 ---
 
@@ -19,6 +19,9 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 
 >[!NOTE]
 >To copy data from or to [Azure Database for MySQL](../mysql/overview.md) service, use the specialized [Azure Database for MySQL connector](connector-azure-database-for-mysql.md).
+
+>[!IMPORTANT]
+>MySQL connector using the recommended driver version provides improved native MySQL support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mysql-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version. 
 
 ## Supported capabilities
 
@@ -317,11 +320,22 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MySQL driver version: 
 
-1. Create a new MySQL linked service and configure it by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
+1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
 1. The data type mapping for the latest MySQL linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
-1. More MySQL versions are supported for the latest driver version. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+1. The latest driver version v2 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
+
+## Differences between the recommended and the legacy driver version
+
+The table below shows the data type mapping differences between MySQL using the recommended and the legacy driver version.
+
+|MySQL data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|:---|:---|:---|
+|bit(1)| UInt64|Boolean|
+|bit(M), M>1|UInt64|Byte[]|
+|bool|Boolean|Int16|
+|JSON|String|Byte[]|
 
 ## Related content
 

@@ -1,5 +1,5 @@
 ---
-title: Do image retrieval using multi-modal embeddings - Image Analysis 4.0
+title: Do image retrieval using multimodal embeddings - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Learn how to call the image retrieval API to vectorize image and search terms.
 #services: cognitive-services
@@ -8,27 +8,28 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 02/20/2024
 ms.author: pafarley
-ms.custom: references_regions
 ---
 
-# Do image retrieval using multi-modal embeddings (version 4.0 preview)
+# Do image retrieval using multimodal embeddings (version 4.0)
 
-The Multi-modal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+The Multimodal embeddings APIs enable the _vectorization_ of images and text queries. They convert images to coordinates in a multi-dimensional vector space. Then, incoming text queries can also be converted to vectors, and images can be matched to the text based on semantic closeness. This allows the user to search a set of images using text, without the need to use image tags or other metadata. Semantic closeness often produces better results in search.
+
+The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
 > [!IMPORTANT]
-> These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> These APIs are only available in certain geographic regions. See [Region availability](../overview-image-analysis.md#region-availability).
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the permitted geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal to get your key and endpoint. Be sure to create it in one of the supported geographic regions: see [Region availability](../overview-image-analysis.md#region-availability).
    * After it deploys, select **Go to resource**. Copy the key and endpoint to a temporary location to use later on.
 
-## Try out Multi-modal embeddings
+## Try out Multimodal embeddings
 
-You can try out the Multi-modal embeddings feature quickly and easily in your browser using Vision Studio.
+You can try out the Multimodal embeddings feature quickly and easily in your browser using Vision Studio.
 
 > [!IMPORTANT]
 > The Vision Studio experience is limited to 500 images. To use a larger image set, create your own search application using the APIs in this guide.
@@ -43,9 +44,10 @@ The `retrieval:vectorizeImage` API lets you convert an image's data to a vector.
 1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"url"` to the URL of a remote image you want to use.
+1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeImage?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "<endpoint>/computervision/retrieval:vectorizeImage?api-version=2024-02-01&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'url':'https://learn.microsoft.com/azure/ai-services/computer-vision/media/quickstarts/presentation.png'
 }"
@@ -69,9 +71,10 @@ The `retrieval:vectorizeText` API lets you convert a text string to a vector. To
 1. Replace `<endpoint>` with your Azure AI Vision endpoint.
 1. Replace `<subscription-key>` with your Azure AI Vision key.
 1. In the request body, set `"text"` to the example search term you want to use.
+1. Optionally, change the `model-version` parameter to an older version. `2022-04-11` is the legacy model that supports only English text. Images and text that are vectorized with a certain model aren't compatible with other models, so be sure to use the same model for both. 
 
 ```bash
-curl.exe -v -X POST "https://<endpoint>/computervision/retrieval:vectorizeText?api-version=2023-02-01-preview&modelVersion=latest" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
+curl.exe -v -X POST "<endpoint>/computervision/retrieval:vectorizeText?api-version=2024-02-01&model-version=2023-04-15" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription-key>" --data-ascii "
 {
 'text':'cat jumping'
 }"

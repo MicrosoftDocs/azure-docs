@@ -95,7 +95,7 @@ Use the instructions in the following sections to configure an Orchestrator inst
 
 You can run your Orchestrator instance on any server, whether on-premises or in a public cloud infrastructure by provider such as Azure, AWS, or GCP.
 
-- **Operating System**: REHL 7.7 or higher, CentOS 7+
+- **Operating System**: RHEL 7.7 or higher
 - **Disk**: 10 GB (small)
 - **Memory**: 16 GB
 - **Ports**: 22 (SSH/SCP), 443, 80

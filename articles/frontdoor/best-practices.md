@@ -5,8 +5,7 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 02/23/2023
+ms.date: 03/11/2024
 ms.author: jodowns
 ---
 
@@ -18,11 +17,14 @@ This article summarizes best practices for using Azure Front Door.
 
 ### Avoid combining Traffic Manager and Front Door
 
-For most solutions, you should use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
+For most solutions, we recommend the use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Azure Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
 If you need content caching and delivery (CDN), TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
-However, as part of a complex architecture, you might choose to use Traffic Manager in front of Front Door. In the unlikely event that Front Door is unavailable, Traffic Manager can route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN). These architectures are difficult to implement and most customers don't need them.
+However, as part of a [complex architecture that requires high availability](/azure/architecture/guide/networking/global-web-applications/mission-critical-content-delivery), you can put an Azure Traffic Manager in front of an Azure Front Door. In the unlikely event that Azure Front Door is unavailable, Azure Traffic Manager can then route traffic to an alternative destination, such as Azure Application Gateway or a partner content delivery network (CDN).
+
+> [!IMPORTANT]
+> Don't put Azure Traffic Manager behind Azure Front Door. Azure Traffic Managers should always be in front of Azure Front Door.
 
 ### Restrict traffic to your origins
 

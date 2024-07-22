@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 06/25/2024
 ---
 
 # Knowledge store in Azure AI Search
@@ -75,7 +75,7 @@ The type of projection you specify in this structure determines the type of stor
 
 To create knowledge store, use the portal or an API. 
 
-You'll need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you'll also need to provide an index definition.
+You need [Azure Storage](../storage/index.yml), a [skillset](cognitive-search-working-with-skillsets.md), and an [indexer](search-indexer-overview.md). Because indexers require a search index, you also need to provide an index definition.
 
 Go with the portal approach for the fastest route to a finished knowledge store. Or, choose the REST API for a deeper understanding of how objects are defined and related.
 
@@ -95,12 +95,10 @@ The wizard automates several tasks. Specifically, both shaping and projections (
 
 ### [**REST**](#tab/kstore-rest)
 
-[**Create your first knowledge store using Postman**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/main/knowledge-store).
+[**Create a knowledge store using REST**](knowledge-store-create-rest.md) is a tutorial that walks you through the objects and requests belonging to this [knowledge store collection](https://github.com/Azure-Samples/azure-search-rest-samples/tree/main/knowledge-store).
 
-REST API version `2020-06-30` can be used to create a knowledge store through additions to a skillset.
-
-+ [Create Skillset (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
-+ [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
++ [Create Skillset](/rest/api/searchservice/skillsets/create)
++ [Create or Update Skillset](/rest/api/searchservice/indexers/create-or-update)
 
 Within the skillset:
 
@@ -153,7 +151,7 @@ Although an indexer creates and updates structures and content in Azure Storage,
 
 Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
 
-The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but you can also use Postman and the REST API, which is more useful if you want insight into how objects are created and referenced programmatically.
+The simplest approach for creating enriched documents is [through the portal](knowledge-store-create-portal.md), but a REST client and REST APIs can provide more insight into how objects are created and referenced programmatically.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
+> [Create a knowledge store using REST](knowledge-store-create-rest.md)

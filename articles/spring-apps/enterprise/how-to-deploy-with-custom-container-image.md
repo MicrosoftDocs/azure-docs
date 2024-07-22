@@ -6,10 +6,13 @@ ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
-ms.date: 4/28/2022
+ms.date: 06/27/2024
 ---
 
 # Deploy an application with a custom container image
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
@@ -81,7 +84,7 @@ To disable listening on a port for images that aren't web applications, add the 
 
 1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
 
-   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal showing the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
+   :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal that shows the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
    > [!NOTE]
    > The **Commands** and **Arguments** field are optional, which are used to overwrite the `cmd` and `entrypoint` of the image.
@@ -111,7 +114,7 @@ The following matrix shows what features are supported in each application type.
 | Spring Cloud Eureka & Config Server                 | ✔️                                     | ❌                                   |                                                                                                                             |
 | API portal for VMware Tanzu                        | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
 | Spring Cloud Gateway for VMware Tanzu              | ✔️                                     | ✔️                                   | Enterprise plan only.                                                                                                       |
-| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.         
+| Application Configuration Service for VMware Tanzu | ✔️                                     | ❌                                   | Enterprise plan only.
 | Application Live View for VMware Tanzu             | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VMware Tanzu Service Registry                      | ✔️                                     | ❌                                   | Enterprise plan only.                                                                                                       |
 | VNET                                                | ✔️                                     | ✔️                                   | Add registry to [allowlist in NSG or Azure Firewall](#avoid-not-being-able-to-connect-to-the-container-registry-in-a-vnet). |
@@ -210,7 +213,7 @@ To install the agents for other languages, refer to the official documentation f
 
 New Relic:
 
-* Python: [Standard Python agent install](https://docs.newrelic.com/docs/apm/agents/python-agent/installation/standard-python-agent-install/)
+* Python: [Install the Python agent](https://docs.newrelic.com/install/python/)
 * Node.js: [Install the Node.js agent](https://docs.newrelic.com/docs/apm/agents/nodejs-agent/installation-configuration/install-nodejs-agent/)
 
 Dynatrace:
@@ -242,7 +245,7 @@ AppPlatformContainerEventLogs
 | where App == "hw-20220317-1b"
 ```
 
-:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the container events log.":::
+:::image type="content" source="media/how-to-deploy-with-custom-container-image/container-event-logs.png" alt-text="Screenshot of the Azure Monitor that shows the container events log.":::
 
 ### Scan your image for vulnerabilities
 

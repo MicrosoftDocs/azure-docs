@@ -2,7 +2,7 @@
 title: Key types, algorithms, and operations - Azure Key Vault
 description: Supported key types, algorithms, and operations (details).
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: msmbaldwin
 
 ms.service: key-vault
@@ -109,8 +109,8 @@ For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
-- **Get Rotation Policy**: Retrieve rotation policy configuration
-- **Set Rotation Policy**: Set rotation policy configuration 
+- **Get Rotation Policy**: Retrieve rotation policy configuration.
+- **Set Rotation Policy**: Set rotation policy configuration.
 
 ## Key attributes
 
@@ -123,7 +123,14 @@ In addition to the key material, the following attributes may be specified. In a
 There are more read-only attributes that are included in any response that includes key attributes:  
 
 - *created*: IntDate, optional. The *created* attribute indicates when this version of the key was created. The value is null for keys created prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
-- *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
+- *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.
+- *hsmPlatform*: string, optional. The underlying HSM Platform that is protecting a key.
+    - A hsmPlatform value of 2 means the key is protected by our latest FIPS 140 Level 3 validated HSM platform.
+    - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 validated HSM platform.
+    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 HSM software cryptographic module.
+    - if this is not set by a Managed HSM pool, it is protected by our latest FIPS 140 Level 3 validated HSM platform.
+ 
+It’s important to note that keys are bound to the HSM in which they were created. New keys are seamlessly created and stored in the new HSMs. While there is no way to migrate or transfer keys, new key versions are automatically in the new HSMs. For more information on how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
 For more information on IntDate and other data types, see [About keys, secrets, and certificates: [Data types](../general/about-keys-secrets-certificates.md#data-types).
 

@@ -8,6 +8,9 @@ ms.custom: enterprise-iot
 
 # Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)
 
+> [!IMPORTANT]
+> Registering a new Enterprise IoT network sensor as described in this article is no longer available. For customers with the Azure Consumption Revenue (ACR) or legacy license, Defender for IoT maintains existing Enterprise IoT network sensors.
+
 This article describes how to register an Enterprise IoT network sensor in Microsoft Defender for IoT.
 
 Microsoft Defender XDR customers with an Enterprise IoT network sensor can see all discovered devices in the **Device inventory** in either Microsoft Defender XDR or Defender for IoT. You'll also get extra security value from more alerts, vulnerabilities, and recommendations in Microsoft Defender XDR for the newly discovered devices.
@@ -111,7 +114,7 @@ This section describes how to register an Enterprise IoT sensor in Defender for 
 
 **To register a sensor in the Azure portal**:
 
-1. Go to **Defender for IoT** > **Sites and sensors**, and then select **Onboard sensor** > **EIoT**.
+1. Go to **Defender for IoT** > **Sites and sensors**, and then select **Onboard sensor** > **EIoT**. 
 
 1. On the **Set up Enterprise IoT Security** page, enter the following details, and then select **Register**:
 

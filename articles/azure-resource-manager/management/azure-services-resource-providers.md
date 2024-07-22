@@ -6,6 +6,7 @@ ms.date: 11/07/2023
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # What are the resource providers for Azure services
@@ -133,6 +134,7 @@ The resource providers for developer tools services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
+| Microsoft.DevCenter | [Microsoft Dev Box](../../dev-box/index.yml) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/previous-versions/azure/dev-spaces/) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
@@ -157,6 +159,7 @@ The resource providers for hybrid services are:
 | Microsoft.HybridCompute | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) |
 | Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.Edge | [Azure Arc site manager](../../azure-arc/site-manager/index.yml) |
 
 ## Identity resource providers
 
@@ -303,7 +306,7 @@ The resource providers for storage services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.ClassicStorage | Classic deployment model storage |
-| Microsoft.ElasticSan | [Elastic SAN Preview](../../storage/elastic-san/index.yml) |
+| Microsoft.ElasticSan | [Elastic SAN](../../storage/elastic-san/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |

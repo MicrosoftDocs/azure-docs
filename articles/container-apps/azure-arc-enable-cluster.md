@@ -4,7 +4,7 @@ description: 'Tutorial: learn how to set up Azure Container Apps in your Azure A
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 3/24/2023
 ms.author: v-wellsjason
@@ -44,11 +44,10 @@ Install the following Azure CLI extensions.
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az extension add --name connectedk8s  --upgrade --yes
+az extension add --name connectedk8s --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -57,8 +56,7 @@ az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-n
 az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension remove --name containerapp
-az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 ---
@@ -149,8 +147,8 @@ The following steps help you get started understanding the service, but for prod
 
     # [Azure CLI](#tab/azure-cli)
 
-     ```azurecli-interactive
-        az group create --name $GROUP_NAME --location $LOCATION
+    ```azurecli-interactive
+    az group create --name $GROUP_NAME --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
@@ -165,7 +163,7 @@ The following steps help you get started understanding the service, but for prod
 
     # [Azure CLI](#tab/azure-cli)
 
-     ```azurecli-interactive
+    ```azurecli-interactive
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME

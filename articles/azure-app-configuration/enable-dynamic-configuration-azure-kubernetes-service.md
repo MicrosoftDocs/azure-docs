@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider | Microsoft Docs"
+title: "Tutorial: Use dynamic configuration in Azure App Configuration Kubernetes Provider"
 description: "In this quickstart, use the Azure App Configuration Kubernetes Provider to dynamically load updated key-values from App Configuration store."
 services: azure-app-configuration
 author: junbchen
@@ -7,15 +7,17 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 02/16/2024
 ms.author: linglingye
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
 # Tutorial: Use dynamic configuration in Azure Kubernetes Service
 
-If you use Azure Kubernetes Service (AKS), this tutorial will show you how to enable dynamic configuration for your workloads in AKS by leveraging Azure App Configuration and its Kubernetes Provider. The tutorial assumes that you have already worked through the quickstart and have an App Configuration Kubernetes Provider set up, so before proceeding, make sure you have completed the [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) quickstart.
+If you use Azure Kubernetes Service (AKS), this tutorial shows you how to enable dynamic configuration for your workloads in AKS by leveraging Azure App Configuration and its Kubernetes Provider. The tutorial assumes that you work through the quickstart and have an App Configuration Kubernetes Provider set up, so before proceeding, make sure you complete the [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md) quickstart.
 
+> [!TIP]
+> See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
 
 ## Prerequisites
 
@@ -36,7 +38,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Reload data from App Configuration
 
-1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property as shown below. It enables configuration refresh by monitoring the sentinel key.
+1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property. It enables configuration refresh by monitoring the sentinel key.
 
     ```yaml
     apiVersion: azconfig.io/v1
@@ -64,7 +66,7 @@ Add the following key-value to your App Configuration store. For more informatio
     > [!TIP]
     > By default, the Kubernetes provider polls the monitoring key-values every 30 seconds for change detection. However, you can change this behavior by setting the `interval` property of the `refresh`. If you want to reduce the number of requests to your App Configuration store, you can adjust it to a higher value.
 
-1. Open the *deployment.yaml* file in the *Deployment* directory and add the following content to the `spec.containers` section. Your application will load configuration from a volume-mounted file the App Configuration Kubernetes provider generates. By setting this environment variable, your application can [ use polling to monitor changes in mounted files](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher).
+1. Open the *deployment.yaml* file in the *Deployment* directory and add the following content to the `spec.containers` section. Your application loads configuration from a volume-mounted file the App Configuration Kubernetes provider generates. By setting this environment variable, your application can [use polling to monitor changes in mounted files](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider.usepollingfilewatcher).
 
     ```yaml
     env:
@@ -72,7 +74,7 @@ Add the following key-value to your App Configuration store. For more informatio
       value: "true"
     ```
 
-1. Run the following command to deploy the change. Replace the namespace if you are using your existing AKS application.
+1. Run the following command to deploy the change. Replace the namespace if you're using your existing AKS application.
    
    ```console
    kubectl apply -f ./Deployment -n appconfig-demo
@@ -90,7 +92,7 @@ Add the following key-value to your App Configuration store. For more informatio
     | Settings:Message | Hello from Azure App Configuration - now with live updates! |
     | Settings:Sentinel | 2 |
 
-1. After refreshing the browser a few times, you will see the updated content once the ConfigMap is updated in 30 seconds.
+1. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 
     ![Screenshot of the web app with updated values.](./media/quickstarts/kubernetes-provider-app-launch-dynamic-after.png)
 

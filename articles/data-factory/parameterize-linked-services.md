@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/29/2024
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ---
 
 # Parameterize linked services in Azure Data Factory and Azure Synapse Analytics
@@ -126,3 +126,6 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+## Related content
+
+[Store credentials in Azure Key Vault](store-credentials-in-key-vault.md)

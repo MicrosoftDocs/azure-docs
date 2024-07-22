@@ -1,5 +1,5 @@
 ---
-title: Improving your model - Custom Vision Service
+title: Improving your model - Custom Vision service
 titleSuffix: Azure AI services
 description: In this article you'll learn how the amount, quality and variety of data can improve the quality of your model in the Custom Vision service.
 #services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: azure-ai-custom-vision
 ms.topic: how-to
-ms.date: 07/05/2022
+ms.date: 02/14/2024
 ms.author: pafarley
 ---
 
 # How to improve your Custom Vision model
 
-In this guide, you'll learn how to improve the quality of your Custom Vision Service model. The quality of your [classifier](./getting-started-build-a-classifier.md) or [object detector](./get-started-build-detector.md) depends on the amount, quality, and variety of the labeled data you provide it and how balanced the overall dataset is. A good model has a balanced training dataset that is representative of what will be submitted to it. The process of building such a model is iterative; it's common to take a few rounds of training to reach expected results.
+In this guide, you'll learn how to improve the quality of your Custom Vision model. The quality of your [classifier](./getting-started-build-a-classifier.md) or [object detector](./get-started-build-detector.md) depends on the amount, quality, and variety of labeled data you provide and how balanced the overall dataset is. A good model has a balanced training dataset that is representative of what will be submitted to it. The process of building such a model is iterative; it's common to take a few rounds of training to reach expected results.
 
 The following is a general pattern to help you train a more accurate model:
 
@@ -73,7 +73,7 @@ If you're using an image classifier, you may need to add _negative samples_ to h
 Object detectors handle negative samples automatically, because any image areas outside of the drawn bounding boxes are considered negative.
 
 > [!NOTE]
-> The Custom Vision Service supports some automatic negative image handling. For example, if you are building a grape vs. banana classifier and submit an image of a shoe for prediction, the classifier should score that image as close to 0% for both grape and banana.
+> The Custom Vision service supports some automatic negative image handling. For example, if you are building a grape vs. banana classifier and submit an image of a shoe for prediction, the classifier should score that image as close to 0% for both grape and banana.
 > 
 > On the other hand, in cases where the negative images are just a variation of the images used in training, it is likely that the model will classify the negative images as a labeled class due to the great similarities. For example, if you have an orange vs. grapefruit classifier, and you feed in an image of a clementine, it may score the clementine as an orange because many features of the clementine resemble those of oranges. If your negative images are of this nature, we recommend you create one or more additional tags (such as **Other**) and label the negative images with this tag during training to allow the model to better differentiate between these classes.
 
@@ -92,13 +92,13 @@ When you use or test the model by submitting images to the prediction endpoint, 
 
     ![screenshot of the predictions tab, with images in view](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Hover over an image to see the tags that were predicted by the model. Images are sorted so that the ones that can bring the most improvements to the model are listed the top. To use a different sorting method, make a selection in the __Sort__ section. 
+1. Hover over an image to see the tags that were predicted by the model. Images are sorted so that the ones that can bring the most improvements to the model are listed the top. To use a different sorting method, make a selection in the __Sort__ section. 
 
     To add an image to your existing training data, select the image, set the correct tag(s), and select __Save and close__. The image will be removed from __Predictions__ and added to the set of training images. You can view it by selecting the __Training Images__ tab.
 
     ![Screenshot of the tagging page.](./media/getting-started-improving-your-classifier/tag.png)
 
-3. Then use the __Train__ button to retrain the model.
+1. Then use the __Train__ button to retrain the model.
 
 ## Visually inspect predictions
 

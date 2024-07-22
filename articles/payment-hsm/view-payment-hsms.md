@@ -1,6 +1,6 @@
 ---
-title: View your Azure Payment HSMs
-description: View your Azure Payment HSMs
+title: View your Azure Payment HSMs.
+description: View your Azure Payment HSMs.
 services: payment-hsm
 ms.service: payment-hsm
 author: msmbaldwin
@@ -48,16 +48,22 @@ Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
 
 # [Azure portal](#tab/azure-portal)
 
-
 To view your payment HSMs in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select "Resource groups".
 1. Select your resource group (for example, "myResourceGroup").
-1. You will see your network interfaces, but not your payment HSMs. Select the "Show hidden types" box.
-  :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
+1. Your network interfaces will appear. To view your payment HSMs as well, select the "Show hidden types" box.
+    :::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="Screenshot of the Azure portal displaying all payment HSMs.":::
 1. You can select one of your payment HSMs to see its properties.
-  :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Screenshot of the Azure portal displaying a specific payment HSM and its properties.":::
+    :::image type="content" source="./media/portal-view-payment-hsm.png" lightbox="./media/portal-view-payment-hsm.png" alt-text="Screenshot of the Azure portal displaying a specific payment HSM and its properties.":::
+
+To view the IP addresses of the host and management network interfaces, see the "connected devices" associated with your Virtual Network:
+
+1. From the [Azure portal](https://portal.azure.com), select "Virtual networks".
+1. Select your virtual network (for example, "myVNet").
+1. From the left-hand sidebar, select "Connected devices".
+    :::image type="content" source="./media/portal-view-network-interfaces.png" lightbox="./media/portal-view-network-interfaces.png" alt-text="Screenshot of the Azure portal displaying the network interfaces associated with a virtual network.":::
 
 ---
 

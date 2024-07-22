@@ -11,11 +11,13 @@ ms.date: 07/04/2023
 ms.author: pafarley
 ---
 
+[Reference documentation](/dotnet/api/overview/azure/ai.contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/contentsafety/Azure.AI.ContentSafety) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0)
+
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload .NET desktop development enabled. Or if you don't plan on using Visual Studio IDE, you need the current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 
 ## Set up application
@@ -28,7 +30,7 @@ Open Visual Studio, and under **Get started** select **Create a new project**. S
 
 ### Install the client SDK 
 
-Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.ContentSafety`. Select **Install**.
+Once you've created a new project, install the client SDK by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, and search for `Azure.AI.ContentSafety`. Select **Install**.
 
 #### [CLI](#tab/cli)
 
@@ -59,7 +61,7 @@ Build succeeded.
 Within the application directory, install the Computer Vision client SDK for .NET with the following command:
 
 ```dotnet
-dotnet add package Azure.AI.ContentSafety --prerelease
+dotnet add package Azure.AI.ContentSafety
 ```
     
 ---
@@ -101,10 +103,16 @@ namespace Azure.AI.ContentSafety.Dotnet.Sample
           throw;
       }
 
-      Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
-      Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
-      Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
-      Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+      Console.WriteLine("\nAnalyze text succeeded:");
+      Console.WriteLine("Hate severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Hate)?.Severity ?? 0);
+      Console.WriteLine("SelfHarm severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.SelfHarm)?.Severity ?? 0);
+      Console.WriteLine("Sexual severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Sexual)?.Severity ?? 0);
+      Console.WriteLine("Violence severity: {0}", response.Value.CategoriesAnalysis.FirstOrDefault(a => a.Category == TextCategory.Violence)?.Severity ?? 0);
+
+    }
+    static void Main()
+    {
+        AnalyzeText();
     }
   }
 }
@@ -115,7 +123,7 @@ Replace `"Your input text"` with the text content you'd like to use.
 > [!TIP]
 > Text size and granularity
 >
-> The default maximum length for text submissions is **10K** characters.
+> See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 #### [Visual Studio IDE](#tab/visual-studio)
 

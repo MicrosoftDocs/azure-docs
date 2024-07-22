@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 09/12/2023
+ms.date: 02/19/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -24,7 +24,7 @@ The quality of real-time media over IP is significantly affected by the quality 
 
 * **Latency**. The time it takes to get an IP packet from point A to point B on the network. This network propagation delay is determined by the physical distance between the two points and any other overhead incurred by the devices that your traffic flows through. Latency is measured as one-way or round-trip time (RTT).
 * **Packet loss**. A percentage of packets that are lost in a specific window of time. Packet loss directly affects audio quality—from small, individual lost packets having almost no impact to back-to-back burst losses that cause complete audio cut-out.
-* **Inter-packet arrival jitter, also known as jitter**. The average change in delay between successive packets. Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant will notice its effects.
+* **Inter-packet arrival jitter, also known as jitter**. The average change in delay between successive packets. Communication Services can adapt to some levels of jitter through buffering. It's only when the jitter exceeds the buffering that a participant notices its effects.
 
 ## Network bandwidth
 
@@ -39,7 +39,8 @@ The following bandwidth requirements are for the JavaScript SDKs.
 |500 Kbps|Peer-to-peer quality video calling 360 pixels at 30 FPS|
 |1.2 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 720 pixels at 30 FPS|
 |500 Kbps|Group video calling 360 pixels at 30 FPS|
-|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS| 
+|1.2 Mbps|HD group video calling with resolution of HD 720 pixels at 30 FPS|
+|1.5 Mbps|Peer-to-peer HD-quality video calling with resolution of HD 1080 pixels at 30 FPS |
 
 The following bandwidth requirements are for the native Windows, Android, and iOS SDKs.
 
@@ -55,7 +56,7 @@ The following bandwidth requirements are for the native Windows, Android, and iO
 
 ## Firewall configuration
 
-Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services will not work properly. The list of IP ranges and allow listed domains that need to be enabled are:
+Communication Services connections require internet connectivity to specific ports and IP addresses to deliver high-quality multimedia experiences. Without access to these ports and IP addresses, Communication Services won't work properly. The list of IP ranges and allow listed domains that need to be enabled are:
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |
@@ -63,7 +64,7 @@ Communication Services connections require internet connectivity to specific por
 | Signaling, telemetry, registration| *.skype.com, *.microsoft.com, *.azure.net, *.azure.com, *.office.com| TCP 443, 80 |
 
 
-The endpoints below should be reachable for U.S. Government GCC High customers only
+The endpoints below should be reachable for U.S. Government GCC High customers only.
 
 | Category | IP ranges or FQDN | Ports | 
 | :-- | :-- | :-- |

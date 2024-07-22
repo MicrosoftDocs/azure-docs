@@ -3,12 +3,11 @@ title: Monitoring models in production
 titleSuffix: Azure Machine Learning
 description: Monitor the performance of models deployed to production on Azure Machine Learning.
 services: machine-learning
-author: ahughes-msft
-ms.author: alehughes
+author: msakande
+ms.author: mopeakande
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: alehughes
 ms.topic: conceptual
 ms.date: 01/29/2024
 ms.custom: devplatv2
@@ -23,6 +22,10 @@ In this article, you learn about model monitoring in Azure Machine Learning, the
 Model monitoring is the last step in the machine learning end-to-end lifecycle. This step tracks model performance in production and aims to understand the performance from both data science and operational perspectives. 
 
 Unlike traditional software systems, the behavior of machine learning systems is governed not just by rules specified in code, but also by model behavior learned from data. Therefore, data distribution changes, training-serving skew, data quality issues, shifts in environments, or consumer behavior changes can all cause a model to become stale. When a model becomes stale, its performance can degrade to the point that it fails to add business value or starts to cause serious compliance issues in highly regulated environments.
+
+## Limitations of model monitoring in Azure Machine Learning
+
+Azure Machine Learning model monitoring supports only the use of credential-based authentication (e.g., SAS token) to access data contained in datastores. To learn more about datastores and authentication modes, see [Data administration](how-to-administrate-data-authentication.md).
 
 ## How model monitoring works in Azure Machine Learning
 

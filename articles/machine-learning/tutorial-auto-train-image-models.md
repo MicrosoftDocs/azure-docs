@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: swatig007
-ms.author: swatig
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: swatig
 ms.date: 11/07/2023
 ms.custom: devx-track-python, automl, devx-track-azurecli, update-code, build-2023
 ---
@@ -161,6 +161,7 @@ Once you have the input image data prepared in [JSONL](https://jsonlines.org/) (
 ```
 %pip install --upgrade matplotlib
 ```
+
 ```python
 
 %matplotlib inline
@@ -317,7 +318,7 @@ To configure automated ML jobs for image-related tasks, create a task specific A
 > resources:
 >  instance_type: Standard_NC24s_v3
 >  instance_count: 4
-```
+> ```
 
 ```yaml
 task: image_object_detection

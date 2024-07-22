@@ -5,7 +5,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 07/01/2024
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
@@ -22,7 +22,6 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 - _Scaling up_ increases the size of the Virtual Machine (VM) running the Redis server, adding more memory, Virtual CPUs (vCPUs), and network bandwidth. Scaling up is also called _vertical scaling_. The opposite of scaling up is _Scaling down_.
 
 - _Scaling out_ divides the cache instance into more nodes of the same size, increasing memory, vCPUs, and network bandwidth through parallelization. Scaling out is also referred to as _horizontal scaling_ or _sharding_. The opposite of scaling out is **Scaling in**. In the Redis community, scaling out is frequently called [_clustering_](https://redis.io/docs/management/scaling/).
-
 
 ## Scope of availability
 
@@ -42,16 +41,19 @@ You can monitor the following metrics to determine if you need to scale.
 - **Redis Server Load**
   - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because a Redis server is a single threaded process, it's typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS.
   - Scaling up can still be helpful in reducing server load because background tasks can take advantage of the more vCPUs and free up the thread for the main Redis server process.
-  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is that the Redis server process can take advantage of multiple vCPUs. Because of that, both scaling up and scaling out in these tiers can be helpful in reducing server load. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis](cache-best-practices-enterprise-tiers.md).
+  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is the Redis server process can take advantage of multiple vCPUs. With multiple vCPUs, both scaling up and scaling out in these tiers can be helpful in reducing server load. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis](cache-best-practices-enterprise-tiers.md).
 - **Memory Usage**
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. Either _scaling up_ or _scaling out_ is effective here.
 - **Client connections**
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider _scaling up_ to a larger tier. _Scaling out_ doesn't increase the number of supported client connections.
   - For more information on connection limits by cache size, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 - **Network Bandwidth**
-  - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. Check "Cache Read" and "Cache Write" metrics to see how much server-side bandwidth is being used. If your Redis server is exceeding available network bandwidth, you should consider scaling out or scaling up to a larger cache size with higher network bandwidth.
+  - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. To see how much server-side bandwidth is being used, check "Cache Read" and "Cache Write" metrics. If your Redis server is exceeding available network bandwidth, you should consider scaling out or scaling up to a larger cache size with higher network bandwidth.
   - For Enterprise tier caches using the _Enterprise cluster policy_, scaling out doesn't increase network bandwidth.
   - For more information on network available bandwidth by cache size, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
+- **Internal Defender Scans**
+  - On _C0_ and _C1_ Standard caches, while internal Defender scanning is running on the VMs, you might see short spikes in server load not caused by an increase in cache requests. You see higher latency for requests while internal Defender scans are run on these tiers a couple of times a day. Caches on the _C0_ and _C1_ tiers only have a single core to multitask, dividing the work of serving internal Defender scanning and Redis requests. You can reduce the effect by scaling to a higher tier offering with multiple CPU cores, such as _C2_.
+  - The increased cache size on the higher tiers helps address any latency concerns. Also, at the _C2_ level, you have support for as many as 2,000 client connections.
 
 For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 
@@ -78,7 +80,7 @@ You can scale out/in with the following restrictions:
 - _Scale out_ is only supported on the **Premium**, **Enterprise**, and **Enterprise Flash** tiers.
 - _Scale in_ is only supported on the **Premium** tier.
 - On the **Premium** tier, clustering must be enabled first before scaling in or out.
-- On the **Premium** tier, there is GA support for scale out up to 10 shards. Support for up to 30 shards is in preview. (For caches with two replicas, the shard limit is 20. With three replicas, shard limit is 15.)  
+- On the **Premium** tier, support for scale out up to 10 shards is generally available. Support for up to 30 shards is in preview. (For caches with two replicas, the shard limit is 20. With three replicas, shard limit is 15.)  
 - Only the **Enterprise** and **Enterprise Flash** tiers can scale up and scale out simultaneously.
 
 ## How to scale - Basic, Standard, and Premium tiers
@@ -99,7 +101,7 @@ You can scale out/in with the following restrictions:
 
     :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="Screenshot showing the notification of scaling.":::
 
-1.  When scaling is complete, the status changes from **Scaling** to **Running**.
+1. When scaling is complete, the status changes from **Scaling** to **Running**.
 
  > [!NOTE]
  > When you scale a cache up or down using the portal, both `maxmemory-reserved` and `maxfragmentationmemory-reserved` settings automatically scale in proportion to the cache size.
@@ -166,7 +168,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 > There are some minor differences required in your client application when clustering is configured. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 >
 
-
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 #### Scale a running Premium cache in or out
@@ -208,6 +209,7 @@ For more information on scaling with Azure CLI, see [Change settings of an exist
 >
 >
 ---
+
 ## How to scale up and out - Enterprise and Enterprise Flash tiers
 
 The Enterprise and Enterprise Flash tiers are able to scale up and scale out in one operation. Other tiers require separate operations for each action.
@@ -215,7 +217,6 @@ The Enterprise and Enterprise Flash tiers are able to scale up and scale out in 
 > [!CAUTION]
 > The Enterprise and Enterprise Flash tiers do not yet support _scale down_ or _scale in_ operations.
 >
-
 
 ### Scale using the Azure portal
 
@@ -239,9 +240,7 @@ The Enterprise and Enterprise Flash tiers are able to scale up and scale out in 
 
     :::image type="content" source="media/cache-how-to-scale/cache-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
 
-
 1. When scaling is complete, the status changes from **Scaling** to **Running**.
-
 
 ### Scale using PowerShell
 
@@ -301,7 +300,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 ### How does scaling work?
 
-- When you scale a **Basic** cache to a different size, it's shut down, and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
+- When you scale a **Basic** cache to a different size, the cache is shut down, and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
 - When you scale a **Basic** cache to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
 - When you scale a **Standard**, **Premium**, **Enterprise**, or **Enterprise Flash** cache to a different size, one of the replicas is shut down and reprovisioned to the new size and the data transferred over, and then the other replica does a failover before it's reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
 - When you scale out a clustered cache, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
@@ -312,15 +311,15 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 - When you scale a **Basic** cache to a new size, all data is lost and the cache is unavailable during the scaling operation.
 - When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
-- When you scale a **Standard**, **Premium**, **Enterprise**, or **Enterprise Flash** cache to a larger size, all data is typically preserved. When you scale a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+- When you scale a **Standard**, **Premium**, **Enterprise**, or **Enterprise Flash** cache to a larger size, all data is typically preserved. When you scale a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when the cache is scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
- ### Can I use all the features of Premium tier after scaling?
+### Can I use all the features of Premium tier after scaling?
 
-No, some features can only be set when you create a cache in Premium tier, and are not available after scaling.
+No, some features can only be set when you create a cache in Premium tier, and aren't available after scaling.
 
-These features cannot be added after you create the Premium cache:
+These features can't be added after you create the Premium cache:
 
-- VNet injection
+- Virtual network injection
 - Adding zone redundancy
 - Using multiple replicas per primary
 
@@ -360,7 +359,7 @@ With [active geo-replication](cache-how-to-active-geo-replication.md) configured
 - You can't scale from a **Premium** cache to an **Enterprise** or **Enterprise Flash** cache.
 - You can't scale from a larger size down to the **C0 (250 MB)** size.
 
-If a scaling operation fails, the service tries to revert the operation, and the cache will revert to the original size.
+If a scaling operation fails, the service tries to revert the operation, and the cache reverts to the original size.
 
 ### How long does scaling take?
 
@@ -368,7 +367,7 @@ Scaling time depends on a few factors. Here are some factors that can affect how
 
 - Amount of data: Larger amounts of data take a longer time to be replicated
 - High write requests: Higher number of writes mean more data replicates across nodes or shards
-- High server load: Higher server load means Redis server is busy and has limited CPU cycles to complete data redistribution
+- High server load: Higher server load means the Redis server is busy and limited CPU cycles are available to complete data redistribution
 
 Generally, when you scale a cache with no data, it takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard with minimal data.
 
@@ -378,14 +377,14 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 
 ### Do I need to make any changes to my client application to use clustering?
 
-* When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown: `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+- When clustering is enabled, only database 0 is available. If your client application uses multiple databases, and it tries to read or write to a database other than zero, the following exception is thrown: `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   For more information, see [Redis Cluster Specification - Implemented subset](https://redis.io/topics/cluster-spec#implemented-subset).
-* If you're using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache where clustering is disabled. The only difference is that all reads and writes must be done to database 0.
+- If you're using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache where clustering is disabled. The only difference is that all reads and writes must be done to database 0.
   
-  Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
-* If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
-* If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
+  Other clients might have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
+- If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
+- If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
 > When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
@@ -396,8 +395,8 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 
 Per the Redis documentation on [Keys distribution model](https://redis.io/topics/cluster-spec#keys-distribution-model): The key space is split into 16,384 slots. Each key is hashed and assigned to one of these slots, which are distributed across the nodes of the cluster. You can configure which part of the key is hashed to ensure that multiple keys are located in the same shard using hash tags.
 
-* Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
-* Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
+- Keys with a hash tag - if any part of the key is enclosed in `{` and `}`, only that part of the key is hashed for the purposes of determining the hash slot of a key. For example, the following three keys would be located in the same shard: `{key}1`, `{key}2`, and `{key}3` since only the `key` part of the name is hashed. For a complete list of keys hash tag specifications, see [Keys hash tags](https://redis.io/topics/cluster-spec#keys-hash-tags).
+- Keys without a hash tag - the entire key name is used for hashing, resulting in a statistically even distribution across the shards of the cache.
 
 For best performance and throughput, we recommend distributing the keys evenly. If you're using keys with a hash tag, it's the application's responsibility to ensure the keys are distributed evenly.
 
@@ -413,14 +412,14 @@ The largest cache size you can have is 4.5 TB. This result is a clustered F1500 
 
 Many clients libraries support Redis clustering but not all. Check the documentation for the library you're using to verify you're using a library and version that support clustering. StackExchange.Redis is one library that does support clustering, in its newer versions. For more information on other clients, see the [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial).
 
-The Redis clustering protocol requires each client to connect to each shard directly in clustering mode, and also defines new error responses such as 'MOVED' na 'CROSSSLOTS'. When you attempt to use a client library that doesn't support clustering, with a cluster mode cache, the result can be many [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection), or just break your application, if you're doing cross-slot multi-key requests.
+The Redis clustering protocol requires each client to connect to each shard directly in clustering mode, and also defines new error responses such as `MOVED` na `CROSSSLOTS`. When you attempt to use a client library that doesn't support clustering, with a cluster mode cache, the result can be many [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection), or just break your application, if you're doing cross-slot multi-key requests.
 
 > [!NOTE]
 > If you're using StackExchange.Redis as your client, verify that you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. For more information on any issues with move exceptions, see [move exceptions](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do).
 >
 ### How do I connect to my cache when clustering is enabled?
 
-You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#access-keys) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
+You can connect to your cache using the same [endpoints](cache-configure.md#properties), [ports](cache-configure.md#properties), and [keys](cache-configure.md#authentication) that you use when connecting to a cache that doesn't have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
 ### Can I directly connect to the individual shards of my cache?
 
@@ -434,7 +433,7 @@ You need to use the `-p` switch to specify the correct port to connect to. Use t
 
 ### Can I configure clustering for a previously created cache?
 
-Yes. First, ensure that your cache is in the Premium tier by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you have enabled clustering for the first time.
+Yes. First, ensure that your cache is in the Premium tier by scaling it up. Next, you can see the cluster configuration options, including an option to enable cluster. Change the cluster size after the cache is created, or after you enable clustering for the first time.
 
 >[!IMPORTANT]
 >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves _differently_ than a cache of the same size with _no_ clustering.
@@ -447,19 +446,20 @@ Clustering is only available for Premium, Enterprise, and Enterprise Flash cache
 
 ### Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?
 
-* **Redis Output Cache provider** - no changes required.
-* **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+- **Redis Output Cache provider** - no changes required.
+- **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
+
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
-OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use.  For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
 
 ### How many shards do Enterprise tier caches use?
 
-Unlike Basic, Standard, and Premium tier caches, Enterprise and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
+Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
 
 ## Next steps
 

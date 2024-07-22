@@ -12,12 +12,14 @@ metadata:
   ms.service: cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
-  ms.date: 02/28/2023
+  ms.date: 07/05/2024
 landingContent:
   - title: About API for NoSQL 
     linkLists:
       - linkListType: concept
-        links:    
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
           - text: Model document data
             url: modeling-data.md   
           - text: Change feed
@@ -42,8 +44,6 @@ landingContent:
             url: tutorial-dotnet-web-app.md
           - text: Build a Java console app with Async SDK
             url: quickstart-java.md?tabs=async
-          - text: Create a Jupyter notebook
-            url: tutorial-create-notebook.md
       - linkListType: how-to-guide
         links:
           - text: Create an account
@@ -54,6 +54,36 @@ landingContent:
             url: how-to-dotnet-get-started.md
           - text: Develop Python applications
             url: how-to-python-get-started.md
+  - title: Integrate
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy app on Azure Kubernetes Service (AKS) cluster using Bicep
+            url: tutorial-deploy-app-bicep-aks.md
+          - text: Connect using Apache Spark
+            url: tutorial-spark-connector.md
+  - title: Analytics and BI
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Analytics and BI overview
+            url: ../analytics-and-business-intelligence-overview.md
+      - linkListType: concept
+        links:
+          - text: Analytics and BI use cases
+            url: ../analytics-and-business-intelligence-use-cases.md
+          - text: Mirroring in Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+          - text: Azure Synapse Link
+            url: ../synapse-link.md
+      - linkListType: tutorial
+        links:
+          - text: Mirror database to Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
+      - linkListType: how-to-guide
+        links:
+          - text: Access data using Lighthouse and notebooks
+            url: /fabric/database/mirrored-database/azure-cosmos-db-lakehouse-notebooks?context=/azure/cosmos-db/context/context
   - title: Query items from a container
     linkLists:
       - linkListType: concept
@@ -87,11 +117,17 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use managed identity to access data
-            url: ../managed-identity-based-authentication.md  
+            url: ../managed-identity-based-authentication.yml  
           - text: Configure role-based access control
             url: ../how-to-setup-rbac.md 
           - text: Configure customer-managed keys
-            url: ../how-to-setup-customer-managed-keys.md 
+            url: ../how-to-setup-customer-managed-keys.md
+  - title: Samples
+    linkLists:    
+    - linkListType: sample
+      links:
+        - text: Solution accelerators
+          url: ../solutions.md?pivots=api-nosql
   - title: Get training
     linkLists:
       - linkListType: learn
@@ -101,8 +137,8 @@ landingContent:
           - text: Build a Node.js app
             url: /training/modules/build-node-cosmos-app-vscode/
           - text: Build a Java app
-            url: /training/modules/build-cosmos-db-java-app/
+            url: /training/modules/build-cosmos-db-java-app/      
       - linkListType: video
         links:
-          - text: Azure Friday - Extension for Azure Functions update with AAD support
+          - text: Azure Friday - Extension for Azure Functions update with Microsoft Entra support
             url: /shows/azure-friday/azure-cosmos-db-extension-for-azure-functions-update-with-aad-support

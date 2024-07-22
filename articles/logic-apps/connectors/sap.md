@@ -7,8 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/12/2023
-tags: connectors
+ms.date: 04/18/2024
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
@@ -17,7 +16,7 @@ tags: connectors
 
 This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multi-tenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. If you create and host a Consumption workflow in an integration service environment (ISE), you can also use the SAP connector's ISE-native version. For more information, see [Connector technical reference](#connector-technical-reference).
 
 ## SAP compatibility
 
@@ -53,7 +52,7 @@ The SAP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
@@ -73,7 +72,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Longer timeout at 5 minutes compared to managed connector and ISE-versioned connector.
 
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the [long-running webhook-based request action pattern](../logic-apps-scenario-function-sb-trigger.md).
+  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means timeouts are longer at 5 minutes compared to the SAP managed connector (two minutes) and the SAP ISE-versioned connector (four minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -165,7 +164,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * The logic app workflow from where you want to access your SAP server.
 
-  * For a Consumption workflow in multi-tenant Azure Logic Apps, see [Multi-tenant prerequisites](#multi-tenant-prerequisites).
+  * For a Consumption workflow in multitenant Azure Logic Apps, see [Multitenant prerequisites](#multitenant-prerequisites).
 
   * For a Standard workflow in single-tenant Azure Logic Apps, see [Single-tenant prerequisites](#single-tenant-prerequisites).
 
@@ -228,7 +227,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 The SAP system requires network connectivity from the host of the SAP .NET Connector (NCo) library:
 
-* For Consumption logic app workflows in multi-tenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
+* For Consumption logic app workflows in multitenant Azure Logic Apps, the on-premises data gateway hosts the SAP .NET Connector (NCo) library. If you use an on-premises data gateway cluster, all nodes of the cluster require network connectivity to the SAP system.
 
 * For Standard logic app workflows in single-tenant Azure Logic Apps, the logic app resource hosts the SAP .NET Connector (NCo) library. So, the logic app resource itself must enable virtual network integration, and that virtual network must have network connectivity to the SAP system.
 
@@ -273,17 +272,17 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
     
   * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
-    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app.
+    1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
     1. On the logic app resource menu, under **Settings**, select **Configuration**.
 
-    1. On the **Configuration** pane, under **Platform settings**, check whether the **Platform** value is set to 64-bit or 32-bit.
+    1. On the **Configuration** page, select the **General settings** tab. Under **Platform settings**, check whether the **Platform** value is set to **64 Bit** or **32 Bit**.
 
     1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
 
 * From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The ISE zip archive and SAP built-in connector currently doesn't support GAC registration.
 
-  * For a Consumption workflow that runs in multi-tenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
+  * For a Consumption workflow that runs in multitenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
 
     - **libicudecnumber.dll**
     - **rscp4n.dll**
@@ -316,7 +315,7 @@ The following relationships exist between the SAP NCo client library, the .NET F
 
 <a name="snc-prerequisites-consumption"></a>
 
-For Consumption workflows in multi-tenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
+For Consumption workflows in multitenant Azure Logic Apps that use the on-premises data gateway, and optionally SNC, you must also configure the following settings.
 
 * Make sure that your SNC library version and its dependencies are compatible with your SAP environment. To troubleshoot any library compatibility issues, you can use your on-premises data gateway and data gateway logs. 
 
@@ -499,9 +498,9 @@ After you delete the SAP connections, you must delete the SAP connector from you
 
 ### [Consumption](#tab/consumption)
 
-<a name="multi-tenant-prerequisites"></a>
+<a name="multitenant-prerequisites"></a>
 
-For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
+For a Consumption workflow in multitenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
 
 1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway.md).
 
@@ -611,7 +610,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 > before this date are supported through August 31, 2024. For more information, see the following resources:
 >
 > - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../single-tenant-overview-compare.md)
+> - [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](../single-tenant-overview-compare.md)
 > - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 > - [Export ISE workflows to a Standard logic app](../export-from-ise-to-standard-logic-app.md)
 > - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
@@ -664,7 +663,7 @@ For a Consumption workflow in an ISE, the ISE provides access to resources that 
 
 ### [Consumption](#tab/consumption)
 
-For a Consumption workflow that runs in multi-tenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=multi-tenant#prerequisites) and [SNC prerequisites](sap.md?tabs=multi-tenant#snc-prerequisites).
+For a Consumption workflow that runs in multitenant Azure Logic Apps, you can enable SNC for authentication, which applies only when you use the data gateway. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=consumption#prerequisites) and [SNC prerequisites](sap.md?tabs=consumption#snc-prerequisites).
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
@@ -706,9 +705,9 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
 1. To specify your SNC Personal Security Environment (PSE) and PSE password, follow these steps:
 
-   1. On your logic app resource menu, under **Settings**, select **Configuration**.
+   1. On your logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **Application settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add both settings. To add a new setting, select **New application setting**, provide the following required information, and select **OK** for each setting:
+   1. On the **App settings** tab, check whether the settings named **SAP_PSE** and **SAP__PSE_Password** already exist. If they don't exist, you have to add each setting at the end of the settings list, provide the following required information, and select **Apply** for each setting:
 
       | Name | Value | Description |
       |------|-------|-------------|
@@ -1017,6 +1016,7 @@ If you use an [on-premises data gateway for Azure Logic Apps](../install-on-prem
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
 > [!NOTE]
+>
 > Extended logging might affect your workflow's performance when always enabled. As a best practice, 
 > turn off extended log files after you're finished with analyzing and troubleshooting an issue.
 
@@ -1050,7 +1050,7 @@ To work with the resulting ETL files, you can use [PerfView](https://github.com/
 
 ### Test your workflow
 
-Based on whether you have a Consumption workflow in multi-tenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
+Based on whether you have a Consumption workflow in multitenant Azure Logic Apps or a Standard workflow in single-tenant Azure Logic Apps, follow the corresponding steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -1078,25 +1078,37 @@ Based on whether you have a Consumption workflow in multi-tenant Azure Logic App
 
 ### [ISE](#tab/ise)
 
-See the steps for [SAP logging for Consumption logic apps in multi-tenant workflows](?tabs=multi-tenant#test-workflow-logging).
+See the steps for [SAP logging for Consumption logic apps in multitenant workflows](?tabs=consumption#test-workflow-logging).
 
 ---
 
-## Enable SAP client library (NCo) logging and tracing (Built-in connector only)
+## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space. 
 
-You can control this tracing capability at the application level by using the following settings:
+You can control this tracing capability at the application level by adding the following settings:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Settings**, select **Configuration** to review the application settings.
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
 
-1. On the **Configuration** page, add the following application settings:
+1. On the **Environment variables** page, on the **App settings** tab, add the following application settings:
 
    * **SAP_RFC_TRACE_DIRECTORY**: The directory where to store the NCo trace files, for example, **C:\home\LogFiles\NCo**.
 
    * **SAP_RFC_TRACE_LEVEL**: The NCo trace level with **Level4** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
+   
+     > [!NOTE]
+     >
+     > For Standard logic app workflows that use runtime version 1.69.0 or later, you can enable
+     > logging for multiple trace levels by separating each trace level with a comma (**,**).
+     >
+     > To find your workflow's runtime version, follow these steps:
+     >
+     > 1. In the Azure portal, on your workflow menu, select **Overview**.
+     > 2. In the **Essentials** section, find the **Runtime Version** property.
+
+   * **SAP_CPIC_TRACE_LEVEL**: The Common Programming Interface for Communication (CPI-C) trace level with **Verbose** as the suggested value for typical verbose logging. SAP or Microsoft support might request that you set a [different trace level](#trace-levels).
 
    For more information about adding application settings, see [Edit host and app settings for Standard logic app workflows](../edit-app-settings-host-settings.md#manage-app-settings).
 
@@ -1105,6 +1117,8 @@ You can control this tracing capability at the application level by using the fo
 <a name="trace-levels"></a>
 
 ### Trace levels available
+
+#### NCo Trace Levels
 
 | Value | Description |
 |-------|-------------|
@@ -1124,6 +1138,15 @@ You can control this tracing capability at the application level by using the fo
 | SessionProvider | Traces all methods of the currently used implementation of **ISessionProvider**. |
 | SetValue | Writes information to the trace files regarding values set for parameters of functions, or fields of structures or tables. |
 
+#### CPIC Trace Levels
+
+| Value | Description |
+|-------|-------------|
+| Off | No logging |
+| Basic | Basic logging |
+| Verbose | Verbose logging |
+| VerboseWithData | Verbose logging with all server response dump |
+
 ### View the trace
 
 1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
@@ -1134,14 +1157,69 @@ You can control this tracing capability at the application level by using the fo
 
    A new folder named **NCo**, or whatever folder name that you used, appears for the application setting value, **C:\home\LogFiles\NCo**, that you set earlier.
 
-   After you open the **$SAP_RFC_TRACE_DIRECTORY** folder, you'll find a file named **dev_nco_rfc.log**, one or multiple files named **dev_nco_rfcNNNN.log**, and one or multiple files named **dev_nco_rfcNNNN.trc** where **NNNN** is a thread identifier.
+1. Open the **$SAP_RFC_TRACE_DIRECTORY** folder, which contains the following :
 
-1. To view the contant in a log or trace file, select the **Edit** button next to a file.
+   * NCo trace logs: A file named **dev_nco_rfc.log**, one or multiple files named **nco_rfc_NNNN.log**, and one or multiple files named **nco_rfc_NNNN.trc** files where **NNNN** is a thread identifier.
+   
+   * CPIC trace logs: One or multiple files named **nco_cpic_NNNN.trc** files where **NNNN** is thread identifier.
+
+1. To view the content in a log or trace file, select the **Edit** button next to a file.
 
    > [!NOTE]
    >
    > If you download a log or trace file that your logic app workflow opened 
    > and is currently in use, your download might result in an empty file.
+
+## Enable SAP Common Crypto Library (CCL) tracing (built-in connector only)
+
+If you have to investigate any problems with the crypto library while using SNC authentication, you can set up custom text file-based CCL tracing. You can use these CCL logs to troubleshoot SNC authentication issues, or share them with Microsoft or SAP support, if requested. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+
+You can control this tracing capability at the application level by adding the following settings:
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
+
+   For more information about logging parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
+   
+   ```
+   ccl/trace/directory=C:\home\LogFiles\CCLLOGS
+   ccl/trace/level=4
+   ccl/trace/rotatefilesize=10000000
+   ccl/trace/rotatefilenumber=10
+   ```
+   
+1. On the logic app menu, under **Settings**, select **Environment variables** to review the application settings.
+
+1. On the **Environment variables** page, on the **App settings** tab, add the following application setting:
+
+   **CCL_PROFILE**: The directory where **CCLPROFILE.txt** was created, for example, **C:\home\site\wwwroot\CCLPROFILE.txt**.
+
+1. Save your changes. This step restarts the application.
+
+### View the trace
+
+1. On Standard logic app resource menu, under **Development Tools**, select **Advanced Tools** > **Go**.
+
+1. On the **Kudu** toolbar, select **Debug Console** > **CMD**.
+
+1. Browse to the folder for the **$ccl/trace/directory** parameter, which is from the **CCLPROFILE.txt** file.
+
+    Usually, the trace files are named **sec-Microsoft.Azure.Work-$processId.trc** and **sec-sapgenpse.exe-$processId.trc**.
+
+   Your logic app workflow performs SNC authentication as a two-step process:
+
+   1. Your logic app workflow invokes **sapgenpse.exe** to generate a **cred_v2** file from the PSE file.
+   
+      You can find the traces related to this step in a file named **sec-sapgenpse.exe-$processId.trc**.
+
+   1. Your logic app workflow authenticates access to your SAP server by consuming the generated **cred_v2** file, with the SAP client library invoking the common crypto library.
+
+       You can find the traces related to this step in a file named **sec-Microsoft.Azure.Work-$processId.trc**.
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
@@ -1153,13 +1231,15 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 ### Metrics and traces from SAP NCo client library
 
-*Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
+SAP NCo-based metrics are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
 * System health decline.
 * Unusual events.
 * Heavy system load.
 
 This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
+
+SAP NCo-based traces include text information that's used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
@@ -1168,9 +1248,7 @@ SAP NCo metrics and traces are based on SAP NCo metrics, specifically the follow
 * RfcServerMonitor.
 * RfcRepositoryMonitor.
 
-For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
-
-*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named **traces**. By default, traces are sent at 10-minute intervals.
+For more information about the metrics that each class provides, see the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
 
 ### Set up SAP telemetry for Application Insights
 

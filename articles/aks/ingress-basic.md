@@ -70,6 +70,10 @@ helm install ingress-nginx ingress-nginx/ingress-nginx `
 
 ---
 
+> [!NOTE]
+> In this tutorial, `service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path` is being set to `/healthz`. This means if the response code of the requests to `/healthz` is not `200`, the entire ingress controller will be down. You can modify the value to other URI in your own scenario. You cannot delete this part or unset the value, or the ingress controller will still be down.
+> The package `ingress-nginx` used in this tutorial, which is provided by [Kubernetes official](https://github.com/kubernetes/ingress-nginx), will always return `200` response code if requesting `/healthz`, as it is designed as [default backend](https://kubernetes.github.io/ingress-nginx/user-guide/default-backend/) for users to have a quick start, unless it is being overwritten by ingress rules.
+
 ## Customized configuration
 
 As an alternative to the basic configuration presented in the above section, the next set of steps will show how to deploy a customized ingress controller. You'll have the option of using an internal static IP address, or using a dynamic public IP address.
@@ -138,7 +142,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 
 # Set variable for ACR location to use for pulling images
-ACR_URL=<REGISTRY_URL>
+ACR_LOGIN_SERVER=<REGISTRY_LOGIN_SERVER>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install ingress-nginx ingress-nginx/ingress-nginx \
@@ -147,19 +151,19 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.image.registry=$ACR_URL \
+    --set controller.image.registry=$ACR_LOGIN_SERVER \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
     --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
     --set controller.service.externalTrafficPolicy=Local \
-    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_LOGIN_SERVER \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
     --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.registry=$ACR_LOGIN_SERVER \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
     --set defaultBackend.image.digest=""
@@ -215,7 +219,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 
 # Set variable for ACR location to use for pulling images
-ACR_URL=<REGISTRY_URL>
+ACR_LOGIN_SERVER=<REGISTRY_LOGIN_SERVER>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install ingress-nginx ingress-nginx/ingress-nginx \
@@ -224,7 +228,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
-    --set controller.image.registry=$ACR_URL \
+    --set controller.image.registry=$ACR_LOGIN_SERVER \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
@@ -232,12 +236,12 @@ helm install ingress-nginx ingress-nginx/ingress-nginx \
     --set controller.service.loadBalancerIP=10.224.0.42 \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true \
     --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz \
-    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_LOGIN_SERVER \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
     --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
-    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.registry=$ACR_LOGIN_SERVER \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
     --set defaultBackend.image.digest="" 
@@ -594,9 +598,10 @@ This article included some external components to AKS. To learn more about these
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
-[client-source-ip]: concepts-network.md#ingress-controllers
+[client-source-ip]: concepts-network-ingress.md#ingress-controllers
 [aks-supported versions]: supported-kubernetes-versions.md
 [aks-integrated-acr]: cluster-container-registry-integration.md#create-a-new-acr
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [aks-app-add-on]: app-routing.md
+

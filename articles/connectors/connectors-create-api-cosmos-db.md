@@ -8,7 +8,6 @@ ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/04/2024
-tags: connectors
 ---
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps

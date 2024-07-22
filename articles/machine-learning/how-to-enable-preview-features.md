@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: ankmak
-author: Ankur-Makwana
-ms.date: 01/29/2024
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
+ms.date: 07/08/2024
 
 ---
 
@@ -18,6 +18,8 @@ ms.date: 01/29/2024
 In Azure Machine Learning, new features and improvements are often first released as preview features before they're made generally available (GA). As new features are introduced, you can turn them on or off in the Azure Machine Learning studio at your convenience. That way, you get a chance to use the latest features, evaluate how they fit your work needs and provide feedback to shape the product. Your feedback is very valuable and it helps us constantly improve the product.
 
 Some preview features provide access to entire new functionality while others may reflect a change to the user interface, but little or no change in functionality.
+
+You can remove the ability to see any previews on a workspace or for all workspaces in a subscription.  For more information, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](how-to-manage-workspace.md#enforce-policies).  If the preview feature has been removed for your workspace, you will not see the panel described in the rest of this article.
 
 > [!NOTE]
 > The amount of time a feature remains in preview can vary based on user feedback, quality checks, and long-term road maps.

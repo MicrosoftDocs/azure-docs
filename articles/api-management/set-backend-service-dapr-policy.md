@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Send request to a service
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 The `set-backend-service` policy sets the target URL for the current request to `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}`, replacing template parameters with values specified in the policy statement.
 
@@ -69,6 +71,6 @@ The `forward-request` policy is shown here for clarity. The policy is typically 
 
 ## Related policies
 
-* [API Management Dapr integration policies](api-management-dapr-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -4,17 +4,13 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 06/26/2024
 ---
-# Create a codeless connector for Microsoft Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
 Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
-
-> [!IMPORTANT]
-> The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 **Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 
@@ -103,7 +99,7 @@ To understand how to create a complex DCR with multiple data flows, see the [DCR
 
 This component renders the UI for the data connector in the Microsoft Sentinel data connector gallery. Each data connector may have only one UI definition. 
 
-Build the data connector user interface with the **Data Connector Definition** API. Use the [Data connector definitions reference](data-connector-ui-definitions-reference.md) as a supplement to explain the API elements in greater detail.
+Build the data connector user interface with the [**Data Connector Definition** API](/rest/api/securityinsights/data-connector-definitions). Use the [Data connector definitions reference](data-connector-ui-definitions-reference.md) as a supplement to explain the API elements in greater detail.
 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
@@ -127,9 +123,90 @@ To learn from an example, see the [Data connector connection rules reference exa
 
 Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
+## Secure confidential input
+
+Whatever authentication is used by your CCP data connector, take these steps to ensure confidential information is kept secure. The goal is to pass along credentials from the ARM template to the CCP without leaving readable confidential objects in your deployments history.
+
+### Create label
+
+The data connector definition creates a UI element to prompt for security credentials. For example, if your data connector authenticates to a log source with OAuth, your data connector definition section includes the `OAuthForm` type in the instructions. This sets up the ARM template to prompt for the credentials.  
+
+```json
+"instructions": [
+    {
+        "type": "OAuthForm",
+        "parameters": {
+        "UsernameLabel": "Username",
+        "PasswordLabel": "Password",
+        "connectButtonLabel": "Connect",
+        "disconnectButtonLabel": "Disconnect"
+        }
+    }
+],
+```
+
+### Store confidential input
+
+A section of the ARM deployment template provides a place for the administrator deploying the data connector to enter the password. Use `securestring` to keep the confidential information secured in an object that isn't readable after deployment. For more information, see [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+
+```json
+"mainTemplate": {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "[variables('dataConnectorCCPVersion')]",
+    "parameters": {
+        "Username": {
+            "type": "securestring",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter the username to connect to your data source."
+        },
+        "Password": {
+            "type": "securestring",
+            "minLength": 1,
+            "metadata": {
+                "description": "Enter the API key, client secret or password required to connect."
+            }
+        },
+    // more deployment template information
+    }
+}
+```
+
+### Use the securestring objects
+
+Finally, the CCP utilizes the credential objects in the data connector section. 
+
+```json
+"auth": {
+    "type": "OAuth2",
+    "ClientSecret": "[[parameters('Password')]",
+    "ClientId": "[[parameters('Username')]",
+    "GrantType": "client_credentials",
+    "TokenEndpoint": "https://api.contoso.com/oauth/token",
+    "TokenEndpointHeaders": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "TokenEndpointQueryParameters": {
+        "grant_type": "client_credentials"
+    }
+},
+```
+
+>[!Note]
+> The strange syntax for the credential object, `"ClientSecret": "[[parameters('Password')]",` isn't a typo! 
+> In order to create the deployment template which also uses parameters, you need to escape the parameters in that section with an extra starting`[`. This allows the parameters to assign a value based on the user interaction with the connector.
+>
+> For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
+  
+
 ## Create the deployment template
 
 Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
+
+In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
 
 ## Deploy the connector
 
@@ -141,12 +218,21 @@ Deploy your codeless connector as a custom template.
 1. Copy the contents of the ARM [deployment template](#create-the-deployment-template).
 1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
+### Maintain network isolation for logging source
+
+If your logging source requires network isolation, configure an allowlist of public IP addresses used by the CCP.
+
+Azure virtual networks use service tags to define network access controls. For the CCP, that service tag is [**Scuba**](/azure/virtual-network/service-tags-overview#available-service-tags).
+
+To find the current IP range associated with the **Scuba** service tag, see [Use the Service Tag Discovery API](/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api).
+
 ## Verify the codeless connector
 
 View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once successfully connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
 
 >[!NOTE]
 >It may take up to 30 minutes to see data begin ingesting.
+
 
 ## Example
 
@@ -363,7 +449,12 @@ Consider using the ARM template test toolkit (arm-ttk) to validate the template 
 
 #### Example ARM template - parameters
 
-For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md) and [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+For more information, see [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md).
+
+>[!Warning]
+> Use `securestring` for all passwords and secrets in objects readable after resource deployment.
+> For more information, see [Secure confidential input](#secure-confidential-input) and [Security recommendations for parameters](../azure-resource-manager/templates/best-practices.md#security-recommendations-for-parameters).
+
 
 ```json
 {
@@ -644,7 +735,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
                         //    "minLength": 1
                         //},
                         //"apikey": {
-                        //    "defaultValue": "API Key",
+                        //    "defaultValue": "",
                         //    "type": "securestring",
                         //    "minLength": 1
                         //}

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/07/2023 #Required; mm/dd/yyyy format.
+  ms.date: 02/14/2024 #Required; mm/dd/yyyy format.
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 
@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Content Safety Studio
             url: studio-quickstart.md
+      - linkListType: concept
+        links:
+          - text: Harm categories
+            url: concepts/harm-categories.md
       - linkListType: whats-new
         links:
           - text: What's new in Azure AI Content Safety
@@ -40,12 +44,19 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Custom categories
+            url: concepts/custom-categories.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
           - text: Using the REST API or client SDKs
             url: quickstart-image.md?pivots=programming-language-rest
+      - linkListType: how-to-guide
+        links:
+          - text: Use custom categories
+            url: how-to/custom-categories.md
+
 
   - title: Text moderation
     linkLists:
@@ -53,16 +64,36 @@ landingContent:
         links:
           - text: Harm categories
             url: concepts/harm-categories.md
+          - text: Custom categories
+            url: concepts/custom-categories.md
+          - text: Groundedness detection
+            url: concepts/groundedness.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
             url: studio-quickstart.md?pivots=content-safety-studio
           - text: Using the REST API or client SDKs
             url: quickstart-text.md?pivots=programming-language-rest
+          - text: Detect groundedness in LLM responses
+            url: quickstart-groundedness.md
       - linkListType: how-to-guide
         links:
+          - text: Use custom categories
+            url: how-to/custom-categories.md
           - text: Use a blocklist
             url: how-to/use-blocklist.md
+
+  - title: User input risk detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Prompt Shields
+            url: concepts/jailbreak-detection.md
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstart-jailbreak.md
+
 
   - title: Reference
     linkLists:

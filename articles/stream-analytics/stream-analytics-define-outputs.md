@@ -1,8 +1,8 @@
 ---
 title: Outputs from Azure Stream Analytics
 description: This article describes data output options available for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/25/2024
@@ -28,7 +28,7 @@ All outputs support batching, but only some support setting the output batch siz
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Access key, </br> Managed Identity|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Microsoft Entra user </br> Managed Identity|
+|[Azure Data Lake Storage Gen 2](blob-output-managed-identity.md)|Yes|Microsoft Entra user </br> Managed Identity|
 |[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
 |[Kafka (preview)](kafka-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity|
 |[Azure Database for PostgreSQL](postgresql-database-output.md)|Yes|Username and password auth|

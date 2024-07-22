@@ -252,12 +252,12 @@ To create a Prediction resource from the LUIS portal
     }
     ```
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
 
 
 ## Clean up resources
 
-[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## Next steps
 

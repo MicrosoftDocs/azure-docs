@@ -1,9 +1,9 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
 ms.topic: conceptual
-ms.date: 06/22/2023
+ms.date: 03/29/2024
 ---
 
 # Deployment technologies in Azure Functions
@@ -40,15 +40,13 @@ Each plan has different behaviors. Not all deployment technologies are available
 | [External package URL](#external-package-url)<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | [Zip deploy](#zip-deploy) |✔|✔|✔|✔|✔|✔|
 | [Docker container](#docker-container) | | | | |✔|✔|
-| [Web Deploy](#web-deploy-msdeploy) |✔|✔|✔| | | |
 | [Source control](#source-control) |✔|✔|✔| |✔|✔|
 | [Local Git](#local-git)<sup>1</sup> |✔|✔|✔| |✔|✔|
 | [FTPS](#ftps)<sup>1</sup> |✔|✔|✔| |✔|✔|
-| [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|
+| [In-portal editing](#portal-editing)<sup>2</sup> |✔|✔|✔|✔|✔|✔|
 
 <sup>1</sup> Deployment technologies that require you to [manually sync triggers](#trigger-syncing) aren't recommended.   
-<sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).  
-<sup>3</sup> In-portal editing is enabled only for HTTP and Timer triggered functions running on Linux in Premium and Dedicated plans.  
+<sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).    
 
 ## Key concepts
 
@@ -56,21 +54,36 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 ### Trigger syncing
 
-When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. When you deploy your updates by referencing an external package URL, local Git, cloud sync, or FTP, you must manually sync your triggers. You can sync triggers in one of three ways:
+When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. 
+
+You must manually sync triggers when using these deployment options:
+
++ [External package URL](#external-package-url)
++ [Local Git](#local-git)
++ [FTPS](#ftps) 
+
+You can sync triggers in one of three ways:
 
 + Restart your function app in the Azure portal.
-+ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
++ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](function-keys-how-to.md).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
-When you deploy using an external package URL, you need to manually restart your function app to fully sync your updates when the package changes without changing the URL.
+
+When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
+The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
+
++ Deployments using an external package URL with either ARM Templates or Terraform.
++ When updating the deployment package at the same external package URL.
+
+
 
 ### Remote build
 
-Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. 
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds differ depending on whether your app is running on Windows or Linux. 
 
 #### [Windows](#tab/windows)
 
-All function apps running on Windows have a small management app, the SCM site provided by [Kudu](https://github.com/projectkudu/kudu). This site handles much of the deployment and build logic for Azure Functions.
+All function apps running on Windows have a small management app, the `scm` site provided by [Kudu](https://github.com/projectkudu/kudu). This site handles much of the deployment and build logic for Azure Functions.
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
@@ -89,9 +102,9 @@ When apps are built remotely on Linux, they [run from the deployment package](ru
 
 The following considerations apply when using remote builds during deployment:
 
-+ Remote builds are supported for function apps running on Linux in the Consumption plan, however they don't have an SCM/Kudu site, which limits deployment options. 
-+ Function apps running on Linux a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an SCM/Kudu site, but it's limited compared to Windows.
-+ Remote builds aren't performed when an app has previously been set to run in [run-from-package](run-functions-from-deployment-package.md) mode. To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
++ Remote builds are supported for function apps running on Linux in the Consumption plan. However, deployment options are limited for these apps because they don't have an `scm` (Kudu) site. 
++ Function apps running on Linux a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an `scm` (Kudu) site, but it's limited compared to Windows.
++ Remote builds aren't performed when an app is using [run-from-package](run-functions-from-deployment-package.md). To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
 + You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
 ### App content storage
@@ -112,7 +125,7 @@ You can use an external package URL to reference a remote package (.zip) file th
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
->__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed. When you change the contents of the package file and not the URL itself, you must also restart your function app manually.
+>__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. Whenever you deploy the package file that a function app references, you must [manually sync triggers](#trigger-syncing), including the initial deployment. When you change the contents of the package file and not the URL itself, you must also restart your function app to sync triggers. 
 
 >__Where app content is stored:__ App content is stored at the URL specified. This could be on Azure Blobs, possibly in the storage account specified by the `AzureWebJobsStorage` connection. Some client tools may default to deploying to a blob in this account. For example, for Linux Consumption apps, the Azure CLI will attempt to deploy through a package stored in a blob on the account specified by `AzureWebJobsStorage`.
 
@@ -136,7 +149,7 @@ You can deploy a function app running in a Linux container.
 >
 >+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
->+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
 >+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 
@@ -144,25 +157,13 @@ You can deploy a function app running in a Linux container.
 
 >__Where app content is stored:__ App content is stored in the specified container registry as a part of the image.
 
-### Web Deploy (MSDeploy)
-
-Web Deploy packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
-
->__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Clear the **Run from package file (recommended)** check box.
->
->You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
-
->__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
-
->__Where app content is stored:__ App content is stored on the file system, which may be backed by Azure Files from the storage account specified when the function app was created.
-
 ### Source control
 
-Use source control to connect your function app to a Git repository. An update to code in that repository triggers deployment. For more information, see the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
+You can enable continuous integration between your function app and a source code repository. With source control enabled, an update to code in the connected source repository triggers deployment of the latest code from the repository. For more information, see the [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
 
->__How to use it:__ Use Deployment Center in the Functions area of the portal to set up publishing from source control. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+>__How to use it:__ The easiest way to set up publishing from source control is from the Deployment Center in the Functions area of the portal. For more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md).  
 
->__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines.
+>__When to use it:__ Using source control is the best practice for teams that collaborate on their function apps. Source control is a good deployment option that enables more sophisticated deployment pipelines. Source control is usually enabled on a staging slot, which can be swapped into production after validation of updates from the repository. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md). 
 
 >__Where app content is stored:__ The app content is in the source control system, but a locally cloned and built app content from is stored on the app file system, which may be backed by Azure Files from the storage account specified when the function app was created.
 
@@ -204,16 +205,14 @@ The following table shows the operating systems and languages that support in-po
 
 | Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
-| C# | | | | | |
-| C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
-| F# | | | | | | |
+| C#<sup>1</sup> | | | | | |
 | Java | | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|✔<sup>1</sup>|
-| Python<sup>2</sup> | | | |✔ |✔<sup>1</sup> |✔<sup>1</sup> |
+| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
+| Python<sup>2</sup> | | | |✔ |✔ |✔ |
 | PowerShell |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>1</sup> In-portal editing is enabled only for HTTP and Timer triggers for Functions on Linux using Premium and Dedicated plans.  
+<sup>1</sup> In-portal editing is only supported for C# script files, which run in-process with the host. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md).   
 <sup>2</sup> In-portal editing is only supported for the [v1 Python programming model](functions-reference-python.md?pivots=python-mode-configuration).  
 
 ## Deployment behaviors
@@ -224,7 +223,11 @@ If you need more control over this transition, you should use deployment slots.
 
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](functions-deployment-slots.md) documentation for details.
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. Deploying to a deployment slot and then swapping into production after verification is the recommended way to configure [continuous deployment](./functions-continuous-deployment.md). 
+
+The way that you deploy to a slot depends on the specific deployment tool you use. For example, when using Azure Functions Core Tools, you include the`--slot` option to indicate the name of a specific slot for the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command. 
+
+For more information on deployment slots, see the [Azure Functions Deployment Slots](functions-deployment-slots.md) documentation for details.
 
 ## Next steps
 

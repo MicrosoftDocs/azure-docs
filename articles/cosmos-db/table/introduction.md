@@ -51,3 +51,4 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 - [Query table data by using the API for Table](tutorial-query.md)
 - [Learn how to set up Azure Cosmos DB global distribution by using the API for Table](tutorial-global-distribution.md)
 - [Azure Cosmos DB Table .NET SDK](/dotnet/api/overview/azure/data.tables-readme)
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md)

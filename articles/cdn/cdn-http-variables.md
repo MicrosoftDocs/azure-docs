@@ -1,17 +1,17 @@
 ---
-title: HTTP variables for Azure CDN rules engine | Microsoft Docs
+title: HTTP variables for Azure CDN rules engine
 description: Learn about HTTP variables, which allow you to get HTTP request and response metadata for some rules engine features. Use metadata to alter a request/response.
 services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
-
-
 ---
+
 # HTTP variables for Azure CDN rules engine
+
 HTTP variables provide the means through which you can retrieve HTTP request and response metadata. This metadata can then be used to dynamically alter a request or a response. The use of HTTP variables is restricted to the following rules engine features:
 
 - [Cache-Key Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
@@ -21,14 +21,14 @@ HTTP variables provide the means through which you can retrieve HTTP request and
 - [URL Rewrite](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## Definitions
-The following table describes the supported HTTP variables. A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
 
+The following table describes the supported HTTP variables. A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
 
 | Name | Variable | Description | Sample value |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) | %{geo_asnum} | Indicates the requester's AS number. <br /><br />**Deprecated:** %{virt_dst_asnum}. <br />This variable has been deprecated in favor of %{geo_asnum}. Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable. | AS15133 |
 | City (Requester) | %{geo_city} | Indicates the requester's city. | Los Angeles |
-| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />EU: Europe<br />NA: North America<br />OC: Oceania<br />SA: South America<br /><br />**Deprecated:** %{virt_dst_continent}. <br />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable.| N/A |
+| Continent (Requester) | %{geo_continent} | Indicates the requester's continent through its abbreviation. <br />Valid values are: <br />AF: Africa<br />AS: Asia<br />European Union (EU): Europe<br />NA: North America<br />OC: Oceania<br />Software Assurance (SA): South America<br /><br />**Deprecated:** %{virt_dst_continent}. <br />This variable has been deprecated in favor of %{geo_continent}. <br />Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable.| N/A |
 | Cookie Value | %{cookie_Cookie} | Returns the value corresponding to the cookie key identified by the Cookie term. | Sample Usage: <br />%{cookie__utma}<br /><br />Sample Value:<br />111662281.2.10.1222100123 |
 | Country/Region (Requester) | %{geo_country} | Indicates the requester's country/region of origin through its country/region code. <br />**Deprecated:** %{virt_dst_country}. <br /><br />This variable has been deprecated in favor of %{geo_country}. Although a rule that uses this deprecated variable continues to work, you should update it to use the new variable. | US |
 | Designated Market Area (Requester) | %{geo_dma_code} |Indicates the requester's media market by its region code. <br /><br />This field is only applicable to requests that originate from the United States.| 745 |
@@ -46,18 +46,18 @@ The following table describes the supported HTTP variables. A blank value is ret
 | Query String Value | %{query_string} | Indicates the entire query string value defined in the request URL. |key1=val1&key2=val2&key3=val3 |
 | Referrer Domain | %{referring_domain} | Indicates the domain defined in the Referrer request header. | <www.google.com> |
 | Region (Requester) | %{geo_region} | Indicates the requester's region (for example, state or province) through its alphanumeric abbreviation. | CA |
-| Request Header Value | %{http_RequestHeader} | Returns the value corresponding to the request header identified by the RequestHeader term. <br /><br />If the name of the request header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent).| Sample Usage: %{http_Connection}<br /><br />Sample Value: Keep-Alive | 
+| Request Header Value | %{http_RequestHeader} | Returns the value corresponding to the request header identified by the RequestHeader term. <br /><br />If the name of the request header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent).| Sample Usage: %{http_Connection}<br /><br />Sample Value: Keep-Alive |
 | Request Host | %{host} | Indicates the host defined in the request URL. | <www.mydomain.com> |
 | Request Protocol | %{request_protocol} | Indicates the request protocol. | HTTP/1.1 |
-| Request Scheme | %{scheme} | Indicates the request scheme. |http |
+| Request Scheme | %{scheme} | Indicates the request scheme. |HTTP |
 | Request URI (Relative) | %{request_uri} | Indicates the relative path, including the query string, defined in the request URI. | /marketing/foo.js?loggedin=true |
-| Request URI (Relative without query string) | %{uri} | Indicates the relative path to the requested content. <br /><br/>Key information:<br />- This relative path excludes the query string.<br />- This relative path reflects URL rewrites. A URL is rewritten under the following conditions:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: This feature rewrites the relative path defined in the request URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: This type of request is rewritten to the corresponding CDN URL. |/800001/corigin/rewrittendir/foo.js |
+| Request URI (Relative without query string) | %{URI} | Indicates the relative path to the requested content. <br /><br/>Key information:<br />- This relative path excludes the query string.<br />- This relative path reflects URL rewrites. A URL is rewritten under the following conditions:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: This feature rewrites the relative path defined in the request URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: This type of request is rewritten to the corresponding CDN URL. |/800001/corigin/rewrittendir/foo.js |
 | Request URI | %{request} | Describes the request. <br />Syntax: &lt;HTTP method&gt; &lt;relative path&gt; &lt;HTTP protocol&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Response Header Value | %{resp_&lt;ResponseHeader&gt;} | Returns the value corresponding to the response header identified by the &lt;ResponseHeader&gt; term. <br /><br />If the name of the response header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent). | Sample Usage: %{resp_Content_Length}<br /><br />Sample Value: 100 |
 
 ## Usage
-The following table describes the proper syntax for specifying an HTTP variable.
 
+The following table describes the proper syntax for specifying an HTTP variable.
 
 | Syntax | Example | Description |
 | ------ | -------- | ---------- |
@@ -68,6 +68,7 @@ The following table describes the proper syntax for specifying an HTTP variable.
 HTTP variable names only support alphabetic characters and underscores. Convert unsupported characters to underscores.
 
 ## Delimiter reference
+
 A delimiter can be specified after an HTTP variable to achieve any of the following effects:
 
 - Transform the value associated with the variable.
@@ -98,6 +99,7 @@ The delimiters are described in the following table.
 | ^^ | Convert all instances of the specified character in the value associated with the HTTP variable to uppercase. |
 
 ## Exceptions
+
 The following table describes circumstances under which the specified text isn't treated as an HTTP variable.
 
 | Condition | Description | Example |
@@ -109,6 +111,7 @@ The following table describes circumstances under which the specified text isn't
 | Trailing characters | Characters that trail a variable are treated as literal values. <br />The sample value to the right contains a trailing curly brace that gets treated as a literal value. | %{host}} |
 
 ## Setting default header values
+
 A default value can be assigned to a header when it meets any of the following conditions:
 - Missing/unset
 - Set to NULL.
@@ -122,12 +125,14 @@ The following table describes how to define a default value.
 | Set the header to a default value when it doesn't meet any of the following conditions: <br /><br />- Missing<br /><br /> - Set to NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | The Referrer header is set to *unspecified* only when a value has been assigned to it. No action takes place if it's either missing or set to NULL. |
 
 ## Manipulating variables
+
 Variables can be manipulated in the following ways:
 
 - Expanding substrings
 - Removing patterns
 
 ### Substring expansion
+
 By default, a variable expands to its full value. Use the following syntax to only expand a substring of the variable's value.
 
 `%<Variable>:<Offset>:<Length>}`
@@ -150,18 +155,18 @@ Key information:
 
 The following example relies on the following sample request URL:
 
-https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
+`HTTPS:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
 
 The following string demonstrates various methods for manipulating variables:
 
-https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
+`HTTPS:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
 
 Based on the sample request URL, the above variable manipulation produces the following value:
 
-https:\//www.mydomain.com/mobile/marketing/proposal.htm
-
+`HTTPS:\//www.mydomain.com/mobile/marketing/proposal.htm`
 
 ### Pattern removal
+
 Text that matches a specific pattern can be removed from either the beginning or the end of a variable's value.
 
 | Syntax | Action |
@@ -183,6 +188,7 @@ The following table demonstrates how this syntax works.
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Because the variable doesn't end with the pattern, there was no change.|
 
 ### Find and replace
+
 The find and replace syntax is described in the following table.
 
 | Syntax | Action |
@@ -195,6 +201,7 @@ The find and replace syntax is described in the following table.
 | %{Variable,Find} | Convert the first occurrence of the specified pattern to lowercase. |
 
 ### Find and rewrite
+
 For a variation on find and replace, use the text that matches the specified pattern when rewriting it. The find and rewrite syntax is described in the following table.
 
 | Syntax | Action |
@@ -208,7 +215,7 @@ Key information:
 
 - Expand text that matches the specified pattern by specifying a dollar sign followed by a whole integer (for example, $1).
 
-- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that is assigned to it. In the following example, the first pattern matches "www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain:
+- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that is assigned to it. In the following example, the first pattern matches "Www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain:
 
     `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$2.$3:80}`
 
@@ -234,7 +241,5 @@ Key information:
      - `=`: Indicates that all occurrences of the specified pattern must be captured and rewritten.
      - `^`: Indicates that only text that starts with the specified pattern is captured.
      - `$`: Indicates that only text that ends with the specified pattern is captured.
- 
+
 - If you omit the */Rewrite* value, the text that matches the pattern is deleted.
-
-

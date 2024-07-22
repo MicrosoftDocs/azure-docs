@@ -2,14 +2,13 @@
 title: Allow key management operations through Azure Resource Manager
 description: Learn how to allow key management operations through ARM
 services: key-vault
-author: mbaldwin
-tags: azure-resource-manager
+author: msmbaldwin
 ms.custom: devx-track-arm-template
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to authorize Azure Resource Manager to perform key management operations via Azure Managed HSM
 ---

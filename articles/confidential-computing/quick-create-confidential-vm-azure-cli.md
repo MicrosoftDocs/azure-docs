@@ -5,10 +5,9 @@ author: simranparkhe
 ms.service: virtual-machines
 mms.subservice: confidential-computing
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 12/01/2023
 ms.author: simranparkhe
-ms.custom: devx-track-azurecli, linux-related-content
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI
@@ -42,7 +41,7 @@ az group create --name myResourceGroup --location northeurope
 Create a VM with the [az vm create](/cli/azure/vm) command.
 
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location(*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-values` option.
-For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-solutions.md).
+For `size`, select a confidential VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
 Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `DiskWithVMGuestState` for OS disk confidential encryption with a platform-managed key. Secure Boot is enabled by default, but is optional for `VMGuestStateOnly`. For more information, see [secure boot and vTPM](../virtual-machines/trusted-launch.md). For more information on disk encryption and encryption at host, see [confidential OS disk encryption](confidential-vm-overview.md) and [encryption at host](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli).
 
@@ -58,8 +57,7 @@ az vm create \
   --public-ip-sku Standard \
   --security-type ConfidentialVM \
   --os-disk-security-encryption-type VMGuestStateOnly \
-  --enable-secure-boot true \
-  --encryption-at-host \
+  --enable-secure-boot true
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
@@ -92,7 +90,7 @@ For this step you need to be a Global Admin or you need to have the User Access 
   ```
 2.  Create an Azure Key Vault using the [az keyvault create](/cli/azure/keyvault) command. For the pricing tier, select Premium (includes support for HSM backed keys). Make sure that you have an owner role in this key vault.
   ```azurecli-interactive
-  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
+  az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true --enable-rbac-authorization false
   ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
   ```Powershell

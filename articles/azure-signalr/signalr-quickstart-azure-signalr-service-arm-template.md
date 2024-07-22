@@ -13,11 +13,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart walks you through the process of creating an Azure SignalR Service using an Azure Resource Manager (ARM) template. You can deploy the Azure SignalR Service through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ The template defines one Azure resource:
 
 To deploy the Azure SignalR Service using the ARM template, Select the following link in the Azure portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json":::
 
 On the **Deploy an Azure SignalR Service** page:
 
@@ -65,7 +65,7 @@ On the **Deploy an Azure SignalR Service** page:
 
 3. If you created a new resource group, select a **Region** for the resource group.
 
-4. If you want, enter a new **Name** and the **Location** (For example **eastus2**) of the Azure SignalR Service. If you don't specify a name, it generates automatically. The Azure SignalR Service's location can be the same or different from the region of the resource group. If you don't specify a location, it defaults to the same region as your resource group.
+4. If you want, enter a new **Name** and the **Location** (For example **eastus2**) of the Azure SignalR Service. If **Name** is not specified, it is generated automatically. The **Location** can be the same or different from the region of the resource group. If **Location** is not specified, it defaults to the same region as your resource group.
 
 5. Choose the **Pricing Tier** (**Free_F1** or **Standard_S1**), enter the **Capacity** (number of SignalR units), and choose a **Service Mode** of **Default** (requires hub server), **Serverless** (doesn't allow any server connection), or **Classic** (routed to hub server only if hub has server connection). Now, choose whether to **Enable Connectivity Logs** or **Enable Messaging Logs**.
 

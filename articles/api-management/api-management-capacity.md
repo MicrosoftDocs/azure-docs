@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit
 
 # Capacity of an Azure API Management instance
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 **Capacity** is the most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
 This article explains what the **capacity** is and how it behaves. It shows how to access **capacity** metrics in the Azure portal and suggests when to consider scaling or upgrading your API Management instance.
@@ -26,7 +28,7 @@ To follow the steps in this article, you must have:
 
 + An active Azure subscription.
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 + An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 

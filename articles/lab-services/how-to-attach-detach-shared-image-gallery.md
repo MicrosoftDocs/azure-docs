@@ -12,6 +12,8 @@ ms.date: 03/01/2023
 
 # Attach or detach an Azure compute gallery to a lab plan in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows how to attach or detach an Azure compute gallery to a lab plan. If you use a lab account, see how to [attach or detach a compute gallery to a lab account](how-to-attach-detach-shared-image-gallery-1.md).
@@ -85,9 +87,11 @@ The Azure Lab Services service principal needs to have the [Owner](/azure/role-b
 
 To attach a compute gallery to a lab plan, assign the [Owner](/azure/role-based-access-control/built-in-roles#owner) role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
 
-If your Azure account is a guest user, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to perform the role assignment. Learn about [role assignments for guest users](/azure/role-based-access-control/role-assignments-external-users#guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles).
+If your Azure account is a guest user, your Azure account needs to have the [Directory Readers](/azure/active-directory/roles/permissions-reference#directory-readers) role to perform the role assignment. Learn about [role assignments for external users](/azure/role-based-access-control/role-assignments-external-users#external-user-cannot-browse-users-groups-or-service-principals-to-assign-roles).
 
 # [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Follow these steps to grant permissions to the Azure Lab Services service principal by using the Azure CLI:
 
@@ -120,6 +124,8 @@ Follow these steps to grant permissions to the Azure Lab Services service princi
         Replace the text placeholders *`<service-principal-object-id>`* and *`<gallery-id>`* with the outcomes of the previous commands.
 
 # [Azure portal](#tab/portal)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you add a role assignment in the Azure portal, the user interface shows the *object ID* of the service principal, which is different from the *application ID*. The object ID for a service principal is different in each Azure subscription. Learn more about [Service principal objects](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 

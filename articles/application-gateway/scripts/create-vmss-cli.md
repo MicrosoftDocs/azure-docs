@@ -3,11 +3,9 @@ title: Azure CLI Script Sample - Manage web traffic | Microsoft Docs
 description: Azure CLI Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway
 author: greg-lindsay
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
@@ -19,7 +17,7 @@ This script creates an application gateway that uses a virtual machine scale set
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 

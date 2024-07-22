@@ -15,7 +15,7 @@ ms.author: greglin
 Learn how to diagnose and resolve session affinity issues with Azure Application Gateway.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 

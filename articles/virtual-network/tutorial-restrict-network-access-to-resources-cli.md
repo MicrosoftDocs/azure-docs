@@ -4,16 +4,14 @@ description: In this article, you learn how to limit and restrict network access
 services: virtual-network
 author: asudbring
 manager: mtillman
-tags: azure-resource-manager
-# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
-ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI
@@ -27,9 +25,9 @@ Virtual network service endpoints enable you to limit network access to some Azu
 * Confirm access to a resource from a subnet
 * Confirm access is denied to a resource from a subnet and the internet
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
