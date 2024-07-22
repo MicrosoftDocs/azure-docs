@@ -16,19 +16,45 @@ This article describes built-in features for visualizing and analyzing collected
 
 This table describes Azure Monitor features that provide analysis of collected data without any configuration.
 
-|Component  |Description | Required training and/or configuration|
+| Component | Description | Required training and/or configuration |
 |---------|---------|--------|
-|Overview page|Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required.         |
-|[Metrics Explorer](essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured.         |
-|[Log Analytics](logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log search alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. Then if you're familiar with the query language, you can build queries for others in your organization.        |
+| Overview page |Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required. |
+| [Metrics Explorer](essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured. |
+| [Log Analytics](logs/log-analytics-overview.md) | With Log Analytics, you can create log queries to interactively work with log data and create log search alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. Then if you're familiar with the query language, you can build queries for others in your organization. |
 
 ## Built-in visualization tools
 
+Azure Monitor recommends Azure Managed Grafana for data visualizations and dashboards in Cloud Native (for example, Kubernetes, AKS), multi-cloud, OSS, and 3rd party integration scenarios. Use workbooks for all other Azure scenarios, including Azure hybrid environments with Azure Arc.
+
 ### Azure workbooks
 
- [Azure Workbooks](./visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports. You can use workbooks to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They're especially useful to prepare end-to-end monitoring views across multiple Azure resources. Insights use prebuilt workbooks to present you with critical health and performance information for a particular service. You can access a gallery of workbooks on the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet the requirements of your different users.
+Use Azure workbooks for:
+
+* Out of the box and customizable Azure-native reports  
+    * Within the Azure Portal 
+    * Accessed exclusively via users’ Azure RBAC assignments 
+    * Managed with Azure automation including ARM, Bicep and Terraform 
+    * With no additional cost
+
+* Most complete set of Azure datasources
+
+* Azure managed hybrid and edge environments
+
+* Integrations with Azure actions and automation
+
+* Creating custom reports based on Azure Monitor insights
+
+* Leveraging Azure GitHub community templates
+
+<!--
+
+[Azure Workbooks](./visualize/workbooks-overview.md) provide a flexible canvas for data analysis and the creation of rich visual reports. You can use workbooks to tap into multiple data sources from across Azure and combine them into unified interactive experiences. They're especially useful to prepare end-to-end monitoring views across multiple Azure resources. Insights use prebuilt workbooks to present you with critical health and performance information for a particular service. You can access a gallery of workbooks on the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet the requirements of your different users.
 
 :::image type="content" source="media/visualizations/workbook.png" lightbox="media/visualizations/workbook.png" alt-text="Diagram that shows screenshots of three pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.":::
+
+-->
+
+<!--
 
 ### Azure dashboards
 
@@ -39,6 +65,23 @@ This table describes Azure Monitor features that provide analysis of collected d
 Here's a video about how to create dashboards:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
+
+-->
+
+### Azure Managed Grafana
+
+Use Azure Managed Grafana for:
+
+* Cloud native environments monitored with Prometheus and CNCF tools
+* Multi-cloud and multi-platform environments
+* Multi-tenancy and portability support
+* Interoperability with open-source and 3rd party tools
+* Extensive flexibility combining data queries, query results and performing open-ended client-side data processing
+* Sharing dashboards outside of the Azure Portal
+* Leveraging open-source community dashboards
+
+<!--
+
 ### Grafana
 
 [Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for:
@@ -52,18 +95,68 @@ All versions of Grafana include the [Azure Monitor datasource plug-in](visualize
 
 [Azure Managed Grafana](../managed-grafana/overview.md) also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting telemetry in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards. Grafana includes out-of-the-box dashboards for Azure resources. [Create your first Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md) to get started.
 
-
 The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/dashboards/15128-azure-alert-consumption/) allows you to view and consume Azure monitor alerts for Azure Monitor, your Azure datasources, and Azure Monitor managed service for Prometheus.
  - For more information on define Azure Monitor alerts, see [Create a new alert rule](alerts/alerts-create-new-alert-rule.md).
  - For Azure Monitor managed service for Prometheus, define your alerts using [Prometheus alert rules](alerts/prometheus-alerts.md) that are created as part of a [Prometheus rule group](essentials/prometheus-rule-groups.md), applied on the Azure Monitor workspace.
 
 :::image type="content" source="media/visualizations/grafana.png" lightbox="media/visualizations/grafana.png" alt-text="Screenshot that shows Grafana visualizations.":::
 
+-->
+
+<!--
+
 ### Power BI
 
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset. Then you can take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
-<!-- convertborder later -->
+
 :::image type="content" source="media/visualizations/power-bi.png" lightbox="media/visualizations/power-bi.png" alt-text="Screenshot that shows an example Power BI report for IT operations." border="false":::
+
+-->
+
+### Comparing Capabilities
+
+| Service                                                                                         | Workbooks                                                      | Azure Managed Grafana                   |
+|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------|
+| **Fully Azure Native Reporting**                                                                | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; In Azure Portal, no other entry points required                              | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Leveraged by Azure Monitor Insights                                          | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Visualizations are native ARM resources                                      | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; At scale deployment and management of visualizations – ARM, Bicep, Terraform | ✅                                                             | Only AZ CLI supported                   |
+| &nbsp;&nbsp;&nbsp; Access model Identical to Azure RBAC                                         | ✅                                                             | Not supported for Prometheus            |
+| &nbsp;&nbsp;&nbsp; Included in Azure Cost                                                       | ✅                                                             | Additional per user pricing             |
+| &nbsp;&nbsp;&nbsp; Reports and guided workflows in Azure Portal                                 | ✅                                                             |                                         |
+| **Complete set of  Azure datasources**                                                          | ✅                                                             | Not supported ARM and Resource Health   |
+| &nbsp;&nbsp;&nbsp; ARM, Azure resource health, Azure service health                             | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX                    | ✅                                                             | ✅                                      |
+| **Azure Hybrid Environments**                                                                   | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Azure Arc                                                                    | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Azure Stack Hub                                                              | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Azure Edge and IOT                                                           | ✅                                                             |                                         |
+| **Azure Automation**                                                                            | ✅                                                             |                                         |
+| &nbsp;&nbsp;&nbsp; Supports integrations actions and runbooks                                   | ✅                                                             |                                         |
+| **Multi-tenancy and portability**                                                               |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Single view for multiple Azure tenants                                       | Via Lighthouse                                                 | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Visualizations available outside of Azure Portal                             |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; On demand and scheduled reports outside of Azure Portal                      |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Azure SP and MI auth                                                         |                                                                | ✅                                      |
+| **Multi-cloud  and multi-platform**                                                             |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; AWS, GCP, Oracle Cloud                                                       | Requires ARC and Azure Monitor instrumentation and ingestion   | ✅                                      |
+| &nbsp;&nbsp;&nbsp; OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus         |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; 3rd Party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.        |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Generic DB support – SQL, Mongo, Postgres, Oracle etc.                       |                                                                | ✅                                      |
+| **Cloud Native**                                                                                |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Prometheus queries                                                           | ✅                                                             | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Prometheus Builder (No Code Queries)                                         |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Prometheus  Community Dashboards                                             |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Prometheus + Exemplars                                                       |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Istio - Service Mesh                                                         |                                                                | ✅                                      |
+| **Operational dashboards**                                                                      |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Multiple queries in single pane                                              |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Event and annotations combined with timeseries data                          |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Client-side Processing – Expressions & Transforms                            |                                                                | ✅                                      |
+| &nbsp;&nbsp;&nbsp; Dashboard playlists/rotation                                                 |                                                                | ✅                                      |
+
+<!--
 
 ## Choose the right visualization tool
 
@@ -99,12 +192,15 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 |    |Extensive interactivity, including zoom-in and cross-filtering|    |
 |    |Share easily throughout your organization|    |
 
+-->
 
 ## Other options
+
 Some Azure Monitor partners provide visualization functionality. An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions might have an extra cost.
 
 You can also build your own custom websites and applications using metric and log data in Azure Monitor using the REST API. The REST API gives you flexibility in UI, visualization, interactivity, and features.
 
 ## Next steps
-- [Deploy Azure Monitor: Alerts and automated actions](best-practices-alerts.md)
-- [Optimize costs in Azure Monitor](best-practices-cost.md)
+
+* [Deploy Azure Monitor: Alerts and automated actions](best-practices-alerts.md)
+* [Optimize costs in Azure Monitor](best-practices-cost.md)
