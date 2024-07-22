@@ -102,7 +102,7 @@
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python
     - name: Samples
-      href: /azure/virtual-machines/overview?toc=/azure/virtual-machines/toc.json
+      href: https://github.com/Azure-Samples/virtual-machines-python-manage
   - name: .NET
     items:
     - name: .NET SDK
