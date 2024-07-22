@@ -365,7 +365,7 @@ There's usually no difference, with two exceptions.
 - Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model doesn't receive the free data.
 - Application Insights resources that were in the basic pricing tier before April 2018 continue to be billed at the same nonregional price point as before April 2018. Application Insights resources created after that time, or those resources converted to be workspace-based, will receive the current regional pricing. For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-The migration to workspace-based Application Insights offers many options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
+The migration to workspace-based Application Insights offers many options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [Basic and Auxiliary logs](../logs/cost-logs.md#basic-and-auxiliary-table-plans).  
 
 ### How will telemetry capping work?
 

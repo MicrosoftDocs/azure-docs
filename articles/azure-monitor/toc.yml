@@ -1512,8 +1512,6 @@ items:
         href: alerts/alerts-log-alert-query-samples.md
       - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
-  - name: Monitor Logs in Azure CLI
-    href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell
     href: logs/powershell-workspace-configuration.md
   - name: Azure Resource Graph queries

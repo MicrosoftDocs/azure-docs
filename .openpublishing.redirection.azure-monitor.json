@@ -6813,7 +6813,16 @@
             "source_path_from_root": "/articles/azure-monitor/logs/data-retention-archive.md",
             "redirect_url": "/azure/azure-monitor/logs/data-retention-configure",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/azure-cli-log-analytics-workspace-sample.md",
+            "redirect_url": "/azure/azure-monitor/logs/manage-logs-tables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/powershell-workspace-configuration.md",
+            "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
+            "redirect_document_id": false
         }
     ]
 }
-
