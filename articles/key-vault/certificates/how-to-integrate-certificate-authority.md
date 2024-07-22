@@ -45,8 +45,6 @@ Make sure you have the following information from your DigiCert CertCentral acco
 -	CertCentral account ID
 -	Organization ID
 -	API key
--   Account ID
--   Account Password
 
 #### GlobalSign
 
