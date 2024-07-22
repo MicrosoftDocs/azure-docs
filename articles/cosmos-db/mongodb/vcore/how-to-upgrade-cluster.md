@@ -1,5 +1,5 @@
 ---
-title: Upgrade a cluster.
+title: Upgrade a cluster
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Steps to upgrade Azure Cosmos DB for MongoDB vCore cluster from a lower version to latest version.
 author: suvishodcitus
@@ -34,14 +34,14 @@ Here are the detailed steps to upgrade a cluster to latest version:
 
 2. Go to the **Overview** blade of your Azure Cosmos DB for MongoDB vCore cluster and click the **Upgrade** button as illustrated below.
 
-:::image type="content" source="media/how-to-scale-cluster/upgrade-overview-page.png" alt-text="Screenshot of the overview page.":::
+   :::image type="content" source="media/how-to-scale-cluster/upgrade-overview-page.png" alt-text="Screenshot of the overview page.":::
 
-> [!NOTE]
-> The upgrade button will stay disabled if you're already using the latest version.
+   > [!NOTE]
+   > The upgrade button will stay disabled if you're already using the latest version.
 
 3. A new window will appear on the right, allowing you to choose the MongoDB version you wish to upgrade to. Select the appropriate version and submit the upgrade request.
 
-:::image type="content" source="media/how-to-scale-cluster/upgrade-side-window.png" alt-text="Screenshot of server upgrade page.":::
+   :::image type="content" source="media/how-to-scale-cluster/upgrade-side-window.png" alt-text="Screenshot of server upgrade page.":::
 
 ## Next steps
 
