@@ -144,7 +144,8 @@ Send feedback with issues by selecting **Provide us feedback**.
 
 For performance consideration, by default the graph is only available when the Spark application has less than 500 stages. If there are too many stages, it will fail with an error like this:
 
-`` The number of stages in this application exceeds limit (500), graph page is disabled in this case.``
+> 
+> The number of stages in this application exceeds limit (500), graph page is disabled in this case.
 
 As a workaround, before starting a Spark application, please apply this Spark configuration to increase the limit:
 
