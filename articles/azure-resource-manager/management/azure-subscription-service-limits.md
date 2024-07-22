@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 07/19/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -71,6 +71,7 @@ This section provides information about limits that apply to Azure API Managemen
 
 * [API Management classic tiers](#limits---api-management-classic-tiers)
 * [API Management v2 tiers](#limits---api-management-v2-tiers)
+* [API Management workspaces](#limits---api-management-workspaces)
 * [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
 
 ### Limits - API Management classic tiers
@@ -80,6 +81,11 @@ This section provides information about limits that apply to Azure API Managemen
 ### Limits - API Management v2 tiers
 
 [!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
+
+### Limits - API Management workspaces
+
+[!INCLUDE [api-management-workspace-limits](../../../includes/api-management-workspace-limits.md)]
+
 
 ### Limits - Developer portal in API Management v2 tiers
 
