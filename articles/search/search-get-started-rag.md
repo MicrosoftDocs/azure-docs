@@ -17,7 +17,7 @@ This quickstart shows you how to send queries to a Large Language Model (LLM) fo
 
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-- [Azure AI Search](search-create-service-portal.md), on any tier. Region must be the same one used for Azure OpenAI.
+- [Azure AI Search](search-create-service-portal.md), Basic tier or higher so that you can [enable semantic ranking](semantic-how-to-enable-disable.md). Region must be the same one used for Azure OpenAI.
 
 - [Azure OpenAI](https://aka.ms/oai/access) resource with a deployment of `gpt-35-turbo`, `gpt-4`, or equivalent model, in the same region as Azure AI Search.
 
@@ -33,16 +33,22 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
-1. Configure Azure OpenAI to use a system-assigned managed identity.
-1. In the Azure portal, find your Azure OpenAI resource.
-1. On the left menu, select **Resource management** > **Identity**.
-1. On the System assigned tab, set status to **On**.
+1. Configure Azure OpenAI to use a system-assigned managed identity:
+    1. In the Azure portal, find your Azure OpenAI resource.
+    1. On the left menu, select **Resource management** > **Identity**.
+    1. On the System assigned tab, set status to **On**.
 
-1. Grant Azure OpenAI permission to access Azure AI Search:
-1. In the Azure portal, find your Azure AI Search service.
-1. On the left menu, select **Access control (IAM)**.
-1. Add the following role assignments for Azure OpenAI managed identity: Search Index Data Reader
-You only need data reader for this quickstart because this scenario is limited to query operations.
+1. Configure Azure AI Search for role-based access and assign roles:
+    1. In the Azure portal, find your Azure AI Search service.
+    1. On the left menu, select **Settings** > **Keys**, and then select either **Role-based access control** or **Both**.
+    1. On the left menu, select **Access control (IAM)**.
+    1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**
+
+       You only need data reader for this quickstart because this scenario is limited to query operations.
+
+1. Assign yourself to the **Cognitive Services OpenAI User** role on Azure OpenAI. This is the only role you need for query workloads.
+
+It can take several minutes for permissions to take effect.
 
 ## Create an index
 
@@ -50,7 +56,7 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. In the Azure portal, find your search service.
 
-1. On the **Overview** home page, select **Import data** at the top to start the wizard.
+1. On the **Overview** home page, select [**Import data**](search-get-started-portal.md) to start the wizard.
 
 1. On the **Connect to your data** page, select **Samples** from the dropdown list.
 
@@ -119,13 +125,11 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
 
-1. On the **Overview** home page, copy the URL. An example endpoint might look like `https://mydemo.search.windows.net`. 
-
-   :::image type="content" source="media/search-get-started-rest/get-endpoint.png" lightbox="media/search-get-started-rest/get-endpoint.png" alt-text="Screenshot of the URL property on the overview page.":::
+1. On the **Overview** home page, copy the URL. An example endpoint might look like `https://example.search.windows.net`. 
 
 1. [Find your Azure OpenAI service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.CognitiveServices%2Faccounts).
 
-1. On the **Overview** home page, select the link to view the endpoints. Copy the URL.
+1. On the **Overview** home page, select the link to view the endpoints. Copy the URL. An example endpoint might look like `https://example.openai.azure.com/`.
 
 ## Set up the query and chat thread
 
@@ -139,7 +143,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
    ! pip install openai --quiet
    ```
 
-1. Set the following variables, substituting placeholders with valid values. 
+1. Set the following variables, substituting placeholders with the endpoints you collected in the previous step. 
 
    ```python
     AZURE_SEARCH_SERVICE: str = "PUT YOUR SEARCH SERVICE ENDPOINT HERE"
@@ -147,7 +151,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     AZURE_DEPLOYMENT_MODEL: str = "gpt-35-turbo"
    ```
 
-1. Specify query parameters. The query is a keyword search using semantic ranking. The search engine returns up to 50 matches, but the model returns just the top 5 in the response.
+1. Specify query parameters. The query is a keyword search using semantic ranking. The search engine returns up to 50 matches, but the model returns just the top 5 in the response. If you can't enable semantic ranking on your search service, set the value to false.
 
    ```python
    # Set query parameters for grounding the conversation on your search index
@@ -157,7 +161,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     sources_to_include=5
     ```
 
-1. Set up clients, functions, prompts, and chat thread. The function retrieves selected fields from the search index. 
+1. Set up clients, a search functions prompts, and a chat. The function retrieves selected fields from the search index. 
 
     ```python
     # Set up the query for generating responses
@@ -202,6 +206,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     
         return [ document async for document in response ]
     
+    # This prompt provides instructions to the model
     GROUNDED_PROMPT="""
     You are a friendly assistant that recommends hotels based on activities and amenities.
     Answer the query using only the sources provided below in a friendly and concise bulleted manner.
@@ -211,6 +216,8 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     Query: {query}
     Sources:\n{sources}
     """
+
+    # This class instantiates the chat
     class ChatThread:
         def __init__(self):
             self.messages = []
@@ -248,7 +255,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
             return self.search_results[-1]["sources"] if len(self.search_results) > 0 else None
     ```
 
-1. Invoke the chat thread and call the query function, passing in a query string to search for.
+1. Invoke the chat and call the search function, passing in a query string to search for.
 
     ```python
     import azure.identity.aio
