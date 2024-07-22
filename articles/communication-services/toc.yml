@@ -519,7 +519,7 @@ items:
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
       - name: Get Real-time Transcription of call audio
-        href: how-tos/call-automation/recognize-action.md  
+        href: how-tos/call-automation/real-time-transcription-tutorial.md  
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
