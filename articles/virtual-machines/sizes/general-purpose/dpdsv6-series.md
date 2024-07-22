@@ -54,7 +54,7 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D96pds_v6 | 96 | 384 |
 
 > [!NOTE]
-> The Dpdsv6 VM series will only work on OS images that support NVMe (i.e  NVMe drivers required for the local storage). If your current OS image doesn't have NVMe support, you’ll see an error message. NVMe support is available on the most popular OS images, and we're continuously improving OS image compatibility.
+> The Dpdsv6 VM series will only work on OS images that support NVMe (i.e.  NVMe drivers required for the local storage). If your current OS image doesn't have NVMe support, you’ll see an error message. NVMe support is available on the most popular OS images, and we're continuously improving OS image compatibility.
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
