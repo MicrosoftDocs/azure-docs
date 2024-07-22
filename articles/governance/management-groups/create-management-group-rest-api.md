@@ -1,9 +1,10 @@
 ---
 title: "Quickstart: Create a management group with REST API"
 description: In this quickstart, you use REST API to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/17/2021
+ms.date: 07/19/2024
 ms.topic: quickstart
 ---
+
 # Quickstart: Create a management group with REST API
 
 Management groups are containers that help you manage access, policy, and compliance across multiple
@@ -23,10 +24,7 @@ directory. You receive a notification when the process is complete. For more inf
   account before you begin.
 
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
-  that sends HTTP requests to Azure Resource Manager-based REST APIs. Instead, you can use the "Try
-  It" feature in REST documentation or tooling like PowerShell's
-  [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) or
-  [Postman](https://www.postman.com).
+  that sends HTTP requests to Azure Resource Manager-based REST APIs.
 
 - Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
