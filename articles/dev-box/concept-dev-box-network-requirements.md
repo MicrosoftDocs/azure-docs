@@ -229,7 +229,7 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
 ## Troubleshooting 
 
-This section covers some common connect and network issues.
+This section covers some common connection and network issues.
 
 ### Connection issues
 
