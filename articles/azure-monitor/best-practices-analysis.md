@@ -68,24 +68,24 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 ## Choose the right visualization tool
 
-Azure Monitor recommends Azure Managed Grafana for data visualizations and dashboards in Cloud Native (for example, Kubernetes, AKS), multicloud, OSS, third party integration scenarios. Use workbooks for all other Azure scenarios, including Azure hybrid environments with Azure Arc.
+Azure Monitor recommends Azure Managed Grafana for data visualizations and dashboards in cloud-native (for example, Kubernetes, AKS), multicloud, OSS, and third party integration scenarios, while workbooks are recommended for all other Azure scenarios, including Azure hybrid environments with Azure Arc.
 
 **Use Azure workbooks for:**
 
-* Out of the box and customizable Azure-native reports  
-    * Within the Azure portal 
-    * Accessed exclusively via users’ Azure RBAC (role-based access control) assignments 
-    * Managed with Azure Automation including ARM, Bicep, and Terraform 
+* Out of the box and customizable Azure-native reports
+    * Within the Azure portal
+    * Accessed exclusively via users' Azure RBAC (role-based access control) assignments
+    * Managed with Azure Automation including ARM, Bicep, and Terraform
     * With no additional cost
 * Most complete set of Azure datasources
-* Azure managed hybrid and edge environments
-* Integrations with Azure actions and automation
-* Creating custom reports based on Azure Monitor insights
+* Azure-managed hybrid and edge environments
+* Integrations with Azure actions and Azure Automation
+* Creating custom reports based on Azure Monitor Insights
 * Leveraging Azure GitHub community templates
 
 **Use Azure Managed Grafana for:**
 
-* Cloud native environments monitored with Prometheus and CNCF (Cloud Native Computing Foundation) tools
+* Cloud-native environments monitored with Prometheus and CNCF (Cloud Native Computing Foundation) tools
 * Multicloud and multi-platform environments
 * Multi-tenancy and portability support
 * Interoperability with open-source and third party tools
@@ -95,53 +95,54 @@ Azure Monitor recommends Azure Managed Grafana for data visualizations and dashb
 
 ### Comparing Capabilities
 
-| Service/Feature                                                                                            | Workbooks                                                      | Azure Managed Grafana                   |
+| Service/Feature                                                                                            | Workbooks                                                      | Azure Managed Grafana           |
 |----------------------------------------------------------------------------------------------------|----------------------------------------------------------------|-----------------------------------------|
-| **Fully Azure Native Reporting**                                                                   | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; In the Azure portal, no other entry points required                             | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Leveraged by Azure Monitor Insights                                             | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Visualizations are native ARM resources                                         | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                             | Only Azure CLI supported                |
-| &nbsp;&nbsp;&nbsp; Access model Identical to Azure RBAC                                            | ✅                                                             | Not supported for Prometheus            |
-| &nbsp;&nbsp;&nbsp; Included in Azure Cost                                                          | ✅                                                             | Additional per user pricing             |
-| &nbsp;&nbsp;&nbsp; Reports and guided workflows in the Azure portal                                | ✅                                                             |                                         |
-| | | |
-| **Complete set of  Azure datasources**                                                             | ✅                                                             | Not supported ARM and Resource Health   |
-| &nbsp;&nbsp;&nbsp; ARM, Azure Resource Health, Azure Service Health                                | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                             | ✅                                      |
-| | | |
-| **Azure Hybrid Environments**                                                                      | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Azure Arc                                                                       | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Azure Stack Hub                                                                 | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Azure Edge and Azure IoT                                                        | ✅                                                             |                                         |
-| | | |
-| **Azure Automation**                                                                               | ✅                                                             |                                         |
-| &nbsp;&nbsp;&nbsp; Supports integrations actions and runbooks                                      | ✅                                                             |                                         |
-| | | |
-| **Multi-tenancy and portability**                                                                  |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Single view for multiple Azure tenants                                          | Via Lighthouse                                                 | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Visualizations available outside of the Azure portal                            |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; On demand and scheduled reports outside of the Azure portal                     |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Azure service principal and Azure SQL Managed Instance auth                     |                                                                | ✅                                      |
-| | | |
-| **Multicloud  and multi-platform**                                                                 |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | Requires ARC and Azure Monitor instrumentation and ingestion   | ✅                                      |
-| &nbsp;&nbsp;&nbsp; OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                | ✅                                      |
-| | | |
-| **Cloud Native**                                                                                   |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Prometheus queries                                                              | ✅                                                             | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Prometheus Builder (No Code Queries)                                            |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Prometheus  Community Dashboards                                                |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Prometheus + Exemplars                                                          |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Istio - Service Mesh                                                            |                                                                | ✅                                      |
-| | | |
-| **Operational dashboards**                                                                         |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Multiple queries in single pane                                                 |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Event and annotations combined with time series data                            |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Client-side Processing – Expressions & Transforms                               |                                                                | ✅                                      |
-| &nbsp;&nbsp;&nbsp; Dashboard playlists/rotation                                                    |                                                                | ✅                                      |
+|                                                                                 |                                                                |                                         |
+| **Fully Azure Native Reporting**                                                | ✅                                                             |                                         |
+| In the Azure portal, no other entry points required                             | ✅                                                             |                                         |
+| Leveraged by Azure Monitor Insights                                             | ✅                                                             |                                         |
+| Visualizations are native ARM resources                                         | ✅                                                             |                                         |
+| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                             | Only Azure CLI supported                |
+| Access model Identical to Azure RBAC                                            | ✅                                                             | Not supported for Prometheus            |
+| Included in Azure Cost                                                          | ✅                                                             | Additional per user pricing             |
+| Reports and guided workflows in the Azure portal                                | ✅                                                             |                                         |
+|                                                                                 |                                                                |                                         |
+| **Complete set of  Azure datasources**                                          | ✅                                                             | Not supported ARM and Resource Health   |
+| ARM, Azure Resource Health, Azure Service Health                                | ✅                                                             |                                         |
+| Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                             | ✅                                      |
+|                                                                                 |                                                                |                                         |
+| **Azure Hybrid Environments**                                                   | ✅                                                             |                                         |
+| Azure Arc                                                                       | ✅                                                             |                                         |
+| Azure Stack Hub                                                                 | ✅                                                             |                                         |
+| Azure Edge and Azure IoT                                                        | ✅                                                             |                                         |
+|                                                                                 |                                                                |                                         |
+| **Azure Automation**                                                            | ✅                                                             |                                         |
+| Supports integrations actions and runbooks                                      | ✅                                                             |                                         |
+|                                                                                 |                                                                |                                         |
+| **Multi-tenancy and portability**                                               |                                                                | ✅                                      |
+| Single view for multiple Azure tenants                                          | Via Lighthouse                                                 | ✅                                      |
+| Visualizations available outside of the Azure portal                            |                                                                | ✅                                      |
+| On demand and scheduled reports outside of the Azure portal                     |                                                                | ✅                                      |
+| Azure service principal and Azure SQL Managed Instance auth                     |                                                                | ✅                                      |
+|                                                                                 |                                                                |                                         |
+| **Multicloud  and multi-platform**                                              |                                                                | ✅                                      |
+| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | Requires ARC and Azure Monitor instrumentation and ingestion   | ✅                                      |
+| OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                | ✅                                      |
+| Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                | ✅                                      |
+| Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                | ✅                                      |
+|                                                                                 |                                                                |                                         |
+| **Cloud Native**                                                                |                                                                | ✅                                      |
+| Prometheus queries                                                              | ✅                                                             | ✅                                      |
+| Prometheus Builder (No Code Queries)                                            |                                                                | ✅                                      |
+| Prometheus  Community Dashboards                                                |                                                                | ✅                                      |
+| Prometheus + Exemplars                                                          |                                                                | ✅                                      |
+| Istio - Service Mesh                                                            |                                                                | ✅                                      |
+|                                                                                 |                                                                |                                         |
+| **Operational dashboards**                                                      |                                                                | ✅                                      |
+| Multiple queries in single pane                                                 |                                                                | ✅                                      |
+| Event and annotations combined with time series data                            |                                                                | ✅                                      |
+| Client-side Processing – Expressions & Transforms                               |                                                                | ✅                                      |
+| Dashboard playlists/rotation                                                    |                                                                | ✅                                      |
 
 ## Other options
 
