@@ -18,14 +18,14 @@ Use the following guidelines to create the best possible projects in conversatio
 
 ## Choose a consistent schema
 
-Schema is the definition of your intents and entities. There are different approaches you could take when defining what you should create as an intent versus an entity. Ask yourself these questions:
+Schema is the definition of your intents and entities. There are different approaches you could take when you define what you should create as an intent versus an entity. Ask yourself these questions:
 
 - What actions or queries am I trying to capture from my user?
 - What pieces of information are relevant in each action?
 
 You can typically think of actions and queries as _intents_, while the information required to fulfill those queries are _entities_.
 
-For example, assume that you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _Cancel_ intent with various examples like _"Cancel the Contoso service"_ or _"Stop charging me for the Fabrikam subscription."_ The user's intent here is to _cancel_, and the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they want to cancel.
+For example, assume that you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _cancel_ intent with various examples like _"Cancel the Contoso service"_ or _"Stop charging me for the Fabrikam subscription."_ The user's intent here is to _cancel_, and the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they want to cancel.
 
 To proceed, you create an entity for _subscriptions_. Then you can model your entire project to capture actions as intents and use entities to fill in those actions. This approach allows you to cancel anything you define as an entity, such as other products. You can then have intents for signing up, renewing, and upgrading that all make use of the _subscriptions_ and other entities.
 
@@ -33,7 +33,7 @@ The preceding schema design makes it easy for you to extend existing capabilitie
 
 Another approach is to model the _information_ as intents and the _actions_ as entities. Let's take the same example of allowing your customers to cancel subscriptions through your chatbot.
 
-You can create an intent for each subscription available, such as _Contoso_, with utterances like _"Cancel Contoso"_, _"Stop charging me for Contoso services,"_ and _"Cancel the Contoso subscription."_ You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
+You can create an intent for each subscription available, such as _Contoso_, with utterances like _"Cancel Contoso"_, _"Stop charging me for Contoso services"_, and _"Cancel the Contoso subscription."_ You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
 
 This schema design makes it easy for you to extend new actions to existing targets by adding new action entities or entity components.
 
@@ -47,17 +47,17 @@ You also want to avoid mixing different schema designs. Don't build half of your
 
 ## Use standard training before advanced training
 
-[Standard training](../how-to/train-model.md#training-modes) is free and faster than advanced training, which makes it useful to help you quickly understand the effect of changing your training set or schema while you build the model. After you're satisfied with the schema, consider using advanced training to get the best AIQ out of your model.
+[Standard training](../how-to/train-model.md#training-modes) is free and faster than advanced training. It can help you quickly understand the effect of changing your training set or schema while you build the model. After you're satisfied with the schema, consider using advanced training to get the best AIQ out of your model.
 
 ## Use the evaluation feature
 
-When you build an app, it's often helpful to catch errors early. It's usually a good practice to add a test set when building the app, as training and evaluation results are useful in identifying errors or issues in your schema.
+When you build an app, it's often helpful to catch errors early. It's usually a good practice to add a test set when you build the app. Training and evaluation results are useful in identifying errors or issues in your schema.
 
 ## Machine-learning components and composition
 
 For more information, see [Component types](./entity-components.md#component-types).
 
-## Use the "none" score threshold
+## Use the None score threshold
 
 If you see too many false positives, such as out-of-context utterances being marked as valid intents, see [Confidence threshold](./none-intent.md) for information on how it affects inference.
 
@@ -77,7 +77,7 @@ If you require the learned component, make sure that *ticket quantity* is only r
 
 ## Address model inconsistencies
 
-If your model is overly sensitive to small grammatical changes, like casing or diacritics, you can systematically manipulate your dataset directly in the Language Studio. To use these features, select the **Settings** tab on the left pane and locate the **Advanced project settings** section.
+If your model is overly sensitive to small grammatical changes, like casing or diacritics, you can systematically manipulate your dataset directly in Language Studio. To use these features, select the **Settings** tab on the left pane and locate the **Advanced project settings** section.
 
 :::image type="content" source="../media/advanced-project-settings.png" alt-text="A screenshot that shows an example of Advanced project settings." lightbox="../media/advanced-project-settings.png":::
 
@@ -146,7 +146,7 @@ After the request is sent, you can track the progress of the training job in Lan
 
 ### Normalization in model version 2023-04-15
 
-Model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training.
+With model version 2023-04-15, conversational language understanding provides normalization in the inference layer that doesn't affect training.
 
 The normalization layer normalizes the classification confidence scores to a confined range. The range selected currently is from `[-a,a]` where "a" is the square root of the number of intents. As a result, the normalization depends on the number of intents in the app. If the number of intents is low, the normalization layer has a small range to work with. With a large number of intents, the normalization is more effective.
 
@@ -160,11 +160,11 @@ To better understand how individual components are performing, you can disable t
 
 ## Evaluate a model by using multiple test sets
 
-Data in a conversational language understanding project can have two data sets: a testing set and a training set. If you want to use multiple test sets to evaluate your model, you can:
+Data in a conversational language understanding project can have two datasets: a testing set and a training set. If you want to use multiple test sets to evaluate your model, you can:
 
 * Give your test sets different names (for example, "test1" and "test2").
 * Export your project to get a JSON file with its parameters and configuration.
-* Use the JSON to import a new project, and rename your second desired test set to "test."
+* Use the JSON to import a new project. Rename your second desired test set to "test."
 * Train the model to run the evaluation by using your second test set.  
 
 ## Custom parameters for target apps and child apps
@@ -214,7 +214,7 @@ First, identify the:
  * Source language resource.
  * Target language resource, which is where you want to copy it to.
 
-Call the API to authorize the copy action, and get `accessTokens` for the actual copy operation later.
+Call the API to authorize the copy action and get `accessTokens` for the actual copy operation later.
 
 ```console
 curl --request POST \ 
