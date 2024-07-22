@@ -18,8 +18,7 @@ Using a GitHub Actions workflow to register APIs in your API center provides a c
 
 The following diagram shows how API registration in your API center can be automated using a GitHub Actions workflow.
 
-:::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center.":::
-
+:::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center." lightbox="media/register-apis-github-actions/scenario-overview.svg":::
 
 1. Set up a GitHub Actions workflow in your repository that triggers when a pull request that adds an API definition file is merged.
 1. Create a branch from the main branch in your GitHub repository.
@@ -54,9 +53,11 @@ In this section, you set up the GitHub Actions workflow for this scenario:
 In the following steps, create a Microsoft Entra ID service principal, which will be used in the workflow to authenticate with Azure.
 
 > [!NOTE]
-> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions?tabs=openid%2Caspnetcore#1-generate-deployment-credentials)
+> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#1-generate-deployment-credentials)
 
-Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/az/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
+Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
+
+#### [Bash](#tab/bash)
 
 ```azurecli
 #! /bin/bash
@@ -69,6 +70,8 @@ apicResourceId=$(az apic show --name $apiCenter --resource-group $resourceGroup 
 az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
 ```
 
+#### [PowerShell](#tab/powershell)
+
 ```azurecli
 # PowerShell syntax
 $apiCenter = "<api-center-name>"
@@ -79,7 +82,7 @@ $apicResourceId = $(az apic show --name $apiCenter --resource-group $resourceGro
 
 az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
 ```
-
+---
 
 Copy the JSON output, which should look similar to the following:
 
@@ -117,7 +120,7 @@ The following is a basic workflow file for this example that you can use or modi
 
 In this example:
 * the workflow is triggered when a pull request that adds a JSON definition in the `APIs` path is closed on the main branch
-* The location of the definition is extracted from the pull request using a GitHub script, authenticated with the default GitHub token
+* The location of the definition is extracted from the pull request using a GitHub script, which is authenticated with the default GitHub token
 * The Azure credentials saved in your repo are used to sign into Azure
 * The [az apic register](/cli/azure/apic/api#az-apic-api-register) command registers the API in the API center specified in the environment variables
 
@@ -125,8 +128,8 @@ To configure the workflow file:
 
 1. Copy and save the file under a name such as `register-api.yml`.
 1. Update the values for the environment variables to match your API center in Azure.
-1. Update the expected path where you'll add the definition file in the repository.
-1. Add this file in the  `/.github/workflows/` path in your GitHub repository.
+1. Confirm or update the name of the repository folder (`APIs`) where you'll add the API definition file.
+1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
 
 > [!TIP]
 > If you use the [Visual Studio Code extension](use-vscode-extension.md) for Azure API Center, you can generate a starting workflow file using an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
@@ -219,7 +222,7 @@ Verify that the API is registered in your API center.
 To add a new version to an existing API in your API center, follow the same steps as before, with a slight modification:
 
 1. Change to the same working branch in your repo, or create a new working branch.
-1. Add a new API definition file to the repository in the `APIs` path, in the folder for an existing API. for example, if you previously added a catfacts-api API definition, add a new version such as `APIs/catfacts-api/07-22-2024.json`.
+1. Add a new API definition file to the repository in the `APIs` path, in the folder for an existing API. for example, if you previously added a Cat Facts API definition, add a new version such as `APIs/catfacts-api/07-22-2024.json`.
 1. Commit the changes and push them to the working branch.
 1. Create a pull request to merge the working branch into the main branch.
 1. After review, merge the pull request. The merge triggers the GitHub Actions workflow that registers the new API version in your API center.
@@ -244,8 +247,8 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
 * Apply the metadata to the API registration using the [az apic api update](/cli/azure/apic/api#az-apic-api-update) command. In the following example, the API ID and metadata file are passed in environment variables:
 
 
-```azurecli
-az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --metadata-file {{ env.METADATA_FILE }}
+    ```azurecli
+    az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --metadata-file {{ env.METADATA_FILE }}
 ```
 
 
