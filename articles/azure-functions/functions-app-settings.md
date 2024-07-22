@@ -54,8 +54,6 @@ The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_IN
 
 Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
 The connection string for Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. The string contains the client ID of either a system-assigned or a user-assigned managed identity that is authorized to publish telemetry to your Application Insights workspace. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
