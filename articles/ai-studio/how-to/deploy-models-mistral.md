@@ -1,7 +1,7 @@
 ---
 title: How to deploy Mistral family of models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Mistral Large with Azure AI Studio.
+description: Learn how to deploy Mistral family of models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -20,8 +20,10 @@ ms.custom: references_regions, build-2024
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 Mistral AI offers two categories of models in the [Azure AI Studio](https://ai.azure.com). These models are available in the [model catalog](model-catalog-overview.md):
 
-* __Premium models__: Mistral Large, Mistral Large 2407, Mistral Small, and Mistral Nemo. These models can be deployed as serverless APIs with pay-as-you-go token-based billing.
-* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models can be deployed to managed computes in your own Azure subscription.
+* __Premium models__: Mistral Large, Mistral Large 2407, and Mistral Small. 
+* __Open models__: Mistral Nemo, Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. 
+
+All the premium models and Mistral Nemo (an open model) can be deployed as serverless APIs with pay-as-you-go token-based billing. The other open models can be deployed to managed computes in your own Azure subscription.
 
 You can browse the Mistral family of models in the model catalog by filtering on the Mistral collection.
 
@@ -43,7 +45,6 @@ Additionally, some attributes of _Mistral Large_ include:
 
 And attributes of _Mistral Large 2407_ include:
 
-- **Finetunable.** The model is finetunable as-a-service in Azure AI Studio.
 - **Multi-lingual by design.** Supports dozens of languages, including English, French, German, Spanish, and Italian.
 - **Proficient in coding.** Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
 - **Agent-centric.** Possesses agentic capabilities with native function calling and JSON outputting.
@@ -75,7 +76,7 @@ Additionally, Mistral Nemo is:
 - **Multilingual proficient.** Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
 - **Agent-centric.** Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
 - **Advanced in reasoning.** Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
- 
+
 ---
 
 ## Deploy Mistral family of models as a serverless API
@@ -104,7 +105,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ### Create a new deployment
 
-The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy any of the premium Mistral models by replacing the model name.
+The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy Mistral Nemo or any of the premium Mistral models by replacing the model name.
 
 To create a deployment:
 
