@@ -110,7 +110,7 @@ Yes. All upgrade policies including rolling upgrades with MaxSurge are generally
 No. All upgrade policies including rolling upgrades with MaxSurge are in Public Preview for Virtual Machine Scale Sets with Flexible Orchestration. 
 
 ### Do MaxSurge upgrades require more quota? 
-Yes. When using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created virtual machines counts towards your overall core quota. 
+Yes. When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. 
 
 ### Do MaxSurge upgrades require additional IP addresses? 
 Yes. These newly created virtual machines have new IP addresses and count towards your total allowed IP addresses available per your subscription. 
