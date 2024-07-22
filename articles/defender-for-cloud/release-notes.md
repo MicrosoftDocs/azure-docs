@@ -49,7 +49,7 @@ July 18, 2024
 
 With the [upcoming deprecation of Log Analytics agent in August](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all security value for server protection in Defender for Cloud will rely on integration with Microsoft Defender for Endpoint (MDE) as a single agent and on agentless capabilities provided by the cloud platform and agentless machine scanning.
 
-The following capabilities have updated timelines and plan, thus the support for them over MMA will be extended for Defender for Cloud customers to end of November 2024:
+The following capabilities have updated timelines and plans, thus the support for them over MMA will be extended for Defender for Cloud customers to the end of November 2024:
 
 - **File Integrity Monitoring (FIM):** Public preview release for FIM new version over MDE is planned for __August 2024__. The GA version of FIM powered by Log Analytics agent will continue to be supported for existing customers until end of __November 2024__.
 
