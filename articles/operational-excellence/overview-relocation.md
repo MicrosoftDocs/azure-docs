@@ -61,7 +61,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
 [Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
-[Azure Cosmos DB](../cosmos-db/how-to-move-regions.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+[Azure Cosmos DB](relocation-cosmos-db.md)|✅ | ✅|  ❌  |
 [Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |

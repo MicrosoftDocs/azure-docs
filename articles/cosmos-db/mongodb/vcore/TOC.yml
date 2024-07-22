@@ -36,6 +36,8 @@
           href: vector-search.md
         - name: Open-source vector databases
           href: vector-search-ai.md
+        - name: RAG with Langchain & OpenAI
+          href: rag.md
     - name: MongoDB feature support
       href: compatibility.md
     - name: High availability (HA)
@@ -49,7 +51,9 @@
     - name: Compute and storage
       href: compute-storage.md 
     - name: Migration options
-      href: migration-options.md 
+      href: migration-options.md
+    - name: Service limits
+      href: limits.md
     - name: Security
       items: 
         - name: Security overview
@@ -88,16 +92,18 @@
           href: how-to-create-wildcard-indexes.md
         - name: Search and query text
           href: how-to-create-text-index.md
-        - name: Optimize index creation
-          href: how-to-create-indexes.md
     - name: Scale cluster
       href: how-to-scale-cluster.md
     - name: Restore cluster
       href: how-to-restore-cluster.md
     - name: Manage replication
       href: how-to-cluster-replica.md
-    - name: Monitor diagnostics logs
-      href: how-to-monitor-diagnostics-logs.md
+    - name: Monitor
+      items:
+      - name: Monitor metrics
+        href: monitor-metrics.md
+      - name: Monitor diagnostics logs
+        href: how-to-monitor-diagnostics-logs.md
     - name: Use Azure Private Link
       href: how-to-private-link.md
 - name: Reference

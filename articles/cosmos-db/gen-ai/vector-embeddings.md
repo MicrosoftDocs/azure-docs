@@ -29,3 +29,13 @@ This image shows the spatial closeness of vectors that are similar, contrasting 
 Image source: [OpenAI](https://openai.com/index/introducing-text-and-code-embeddings/)
 
 You can see more examples in this [interactive visualization](https://openai.com/index/introducing-text-and-code-embeddings/#_1Vr7cWWEATucFxVXbW465e) that transforms data into a three-dimensional space.
+
+## Related content
+- [What is a vector database?](../vector-database.md)
+- [Retrieval Augmented Generation (RAG)](rag.md)
+- [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
+- [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
+- [What is vector search?](vector-search-overview.md)
+- LLM [tokens](tokens.md)
+- [Distance functions](distance-functions.md)
+- [kNN vs ANN vector search algorithms](knn-vs-ann.md)

@@ -98,9 +98,9 @@ Instead of logging hundreds of similar entries within an hour, the destination t
 
 ## Pricing model
 
-Summary rules don't have a direct cost, and you only pay for the query on the source table(s) and the ingestion to the destination table:
+There is no additional cost for Summary rules. You only pay for the query and the ingestion of results to the destination table, based on the table plan used in query:
 
-| Source table plan | Query cost | Query results ingestion cost |
+| Source table plan | Query cost | Summary results ingestion cost |
 | --- | --- | --- |
 | Analytics | No cost    | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 

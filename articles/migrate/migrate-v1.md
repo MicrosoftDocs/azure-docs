@@ -3,7 +3,7 @@ title: Work with the previous version of Azure Migrate
 description: Describes how to work with the previous version of Azure Migrate.
 author: v-sreedevank
 ms.author: v-sreedevank
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/08/2023
 ms.custom: mvc, engagement-fy23
 ---
@@ -85,8 +85,7 @@ The Azure readiness view in the assessment shows the readiness status of each VM
 Ready for Azure | No compatibility issues. The machine can be migrated as-is to Azure, and it will boot in Azure with full Azure support. | For VMs that are ready, Azure Migrate recommends a VM size in Azure.
 Conditionally ready for Azure | The machine might boot in Azure, but might not have full Azure support. For example, a machine with an older version of Windows Server that isn't supported in Azure. | Azure Migrate explains the readiness issues, and provides remediation steps.
 Not ready for Azure |  The VM won't boot in Azure. For example, if a VM has a disk that's more than 4 TB, it can't be hosted on Azure. | Azure Migrate explains the readiness issues and provides remediation steps.
-Readiness unknown | Azure Migrate can't identify Azure readiness, usually because data isn't available.
-
+Readiness unknown | Azure Migrate can't identify Azure readiness, usually because data isn't available. |  
 
 #### Azure VM properties
 Readiness takes into account a number of VM properties, to identify whether  the VM can run in Azure.

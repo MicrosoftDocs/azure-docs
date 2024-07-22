@@ -276,7 +276,6 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | managedClusters | resource group | 1-63 | Alphanumerics, underscores, and hyphens.<br><br>Start and end with alphanumeric. |
 > | managedClusters / agentPools | managed cluster | 1-12 for Linux<br>1-6 for Windows | Lowercase letters and numbers.<br><br>Can't start with a number. |
-> | openShiftManagedClusters | resource group | 1-30 | Alphanumerics. |
 
 ## Microsoft.CustomerInsights
 
@@ -487,12 +486,12 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
-> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` or control characters <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period.  |
+> | autoScaleSettings | resource group | 1-260 | Can't use:<br>`:<>+/&%\?|` or control characters <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` or control characters <br><br>Can't end with space or period.  |
-> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` or control characters <br><br>Can't end with space or period.  |
-> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` or control characters <br><br>Can't end with space or period.  |
-> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#` or control characters <br><br>Can't end with space or period.  |
+> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#|` or control characters <br><br>Can't end with space or period.  |
+> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/|` or control characters <br><br>Can't end with space or period.  |
+> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#|` or control characters <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
 
