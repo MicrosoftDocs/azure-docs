@@ -36,7 +36,7 @@ Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For m
 
 ## Prerequisites
 
-To use summary rules in Microsoft Sentinel:
+To create summary rules in Microsoft Sentinel:
 
 - Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
 

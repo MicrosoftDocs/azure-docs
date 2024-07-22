@@ -23,9 +23,9 @@ The listed features were released in the last three months. For information abou
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
 - [Create summary tables for large sets of data](#create-summary-tables-for-large-sets-of-data)
 
-### Create summary tables for large sets of data
+### Create summary tables for large sets of data (Preview)
 
-Microsoft Sentinel now provides the ability to create dynamic summaries, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
+Microsoft Sentinel now provides the ability to create dynamic summaries using [Azure Monitor summary rules](/azure-monitor/logs/summary-rules, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
