@@ -156,6 +156,7 @@ Be careful to restrict assignment of these roles only to those users who require
 
 ## Access key rotation
 Microsoft recommends that you rotate your access keys periodically to help keep your resource secure. Each Azure App Configuration resource has two read-only access keys and two read-write access keys to enable secret rotation. This is a security mechanism that lets you regularly change the keys that can access your service, protecting the security of your resource if a key gets leaked.
+
 You can rotate keys using the following procedure:
 
 1. If you're using both keys in production, change your code so that only one access key is in use. In this example, let's say you decide to keep using your store's primary key.
@@ -163,13 +164,13 @@ You must have only one key in your code, because when you regenerate your second
 
 1. Once the primary key is the only key in use, you can regenerate the secondary key. 
 
-# [Azure portal](#tab/portal)
+## [Azure portal](#tab/portal)
 
 Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
 :::image type="content" border="true" source="./media/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key":::
 
-# [Azure CLI](#tab/azure-cli)
+## [Azure CLI](#tab/azure-cli)
 
 To regenerate an access key for an App Configuration store, use the following command. 
 
@@ -179,6 +180,8 @@ az appconfig credential regenerate  \
     --resource-group <resource-group> \
     --id <key-to-be-regenerated>
 ```
+
+---
 
 1. Next, update your code to use the newly generated secondary key.
 It is advisable to review your application logs to confirm that all instances of your application have transitioned from using the primary key to the secondary key before proceeding to the next step.
