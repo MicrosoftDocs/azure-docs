@@ -119,8 +119,8 @@ Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubern
 For example, install the latest version of Dapr via the Dapr extension on your AKS cluster:
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
+--cluster-name <myAKSCluster> \
+--resource-group <myResourceGroup> \
 --name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false
@@ -165,13 +165,13 @@ You can disable auto-update by specifying the `--auto-upgrade-minor-version` par
 To upgrade to the latest Dapr version in a production environment, you need to manually upgrade. Start by viewing a list of the stable Dapr versions available to your managed AKS cluster. Run the following command:
 
 ```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
+az k8s-extension extension-types list-versions-by-cluster --resource-group <myResourceGroup> --cluster-name <myCluster> --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
 ```
 
 To see the latest stable Dapr version available to your managed AKS cluster, run the following command:
 
 ```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
+az k8s-extension extension-types list-versions-by-cluster --resource-group <myResourceGroup> --cluster-name <myCluster> --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
 ```
 
 To view a list of the stable Dapr versions available _by location_:
@@ -193,8 +193,8 @@ The same command-line argument is used for installing a specific version of Dapr
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
+--cluster-name <myAKSCluster> \
+--resource-group <myResourceGroup> \
 --name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
@@ -285,8 +285,8 @@ resource daprExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01'
 Set the following variables, changing the following values to your actual resource group and cluster names.
 
 ```azurecli-interactive
-MY_RESOURCE_GROUP=myResourceGroup
-MY_AKS_CLUSTER=myAKScluster
+MY_RESOURCE_GROUP=<myResourceGroup>
+MY_AKS_CLUSTER=<myAKSCluster>
 ```
 
 Deploy the Bicep template using the `az deployment group` command. 
@@ -363,7 +363,7 @@ Troubleshoot Dapr errors via the [common Dapr issues and solutions guide][dapr-t
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
 ```azurecli
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name dapr
+az k8s-extension delete --resource-group <myResourceGroup> --cluster-name <myAKSCluster> --cluster-type managedClusters --name dapr
 ```
 
 Or you can remove the Bicep template.
