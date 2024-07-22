@@ -29,28 +29,28 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 
 ## Create an Azure SQL Database
 
-1. Create a resource group for this tutorial, where you'll store your Azure resources.
+1. Create a resource group to store the Azure resources you create in this tutorial using the [`az group create`](/cli/azure/group#az_group_create) command.
 
     ```azurecli-interactive
     az group create \
-        --name MyResourceGroup \
+        --name $RESOURCE_GROUP \
         --location eastus
     ```
 
-1. Follow these instructions to [create an Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) in the resource group you created. Note your server name, database name, and the database credentials. You will need them later on.
+1. Follow the instructions to [create an Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) in the resource group you created in the previous step. Make note of the server name, database name, and the database credentials for use throughout this tutorial.
 
 ## Create a service connection in AKS with Service Connector (preview)
 
 ### Register the Service Connector resource provider
 
-If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
+* If you're using Service Connector for the first time, register the Service Connector resource provider using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
 
-   ```azurecli
-   az provider register -n Microsoft.ServiceLinker
-   ```
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ServiceLinker
+    ```
 
-   > [!TIP]
-   > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+    > [!TIP]
+    > You can check if the resource provider is already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` command. If the output is `Registered`, then Service Connector is already registered.
 
 <!-- check if registering RP is still necessary-->
 
@@ -58,84 +58,84 @@ If you're using Service Connector for the first time, start by running the comma
 
 Create a service connection between your AKS cluster and your SQL database in the Azure portal or the Azure CLI.
 
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-Open your AKS cluster in the Azure portal, and select **Settings** > **Service Connector (Preview)** in the left menu. Select **Create** and select or enter information following the instructions and examples below. Leave all other settings with their default values.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your AKS cluster resource.
+2. Select **Settings** > **Service Connector (Preview)** > **Create**.
+3. On the **Basics** tab, configure the following settings:
 
-1. Basics tab:
-    
-    | Setting                  | Example value     | Description                                                                              |
-    |--------------------------|-------------------|------------------------------------------------------------------------------------------|
-    | **Kubernetes namespace** | *default*         | The Kubernetes service namespace.                                                        |
-    | **Service type**         | *SQL Database*    | Select the target service type you want to connect your.                                 |
-    | **Connection name**      | *sql_connection*  | Use the connection name provided by Service Connector or enter your own connection name. |
-    | **Subscription**         | *My Subscription* | Select the subscription that includes the Azure SQL Database service.                    |
-    | **SQL server**           | *sql_server*      | Select your SQL server.                                                                  |
-    | **SQL database**         | *sql_db*          | Select your SQL database.                                                                |
-    | **Client type**          | *Python*          | The code language or framework you use to connect to the target service.                 |
+    * **Kubernetes namespace**: Select **default**.
+    * **Service type**: Select **SQL Database**.
+    * **Connection name**: Use the connection name provided by Service Connector or enter your own connection name.
+    * **Subscription**: Select the subscription that includes the Azure SQL Database service.
+    * **SQL server**: Select your SQL server.
+    * **SQL database**: Select your SQL database.
+    * **Client type**: The code language or framework you use to connect to the target service, such as **Python**.
     
     :::image type="content" source="media/tutorial-ask-sql/create-connection.png" alt-text="Screenshot of the Azure portal showing the form to create a new connection to a SQL database in AKS.":::
 
-1. In the authentication tab, the connection string authentication method is selected by default, as it's the only method currently supported. Enter your database username and password.
+4. Select **Next: Authentication**.  On the **Authentication** tab, enter your database username and password.
+5. Select **Next: Networking** > **Next: Review + create** >**Create**.
+6. Once the deployment is successful, you can view information about the new connection in the **Service Connector** pane.
 
-1. Select **Next** until you reach the **Review + Create** tab that lists a summary of the configuration entered for the connection. If you're satisfied with the configuration, select **Create**.
+### [Azure CLI](#tab/azure-cli)
 
-1. Once the deployment is successful, you can view information about the new connection in the **Service Connector** pane.
-
-## [Azure CLI](#tab/azure-cli)
-
-1. Get access credentials for your AKS cluster using the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command.
+1. Get access credentials for your AKS cluster using the [`az aks get-credentials`](/cli/azure/aks#az-aks-get-credentials) command.
 
     ```azurecli-interactive
     az aks get-credentials \
-        --resource-group MyResourceGroup \
-        --name MyAKSCluster
+        --resource-group $RESOURCE_GROUP \
+        --name $CLUSTER_NAME
     ```
 
-1. Use the Azure CLI command [az aks connection create sql](/cli/azure/aks/connection/create#az-aks-connection-create-sql) to create a service connection to the SQL database. There are several ways you can construct this command. For example:
+1. Create a service connection to the SQL database using the [`az aks connection create sql`](/cli/azure/aks/connection/create#az-aks-connection-create-sql) command. You can run this command in two different ways.
     
-    -  run the following interactive command to generate the new connection step by step.
+    * Generate the new connection step by step.
     
-    ```azurecli
+    ```azurecli-interactive
     az aks connection create sql
     ```
     
-    - or run a command following the example below. Replace the placeholders `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>` with your own information.
+    * Generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
     
-    ```azurecli
+    ```azurecli-interactive
     az aks connection create sql \
         --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
-        --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> --secret name=<secret-name> secret=<secret>
+        --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
+    --secret name=<secret-name> secret=<secret>
     ```
 
 ---
 
-### Update your container
+## Update your container
 
-Now that the connection between your AKS cluster and the database is created, retrieve the connection secrets and deploy them in your container.
+Now that you created a connection between your AKS cluster and the database, you need to retrieve the connection secrets and deploy them in your container.
 
-1. In the **Service Connector (Preview)** menu, select the newly created connection using the checkbox. Then, select **Yaml snippet**. This action opens a panel displaying a sample YAML file generated by Service Connector.
+1. In the [Azure portal](https://portal.azure.com/) navigate to your AKS cluster resource and select **Service Connector (Preview)**.
+1. Select the newly created connection, and then select **YAML snippet**. This action opens a panel displaying a sample YAML file generated by Service Connector.
 1. To set the connection secrets as environment variables in your container, you have two options:
-   - Directly create a deployment using the YAML sample code snippet provided. The snippet includes highlighted sections showing the secret object that will be injected as the environment variables. Select **Apply** to proceed with this method.
+    
+    * Directly create a deployment using the YAML sample code snippet provided. The snippet includes highlighted sections showing the secret object that will be injected as the environment variables. Select **Apply** to proceed with this method.
 
-        :::image type="content" source="media/tutorial-ask-sql/sample-yaml-snippet.png" alt-text="Screenshot of the Azure portal showing the sample YAML snippet to create a new connection to a SQL database in AKS.":::
+    :::image type="content" source="media/tutorial-ask-sql/sample-yaml-snippet.png" alt-text="Screenshot of the Azure portal showing the sample YAML snippet to create a new connection to a SQL database in AKS.":::
 
-   - Alternatively, under **Resource Type**, select **Kubernetes Workload** and select an existing Kubernetes workload. This action sets the secret object of your new connection as the environment variables for the selected workload. After selecting the workload, select **Apply** to use this method.
+   * Alternatively, under **Resource Type**, select **Kubernetes Workload**, and then select an existing Kubernetes workload. This action sets the secret object of your new connection as the environment variables for the selected workload. After selecting the workload, select **Apply**.
 
-        :::image type="content" source="media/tutorial-ask-sql/kubernetes-snippet.png" alt-text="Screenshot of the Azure portal showing the Kubernetes snippet to create a new connection to a SQL database in AKS.":::
+    :::image type="content" source="media/tutorial-ask-sql/kubernetes-snippet.png" alt-text="Screenshot of the Azure portal showing the Kubernetes snippet to create a new connection to a SQL database in AKS.":::
 
-### Update your application code
+## Update your application code
 
-As a final step, update your application code to use your environment variables, [following these instructions](how-to-integrate-sql-database.md#connection-string).
+* As a final step, update your application code to use your environment variables, by [following these instructions](how-to-integrate-sql-database.md#connection-string).
 
 ## Clean up resources
 
-If you no longer need the resources you created when following this tutorial, remove them by deleting the resource group.
+If you no longer need the resources you created when following this tutorial, you can remove them by deleting the Azure resource group.
 
-```azurecli-interactive
-az group delete \
-    --resource-group MyResourceGroup
-```
+* Delete your resource group using the [`az group delete`](/cli/azure/group#az_group_delete) command.
+
+    ```azurecli-interactive
+    az group delete --resource-group $RESOURCE_GROUP
+    ```
 
 ## Related content
 
