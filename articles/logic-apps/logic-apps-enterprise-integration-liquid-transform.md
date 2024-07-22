@@ -68,7 +68,7 @@ For more information, review the following documentation:
   > which differs in specific cases from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
   > For more information, see [Liquid template considerations](#liquid-template-considerations).
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="create-template"></a>
 
