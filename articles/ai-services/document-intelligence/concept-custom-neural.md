@@ -83,7 +83,7 @@ To use overlapping fields, label your dataset with the overlaps and train the mo
 
 1. With the release of API versions ````2022-06-30-preview```` and  later, custom neural models will support tabular fields (tables):
 
-    * Models trained with API version 2022-08-31, or later will accept tabular field labels.
+    * Models trained with API version 2022-06-30-preview, or later will accept tabular field labels.
     * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
     * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
