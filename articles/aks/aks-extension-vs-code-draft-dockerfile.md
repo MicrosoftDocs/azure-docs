@@ -8,16 +8,16 @@ ms.author: qpetraroia
 ms.service: azure-kubernetes-service
 ---
 
-# Use Automated Deployments to create a Dockerfile in the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
+# Create a Dockerfile using Automated Deployments in the Azure Kubernetes Service (AKS) extension for Visual Studio Code
 
-The Azure Kubernetes Service (AKS) extension for Visual Studio Code offers a streamlined and efficient way to generate Dockerfiles for your applications.
+In this article, you learn how to create a Dockerfile using Automated Deployments in the Azure Kubernetes Service (AKS) extension for Visual Studio Code. A Dockerfile is essential for Kubernetes because it defines the blueprint for creating Docker images. These images encapsulate your application along with its dependencies and environment settings, ensuring consistent deployment across various environments.
 
-A Dockerfile is essential for Kubernetes because it defines the blueprint for creating Docker images. These images encapsulate your application along with its dependencies and environment settings, ensuring consistent deployment across various environments.
+## Prerequisites
 
-## Before you begin
+Before you begin, make sure you have the following resources:
 
-* Have an active folder with code open in Visual Studio Code.
-* Have downloaded the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
+* An active folder with code open in Visual Studio Code.
+* The Azure Kubernetes Service (AKS) extension for Visual Studio Code downloaded. For more information, see [Install the Azure Kubernetes Service (AKS) extension for Visual Studio Code][install-aks-vscode].
 
 ## Create a Dockerfile with the Azure Kubernetes Service (AKS) extension
 
