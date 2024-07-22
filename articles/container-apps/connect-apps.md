@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Connect applications in Azure Container Apps
 
-Azure Container Apps exposes each container app through a domain name if [ingress](ingress-overview.md) is enabled. You can expose ingress endpoints either publically to the world or to the other container apps in the same environment. Alternatively, you can limit ingress to only other container apps in the same [environment](environment.md).
+Azure Container Apps exposes each container app through a domain name if [ingress](ingress-overview.md) is enabled. You can expose ingress endpoints either publicly to the world or to the other container apps in the same environment. Alternatively, you can limit ingress to only other container apps in the same [environment](environment.md).
 
 Application code can call other container apps in the same environment using one of the following methods: 
 
