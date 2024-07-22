@@ -95,7 +95,7 @@ For more information on how to create a dedicated cluster and specify its billin
 
 ## Basic and Auxiliary table plans
 
-You can configure certain tables in a Log Analytics workspace to use [Basic and Auxiliary table plans](basic-logs-configure.md). Data in these tables has a significantly reduced ingestion charge. There's a charge to query data in these tables.
+You can configure certain tables in a Log Analytics workspace to use [Basic and Auxiliary table plans](logs-table-plans.md). Data in these tables has a significantly reduced ingestion charge. There's a charge to query data in these tables.
 
 The charge for querying data in Basic and Auxiliary tables is based on the GB of data scanned in performing the search.
 
@@ -185,13 +185,13 @@ Workspaces in the Free Trial pricing tier have daily data ingestion limited to 5
 
 ### Standalone pricing tier
 
-Usage on the Standalone pricing tier is billed by the ingested data volume. It's reported in the **Log Analytics** service and the meter is named "Data Analyzed." Workspaces in the Standalone pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Standalone pricing tier don't support the use of [Basic and Auxiliary table plans](basic-logs-configure.md).
+Usage on the Standalone pricing tier is billed by the ingested data volume. It's reported in the **Log Analytics** service and the meter is named "Data Analyzed." Workspaces in the Standalone pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Standalone pricing tier don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md).
 
 ### Per Node pricing tier
 
 The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier is a legacy tier, which is only available to existing Subscriptions fulfilling the requirement for [legacy pricing tiers](#legacy-pricing-tiers). 
 
-On your bill, the service is **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic and Auxiliary table plans](basic-logs-configure.md). Usage is reported on three meters:
+On your bill, the service is **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md). Usage is reported on three meters:
 
 - **Node**: The usage for the number of monitored nodes (VMs) in units of node months.
 - **Data Overage per Node**: The number of GB of data ingested in excess of the aggregated data allocation.
@@ -202,7 +202,7 @@ On your bill, the service is **Insight and Analytics** for Log Analytics usage i
 
 ### Standard and Premium pricing tiers
 
-Workspaces can't be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Premium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic and Auxiliary table plans](basic-logs-configure.md) and long-term data retention. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
+Workspaces can't be created in or moved to the **Standard** or **Premium** pricing tiers since October 1, 2016. Workspaces already in these pricing tiers can continue to use them, but if a workspace is moved out of these tiers, it can't be moved back. The Standard and Premium pricing tiers have fixed data retention of 30 days and 365 days, respectively. Workspaces in these pricing tiers don't support the use of [Basic and Auxiliary table plans](logs-table-plans.md) and long-term data retention. Data ingestion meters on your Azure bill for these legacy tiers are called "Data Analyzed."
 
 ### Microsoft Defender for Cloud with legacy pricing tiers
 

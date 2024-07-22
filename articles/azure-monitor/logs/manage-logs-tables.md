@@ -34,7 +34,7 @@ Your Log Analytics workspace can contain the following types of tables:
 
 ### Table plan
 
-[Configure a table's plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
+[Configure a table's plan](../logs/logs-table-plans.md) based on how often you access the data in the table: 
 - The **Analytics** plan is suited for continuous monitoring, real-time detection, and performance analytics. This plan makes log data available for interactive multi-table queries and use by features and services for 30 days to two years.  
 - The **Basic** plan is suited for troubleshooting and incident response. This plan offers discounted ingestion and optimized single-table queries for 30 days. 
 - The **Auxiliary** plan is suited for low-touch data, such as verbose logs, and data required for auditing and compliance. This plan offers low-cost ingestion and unoptimized single-table queries for 30 days.
@@ -208,7 +208,7 @@ Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalins
 
 Learn how to:
 
-- [Set a table's log data plan](../logs/basic-logs-configure.md)
+- [Set a table's log data plan](../logs/logs-table-plans.md)
 - [Add custom tables and columns](../logs/create-custom-table.md)
 - [Configure data retention](../logs/data-retention-configure.md)
 - [Design a workspace architecture](../logs/workspace-design.md)

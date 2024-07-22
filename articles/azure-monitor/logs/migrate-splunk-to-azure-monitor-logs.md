@@ -87,7 +87,7 @@ To set up a Log Analytics workspace for data collection:
     1. [Access control](../logs/manage-access.md).
 
 1. Use [table-level configuration settings](../logs/manage-logs-tables.md) to: 
-    1. [Define each table's log data plan](../logs/basic-logs-configure.md). 
+    1. [Define each table's log data plan](../logs/logs-table-plans.md). 
     
         The default log data plan is Analytics, which lets you take advantage of Azure Monitor's rich monitoring and analytics capabilities.  
     

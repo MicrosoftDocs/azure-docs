@@ -26,7 +26,7 @@ This article describes how summary rules work and how to define and view summary
 
 ## How summary rules work
 
-Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](basic-logs-configure.md) in your Log Analytics workspace. 
+Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](logs-table-plans.md) in your Log Analytics workspace. 
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="A diagram that shows how data is ingested into a Log Analytics workspace and is aggregated and reingested into the workspace by using a summary rule." lightbox="media/summary-rules/ingestion-flow.png":::
 
@@ -59,7 +59,7 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 :::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that aggregated data that the summary rules sends to the destination table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
 
-Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
+Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](logs-table-plans.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
 
 ## Permissions required
 
@@ -492,7 +492,7 @@ When you remove columns in the query, the columns and data remain in the destina
 
 ## Related content
 
-- Learn more about [Azure Monitor Logs data plans](basic-logs-configure.md).
+- Learn more about [Azure Monitor Logs data plans](logs-table-plans.md).
 - Walk through a [tutorial on using KQL mode in Log Analytics](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
 

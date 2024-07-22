@@ -41,7 +41,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
 
-Unlike analytics logs, [basic logs](../azure-monitor/logs/basic-logs-configure.md) are typically verbose. They contain a mix of high volume and low security value data that isn't frequently used or accessed on demand for ad-hoc querying, investigations, and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+Unlike analytics logs, [basic logs](../azure-monitor/logs/logs-table-plans.md) are typically verbose. They contain a mix of high volume and low security value data that isn't frequently used or accessed on demand for ad-hoc querying, investigations, and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 ## Optimize Log Analytics costs with dedicated clusters
 

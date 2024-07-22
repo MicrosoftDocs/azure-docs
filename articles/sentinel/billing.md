@@ -81,7 +81,7 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 - Eight-day retention
 - No support for scheduled alerts
 
-Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/basic-logs-configure.md).
+Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/logs-table-plans.md).
 
 ### Simplified pricing tiers
 
