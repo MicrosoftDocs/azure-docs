@@ -141,7 +141,7 @@ The template defines two resources:
 
 ## Deploy the template
 
-Deploy the template by using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using the CLI and PowerShell. Replace the sample values for `ResourceGroup`, and `emailAddress` with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+Deploy the template by using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md), such as the following examples that use the CLI and PowerShell. Replace the sample values for `ResourceGroup`, and `emailAddress` with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI)
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## Validate the deployment
 
-Verify that the workspace was created by using one of the following commands. Replace the sample values for **Resource Group** with the value you used in the previous example.
+Verify that the workspace was created by using one of the following commands. Replace the sample values for **Resource Group** with the value that you used in the previous example.
 
 # [CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using the CLI or PowerShell:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using the CLI or PowerShell:
 
 # [CLI](#tab/CLI)
 
