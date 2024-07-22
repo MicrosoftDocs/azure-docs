@@ -118,7 +118,9 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 | &nbsp;                                                                          |                                                                    |                                             |
 | **Azure Automation**                                                            | ✅                                                                 |                                             |
 | Supports integrations actions and runbooks                                      | ✅                                                                 |                                             |
-| &nbsp;                                                                          | <br>**Workbooks**                                                  | <br>**Azure Managed Grafana**               |
+| &nbsp;                                                                          |                                                                    |                                             |
+| &nbsp;                                                                          | **Workbooks**                                                      | **Azure Managed Grafana**                   |
+| &nbsp;                                                                          |                                                                    |                                             |
 | **Multi-tenancy and portability**                                               |                                                                    | ✅                                          |
 | Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                          |
 | Visualizations available outside of the Azure portal                            |                                                                    | ✅                                          |
