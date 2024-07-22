@@ -95,7 +95,7 @@ Set synchronization of partitions to occur every 10 minutes expressed in seconds
 
 
 > [!WARNING]
-> With the `management.task` running every 10 minutes, there will be pressure on the SQL server DTU.
+> With the `management.task` running every 10 minutes, there will be pressure on the SQL server DTU. This feature also adds cost to Storage access as the partition management threads runs at regular intervals even when cluster is idle.
 >
 You can verify the output from Microsoft Azure portal.
 
