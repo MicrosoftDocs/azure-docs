@@ -77,7 +77,7 @@ additionalContent:
         - text: How to deploy DBMS on Azure VMs
           url: ./workloads/dbms-guide-general.md
     
-    - title: Azure Center for SAP solutions
+    - title: Azure Center / Monitor for SAP solutions
       items:
       #card
       - title: Overview
@@ -86,6 +86,17 @@ additionalContent:
           url: center-sap-solutions/overview.md
         - text: FAQ about Azure Center for SAP solutions
           url: center-sap-solutions/faq.yml
+        - text: What is Azure Monitor for SAP solutions?
+          url: ./monitor/about-azure-monitor-sap-solutions.md
+        - text: FAQ about Azure Monitor for SAP solutions
+          url: ./monitor/faq.yml
+    #card
+      - title: quickstart
+        links:
+          - text: Deploy Azure Monitor for SAP solutions (Azure portal)
+            url: ./monitor/quickstart-portal.md
+          - text: Deploy Azure Monitor for SAP solutions (PowerShell)
+            url: ./monitor/quickstart-powershell.md
       #card
       - title: How-to guide
         links:
@@ -106,27 +117,8 @@ additionalContent:
         - text: View cost analysis for SAP system
           url: center-sap-solutions/view-cost-analysis.md
     
-    - title: Azure Center for SAP solutions
+    - title: SAP on Azure deployment automation framework
       items:
-      #card
-      - title: Overview
-        links:
-        - text: What is Azure Monitor for SAP solutions?
-          url: ./monitor/about-azure-monitor-sap-solutions.md
-        - text: FAQ about Azure Monitor for SAP solutions
-          url: ./monitor/faq.yml
-      #card
-      - title: Concept
-        links:
-        - text: Providers in Azure Monitor for SAP solutions
-          url: ./monitor/providers.md
-      #card
-      - title: quickstart
-        links:
-          - text: Deploy Azure Monitor for SAP solutions (Azure portal)
-            url: ./monitor/quickstart-portal.md
-          - text: Deploy Azure Monitor for SAP solutions (PowerShell)
-            url: ./monitor/quickstart-powershell.md
       #card
       - title: SAP on Azure deployment automation framework
         links:
