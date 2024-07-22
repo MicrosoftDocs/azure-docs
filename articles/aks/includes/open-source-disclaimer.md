@@ -11,4 +11,4 @@ ms.author: nickoman
 >
 > For example, Ray's [GitHub repository](https://github.com/ray-project/ray?tab=readme-ov-file#getting-involved) describes several platforms that vary in response time, purpose, and support level.
 >
-> Microsoft takes responsibility for building the open-source packages we deploy on AKS. That responsibility includes having complete ownership of the build, scan, sign, validate, and hotfix process, as well as control over the binaries in container images. For more details, see [Vulnerability management for AKS](./concepts-vulnerability-management.md#aks-container-images) and [AKS support coverage](/.support-policies#aks-support-coverage).
+> Microsoft takes responsibility for building the open-source packages we deploy on AKS. That responsibility includes having complete ownership of the build, scan, sign, validate, and hotfix process, as well as control over the binaries in container images. For more information, see [Vulnerability management for AKS](../concepts-vulnerability-management.md#aks-container-images) and [AKS support coverage](../support-policies.md#aks-support-coverage).
