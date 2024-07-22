@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 05/28/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 
