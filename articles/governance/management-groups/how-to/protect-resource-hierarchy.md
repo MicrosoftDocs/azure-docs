@@ -31,7 +31,7 @@ these operations are available in the Azure built-in role Hierarchy Settings Adm
 
 ## <a name="setting---default-management-group">Setting: Define the default management group
 
-By default, a new subscription that you add in a tenant is added as a member of the root management
+By default, a new subscription that you add in a tenant becomes a member of the root management
 group. If you assign policy assignments, Azure RBAC, and other governance
 constructs to the root management group, they immediately affect these new
 subscriptions. For this reason, many organizations don't apply these constructs at the root

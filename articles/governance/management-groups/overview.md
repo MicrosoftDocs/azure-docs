@@ -29,7 +29,7 @@ creating a hierarchy for governance by using management groups.
 :::image-end:::
 
 You can create a hierarchy that applies a policy, for example, that limits VM locations to the West US region in the management group called _Corp_. This policy will inherit all the Enterprise Agreement (EA) subscriptions that are descendants of that management group and will apply to all VMs under those subscriptions. The resource or subscription
-owner can't alter this security policy, which allows for improved governance.
+owner can't alter this security policy, to allow for improved governance.
 
 > [!NOTE]
 > Management groups aren't currently supported in cost management features for Microsoft Customer Agreement (MCA) subscriptions.
@@ -67,10 +67,9 @@ you can assign your account as the owner of the root management group.
 
 ### Important facts about the root management group
 
-- By default, the root management group's display name is **Tenant root group** and operates itself as a management group. The ID is the same value as the Microsoft Entra tenant ID.
+- By default, the root management group's display name is **Tenant root group**, and it operates itself as a management group. The ID is the same value as the Microsoft Entra tenant ID.
 - To change the display name, your account must have the Owner or Contributor role on the
-  root management group. To update
-  the name of a management group, see
+  root management group. For more information, see
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group).
 - The root management group can't be moved or deleted, unlike other management groups.
 - All subscriptions and management groups fold up into one root management group within the

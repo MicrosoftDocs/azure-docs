@@ -56,7 +56,7 @@ You can change the name of the management group by using the Azure portal, Azure
 
 ### Change the name in Azure PowerShell
 
-To update the display name, use `Update-AzManagementGroup`. For example, to change a management
+To update the display name, use `Update-AzManagementGroup` in Azure PowerShell. For example, to change a management
 group's display name from **Contoso IT** to **Contoso Group**, run the following command:
 
 ```azurepowershell-interactive
