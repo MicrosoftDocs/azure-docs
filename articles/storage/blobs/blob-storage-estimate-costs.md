@@ -21,13 +21,26 @@ All calculations are based on a fictitious price. You can find each price in the
 
 ## The cost to store data
 
-Something here about how to calculate storage costs.
-Something here about the percentage of storage that goes to metadata
-Something here about the percentage that goes to the index charge per GB - which is the space required to maintain HNS.
-Example calculation here.
-Describe storage reservations
-Example of the impact of storage reservations.
-Show costs across different tiers
+You can calculate the storage costs by multiplying the <u>size of the data</u> in GB by the <u>price of storage</u>. For example (assuming the sample pricing), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = $117.78 per month. 
+
+Depending on how much storage you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount in advance. You can reserve capacity for data that you store in the hot, cool, and archive access tiers in increments of 100 TB and 1 PB sizes for 1-year and 3-year commitment duration. 
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table compares the cost per GB of storing 100 TB (102,400 GB) of data with pay-as-you-go pricing versus reserved capacity pricing.
+
+| Calculation                                           | Hot    | Cool | Archive |
+|-------------------------------------------------------|--------|------|---------|
+| Monthly price for 100 TB of storage                   | $2,130 | $963 | $205    |
+| Monthly price for 100 TB of storage (1-year reserved) | $1,747 | $966 | $183    |
+| Monthly price for 100 TB of storage (3-year reserved) | $1,406 | $872 | $168    |
+
+Even if you aren't storing 100 TB, reserving capacity might make sense due it's lower cost per GB. For example, if the pay-as-you-go pricing of 1 GB in the hot tier is $0.0208, then the break even point would be the cost of reserved capacity divided by the pay-as-you-go storage rate. In the case of the hot tier, that would be $1,747 / $.0208 = 83,990 GB (roughly 82 TB). If you plan to use at least 82 TB of data, then reserved capacity begins to make sense. The following table calculates break even points for each access tier.
+
+| Calculation                                          | Hot     | Cool    | Archive |
+|------------------------------------------------------|---------|---------|---------|
+| Monthly price per GB of Data storage (pay-as-you-go) | $0.0208 | $0.0115 | $0.002  |
+| Price for 100 TB of reserved storage                 | $1,747  | $966    | $183    |
+| Break even for 1-year reserved capacity              | 82 TB   | 82 TB   | 89 TB   |
+| Break even for 3-year reserved capacity              | 66 TB   | 76 TB   | 84 TB   |
 
 ## The cost to upload
 
@@ -180,22 +193,32 @@ Example here that includes LCM, changing tiers, continuously reading and writing
 
 The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-| Price factor                               | Hot     | Cool    | Cold    | Archive |
-|--------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (per 10,000)   | $0.055  | $0.10   | $0.18   | $0.10   |
-| Price of read transactions (per 10,000)    | $0.0044 | $0.01   | $0.10   | $5.00   |
-| Price of data retrieval (per GiB)           | Free    | $0.01   | $0.03   | $0.02   |
-| List and container operations (per 10,000) | $0.055  | $0.055  | $0.065  | $0.055  |
-| All other operations (per 10,000)          | $0.0044 | $0.0044 | $0.0052 | $0.0044 |
+| Price factor                                                    | Hot     | Cool    | Cold          | Archive |
+|-----------------------------------------------------------------|---------|---------|---------------|---------|
+| Price of write transactions (per 10,000)                        | $0.055  | $0.10   | $0.18         | $.11    |
+| Price of read transactions (per 10,000)                         | $0.0044 | $0.01   | $0.10         | $5.50   |
+| Price of data retrieval (per GiB)                               | Free    | $0.01   | $0.03         | $.022   |
+| List and container operations (per 10,000)                      | $0.055  | $0.055  | $0.065        | $.055   |
+| All other operations (per 10,000)                               | $0.0044 | $0.0044 | $0.0052       | $.0044  |
+| Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $.022   |
+| Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
+| Price of Data storage (pay-as-you-go)                           | $0.0208 | $0.0115 | $0.0045       | $0.002  |
+| Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
+| Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
 
 The following table includes sample prices (fictitious) prices for each request to the Data Lake Storage endpoint (`dfs.core.windows.net`). For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
 
-| Price factor                                        | Hot      | Cool     | Cold     | Archive |
-|-----------------------------------------------------|----------|----------|----------|---------|
-| Price of write transactions (every 4MiB, per 10,000) | $0.0715  | $0.13    | $0.234   | $0.143  |
-| Price of read transactions (every 4MiB, per 10,000)  | $0.0057  | $0.013   | $0.13    | $7.15   |
-| Price of data retrieval (per GiB)                    | Free     | $0.01    | $0.03    | $0.022  |
-| Iterative Read operations (per 10,000)              | $0.0715  | $0.0715  | $0.0845  | $0.0715 |
+| Price factor                                                    | Hot     | Cool    | Cold          | Archive |
+|-----------------------------------------------------------------|---------|---------|---------------|---------|
+| Price of write transactions (every 4MiB, per 10,000)            | $0.0715 | $0.13   | $0.234        | $0.143  |
+| Price of read transactions (every 4MiB, per 10,000)             | $0.0057 | $0.013  | $0.13         | $7.15   |
+| Price of data retrieval (per GiB)                               | Free    | $0.01   | $0.03         | $0.022  |
+| Iterative Read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
+| Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $0.022  |
+| Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
+| Data storage prices (pay-as-you-go)                             | $0.021  | $0.012  | $0.0045       | $0.002  |
+| Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
+| Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
 
 ## Operations used for each endpoint
 
