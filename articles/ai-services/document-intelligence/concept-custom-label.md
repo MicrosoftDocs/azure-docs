@@ -85,8 +85,8 @@ Custom neural models currently only support key-value pairs, structured fields (
 | Custom neural | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported | ✔️Supported<sup>1</sup> | ✔️Supported<sup>2</sup> |
 | Custom template | ✔️Supported| ✔️Supported | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported |
 
-<sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the recognized text is used as is.
-<sup>2</sup> Overlapping fields are supported starting with the API version ```2024-02-29-preview```. Overlapping fields have some limits. For more information, *see* [overlapping fields](concept-custom-neural.md#overlapping-fields).
+<sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the recognized text is used as is.</br>
+<sup>2</sup> Overlapping fields are supported starting with the API version ```2024-02-29-preview``` and later. Overlapping fields have some limits. For more information, *see* [overlapping fields](concept-custom-neural.md#overlapping-fields).
 
 ## Tabular fields
 
@@ -103,9 +103,9 @@ Tabular fields are also useful when extracting repeating information within a do
 
 * **Labeling values is required.** Don't include the surrounding text. For example when labeling a checkbox, name the field to indicate the check box selection for example ```selectionYes``` and ```selectionNo``` rather than labeling the yes or no text in the document.
 
-* **Don't provide interleaving field values** The value of words and/or regions of one field must be either a consecutive sequence in natural reading order.
+* **Don't provide interleaving field values.** The value of words and/or regions of one field must be a consecutive sequence in natural reading order.
 
-* **Consistent labeling**. If a value appears in multiple contexts withing the document, consistently pick the same context across documents to label the value.
+* **Consistent labeling**. If a value appears in multiple contexts within the document, consistently pick the same context across documents to label the value.
 
 * **Visually repeating data**. Tables support visually repeating groups of information not just explicit tables. Explicit tables are identified in tables section of the analyzed documents as part of the layout output and don't need to be labeled as tables. Only label a table field if the information is visually repeating and not identified as a table as part of the layout response. An example would be the repeating work experience section of a resume.
 
@@ -119,16 +119,6 @@ Tabular fields are also useful when extracting repeating information within a do
 
   > [!div class="nextstepaction"]
   > [How to train a model](how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true)
-
-* Learn more about custom template models:
-
-  > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md)
-
-* Learn more about custom neural models:
-
-  > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md)
 
 * View the REST APIs:
 
