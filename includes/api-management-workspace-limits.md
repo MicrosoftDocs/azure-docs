@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: include
-ms.date: 07/19/2024
+ms.date: 07/22/2024
 ms.author: danlep
 ---
 
@@ -19,9 +19,10 @@ The following are resource limits per [workspace](../articles/api-management/wor
 | Maximum number of scale units | 12 | 
 | Maximum number of APIs  | 200 |
 | Maximum number of API operations  | 5,000  |
-| Maximum number of subscriptions  | 1,000 |
+| Maximum number of subscriptions  | 5,000 |
 | Maximum number of products  | 200 |
-| Maximum number of groups  | 200 |
+| Maximum number of groups  | 50 |
+| Maximum number of users per group  | 200 |
 | Maximum number of policy fragments  | 50 |
 | Maximum number of certificates  | 200 | 
 | Maximum number of backends  | 200 |

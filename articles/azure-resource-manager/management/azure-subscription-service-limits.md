@@ -71,7 +71,7 @@ This section provides information about limits that apply to Azure API Managemen
 
 * [API Management classic tiers](#limits---api-management-classic-tiers)
 * [API Management v2 tiers](#limits---api-management-v2-tiers)
-* [API Management workspaces](#limits--api-management-workspaces)
+* [API Management workspaces](#limits---api-management-workspaces)
 * [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
 
 ### Limits - API Management classic tiers
