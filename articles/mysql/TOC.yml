@@ -36,6 +36,8 @@
             href: flexible-server/release-notes/may-2024.md
           - name: June 2024
             href: flexible-server/release-notes/june-2024.md
+          - name: August 2024
+            href: flexible-server/release-notes/august-2024.md
       - name: Service tiers
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
