@@ -26,10 +26,10 @@ This guide helps you better understand the different ways you can use Azure Comm
 - Create a new web service application using the [Call Automation SDK](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
 ## Setup a WebSocket Server 
-Azure Communication Services requires your server application to setup a WebSocket server to stream transcription in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. You can optionally use Azure services Azure WebApps that allows you to create an application to receive transcripts over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
+Azure Communication Services requires your server application to set up a WebSocket server to stream transcription in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. You can optionally use Azure services Azure WebApps that allows you to create an application to receive transcripts over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call 
-In this quickstart, we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). For the purposes of this quickstart, we are going through the process of starting transcription for both incoming calls and outbound calls. 
+In this quickstart, we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). For the purposes of this quickstart, we're going through the process of starting transcription for both incoming calls and outbound calls. 
 
 When working with real-time transcription, you have a couple of options on when and how to start transcription:
 
@@ -37,7 +37,7 @@ When working with real-time transcription, you have a couple of options on when 
 
 **Option 2 -** Starting transcription during an ongoing call 
 
-In this tutorial we are demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
+In this tutorial, we're demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Real-time transcription with .NET](./includes/real-time-transcription-csharp.md)]
@@ -48,7 +48,7 @@ In this tutorial we are demonstrating option 2, starting transcription during an
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Real-time transcription with javaScript](./includes/real-time-transcription-js.md)]
+[!INCLUDE [Real-time transcription with JavaScript](./includes/real-time-transcription-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -62,7 +62,7 @@ In this tutorial we are demonstrating option 2, starting transcription during an
 | TranscriptionStarted | 200 | 0 | Action completed successfully. |
 | TranscriptionStopped | 200 | 0 | Action completed successfully. |
 | TranscriptionUpdated | 200 | 0 | Action completed successfully. |
-| TranscriptionFailed | 500 | 8578 | Action failed, not able to establish WebsSocket connection. |
+| TranscriptionFailed | 500 | 8578 | Action failed, not able to establish WebSocket connection. |
 | TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
 | TranscriptionFailed | 500 | 8580 | Action failed, transcription service was shut down. |
 | TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
