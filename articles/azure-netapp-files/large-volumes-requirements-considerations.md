@@ -52,7 +52,14 @@ The following requirements and considerations apply to large volumes. For perfor
         <td>50</td>
         <td>1,024</td>
         <td>3,200</td>
-        <td>12</td>
+        <td>12,800</td>
+      </tr>
+      <tr>
+        <td>Ultra (128 MiB/s per TiB)</td>
+        <td>50</td>
+        <td>1,024</td>
+        <td>6,400</td>
+        <td>12,800</td>
       </tr>
     </tbody>
     </table>
