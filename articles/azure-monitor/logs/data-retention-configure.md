@@ -152,7 +152,7 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 
 By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-interactive-retention-period-of-analytics-tables) and have no long-term retention. You can increase the interactive retention period of Anlytics tables to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
-To add long-term retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days).
+To add long-term retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days). The Auxiliary table plan is currently in public preview, during which the plan's total retention is fixed at 365 days.
 
 > [!NOTE]
 > Currently, you can set total retention to up to 12 years through the Azure portal and API. CLI and PowerShell are limited to seven years; support for 12 years will follow.
