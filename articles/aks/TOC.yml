@@ -252,11 +252,11 @@
       items:
         - name: Attach to Azure Container Registry (ACR)
           href: aks-extension-vs-code-attatch-acr.md
-        - name: Create a Dockerfile using the AKS extension 
+        - name: Create a Dockerfile
           href: aks-extension-vs-code-draft-dockerfile.md
-        - name: Create a Kubernetes deployment using the AKS extension 
+        - name: Create a Kubernetes deployment
           href: aks-extension-vs-code-draft-deployment.md
-        - name: Create a GitHub Workflow using the AKS extension 
+        - name: Create a GitHub Workflow
           href: aks-extension-vs-code-draft-github-workflow.md
     - name: Migration
       items:
