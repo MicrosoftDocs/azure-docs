@@ -516,6 +516,8 @@ groups:
   pivots:
   - id: consumption-plan
     title: Consumption plan
+  - id: flex-consumption-plan
+    title: Flex Consumption plan (preview)
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
@@ -1297,16 +1299,26 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-java-hosting
-  title: App Service Java hosting
+- id: app-service-java-deploy
+  title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-javase
-    title: Embed your own server
-  - id: java-maven-tomcat
+  - id: java-javase
+    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
     title: To a Tomcat server
-  - id: java-maven-jboss
+  - id: java-jboss
     title: To a JBoss server
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how your Java app is hosted
+  pivots:
+  - id: java-javase
+    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
+    title: Tomcat
+  - id: java-jboss
+    title: JBoss EAP
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -2147,7 +2159,7 @@ groups:
     title: Manual
 # Owner: jefmarti
 - id: app-service-openai
-  title: App Service Open AI
+  title: App Service OpenAI
   prompt: Choose a language
   pivots:
   - id: openai-dotnet
@@ -3279,6 +3291,15 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: gcz-aks-or-windows
+  title: Deploy to AKS or Windows
+  prompt: Choose your deployment option
+  pivots:
+  - id: gcz-aks
+    title: Azure Kubernetes Service (AKS)
+  - id: gcz-windows
+    title: Windows Virtual Machine
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3315,6 +3336,15 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: sudhirsneha
+- id: create-pre-post-events-maintenance-configuration
+  title: Requirements to create pre and post events on maintenance configuration
+  prompt: Choose the workflow
+  pivots:
+  - id: new-mc
+    title: New Maintenance Configuration
+  - id: existing-mc
+    title: Existing Maintenance Configuration
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -3387,6 +3417,19 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+# Owner: kgremban
+- id: iot-hub-howto-c2d-1
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: micahvivion
 - id: acs-errorcodes-client-server
   title: Code and subcode errors
@@ -3396,3 +3439,16 @@ groups:
     title: JavaScript
   - id: platform-server
     title: Server
+# Owner: craigshoemaker
+- id: swa-web-framework
+  title: Web Framework
+  prompt: Choose which web framework you are using
+  pivots:
+  - id: vanilla-js
+    title: No framework (vanilla JavaScript)
+  - id: angular
+    title: Angular
+  - id: react
+    title: React
+  - id: vue
+    title: Vue

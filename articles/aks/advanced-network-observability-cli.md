@@ -585,7 +585,7 @@ rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 1. Set up port forwarding for Hubble UI using the `kubectl port-forward` command.
 
     ```azurecli-interactive
-    kubectl port-forward svc/hubble-ui 12000:80
+    kubectl -n kube-system port-forward svc/hubble-ui 12000:80
     ```
 
 1. Access Hubble UI by entering `http://localhost:12000/` into your web browser.

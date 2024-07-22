@@ -2,7 +2,7 @@
 title: Deploy and manage cluster extensions by using the Azure CLI
 description: Learn how to use Azure CLI to deploy and manage extensions for Azure Kubernetes Service clusters.
 ms.date: 05/15/2023
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: JnHs
 ms.author: jenhayes

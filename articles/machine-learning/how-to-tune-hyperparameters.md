@@ -2,9 +2,9 @@
 title: Hyperparameter tuning a model (v2)
 titleSuffix: Azure Machine Learning
 description: Automate hyperparameter tuning for deep learning and machine learning models using Azure Machine Learning.
-ms.author: amipatel
-author: amibp
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: amipatel
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
