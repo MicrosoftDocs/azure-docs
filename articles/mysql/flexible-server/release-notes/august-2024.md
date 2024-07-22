@@ -16,6 +16,9 @@ We're pleased to announce the June 2024 maintenance for Azure Database for MySQL
 Existing engine version >=8.0.34 server upgrades to 8.0.37 engine version.
 To check your engine version, run `SELECT VERSION();` command at the MySQL prompt
 
+> [!NOTE]
+> Percona has identified a [critical bug](https://www.percona.com/blog/do-not-upgrade-to-any-version-of-mysql-after-8-0-37/?utm_campaign=2024-blog-q3&utm_content=300046226&utm_medium=social&utm_source=linkedin&hss_channel=lcp-421929) in MySQL versions 8.0.38, 8.4.1, and 9.0.0 that causes the MySQL daemon to crash upon restart if over 10,000 tables exist. While Azure MySQL will not upgrade to these versions in the August maintenance, our managed service limits table spaces to 1,000, effectively preventing this issue and ensuring our customers remain unaffected. We will closely monitor the MySQL community for further developments.
+
 ## Features
 No new features are being introduced in this maintenance update.
 
