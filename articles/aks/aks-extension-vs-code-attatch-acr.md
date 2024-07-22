@@ -1,8 +1,8 @@
 ---
-title: Attatch to a Azure Container Registry (ACR) via the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
-description: Learn how to attatch to a Azure Container Registry (ACR) via the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
+title: Attach to Azure Container Registry (ACR) using the Azure Kubernetes Service (AKS) extension for Visual Studio Code
+description: Learn how to attach to Azure Container Registry (ACR) using the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
 author: qpetraroia
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/15/2024
 ms.author: qpetraroia
 ms.service: azure-kubernetes-service
