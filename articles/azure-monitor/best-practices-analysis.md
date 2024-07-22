@@ -119,7 +119,7 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 | **Azure Automation**                                                            | ✅                                                                 |                                             |
 | Supports integrations actions and runbooks                                      | ✅                                                                 |                                             |
 | &nbsp;                                                                          |                                                                    |                                             |
-| &nbsp;                                                                          | **Workbooks**                                                      | **Azure Managed Grafana**                   |
+| **Service/Feature**                                                             | **Workbooks**                                                      | **Azure Managed Grafana**                   |
 | &nbsp;                                                                          |                                                                    |                                             |
 | **Multi-tenancy and portability**                                               |                                                                    | ✅                                          |
 | Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                          |
