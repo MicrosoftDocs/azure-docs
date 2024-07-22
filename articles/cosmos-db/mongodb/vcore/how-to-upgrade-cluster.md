@@ -16,7 +16,7 @@ ms.date: 22/07/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Azure Cosmos DB for MongoDB vCore provides customers with a convenient self-service option to upgrade to the latest MongoDB version. This feature ensures a seamless upgrade path with just a click, allowing businesses to continue their operations without interruption.
+Azure Cosmos DB for MongoDB vCore provide customers with a convenient self-service option to upgrade to the latest MongoDB version. This feature ensures a seamless upgrade path with just a click, allowing businesses to continue their operations without interruption.
 
 
 ## Prerequisites
