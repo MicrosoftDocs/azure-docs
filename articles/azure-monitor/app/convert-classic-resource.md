@@ -41,7 +41,7 @@ Workspace-based Application Insights resources allow you to take advantage of th
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate changes the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data.
 
-Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-configure.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-configure.md#configure-retention-and-archive-at-the-table-level).
+Your classic resource data persists and is subject to the retention settings on your classic Application Insights resource. All new data ingested post migration is subject to the [retention settings](../logs/data-retention-configure.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-configure.md#configure-table-level-retention).
 
 *The migration process is permanent and can't be reversed.* After you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. After you migrate, you can change the target workspace as often as needed.
 
@@ -65,7 +65,7 @@ If you don't need to migrate an existing resource, and instead want to create a 
 - Check your current retention settings under **Settings** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting affects how long any new ingested data is stored after you migrate your Application Insights resource.
 
   > [!NOTE]
-  > - If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-configure.md?tabs=portal-1%2cportal-2#configure-retention-and-archive-at-the-table-level).
+  > - If you currently store Application Insights data for longer than the default 90 days and want to retain this longer retention period after migration, adjust your [workspace retention settings](../logs/data-retention-configure.md?tabs=portal-1%2cportal-2#configure-table-level-retention).
   > - If you've selected data retention longer than 90 days on data ingested into the classic Application Insights resource prior to migration, data retention continues to be billed through that Application Insights resource until the data exceeds the retention period.
   > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 - Understand [workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.

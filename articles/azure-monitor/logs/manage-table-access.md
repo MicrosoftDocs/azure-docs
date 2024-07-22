@@ -1,16 +1,16 @@
 ---
 title: Manage read access to tables in a Log Analytics workspace
-description: This article explains how you can manage read access to specific tables in a Log Analytics workspace.
+description: This article explains how you to manage read access to specific tables in a Log Analytics workspace.
 ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
-ms.date: 05/04/2024
+ms.date: 07/22/2024
 ms.custom: devx-track-azurepowershell
 
 ---
 
-## Manage table-level read access
+# Manage table-level read access in a Log Analytics workspace
 
 Table-level access settings let you grant specific users or groups read-only permission to data in a table. Users with table-level read access can read data from the specified table in both the workspace and the resource context. 
 
@@ -102,7 +102,7 @@ The user can now read data from this specific table. Grant the user read access 
     
 ## Legacy method of setting table-level read access
 
-The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
+The legacy method of table-level also uses [Azure custom roles](../../role-based-access-control/custom-roles.md) to let you grant specific users or groups access to specific tables in the workspace. Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](manage-access.md#access-control-mode) regardless of the user's [access mode](manage-access.md#access-mode).
 
 To define access to a particular table, create a [custom role](../../role-based-access-control/custom-roles.md):
 
@@ -147,7 +147,7 @@ Grant access to all tables except the _SecurityAlert_ table:
 ],
 ```
 
-#### Limitations of the legacy method related to custom tables
+### Limitations of the legacy method related to custom tables
 
 Custom tables store data you collect from data sources such as [text logs](../agents/data-sources-custom-logs.md) and the [HTTP Data Collector API](data-collector-api.md). To identify the table type, [view table information in Log Analytics](./log-analytics-tutorial.md#view-table-information).
 
