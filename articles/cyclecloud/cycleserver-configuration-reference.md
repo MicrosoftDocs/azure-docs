@@ -2,7 +2,7 @@
 title: CycleServer Configuration Reference
 description: Configuration reference for cycle_server.properties file
 author: atomic-penguin
-ms.date: 05/13/2020
+ms.date: 07/15/2024
 ms.author: erwolfe
 ---
 
@@ -28,7 +28,7 @@ CycleCloud uses the _cycle_server.properties_ file to pass configuration paramet
 | webServerEnableHttps | Boolean | Enable HTTPS listen port. | `false` |
 | webServerRedirectHttp | Boolean | If both HTTPS and HTTP is enabled, controls whether HTTP redirects to HTTPS. | `true` |
 | webServerUseNativeHttps | Boolean | Improves HTTPS performance on Linux platforms by using Tomcat's native HTTPS implementation. `webServerEnableHttps` must also be `true`. | `false` |
-| sslEnabledProtocols | String | List of `+` separated TLS protocols to allow. e.g. `TLSv1.0+TLSv1.1+TLSv1.2` | `TLSv1.2` |
+| sslEnabledProtocols | String | List of `+` separated TLS protocols to allow. e.g. `TLSv1.2+TLSv1.3` | `TLSv1.3` |
 | brokerMaxHeapSize | String | This is a JVM maximum heap size setting for the message queue broker. | Linux: `1024M`; Windows: `512M` |
 | brokerJvmOptions | String | This setting is provided for any user configurable JVM settings for the message queue broker. CycleServer only appends the message broker heap size, and port, options. | None |
 | brokerPort | Integer | Listen port for the message queue broker. | `5672` |

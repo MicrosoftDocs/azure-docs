@@ -148,7 +148,6 @@
     items:
     - name: Report an Issue
       href: ./how-to/report-issues.md
-
 - name: Reference
   items:
   - name: Cluster Template Reference

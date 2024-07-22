@@ -2,8 +2,10 @@
 title: Common Issues - Credentials Resource
 description: Azure CycleCloud common issue - Credential Resources
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 05/28/2024
 ms.author: adjohnso
+ms.service: cyclecloud
+ms.custom: compute-evergreen
 ---
 # Common Issues: Azure Credentials Resources
 

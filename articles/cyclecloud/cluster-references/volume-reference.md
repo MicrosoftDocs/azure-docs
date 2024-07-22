@@ -2,11 +2,10 @@
 title: Cluster Template Reference - Volumes
 description: Read reference material for including volumes in cluster templates to be used with Azure CycleCloud. A volume represents an Azure Disk.
 author: adriankjohnson
-ms.date: 06/20/2023
+ms.date: 07/15/2024
 ms.author: adjohnso
 ms.topic: conceptual
 ms.service: cyclecloud
-ms.custom: compute-evergreen 
 ---
 
 # Volumes
@@ -16,27 +15,6 @@ ms.custom: compute-evergreen
 ## Example
 
 Adding a `[[[volume]]]` section to a node will create an Azure Disk and attach it to the VM.
-
-::: moniker range="=cyclecloud-7"
-``` ini
-[cluster my-cluster]
-  [[node my-node]]
-    Credentials = $Credentials
-    SubnetId = $SubnetId
-    MachineType = $MachineType
-    ImageName = $ImageName
-
-    [[[volume my-volume]]]
-      Size = 500
-
-    [[[volume another-volume]]]
-      Size = 1024
-      SSD = true
-
-    [[[volume data]]]
-      VolumeId = /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/my-rg/providers/Microsoft.Compute/disks/datadisk
-```
-::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 ``` ini
@@ -60,24 +38,6 @@ Adding a `[[[volume]]]` section to a node will create an Azure Disk and attach i
 ::: moniker-end
 
 Attribute values that begin with `$` are referencing parameters.
-
-## Attribute Reference
-
-::: moniker range="=cyclecloud-7"
-Attribute | Type | Definition
------- | ----- | ----------
-Size | String | (Required) Size of disk in GB
-VolumeId | String | Resource ID for existing Azure Disk.
-SSD | Boolean | If true, use premium disk sku. Otherwise, use standard disk. Default: `false`.  
-Azure.Lun | Integer | Override the auto-assigned LUN ID.
-Mount | String | Name of mount construct, described in `configuration` object
-Azure.Caching | String | [none, readonly, readwrite] Default: `none`.
-Persistent | Boolean | If false, disk will be deleted when VM is deleted. Default: `false`.
-Disabled | Boolean | If true, this volume will be ignored. Default: `false`.
-SourceUri | String | URI of blob to import into managed disk.
-StorageAccountId | String | Azure resource ID of storage account containing SourceUri blob. Required if blob is in a different subscription.
-SourceResourceId | String | Azure resource ID of source snapshot or managed disk.
-::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 Attribute | Type | Definition
@@ -104,20 +64,6 @@ Azure.Encryption.DiskEncryptionSetId | String | Deprecated. Use `DiskEncryptionS
 ::: moniker-end
 
 ### Boot Volume
-::: moniker range="=cyclecloud-7"
-For each node, the volume named `boot` exposes some advanced configuration of the OS boot volume.
-
-``` ini
-  [[node scheduler]]
-    [[[volume boot]]]
-      Size = 100
-      SSD = true
-      Azure.Caching = ReadOnly
-```
-
->[!NOTE]
->This section is ignored if EphemeralOSDisk is set.
-::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 For each node, the volume named `boot` exposes some advanced configuration of the OS boot volume. Storage type settings for the boot disk are ignored if `EphemeralOSDisk=true` is specified for the node.
