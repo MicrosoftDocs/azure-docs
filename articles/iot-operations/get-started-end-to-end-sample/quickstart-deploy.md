@@ -22,7 +22,6 @@ The services deployed in this quickstart include:
 * [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
 * [Akri services](../discover-manage-assets/overview-akri.md)
 * [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
-* [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 
 The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
@@ -117,21 +116,15 @@ kubectl get pods -n azure-iot-operations
 
 It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
 
-To view your cluster on the Azure portal, use the following steps:
+To view your resources on the Azure portal, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your cluster.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance.
 
-1. From the **Overview** of the resource group, select the name of your cluster.
+1. From the **Overview** page of the resource group, select the name of your Azure IoT Operations instance.
 
-1. On your cluster, select **Extensions** from the **Settings** section of the menu.
+1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster..
 
-   :::image type="content" source="./media/quickstart-deploy/view-extensions.png" alt-text="Screenshot that shows the deployed extensions on your Arc-enabled cluster.":::
-
-   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-tg45l**.
-
-   There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
-
-1. Make a note of the full name of the extension called **mq-...**. You use this name in the following quickstarts.
+   :::image type="content" source="./media/quickstart-deploy/view-components.png" alt-text="Screenshot that shows the deployed components on your Arc-enabled cluster.":::
 
 ## How did we solve the problem?
 
