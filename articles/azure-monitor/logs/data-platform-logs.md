@@ -26,7 +26,7 @@ A [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) is a da
 To address the data storage and consumption needs of various personas who use a Log Analytics workspace, you can:
 
 - [Define table plans](#table-plans) based on your data consumption and cost management needs.
-- [Manage low-cost long-term retention and interactive retention](../logs/data-retention-archive.md) for each table.
+- [Manage low-cost long-term retention and interactive retention](../logs/data-retention-configure.md) for each table.
 - [Manage access](../logs/manage-access.md) to the workspace and to specific tables.
 - [Use summary rules to aggregate critical data](../logs/summary-rules.md) in summary tables. This lets you optimize data for ease of use and actionable insights, and store raw data in a table with a low-cost table plan for however long you need it.
 - Create ready-to-run [saved queries](../logs/save-query.md), [visualizations](../best-practices-analysis.md#built-in-visualization-tools), and [alerts](../alerts/alerts-create-log-alert-rule.md) tailored to specific personas.  
@@ -67,7 +67,7 @@ You can use one Log Analytics workspace to store any type of log required for an
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for.
 
-The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-archive.md). For information about how to select or modify a table plan, see [Select a table plan](logs-table-plans.md). 
+The diagram and table below compare the Analytics, Basic, and Auxiliary table plans. For information about interactive and long-term retention, see [Manage data retention in a Log Analytics workspace](../logs/data-retention-configure.md). For information about how to select or modify a table plan, see [Select a table plan](logs-table-plans.md). 
 
 :::image type="content" source="media/data-platform-logs/azure-monitor-logs-data-plans.png" lightbox="media/data-platform-logs/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary table plans.":::
 

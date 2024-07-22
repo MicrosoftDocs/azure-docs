@@ -72,5 +72,5 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 
 ## Next steps
 
-- [Manage data retention](../logs/data-retention-archive.md)
+- [Manage data retention](../logs/data-retention-configure.md)
 

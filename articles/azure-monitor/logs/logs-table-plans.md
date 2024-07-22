@@ -36,7 +36,7 @@ You can set the table plan to Auxiliary only when you [create a custom table](..
 
 All tables support the Analytics plan and all DCR-based custom tables and [some Azure tables support the Basic log plan](basic-logs-azure-tables.md). You can switch between the Analytics and Basic plans, the change takes effect on existing data in the table immediately. 
 
-When you change a table's plan from Analytics to Basic, Azure monitor treats any data that's older than 30 days as long-term retention data based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the long-term retention period](../logs/data-retention-archive.md). 
+When you change a table's plan from Analytics to Basic, Azure monitor treats any data that's older than 30 days as long-term retention data based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the long-term retention period](../logs/data-retention-configure.md). 
 
 > [!NOTE]
 > You can switch a table's plan once a week. 
@@ -162,6 +162,6 @@ Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WOR
 
 ## Related content
 
-- [Manage data retention](../logs/data-retention-archive.md).
+- [Manage data retention](../logs/data-retention-configure.md).
 - [Tables that support the Basic table plan in Azure Monitor Logs](basic-logs-azure-tables.md).
 
