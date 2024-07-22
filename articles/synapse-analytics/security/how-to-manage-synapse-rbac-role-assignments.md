@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security
 ms.date: 3/7/2022
 ms.author: mesrivas
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # How to manage Synapse RBAC role assignments in Synapse Studio

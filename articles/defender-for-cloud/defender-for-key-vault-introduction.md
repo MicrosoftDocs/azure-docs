@@ -101,6 +101,6 @@ In this article, you learned about Microsoft Defender for Key Vault.
 
 For related material, see the following articles:
 
-- [Key Vault security alerts](alerts-reference.md#alerts-for-azure-key-vault)--The Key Vault section of the reference table for all Microsoft Defender for Cloud alerts
+- [Key Vault security alerts](alerts-azure-key-vault.md)--The Key Vault section of the reference table for all Microsoft Defender for Cloud alerts
 - [Continuously export Defender for Cloud data](continuous-export.md)
 - [Suppress security alerts](alerts-suppression-rules.md)

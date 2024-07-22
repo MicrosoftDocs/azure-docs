@@ -7,7 +7,7 @@ ms.date: 06/11/2019
 ---
 # Machine Learning Studio (classic) integration in Stream Analytics
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 Azure Stream Analytics supports user-defined functions (UDFs) that call out to Azure Machine Learning Studio (classic) endpoints. The [Stream Analytics REST API library](/rest/api/streamanalytics/) describes REST API support for this feature.
 

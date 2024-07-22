@@ -430,6 +430,10 @@ No. You can't enable virtual network peering if address spaces overlap.
 
 No. You can enable the **Use Remote Gateway** option on only one peering to one of the virtual networks.
 
+### Can I move a virtual network that has a peering connection to another virtual network?
+
+No. You can't move a virtual network that has a peering connection to another virtual network. You must delete the peering connection before moving the virtual network.
+
 ### How much do virtual network peering links cost?
 
 There's no charge for creating a virtual network peering connection. Data transfer across peering connections is charged. For more information, see the [Azure Virtual Network pricing page](https://azure.microsoft.com/pricing/details/virtual-network/).
