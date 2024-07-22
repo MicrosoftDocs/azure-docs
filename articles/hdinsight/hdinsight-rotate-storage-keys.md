@@ -51,8 +51,7 @@ Workaround:
 1. If your cluster is in your own virtual network, make sure your virtual network allows the access to the storage account file/script.
 1. Use this SAS URI to run script action.
 
-
-
+   :::image type="content" source="./media/hdinsight-rotate-storage-keys/script-action.png" alt-text="Screenshot showing script action." border="true" lightbox="./media/hdinsight-rotate-storage-keys.md/script-action.png":::
 
 ## Next steps
 
