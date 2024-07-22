@@ -105,8 +105,30 @@ Update the properties section of your ARM template and set the upgrade policy to
 ---
 ## Frequently asked questions 
 
+### Is MaxSurge generally available for Virtual Machine Scale Sets with Uniform Orchestration? 
+Yes. All upgrade policies including rolling upgrades with MaxSurge are generally available for Virtual Machine Scale Sets with Uniform Orchestration. 
+
+
+### Is MaxSurge generally available for Virtual Machine Scale Sets with Flexible Orchestration? 
+No. All upgrade policies including rolling upgrades with MaxSurge are in Public Preview for Virtual Machine Scale Sets with Flexible Orchestration. 
+
 ### Do MaxSurge upgrades require more quota? 
-Yes. When using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created VMs have new instance Ids and IP addresses. Ensure you have enough quota and address space in your subnet to accommodate these new VMs before enabling MaxSurge. For more information on quotas and limits, see Azure subscription and service limits.
+Yes. When using rolling upgrades with MaxSurge, new VMs are created using the latest scale set model to replace VMs using the old scale set model. These newly created virtual machines will count towards your overall core quota. 
+
+### Do MaxSurge upgrades require additional IP addresses? 
+Yes. These newly created virtual machines will have new IP addresses and count towards your total allowed IP addresses available per your subscription. 
+
+### Do MaxSurge upgrades require additional subnet space? 
+Yes. These newly created virtual machines will have new IP addresses and there needs to be enough space available in the specified subnet to be added.
+
+### What triggers a MaxSurge upgrade? 
+Any changes that result in an update to the scale set model will result in a MaxSurge upgrade. This includes upgrades that generally do not require a restart such as adding Data Disks. 
+
+### Can I cancel a MaxSurge upgrade? 
+Yes. The process of canceling a MaxSurge upgrade is the same as canceling an in place rolling upgrade. You can stop the upgrade from the Azure Portal, CLI, PowerShell or any other popular SDK. 
+
+### What happens if the newly created virtual machine enters a failed state during a MaxSurge upgrade? 
+During an MaxSurge upgrade, new virtual machines are created to replace virtual machines running the old model. If the newly created virtual machine fails to enter a health state, for example, the application health extension fails to report healthy, the newly created virtual machine will be deleted and the rolling upgrade will be canceled. 
 
 
 
