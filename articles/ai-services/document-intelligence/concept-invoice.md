@@ -334,6 +334,7 @@ List all the detected payment options detected on the field.
 |:-----|:----|:----|:----| :----|
 | IBAN | string | Internal Bank Account Number | GB33BUKB20201555555555 | |
 | SWIFT | string | SWIFT code | BUKBGB22 | |
+| BankAccountNumber | string | Bank account number, a unique identifier for a bank account | 123456 | |
 | BPayBillerCode | string | Australian B-Pay Biller Code | 12345 | |
 | BPayReference | string | Australian B-Pay Reference Code | 98765432100 | |
 
