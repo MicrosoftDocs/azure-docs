@@ -27,7 +27,7 @@ With MaxSurge enabled, new instances are created  in batches using the latest sc
 
 Rolling upgrades with MaxSurge creates new instances with the latest scale set model to replace instances running with the old model. By creating new instances, you can ensure that your scale set capacity doesn't drop below the set instance count during the duration of the upgrade process. 
 
-:::image type="content" source="./media/upgrade-policy/maxsurge-upgrade.png" alt-text="Diagram that shows the process of performing a rolling upgrade with MaxSurge.":::
+:::image type="content" source="./media/upgrade-policy/maxsurge-upgrade-1.png" alt-text="Diagram that shows the process of performing a rolling upgrade with MaxSurge.":::
 
 When performing a rolling upgrade without MaxSurge, the instances in the scale set are brought down in place, this ensures the virtual machine names remain the same and existing IP addresses can be reused. However, this type of upgrade reduces the total scale set capacity during the upgrade process and in turn results in less instances available to serve traffic during that upgrade process. 
 
