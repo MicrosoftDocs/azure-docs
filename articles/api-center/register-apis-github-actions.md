@@ -248,7 +248,7 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
 
 
     ```azurecli
-    az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --metadata-file {{ env.METADATA_FILE }}
+    az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
     ```
 
 
