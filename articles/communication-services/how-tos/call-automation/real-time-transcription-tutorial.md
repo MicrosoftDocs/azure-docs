@@ -14,22 +14,22 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Add real-time transcription into your application
 
-[!INCLUDE [Public Preview Disclaimer](../includes/public-preview-include-document.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-This guide will help you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
+This guide helps you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
 
 ### Prerequisites
 - Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
-- Azure Communication Services resource, see [Create an Azure Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp)
-- Create and connect [Azure AI services to your Azure Communication Services resource](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
-- Create a [custom subdomain](https://learn.microsoft.com/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource.
-- Create a new web service application using the [Call Automation SDK](https://learn.microsoft.com/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-csharp).
+- Azure Communication Services resource, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- Create and connect [Azure AI services to your Azure Communication Services resource](../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource.
+- Create a new web service application using the [Call Automation SDK](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
 ## Setup a WebSocket Server 
-Azure Communication Services requires your server application to set up a WebSocket server to stream transcription in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. You can optionally use Azure services Azure WebApps that allows you to create an application to receive transcripts over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/en-us/blog/introduction-to-websockets-on-windows-azure-web-sites/).
+Azure Communication Services requires your server application to setup a WebSocket server to stream transcription in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. You can optionally use Azure services Azure WebApps that allows you to create an application to receive transcripts over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
 ## Establish a call 
-In this quickstart we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/call-automation/quickstart-make-an-outbound-call?tabs=visual-studio-code&pivots=programming-language-csharp). For the purposes of this quickstart, we'll be going through the process of starting transcription for both incoming calls and outbound calls. 
+In this quickstart, we assume that you're already familiar with starting calls. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). For the purposes of this quickstart, we are going through the process of starting transcription for both incoming calls and outbound calls. 
 
 When working with real-time transcription, you have a couple of options on when and how to start transcription:
 
@@ -37,7 +37,7 @@ When working with real-time transcription, you have a couple of options on when 
 
 **Option 2 -** Starting transcription during an ongoing call 
 
-In this tutorial we will be demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
+In this tutorial we are demonstrating option 2, starting transcription during an ongoing call. By default the 'startTranscription' is set to false at time of answering or creating a call.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Real-time transcription with .NET](./includes/real-time-transcription-csharp.md)]
@@ -48,7 +48,7 @@ In this tutorial we will be demonstrating option 2, starting transcription durin
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Real-time transcription with Javascript](./includes/real-time-transcription-js.md)]
+[!INCLUDE [Real-time transcription with javaScript](./includes/real-time-transcription-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
@@ -63,18 +63,18 @@ In this tutorial we will be demonstrating option 2, starting transcription durin
 | TranscriptionStopped | 200 | 0 | Action completed successfully. |
 | TranscriptionUpdated | 200 | 0 | Action completed successfully. |
 | TranscriptionFailed | 500 | 8578 | Action failed, not able to establish WebsSocket connection. |
-| TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl is not valid. |
-| TranscriptionFailed | 500 | 8580 | Action failed, transcription service was shutdown. |
+| TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
+| TranscriptionFailed | 500 | 8580 | Action failed, transcription service was shut down. |
 | TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
 | TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
-| TranscriptionFailed | 401 | 8565 | Action failed due to a Cognitive Services authentication error. Please check your authorization input and ensure it is correct. |
-| TranscriptionFailed | 403 | 8565 | Action failed due to a forbidden request to Cognitive Services. Please check your subscription status and ensure it is active. |
-| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Please check your input parameters. |
+| TranscriptionFailed | 401 | 8565 | Action failed due to a Cognitive Services authentication error. Check your authorization input and ensure it's correct. |
+| TranscriptionFailed | 403 | 8565 | Action failed due to a forbidden request to Cognitive Services. Check your subscription status and ensure it's active. |
+| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
 | TranscriptionFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the cognitive services subscription. |
-| TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Please try again later or check for any issues with the service. |
+| TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
 | TranscriptionFailed | 500 | 9999 | Unknown internal server error. |
 
 
 ## Known issues
-* You may receive duplicate TranscriptionStarted events everytime there is a speech input after a long pause of silence or when a new person speaks.
-* For 1:1 calls with ACS users using Client SDKs startTranscription = True is not currently supported. 
+* You may receive duplicate TranscriptionStarted events every time there's a speech input after a long pause of silence or when a new person speaks.
+* For 1:1 calls with ACS users using Client SDKs startTranscription = True isn't currently supported. 
