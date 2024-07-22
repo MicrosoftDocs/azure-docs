@@ -155,8 +155,6 @@ You can also access activity log events by using the following methods:
 - Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
 - Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
-- 
-- 
 ## Legacy collection methods
 
 > [!NOTE]
