@@ -165,7 +165,7 @@ To create a deployment:
 
 1. You can always find the endpoint's details, URL, and access keys by navigating to the project page and selecting **Deployments** from the left menu.
 
-To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
+To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-meta-llama-3.1-models-deployed-as-a-service).
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -202,7 +202,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your project and selecting **Deployments** from the left menu.
 
-To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
+To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-meta-llama-3.1-models-deployed-as-a-service).
 
 ---
 
@@ -225,7 +225,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-3-8B`, use the [`/completions`](#completions-api) API.
     - For chat models, such as `Meta-Llama-3.1-405B-Instruct`, use the [`/chat/completions`](#chat-api) API.
 
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-3.1-models-deployed-as-a-service) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -553,7 +553,7 @@ For reference about how to invoke Llama models deployed to managed compute, see 
 
 | **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
-| CLI using CURL and Python web requests | [webrequests.ipynb]([https://aka.ms/samples/cohere-command-r-plus/webrequests](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests))|
+| CLI using CURL and Python web requests | [webrequests.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-openai)|
 | LangChain      | [langchain.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-langchain)|
 | LiteLLM SDK    | [litellm.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-litellm) |
