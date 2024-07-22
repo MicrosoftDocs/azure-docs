@@ -25,8 +25,7 @@ To create a custom table and collect log data, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md).
-
-    All tables in a Log Analytics workspace have a column named `TimeGenerated`. If your raw log data has a `TimeGenerated` property, Azure Monitor uses this value to identify the creation time of the record. For a table with the Auxiliary plan, the `TimeGenerated` column currently supports ISO8601 format only. For information about the `TimeGenerated` format, see [supported ISO 8601 datetime format](/azure/data-explorer/kusto/query/scalar-data-types/datetime#iso-8601).
+- All tables in a Log Analytics workspace have a column named `TimeGenerated`. If your raw log data has a `TimeGenerated` property, Azure Monitor uses this value to identify the creation time of the record. For a table with the Auxiliary plan, the `TimeGenerated` column currently supports ISO8601 format only. For information about the `TimeGenerated` format, see [supported ISO 8601 datetime format](/azure/data-explorer/kusto/query/scalar-data-types/datetime#iso-8601).
     
 
 ## Create a custom table with the Auxiliary plan
@@ -214,26 +213,27 @@ There are currently two ways to ingest data to a custom table with the Auxiliary
 During public preview, these limitation apply:
 
 - The Auxiliary plan is gradually being rolled out to all regions and is currently supported in:
-    - **Americas**
-        - Canada Central
-        - Central US
-        - East US
-        - East US 2
-        - West US
-        - South Central US
-        - North Central US
-    - **Asia Pacific**
-        - Australia East
-        - Australia South East
-    - **Europe**
-        - East Asia
-        - North Europe
-        - UK South
-        - Germany West Central
-        - Switzerland North
-        - France Central
-    - **Middle East**
-        - Israel Central
+
+    | **Region**      | **Locations**          |
+    |-----------------|------------------------|
+    | **Americas**        | Canada Central         |
+    |                 | Central US             |
+    |                 | East US                |
+    |                 | East US 2              |
+    |                 | West US                |
+    |                 | South Central US       |
+    |                 | North Central US       |
+    | **Asia Pacific**    | Australia East         |
+    |                 | Australia South East   |
+    | **Europe**          | East Asia              |
+    |                 | North Europe           |
+    |                 | UK South               |
+    |                 | Germany West Central   |
+    |                 | Switzerland North      |
+    |                 | France Central         |
+    | **Middle East**     | Israel Central         |
+
+
 - You can set the Auxiliary plan only on data collection rule-based custom tables you create using the [Tables - Create Or Update API](/rest/api/loganalytics/tables/create-or-update).
 - Tables with the Auxiliary plan: 
     - Are currently unbilled. There's currently no charge for ingestion, queries, search jobs, and long-term retention.
