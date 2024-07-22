@@ -1047,7 +1047,53 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
    This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
  
 - Currently, only `en-US` is supported for topics in pronunciation assessment. There is no length limit for the topic parameter.
+
+::: zone pivot="programming-language-csharp"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
 - If your audio file exceeds 30 seconds, use continuous mode for processing.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) under the function `pronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/python/console/speech_sample.py) under the function `pronunciation_assessment_continuous_from_file`.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/js/node/pronunciationAssessmentContinue.js).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) under the function `pronunciationAssessFromFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift) under the function `continuousPronunciationAssessment`.
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
 
 ## Related content
 
