@@ -143,14 +143,14 @@ Now, when you add other actions that expect and use tokenized input, such as the
 
 #### Parameters
 
-| Name | Value | Data type | Description | Limit |
+| Name | Value | Data type | Description | Limits |
 |------|-------|-----------|-------------|-------|
-| **Chunking Strategy** | **FixedLength** or **TokenSize** | String enum | **FixedLength**: Split the content, based on the number of characters <br><br>**TokenSize**: Split the content, based on the number of tokens. <br><br>Default: **FixedLength** ||
+| **Chunking Strategy** | **FixedLength** or **TokenSize** | String enum | **FixedLength**: Split the content, based on the number of characters <br><br>**TokenSize**: Split the content, based on the number of tokens. <br><br>Default: **FixedLength** | Not applicable |
 | **Text** | <*content-to-chunk*> | Any | The content to chunk. | See [Limits and configuration reference guide](logic-apps-limits-and-config.md#character-limits) |
 
 For **Chunking Strategy** set to **FixedLength**:
 
-| Name | Value | Data type | Description | Limit |
+| Name | Value | Data type | Description | Limits |
 |------|-------|-----------|-------------|-------|
 | **MaxPageLength** | <*max-char-per-chunk*> | Integer | The maximum number of characters per content chunk. <br><br>Default: **5000** | Minimum: **1** |
 | **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. | Minimum: **0** |
@@ -158,10 +158,10 @@ For **Chunking Strategy** set to **FixedLength**:
 
 For **Chunking Strategy** set to **TokenSize**:
 
-| Name | Value | Data type | Description | Limit |
+| Name | Value | Data type | Description | Limits |
 |------|-------|-----------|-------------|-------|
-| **TokenSize** | <*max-tokens-per-chunk*> | Integer | The maximum number of tokens per content chunk. <br><br>Default: None | - Minimum: 1 <br><br>- Maximum: 8000 |
-| **Encoding model** | <*encoding-method*> | String enum | The [encoding method]() to use: **cl100k_base**, **cl200k_base**, **p50k_base**, **p50k_edit**, **r50k_base** <br><br>Default: None | Not applicable |
+| **TokenSize** | <*max-tokens-per-chunk*> | Integer | The maximum number of tokens per content chunk. <br><br>Default: None | Minimum: **1** <br>Maximum: **8000** |
+| **Encoding model** | <*encoding-method*> | String enum | The encoding model to use: <br><br>- Default: **cl100k_base (gpt4, gpt-3.5-turbo, gpt-35-turbo)** <br><br>- **r50k_base (gpt-3)** <br><br>- **p50k_base (gpt-3)** <br><br>- **p50k_edit (gpt-3)** <br><br>- **cl200k_base (gpt-4o)** <br><br>For more information, see [OpenAI - Models overview](https://platform.openai.com/docs/models/overview). | Not applicable |
 
 > [!TIP]
 >
