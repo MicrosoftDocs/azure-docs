@@ -15,9 +15,9 @@ ms.date: 07/19/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from your OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and organize it into a KQL database that can be a source for Real-Time Dashboards. Then, you'll import a dashboard template and connect your data sources to that dashboard so that it displays visual graphs of your data over time.
+In this quickstart, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from your OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you'll build a dashboard to display that data in visual tiles that track it over time.
 
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data. 
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
 
 ## Prerequisites
 
@@ -33,9 +33,9 @@ Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards
 
 ## What problem will we solve?
 
-Once your OPC UA data has been processed and enriched in the cloud, you'll have a lot of information available to analyze. You might want to create reports containing graphs and visualizations to help you organize and derive insights from this data. The template and steps in this quickstart illustrate how you can connect that data to Real-Time Dashboards to build such reports.
+Once your OPC UA data has been processed and enriched in the cloud, you'll have a lot of information available to analyze. You might want to create reports containing graphs and visualizations to help you organize and derive insights from this data. The template and steps in this quickstart illustrate how you can connect that data to Real-Time Dashboards and build such reports.
 
-## Get data into a KQL database
+## Ingest data into Real-Time Intelligence
 
 In this section, you set up a Microsoft Fabric eventstream to connect your event hub to a KQL database in Real-Time Intelligence. As part of this process, you'll also set up a data mapping to transform the data from its JSON format to readable columns in KQL.
 
@@ -45,7 +45,7 @@ In this section, you create a Microsoft Fabric eventstream that will be used to 
 
 Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) to create a new eventstream from the Real-Time Intelligence capabilities.
 
-Creation of the new eventstream in your workspace can take a few seconds. After the eventstream is created, you're directed to the main editor where you can start with adding sources to the eventstream.
+After the eventstream is created, you'll see the main editor where you can start adding sources to the eventstream.
 
 :::image type="content" source="media/quickstart-get-insights/eventstream-editor.png" alt-text="Screenshot of the Eventstream editor in Microsoft Fabric.":::
 
@@ -89,8 +89,6 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Temperature | decimal | 
     | Pressure | decimal | 
     | Timestamp | datetime |
-    
-    :::image type="content" source="media/quickstart-get-insights/columns.png" alt-text="Screenshot of columns while creating a KQL table.":::
 
 1. Select the *OPCUA* table, and select **Explore your data** to open the query window for your table.
 
@@ -102,14 +100,14 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"SequenceNumber", "Properties":{"Path":"$[\'SequenceNumber\']"}},{"column":"assetName", "Properties":{"Path":"$[\'DataSetWriterName\']"}},{"column":"Temperature", "Properties":{"Path":"$.Payload.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.Payload.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'Timestamp\']"}}]'
     ``` 
 
-#### Add the destination
+#### Add data table as a destination
 
 Next, return to your eventstream view, where you can add your new KQL database as an eventstream destination.
 
 Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities#direct-ingestion-mode) to add the destination. Keep the following notes in mind:
 * Use direct ingestion mode.
-* On the **Configure** tab, select the *OPCUA* table that you created earlier.
-* On the **Inspect** tab, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+* On the **Configure** step, select the *OPCUA* table that you created earlier.
+* On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
     
@@ -126,7 +124,7 @@ If you want, you can also view and query this data in your KQL database directly
 
 :::image type="content" source="media/quickstart-get-insights/query-kql.png" alt-text="Screenshot of the same data being queried from the KQL database.":::
 
-## Create Real-Time Dashboard
+## Create a Real-Time Dashboard
 
 In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset name and timestamp, and will display visual summaries of temperature and pressure data.
 
@@ -154,7 +152,7 @@ Next, configure some parameters for your dashboard so that the visuals will be f
     * **Variable name**: *_asset*
     * **Data type**: *string* (already selected by default)
     * **Source**: *Query*
-        * Select your database as the data source.
+        * **Data source**: Select your database.
         * Select **Edit query** and add the following KQL query.
     
             ```kql
@@ -168,7 +166,7 @@ Next, configure some parameters for your dashboard so that the visuals will be f
 
 ### Create line chart tile
 
-Next, add a tile to your dashboard to show a chart of temperature and pressure over time for the selected asset and time range.
+Next, add a tile to your dashboard to show a line chart of temperature and pressure over time for the selected asset and time range.
 
 1. Select either **+ Add tile** or **New tile** to add a new tile.
 
@@ -187,7 +185,7 @@ Next, add a tile to your dashboard to show a chart of temperature and pressure o
 
     :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
 
-1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
+1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
     * **Tile name**: *Temperature and pressure over time*
     * **Visual type**: *Line chart*
     * **Data**:
@@ -274,9 +272,9 @@ You now have a dashboard that displays a different types of visuals for the data
 
 ## How did we solve the problem?
 
-In this quickstart, you imported your Event Hubs data into a KQL database in Microsoft Fabric. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+In this quickstart, you ingested your Event Hubs data into a KQL database in Microsoft Fabric. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
 
- This represents the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
+This represents the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources
 
