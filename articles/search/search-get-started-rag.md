@@ -34,14 +34,21 @@ You can also start a new file on your local system and create requests manually 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
 1. Configure Azure OpenAI to use a system-assigned managed identity:
+
     1. In the Azure portal, find your Azure OpenAI resource.
+ 
     1. On the left menu, select **Resource management** > **Identity**.
+
     1. On the System assigned tab, set status to **On**.
 
 1. Configure Azure AI Search for role-based access and assign roles:
+
     1. In the Azure portal, find your Azure AI Search service.
+
     1. On the left menu, select **Settings** > **Keys**, and then select either **Role-based access control** or **Both**.
+
     1. On the left menu, select **Access control (IAM)**.
+
     1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**, **Search Service Contributor**.
 
 1. Assign yourself to the **Cognitive Services OpenAI User** role on Azure OpenAI. This is the only role you need for query workloads.
@@ -276,12 +283,12 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
 
     Output might look similar to the following example:
 
-    ```bash
+    ```
     Based on your request, here are a few hotel recommendations with beach access and good views:
     
     1. Ocean Air Motel - oceanfront hotel with a private balcony and indoor and outdoor pools
     2. Marquis Plaza & Suites - offers a view, free Wi-Fi, and a pool
-    3. Pull'r Inn Motel - offers a view, a pool, and free Wi-Fi
+    3. Pull r Inn Motel - offers a view, a pool, and free Wi-Fi
     
     I hope this helps! Let me know if you need any further assistance.
     ```
