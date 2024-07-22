@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Service Bus
 description: Start here to learn how to monitor Azure Service Bus by using Azure Monitor metrics, logs, and tools.
-ms.date: 07/17/2024
+ms.date: 07/22/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: spelluru
@@ -39,7 +39,7 @@ The diagnostic logging information is stored in tables named **AzureDiagnostics*
 
 For a list of available metrics for Service Bus, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md#metrics).
 
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Monitoring** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
 
 :::image type="content" source="./media/monitor-service-bus/metrics.png" alt-text="Screenshot shows Metrics Explorer with Service Bus namespace selected.":::
 

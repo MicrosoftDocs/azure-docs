@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 07/17/2024
+ms.date: 07/22/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
@@ -29,13 +29,15 @@ The following sections provide more detailed descriptions for metrics presented 
 
 *Request metrics* count the number of data and management operations requests.
 
-- **Incoming Requests** The number of requests made to the Service Bus service over a specified period.
-- **Successful Requests** The number of successful requests made to the Service Bus service over a specified period.
-- [Server Errors](service-bus-messaging-exceptions.md#exception-categories) The number of requests not processed because of an error in the Service Bus service over a specified period.
-- [User Errors](service-bus-messaging-exceptions.md#exception-categories) The number of requests not processed because of user errors over a specified period.
-- **Throttled Requests** The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p>
-- **Pending Checkpoint Operations Count** The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier.
-- **Server Send Latency** The time taken by the Service Bus service to complete the request.
+| Metric | Description |
+|:-------|:------------|
+| Incoming Requests | The number of requests made to the Service Bus service over a specified period. |
+| Successful Requests | The number of successful requests made to the Service Bus service over a specified period. |
+| [Server Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
+| [User Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of user errors over a specified period. |
+| Throttled Requests | The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |
+| Pending Checkpoint Operations Count | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. |
+| Server Send Latency | The time taken by the Service Bus service to complete the request. |
 
 The following two types of errors are classified as *user errors*:
 
@@ -46,15 +48,17 @@ The following two types of errors are classified as *user errors*:
 
 The following metrics are *message metrics*.
 
-- **Incoming Messages** The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included.
-- **Outgoing Messages** The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric.
-- **Messages** Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc.
-- **Active Messages** Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received.
-- **Dead-lettered messages** Count of dead-lettered messages in a queue/topic.
-- **Scheduled messages** Count of scheduled messages in a queue/topic.
-- **Completed Messages** The number of messages completed over a specified period.
-- **Abandoned Messages** The number of messages abandoned over a specified period.
-- **Size** Size of an entity (queue or topic) in bytes.
+| Metric | Description |
+|:-------|:------------|
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included. |
+| Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
+| Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
+| Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |
+| Dead-lettered messages | Count of dead-lettered messages in a queue/topic. |
+| Scheduled messages | Count of scheduled messages in a queue/topic. |
+| Completed Messages | The number of messages completed over a specified period. |
+| Abandoned Messages | The number of messages abandoned over a specified period. |
+| Size | Size of an entity (queue or topic) in bytes. |
 
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.
@@ -63,18 +67,23 @@ The following metrics are *message metrics*.
 > When a client tries to get the info about a queue or topic, the Service Bus service returns some static information such as name, last updated time, created time, and requires session or not. Some dynamic information like message counts. If the request gets throttled, the service returns the static information and empty dynamic information. That's why message counts are shown as 0 when the namespace is being throttled. This behavior is by design. 
 
 ### Connection metrics
+
 The following metrics are *connection metrics*.
 
-- **Active Connections** The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.
-- **Connections Opened** The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
-- **Connections Closed** The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window.
+| Metric | Description |
+|:-------|:------------|
+| Active Connections | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. |
+| Connections Opened | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
+| Connections Closed | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
 
 ### Resource usage metrics
 
 The following *resource metrics* are available only with the **premium** tier.
 
-- **CPU usage per namespace** The percentage CPU usage of the namespace.
-- **Memory size usage per namespace** The percentage memory usage of the namespace.
+| Metric | Description |
+|:-------|:------------|
+| CPU usage per namespace | The percentage CPU usage of the namespace. |
+| Memory size usage per namespace | The percentage memory usage of the namespace. |
 
 The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
 
@@ -84,15 +93,19 @@ The other metric you could monitor is: **throttled requests**. It shouldn't be a
 
 The following metrics are *error metrics*.
 
-- **Server Errors** The number of requests not processed because of an error in the Service Bus service over a specified period.
-- **User Errors** The number of requests not processed because of user errors over a specified period.
+| Metric | Description |
+|:-------|:------------|
+| Server Errors | The number of requests not processed because of an error in the Service Bus service over a specified period. |
+| User Errors | The number of requests not processed because of user errors over a specified period. |
 
 ### Geo-Replication metrics
 
 The following metrics are *geo-replication* metrics:
 
-- **Replication Lag Duration** The offset in seconds between the latest action on the primary and the secondary regions.
-- **Replication Lag Count** The offset in number of operations between the latest action on the primary and the secondary regions.
+| Metric | Description |
+|:-------|:------------|
+| Replication Lag Duration | The offset in seconds between the latest action on the primary and the secondary regions. |
+| Replication Lag Count | The offset in number of operations between the latest action on the primary and the secondary regions. |
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
