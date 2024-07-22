@@ -52,7 +52,7 @@ Logs containing primary security data should be stored using the [**Analytics lo
 
 ### Secondary security data
 
-This category encompasses logs that have limited individual security value but are essential for providing a comprehensive view of a security incident or breach. Typically, these logs are high-volume and can be verbose. The security operations use cases for this data include the following:
+This category encompasses logs whose individual security value is limited but are essential for providing a comprehensive view of a security incident or breach. Typically, these logs are high-volume and can be verbose. The security operations use cases for this data include the following:
 
 - **Threat intelligence**. Primary data can be checked against lists of Indicators of Compromise (IoC) or Indicators of Attack (IoA) to quickly and easily detect threats.
 
@@ -62,7 +62,7 @@ This category encompasses logs that have limited individual security value but a
 
 - **Summarization via summary rules**. Summarize high-volume logs into aggregate information and store the results as primary security data. To learn more about summary rules, see [Aggregate Microsoft Sentinel data with summary rules](../azure-monitor/logs/summary-rules.md).
 
-Some examples of secondary data log sources are cloud storage access logs, NetFlow logs, TLS/SSL certificate logs, firewall logs, proxy logs, and IoT logs. To learn more about how each of these sources bring value to security detections without being needed all the time, see [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
+Some examples of secondary data log sources are cloud storage access logs, NetFlow logs, TLS/SSL certificate logs, firewall logs, proxy logs, and IoT logs. To learn more about how each of these sources brings value to security detections without being needed all the time, see [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
 Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan. 
 
@@ -99,11 +99,11 @@ When the interactive retention period ends, data goes into the **long-term reten
 
 The following diagram summarizes and compares these two log management plans.
 
-:::image type="content" border=false source="media/log-plans/analytics-auxiliary-log-plans.png" alt-text="Diagram of available log plans in Microsoft Sentinel.":::
+:::image type="content" border="false" source="media/log-plans/analytics-auxiliary-log-plans.png" alt-text="Diagram of available log plans in Microsoft Sentinel.":::
 
 ### Basic logs plan
 
-There is a third plan, known as **Basic logs**, that provides similar functionality to the auxiliary logs plan, but at a higher interactive retention cost (though not as high as the analytics logs plan). While the auxiliary logs plan remains in preview, basic logs can be an option for long-term, low-cost retention if your organization doesn't use preview features. To learn more about the basic logs plan, see [Table plans](../azure-monitor/logs/data-platform-logs.md#table-plans) in the Azure Monitor documentation.
+A third plan, known as **Basic logs**, provides similar functionality to the auxiliary logs plan, but at a higher interactive retention cost (though not as high as the analytics logs plan). While the auxiliary logs plan remains in preview, basic logs can be an option for long-term, low-cost retention if your organization doesn't use preview features. To learn more about the basic logs plan, see [Table plans](../azure-monitor/logs/data-platform-logs.md#table-plans) in the Azure Monitor documentation.
 
 ## Related content
 
