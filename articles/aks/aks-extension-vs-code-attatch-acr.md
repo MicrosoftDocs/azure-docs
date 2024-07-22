@@ -20,23 +20,43 @@ Before you begin, make sure you have the following resources:
 * An AKS cluster. If you don't have one, create one using the steps in [Quickstart: Deploy an AKS cluster][deploy-aks-cli].
 * The Azure Kubernetes Service (AKS) extension for Visual Studio Code downloaded. For more information, see [Install the Azure Kubernetes Service (AKS) extension for Visual Studio Code][install-aks-vscode].
 
-## Attatch an Azure Container Registry (ACR) to an Azure Kubernetes Service (AKS) cluster
+## Attach your Azure container registry to your AKS cluster
 
-To use the command pallete to attatch your Azure Container Registry, press "crtl + shift + p" on your keyboard to open the command pallete. Then type "AKS: Attatch ACR". Once the screen pops up, the following information must be filled out.
+You can access the screen for attaching your container registry to your AKS cluster using the command palette or the Kubernetes view.
 
-To use the Kubernetes view, right click on your cluster in the Kubernetes tab, under Clouds -> Azure -> your subscription -> Automated Deployments -> Attatch ACR to Cluster.
+### [Command palette](#tab/command-palette)
 
-Both methods will bring you to a screen where the following information must be filled out.
+1. On your keyboard, press `Ctrl+Shift+P` to open the command palette.
+2. Enter the following information:
 
-* **Subscription**: Select the proper subscription that has your resources.
-* **ACR Resource Group**: Select the proper resource group for your ACR.
-* **Container Registry**: Select the container registry that you want to attatch.
-* **Cluster Resource Group**: Select the proper resource group for your cluster.
-* **Cluster**: Select the cluster that you wish to attatch the ACR to.
+    * **Subscription**: Select the Azure subscription that holds your resources.
+    * **ACR Resource Group**: Select the resource group for your container registry.
+    * **Container Registry**: Select the container registry you want to attach to your cluster.
+    * **Cluster Resource Group**: Select the resource group for your cluster.
+    * **Cluster**: Select the cluster you want to attach to your container registry.
 
-Once all information is filled out, press attatch. Once attatched you should see a green checkmark. Your Azure Container Registry is now attatched to your Azure Kubernetes Service cluster.
+3. Select **Attach**.
 
-For more information, see [AKS extension for Visual Studio Code features](https://code.visualstudio.com/docs/azure/aksextensions#_features).
+    You should see a green checkmark, which means your container registry is attached to your AKS cluster.
+
+### [Kubernetes view](#tab/kubernetes-view)
+
+1. In the Kubernetes tab, under Clouds > Azure > your subscription > Automated Deployments, right click on your cluster and select **Attach ACR to Cluster**.
+2. Enter the following information:
+
+    * **Subscription**: Select the Azure subscription that holds your resources.
+    * **ACR Resource Group**: Select the resource group for your container registry.
+    * **Container Registry**: Select the container registry you want to attach to your cluster.
+    * **Cluster Resource Group**: Select the resource group for your cluster.
+    * **Cluster**: Select the cluster you want to attach to your container registry.
+
+3. Select **Attach**.
+
+    You should see a green checkmark, which means your container registry is attached to your AKS cluster.
+
+---
+
+For more information, see [AKS extension for Visual Studio Code features][aks-vscode-features].
 
 ## Product support/feedback
 
