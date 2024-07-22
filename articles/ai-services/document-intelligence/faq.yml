@@ -287,6 +287,14 @@ sections:
 
         The copy operation is limited to copying models within the specific cloud environment where you trained the model. For instance, copying models from the public cloud to the Azure Government cloud isn't supported.
 
+    - question: |
+        Am I charged when training a custom neural model?
+      answer: |
+        **Yes for the first 10 hours only.**
+
+        To allow customers to train a model with more data for longer period of time to achieve greater quality, if training hours exceed 10 hours, we will charge $3/hour extra for training custom neural models.
+
+
   - name: Storage account
     questions:
       - question: |

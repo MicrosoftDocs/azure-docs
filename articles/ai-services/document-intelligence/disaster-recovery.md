@@ -35,9 +35,12 @@ ms.author: lajanuar
 
 ::: moniker range=">= doc-intel-2.1.0"
 
-When you create a Document Intelligence resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Document Intelligence resources in different regions and the ability to sync custom models across regions.
+When you create a Document Intelligence resource in the Azure portal, you specify a region. From then on, your resource and all of its operations stay associated with that particular Azure server region. It's rare, but not impossible, to encounter a network issue that hits an entire region. If your solution needs to always be available, then you should design it to either fail-over into another region or split the workload between two or more regions. Both approaches require at least two Document Intelligence resources in different regions and the ability to sync custom models and classifiers across regions.
 
-The Copy API enables this scenario by allowing you to copy custom models from one Document Intelligence account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL. You can also use an HTTP request service to issue the requests.
+The Copy API enables this scenario by allowing you to copy custom models and classifiers from one Document Intelligence account or into others, which can exist in any supported geographical region. This guide shows you how to use the Copy REST API with cURL for custom models. You can also use an HTTP request service to issue the requests.
+
+> [!NOTE]
+> Starting with the `2024-07-31-preview` API, custom clasification models also support the Copy API. This guide specifically uses custom models to copy models. For classifier model copy, follow this [guide](concept-custom-classifier.md#copy-a-model).
 
 ## Business scenarios
 

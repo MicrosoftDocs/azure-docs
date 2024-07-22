@@ -27,6 +27,43 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > [!IMPORTANT]
 > Preview API versions are retired once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version 2023-07-31 (GA).
 
+## August 2024
+
+The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
+
+* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) is currently available only in the following Azure regions:
+
+  * **East US**
+  * **West US2**
+  * **West Europe**
+
+* [Read model](concept-read.md) now supports [PDF output](concept-read.md#???) which allows to download the PDF with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and LLM ingestion.
+* [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding.
+* [Custom extraction models](concept-custom.md#custom-extraction-models)
+  * Custom extraction models now support updating the model in-place. 
+* [Custom classification model](concept-custom.md#custom-classification-model)
+  * Custom classification model now support updating the model in-place as well.
+  * Custom classification model adds support for model copy operation to enable backup and disaster recovery.
+  * Custom classification model now supports explicitly specifying pages to be classified from an input document.
+* [🆕 Mortgage documents model](concept-mortgage-documents.md)
+  * Extract information from Appraisal (Form 1004).
+  * Extract information from Validation of Employment (Form 1005).
+* [🆕 Check model](concept-credit-card.md)
+  * Extract information from checkss.
+* [🆕 Paystub model](concept-marriage-certificate.md)
+  * New prebuilt to extract information from paystubs.
+* [🆕 Bank statement model](concept-marriage-certificate.md)
+  * New prebuilt to extract information from bank statements.
+* [🆕 US Tax model](concept-marriage-certificate.md)
+  * New unified US tax model that can extract from forms such as W-2, 1098, 1099, and 1040.
+* [Add-on capabilities](concept-add-on-capabilities.md)
+  * [Query fields](concept-add-on-capabilities.md#query-fields) AI quality of extraction is improved with the latest model.
+* [🆕 Batch API](concept-batch.md)
+  * Document Intelligence now adds support for batch analysis operation to support analyzing a set of documents to simplify developer experience and improve service efficiency.
+* [🆕 Model compose with custom classifiers](concept-composed-models.md)
+  * Document Intelligence now adds support for composing model with an explicit custom classification model. 
+
+
 ## May 2024
 
 The Document Intelligence Studio adds support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](quickstarts/try-document-intelligence-studio.md#authentication).
