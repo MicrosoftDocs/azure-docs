@@ -12,26 +12,12 @@ ms.date: 07/11/2024
 ms.author: lajanuar
 ---
 
-# Custom models: accuracy and confidence scores
+# Interpret and improve model accuracy and analysis confidence scores
 
 [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
-> [!NOTE]
->
-> * **Custom neural and generative models** do not provide accuracy scores during training.
-> * Confidence scores for tables, table rows and table cells are available starting with the **2024-02-29-preview** API version for **custom models**.
+A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
-
-Custom template models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
-
-## Accuracy scores
-
-The output of a `build` (v3.0 and onward) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. Accuracy is measured within a percentage value range from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also add a human review stage to validate for more critical automation workflows. 
-
-**Document Intelligence Studio** </br>
-**Trained custom model (invoice)**
-
-:::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
 
 ## Confidence scores
 
@@ -58,9 +44,24 @@ After an analysis operation, review the JSON output. Examine the `confidence` va
 
 * For custom models, use a larger set of training documents. This teaches your model to recognize fields with greater accuracy.
 
+## Accuracy scores
+
+The output of a `build` (v3.0 and onward) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. Accuracy is measured within a percentage value range from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also add a human review stage to validate for more critical automation workflows. 
+
+**Document Intelligence Studio** </br>
+**Trained custom model (invoice)**
+
+:::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
+
+
 ## Interpret accuracy and confidence scores for custom models
 
-When interpreting the confidence score from a custom model, you should consider all the confidence scores returned from the model. Let's start with a list of all the confidence scores.
+> [!NOTE]
+>
+> * **Custom neural and generative models** do not provide accuracy scores during training.
+> * Confidence scores for tables, table rows and table cells are available starting with the **2024-02-29-preview** API version for **custom models**.
+
+Custom template models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. When interpreting the confidence score from a custom model, you should consider all the confidence scores returned from the model. Let's start with a list of all the confidence scores.
 
 1. **Document type confidence score**: The document type confidence is an indicator of closely the analyzed document resembles documents in the training dataset. When the document type confidence is low, it's indicative of template or structural variations in the analyzed document. To improve the document type confidence, label a document with that specific variation and add it to your training dataset. Once the model is retrained, it should be better equipped to handle that class of variations.
 2. **Field level confidence**: Each labeled field extracted has an associated confidence score. This score reflects the model's confidence on the position of the value extracted. While evaluating confidence scores, you should also look at the underlying extraction confidence to generate a comprehensive confidence for the extracted result. Evaluate the `OCR` results for text extraction or selection marks depending on the field type to generate a composite confidence score for the field.
