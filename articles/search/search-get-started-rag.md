@@ -42,9 +42,7 @@ Requests to the search endpoint must be authenticated and authorized. You can us
     1. In the Azure portal, find your Azure AI Search service.
     1. On the left menu, select **Settings** > **Keys**, and then select either **Role-based access control** or **Both**.
     1. On the left menu, select **Access control (IAM)**.
-    1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**
-
-       You only need data reader for this quickstart because this scenario is limited to query operations.
+    1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**, **Search Service Contributor**.
 
 1. Assign yourself to the **Cognitive Services OpenAI User** role on Azure OpenAI. This is the only role you need for query workloads.
 
