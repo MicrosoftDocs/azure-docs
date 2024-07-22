@@ -220,7 +220,7 @@ Containers|[Enable Container insights](containers/container-insights-onboard.md)
 Essentials|[Azure Monitor managed service for Prometheus rule groups](essentials/prometheus-rule-groups.md)|Create or edit Prometheus rule group in the Azure portal (preview)|
 Logs|[Detect and mitigate potential issues using AIOps and machine learning in Azure Monitor](logs/aiops-machine-learning.md)|Microsoft Copilot in Azure now helps you write KQL queries to analyze data and troubleshoot issues based on prompts, such as "Are there any errors in container logs?". |
 Logs|[Best practices for Azure Monitor Logs](./best-practices-logs.md)|More guidance on Azure Monitor Logs features that provide enhanced resilience.|
-Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-archive.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
+Logs|[Data retention and archive in Azure Monitor Logs](logs/data-retention-configure.md)|Azure Monitor Logs extended archiving of data to up to 12 years.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added Basic logs support for Network managers tables.|
 Virtual-Machines|[Enable VM insights in the Azure portal](vm/vminsights-enable-portal.md)|Azure portal no longer supports enabling VM insights using Log Analytics agent.|
 Virtual-Machines|[Azure Monitor SCOM Managed Instance](vm/scom-managed-instance-overview.md)|Azure Monitor SCOM Managed Instance is now generally available.|
@@ -774,7 +774,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |---|---|
-|[Configure data retention and archive in Azure Monitor Logs (preview)](logs/data-retention-archive.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
+|[Configure data retention and archive in Azure Monitor Logs (preview)](logs/data-retention-configure.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
 
 ## July 2022
 ### General

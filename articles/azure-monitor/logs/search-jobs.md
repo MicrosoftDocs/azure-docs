@@ -24,7 +24,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.
 
-Search jobs also let you retrieve records from [long-term retention](data-retention-archive.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analaytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
+Search jobs also let you retrieve records from [long-term retention](data-retention-configure.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analaytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
 
 - [Restoring data from long-term retention](restore.md) for a specific time range. 
 
@@ -35,7 +35,7 @@ Search jobs also let you retrieve records from [long-term retention](data-retent
 
 A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
-The search job results table is an [Analytics table](../logs/basic-logs-configure.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this value after the table is created.
+The search job results table is an [Analytics table](../logs/basic-logs-configure.md) that is available for log queries and other Azure Monitor features that use tables in a workspace. The table uses the [retention value](data-retention-configure.md) set for the workspace, but you can modify this value after the table is created.
 
 The search results table schema is based on the source table schema and the specified query. The following other columns help you track the source records:
 
@@ -309,6 +309,6 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Next steps
 
-- [Learn more about data retention and archiving data.](data-retention-archive.md)
+- [Learn more about data retention and archiving data.](data-retention-configure.md)
 - [Learn about restoring data, which is another method for retrieving data from long-term retention.](restore.md)
 - [Learn about directly querying Basic and Auxiliary tables.](basic-logs-query.md)

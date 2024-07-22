@@ -488,7 +488,7 @@ The destination table schema is defined when you create or update a summary rule
 
 ### Data for removed columns remains in workspace, subject to retention period
 
-When you remove columns in the query, the columns and data remain in the destination table and are subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
+When you remove columns in the query, the columns and data remain in the destination table and are subjected to the [retention period](data-retention-configure.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
 
 ## Related content
 

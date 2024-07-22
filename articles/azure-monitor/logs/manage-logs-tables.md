@@ -210,5 +210,5 @@ Learn how to:
 
 - [Set a table's log data plan](../logs/basic-logs-configure.md)
 - [Add custom tables and columns](../logs/create-custom-table.md)
-- [Configure data retention](../logs/data-retention-archive.md)
+- [Configure data retention](../logs/data-retention-configure.md)
 - [Design a workspace architecture](../logs/workspace-design.md)

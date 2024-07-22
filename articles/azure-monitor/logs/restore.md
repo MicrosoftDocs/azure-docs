@@ -16,7 +16,7 @@ The restore operation makes a specific time range of data in a table available i
 To restore data from long-term retention, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/restoreLogs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
 
 ## When to restore logs
-Use the restore operation to query data in [long-term retention](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
+Use the restore operation to query data in [long-term retention](data-retention-configure.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
 > Restore is one method for accessing data in long-term retention. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
@@ -156,7 +156,7 @@ Here are some examples to illustrate data restore cost calculations:
 
 ## Next steps
 
-- [Learn more about data retention.](data-retention-archive.md)
+- [Learn more about data retention.](data-retention-configure.md)
 
 - [Learn about Search jobs, which is another method for retrieving data from long-term retention.](search-jobs.md)
 

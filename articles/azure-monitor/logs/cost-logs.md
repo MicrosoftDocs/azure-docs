@@ -107,7 +107,7 @@ In addition to data ingestion, there's a charge for the retention of data in eac
 
 [Deleting a custom table](create-custom-table.md#delete-a-table) doesn't remove data associated with that table, so interactive and long-term retention charges continue to apply. 
 
-For more information on data retention, including how to configure these settings and access data in long-term retention, see [Manage data retention in a Log Analytics workspace](data-retention-archive.md).
+For more information on data retention, including how to configure these settings and access data in long-term retention, see [Manage data retention in a Log Analytics workspace](data-retention-configure.md).
 
 >[!NOTE]
 >Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables. 

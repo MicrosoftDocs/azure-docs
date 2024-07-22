@@ -21,7 +21,7 @@ Several other features don't have a direct cost, but you instead pay for the ing
 
 | Type | Description |
 |:---|:---|
-| Logs |Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). Log data ingestion is the largest component of Azure Monitor charges for most customers. There's no charge for querying this data except in the case of [Basic and Auxiliary logs](../azure-monitor/logs/data-platform-logs.md#table-plans) or [data in long-term retention](logs/data-retention-archive.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
+| Logs |Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). Log data ingestion is the largest component of Azure Monitor charges for most customers. There's no charge for querying this data except in the case of [Basic and Auxiliary logs](../azure-monitor/logs/data-platform-logs.md#table-plans) or [data in long-term retention](logs/data-retention-configure.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
 | Platform Logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
@@ -138,7 +138,7 @@ Operation
 (This functionality of reporting the benefits used in the `Operation` table started January 27, 2024.) 
 
 > [!TIP]
-> If you [increase the data retention](logs/data-retention-archive.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  
+> If you [increase the data retention](logs/data-retention-configure.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  
 >
 
 ## Usage and estimated costs

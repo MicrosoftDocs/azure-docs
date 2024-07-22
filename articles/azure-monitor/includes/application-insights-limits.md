@@ -16,7 +16,7 @@ There are some limits on the number of metrics and events per application, that 
 |---|---|---|---|
 | Total data per day | 100 GB | [Contact support.](https://azure.microsoft.com/support/options/) | You can set a cap to reduce data. If you need more data, you can increase the limit in the portal, up to 1,000 GB. For capacities greater than 1,000 GB, send email to AIDataCap@microsoft.com.|
 | Throttling | 32,000 events/second | [Contact support.](https://azure.microsoft.com/support/options/) | The limit is measured over a minute.|
-| Data retention logs | [30 to 730 days](../logs/data-retention-archive.md) | 730 days | This resource is for [Logs](../logs/log-query-overview.md).|
+| Data retention logs | [30 to 730 days](../logs/data-retention-configure.md) | 730 days | This resource is for [Logs](../logs/log-query-overview.md).|
 | Data retention metrics | 90 days | 90 days | This resource is for [Metrics Explorer](../essentials/metrics-charts.md).|
 | [Availability multistep test](/previous-versions/azure/azure-monitor/app/availability-multistep) detailed results retention | 90 days | 90 days | This resource provides detailed results of each step.|
 | Maximum telemetry item size | 64 KB | 64 KB | |
