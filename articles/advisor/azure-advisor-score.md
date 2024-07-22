@@ -12,7 +12,7 @@ This article shows you how to use Azure Advisor score to measure optimization pr
 
 ## Introduction to score
 
-Advisor provides best-practices recommendations for your workloads. These recommendations are personalized and actionable to help you:
+Advisor provides best-practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
 
 * Improve the posture of your workloads and optimize your Azure deployments.
 * Proactively prevent top issues by following best practices.
@@ -80,7 +80,7 @@ The calculation of the Advisor score can be summarized in four steps:
 
 Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md) model. A simple average produces the final Advisor score.
 
-## Frequently Asked Questions (FAQs)
+## Frequently asked questions (FAQs)
 
 Here are answers to common questions about Advisor score.
 
