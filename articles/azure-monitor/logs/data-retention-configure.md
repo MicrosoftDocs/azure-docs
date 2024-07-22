@@ -3,7 +3,7 @@ title: Manage data retention in a Log Analytics workspace
 description: Configure retention settings for a table in a Log Analytics workspace in Azure Monitor.
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 7/01/2024
+ms.date: 7/22/2024
 # Customer intent: As an Azure account administrator, I want to manage data retention for each table in my Log Analytics workspace based on my account's data usage and retention needs.
 ---
 
@@ -150,7 +150,7 @@ Set-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "M
 
 ## Configure table-level retention
 
-By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-interactive-retention-period-of-analytics-tables) and have no long-term retention. You can increase the interactive retention period of Anlytics tables to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
+By default, all tables with the Analytics data plan inherit the [Log Analytics workspace's default interactive retention setting](#configure-the-default-interactive-retention-period-of-analytics-tables) and have no long-term retention. You can increase the interactive retention period of Analytics tables to up to 730 days at an [extra cost](https://azure.microsoft.com/pricing/details/monitor/). 
 
 To add long-term retention to a table with any data plan, set **total retention** to up to 12 years (4,383 days). The Auxiliary table plan is currently in public preview, during which the plan's total retention is fixed at 365 days.
 

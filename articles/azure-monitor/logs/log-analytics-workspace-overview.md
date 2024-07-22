@@ -64,7 +64,7 @@ For example, you might have [diagnostic settings](../essentials/diagnostic-setti
 
 ## Cost
 
-There's no direct cost for creating or maintaining a workspace. You're charged for the data you ingest into the workspace and for data retention, based on the each table's [table plan](data-platform-logs.md#table-plans).
+There's no direct cost for creating or maintaining a workspace. You're charged for the data you ingest into the workspace and for data retention, based on each table's [table plan](data-platform-logs.md#table-plans).
 
 For information on pricing, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). For guidance on how to reduce your costs, see [Azure Monitor best practices - Cost management](../best-practices-cost.md). If you're using your Log Analytics workspace with services other than Azure Monitor, see the documentation for those services for pricing information.
 

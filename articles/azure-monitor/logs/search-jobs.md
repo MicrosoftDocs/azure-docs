@@ -2,7 +2,7 @@
 title: Run search jobs in Azure Monitor
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 ms.topic: conceptual
-ms.date: 05/30/2024
+ms.date: 07/22/2024
 ms.custom: references_regions
 author: guywi-ms
 ms.author: guywild
@@ -24,7 +24,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.
 
-Search jobs also let you retrieve records from [long-term retention](data-retention-configure.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analaytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
+Search jobs also let you retrieve records from [long-term retention](data-retention-configure.md) and [tables with the Basic and Auxiliary plans](data-platform-logs.md#table-plans) into a new Analytics table where you can take advantage of Azure Monitor Log's full analytics capabilities. In this way, running a search job can be an alternative to:
 
 - [Restoring data from long-term retention](restore.md) for a specific time range. 
 

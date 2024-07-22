@@ -5,6 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.service: azure-monitor
+ms.custom: references_regions
 ms.topic: how-to 
 ms.date: 07/21/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to create a custom table with the Auxiliary table plan, so that I can ingest and retain data at a low cost for auditing and compliance.

@@ -69,7 +69,7 @@ This table describes the possible resource health status values for a log search
 |NSP validation failed |The query is failing because of NSP validations issues.| Review your network security perimeter rules to ensure your alert rule is correctly configured.|
 |Active alerts limit exceeded |Alert evaluation failed due to exceeding the limit of fired (non- resolved) alerts per day.     |See [Azure Monitor service limits](../service-limits.md).   |
 |Dimension combinations limit exceeded | Alert evaluation failed due to exceeding the allowed limit of dimension combinations values meeting the threshold.|See [Azure Monitor service limits](../service-limits.md).     |
-|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health the fequency should be 5 minutes or lower. |
+|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health, the frequency should be 5 minutes or lower. |
 
 
 ## Add a new resource health alert
