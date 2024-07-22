@@ -27,11 +27,11 @@ With MaxSurge enabled, new instances are created  in batches using the latest sc
 
 Rolling upgrades with MaxSurge creates new instances with the latest scale set model to replace instances running with the old model. By creating new instances, you can ensure that your scale set capacity doesn't drop below the set instance count during the duration of the upgrade process. 
 
-:::image type="content" source="./media/upgrade-policy/maxsurge-upgrade-1.png" alt-text="Diagram that shows the process of performing a rolling upgrade with MaxSurge.":::
+:::image type="content" source="./media/upgrade-policy/maxsurge-upgrade-2.png" alt-text="Diagram that shows the process of performing a rolling upgrade with MaxSurge.":::
 
 When performing a rolling upgrade without MaxSurge, the instances in the scale set are brought down in place, this ensures the virtual machine names remain the same and existing IP addresses can be reused. However, this type of upgrade reduces the total scale set capacity during the upgrade process and in turn results in less instances available to serve traffic during that upgrade process. 
 
-:::image type="content" source="./media/upgrade-policy/in-place-upgrade-1.png" alt-text="Diagram that shows the process of performing an in place rolling upgrade without MaxSurge.":::
+:::image type="content" source="./media/upgrade-policy/in-place-upgrade-2.png" alt-text="Diagram that shows the process of performing an in place rolling upgrade without MaxSurge.":::
 
 ## Configure rolling upgrades with MaxSurge
 Enabling or disabling MaxSurge can be done at any point in time. This includes during or after scale set provisioning. When using a rolling upgrade policy, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md). It's' suggested to first created your scale set with a manual upgrade policy and update the policy to rolling after successfully confirming the application health is being properly reported. 
