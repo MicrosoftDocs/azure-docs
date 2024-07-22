@@ -32,6 +32,9 @@ One Azure VM can't connect to another Azure VM.
 8. [Try to connect to a VM network share](#step-8-try-to-connect-to-a-vm-network-share)
 9. [Check Inter-VNet connectivity](#step-9-check-inter-vnet-connectivity)
 
+> [!NOTE]  
+> You can also use Test-NetConnection module in PowerShell to diagnose information for a connection.
+> 
 ## Troubleshooting steps
 
 Follow these steps to troubleshoot the problem. After you complete each step, check whether the problem is resolved. 
