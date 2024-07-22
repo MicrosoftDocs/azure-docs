@@ -2,14 +2,14 @@
 title: Upgrade a cluster.
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Steps to upgrade Azure Cosmos DB for MongoDB vCore cluster from a lower version to latest version.
-author: suvishod
+author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
 ms.topic: how-to
-ms.date: 22/07/2024
+ms.date: 07/22/2024
 ---
 
 # Upgrade a cluster in Azure Cosmos DB for MongoDB vCore
