@@ -108,22 +108,6 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. Run the following query to test your index: `hotels near the ocean with beach access and good views`.
 
-   Output should look similar to the following partial example, trimmed here for brevity. The presence of `@search.rerankerScore` and `@search.captions` tells you that the semantic ranker is working.
-
-   ```json
-      "@search.score": 5.600783,
-      "@search.rerankerScore": 2.4191176891326904,
-      "@search.captions": [
-        {
-          "text": "Ocean Air Motel. Budget. pool\r\nair conditioning\r\nbar. Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away..",
-          "highlights": "Ocean Air Motel. Budget.<em> pool\r\nair conditioning\r\nbar. O</em>ceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.."
-        }
-      ],
-      "HotelId": "41",
-      "HotelName": "Ocean Air Motel",
-      "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
-    ```
-
 ## Get service endpoints
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -279,18 +263,6 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
         await chat_thread.get_openai_response(openai_client=openai_client, model=chat_deployment)
     
     print(chat_thread.get_last_message()["content"])
-    ```
-
-    Output might look similar to the following example:
-
-    ```
-    Based on your request, here are a few hotel recommendations with beach access and good views:
-    
-    1. Ocean Air Motel - oceanfront hotel with a private balcony and indoor and outdoor pools
-    2. Marquis Plaza & Suites - offers a view, free Wi-Fi, and a pool
-    3. Pull r Inn Motel - offers a view, a pool, and free Wi-Fi
-    
-    I hope this helps! Let me know if you need any further assistance.
     ```
 
 ## Clean up
