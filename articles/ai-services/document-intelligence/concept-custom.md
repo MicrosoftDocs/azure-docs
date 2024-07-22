@@ -54,7 +54,7 @@ To create a custom extraction model, label a dataset of documents with the value
 > Starting with version 4.0 (2024-02-29-preview) API, custom neural models now support **overlapping fields** and **table, row and cell level confidence**.
 >
 
-The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
 ### Custom template model
 
@@ -131,7 +131,7 @@ The `build custom model` operation adds support for the *template* and *neural* 
 
 * Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
 
-* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies. Neural models currently only support English text.
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but vary in appearance across companies.
 
 This table provides links to the build mode programming language SDK references and code samples on GitHub:
 
@@ -153,7 +153,7 @@ The following table compares custom template and custom neural features:
 |Data extraction | Key-value pairs, tables, selection marks, coordinates, and signatures | Key-value pairs, selection marks, and tables|
 |Overlapping fields | Not supported | Supported |
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
-|Language support | Multiple [language support](concept-custom-template.md#supported-languages-and-locales)  | English, with preview support for Spanish, French, German, Italian, and Dutch [language support](concept-custom-neural.md#supported-languages-and-locales) |
+|Language support | [**Language support custom template**](language-support-custom.md#custom-template)  | [**Language support custom neural**](language-support-custom.md#custom-neural) |
 
 ### Custom classification model
 

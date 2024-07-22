@@ -143,7 +143,7 @@ The previous section shows you how to add a default condition for the autoscale 
     > [!NOTE]
     > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
     > 
-    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
+    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us. Capacity fulfillment is subject to the constraints of the environment and is carried out to our best effort.
 
 ## Run history
 Switch to the **Run history** tab on the **Scale** page to see a chart that plots number of messaging units as observed by the autoscale engine. If the chart is empty, it means either autoscale wasn't configured or configured but disabled, or is in a cool down period.  

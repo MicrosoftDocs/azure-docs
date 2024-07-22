@@ -54,7 +54,7 @@ The `default` option is meant exclusively for AKS weekly releases. You can switc
 
 Planned maintenance windows are specified in Coordinated Universal Time (UTC).
 
-A `default` maintenance window has the following properties:
+A `default` maintenance window has the following legacy properties (no longer recommended):
 
 |Name|Description|Default value|
 |--|--|--|
@@ -63,7 +63,10 @@ A `default` maintenance window has the following properties:
 |`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a particular day in a `default` configuration.|Not applicable|
 |`notAllowedTime`|A range of dates that maintenance can't run, determined by `start` and `end` child properties. This property is applicable only when you're creating the maintenance window by using a configuration file.|Not applicable|
 
-An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window has the following properties:
+> [!NOTE] 
+> From the 2023-05-01 API version onwards, please use the below properties for `default` configuration.
+
+An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window and `default` configuration from 2023-05-01 API version onwards has the following properties:
 
 |Name|Description|Default value|
 |--|--|--|
@@ -412,7 +415,7 @@ az aks maintenanceconfiguration delete --resource-group myResourceGroup --cluste
 
 * I configured a maintenance window, but the upgrade didn't happen. Why?
 
-  AKS auto-upgrade needs a certain amount of time to take the maintenance window into consideration. We recommend at least 24 hours between the creation or update of a maintenance configuration and the scheduled start time.
+  AKS auto-upgrade needs a certain amount of time, usually not more than 15 minutes, to take the maintenance window into consideration. We recommend at least 15 minutes between the creation or update of a maintenance configuration and the scheduled start time.
 
   Also, ensure that your cluster is started when the planned maintenance window starts. If the cluster is stopped, its control plane is deallocated and no operations can be performed.
 
