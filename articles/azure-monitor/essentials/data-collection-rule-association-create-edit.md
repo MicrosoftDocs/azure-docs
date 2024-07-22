@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 
 ## Automatic creation
-There are several scenarios where DCRAs are automatically created for you when you create and configure a DCR. In these cases 
+There are several scenarios where DCRAs are automatically created for you when you create and configure a DCR. In these cases, you don't need to understand the details of DCRAs, and can just think of the resource as being associated with the DCR.
 
 | Scenario | Description |
 |:---|:---|
@@ -46,9 +46,220 @@ This opens a list of DCRs that can be associated with the current resource. This
 Click **Review & Associate** to create the association.
 
 
-## CLI
+### [CLI](#tab/cli)
+
+
+
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+ new-azdatacollectionruleassociation -TargetResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm -DataCollectionRuleId /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr -AssociationName my-vm-my-dcr
+```
+
+
+### [ARM](#tab/arm)
+
+#### DCR Association -Azure VM
+The following sample creates an association between an Azure virtual machine and a data collection rule.
+
+**Bicep template file**
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this virtual machine.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+**ARM template file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.Compute/virtualMachines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this virtual machine.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-azure-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
+### DCR Association -Arc-enabled server
+The following sample creates an association between an Azure Arc-enabled server and a data collection rule.
+
+**Bicep template file**
+
+```bicep
+@description('The name of the virtual machine.')
+param vmName string
+
+@description('The name of the association.')
+param associationName string
+
+@description('The resource ID of the data collection rule.')
+param dataCollectionRuleId string
+
+resource vm 'Microsoft.HybridCompute/machines@2021-11-01' existing = {
+  name: vmName
+}
+
+resource association 'Microsoft.Insights/dataCollectionRuleAssociations@2021-09-01-preview' = {
+  name: associationName
+  scope: vm
+  properties: {
+    description: 'Association of data collection rule. Deleting this association will break the data collection for this Arc server.'
+    dataCollectionRuleId: dataCollectionRuleId
+  }
+}
+```
+
+**ARM template file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the virtual machine."
+      }
+    },
+    "associationName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the association."
+      }
+    },
+    "dataCollectionRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "The resource ID of the data collection rule."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Insights/dataCollectionRuleAssociations",
+      "apiVersion": "2021-09-01-preview",
+      "scope": "[format('Microsoft.HybridCompute/machines/{0}', parameters('vmName'))]",
+      "name": "[parameters('associationName')]",
+      "properties": {
+        "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",
+        "dataCollectionRuleId": "[parameters('dataCollectionRuleId')]"
+      }
+    }
+  ]
+}
+```
+
+**Parameter file**
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "my-hybrid-vm"
+    },
+    "associationName": {
+      "value": "my-windows-vm-my-dcr"
+    },
+    "dataCollectionRuleId": {
+      "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
+    }
+   }
+}
+```
 
 ## Azure policy
+Using Azure Policy, you can quickly associate a DCR with multiple resources and have them automatically associated with any new resources that are created. There are multiple built-in policies and policy initiatives that you can use to manage DCRAs. For more information, see [Use Azure Policy to install and manage the Azure Monitor agent](../agents/azure-monitor-agent-policy.md).
+
+To apply a definition, you create an assignment with a particular scope. The definition is applied to all resources of the particular type within that scope. For example, you can apply a policy to all virtual machines in a subscription or a resource group. The definitions that manage DCR associations take the resource ID as a parameter, so you specify this ID when you create the assignment. 
+
+Azure Monitor provides a simplified experience in the portal to quickly create an assignment for a DCR scoped to a particular resource group. From the **Monitor** menu in the Azure portal, select **Data Collection Rules**, and then click on the DCR you want to associate with resources. Select **Policies (Preview)**. 
+
+:::image type="content" source="media/data-collection-rule-association-create-edit/policies-page.png" alt-text="Screenshot of policies page for a data collection rule." lightbox="media/data-collection-rule-association-create-edit/policies-page.png":::
+
+Click either **Assign Policy** or **Assign Initiative** depending on the type of definition you want to assign. This opens up the policy assignment blade where you can specify the scope and other parameters.
+
+:::image type="content" source="media/data-collection-rule-association-create-edit/assign-policy-page.png" alt-text="Screenshot of policies page for a data collection rule." lightbox="media/data-collection-rule-association-create-edit/assign-policy-page.png":::
+
+| Setting | Description |
+|:---|:---|
+| Subscription | The subscription with the resource group to use as the scope. |
+| Resource group | The resource group to use as the scope. The DCR will be assigned to all resource in this resource group, depending on the resource group managed by the definition. |
+| Policy/Initiative definition | The definition to assign. The dropdown will include all definitions in the subscription that accept DCR as a parameter. |
+| Assignment Name | A name for the assignment. Must be unique in the subscription. |
+| Description | Optional description of the assignment. |
+| Policy Enforcement | The policy is only actually applied if enforcement is enabled. If disabled, only assessments for the policy are performed. |
 
 
 ## Next steps

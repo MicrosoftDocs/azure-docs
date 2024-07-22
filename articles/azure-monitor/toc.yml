@@ -621,20 +621,18 @@ items:
         href: essentials/data-collection-rule-best-practices.md
       - name: View DCRs
         href: essentials/data-collection-rule-view.md
-      - name: Create and edit DCRs
-        items:
-        - name: Create
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-create-edit.md
-        - name: Edit tutorial
-          displayName: data collection rules
-          href: essentials/data-collection-rule-edit.md
-        - name: Create associations
-          displayName: DCR, DCRA
-          href: essentials/data-collection-rule-association-create-edit.md
-        - name: Structure
-          displayName: Data collection rules
-          href: essentials/data-collection-rule-structure.md
+      - name: Create and edit DCR
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-create-edit.md
+      - name: Edit DCR tutorial
+        displayName: data collection rules
+        href: essentials/data-collection-rule-edit.md
+      - name: View and create associations
+        displayName: DCR, DCRA
+        href: essentials/data-collection-rule-association-create-edit.md
+      - name: DCR structure
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         items:
         - name: Overview
