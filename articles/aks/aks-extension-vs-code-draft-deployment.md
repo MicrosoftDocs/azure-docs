@@ -8,14 +8,16 @@ ms.author: qpetraroia
 ms.service: azure-kubernetes-service
 ---
 
-# Use Automated Deployments to create a Kubernetes deployment in the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
+# Create a Kubernetes deployment using Automated Deployments in the Azure Kubernetes Service (AKS) extension for Visual Studio Code
 
-The Azure Kubernetes Service (AKS) extension for Visual Studio Code offers a streamlined and efficient way to generate Kubernetes deployments for your applications. A Kubernetes Deployment is essential for managing containerized applications because it automates the process of scaling, updating, and maintaining the application's desired state.
+In this article, you learn how to create a Kubernetes deployment using Automated Deployments in the Azure Kubernetes Service (AKS) extension for Visual Studio Code. Automated Deployments provides an easy way to automate the process of scaling, updating, and maintaining your applications.
 
-## Before you begin
+## Prerequisites
 
-* Have an active folder with code open in Visual Studio Code.
-* Have downloaded the Azure Kubernetes Service (AKS) extension for Visual Studio Code.
+Before you begin, make sure you have the following resources:
+
+* An active folder with code open in Visual Studio Code.
+* The Azure Kubernetes Service (AKS) extension for Visual Studio Code downloaded. For more information, see [Install the Azure Kubernetes Service (AKS) extension for Visual Studio Code][install-aks-vscode].
 
 ## Create a Kubernetes deployment with the Azure Kubernetes Service (AKS) extension
 
