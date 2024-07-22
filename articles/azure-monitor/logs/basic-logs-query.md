@@ -100,6 +100,6 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Next steps
 
-- [Learn more about the Basic Logs and Analytics log plans](basic-logs-configure.md).
+- [Learn more about the Basic Logs and Analytics log plans](logs-table-plans.md).
 - [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
 
