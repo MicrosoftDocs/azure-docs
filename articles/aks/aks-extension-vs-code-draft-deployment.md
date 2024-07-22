@@ -19,24 +19,43 @@ Before you begin, make sure you have the following resources:
 * An active folder with code open in Visual Studio Code.
 * The Azure Kubernetes Service (AKS) extension for Visual Studio Code downloaded. For more information, see [Install the Azure Kubernetes Service (AKS) extension for Visual Studio Code][install-aks-vscode].
 
-## Create a Kubernetes deployment with the Azure Kubernetes Service (AKS) extension
+## Create a Kubernetes deployment using the Azure Kubernetes Service (AKS) extension
 
-To use the command pallete to create a Kubernetes deployment, press "crtl + shift + p" on your keyboard to open the command pallete. Then type "Automated Deployments: Create a Deployment". Once the screen pops up, the following information must be filled out.
+You can access the screen to create a Kubernetes deployment using the command palette or the explorer view.
 
-To use the explorer view, right click on the explorer pane where your active folder is open and select "Create a Deployment".
+### [Command palette](#tab/command-palette)
 
-Both methods will bring you to a screen where the following information must be filled out.
+1. On your keyboard, press `Ctrl+Shift+P` to open the command palette.
+2. In the search bar, search for and select **Automated Deployments: Create a Deployment**.
+3. Enter the following information:
 
-* **Subscription**: Choose your Azure subscription.
-* **Location**: Choose a location where you would like to save your Kubernetes deployment files.
-* **Deployment options**: Choose between `Kubernetes manifests`, `Helm`, or `Kustmoize` for your deployment options.
-* **Target port**: The port in which your applications listens to in your deployment. This port usually matches what is exposted in your Dockerfile.
-* **Service port**: The port in which the service will listen to for incoming traffic.
-* **Namespace**: Namespace in which your application will be deployed into.
+    * **Subscription**: Select your Azure subscription.
+    * **Location**: Select a location where you want to save your Kubernetes deployment files.
+    * **Deployment options**: Select `Kubernetes manifests`, `Helm`, or `Kustomize`.
+    * **Target port**: Select the port in which your applications listen to in your deployment. This port usually matches what is exposed in your Dockerfile.
+    * **Service port**: Select the port in which the service listens to for incoming traffic.
+    * **Namespace**: Select the namespace in which your application will be deployed into.
 
-Once all information is filled out, press create. Your deployment files will now be created in your app folder.
+4. Select **Create**.
 
-For more information, see [AKS extension for Visual Studio Code features](https://code.visualstudio.com/docs/azure/aksextensions#_features).
+
+### [Explorer view](#tab/explorer-view)
+
+1. Right click on the explorer pane where your active folder is open and select **Create a Deployment**.
+2. Enter the following information:
+
+    * **Subscription**: Select your Azure subscription.
+    * **Location**: Select a location where you want to save your Kubernetes deployment files.
+    * **Deployment options**: Select `Kubernetes manifests`, `Helm`, or `Kustomize`.
+    * **Target port**: Select the port in which your applications listen to in your deployment. This port usually matches what is exposed in your Dockerfile.
+    * **Service port**: Select the port in which the service listens to for incoming traffic.
+    * **Namespace**: Select the namespace in which your application will be deployed into.
+
+3. Select **Create**.
+
+---
+
+For more information, see [AKS extension for Visual Studio Code features][aks-vscode-features].
 
 ## Product support/feedback
 
