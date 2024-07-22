@@ -141,7 +141,7 @@ In these steps, you create a routing rule for the Azure Firewall subnet in regio
 For this example, the remote regions address prefixes will be summarized. Summarizing address prefixes offers the benefit of not needing to change the routing rules for the FW subnet even if new spokes are added to each region. However, it's important to pre-define the address prefixes used in each region, including for future use. 
 
 1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 1 - **rc-azfw-<region1>**.
-2. 4. In the **Edit a rule collection** window, select **+ Add**.
+2. In the **Edit a rule collection** window, select **+ Add**.
 3. In the **Add a routing rule** window, enter or select the following information:
 
     | **Field** | **Value** |
@@ -151,9 +151,20 @@ For this example, the remote regions address prefixes will be summarized. Summar
     | **Destination IP addresses/CIDR ranges** | Enter the summarized address prefix for the remote region - region 2. In this example, **10.1.0.0/16** is used.| 
     | **Next hop type** | Select **Virtual appliance**.</br> Select **Import Azure firewall private IP address**. Select the remote Azure Firewall in region 2. |
 
-
 4. Select **Add** to add the routing rule to the rule collection.
-5. Select the **X** to close the **Edit a rule collection** window.
+5. select **+ Add** to add a default Internet rule.
+In the **Add a routing rule** window, enter or select the following information:
+
+    | **Field** | **Value** |
+    |------|-------|
+    | **Name** | Enter a name for the routing rule for. |
+    | **Destination type** | Select **IP Address**. |
+    | **Destination IP addresses/CIDR ranges** | Enter the default route of **0.0.0.0/0**.| 
+    | **Next hop type** | Select **Internet**. |
+
+
+6. Select **Add** to add the routing rule to the rule collection.
+7. Select the **X** to close the **Edit a rule collection** window.
 
 > [!NOTE]
 > A summarized prefix allows you to use a larger address range for the destination IP addresses. This is useful when you have multiple spoke virtual networks in each region and you want to avoid adding multiple routing rules for each spoke virtual network. Also, future changes to the spoke virtual networks in each region will not require changes to the routing rules for the Azure Firewall subnet.
@@ -173,8 +184,19 @@ In this step, you create a routing rule for the spoke virtual networks in region
     | **Destination IP addresses/CIDR ranges** | Enter the default route of **0.0.0.0/0**.|
     | **Next hop type** | Select **Virtual appliance**.</br> Select **Import Azure firewall private IP address**. Select the Azure Firewall in region 2. |
 
-4. Select **Add** to add the routing rule to the rule collection.
-5. Select the **X** to close the **Edit a rule collection** window.
+5. select **+ Add** to add a default Internet rule.
+In the **Add a routing rule** window, enter or select the following information:
+
+    | **Field** | **Value** |
+    |------|-------|
+    | **Name** | Enter a name for the routing rule for. |
+    | **Destination type** | Select **IP Address**. |
+    | **Destination IP addresses/CIDR ranges** | Enter the default route of **0.0.0.0/0**.| 
+    | **Next hop type** | Select **Internet**. |
+
+
+6. Select **Add** to add the routing rule to the rule collection.
+7. Select the **X** to close the **Edit a rule collection** window.
 
 ### Create a routing rule for Azure Firewall in region 2
 
@@ -193,6 +215,9 @@ In these steps, you create a routing rule for the Azure Firewall subnet in regio
 
 4. Select **Add** to add the routing rule to the rule collection.
 5. Select the **X** to close the **Edit a rule collection** window.
+6. From the **Rule collections** window, select **Rules** under **Settings**, and review the listing of all rules in the routing configuration.
+   
+   :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/review-rules-in-configuration-thumb.png" alt-text="Screenshot of rules window listing all rules and rule collections in routing configuration." lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/review-rules-in-configuration.png":::
 
 ## Deploy the routing configuration
 
@@ -203,6 +228,12 @@ In this step, you deploy the routing configuration to apply the routing rules to
 3. In the **Deploy a configuration** window, select all regions where you want to deploy the routing configuration.
 4. Select **Next** and **Deploy** to deploy the routing configuration.
 
+## Confirm routing configuration
+
+In this step, you confirm the routing configuration by testing network connectivity between the spoke virtual networks in each region.
+
+    :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration." lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet.png":::
+    
 ## Adding spoke virtual network to the existing Multi Hub-Spoke topologies
 
 ## Next steps
