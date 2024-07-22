@@ -66,7 +66,7 @@ Lastly, ensure proper notifications are set up to notify appropriate people when
 
 Define and document *recovery time objective (RTO)* and *recovery point objective (RPO)* for your solution. RTO is how soon the service will be available to users, and RPO is how much data loss would occur in the event of a failover.
 
-Each of the Azure services publishes a set of guidelines and metrics on the expected high availability (HA) of the service. Ensure these HA metrics align with your business expectations. when they don't align, customizations may be necessary to meet your HA requirements. For example, Azure Synapse dedicated SQL pool supports an eight-hour RPO with automatic restore points. If that RPO isn't sufficient, you can set up user-defined restore points with an appropriate frequency to meet your RPO needs. For more information, see [Backup and restore in Azure Synapse dedicated SQL pool](../sql-data-warehouse/backup-and-restore.md).
+Each of the Azure services publishes a set of guidelines and metrics on the expected high availability (HA) of the service. Ensure these HA metrics align with your business expectations. When they don't align, customizations may be necessary to meet your HA requirements. For example, Azure Synapse dedicated SQL pool supports an eight-hour RPO with automatic restore points. If that RPO isn't sufficient, you can set up user-defined restore points with an appropriate frequency to meet your RPO needs. For more information, see [Backup and restore in Azure Synapse dedicated SQL pool](../sql-data-warehouse/backup-and-restore.md).
 
 ### Disaster recovery
 
