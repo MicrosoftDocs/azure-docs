@@ -53,7 +53,7 @@ The following capabilities have updated timelines and plans, thus the support f
 
 - **File Integrity Monitoring (FIM):** Public preview release for FIM new version over MDE is planned for __August 2024__. The GA version of FIM powered by Log Analytics agent will continue to be supported for existing customers until the end of __November 2024__.
 
-- **Security Baseline:** as an alternative to the version based on MMA, the current preview version based on Guest Configuration will be released to general availability in __September 2024.__ OS Security Baselines powered by Log Analytics agent will continue to be supported for existing customers until end of **November 2024.**
+- **Security Baseline:** as an alternative to the version based on MMA, the current preview version based on Guest Configuration will be released to general availability in __September 2024.__ OS Security Baselines powered by Log Analytics agent will continue to be supported for existing customers until the end of **November 2024.**
 
 For more information, see [Prepare for retirement of the Log Analytics agent](prepare-deprecation-log-analytics-mma-agent.md).
 
