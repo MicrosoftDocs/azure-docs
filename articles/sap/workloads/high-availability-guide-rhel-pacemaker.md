@@ -56,7 +56,7 @@ There are two options available for configuring the pacemaker cluster for RHEL w
 
 You can configure the SBD device by using either of two options:
 
-* SBD with iSCSI target server(s)
+* SBD with iSCSI target server
 
   The SBD device requires at least one additional virtual machine (VM) that acts as an Internet Small Compute System Interface (iSCSI) target server and provides an SBD device. These iSCSI target servers can, however, be shared with other pacemaker clusters. The advantage of using an SBD device is that if you're already using SBD devices on-premises, they don't require any changes to how you operate the pacemaker cluster.
 
@@ -69,7 +69,7 @@ You can configure the SBD device by using either of two options:
   >
   > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
-* SBD with Azure shared disk(s)
+* SBD with Azure shared disk
 
   To configure an SBD device, you need to attach at least one Azure shared disk to all virtual machines that are part of pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don't need to deploy and configure additional virtual machines.
 
@@ -86,13 +86,13 @@ You can configure the SBD device by using either of two options:
   * A ZRS for managed disk is currently available in the regions listed in [regional availability](../../virtual-machines/disks-redundancy.md#regional-availability) document.
   * The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-portal#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
   * For HANA scale-out with HANA system replication (HSR) and pacemaker, you can use an Azure shared disk for SBD devices in clusters with up to five nodes per replication site because of the current limit of [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes).
-  * We do not recommend attaching an Azure shared disk SBD device across pacemaker clusters.
+  * We don't recommend attaching an Azure shared disk SBD device across pacemaker clusters.
   * If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
   * For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../virtual-machines/disks-shared.md#limitations).
 
 ### Use an Azure fence agent
 
-You can set up fencing by using an Azure fence agent. Azure fence agent requires managed identities for the cluster VMs or a service principal or managed system identity (MSI) that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
+You can set up fencing by using an Azure fence agent. Azure fence agent requires managed identities for the cluster VMs or a service principal or managed system identity (MSI) that manages to restart failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
 
 ## SBD with an iSCSI target server
 
@@ -102,9 +102,9 @@ To use an SBD device that uses an iSCSI target server for fencing, follow the in
 
 You first need to create the iSCSI target virtual machines. You can share iSCSI target servers with multiple pacemaker clusters.
 
-1. Deploy virtual machines that runs on supported RHEL OS version, and connect to them via SSH. The VMs don't have to be of large size. VM sizes such as Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
+1. Deploy virtual machines that run on supported RHEL OS version, and connect to them via SSH. The VMs don't have to be of large size. VM sizes such as Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
 
-2. It is not necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, be aware that the support life cycle varies between different OS product releases.
+2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, be aware that the support life cycle varies between different OS product releases.
 
 3. Run following commands on all iSCSI target virtual machines.
 
@@ -139,12 +139,12 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
 ### Create an iSCSI device on the iSCSI target server
 
-To create the iSCSI disks for your SAP system clusters, execute following commands on every iSCSI target virtual machines. The example illustrates the creation of SBD Devices for several clusters, demonstrating the use of a single iSCSI target server for multiple clusters. The SBD device is configured on the OS disk, so ensure there is enough space.
+To create the iSCSI disks for your SAP system clusters, execute following commands on every iSCSI target virtual machine. The example illustrates the creation of SBD Devices for several clusters, demonstrating the use of a single iSCSI target server for multiple clusters. The SBD device is configured on the OS disk, so ensure there's enough space.
 
 * ascsnw1: Represents the ASCS/ERS cluster of NW1.
 * dbhn1: Represents the database cluster of HN1.
-* sap-cl1 and sap-cl2: These are the hostnames of the NW1 ASCS/ERS cluster nodes.
-* hn1-db-0 and hn1-db-1: These are the hostnames of the database cluster nodes.
+* sap-cl1 and sap-cl2: Hostnames of the NW1 ASCS/ERS cluster nodes.
+* hn1-db-0 and hn1-db-1: Hostnames of the database cluster nodes.
 
 In the following instructions, modify the command with your specific hostnames and SIDs as needed.
 
@@ -229,7 +229,7 @@ In the following instructions, modify the command with your specific hostnames a
 **[1]**: Applies only to node 1.
 **[2]**: Applies only to node 2.
 
-On the cluster nodes, connect and discover iSCSI device that you have created in the earlier section. Run the following commands on the nodes of the new cluster that you want to create.
+On the cluster nodes, connect and discover iSCSI device that was created in the earlier section. Run the following commands on the nodes of the new cluster that you want to create.
 
 1. **[A]** Install or update iSCSI initiator utils on all cluster nodes.
 
@@ -255,7 +255,7 @@ On the cluster nodes, connect and discover iSCSI device that you have created in
    sudo vi /etc/iscsi/initiatorname.iscsi
    
    # Change the content of the file to match the access control ists (ACLs) you used when you created the iSCSI device on the iSCSI target server (for example, for the ASCS/ERS servers)
-   i
+   InitiatorName=iqn.2006-04.sap-cl1.local:sap-cl1
    ```
 
 5. **[2]** Change the initiator name on the second node of the cluster.
@@ -282,7 +282,7 @@ On the cluster nodes, connect and discover iSCSI device that you have created in
    sudo iscsiadm -m node -p 10.0.0.17:3260 -T iqn.2006-04.ascsnw1.local:ascsnw1 --op=update --name=node.startup --value=automatic
    ```
 
-8. **[A]** If you want to use multiple SBD devices, also connect to the second iSCSI target server.
+8. **[A]** If you using multiple SBD devices, also connect to the second iSCSI target server.
 
    ```bash
    sudo iscsiadm -m discovery --type=st --portal=10.0.0.18:3260
@@ -290,7 +290,7 @@ On the cluster nodes, connect and discover iSCSI device that you have created in
    sudo iscsiadm -m node -p 10.0.0.18:3260 -T iqn.2006-04.ascsnw1.local:ascsnw1 --op=update --name=node.startup --value=automatic
    ```
 
-9. **[A]** If you want to use multiple SBD devices, also connect to the third iSCSI target server. 
+9. **[A]** If you using multiple SBD devices, also connect to the third iSCSI target server.
 
    ```bash
    sudo iscsiadm -m discovery --type=st --portal=10.0.0.19:3260
@@ -392,7 +392,7 @@ On the cluster nodes, connect and discover iSCSI device that you have created in
     systemctl restart systemd-modules-load
     ```
 
-16. **[A]** The SBD service timeout value is set to 90s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+16. **[A]** The SBD service timeout value is set to 90 s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
 
     ```bash
     sudo mkdir /etc/systemd/system/sbd.service.d
@@ -542,7 +542,7 @@ foreach ($vmName in $vmNames) {
    systemctl restart systemd-modules-load
    ```
 
-9. **[A]** The SBD service timeout value is set to 90s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+9. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
@@ -559,24 +559,27 @@ foreach ($vmName in $vmNames) {
 
 ## Create a fencing device
 
-The fencing device uses either a managed identity for Azure resource or a service principal to authorize against Azure.
+The fencing device uses either a managed identity for Azure resource or a service principal to authorize against Azure. Depending on the identity management method, follow the appropriate procedures -
 
-### [Managed identity](#tab/msi)
+### Configure identity management
 
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, it's used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+Use managed identity or service principal.
 
-### [Service principal](#tab/spn)
+#### [Managed identity](#tab/msi)
+
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+
+#### [Service principal](#tab/spn)
 
 Follow these steps to create a service principal, if you aren't using managed identity.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 1. Open the **Microsoft Entra ID** pane.
-   Go to **Properties** and make a note of the **Directory ID**. This is the **tenant ID**.
+1. Go to **Properties** and make a note of the **Directory ID**. This is the **tenant ID**.
 1. Select **App registrations**.
 1. Select **New Registration**.
 1. Enter a **Name** and select **Accounts in this organization directory only**.
-1. Select **Application Type** as **Web**, enter a sign-on URL (for example, http:\//localhost), and select **Add**.
-   The sign-on URL isn't used and can be any valid URL.
+1. Select **Application Type** as **Web**, enter a sign-on URL (for example, http:\//localhost), and select **Add**. The sign-on URL isn't used and can be any valid URL.
 1. Select **Certificates and Secrets**, and then select **New client secret**.
 1. Enter a description for a new key, select **Two years**, and select **Add**.
 1. Make a note of the **Value**. It's used as the **password** for the service principal.
@@ -584,7 +587,7 @@ Follow these steps to create a service principal, if you aren't using managed id
 
 ---
 
-### **[1]** Create a custom role for the fence agent
+#### Create a custom role for the fence agent
 
 Both the managed identity and the service principal don't have permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all VMs of the cluster. If you haven't already created the custom role, you can create it by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
@@ -609,7 +612,7 @@ Use the following content for the input file. You need to adapt the content to y
 }
 ```
 
-### **[A]** Assign the custom role
+#### Assign the custom role
 
 Use managed identity or service principal.
 
@@ -676,7 +679,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    ```
 
    > [!IMPORTANT]
-   > If you need to update the Azure fence agent, and if you're using a custom role, make sure to update the custom role to include the action **powerOff**. For more information, see [Create a custom role for the fence agent](#1-create-a-custom-role-for-the-fence-agent).  
+   > If you need to update the Azure fence agent, and if you're using a custom role, make sure to update the custom role to include the action **powerOff**. For more information, see [Create a custom role for the fence agent](#create-a-custom-role-for-the-fence-agent).  
 
 4. **[A]** Set up hostname resolution.
 
@@ -785,9 +788,9 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
 10. **[1]** Allow concurrent fence actions.
 
-   ```bash
-   sudo pcs property set concurrent-fencing=true
-   ```
+    ```bash
+    sudo pcs property set concurrent-fencing=true
+    ```
 
 ### Create a fencing device on the Pacemaker cluster
 
@@ -797,6 +800,8 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
+Based on the selected fencing mechanism, follow to the relevant instructions: [SBD as fencing device](#sbd-as-fencing-device) or [Azure fence agent as fencing device](#azure-fence-agent-as-fencing-device).
+
 #### SBD as fencing device
 
 1. **[A]** Enable SBD service
@@ -805,7 +810,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    sudo systemctl enable sbd
    ```
 
-2. **[1]** For the SBD device configured using iSCSI targer servers or Azure shared disk, run the following commands.
+2. **[1]** For the SBD device configured using iSCSI target servers or Azure shared disk, run the following commands.
 
    ```bash
    sudo pcs property set stonith-timeout=144
@@ -829,8 +834,8 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    > [!NOTE]
    > If you encounter following error while starting the pacemaker cluster, you can disregard the message. Alternatively, you can start the cluster using the command `pcs cluster start --all --request-timeout 140`.
    >
-   > `Error: unable to start all nodes`
-   > `node1/node2: Unable to connect to node1/node2, check if pcsd is running there or try setting higher timeout with --request-timeout option (Operation timed out after 60000 milliseconds with 0 bytes received)`
+   > Error: unable to start all nodes
+   > node1/node2: Unable to connect to node1/node2, check if pcsd is running there or try setting higher timeout with `--request-timeout` option (Operation timed out after 60000 milliseconds with 0 bytes received)
 
 #### Azure fence agent as fencing device
 
@@ -841,7 +846,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    sudo pcs property set stonith-enabled=true
    ```
 
-2. **[1]** Run the appropriate command depending on whether you are using a managed identity or a service principal for the Azure fence agent.
+2. **[1]** Run the appropriate command depending on whether you're using a managed identity or a service principal for the Azure fence agent.
 
    > [!NOTE]
    > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**.
@@ -905,7 +910,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    op monitor interval=3600
    ```
 
----
+   ---
 
 If you're using a fencing device based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters by using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -1069,7 +1074,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
     ```
 
-1. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` from failing with a timeout for some `kexec-tools` versions. For more information, see [fence_kdump times out when fence_kdump_nodes is not specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two-node cluster is presented here. After you make a change in `/etc/kdump.conf`, the kdump image must be regenerated. To regenerate, restart the `kdump` service.  
+1. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` from failing with a timeout for some `kexec-tools` versions. For more information, see [fence_kdump times out when fence_kdump_nodes isn't specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two-node cluster is presented here. After you make a change in `/etc/kdump.conf`, the kdump image must be regenerated. To regenerate, restart the `kdump` service.  
 
     ```bash
     vi /etc/kdump.conf
