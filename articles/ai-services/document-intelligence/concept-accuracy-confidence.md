@@ -18,14 +18,15 @@ ms.author: lajanuar
 
 > [!NOTE]
 >
-> * **Custom neural models** do not provide accuracy scores during training.
+> * **Custom neural and generative models** do not provide accuracy scores during training.
 > * Confidence scores for tables, table rows and table cells are available starting with the **2024-02-29-preview** API version for **custom models**.
+
 
 Custom template models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
 ## Accuracy scores
 
-The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. Accuracy is measured within a percentage value range from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also require human review. 
+The output of a `build` (v3.0 and onward) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. Accuracy is measured within a percentage value range from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also add a human review stage to validate for more critical automation workflows. 
 
 **Document Intelligence Studio** </br>
 **Trained custom model (invoice)**
@@ -33,11 +34,6 @@ The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes
 :::image type="content" source="media/accuracy-confidence/accuracy-studio-results.png" alt-text="Trained custom model accuracy scores":::
 
 ## Confidence scores
-
-> [!NOTE]
->
-> * **Table, row and cell confidence scores are now included with the 2024-02-29-preview API version**.
-> * Confidence scores for table cells from custom models is added to the API starting with the 2024-02-29-preview API.
 
 Document Intelligence analysis results return an estimated confidence for predicted words, key-value pairs, selection marks, regions, and signatures. Currently, not all document fields return a confidence score.
 
@@ -60,7 +56,7 @@ After an analysis operation, review the JSON output. Examine the `confidence` va
 
 * Use forms that have different values in each field.
 
-* For custom models, use a larger set of training documents. Tagging more documents teaches your model to recognize fields with greater accuracy.
+* For custom models, use a larger set of training documents. This teaches your model to recognize fields with greater accuracy.
 
 ## Interpret accuracy and confidence scores for custom models
 
@@ -82,7 +78,7 @@ The following table demonstrates how to interpret both the accuracy and confiden
 
 ## Table, row, and cell confidence
 
-With the addition of table, row and cell confidence with the ```2024-02-29-preview``` API, here are some common questions that should help with interpreting the table, row, and cell scores:
+With the addition of table, row and cell confidence with the ```2024-02-29-preview``` API and onward, here are some common questions that should help with interpreting the table, row, and cell scores:
 
 **Q:** Is it possible to see a high confidence score for cells, but a low confidence score for the row?<br>
 
@@ -123,7 +119,7 @@ Variances in the visual structure of your documents affect the accuracy of your 
 
 * Add at least five samples of each type to the training dataset if you expect the model to analyze both types of PDF documents.
 
-* Separate visually distinct document types to train different models.
+* For custom template and neural models, separate visually distinct document types to train different models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
   * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](how-to-guides/compose-custom-models.md?view=doc-intel-2.1.0&preserve-view=true#create-a-composed-model) the different variations into a single model.
 
