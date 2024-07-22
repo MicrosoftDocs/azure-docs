@@ -27,7 +27,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
 **Hive**
 - Advanced features
   - LLAP workload management
-  - LLAP Support JDBC, Druid and Kafka connectors
+  - LLAP Support JDBC, Druid, and Kafka connectors
   - Better SQL features – Constraints and default values
   - Surrogate Keys
   - Information schema.
@@ -102,7 +102,7 @@ You can verify the output from Microsoft Azure portal.
 :::image type="content" source="./media/hdinsight-migrate-to-40/hive-verify-output.png" alt-text="Screenshot showing compute utilization graph.":::
 
 Hive drops the metadata and corresponding data in any partition created after the retention period. You express the retention time using a numeral and the following character or characters.
-Hive drops the metadata and corresponding data in any partition created after the retention period. You express the retention time using a numeral and the following  character(s).
+Hive drops the metadata and corresponding data in any partition created after the retention period. You express the retention time using a numeral and the following  characters.
 
 ```
 ms (milliseconds)
@@ -189,7 +189,7 @@ More information, see [Hive - Materialized Views - Microsoft Tech Community](htt
 
 Use the built-in `SURROGATE_KEY` user-defined function (UDF) to automatically generate numerical Ids for rows as you enter data into a table. The generated surrogate keys can replace wide, multiple composite keys.
 
-Hive supports the surrogate keys on ACID tables only. The table you want to join using surrogate keys can't have column types that need casting. These data types must be primitives, such as INT or `STRING`.
+Hive supports the surrogate keys on ACID tables only. The table you want to join using surrogate keys can't have column types that need to cast. These data types must be primitives, such as INT or `STRING`.
 
 Joins using the generated keys are faster than joins using strings. Using generated keys doesn't force data into a single node by a row number. You can generate keys as abstractions of natural keys. Surrogate keys have an advantage over UUIDs, which are slower and probabilistic.
 
