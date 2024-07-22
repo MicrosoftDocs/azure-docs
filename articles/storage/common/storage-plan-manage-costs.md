@@ -15,7 +15,7 @@ ms.custom: subject-cost-optimization
 
 This article helps you plan and manage costs for Azure Blob Storage. 
 
-Start by understanding the billing meters and where to find the prices of those meters. Then, you can estimate your cost by using the Azure pricing calculator. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
+First, become familiar with each billing meter and how to find the price of each meter. Then, you can estimate your cost by using the Azure pricing calculator. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
 Keep in mind that costs for Blob Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -25,7 +25,7 @@ Azure Blob Storage runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Azure Blob Storage
 
-When you create or use Blob Storage resources, you'll be charged for the following meters:
+When you create or use Blob Storage resources, you're charged for the following meters:
 
 | Meter | Unit |
 |---|---|
@@ -70,26 +70,19 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 
 Each request made by a client arrives to the service in the form of a REST operation. You can monitor your resource logs to see which operations are executing against your data. 
 
-The pricing pages don't list a price for each individual operation but instead lists the price of an operation type. To determine the price of an operation, you must first determine how that operation is classified by it's type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
+The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of it's type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
-The price that appears beside an operation type is not the price you pay for each individual operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price listed for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. 
+The price that appears beside an operation type is not the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
-To model the cost of various types of operations, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
+#### Data transfer meter
 
-#### Data transfer and data retrieval meters
-
-Any data that is copied to another region, incurs data transfer fees and network egress charges. To learn more about network egress charges, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/). This charge applies no matter how data is copied. For example, you might use AzCopy for a one-off copy operation, configure an object replication policy, or write data to a Data to a geo-redundant or geo-zone-redundant storage account. The data retrieval meter applies only to data read from cool, cold, and archive tiers. 
-
-For examples of how data transfer, egress, and data retrieval are calculated, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
+Any data that is copied to another region, incurs data transfer and network bandwidth charges. The price of network bandwidth does not appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/). These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Feature-related meters
 
-There is no cost to enable Blob Storage features. You are billed for the storage space occupied by the output of a feature and the operations required to interact with that feature. For example, if you enable versioning. Your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. 
+There is no cost to enable Blob Storage features. You're billed for the storage space that is occupied by the output of a feature and the operations executed as a result of using the feature. For example, if you enable versioning, your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. Some features have added meters. For a complete list, see the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
 
-Some features have added meters. For a complete list, se the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
-
-> [!TIP]
-> Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
+You can prorate time-based meters if you use those features for less than a month. For example, Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
 ## Find the unit price for each meter
 
