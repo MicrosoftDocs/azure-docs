@@ -41,7 +41,7 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 * To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Azure Logic Apps](quickstart-create-logic-apps-with-visual-studio.md).
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receiver"></a>
 

@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 11/27/2023
+ms.date: 07/19/2024
 ms.author: anfdocs
 ---
 
