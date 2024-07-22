@@ -138,8 +138,11 @@ The current requirements/limitations for enabling availability zones are:
     - East US 2
     - France Central
     - Germany West Central
+    - Israel Central
+    - Italy North
     - Japan East
     - Korea Central
+    - Mexico Central
     - North Europe
     - Norway East
     - Poland Central
@@ -147,6 +150,7 @@ The current requirements/limitations for enabling availability zones are:
     - South Africa North
     - South Central US
     - Southeast Asia
+    - Spain Central
     - Sweden Central
     - Switzerland North
     - UAE North
