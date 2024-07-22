@@ -192,7 +192,7 @@ From Advisor, you can edit, delete, or disable and enable your recommendations a
 
 1. To edit an alert, select the alert name to open the alert and edit the fields you want to edit.
 
-1. To delete, enable, or disable an alert, select the ellipse at the end of the row. Then select the action you want to take.
+1. To delete, enable, or disable an alert, select the ellipsis at the end of the row. Then select the action you want to take.
 
 ## Related content
 
