@@ -101,15 +101,13 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: High
 
-### [(Preview) Azure DevOps projects should have creation of classic pipelines disabled]
-(https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
+### [(Preview) Azure DevOps projects should have creation of classic pipelines disabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
 
 **Description**: Disabling the creation of classic build and release pipelines prevents a security concern that stems from YAML and classic pipelines sharing the same resources, for example the same service connections. Potential attackers can leverage classic pipelines to create processes that evade typical defense mechanisms set up around modern YAML pipelines.
 
 **Severity**: High
 
-### [(Preview) Azure DevOps organizations should limit the number of project collection administrators]
-(https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
+### [(Preview) Azure DevOps organizations should limit the number of project collection administrators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
 
 **Description**: Project Collection Administrators (PCAs) in Azure DevOps have extensive permissions, including the ability to manage and modify all projects within the collection, access all resources, and configure organizational policies. Limiting the number of Project Collection Administrators to no more than six enhances security by reducing the attack surface, adhering to the principle of least privilege, improving monitoring and accountability, simplifying security management, minimizing the risk of privilege escalation, and ensuring consistent application of security policies. Each additional person in the administrator role increases the attack surface for the entire organization, especially if an administrator's account is compromised.
 
@@ -233,7 +231,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [(Preview) GitHub repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/20be7df7-9ebb-4fb4-95a9-3ae19b78b80a)
 
-**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Github repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in GitHub repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
 
 **Severity**: High
 
