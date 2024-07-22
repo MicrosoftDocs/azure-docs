@@ -11,7 +11,7 @@ ms.date: 7/01/2024
 
 A Log Analytics workspace retains data in two states: 
 
-* **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics, based on the [table plan](../logs/logs-table-plans.md).
+* **Interactive retention**: In this state, data is available for monitoring, troubleshooting, and near-real-time analytics.
 * **Long-term retention**: In this low-cost state, data isn't available for table plan features, but can be accessed through [search jobs](../logs/search-jobs.md). 
 
 This article explains how Log Analytics workspaces retain data and how to manage the data retention of tables in your workspace.
@@ -351,7 +351,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 
 ## Pricing model
 
-The charge for adding interactive retention and long-term retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` isn't subject to ingestion charges. 
+The charge for adding interactive retention and long-term retention is calculated based on the volume of data you retain, in GB, and the number or days for which you retain the data. Log data that has `_IsBillable == false` isn't subject to ingestion or retention charges. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
