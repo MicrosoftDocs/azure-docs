@@ -265,6 +265,21 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     print(chat_thread.get_last_message()["content"])
     ```
 
+Output is from Azure OpenAI, and it consists of recommendations for several hotels. Here's an example of what the output might look like:
+
+```
+Based on your criteria, we recommend the following hotels:
+
+- Contoso Ocean Motel: located right on the beach and has private balconies with ocean views. They also have indoor and outdoor pools. It's located on the boardwalk near shops and art entertainment.
+- Northwind Plaza & Suites: offers ocean views, free Wi-Fi, full kitchen, and a free breakfast buffet. Although not directly on the beach, this hotel has great views and is near the aquarium. They also have a pool.
+
+Several other hotels have views and water features, but do not offer beach access or views of the ocean.
+```
+
+To experiment further, change the query and rerun the last step to better understand how the model works with your data.
+
+You can also modify the prompt to change the tone or structure of the output.
+
 ## Clean up
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
