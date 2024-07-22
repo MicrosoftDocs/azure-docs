@@ -204,7 +204,7 @@ To create a deployment:
 
 ---
 
-To learn about billing for Meta Llama models deployed as a serverless API, see [Cost and quota considerations for Meta Llama models deployed as a serverless API](#cost-and-quota-considerations-for-meta-llama-3.1-models-deployed-as-a-serverless-api).
+To learn about billing for Meta Llama models deployed as a serverless API, see [Cost and quota considerations for Meta Llama models deployed as a serverless API](#cost-and-quota-considerations-for-meta-llama-31-models-deployed-as-a-serverless-api).
 
 ### Consume Meta Llama models as a service
 
@@ -220,7 +220,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Llama-3-8B`, use the [`<target_url>/v1/completions`](#completions-api) API.
     - For chat models, such as `Meta-Llama-3.1-405B-Instruct`, use the [`/chat/completions`](#chat-api) API.
 
-   For more information on using the APIs, see the [reference](#reference-for-meta-llama-3.1-models-deployed-a-serverless-api) section.
+   For more information on using the APIs, see the [reference](#reference-for-meta-llama-31-models-deployed-a-serverless-api) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -232,7 +232,7 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/completions`.
     - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions`.
 
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-3.1-models-deployed-a-serverless-api) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-31-models-deployed-a-serverless-api) section.
 
 ---
 
