@@ -31,6 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 | Date    | Category        | Update                                                       |
 | ------- | --------------- | ------------------------------------------------------------ |
+| July 18 | Upcoming update | [Updated timelines toward MMA deprecation in Defender for Servers Plan 2](#updated-timelines-toward-mma-deprecation-in-defender-for-servers-plan-2) |
 | July 18 | Upcoming update | [Deprecation of MMA-related features as part of agent retirement](#deprecation-of-mma-related-features-as-part-of-agent-retirement) |
 | July 15 | Preview         | [Binary Drift Public Preview in Defender for Containers](#binary-drift-public-preview-now-available-in-defender-for-containers) |
 | July 14 | GA              | [Automated remediation scripts for AWS and GCP are now GA](#automated-remediation-scripts-for-aws-and-gcp-are-now-ga) |
@@ -38,6 +39,23 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 | July 10 | GA              | [Compliance standards are now GA](#compliance-standards-are-now-ga) |
 | July 9  | Upcoming update | [Inventory experience improvement](#inventory-experience-improvement) |
 | July 8  | Upcoming update | [Container mapping tool to run by default in GitHub](#container-mapping-tool-to-run-by-default-in-github) |
+
+### Updated timelines toward MMA deprecation in Defender for Servers Plan 2
+
+July 18, 2024
+
+**Estimated date for change**: August 2024
+
+
+With the [upcoming deprecation of Log Analytics agent in August](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), all security value for server protection in Defender for Cloud will rely on integration with Microsoft Defender for Endpoint (MDE) as a single agent and on agentless capabilities provided by the cloud platform and agentless machine scanning.
+
+The following capabilities have updated timelines and plans, thus the support for them over MMA will be extended for Defender for Cloud customers to the end of November 2024:
+
+- **File Integrity Monitoring (FIM):** Public preview release for FIM new version over MDE is planned for __August 2024__. The GA version of FIM powered by Log Analytics agent will continue to be supported for existing customers until the end of __November 2024__.
+
+- **Security Baseline:** as an alternative to the version based on MMA, the current preview version based on Guest Configuration will be released to general availability in __September 2024.__ OS Security Baselines powered by Log Analytics agent will continue to be supported for existing customers until the end of **November 2024.**
+
+For more information, see [Prepare for retirement of the Log Analytics agent](prepare-deprecation-log-analytics-mma-agent.md).
 
 ### Deprecation of MMA-related features as part of agent retirement
 
