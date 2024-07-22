@@ -18,7 +18,7 @@ ms.date: 07/26/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sometimes you have to convert content into token form or break down a large document into smaller pieces before you can use this content with some actions. For example, actions such as **Azure AI Search** or **Azure OpenAI** expect tokenized input and can handle only a limited number of tokens, which are words or chunks of characters.
+Sometimes you have to convert content into token form or break down a large document into smaller pieces before you can use this content with some actions. For example, the such as **Azure AI Search** or **Azure OpenAI** expect tokenized input and can handle only a limited number of tokens, which are words or chunks of characters.
 
 For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively convert content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
 
@@ -84,13 +84,14 @@ If you use other content sources, such as Azure Blob Storage, SharePoint, OneDri
 
 | Name | Value | Data type | Description | Limit |
 |------|-------|-----------|-------------|-------|
-| **Document Content** | <*content-to-parse*> | Any | The content to parse. || 
+| **Document Content** | <*content-to-parse*> | Any | The content to parse. | None |
 
 #### Outputs
 
 | Name | Data type | Description |
 |------|-----------|-------------|
-| **Parsed result text** | String ||
+| **Parsed result text** | String array | An array of strings. |
+| **Parsed result** | Object | An object that contains the entire parsed text. |
 
 ## Chunk text
 
@@ -144,23 +145,23 @@ Now, when you add other actions that expect and use tokenized input, such as the
 
 | Name | Value | Data type | Description | Limit |
 |------|-------|-----------|-------------|-------|
-| **Chunking Strategy** | **FixedLength** or **TokenSize** | String | **FixedLength**: Split the content, based on the number of characters <br><br>**TokenSize**: Split the content, based on the number of tokens. <br><br>Default: **FixedLength** ||
-| **Text** | <*content-to-chunk*> | Any | The content to chunk. ||
+| **Chunking Strategy** | **FixedLength** or **TokenSize** | String enum | **FixedLength**: Split the content, based on the number of characters <br><br>**TokenSize**: Split the content, based on the number of tokens. <br><br>Default: **FixedLength** ||
+| **Text** | <*content-to-chunk*> | Any | The content to chunk. | See [Limits and configuration reference guide](logic-apps-limits-and-config.md#character-limits) |
 
 For **Chunking Strategy** set to **FixedLength**:
 
 | Name | Value | Data type | Description | Limit |
 |------|-------|-----------|-------------|-------|
-| **MaxPageLength** | <*max-char-per-chunk*> | Integer | The maximum number of characters per content chunk. <br><br>Default: **5000** ||
-| **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. ||
+| **MaxPageLength** | <*max-char-per-chunk*> | Integer | The maximum number of characters per content chunk. <br><br>Default: **5000** | Minimum: **1** |
+| **PageOverlapLength** | <*number-of-overlapping-characters*> | Integer | The number of characters from the end of the previous chunk to include in the next chunk. This setting helps you avoid losing important information when splitting content into chunks and preserves continuity and context across chunks. <br><br>Default: **0** - No overlapping characters exist. | Minimum: **0** |
 | **Language** | <*language*> | String | The [language](/azure/ai-services/language-service/language-detection/language-support) to use for the resulting chunks. <br><br>Default: **en-us** | Not applicable |
 
 For **Chunking Strategy** set to **TokenSize**:
 
 | Name | Value | Data type | Description | Limit |
 |------|-------|-----------|-------------|-------|
-| **TokenSize** | <*max-tokens-per-chunk*> | Integer | The maximum number of tokens per content chunk. <br><br>Default: None | |
-| **Encoding model** | <*encoding-method*> | String | The encoding method to use. <br><br>Default: None | Not applicable |
+| **TokenSize** | <*max-tokens-per-chunk*> | Integer | The maximum number of tokens per content chunk. <br><br>Default: None | - Minimum: 1 <br><br>- Maximum: 8000 |
+| **Encoding model** | <*encoding-method*> | String enum | The [encoding method]() to use: **cl100k_base**, **cl200k_base**, **p50k_base**, **p50k_edit**, **r50k_base** <br><br>Default: None | Not applicable |
 
 > [!TIP]
 >
@@ -173,7 +174,11 @@ For **Chunking Strategy** set to **TokenSize**:
 
 #### Outputs
 
-
+| Name | Data type | Description |
+|------|-----------|-------------|
+| **Chunked result Text items** | String array | An array of strings. |
+| **Chunked result Text items Item** | String | A single string in the array. |
+| **Chunked result** | Object | An object that contains the entire chunked text. |
 
 ## Example workflow 
 
