@@ -44,9 +44,12 @@ Read the following SAP Notes and articles first:
 > [!IMPORTANT]
 > In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
 
-There are two options available for configuring the pacemaker cluster for RHEL with an SBD device. However, it's important to note that the fencing mechanism with SBD is supported on RHEL 8.8 and higher, RHEL 9.0 and higher.
+There are two options available for configuring the pacemaker cluster for RHEL with an SBD device.
 
 ### Use an SBD device
+
+> [!NOTE]
+> The fencing mechanism with SBD is supported on RHEL 8.8 and higher, as well as RHEL 9.0 and higher.
 
 You can configure the SBD device by using either of two options:
 
