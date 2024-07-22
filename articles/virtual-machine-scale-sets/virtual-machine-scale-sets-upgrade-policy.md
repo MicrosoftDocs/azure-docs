@@ -1,5 +1,5 @@
 ---
-title: Upgrade policies for Virtual Machine Scale Sets (Preview)
+title: Upgrade policies for Virtual Machine Scale Sets (preview)
 description: Learn about the different upgrade policies available for Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
@@ -39,7 +39,7 @@ If your scale set is part of a Service Fabric cluster, *Automatic* mode is the o
 
 With a manual upgrade policy, you choose when to update the scale set instances. Nothing happens automatically to the existing virtual machines when changes occur to the scale set model. New instances added to the scale set use the most update-to-date model available. 
 
-:::image type="content" source="./media/upgrade-policy/manual-upgrade.png" alt-text="Diagram that shows a high level diagram of what happens when using an manual upgrade policy.":::
+:::image type="content" source="./media/upgrade-policy/manual-upgrade.png" alt-text="Diagram that shows a high level diagram of what happens when using a manual upgrade policy.":::
 
 Manual upgrade policy is best suited for workloads where you require more control over when and how instances are updated.  
 
