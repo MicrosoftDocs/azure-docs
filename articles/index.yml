@@ -278,13 +278,6 @@ productDirectory:
         - analytics
       url: synapse-analytics/index.yml
     # Card
-    - title: Data Catalog
-      summary: Get more value from your enterprise data assets
-      imageSrc: ./media/index/data-catalog.svg
-      azureCategories:
-        - analytics
-      url: data-catalog/index.yml
-    # Card
     - title: Microsoft Purview
       summary: Maximize business value with unified data governance
       imageSrc: ./media/index/purview.svg
