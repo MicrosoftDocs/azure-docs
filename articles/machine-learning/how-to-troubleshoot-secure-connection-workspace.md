@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 01/24/2024
 ---
 

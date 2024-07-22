@@ -88,7 +88,7 @@ Installation includes:
 
 - Enabling remote access and updating the default administrator password
 - Configuring iLO port on network port 1
-- Configuring BIOS and RAID1 settings
+- Configuring BIOS settings
 - Installing Defender for IoT software
 
 > [!NOTE]
@@ -136,12 +136,6 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
-
-1. Select **Embedded RAID 1: HPE Smart Array E208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
-
-1. Select **Proceed to Next Form**.
-
-1. In the **Set RAID Level** form, set the level to **RAID 1**.
 
 1. Select **Proceed to Next Form**.
 

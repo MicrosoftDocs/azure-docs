@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Arc resource bridge issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge when trying to deploy or connect to the service.
 ms.date: 11/03/2023
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Arc resource bridge issues
@@ -61,6 +61,16 @@ This error indicates that the deployment machine is unable to contact the contro
 When deploying Arc resource bridge, you may receive the error: `{ _errorCode_: _UploadError_, _errorResponse_: _{\n\_message\_: \_Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_403 Forbidden` or `{ _errorCode_: _UploadError_, _errorResponse_: _{\n\_message\_: \_Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_404 Site Not Found`
 
 This error occurs in the deployment process when images need to be downloaded from Microsoft registries to the deployment machine and the download is being blocked by a proxy or firewall. Review the [network requirements](network-requirements.md#general-network-requirements) and verify that all required URLs are reachable. You may need to update your no proxy settings to ensure that traffic from your deployment machine to Microsoft required URLs are not going through a proxy.
+
+### SSH folder access denied
+
+The CLI requires permission to access the SSH folder during deployment or operations that involve accessing files within the folder. This folder contains essential files such as the kubeconfig and logs key for the appliance VM. For instance, the CLI needs to access the logs key stored in the SSH folder to collect logs from the appliance VM.
+
+If you encounter an error stating: `Access to the file in the SSH folder was denied. This may occur if the CLI doesn't have permission to the SSH folder or if another CLI instance is using the file`, there are two common causes for this issue:
+
+1. Insufficient permissions: The CLI lacks the necessary permissions to access the SSH folder. Ensure that the user account running the CLI has appropriate permissions to access the SSH folder.
+
+1. Concurrent file access: Another instance of the CLI might be using the file in the SSH folder. This often happens on workstations with shared profiles. Ensure that any other CLI instance completes or terminates its operation before you proceed. 
 
 ### Arc resource bridge is offline
 

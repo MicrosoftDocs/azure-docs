@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 05/25/2022
 ms.custom: kr2b-contr-experiment
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 # Tutorial: Explore and Analyze data lakes with serverless SQL pool

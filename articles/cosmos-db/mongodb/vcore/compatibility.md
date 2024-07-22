@@ -162,7 +162,7 @@ Azure Cosmos DB for MongoDB vCore supports the following database commands:
 <tr><td><code>netstat</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>ping</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>profile</code></td><td colspan="3">As a PaaS service, this will be managed by Azure.</td></tr>
-<tr><td><code>serverStatus</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>serverStatus</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>shardConnPoolStats</code></td><td colspan="3">Deprecated in MongoDB 5.0</td></tr>
 <tr><td><code>top</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
 <tr><td><code>validate</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
@@ -286,16 +286,16 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 <tr><td><code>$isArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$lastN</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$map</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>$maxN</code></td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
-<tr><td><code>$minN</code></td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
+<tr><td><code>$maxN</code></td><td></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>$minN</code></td><td></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$objectToArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$range</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$reduce</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$reverseArray</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$size</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$slice</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
-<tr><td><code>$sortArray</code></td><td></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
-<tr><td><code>$zip</code></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td><td><img src="media/compatibility/no-icon.svg" alt="No"></td></tr>
+<tr><td><code>$sortArray</code></td><td></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>$zip</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 
 <tr><td rowspan="4">Bitwise Operators</td><td><code>$bitAnd</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 <tr><td><code>$bitNot</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
