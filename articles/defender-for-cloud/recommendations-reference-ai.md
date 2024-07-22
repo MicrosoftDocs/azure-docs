@@ -33,9 +33,20 @@ This recommendation replaces the old recommendation *Cognitive Services accounts
 
 **Description**: By restricting network access, you can ensure that only allowed networks can access the service. This can be achieved by configuring network rules so that only applications from allowed networks can access the Azure AI service resource.
 
-This recommendation replaces the old recommendation *Cognitive Services accounts should restrict network access*. It was formerly in category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
+This recommendation replaces the old recommendation *Cognitive Services accounts should restrict network access*. It was formerly in category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources.
+
 **Severity**: Medium
 
+
+### [(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/18bf29b3-a844-e170-2826-4e95d0ba4dc9/showSecurityCenterCommandBar~/false)
+
+**Description**: Using customer-managed keys to encrypt data at rest provides more control over the key lifecycle, including rotation and management. This is particularly relevant for organizations with related compliance requirements.
+
+This is not assessed by default and should only be applied when required by compliance or restrictive policy requirements. If not enabled, the data will be encrypted using platform-managed keys. To implement this, update the 'Effect' parameter in the Security Policy for the applicable scope. (Related policy: [Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/ai-services/openai/how-to/use-your-data-securely))
+
+This recommendation replaces the old recommendation *Cognitive services accounts should enable data encryption using customer keys*. It was formerly in category Data recommendations, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
+
+**Severity**: Low
 
 ### Resource logs in Azure Machine Learning Workspaces should be enabled (Preview)
 
