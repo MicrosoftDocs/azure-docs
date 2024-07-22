@@ -110,20 +110,21 @@ ms.author: mattmcinnes
 
 
 ### Dlsv5 and Dldsv5-series
-#### Dlsv5-series
+#### [Dlsv5-series](#tab/dlsv5)
 [!INCLUDE [dlsv5-series-summary](./includes/dlsv5-series-summary.md)]
 
 [View the full Dlsv5-series page](./dlsv5-series.md).
 
 [!INCLUDE [dlsv5-series-specs](./includes/dlsv5-series-specs.md)]
 
-#### Dldsv5-series
+#### [Dldsv5-series](#tab/dldsv5)
 [!INCLUDE [dldsv5-series-summary](./includes/dldsv5-series-summary.md)]
 
 [View the full Dldsv5-series page](./dldsv5-series.md).
 
 [!INCLUDE [dldsv5-series-specs](./includes/dldsv5-series-specs.md)]
 
+---
 ### Dv4 and Dsv4-series
 [!INCLUDE [dv4-dsv4-series-summary](./includes/dv4-dsv4-series-summary.md)]
 

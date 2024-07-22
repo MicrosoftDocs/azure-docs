@@ -240,8 +240,10 @@
           href: dpsv5-dpdsv5-series.md
         - name: Dplsv5 and Dpldsv5 series
           href: dplsv5-dpldsv5-series.md
-        - name: Dlsv5 and Dldsv5 series
-          href: dlsv5-dldsv5-series.md
+        - name: Dlsv5 series
+          href: ./sizes/general-purpose/dlsv5-series.md
+        - name: Dldsv5 series
+          href: ./sizes/general-purpose/dldsv5-series.md
         - name: Dv4 and Dsv4 series
           href: dv4-dsv4-series.md
         - name: Dav4 and Dasv4 series
