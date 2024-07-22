@@ -288,7 +288,7 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
 
 > [!NOTE]
-> If a feature flag written with `Microsoft Feature Management schema` can be found in the configuration, any feature flag written with `.NET feature management schema` will be ignored.
+> If there is a feature flag declaration that can be found in both the Microsoft and .NET Feature Management schemas, the one from the Microsoft schema will be adopted.
 
 :::zone-end
 
@@ -961,20 +961,27 @@ An example web application that uses the targeting feature filter is available i
 
 To begin using the `TargetingFilter` in an application, it must be added to the application's service collection just as any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor`.
 
-The implementation type used for the `ITargetingContextAccessor` service must be implemented by the application that is using the targeting filter. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `HttpContextTargetingContextAccessor`.
+`Microsoft.FeatureManagement.AspNetCore` provides the a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` which will extract targeting info from `HttpContext.User`. You can use the default targeting context accesorr and `TargetingFilter` by calling `WithTargeting` on the `IFeatureManagementBuilder`.
+
+The default targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting` on the `IFeatureManagementBuilder`.
+
+``` C#
+services.AddFeatureManagement()
+        .WithTargeting();
+```
+
+You can also register customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
 
 ``` C#
 services.AddFeatureManagement()
         .WithTargeting<HttpContextTargetingContextAccessor>();
 ```
 
-The targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting<T>` on the `IFeatureManagementBuilder`.
-
 #### ITargetingContextAccessor
 
-To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, information such as what user is currently being evaluated is needed. This information is known as the targeting context. Different web applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
+To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, contextual information such as what user is currently being evaluated is needed. This information is known as the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs). Different applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
 
-An example that extracts targeting context information from the application's HTTP context is included in the [FeatureFlagDemo](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/FeatureFlagDemo/HttpContextTargetingContextAccessor.cs) example project. This method relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
+An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type `Role`. This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
 
 ### Targeting in a Console Application
 
