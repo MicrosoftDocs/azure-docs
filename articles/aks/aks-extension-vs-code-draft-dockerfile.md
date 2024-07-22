@@ -19,23 +19,40 @@ Before you begin, make sure you have the following resources:
 * An active folder with code open in Visual Studio Code.
 * The Azure Kubernetes Service (AKS) extension for Visual Studio Code downloaded. For more information, see [Install the Azure Kubernetes Service (AKS) extension for Visual Studio Code][install-aks-vscode].
 
-## Create a Dockerfile with the Azure Kubernetes Service (AKS) extension
+## Create a Dockerfile using the Azure Kubernetes Service (AKS) extension
 
-To use the command pallete to create a Dockerfile, press "crtl + shift + p" on your keyboard to open the command pallete. Then type "Automated Deployments: Create a Dockerfile". Once the screen pops up, the following information must be filled out.
+You can access the screen to create a Dockerfile using the command palette or the explorer view.
 
-To use the explorer view, right click on the explorer pane where your active folder is open and select "Create a Dockerfile".
+### [Command palette](#tab/command-palette)
 
-Both methods will bring you to a screen where the following information must be filled out.
+1. On your keyboard, press `Ctrl+Shift+P` to open the command palette.
+2. In the search bar, search for and select **Automated Deployments: Create a Dockerfile**.
+3. Enter the following information:
 
-* **Location**: Choose a location where you would like to save your Dockerfile.
-* **Programming language**: Select the programming language your app is written in.
-* **Programming language version**: Select the programming language version.
-* **Application Port**: Select the port.
-* **Cluster**: Choose the port on which your application listens for incoming network connections.
+    * **Location**: Select a location where you want to save your Dockerfile.
+    * **Programming language**: Select the programming language your app is written in.
+    * **Programming language version**: Select the programming language version.
+    * **Application Port**: Select the port.
+    * **Cluster**: Select the port in which your application listens to for incoming network connections.
 
-Once all information is filled out, press create. Your dockerfile will now be created in your app folder.
+4. Select **Create**.
 
-For more information, see [AKS extension for Visual Studio Code features](https://code.visualstudio.com/docs/azure/aksextensions#_features).
+### [Explorer view](#tab/explorer-view)
+
+1. Right click on the explorer pane where your active folder is open and select **Create a Dockerfile**.
+2. Enter the following information:
+
+    * **Location**: Select a location where you want to save your Dockerfile.
+    * **Programming language**: Select the programming language your app is written in.
+    * **Programming language version**: Select the programming language version.
+    * **Application Port**: Select the port.
+    * **Cluster**: Select the port in which your application listens to for incoming network connections.
+
+3. Select **Create**.
+
+---
+
+For more information, see [AKS extension for Visual Studio Code features][aks-vscode-features].
 
 ## Product support and feedback
 		
