@@ -107,12 +107,6 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: High
 
-### [(Preview) Azure DevOps organizations should limit the number of project collection administrators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
-
-**Description**: Project Collection Administrators (PCAs) in Azure DevOps have extensive permissions, including the ability to manage and modify all projects within the collection, access all resources, and configure organizational policies. Limiting the number of Project Collection Administrators to no more than six enhances security by reducing the attack surface, adhering to the principle of least privilege, improving monitoring and accountability, simplifying security management, minimizing the risk of privilege escalation, and ensuring consistent application of security policies. Each additional person in the administrator role increases the attack surface for the entire organization, especially if an administrator's account is compromised.
-
-**Severity**: High
-
 ## GitHub recommendations
 
 ### [GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
