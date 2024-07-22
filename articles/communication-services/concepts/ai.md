@@ -25,7 +25,7 @@ Typical communication scenarios integrating these capabilities:
 - Transforming audio speech content into text transcriptions
 - Transforming a video feed to blur the user's background
 - Operating a chat or voice bot that responds to human conversation
-- Transforming a corpus of text chat and meeting transcriptions into summaries. This may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
+- Transforming a corpus of text chat and meeting transcriptions into summaries. This experience may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
 
 ## Messaging: SMS, Chat, Email, WhatsApp
 
@@ -44,8 +44,8 @@ The patterns for integrating AI into the voice and video system are summarized b
 |  | Accessor | Transformer | Bot ||
 |--|--|--|--|--|
 | [Call Automation REST APIs and SDKs](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The `recognize` APIs integrate Azure Bot Services to transform users’ audio content into text for easier processing by your service. The most common scenario for these APIs is implementing voice bots, sometimes called interactive voice response (IVR).  |
-| [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communciation Services telephony. This integration is designed for voice bots and IVR.  |
-| [Azure Portal Co-pilot](https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communciation Services telephony. This integration is designed for voice bots and IVR.  |
+| [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR.  |
+| [Azure Portal Copilot](https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR.  |
 | [Client Raw Audio and Video](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/media-access)  | ✅ | |  | The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, detecting the human speaker and their background, and customizing that background. |
 | [Client Background effects](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-video-effects?pivots=platform-web)| | ✅ |  | The Calling client SDKs provides APIs for blurring or replacing a user’s background. |
 | [Client Captions](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/closed-captions) | | ✅ |  | The Calling client SDK provides APIs for real-time closed captions. These internally integrate Azure Cognitive Services to transform audio content from the call into text in real-time. |
