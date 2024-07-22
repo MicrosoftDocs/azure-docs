@@ -17,7 +17,7 @@ ms.date: 07/19/2024
 > [!IMPORTANT]
 > The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. This wizard chunks your content and calls a user-specified embedding model to vectorize content during indexing and for queries.
+This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
 
 Key points about the wizard:
 
@@ -42,13 +42,13 @@ Key points about the wizard:
 
   Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
-+ An embedding model on a supported platform. [Deployment instructions](#set-up-embedding-models) are provided in this article.
++ An embedding model on an Azure AI platform. [Deployment instructions](#set-up-embedding-models) are in this article.
 
   | Provider | Supported models |
   |---|---|
   | [Azure OpenAI Service](https://aka.ms/oai/access) | text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small. |
   | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) |  Azure, Cohere, and Facebook embedding models. |
-  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions: East US, West US, West US2, North Europe, West Europe, France Central, Sweden Central, Switzerland North, Southeast Asia, Korea Central, Australia East, or Japan East. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
+  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. **To use this resource, the account must be in an available region and in the same region as Azure AI Search**. |
 
 ### Public endpoint requirements
 
@@ -88,7 +88,7 @@ The wizard supports semantic ranking, but only on the Basic tier and higher, and
 
 This section points you to data that works for this quickstart.
 
-### [Azure Storage](#tab/sample-data-storage)
+### [Azure Blob storage](#tab/sample-data-storage)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Storage account.
 
@@ -96,7 +96,7 @@ This section points you to data that works for this quickstart.
 
 1. Create a new container and then upload the [health-plan PDF documents](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/health-plan) used for this quickstart.
 
-1. On **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role on the container to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
+1. On the left pane, under **Access control**, assign the [Storage Blob Data Reader](search-howto-managed-identities-data-sources.md#assign-a-role) role to the search service identity. Or, get a connection string to the storage account from the **Access keys** page.
 
 ### [OneLake](#tab/sample-data-onelake)
 
@@ -133,15 +133,11 @@ This section points you to data that works for this quickstart.
 
 ## Set up embedding models
 
-Integrated vectorization and the **Import and vectorize data** wizard tap into deployed embedding models during indexing to convert text and images into vectors.
-
-You can use embedding models deployed in Azure OpenAI, in Azure AI Vision for multimodal embeddings, or in the model catalog in Azure AI Studio.
+The wizard can use embedding models deployed from Azure OpenAI, Azure AI Vision, or from the model catalog in Azure AI Studio.
 
 ### [Azure OpenAI](#tab/model-aoai)
 
-**Import and vectorize data** supports `text-embedding-ada-002`, `text-embedding-3-large`, and `text-embedding-3-small`. Internally, the wizard uses the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) to connect to Azure OpenAI.
-
-Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information available before you run the wizard.
+The wizard supports text-embedding-ada-002, text-embedding-3-large, and text-embedding-3-small. Internally, the wizard calls the [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) to connect to Azure OpenAI.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure OpenAI resource.
 
@@ -167,7 +163,7 @@ Use these instructions to assign permissions or get an API key for search servic
 
 ### [Azure AI Vision](#tab/model-ai-vision)
 
-**Import and vectorize data** supports Azure AI Vision image retrieval through multimodal embeddings (version 4.0). Internally, the wizard uses the [multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md) to connect to Azure AI Vision.
+The wizard supports Azure AI Vision image retrieval through multimodal embeddings (version 4.0). Internally, the wizard calls the [multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md) to connect to Azure AI Vision.
 
 1. [Create an Azure AI Vision service in a supported region](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp#prerequisites).
 
@@ -182,11 +178,9 @@ After you finish these steps, you should be able to select the Azure AI Vision v
 
 ### [Azure AI Studio model catalog](#tab/model-catalog)
 
-**Import and vectorize data** supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support the OpenAI CLIP model. Internally, the wizard uses the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
+The wizard supports Azure, Cohere, and Facebook embedding models in the Azure AI Studio model catalog, but it doesn't currently support the OpenAI CLIP model. Internally, the wizard calls the [AML skill](cognitive-search-aml-skill.md) to connect to the catalog.
 
-Use these instructions to assign permissions or get an API key for search service connection to Azure OpenAI. You should set up permissions or have connection information available before you run the wizard.
-
-1. For the model catalog, you should have an [Azure OpenAI resource](/azure/ai-services/openai/how-to/create-resource), a [hub in Azure AI Studio](/azure/ai-studio/how-to/create-projects), and a [project](/azure/ai-studio/how-to/create-projects). Hubs and projects that have the same name can share connection information and permissions.
+1. For the model catalog, you should have an [Azure OpenAI resource](/azure/ai-services/openai/how-to/create-resource), a [hub in Azure AI Studio](/azure/ai-studio/how-to/create-projects), and a [project](/azure/ai-studio/how-to/create-projects). Hubs and projects having the same name can share connection information and permissions.
 
 1. Deploy a supported embedding model to the model catalog in your project.
 
@@ -206,17 +200,26 @@ Use these instructions to assign permissions or get an API key for search servic
 
 The next step is to connect to a data source to use for the search index.
 
-### [Azure Storage](#tab/connect-data-storage)
+### [Azure Blob storage](#tab/connect-data-storage)
 
-1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **Azure Blob Storage**.
+1. On the **Set up your data connection** page, select **Azure Blob Storage**.
 
 1. Specify the Azure subscription.
 
 1. Choose the storage account and container that provide the data.
 
-1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md).
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md) support. On subsequent indexing runs, the search index is updated to remove any search documents based on soft-deleted blobs on Azure Storage.
+
+   + You're prompted to choose either **Native blob soft delete** or **Soft delete using custom data**.
+   + Your blob container must have deletion detection enabled before you run the wizard.
+   + [Enable soft delete](/azure/storage/blobs/soft-delete-blob-overview) in Azure Storage, or [add custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) to your blobs that indexing recognizes as a deletion flag.
+   + If you choose **Soft delete using custom data**, you're prompted to provide the metadata property name-value pair.
 
 1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
+
+   + You're prompted to choose either a system-managed or user-managed identity. 
+   + The identity should have a **Storage Blob Data Reader** role on Azure Storage. 
+   + Do not skip this option. A connection error occurs during indexing if the wizard can't connect to Azure Storage.
 
 1. Select **Next**.
 
@@ -224,7 +227,7 @@ The next step is to connect to a data source to use for the search index.
 
 Support for OneLake indexing is in preview. For more information about supported shortcuts and limitations, see ([OneLake indexing](search-how-to-index-onelake-files.md)).
 
-1. In the **Import and vectorize data** wizard, on the **Set up your data connection** page, select **OneLake**.
+1. On the **Set up your data connection** page, select **OneLake**.
 
 1. Specify the type of connection:
 
@@ -243,19 +246,27 @@ Support for OneLake indexing is in preview. For more information about supported
 
 In this step, specify the embedding model for vectorizing chunked data.
 
-1. On the **Vectorize your text** page, specify whether deployed models are on Azure OpenAI, the Azure AI Studio model catalog, or an existing Azure AI Vision multimodal resource in the same region as Azure AI Search.
+1. On the **Vectorize your text** page, choose the source of the embedding model:
 
-1. Specify the Azure subscription.
+   + Azure OpenAI
+   + Azure AI Studio model catalog
+   + An existing Azure AI Vision multimodal resource in the same region as Azure AI Search. If there's no [Azure AI Services multi-service account](/azure/ai-services/multi-service-resource) in the same region, this option isn't available.
+
+1. Choose the Azure subscription.
 
 1. Make selections according to the resource:
 
-   1. For Azure OpenAI, select the service, model deployment, and authentication type.
+   + For Azure OpenAI, choose an existing deployment of text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small.
 
-   1. For AI Studio catalog, select the project, model deployment, and authentication type.
+   + For AI Studio catalog, choose an existing deployment of an Azure, Cohere, and Facebook embedding model.
 
-   1. For AI Vision vectorization, select the account.
+   + For AI Vision multimodal embeddings, select the account.
 
    For more information, see [Set up embedding models](#set-up-embedding-models) earlier in this article.
+
+1. Specify whether you want your search service to authenticate using an API key or managed identity.
+
+   + The identity should have a **Cognitive Services OpenAI User** role on the Azure AI multi-services account.
 
 1. Select the checkbox that acknowledges the billing impact of using these resources.
 
@@ -266,7 +277,8 @@ In this step, specify the embedding model for vectorizing chunked data.
 If your content includes images, you can apply AI in two ways:
 
 + Use a supported image embedding model from the catalog, or choose the Azure AI Vision multimodal embeddings API to vectorize images.
-+ Use optical character recognition (OCR) to recognize text in images.
+
++ Use optical character recognition (OCR) to recognize text in images. This option invokes the [OCR skill](cognitive-search-skill-ocr.md) to read text from images.
 
 Azure AI Search and your Azure AI resource must be in the same region.
 
