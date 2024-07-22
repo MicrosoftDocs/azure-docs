@@ -6,19 +6,13 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 07/22/2024
 ms.author: radeltch
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
-
-[planning-guide]:planning-guide.md
-[deployment-guide]:deployment-guide.md
-[dbms-guide]:dbms-guide-general.md
-[sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 This article describes how to configure a basic Pacemaker cluster on Red Hat Enterprise Server (RHEL). The instructions cover RHEL 7, RHEL 8, and RHEL 9.
 
@@ -76,7 +70,7 @@ You can configure the SBD device by using either of two options:
   ![Diagram of the Azure shared disk SBD device for RHEL Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
 
   Here are some important considerations about SBD devices when configuring using Azure Shared Disk:
-
+  
   * An Azure shared disk with Premium SSD is supported as an SBD device.
   * SBD devices that use an Azure shared disk are supported on RHEL 8.8 and later.
   * SBD devices that use an Azure premium share disk are supported on [locally redundant storage (LRS)](../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
@@ -456,13 +450,7 @@ foreach ($vmName in $vmNames) {
    sudo yum install -y pcs pacemaker sbd fence-agents-sbd
    ```
 
-2. **[A]** Enable SBD service.
-
-   ```bash
-   sudo systemctl enable sbd
-   ```
-
-3. **[A]** Make sure the attached disk is available.
+2. **[A]** Make sure the attached disk is available.
 
    ```bash
    lsblk
@@ -489,7 +477,7 @@ foreach ($vmName in $vmNames) {
    # [1:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdc
    ```
 
-4. **[A]** Retrieve the device ID of the attached shared disk.
+3. **[A]** Retrieve the device ID of the attached shared disk.
 
    ```bash
    ls -l /dev/disk/by-id/scsi-* | grep -i sda
@@ -500,14 +488,14 @@ foreach ($vmName in $vmNames) {
 
    The command list device ID for the attached shared disk. We recommend using the ID that starts with scsi-3. In this example, the ID is **/dev/disk/by-id/scsi-3600224800792c2f5cc7e55cb3cef0107**.
 
-5. **[1]** Create the SBD device
+4. **[1]** Create the SBD device
 
    ```bash
    # Use the device ID from step 3 to create the new SBD device on the first cluster node
    sudo sbd -d /dev/disk/by-id/scsi-3600224800792c2f5cc7e55cb3cef0107 -1 60 -4 120 create
    ```
 
-6. **[A]** Adapt the SBD configuration
+5. **[A]** Adapt the SBD configuration
 
    1. Open the SBD config file.
 
@@ -529,20 +517,20 @@ foreach ($vmName in $vmNames) {
       [...]
       ```
 
-7. **[A]** Run the following command to load the `softdog` module.
+6. **[A]** Run the following command to load the `softdog` module.
 
    ```bash
    modprobe softdog
    ```
 
-8. **[A]** Run the following command to ensure `softdog` is automatically loaded after a node reboot. 
+7. **[A]** Run the following command to ensure `softdog` is automatically loaded after a node reboot. 
 
    ```bash
    echo softdog > /etc/modules-load.d/watchdog.conf
    systemctl restart systemd-modules-load
    ```
 
-9. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
+8. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
 
    ```bash
    sudo mkdir /etc/systemd/system/sbd.service.d
@@ -561,75 +549,75 @@ foreach ($vmName in $vmNames) {
 
 The fencing device uses either a managed identity for Azure resource or a service principal to authorize against Azure. Depending on the identity management method, follow the appropriate procedures -
 
-### Configure identity management
+1. Configure identity management
 
-Use managed identity or service principal.
+   Use managed identity or service principal.
 
-#### [Managed identity](#tab/msi)
+   #### [Managed identity](#tab/msi)
 
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+   To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
 
-#### [Service principal](#tab/spn)
+   #### [Service principal](#tab/spn)
 
-Follow these steps to create a service principal, if you aren't using managed identity.
+   Follow these steps to create a service principal, if you aren't using managed identity.
 
-1. Go to the [Azure portal](https://portal.azure.com).
-1. Open the **Microsoft Entra ID** pane.
-1. Go to **Properties** and make a note of the **Directory ID**. This is the **tenant ID**.
-1. Select **App registrations**.
-1. Select **New Registration**.
-1. Enter a **Name** and select **Accounts in this organization directory only**.
-1. Select **Application Type** as **Web**, enter a sign-on URL (for example, http:\//localhost), and select **Add**. The sign-on URL isn't used and can be any valid URL.
-1. Select **Certificates and Secrets**, and then select **New client secret**.
-1. Enter a description for a new key, select **Two years**, and select **Add**.
-1. Make a note of the **Value**. It's used as the **password** for the service principal.
-1. Select **Overview**. Make a note of the **Application ID**. It's used as the username (**login ID** in the following steps) of the service principal.
+   1. Go to the [Azure portal](https://portal.azure.com).
+   1. Open the **Microsoft Entra ID** pane.
+   1. Go to **Properties** and make a note of the **Directory ID**. This is the **tenant ID**.
+   1. Select **App registrations**.
+   1. Select **New Registration**.
+   1. Enter a **Name** and select **Accounts in this organization directory only**.
+   1. Select **Application Type** as **Web**, enter a sign-on URL (for example, http:\//localhost), and select **Add**. The sign-on URL isn't used and can be any valid URL.
+   1. Select **Certificates and Secrets**, and then select **New client secret**.
+   1. Enter a description for a new key, select **Two years**, and select **Add**.
+   1. Make a note of the **Value**. It's used as the **password** for the service principal.
+   1. Select **Overview**. Make a note of the **Application ID**. It's used as the username (**login ID** in the following steps) of the service principal.
 
----
+    ---
 
-#### Create a custom role for the fence agent
+2. Create a custom role for the fence agent
 
-Both the managed identity and the service principal don't have permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all VMs of the cluster. If you haven't already created the custom role, you can create it by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
+   Both the managed identity and the service principal don't have permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all VMs of the cluster. If you haven't already created the custom role, you can create it by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
-Use the following content for the input file. You need to adapt the content to your subscriptions, that is, replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` and `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy` with the IDs of your subscription. If you only have one subscription, remove the second entry in `AssignableScopes`.
+   Use the following content for the input file. You need to adapt the content to your subscriptions, that is, replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` and `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy` with the IDs of your subscription. If you only have one subscription, remove the second entry in `AssignableScopes`.
 
-```json
-{
-      "Name": "Linux Fence Agent Role",
-      "description": "Allows to power-off and start virtual machines",
-      "assignableScopes": [
-              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
-      ],
-      "actions": [
-              "Microsoft.Compute/*/read",
-              "Microsoft.Compute/virtualMachines/powerOff/action",
-              "Microsoft.Compute/virtualMachines/start/action"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-}
-```
+   ```json
+   {
+         "Name": "Linux Fence Agent Role",
+         "description": "Allows to power-off and start virtual machines",
+         "assignableScopes": [
+                 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                 "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+         ],
+         "actions": [
+                 "Microsoft.Compute/*/read",
+                 "Microsoft.Compute/virtualMachines/powerOff/action",
+                 "Microsoft.Compute/virtualMachines/start/action"
+         ],
+         "notActions": [],
+         "dataActions": [],
+         "notDataActions": []
+   }
+   ```
 
-#### Assign the custom role
+3. Assign the custom role
 
-Use managed identity or service principal.
+   Use managed identity or service principal.
 
-#### [Managed identity](#tab/msi)
+   #### [Managed identity](#tab/msi)
 
-Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify that each VM's managed identity role assignment contains all the cluster VMs.
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify that each VM's managed identity role assignment contains all the cluster VMs.
 
-> [!IMPORTANT]
-> Be aware that assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+   > [!IMPORTANT]
+   > Be aware that assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
-#### [Service principal](#tab/spn)
+   #### [Service principal](#tab/spn)
 
-Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-Make sure to assign the role for both cluster nodes.
+   Make sure to assign the role for both cluster nodes.
 
----
+    ---
 
 ## Cluster installation
 
@@ -729,7 +717,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
 8. **[1]** Create a Pacemaker cluster.
 
-   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance].  
+   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow memory preserving maintenance. For more information, see [this article for Linux](../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot).
 
    If you're building a cluster on **RHEL 7.x**, use the following commands:  
 
@@ -910,7 +898,7 @@ Based on the selected fencing mechanism, follow to the relevant instructions: [S
    op monitor interval=3600
    ```
 
-   ---
+    ---
 
 If you're using a fencing device based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters by using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -1098,7 +1086,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
 
 ## Next steps
 
-* See [Azure Virtual Machines planning and implementation for SAP][planning-guide].
-* See [Azure Virtual Machines deployment for SAP][deployment-guide].
-* See [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
-* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].
+* See [Azure Virtual Machines planning and implementation for SAP](./planning-guide.md).
+* See [Azure Virtual Machines deployment for SAP](./deployment-guide.md).
+* See [Azure Virtual Machines DBMS deployment for SAP](./dbms-guide-general.md).
+* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines](./sap-hana-high-availability.md).
