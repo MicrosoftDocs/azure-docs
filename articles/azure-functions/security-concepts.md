@@ -184,7 +184,7 @@ FTP isn't recommended for deploying your function code. FTP deployments are manu
 
 When you're not planning on using FTP, you should disable it in the portal. If you do choose to use FTP, you should [enforce FTPS](../app-service/deploy-ftp.md#enforce-ftps).
 
-### Secure the SCM endpoint
+### Secure the `scm` endpoint
 
 Every function app has a corresponding SCM service endpoint that is used by the Advanced Tools (Kudu) service for deployments and other App Service [site extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions). The SCM endpoint for a function app is always a URL in the form `https://<FUNCTION_APP_NAME>.scm.azurewebsites.net`. When you use network isolation to secure your functions, you must also account for this endpoint. 
 
