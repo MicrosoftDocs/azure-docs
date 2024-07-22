@@ -38,6 +38,8 @@ The new **Auxiliary logs** retention plan for Log Analytics tables allows you to
 
 To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
+For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+
 ## June 2024
 
 - [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
