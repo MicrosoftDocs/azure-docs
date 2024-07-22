@@ -51,7 +51,7 @@ Queries of data in Auxiliary tables are unoptimized and might take longer to ret
 You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic and Auxiliary tables. 
 
 ## Run a query on a Basic or Auxiliary table
-Running a query on Basic Auxiliary tables is the same as querying any other table in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
+Running a query on Basic or Auxiliary tables is the same as querying any other table in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
 
 # [Portal](#tab/portal-1)
 
@@ -100,6 +100,6 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Next steps
 
-- [Learn more about the Basic Logs and Analytics log plans](logs-table-plans.md).
-- [Use a search job to retrieve data from Basic Logs into Analytics Logs where it can be queries multiple times](search-jobs.md).
+- [Learn more about Azure Monitor Logs table plans](data-platform-logs.md#table-plans).
+
 

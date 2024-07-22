@@ -12,7 +12,7 @@ Your Azure Monitor cost varies significantly based on your expected utilization 
 
 Since Azure Monitor has [multiple types of charges](cost-usage.md#pricing-model), its calculator has multiple categories. See the sections below for an explanation of these categories and guidance for providing estimates. See [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) for current pricing details.
 
-Some of the values required by the calculator might be difficult to provide if you're just getting started with Azure Monitor. For example, you might have no idea of the volume of analytics logs generated from the different Azure resources that you intend to monitor. A common strategy is to enable monitoring for a small group of resources and use the observed data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
+Some of the values required by the calculator might be difficult to provide if you're just getting started with Azure Monitor. For example, you might have no idea of the volume of Analytics logs generated from the different Azure resources that you intend to monitor. A common strategy is to enable monitoring for a small group of resources and use the observed data volumes with the calculator to determine your costs for a full environment. See [Analyze usage in Log Analytics workspace](logs/analyze-usage.md) for queries and other methods to measure the billable data in your Log Analytics workspace.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../includes/azure-monitor-cost-optimization.md)]
 
