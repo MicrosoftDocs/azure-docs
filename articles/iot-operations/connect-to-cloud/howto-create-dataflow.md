@@ -5,52 +5,93 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
-ms.date: 07/10/2024
+ms.date: 07/22/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
 ---
 
 # Create dataflow
 
-A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a Dataflow custom resource. Before creating a dataflow, you must create endpoints for the data sources and destinations. For more information, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
+
+The following is an example of a dataflow configuration with a source endpoint, transformation, and destination endpoint:
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: mq-to-kafka
+  namespace: azure-iot-operations
+spec:
+  profileRef: example-dataflow
+  operations:
+    - operationType: source
+      # ...
+    - operationType: builtInTransformation
+      # ...
+    - operationType: destination
+      # ...
+```
+
+| Name                        | Description                                                                |
+|-----------------------------|----------------------------------------------------------------------------|
+| profileRef                  | Reference to the dataflow profile                                          |
+| operations[]                | Operations to be performed by the Dataflow                                 |
+| operationType               | Type of operation, such as source, destination, or transformation          |
+
+Review the following sections to learn how to configure the source, transformation, and destination for the dataflow.
 
 ## Configure source
 
-To configure a source for the dataflow, you need to specify the endpoint and topic for the source.
-
-Use the `id` field to specify the source ID. The source ID is used to identify the source in the dataflow. To configure the endpoint for the source, you need to specify the endpoint reference. 
-
-Once you have the endpoint, you can configure the list of `paths`. Despite the name, `paths` is used for MQTT or Kafka topics (or potentially other things like table names in the future). Wildcards ( `#` and `+` ) are supported.
+To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a dataflow configuration with a source endpoint and data source.
 
 ```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: mq-to-kafka
+  namespace: azure-iot-operations
 spec:
+  profileRef: example-dataflow
   operations:
-  - source:
-      id: source1
-      endpointRef: mq
-      paths:
-        - thermostats/+/telemetry/temperature/#
-        - humidifiers/+/telemetry/humidity/#
+    - operationType: source
+      sourceSettings:
+        endpointRef: mq-source
+        dataSources:
+        - $share/group/azure-iot-operations/data/thermostat
 ```
+
+| Name                        | Description                                                                        |
+|-----------------------------|------------------------------------------------------------------------------------|
+| operationType               | `source`                                                                           |
+| sourceSettings              | Settings for the *source* operation                                                |
+| sourceSettings.endpointRef  | Reference to the *source* endpoint                                                 |
+| sourceSettings.dataSources  | Data sources for the *source* operation. Wildcards ( `#` and `+` ) are supported.  |
 
 ### Use Asset as source
 
 You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the portal.
 
-#### Specify schema to deserialize data
+### Specify schema to deserialize data
 
 If the data coming from the source is in a binary format like Avro, you must use `schemaRef` and `serializationFormat`. This is required for deserializing the data.
 
 ```yaml
 spec:
   operations:
-  - source:
+  - operationType: source
+    sourceSettings:
       serializationFormat: avroBinary
       schemaRef: aio-sr://exampleNamespace/exmapleAvroSchema:1.0.0
 ```
 
+| Name                               | Description                                                                        |
+|------------------------------------|------------------------------------------------------------------------------------|
+| sourceSettings.serializationFormat | Format of the serialization. For example, `avroBinary`                             |
+| sourceSettings.schemaRef           | Reference to the schema used for the source data                                   |
+
 > [!TIP]
-> If the source serialization format is JSON, `schemaRef` and `serializationFormat` aren't required. However, if the data has optional fields or fields with different types, you may want to specify the schema to ensure consistency. For example, the data might have fields that are not present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+> If the source serialization format is JSON, `schemaRef` and `serializationFormat` aren't required. However, if the data has optional fields or fields with different types, you may want to specify the schema to ensure consistency. For example, the data might have fields that are not present in all messages. Without the schema, the transformation can't process fields with empty values. With the schema, you can specify default values or ignore the fields.
 
 To specify the schema, create the file and store it in the schema registry.
 
@@ -67,44 +108,54 @@ To specify the schema, create the file and store it in the schema registry.
 
 ## Configure transformation
 
-The transformation operation is where you can transform the data from the source before sending it to the destination. The transformation operation include:
-
-* **Enrich**: Add additional data to the source data given a dataset and condition to match.
-* **Filter**: Filter the data based on a condition.
-* **Map**: Move data from one field to another with an optional conversion.
-
-These actions are each optional, and are chained together in order regardless of the order they are specified in the configuration.
+The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they are specified in the configuration. 
 
 ```yaml
 spec:
   operations:
-  - builtInTransformation:
-      id: transform1
+  - operationType: builtInTransformation
+    name: transform1
+    builtInTransformationSettings:
       enrich:
-        ...
+        # ...
       filter:
-        ...
+        # ...
       map:
-        ...
+        # ...
 ```
 
-Using transformation in a dataflow is optional. If you don't need to make changes to the data, you can skip this operation.
+| Name                                 | Description                                                                     |
+|--------------------------------------|---------------------------------------------------------------------------------|
+| operationType                        | `builtInTransformation`                                                         |
+| name                                 | Name of the transformation                                                      |
+| builtInTransformationSettings        | Settings for the *builtInTransformation* operation                              |
+| builtInTransformationSettings.enrich | Add additional data to the source data given a dataset and condition to match   |
+| builtInTransformationSettings.filter | Filter the data based on a condition                                            |
+| builtInTransformationSettings.map    | Move data from one field to another with an optional conversion                 |
 
-### Configure contextualization dataset with the `enrich` stage
+### Enrich stage: Add additional data
 
-To enrich the data, you can use a contextualization dataset stored in AIO's Distributed State Store (DSS). The dataset is used to add additional data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use a contextualization dataset stored in Azure IoT Operations's distributed state store (DSS). The dataset is used to add additional data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+
+| Name                                           | Description                               |
+|------------------------------------------------|-------------------------------------------|
+| builtInTransformationSettings.enrich.dataset   | Dataset used for enrichment               |
+| builtInTransformationSettings.enrich.condition | Condition for the enrichment operation    |
+
+For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
 ```yaml
 spec:
   operations:
-  - builtInTransformation:
-      id: transform1
+  - operationType: builtInTransformation
+    name: transform1
+    builtInTransformationSettings:
       enrich:
         dataset: assetDataset
         condition: $source.deviceId == $context(assetDataset).asset
 ```
 
-In this example, the `deviceId` field in the source data is used to match the `asset` field in the dataset. If the dataset has a record with the `asset` field, like this:
+If the dataset has a record with the `asset` field, similar to:
 
 ```json
 {
@@ -114,34 +165,51 @@ In this example, the `deviceId` field in the source data is used to match the `a
 }
 ```
 
-The data from the source with the `deviceId` field matching `thermostat1` can have the `location` and `manufacturer` fields available `filter` and `map` stages.
+The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
 
-### Filter data with the `filter` stage
+### Filter stage: Filter data based on a condition
 
-To filter the data, you can use the `filter` stage. The filter stage is used to filter the data based on a condition. The condition is specified as a field in the source data that matches a value.
+To filter the data on a condition, you can use the `filter` stage. The condition is specified as a field in the source data that matches a value.
+
+| Name                                           | Description                               |
+|------------------------------------------------|-------------------------------------------|
+| builtInTransformationSettings.enrich.dataset   | Dataset used for enrichment               |
+| builtInTransformationSettings.enrich.condition | Condition for the enrichment operation    |
+
+For example, you could use the `temperature` field in the source data to filter the data:
 
 ```yaml
 spec:
   operations:
-  - builtInTransformation:
-      id: transform1
+  - operationType: builtInTransformation
+    name: transform1
+    builtInTransformationSettings:
       filter:
         - inputs:
           - temperature ? $last # - $1
           condition: "$1 > 20"
 ```
 
-In this example, the `temperature` field in the source data is used to filter the data. If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is dropped.
+If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
 
-### Map data with the `map` stage
+### Map stage: Move data from one field to another
 
-To map the data, you can use the `map` stage. The map stage is used to move data from one field to another with an optional conversion. The conversion is specified as a formula that uses the fields in the source data.
+To map the data to another field with optional conversion, you can use the `map` stage. The conversion is specified as a formula that uses the fields in the source data.
+
+| Name                                           | Description                               |
+|------------------------------------------------|-------------------------------------------|
+| builtInTransformationSettings.map[].inputs[]   | Inputs for the map operation              |
+| builtInTransformationSettings.map[].output     | Output field for the map operation        |
+| builtInTransformationSettings.map[].conversion | Conversion formula for the map operation  |
+
+For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
 ```yaml
 spec:
   operations:
-  - builtInTransformation:
-      id: transform1
+  - operationType: builtInTransformation
+    name: transform1
+    builtInTransformationSettings:
       map:
         - inputs:
           - temperature # - $1
@@ -152,46 +220,29 @@ spec:
           output: location
 ```
 
-In this example, the `temperature` field in the source data is converted to Celsius and stored in the `temperatureCelsius` field. The `location` field is enriched to the source data from the contextualization dataset.
-
 To learn more, see the [Dataflow Language Design]().
-
-<!-- #### (Preview) Use WASM modules for custom transformations
-
-To perform custom transformations, you can use WebAssembly (WASM) modules. The WASM modules are used to perform custom transformations on the data. The WASM modules are specified as a URL to the module.
-
-```yaml
-apiVersion: iotoperations.azure.com/v1beta1 # Note the beta version
-kind: Dataflow
-metadata:
-  name: my-dataflow-with-wasm
-spec:
-  operations:
-  - source:
-    ...
-  - map:
-      id: 2
-      function:
-        - url: https://example.com/transform.wasm
-  - edges:
-    ...
-  - destination:
-    ...
-``` -->
 
 ### Serialize data according to a schema
 
-If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data will be serialized in JSON. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
+If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
+
+| Name                                              | Description                                          |
+|---------------------------------------------------|------------------------------------------------------|
+| builtInTransformationSettings.serializationFormat | Format of the serialization                          |
+| builtInTransformationSettings.schemaRef           | Reference to the schema used for the transformation  |
+
+For example, you could serialize the data in Parquet format using the schema:
 
 ```yaml
 spec:
   operations:
-  - builtInTransformation:
+  - operationType: builtInTransformation
+    builtInTransformationSettings:
       serializationFormat: parquet
       schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
 ```
 
-To specify the schema, you can create a Schema CR with the schema definition.
+To specify the schema, you can create a *Schema* custom resource with the schema definition.
 
 ```json
 {
@@ -313,6 +364,19 @@ The full list of parameters that can be used in the path includes:
 | `$context(<dataset>).<property>` | A property from the contextualization dataset specified in `enrich` stage. |
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |
 
+| Name                        | Description                                                                |
+|-----------------------------|----------------------------------------------------------------------------|
+| profileRef                  | Reference to the dataflow profile                                          |
+| operations                  | Operations to be performed by the Dataflow                                 |
+| operationType               | Type of operation, such as *source* or *destination*                       |
+| sourceSettings              | Settings for the *source* operation                                        |
+| sourceSettings.endpointRef  | Reference to the *source* endpoint                                         |
+| sourceSettings.dataSources  | Data sources for the *source* operation                                    |
+| destinationSettings         | Settings for the *destination* operation                                   |
+| destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
+| destinationSettings.dataDestination | Destination for the data                                           |
+
+
 ## Test dataflow
 
 After configuring the dataflow, you can test it by sending test data and viewing the outcome.
@@ -344,3 +408,47 @@ And the outcome can be viewed as a response:
   }
 }
 ```
+
+## Configure dataflow profile
+
+By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
+
+### Default settings
+
+The default settings for a dataflow profile are:
+
+* Instances: (null)
+* Log level: Info
+* Node tolerations: None
+* Diagnostic settings: None
+
+### Scaling
+
+To manually scale the dataflow profile, specify the maximum number of instances you want to run.
+
+```yaml
+spec:
+  maxInstances: 3
+```
+
+Or use the portal under the Dataflows > Scaling section and set the number of instances.
+
+If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
+
+### Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
+
+You can configure other deployment-wide settings such as log level, node tolerations, and diagnostic settings.
+
+```yaml
+spec:
+  logLevel: debug
+  tolerations:
+    - key: "node-role.kubernetes.io/edge"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
+  diagnostics:
+    ...
+```
+
+Or use the portal under the Dataflows > Settings section.
