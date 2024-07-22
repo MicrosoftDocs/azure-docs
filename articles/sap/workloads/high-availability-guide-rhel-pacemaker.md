@@ -16,7 +16,7 @@ ms.author: radeltch
 
 This article describes how to configure a basic Pacemaker cluster on Red Hat Enterprise Server (RHEL). The instructions cover RHEL 7, RHEL 8, and RHEL 9.
 
-## References
+## Pre-requisites
 
 Read the following SAP Notes and articles first:
 
@@ -523,7 +523,7 @@ foreach ($vmName in $vmNames) {
    modprobe softdog
    ```
 
-7. **[A]** Run the following command to ensure `softdog` is automatically loaded after a node reboot. 
+7. **[A]** Run the following command to ensure `softdog` is automatically loaded after a node reboot.
 
    ```bash
    echo softdog > /etc/modules-load.d/watchdog.conf
@@ -545,7 +545,7 @@ foreach ($vmName in $vmNames) {
    # JobTimeoutAction=none
    ```
 
-## Create a fencing device
+## Azure fence agent configuration
 
 The fencing device uses either a managed identity for Azure resource or a service principal to authorize against Azure. Depending on the identity management method, follow the appropriate procedures -
 
@@ -667,7 +667,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    ```
 
    > [!IMPORTANT]
-   > If you need to update the Azure fence agent, and if you're using a custom role, make sure to update the custom role to include the action **powerOff**. For more information, see [Create a custom role for the fence agent](#create-a-custom-role-for-the-fence-agent).  
+   > If you need to update the Azure fence agent, and if you're using a custom role, make sure to update the custom role to include the action **powerOff**. For more information, see [Create a custom role for the fence agent](#azure-fence-agent-configuration).  
 
 4. **[A]** Set up hostname resolution.
 
@@ -788,7 +788,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
-Based on the selected fencing mechanism, follow to the relevant instructions: [SBD as fencing device](#sbd-as-fencing-device) or [Azure fence agent as fencing device](#azure-fence-agent-as-fencing-device).
+Based on the selected fencing mechanism, follow relevant instructions: [SBD as fencing device](#sbd-as-fencing-device) or [Azure fence agent as fencing device](#azure-fence-agent-as-fencing-device).
 
 #### SBD as fencing device
 
@@ -929,16 +929,18 @@ When the cluster health attribute is set for a node, the location constraint tri
    * RHEL 9.0: `resource-agents-cloud-4.10.0-9.6`
    * RHEL 9.2 and newer: `resource-agents-cloud-4.10.0-34.1`
 
-1. **[1]** Configure the resources in Pacemaker.
+2. **[1]** Configure the resources in Pacemaker.
 
    ```bash
    #Place the cluster in maintenance mode
    sudo pcs property set maintenance-mode=true
+   ```
 
-1. **[1]** Set the Pacemaker cluster health-node strategy and constraint.
+3. **[1]** Set the Pacemaker cluster health-node strategy and constraint.
 
    ```bash
    sudo pcs property set node-health-strategy=custom
+
    sudo pcs constraint location 'regexp%!health-.*' \
    rule score-attribute='#health-azure' \
    defined '#uname'
@@ -948,14 +950,14 @@ When the cluster health attribute is set for a node, the location constraint tri
    >
    > Don't define any other resources in the cluster starting with `health-` besides the resources described in the next steps.
 
-1. **[1]** Set the initial value of the cluster attributes. Run for each cluster node and for scale-out environments including majority maker VM.
+4. **[1]** Set the initial value of the cluster attributes. Run for each cluster node and for scale-out environments including majority maker VM.
 
    ```bash
    sudo crm_attribute --node prod-cl1-0 --name '#health-azure' --update 0
    sudo crm_attribute --node prod-cl1-1 --name '#health-azure' --update 0
    ```
 
-1. **[1]** Configure the resources in Pacemaker. Make sure the resources start with `health-azure`.
+5. **[1]** Configure the resources in Pacemaker. Make sure the resources start with `health-azure`.
 
    ```bash
    sudo pcs resource create health-azure-events \
@@ -966,13 +968,13 @@ When the cluster health attribute is set for a node, the location constraint tri
    sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
    ```
 
-1. Take the Pacemaker cluster out of maintenance mode.
+6. Take the Pacemaker cluster out of maintenance mode.
 
    ```bash
    sudo pcs property set maintenance-mode=false
    ```
 
-1. Clear any errors during enablement and verify that the `health-azure-events` resources have started successfully on all cluster nodes.
+7. Clear any errors during enablement and verify that the `health-azure-events` resources have started successfully on all cluster nodes.
 
    ```bash
    sudo pcs resource cleanup
