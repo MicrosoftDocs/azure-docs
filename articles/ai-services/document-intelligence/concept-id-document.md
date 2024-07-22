@@ -87,7 +87,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -265,13 +265,15 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfBirth`|`date`|Date of birth|01/06/1958|
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
-|`EyeColor`|`string`|Eye color|Blue|
-|`HairColor`|`string`|Hair color|Brown|
+|`EyeColor`|`string`|Eye color|BLU|
+|`HairColor`|`string`|Hair color|BRO|
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 |`Endorsements`|`string`|Endorsements|L|
 |`Restrictions`|`string`|Restrictions|B|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
+|`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
 ### `idDocument.passport`
@@ -324,6 +326,8 @@ The following are the fields extracted per document type. The Document Intellige
 |`Height`|`string`|Height|5'11"|
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
+|`PlaceOfBirth`|`string`|Place of birth|MASSACHUSETTS, U.S.A.|
 
 ### `idDocument.residencePermit`
 
@@ -337,6 +341,7 @@ The following are the fields extracted per document type. The Document Intellige
 |`DateOfExpiration`|`date`|Date of expiration|08/12/2020|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 |`Sex`|`string`|Sex|M|
+|`PersonalNumber`|`string`|Personal Id. No.|A234567893|
 |`PlaceOfBirth`|`string`|Place of birth|Germany|
 |`Category`|`string`|Permit category|DV2|
 |`Address`|`string`|Address|123 STREET ADDRESS YOUR CITY WA 99999-1234|
