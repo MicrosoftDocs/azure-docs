@@ -161,12 +161,11 @@ The C# durable function app that you created and published by using Visual Studi
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid subscription costs for the resources, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group).
+If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
+* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
 
 ::: zone-end
 
@@ -196,13 +195,13 @@ The Azure Functions template creates a project that you can publish to a functio
 
 1. On **Create a new project**, search for **functions**, select the **Azure Functions** template, and then select **Next**.
 
-    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-project.png" alt-text="Screenshot of new project dialog in Visual Studio.":::
+    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-project.png" alt-text="Screenshot of the New project dialog in Visual Studio.":::
 
 1. For **Project name**, enter a name for your project, and then select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or nonalphanumeric characters.
 
 1. On **Additional information**, use the settings that are described in the next table.
 
-    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-function.png" alt-text="Screenshot of create a new Azure Functions Application dialog in Visual Studio.":::
+    :::image type="content" source="./media/durable-functions-create-first-csharp/functions-isolated-vs-new-function.png" alt-text="Screenshot of the Create a new Azure Functions Application dialog in Visual Studio.":::
 
     | Setting      | Action  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -210,7 +209,7 @@ The Azure Functions template creates a project that you can publish to a functio
     | **Function** | Enter **Durable Functions Orchestration**. | Creates a Durable Functions orchestration. |
 
    > [!NOTE]
-   > If **.NET 8 Isolated (Long Term Support)** isn't visible in the **Functions worker** menu, you might not have the latest Azure Functions toolsets and templates. Go to **Tools** > **Options** > **Projects and Solutions** > **Azure Functions** > **Check for updates to download the latest**.
+   > If **.NET 8 Isolated (Long Term Support)** doesn't appear in the **Functions worker** menu, you might not have the latest Azure Functions tool sets and templates. Go to **Tools** > **Options** > **Projects and Solutions** > **Azure Functions** > **Check for updates to download the latest**.
 
 1. To use the Azurite emulator, make sure that the **Use Azurite for runtime storage account (AzureWebJobStorage)** checkbox is selected. To create a Functions project by using a Durable Functions orchestration template, select **Create**. The project has the basic configuration files that you need to run your functions.
 
@@ -292,11 +291,10 @@ The C# durable function app that you created and published by using Visual Studi
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid subscription costs for the resources, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group).
+If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
+* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
 
 ::: zone-end

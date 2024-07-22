@@ -62,15 +62,20 @@ Before you can use your app's managed identity, make some changes to the app con
 
    ![Screenshot of the default storage settings and deleting AzureWebJobsStorage.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)
 
-1. To link your Azure storage account to the application, add *any* of the following settings:
+1. Add a setting to link your Azure storage account to the application.
 
-   * An account name:
+   Use *one of the following methods* depending on the cloud that your app runs in.
+
+   * **Azure cloud**: If your app runs In *global Azure*, add a setting that identifies an Azure storage account name:
 
      * `AzureWebJobsStorage__<accountName>`
 
        Example: `AzureWebJobsStorage__mystorageaccount123`
 
-   * A specific service URL (endpoint):
+   * **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (endpoint) for the storage account instead of an account name.
+
+     > [!NOTE]
+     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
 
      * `AzureWebJobsStorage__<blobServiceUri>`
 
@@ -86,10 +91,7 @@ Before you can use your app's managed identity, make some changes to the app con
 
      You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
-     ![Screenshot that shows an example of an endpoint as a specific service URL.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
-
-   > [!NOTE]
-   > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
+    ![Screenshot that shows an example of an endpoint as a specific service URL.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 1. Finish your managed identity configuration:
 
@@ -155,15 +157,20 @@ In the Azure portal, run and test the application. To run and test the app local
 
 1. In the list of settings, select **AzureWebJobsStorage** and select the **Delete** icon.
 
-1. To link your Azure storage account to the application, add *any* of the following settings:
+1. Add a setting to link your Azure storage account to the application.
 
-   * An account name:
+   Use *one of the following methods* depending on the cloud that your app runs in.
+
+   * **Azure cloud**: If your app runs In *global Azure*, add a setting that identifies an Azure storage account name:
 
      * `AzureWebJobsStorage__<accountName>`
 
        Example: `AzureWebJobsStorage__mystorageaccount123`
 
-   * A specific service URL (endpoint):
+   * **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (endpoint) for the storage account instead of an account name.
+
+     > [!NOTE]
+     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
 
      * `AzureWebJobsStorage__<blobServiceUri>`
 
@@ -179,7 +186,7 @@ In the Azure portal, run and test the application. To run and test the app local
 
      You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
-     ![Screenshot that shows an example of an endpoint as a specific service URL.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
+     ![Screenshot that shows an example of an endpoint as a specific service URI.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
 1. To add client secret credentials, specify the following values:
 
@@ -189,6 +196,6 @@ In the Azure portal, run and test the application. To run and test the app local
 
    * **AzureWebJobsStorage__tenantId**: The tenant ID that the Microsoft Entra application is registered in. Get this GUID value on the Microsoft Entra application pane.
 
-   The values to use for the client ID and the tenant ID appear on your client application’s Overview pane. The client secret value is the one that you saved in an earlier step. It isn't available after the page is refreshed.
+   The values to use for the client ID and the tenant ID appear on your client application’s overview pane. The client secret value is the one that you saved in an earlier step. The client secret value isn't available after the page is refreshed.
 
    ![Screenshot that shows the tenant ID and client ID on a Microsoft Entra application pane.](media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png)

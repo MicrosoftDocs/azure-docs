@@ -20,15 +20,15 @@ Durable Functions supports several [storage providers](durable-functions-storage
 
 ## Prerequisites
 
-The following steps assume that you're starting with an existing Durable Functions app and that you're familiar with how to operate it.
+The following steps assume that you have an existing Durable Functions app and that you're familiar with how to operate it.
 
 Specifically, this quickstart assumes that you have already:
 
 - Created an Azure Functions project on your local computer.
-- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
+- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers the durable function.
 - Configured the project for local debugging.
 
-If you don't meet these prerequisites, we recommend that you start with one of the following quickstarts:
+If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -41,7 +41,7 @@ If you don't meet these prerequisites, we recommend that you start with one of t
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-First, install the latest version of the MSSQL storage provider extension from NuGet. For .NET, you add a reference to it in your _.csproj_ file and building the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
+First, install the latest version of the MSSQL storage provider extension from NuGet. For .NET, you add a reference to the extension in your _.csproj_ file and build the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
 
 Which extension package you install depends on the .NET worker you're using:
 
@@ -83,7 +83,7 @@ $collation = "Latin1_General_100_BIN2_UTF8"
 # pull the image from the Microsoft container registry
 docker pull mcr.microsoft.com/mssql/server:$tag
 
-# run the image, providing some basic setup parameters
+# run the image and provide some basic setup parameters
 docker run --name mssql-server -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=$pw" -e "MSSQL_PID=$edition" -p ${port}:1433 -d mcr.microsoft.com/mssql/server:$tag
 
 # wait a few seconds for the container to start...
@@ -95,15 +95,15 @@ docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "
 After you run these commands, you should have a local SQL Server running on Docker and listening on port 1443. If port 1443 conflicts with another service, you can rerun these commands after you change the variable `$port` to a different value.
 
 > [!NOTE]
-> To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
+> To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container and to stop the container when you finish this quickstart. For more assistance, run `docker --help`.
 
-To validate your database installation, you can query for your new SQL database by using the following Docker command:
+To validate your database installation, use this Docker command to query your new SQL database:
 
 ```powershell
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "SELECT name FROM sys.databases"
 ```
 
-If the database setup completed successfully, you should see the name of your created database (for example, **DurableDB**) in the command-line output:
+If the database setup completed successfully, the name of your database (for example, **DurableDB**) appears in the command-line output:
 
 ```bash
 name
@@ -123,7 +123,7 @@ DurableDB
 
 ### Add your SQL connection string to local.settings.json
 
-The MSSQL back end needs a connection string to access your database. How to obtain a connection string depends primarily on your specific MSSQL server provider. Review the documentation of your specific provider for information on how to obtain a connection string.
+The MSSQL back end needs a connection string to access your database. How to obtain a connection string depends primarily on your specific MSSQL server provider. For information about how to obtain a connection string, review the documentation of your specific provider.
 
 If you use the preceding Docker commands without changing any parameters, your connection string is:
 
@@ -151,7 +151,7 @@ Here's an example _local.settings.json_ that assigns the default Docker-based SQ
 
 ### Update host.json
 
-Edit the storage provider section of the `host.json` file to set `type` to `mssql`. You must also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. Set `createDatabaseIfNotExists` to `true`. This setting creates a database named `DurableDB` if one doesn't already exist, with collation `Latin1_General_100_BIN2_UTF8`.
+Edit the storage provider section of the _host.json_ file to set `type` to `mssql`. You must also specify the connection string variable name, `SQLDB_Connection`, under `connectionStringName`. Set `createDatabaseIfNotExists` to `true`. This setting creates a database named **DurableDB** if one doesn't already exist, with the collation `Latin1_General_100_BIN2_UTF8`.
 
 ```json
 {
@@ -174,19 +174,19 @@ Edit the storage provider section of the `host.json` file to set `type` to `mssq
 }    
 ```
 
-This snippet is a relatively basic _host.json_ example. Later, you might want to [add parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
+This code sample is a relatively basic _host.json_ example. Later, you might want to [add parameters](https://microsoft.github.io/durabletask-mssql/#/quickstart?id=hostjson-configuration).
 
 ### Test locally
 
 Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root and execute a basic orchestrator function.
 
-While the function app is running, it updates runtime state in the configured SQL database. You can test it's working as expected by using your SQL query interface. For example, in your Docker-based local SQL Server container, you can view the state of your orchestration instances by using the following `docker` command:
+While the function app is running, it updates runtime state in the configured SQL database. You can test it's working as expected by using your SQL query interface. For example, in your Docker-based local SQL Server container, you can view the state of your orchestration instances by using the following Docker command:
 
 ```bash
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -d $dbname -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances"
 ```
 
-After you run an orchestration, that query returns results that look like this example:
+After you run an orchestration, the query returns results that look like this example:
 
 ```cmd
 InstanceID                           RuntimeStatus        CreatedTime                   CompletedTime
@@ -240,6 +240,8 @@ SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Insta
 
 After you run a simple orchestrator, you should see at least one result, as shown in this example:
 
-![Screenshot that shows Azure SQL Query Editor results for the SQL query that's described.](./media/quickstart-mssql/mssql-azure-db-check.png)
+![Screenshot that shows Azure SQL Query Editor results for the SQL query.](./media/quickstart-mssql/mssql-azure-db-check.png)
 
-For more information about the durable function task MSSQL back-end architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
+## Related content
+
+- For more information about the durable function task MSSQL back-end architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).

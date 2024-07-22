@@ -365,9 +365,8 @@ The JavaScript durable function app that you created and published in Visual Stu
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid subscription costs for the resources, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group).
+If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
+* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).

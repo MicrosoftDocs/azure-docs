@@ -13,6 +13,7 @@ ms.reviewer: azfuncdf
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a durable function app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
+>
 > - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
@@ -111,7 +112,7 @@ While the function app is running, Netherite publishes load information about it
 
 ## Run your app in Azure
 
-To run your app in Azure, [Create an Azure Functions app](../functions-create-function-app-portal.md).
+To run your app in Azure, [create an Azure Functions app](../functions-create-function-app-portal.md).
 
 ### Set up Event Hubs
 
@@ -154,9 +155,9 @@ If your app is running on the Elastic Premium plan, we recommend that you enable
 ### Ensure that your app is using a 64-bit architecture (Windows only)
 
 > [!NOTE]
-> Skip this section if your app is running on Linux.
+> Skip this section if your app runs on Linux.
 
-Netherite requires a 64-bit architecture. Starting in Azure Functions V4, 64-bit should be the default. You can usually validate this setting in the portal. Under **Configuration**, select **General Settings**, and then ensure that **Platform** is set to **64 Bit**. If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps don't show this setting because they support only 64-bit architecture.
+Netherite requires a 64-bit architecture. Beginning with Azure Functions V4, 64-bit should be the default. You can usually validate this setting in the Azure portal. Under **Configuration**, select **General Settings**, and then ensure that **Platform** is set to **64 Bit**. If you don't see this option in the portal, then you might already run on a 64-bit platform. For example, Linux apps don't show this setting because they support only 64-bit architecture.
 
 ![Screenshot that shows how to configure a runtime to use 64-bit in the portal.](./media/quickstart-netherite/ensure-64-bit-architecture.png)
 
@@ -167,4 +168,6 @@ You can now deploy your code to the cloud and run your tests or workload on it. 
 > [!NOTE]
 > For guidance on deploying your project to Azure, review the deployment instructions for your programming language in [Prerequisites](#prerequisites).
 
-For more information about the Netherite architecture, configuration, and workload behavior, including performance benchmarks, we recommend that you take a look at the [Netherite documentation](https://microsoft.github.io/durabletask-netherite/#/).
+## Related content
+
+- For more information about the Netherite architecture, configuration, and workload behavior, including performance benchmarks, we recommend that you take a look at the [Netherite documentation](https://microsoft.github.io/durabletask-netherite/#/).
