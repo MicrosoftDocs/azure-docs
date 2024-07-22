@@ -69,7 +69,7 @@ The output from the preceding example with the default values is:
 
 `empty(itemToTest)`
 
-Determines if an array, object, or string is empty.
+Determines if an array, object, or string is empty or null.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -77,24 +77,26 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty or null. |
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns **True** if the value is empty or null; otherwise, **False**.
 
 ### Example
 
-The following example checks whether an array, object, and string are empty.
+The following example checks whether an array, object, and string are empty or null.
 
 ```bicep
 param testArray array = []
 param testObject object = {}
 param testString string = ''
+param testNullString string?
 
 output arrayEmpty bool = empty(testArray)
 output objectEmpty bool = empty(testObject)
 output stringEmpty bool = empty(testString)
+output stringNull bool = empty(testNullString)
 ```
 
 The output from the preceding example with the default values is:
@@ -104,6 +106,7 @@ The output from the preceding example with the default values is:
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+| stringNull | Bool | True |
 
 ## intersection
 

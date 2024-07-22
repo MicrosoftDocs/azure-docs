@@ -2,9 +2,9 @@
 title: Secure Azure Kubernetes Service inferencing environment
 description: Learn about securing an Azure Kubernetes Service inferencing environment and how to configure it.
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: larryfr ssalgado
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/31/2022

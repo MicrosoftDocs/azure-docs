@@ -11,6 +11,7 @@ ms.custom: include file
 
 The following list contains Ultra Disk's limitations:
 - Ultra Disks can't be used as an OS disk.
+- Ultra Disks can't be used with Azure Compute Gallery.
 - Currently, Ultra Disks only support Single VM and Availability zone infrastructure options.
 - Ultra Disks don't support availability sets.
 - The size of an Ultra Disk can't be expanded without either deallocating the VM or detaching the Ultra Disk.

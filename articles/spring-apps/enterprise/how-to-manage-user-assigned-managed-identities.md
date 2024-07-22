@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: jiec
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---

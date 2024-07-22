@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devx-track-dotnet
 
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Data range
 

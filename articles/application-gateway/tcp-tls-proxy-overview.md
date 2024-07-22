@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Application Gateway's TC
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/12/2024
 ms.author: greglin
 ---

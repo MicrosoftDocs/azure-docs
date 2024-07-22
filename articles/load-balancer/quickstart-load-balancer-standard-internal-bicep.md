@@ -16,7 +16,7 @@ In this quickstart, you learn to use a BICEP file to create an internal; Azure l
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

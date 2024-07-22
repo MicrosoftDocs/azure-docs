@@ -13,6 +13,8 @@ ms.date: 03/01/2023
 
 # Configure automatic shutdown of VMs for a lab
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows you how you can configure automatic shutdown of VMs for a lab.  To learn more about the benefits of auto-shutdown policies, see [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control).
 
 A lab plan administrator can configure automatic shutdown policies for the lab plan that you use create labs. For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md). As a lab owner, you can override the settings when creating a lab or after the lab is created.

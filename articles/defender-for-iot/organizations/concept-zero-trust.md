@@ -9,7 +9,7 @@ ms.collection:
 
 # Zero Trust and your OT networks
 
-[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
+[!INCLUDE [zero-trust-principles](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles.md)]
 
 Implement Zero Trust principles across your operational technology (OT) networks to help you with challenges, such as:
 

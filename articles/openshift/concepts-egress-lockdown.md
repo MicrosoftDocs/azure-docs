@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: egress lockdown, aro cluster, aro, networking, azure, openshift, red hat
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/28/2022
 #Customer intent: I need to understand how egress lockdown provides access to URLs and endpoints that a Red Hat OpenShift cluster needs to function efficiently.
 ---

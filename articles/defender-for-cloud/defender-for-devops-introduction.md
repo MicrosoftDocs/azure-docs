@@ -40,7 +40,7 @@ Here, you can add [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickst
 
 The DevOps inventory table allows you to review onboarded DevOps resources and the security information related to them.
 
-:::image type="content" source="media/defender-for-devops-introduction/inventory-grid.png" alt-text="Screenshot that shows the Devops inventory table on the DevOps security overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
+:::image type="content" source="media/defender-for-devops-introduction/inventory-grid.png" alt-text="Screenshot that shows the DevOps inventory table on the DevOps security overview page." lightbox="media/defender-for-devops-introduction/bottom-of-page.png":::
 
 On this part of the screen you see:
 

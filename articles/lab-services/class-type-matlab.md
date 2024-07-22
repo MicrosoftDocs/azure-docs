@@ -9,6 +9,8 @@ ms.service: lab-services
 
 # Setup a lab to teach MATLAB
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 [MATLAB](https://www.mathworks.com/products/matlab.html) is a programming platform from [MathWorks](https://www.mathworks.com/), which combines computational power and visualization. MATLAB is a popular tool for mathematics, engineering, physics, and chemistry.

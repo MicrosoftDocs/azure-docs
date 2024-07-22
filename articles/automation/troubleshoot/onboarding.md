@@ -146,7 +146,7 @@ After you remove the feature resources, you can unlink your workspace. It's impo
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)] 
 
 An installation of the Log Analytics agent for Windows extension can fail for a variety of reasons. The following section describes feature deployment issues that can cause failures during deployment of the Log Analytics agent for Windows extension.
 

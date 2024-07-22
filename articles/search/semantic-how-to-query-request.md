@@ -1,5 +1,5 @@
 ---
-title: Query with semantic ranking
+title: Add semantic ranking
 titleSuffix: Azure AI Search
 description: Set a semantic query type to attach the deep learning models of semantic ranking.
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 06/13/2024
 ---
 
-# Create a semantic query in Azure AI Search
+# Add semantic ranking to queries in Azure AI Search
 
 This article explains how to invoke the semantic ranker on queries. You can apply semantic ranking to text queries, hybrid queries, and vector queries if your search documents contain string fields and the [vector query has a text representation](vector-search-how-to-query.md#query-with-integrated-vectorization-preview).
 

@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 03/31/2023
+ms.date: 06/28/2024
 ---
 
 # Zero Trust security

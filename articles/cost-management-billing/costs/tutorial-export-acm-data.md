@@ -161,7 +161,7 @@ When you create an export programmatically, you must manually register the `Micr
 
 Start by preparing your environment for Azure PowerShell:
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
   > While the **Az.CostManagement** PowerShell module is in preview, you must install it separately

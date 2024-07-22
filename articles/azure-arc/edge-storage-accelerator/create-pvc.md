@@ -36,11 +36,6 @@ This size does not affect the ceiling of blob storage used in the cloud to suppo
        volumeMode: Filesystem
        ### This name references your PV name in your PV config ###
        volumeName: INSERT_YOUR_PV_NAME
-   status: 
-       accessModes: 
-           - ReadWriteMany 
-       capacity: 
-           storage: 5Gi
    ```
 
    > [!NOTE]

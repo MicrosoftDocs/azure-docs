@@ -57,13 +57,13 @@ When you deploy a Route Server to a virtual network, we need to update the contr
 
 ### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by the Route Server?
 
-Although Azure VPN gateway can receive the default route from its BGP peers including the Route Server, it [doesn't advertise the default route](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-will-azure-vpn-gateways-advertise-to-me) to other peers. 
+Although Azure VPN gateway can receive the default route from its BGP peers including the Route Server, it [doesn't advertise the default route](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-do-azure-vpn-gateways-advertise-to-me) to other peers. 
 
 ### Why does my NVA not receive routes from the Route Server even though the BGP peering is up?
 
 The ASN that the Route Server uses is 65515. Make sure you configure a different ASN for your NVA so that an *eBGP* session can be established between your NVA and Route Server so route propagation can happen automatically. Make sure you enable "multi-hop" in your BGP configuration because your NVA and the Route Server are in different subnets in the virtual network.
 
-### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren’t the NVA routes in the effective routing table of my VM? 
+### The BGP peering between my NVA and Route Server is up. I can see routes exchanged correctly between them. Why aren't the NVA routes in the effective routing table of my VM? 
 
 * If your VM is in the same virtual network as your NVA and Route Server:
 

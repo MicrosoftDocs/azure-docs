@@ -8,9 +8,9 @@ ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-author: ZikeiWong
-ms.author: ziqiwang
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: ziqiwang
 ms.date: 12/19/2023
 ---
 

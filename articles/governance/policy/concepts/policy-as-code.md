@@ -18,7 +18,7 @@ in the cloud are:
   end users.
 
 Azure Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test and validate that change. However, that
+source control and whenever a change is made, test, and validate that change. However, that
 shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
@@ -37,16 +37,13 @@ The file names correspond with certain portions of policy or initiative definiti
 
 | File format                   | File contents                       |
 | :--                           | :--                                 |
-| `policy.json`                 | The entire policy definition        |
-| `policyset.json`              | The entire initiative definition    |
-| `policy.parameters.json`      | The `properties.parameters` portion of the policy definition               |
-| `policyset.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
-| `policy.rules.json`           | The `properties.policyRule` portion of the policy definition               |
-| `policyset.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
+| `policy-v#.json`              | The entire policy definition for that version        |
+| `policyset-v#.json`              | The entire initiative definition for that version   |
+| `policy-v#.parameters.json`      | The `properties.parameters` portion of the policy definition               |
+| `policyset-v#.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
+| `policy-v#.rules.json`           | The `properties.policyRule` portion of the policy definition               |
+| `policyset-v#.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
 | `exemptionName.json`          | The policy exemption that targets a particular resource or scope  | 
-
-Examples of these file formats are available in the
-[Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/)
 
 
 ## Workflow overview
@@ -73,9 +70,10 @@ in source control.
 |
 |- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
-|     |- policy.json _________________ # Policy definition
-|     |- policy.parameters.json ______ # Policy definition of parameters
-|     |- policy.rules.json ___________ # Policy rule
+|     |- versions_____________________ # Subfolder for versions of definition
+|       |- policy-v#.json _________________ # Policy definition
+|       |- policy-v#.parameters.json ______ # Policy definition of parameters
+|       |- policy-v#.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
@@ -84,16 +82,17 @@ in source control.
         | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- policy2/  ______________________ # Subfolder for a policy
-|     |- policy.json _________________ # Policy definition
-|     |- policy.parameters.json ______ # Policy definition of parameters
-|     |- policy.rules.json ___________ # Policy rule
+|     |- versions_____________________ # Subfolder for versions of definition
+|       |- policy-v#.json _________________ # Policy definition
+|       |- policy-v#.parameters.json ______ # Policy definition of parameters
+|       |- policy-v#.rules.json ___________ # Policy rule
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment
 |
 ```
 
-When a new policy is added or an existing one is updated, the workflow should automatically update the
+When a new policy or new version is added or an existing one is updated, the workflow should automatically update the
 policy definition in Azure. Testing of the new or updated policy definition comes in a later step.
 
 ### Create and update initiative definitions
@@ -108,9 +107,10 @@ definitions in source control:
 |
 |- initiatives/ ______________________ # Root folder for initiatives
 |  |- init1/ _________________________ # Subfolder for an initiative
-|     |- policyset.json ______________ # Initiative definition
-|     |- policyset.definitions.json __ # Initiative list of policies
-|     |- policyset.parameters.json ___ # Initiative definition of parameters
+|     |- versions ____________________ # Subfolder for versions of initiative
+|       |- policyset.json ______________ # Initiative definition
+|       |- policyset.definitions.json __ # Initiative list of policies
+|       |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
 |     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
@@ -119,9 +119,10 @@ definitions in source control:
         | - exemptionName.json________ # Exemption for this particular assignment
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
-|     |- policyset.json ______________ # Initiative definition
-|     |- policyset.definitions.json __ # Initiative list of policies
-|     |- policyset.parameters.json ___ # Initiative definition of parameters
+|     |- versions ____________________ # Subfolder for versions of initiative
+|       |- policyset.json ______________ # Initiative definition
+|       |- policyset.definitions.json __ # Initiative list of policies
+|       |- policyset.parameters.json ___ # Initiative definition of parameters
 |     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
 |     |- exemptions.<name1>/__________ # Subfolder for exemptions on assignment 1
         | - exemptionName.json________ # Exemption for this particular assignment

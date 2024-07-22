@@ -16,7 +16,7 @@ Log Analytics is a data store where personal data is likely to be found. Applica
 
 In this article, _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you're using a workspace-based Application Insights resource, the information on log data applies. If you're using a classic Application Insights resource, the application data applies.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 
 ## Strategy for personal data handling

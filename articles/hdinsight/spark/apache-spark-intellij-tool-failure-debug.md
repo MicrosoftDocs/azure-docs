@@ -5,7 +5,7 @@ keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdi
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 07/31/2023
+ms.date: 07/12/2024
 ---
 
 # Failure spark job debugging with Azure Toolkit for IntelliJ (preview)

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: Bozhong68
-ms.author: bozhlin
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 03/31/2022
-ms.reviewer: ssalgado
+ms.reviewer: bozhlin
 ---
 
 # CLI (v2) Attached Azure Arc-enabled Kubernetes cluster (KubernetesCompute) YAML schema

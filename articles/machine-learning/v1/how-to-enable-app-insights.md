@@ -5,9 +5,9 @@ description: Learn how to collect data from models deployed to web service endpo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: alehughes
-author: ahughes-msft
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: alehughes
 ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1

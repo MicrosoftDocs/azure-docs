@@ -1,7 +1,7 @@
 ---
 author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.topic: include
 ms.date: 02/28/2022

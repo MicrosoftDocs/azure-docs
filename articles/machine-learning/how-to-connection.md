@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: ambadal
-author: AmarBadal
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: ambadal
 ms.date: 06/19/2023
 ms.custom: data4ml, devx-track-azurecli
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.

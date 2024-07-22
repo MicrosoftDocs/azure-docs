@@ -31,7 +31,7 @@ This article shows you how to create one or more node pools in an AKS cluster.
 The following limitations apply when you create AKS clusters that support multiple node pools:
 
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)](quotas-skus-regions.md).
-* You can delete system node pools if you have another system node pool to take its place in the AKS cluster. Otherwise, you cannot delete the system node pool.
+* You can delete the system node pool if you have another system node pool to take its place in the AKS cluster. Otherwise, you cannot delete the system node pool.
 * System pools must contain at least one node, and user node pools may contain zero or more nodes.
 * The AKS cluster must use the Standard SKU load balancer to use multiple node pools. This feature isn't supported with Basic SKU load balancers.
 * The AKS cluster must use Virtual Machine Scale Sets for the nodes.
@@ -60,7 +60,7 @@ The following limitations apply when you create AKS clusters that support multip
         --name $CLUSTER_NAME \
         --vm-set-type VirtualMachineScaleSets \
         --node-count 2 \
-        --generate-ssh-keys \
+        --location $LOCATION \
         --load-balancer-sku standard \
         --generate-ssh-keys
     ```
@@ -163,7 +163,7 @@ The Azure Linux container host for AKS is an open-source Linux distribution avai
 You can migrate your existing Ubuntu nodes to Azure Linux using one of the following methods:
 
 * [Remove existing node pools and add new Azure Linux node pools](../azure-linux/tutorial-azure-linux-migration.md#add-azure-linux-node-pools-and-remove-existing-node-pools).
-* [In-place OS SKU migration (preview)](../azure-linux/tutorial-azure-linux-migration.md#in-place-os-sku-migration-preview).
+* [In-place OS SKU migration (preview)](../azure-linux/tutorial-azure-linux-migration.md#in-place-os-sku-migration).
 
 ## Node pools with unique subnets
 

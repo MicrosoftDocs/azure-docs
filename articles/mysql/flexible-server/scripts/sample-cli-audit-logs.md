@@ -28,7 +28,7 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -36,7 +36,7 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

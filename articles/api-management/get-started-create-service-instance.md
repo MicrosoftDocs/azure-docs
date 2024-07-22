@@ -17,7 +17,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 

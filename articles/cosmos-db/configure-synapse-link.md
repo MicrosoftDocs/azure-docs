@@ -14,6 +14,9 @@ ms.custom: references_regions, synapse-cosmos-db
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
+ > [!IMPORTANT]
+ > Mirroring in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
+
 Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos DB API for Mongo DB accounts. And it is in preview for Gremlin API, with activation via CLI commands. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
 * [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)

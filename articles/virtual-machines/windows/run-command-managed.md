@@ -103,7 +103,12 @@ Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Location "EastUS" -
 `OutputBlobUri` and `ErrorBlobUri` are optional parameters.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName -VMName -RunCommandName -SourceScriptUri “< SAS URI of a storage blob with read access or public URI>" -OutputBlobUri “< SAS URI of a storage append blob with read, add, create, write access>” -ErrorBlobUri “< SAS URI of a storage append blob with read, add, create, write access>”
+Set-AzVMRunCommand -ResourceGroupName "myRg" `
+-VMName "myVM" `
+-RunCommandName "RunCommandName" `
+-SourceScriptUri “<SAS_URI_of_a_storage_blob_with_read_access_or_public_URI>" `
+-OutputBlobUri “<SAS_URI_of_a_storage_append_blob_with_read_add_create_write_access>" `
+-ErrorBlobUri “<SAS_URI_of_a_storage_append_blob_with_read_add_create_write_access>”
 ```
 
 

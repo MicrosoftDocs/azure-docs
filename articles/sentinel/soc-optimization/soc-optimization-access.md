@@ -1,17 +1,13 @@
 ---
 title: Optimize security operations
-description: Use SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.service: defender-xdr
-ms.pagetype: security
+description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.author: bagol
 author: batamig
 manager: raynew
 ms.collection:
-  - m365-security
-  - tier1
   - usx-security
 ms.topic: how-to
-ms.date: 06/09/2024
+ms.date: 07/01/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -30,7 +26,7 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br>
+Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
@@ -105,6 +101,9 @@ In the Defender portal, SOC optimization recommendations are listed in the **You
 
 Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
+> [!NOTE]
+> SOC optimization recommendations are calculated every 24 hours.
+
 ### Filter optimizations
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
@@ -149,12 +148,6 @@ From here, either select the options menu or select **View full details** to tak
 
 - **Provide further feedback** to the Microsoft team. When sharing your feedback, be careful not to share any confidential data. For more information, see  [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
-## Use optimizations via API
-
-The `Recommendations` operation group provides access to SOC optimizations via the Azure REST API. For example, use the API to get details about a specific recommendation, or all current recommendations across your workspaces, or to reevaluate a recommendation if you've made changes.
-
-SOC optimization API documentation is available only in the Swagger specification and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
-
 ## SOC optimization usage flow
 
 This section provides a sample flow for using SOC optimizations, from either the Defender or Azure portal:
@@ -187,3 +180,5 @@ This section provides a sample flow for using SOC optimizations, from either the
 ## Related content
 
 - [SOC optimization reference of recommendations](soc-optimization-reference.md)
+- [Use SOC optimizations programmatically](soc-optimization-api.md)
+- [Blog: SOC optimization: unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)

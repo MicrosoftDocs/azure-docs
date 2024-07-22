@@ -19,7 +19,7 @@ The solution is both developer and AppSec friendly and has unique capabilities i
 
 Bright API security validation is based on three main phases:
 
-1. Map the API attack surface. Bright can parse and learn the exact valid structure of REST and GraphQL APIs, from an OAS file (swagger) or an Introspection (GraphQL schema description). In addition, Bright can learn API content from Postman collections and HAR files. These methods provide a comprehensive way to visualize the attack surface.
+1. Map the API attack surface. Bright can parse and learn the exact valid structure of REST and GraphQL APIs, from an OAS file (swagger) or an Introspection (GraphQL schema description). In addition, Bright can learn API content from HAR files. These methods provide a comprehensive way to visualize the attack surface.
 1. Conduct an attack simulation on the discovered APIs. Once the baseline of the API behavior is known (in step 1), Bright manipulates the requests (payloads, endpoint parameters, and so on) and automatically analyzes the response, verifying the correct response code and the content of the response payload to ensure no vulnerability exists. The attack simulations include OWASP API top 10, NIST, business logic tests, and more.
 1. Bright provides a clear indication of any found vulnerability, including screenshots to ease the triage and investigation of the issue and suggestions on how to remediate that vulnerability.
 

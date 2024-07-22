@@ -44,7 +44,7 @@ Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to
 The preceding script directly updates the access key on the cluster side only and doesn't renew a copy on the HDInsight Resource provider side. Therefore, the script action hosted in the storage account will fail after the access key is rotated.
 
 Workaround:
-Use [SAS URIs](hdinsight-storage-sharedaccesssignature-permissions.md) for script actions or make the scripts publicly accessible.
+Use external storage account via [SAS URIs](hdinsight-storage-sharedaccesssignature-permissions.md) for script actions or make the scripts publicly accessible.
 
 ## Next steps
 

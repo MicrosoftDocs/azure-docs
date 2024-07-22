@@ -96,7 +96,7 @@ The status of items that appear in this table might change over time as support 
 
 ## Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 ## Performance
 

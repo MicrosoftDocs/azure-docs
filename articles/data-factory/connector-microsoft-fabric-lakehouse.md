@@ -88,6 +88,9 @@ To use service principal authentication, follow these steps.
         :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
     
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
+
+       >[!Note]
+       > The service principal will not appear in the **Add people** list unless the Power BI tenant settings [enable service principals access to Fabric APIs](/power-bi/developer/embedded/embed-service-principal#step-3---enable-the-power-bi-service-admin-settings).
     
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
         

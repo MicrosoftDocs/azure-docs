@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: mktng-kw-nov2021
 ms.date: 02/13/2024
 ---

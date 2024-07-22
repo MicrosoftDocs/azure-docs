@@ -30,7 +30,7 @@ The following command shows the most basic way to use the GPT-4 Turbo with Visio
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -88,12 +88,12 @@ The following is a sample request body. The format is the same as the chat compl
     api_base = '<your_azure_openai_endpoint>' # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     api_key="<your_azure_openai_key>"
     deployment_name = '<your_deployment_name>'
-    api_version = '2023-12-01-preview' # this might change in the future
+    api_version = '2024-02-15-preview' # this might change in the future
     
     client = AzureOpenAI(
         api_key=api_key,  
         api_version=api_version,
-        base_url=f"{api_base}openai/deployments/{deployment_name}/extensions",
+        base_url=f"{api_base}openai/deployments/{deployment_name}",
     )
     ```
 
@@ -265,7 +265,7 @@ The **object grounding** integration brings a new layer to data analysis and use
 
 #### [REST](#tab/rest)
 
-Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
 - RESOURCE_NAME is the name of your Azure OpenAI resource 
 - DEPLOYMENT_NAME is the name of your GPT-4 Turbo with Vision model deployment 
@@ -577,7 +577,7 @@ To use a User assigned identity on your Azure AI Services resource, follow these
 
 #### [REST](#tab/rest)
 
-1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/extensions/chat/completions?api-version=2023-12-01-preview` where 
+1. Prepare a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2024-02-15-preview` where 
 
     - RESOURCE_NAME is the name of your Azure OpenAI resource 
     - DEPLOYMENT_NAME is the name of your GPT-4 Vision model deployment 

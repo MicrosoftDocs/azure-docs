@@ -3,7 +3,7 @@ title: Add device templates in Azure IoT Central with the REST API
 description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 07/12/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -180,7 +180,7 @@ The request body has some required fields:
 * `@id`: a unique ID in the form of a simple Uniform Resource Name.
 * `@type`: declares that the top-level object is a `"ModelDefinition","DeviceModel"`.
 * `@context`: specifies the DTDL version used for the interface.
-* `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
+* `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities can be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
@@ -1308,7 +1308,3 @@ The response to this request looks like the following example:
     ]
 }
 ```
-
-## Next steps
-
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI](howto-set-up-template.md#create-a-device-template).

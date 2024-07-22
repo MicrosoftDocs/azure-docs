@@ -240,18 +240,12 @@ Azure Cosmos DB for Apache Cassandra is a managed service platform. The platform
 
 ## CQL shell
 
-<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../notebooks-overview.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`).
-
-:::image type="content" source="./media/support/cqlsh.png" alt-text="Open CQLSH"::: -->
-
 You can connect to the API for Cassandra in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.11 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to API for Cassandra in Azure Cosmos DB, on Windows or Linux using CQLSH.
 
 > [!WARNING]
 > Connections to Azure Cosmos DB for Apache Cassandra will not work with DataStax Enterprise (DSE) or Cassandra 4.0 versions of CQLSH. Please ensure you use only v3.11 open source Apache Cassandra versions of CQLSH when connecting to API for Cassandra. 
 
 **Windows:**
-
-<!-- If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below. -->
 
 1. Install [Python 3](https://www.python.org/downloads/windows/)    
 1. Install PIP

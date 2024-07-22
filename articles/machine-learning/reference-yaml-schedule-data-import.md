@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: amarbadal
-ms.author: ambadal
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 05/25/2023
-ms.reviewer: franksolomon
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) import schedule YAML schema

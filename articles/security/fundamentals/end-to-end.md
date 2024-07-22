@@ -9,7 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---
@@ -35,8 +35,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
 
 ## Secure and protect
-
-:::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="Diagram showing Azure services that help you secure and protect your cloud resources." border="false":::
 
 | Service | Description |
 |------|--------|
@@ -74,8 +72,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Detect threats
 
-:::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="Diagram showing Azure services that detect threats." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. The workload protection dashboard in Defender for Cloud provides visibility and control of the cloud workload protection features for your environment. |
@@ -95,8 +91,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond
-
-:::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="Diagram showing Azure services that help you investigate and respond to threats." border="false":::
 
 | Service | Description |
 |------|--------|

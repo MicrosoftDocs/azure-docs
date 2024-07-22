@@ -15,7 +15,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

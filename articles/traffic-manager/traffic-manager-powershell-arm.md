@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Resource model
 
@@ -26,7 +26,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 ## Setting up Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 

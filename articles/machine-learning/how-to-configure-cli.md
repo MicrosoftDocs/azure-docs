@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 01/08/2024
-ms.reviewer: larryfr
+ms.reviewer: balapv
 ms.custom: devx-track-azurecli, devplatv2
 ---
 

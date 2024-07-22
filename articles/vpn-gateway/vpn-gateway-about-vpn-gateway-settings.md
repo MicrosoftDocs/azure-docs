@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 07/11/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
@@ -17,7 +17,6 @@ The values in this article specifically apply to VPN gateways (virtual network g
 
 * For values that apply to -GatewayType 'ExpressRoute', see [Virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
-* For active-active gateways, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
 * For Virtual WAN gateways, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
 ## <a name="gwtype"></a>Gateways and gateway types
@@ -56,6 +55,14 @@ Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways
 If you already have a policy-based gateway, you aren't required to change your gateway to route-based unless you want to use a configuration that requires a route-based gateway, such as point-to-site. You can't convert a policy-based gateway to route-based. You must delete the existing gateway, and then create a new gateway as route-based.
 
 [!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
+
+## <a name="active"></a>Active-active VPN gateways
+
+You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device.
+
+[!INCLUDE [active-active gateways](../../includes/vpn-gateway-active-active-gateway-include.md)]
+
+For information about using active-active gateways in a highly available connectivity scenario, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
 
 ## <a name="connectiontype"></a>Connection types
 

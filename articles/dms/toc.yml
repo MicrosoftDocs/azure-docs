@@ -37,15 +37,15 @@
   - name: Migration to Azure SQL Managed Instance
     items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
-      href: resource-custom-roles-sql-db-managed-instance-ads.md
+      href: /data-migration/sql-server/managed-instance/custom-roles?toc=/azure/dms/toc.json
   - name: Migration to SQL Server on Azure Virtual Machine
     items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Virtual Machines as a target 
-      href: resource-custom-roles-sql-db-virtual-machine-ads.md
+      href: /data-migration/sql-server/virtual-machines/custom-roles?toc=/azure/dms/toc.json
   - name: Migration to Azure SQL Database
     items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Azure SQL Database as a target 
-      href: resource-custom-roles-sql-database-ads.md
+      href: /data-migration/sql-server/database/custom-roles?toc=/azure/dms/toc.json
   - name: Migration to Azure Database for MySQL
     items: 
     - name: MySQL Consistent Snapshot 
@@ -80,15 +80,11 @@
     expanded: true
     items:
     - name: to Azure SQL Database (offline)
-      href: tutorial-sql-server-azure-sql-database-offline.md
-    - name: to Azure SQL Managed Instance (online) in Azure Data Studio
-      href: tutorial-sql-server-managed-instance-online-ads.md
-    - name: to Azure SQL Managed Instance (offline) in Azure Data Studio
-      href: tutorial-sql-server-managed-instance-offline-ads.md
-    - name: to SQL Server for Azure Virtual Machines (online) in Azure Data Studio
-      href: tutorial-sql-server-to-virtual-machine-online-ads.md
-    - name: to SQL Server for Azure Virtual Machines (offline) in Azure Data Studio
-      href: tutorial-sql-server-to-virtual-machine-offline-ads.md
+      href: /data-migration/sql-server/database/database-migration-service?toc=/azure/dms/toc.json
+    - name: to Azure SQL Managed Instance in Azure Data Studio
+      href: /data-migration/sql-server/managed-instance/database-migration-service?toc=/azure/dms/toc.json
+    - name: to SQL Server for Azure Virtual Machines in Azure Data Studio
+      href: /data-migration/sql-server/virtual-machines/database-migration-service?toc=/azure/dms/toc.json
     - name: Login migrations
       href: tutorial-login-migration-ads.md
     - name: TDE-enabled databases to Azure SQL

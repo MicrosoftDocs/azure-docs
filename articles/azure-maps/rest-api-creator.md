@@ -2,8 +2,8 @@
 title: Links to the Azure Maps Creator Rest API
 titleSuffix: Microsoft Azure Maps Creator
 description: Links to the Azure Maps Creator Rest API
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 02/05/2024
 ms.topic: reference
 ms.service: azure-maps

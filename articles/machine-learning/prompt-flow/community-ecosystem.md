@@ -8,9 +8,9 @@ ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 11/06/2023
 ---
 

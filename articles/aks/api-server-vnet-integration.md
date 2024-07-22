@@ -68,7 +68,7 @@ API Server VNet Integration is available in all global Azure regions.
 
 ## Create an AKS cluster with API Server VNet Integration using managed VNet
 
-You can configure your AKS clusters with API Server VNet Integration in managed VNet or bring-your-own VNet mode. You can create the as public clusters (with API server access available via a public IP) or private clusters (where the API server is only accessible via private VNet connectivity). You can also toggle between a public and private state without redeploying your cluster.
+You can configure your AKS clusters with API Server VNet Integration in managed VNet or bring-your-own VNet mode. You can create them as public clusters (with API server access available via a public IP) or private clusters (where the API server is only accessible via private VNet connectivity). You can also toggle between a public and private state without redeploying your cluster.
 
 ### Create a resource group
 
@@ -232,7 +232,7 @@ This upgrade performs a node-image version upgrade on all node pools and restart
 AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname doesn't change, but public DNS entries are modified or removed if necessary.
 
 > [!NOTE]
-> `--disable-private-cluster is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
+> `--disable-private-cluster` is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
 
 ### Enable private cluster mode
 

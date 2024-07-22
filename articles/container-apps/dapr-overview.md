@@ -46,7 +46,7 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 
-[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
+[!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Tooling
 

@@ -2,8 +2,8 @@
 title: Recommended alert rules for Kubernetes clusters
 description: Describes how to enable recommended metric alerts rules for a Kubernetes cluster in Azure Monitor.
 ms.topic: conceptual
-ms.date: 03/05/2024
-ms.reviewer: aul
+ms.date: 06/17/2024
+ms.reviewer: vdiec
 ---
 
 # Recommended alert rules for Kubernetes clusters
@@ -19,6 +19,10 @@ There are two types of metric alert rules used with Kubernetes clusters.
 
 ## Enable recommended alert rules
 Use one of the following methods to enable the recommended alert rules for your cluster. You can enable both Prometheus and platform metric alert rules for the same cluster.
+
+>[!NOTE]
+>To enable recommended alerts on Arc-enabled Kubernetes clusters, ARM templates are the only supported method.
+>
 
 ### [Azure portal](#tab/portal)
 Using the Azure portal, the Prometheus rule group will be created in the same region as the cluster.
@@ -136,7 +140,7 @@ The following tables list the details of each recommended alert rule. Source cod
 |:---|:---|:---:|:---:|
 | KubeCPUQuotaOvercommit | The CPU resource quota allocated to namespaces exceeds the available CPU resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
 | KubeMemoryQuotaOvercommit | The memory resource quota allocated to namespaces exceeds the available memory resources on the cluster's nodes by more than 50% for the last 5 minutes. | >1.5 | 5 |
-| Number of OOM killed containers is greater than 0 | One or more containers within pods have been killed due to out-of-memory (OOM) events for the last 5 minutes. | >0 | 5 |
+| KubeContainerOOMKilledCount  | One or more containers within pods have been killed due to out-of-memory (OOM) events for the last 5 minutes. | >0 | 5 |
 | KubeClientErrors | The rate of client errors (HTTP status codes starting with 5xx) in Kubernetes API requests exceeds 1% of the total API request rate for the last 15 minutes. | >0.01 | 15 |
 | KubePersistentVolumeFillingUp | The persistent volume is filling up and is expected to run out of available space evaluated on the available space ratio, used space, and predicted linear trend of available space over the last 6 hours. These conditions are evaluated over the last 60 minutes. | N/A | 60 |
 | KubePersistentVolumeInodesFillingUp | Less than 3% of the inodes within a persistent volume are available for the last 15 minutes. | <0.03 | 15 |
@@ -158,21 +162,21 @@ The following tables list the details of each recommended alert rule. Source cod
 
 | Alert name | Description | Default threshold | Timeframe (minutes) |
 |:---|:---|:---:|:---:|
-| Average PV usage is greater than 80% | The average usage of Persistent Volumes (PVs) on pod exceeds 80% for the last 15 minutes. | >0.8 | 15 |
+| KubePVUsageHigh | The average usage of Persistent Volumes (PVs) on pod exceeds 80% for the last 15 minutes. | >0.8 | 15 |
 | KubeDeploymentReplicasMismatch | There is a mismatch between the desired number of replicas and the number of available replicas for the last 10 minutes. | N/A | 10 |
 | KubeStatefulSetReplicasMismatch | The number of ready replicas in the StatefulSet does not match the total number of replicas in the StatefulSet for the last 15 minutes. | N/A | 15 |
 | KubeHpaReplicasMismatch | The Horizontal Pod Autoscaler in the cluster has not matched the desired number of replicas for the last 15 minutes. | N/A | 15 |
 | KubeHpaMaxedOut | The Horizontal Pod Autoscaler (HPA) in the cluster has been running at the maximum replicas for the last 15 minutes. | N/A | 15 |
 | KubePodCrashLooping | One or more pods is in a CrashLoopBackOff condition, where the pod continuously crashes after startup and fails to recover successfully for the last 15 minutes. | >=1 | 15 |
 | KubeJobStale | At least one Job instance did not complete successfully for the last 6 hours. | >0 | 360 |
-| Pod container restarted in last 1 hour | One or more containers within pods in the Kubernetes cluster have been restarted at least once within the last hour. | >0 | 15 |
-| Ready state of pods is less than 80% | The percentage of pods in a ready state falls below 80% for any deployment or daemonset in the Kubernetes cluster for the last 5 minutes. | <0.8 | 5 |
-| Number of pods in failed state are greater than 0. | One or more pods is in a failed state for the last 5 minutes.  | >0 | 5 |
+| KubePodContainerRestart | One or more containers within pods in the Kubernetes cluster have been restarted at least once within the last hour. | >0 | 15 |
+| KubePodReadyStateLow | The percentage of pods in a ready state falls below 80% for any deployment or daemonset in the Kubernetes cluster for the last 5 minutes. | <0.8 | 5 |
+| KubePodFailedState | One or more pods is in a failed state for the last 5 minutes.  | >0 | 5 |
 | KubePodNotReadyByController | One or more pods are not in a ready state (i.e., in the "Pending" or "Unknown" phase) for the last 15 minutes. | >0 | 15 |
 | KubeStatefulSetGenerationMismatch | The observed generation of a Kubernetes StatefulSet does not match its metadata generation for the last 15 minutes. | N/A | 15 |
 | KubeJobFailed | One or more Kubernetes jobs have failed within the last 15 minutes. | >0 | 15 |
-| Average CPU usage per container is greater than 95% | The average CPU usage per container exceeds 95% for the last 5 minutes. | >0.95 | 5 |
-| Average Memory usage per container is greater than 95% | The average memory usage per container exceeds 95% for the last 5 minutes. | >0.95 | 10 |
+| KubeContainerAverageCPUHigh | The average CPU usage per container exceeds 95% for the last 5 minutes. | >0.95 | 5 |
+| KubeContainerAverageMemoryHigh | The average memory usage per container exceeds 95% for the last 5 minutes. | >0.95 | 10 |
 | KubeletPodStartUpLatencyHigh | The 99th percentile of the pod startup latency exceeds 60 seconds for the last 10 minutes. | >60 | 10 |
 
 ### Platform metric alert rules
@@ -180,7 +184,7 @@ The following tables list the details of each recommended alert rule. Source cod
 | Alert name | Description | Default threshold | Timeframe (minutes) |
 |:---|:---|:---:|:---:|
 | Node cpu percentage is greater than 95% | The node CPU percentage is greater than 95% for the last 5 minutes. | 95 | 5 |
-| Node memory working set percentage is greater than 100% | The node memory working set percentage is greater than 95% for the last 5 minutes. | 100 | 5 |
+| Node memory working set percentage is greater than 100% | The node memory working set percentage is greater than 100% for the last 5 minutes. | 100 | 5 |
 
 
 ## Legacy Container insights metric alerts (preview)

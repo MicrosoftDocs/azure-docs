@@ -19,7 +19,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 > * Configure a Tomcat web application to use Microsoft Entra authentication with PostgreSQL Database.
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -205,7 +205,7 @@ curl https://${WEBAPP_URL}/checklist/1
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

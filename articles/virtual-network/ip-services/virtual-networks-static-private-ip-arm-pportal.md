@@ -58,7 +58,7 @@ Use the following steps to create a VM, and its virtual network and subnet:
 
 1. Select **Review + create**. Review the settings, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Change private IP address to static
 

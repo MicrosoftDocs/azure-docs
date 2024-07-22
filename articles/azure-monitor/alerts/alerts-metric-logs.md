@@ -9,7 +9,7 @@ ms.reviewer: harelbr
 
 # Create a metric alert in Azure Monitor Logs
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can use metric alert capabilities on a predefined set of logs in Azure Monitor Logs. The monitored logs, which can be collected from Azure or on-premises computers, are converted to metrics and then monitored with metric alert rules, just like any other metric.
 

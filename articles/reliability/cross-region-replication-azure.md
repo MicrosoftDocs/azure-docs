@@ -12,22 +12,17 @@ ms.custom: references_regions
 
 # Azure cross-region replication
 
-Many Azure regions provide availability zones, which are separated groups of datacenters. Within a region, availability zones are close enough to have low-latency connections to other availability zones, but they're far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones.
-
-While Azure regions are designed to offer protection against local disasters with availability zones, they can also provide protection from regional or large geography disasters with disaster recovery by making use of another secondary region that uses *cross-region replication*. Both the primary and secondary regions together form a [region pair](#azure-paired-regions).
-
-
-## Cross-region replication
-
-To ensure customers are supported across the world, Azure maintains multiple geographies. These discrete demarcations define a disaster recovery and data residency boundary across one or multiple Azure regions. 
+While Azure regions are designed to offer protection against local disasters with [availability zones](./availability-zones-overview.md), they can also provide protection from regional or large geography disasters with disaster recovery by making use of another secondary region that uses *cross-region replication*. Both the primary and secondary regions together form a [region pair](#azure-paired-regions).
 
 Cross-region replication is one of several important pillars in the Azure business continuity and disaster recovery strategy. Cross-region replication builds on the synchronous replication of your applications and data that exists by using availability zones within your primary Azure region for high availability. Cross-region replication asynchronously replicates the same applications and data across other Azure regions for disaster recovery protection. 
 
 ![Image depicting high availability via asynchronous replication of applications and data across other Azure regions for disaster recovery protection.](./media/cross-region-replication.png)
 
-Some Azure services take advantage of cross-region replication to ensure business continuity and protect against data loss. Azure provides several [storage solutions](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that make use of cross-region replication to ensure data availability. For example, [Azure geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically. This approach ensures that data is durable even if the primary region isn't recoverable.
+Some Azure services support cross-region replication to ensure business continuity and protect against data loss. Azure provides several [storage solutions](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that make use of cross-region replication to ensure data availability. For example, [Azure geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically. This approach ensures that data is durable even if the primary region isn't recoverable.
 
-Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, recovery and replication must be configured by the customer. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information about the shared responsibility model and to learn about business continuity and disaster recovery in Azure, see [Business continuity management in Azure](business-continuity-management-program.md).
+## Shared responsibility
+
+Not all Azure services automatically replicate data or automatically fall back from a failed region to cross-replicate to another enabled region. In these scenarios, you are responsible for recovery and replication. These examples are illustrations of the *shared responsibility model*. It's a fundamental pillar in your disaster recovery strategy. For more information about the shared responsibility model and to learn about business continuity and disaster recovery in Azure, see [Business continuity management in Azure](business-continuity-management-program.md).
 
 Shared responsibility becomes the crux of your strategic decision-making when it comes to disaster recovery. Azure doesn't require you to use cross-region replication, and you can use services to build resiliency without cross-replicating to another enabled region. But we strongly recommend that you configure your essential services across regions to benefit from [isolation](../security/fundamentals/isolation-choices.md) and improve [availability](availability-zones-service-support.md). 
 
@@ -51,7 +46,7 @@ You aren't limited to using services within your regional pairs. Although an Azu
 
 ## Azure paired regions
 
-Many regions also have a paired region to support cross-region replication based on proximity and other factors.
+Many regions have a paired region to support cross-region replication based on proximity and other factors.
 
 
 >[!IMPORTANT]
@@ -104,20 +99,25 @@ Many regions also have a paired region to support cross-region replication based
 
 ## Regions with availability zones and no region pair
 
-Azure continues to expand globally in regions without a regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines to allow for the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
+Azure continues to expand globally in regions without a regional pair and achieves high availability by leveraging [availability zones](../reliability/availability-zones-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). However, [some services offer alternative options for cross-region replication](./cross-region-replication-azure-no-pair.md).
+
+Non-paired regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines to allow for the option to keep data resident within the same region. Customers are responsible for data resiliency based on their Recovery Point Objective or Recovery Time Objective (RTO/RPO) needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../reliability/availability-zones-service-support.md#azure-services-with-availability-zone-support) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf).
 
 The table below lists Azure regions without a region pair:
 
 | Geography | Region |
 |-----|----|
 | Qatar | Qatar Central |
+| Mexico | Mexico Central |
 | Poland | Poland Central |
 | Israel | Israel Central|
 | Italy | Italy North|
 | Austria | Austria East (Coming soon) |
-| Spain | Spain Central (Coming soon) |
+| Spain | Spain Central|
+
 ## Next steps
 
+- [Azure cross-region replication for non-paired regions](./cross-region-replication-azure-no-pair.md)
 - [Azure services and regions that support availability zones](availability-zones-service-support.md)
 - [Disaster recovery guidance by service](disaster-recovery-guidance-overview.md)
 - [Reliability guidance](./reliability-guidance-overview.md)

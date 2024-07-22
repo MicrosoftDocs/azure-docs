@@ -4,7 +4,7 @@ description: Learn how to configure network groups with Azure Policy in Azure Vi
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/10/2024
 ms.custom: template-concept, engagement-fy23, seo-fy24
 #customer intent: As a network administrator, I want to learn how to use Azure Policy to define dynamic network group membership in Azure Virtual Network Manager so that I can create scalable and dynamically adapting virtual network environments in my organization.

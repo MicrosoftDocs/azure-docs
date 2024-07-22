@@ -18,7 +18,7 @@ This article walks you through the steps to configure a Standard v1 Application 
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 1. Install the latest version of the Azure PowerShell module by following the [install instructions](/powershell/azure/install-azure-powershell).
 2. You create a virtual network and a subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.

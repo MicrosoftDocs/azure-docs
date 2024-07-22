@@ -49,7 +49,7 @@ Onboarding requirements for Defender for APIs are as follows.
 --- | ---
 API Management instance | At least one API Management instance in an Azure subscription. Defender for APIs is enabled at the level of a subscription.<br/><br/> One or more supported APIs must be imported to the API Management instance.
 Azure account | You need an Azure account to sign in to the Azure portal.
-Onboarding permissions | To enable and onboard Defender for APIs, you need the Owner or Contributor role on  the Azure subscriptions, resource groups, or Azure API Management instance that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> - Security Admin role for full access in Defender for Cloud.<br/> - Security Reader role to view inventory and recommendations in Defender for Cloud.
+Onboarding permissions | To enable and onboard Defender for APIs, you will need [API Management Service Contributor](../api-management/api-management-role-based-access-control.md#built-in-service-roles) role access, along with the permissions outlined in the [User roles and permissions](permissions.md#roles-and-allowed-actions) for enabling Microsoft Defender plans.
 Onboarding location | You can [enable Defender for APIs in the Defender for Cloud portal](defender-for-apis-deploy.md), or in the [Azure API Management portal](../api-management/protect-with-defender-for-apis.md).
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn about deploying Microsoft Defender for Endpoint from Microsof
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
-ms.date: 03/13/2024
+ms.date: 06/23/2024
 #customer intent: As a reader, I want to understand how to deploy Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 ---
 
@@ -43,7 +43,7 @@ When you integrate Defender for Endpoint with Defender for Cloud, you gain acces
 
 - **Automated onboarding**. Defender for Cloud automatically enables the Defender for Endpoint sensor on all supported machines connected to Defender for Cloud.
 
-- **Single pane of glass**. The Defender for Cloud portal pages displays Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
+- **Single pane of glass**. The Defender for Cloud portal pages displays Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
     :::image type="content" source="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png":::
 
@@ -51,9 +51,14 @@ When you integrate Defender for Endpoint with Defender for Cloud, you gain acces
 
 A Defender for Endpoint tenant is automatically created, when you use Defender for Cloud to monitor your machines.
 
-- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - might also be stored in the central storage and processing systems in the United States. After you've configured the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
+- **Location:** Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - might also be stored in the central storage and processing systems in the United States. After you configure the location, you can't change it. If you have your own license for Microsoft Defender for Endpoint and need to move your data to another location, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to reset the tenant.
 
-- **Moving subscriptions:** If you've moved your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud will deploy Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+- **Moving subscriptions:** If you move your Azure subscription between Azure tenants, some manual preparatory steps are required before Defender for Cloud deploys Defender for Endpoint. For full details, [contact Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+> [!NOTE]
+> To move your Defender for Endpoint extension to a different subscription in the same tenant, delete either the `MDE.Linux' or 'MDE.Windows` extension from the virtual machine and Defender for Cloud will automatically redeploy it.
+
+Check out the [minimum requirements for Defender for Endpoint](/defender-endpoint/minimum-requirements), to see what the licensing, browser, hardware, software requirements are and more.
 
 ## Related content
 

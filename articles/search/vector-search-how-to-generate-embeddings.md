@@ -37,7 +37,7 @@ If you want resources in the same region, start with:
 
 1. [A region for the similarity embedding model](/azure/ai-services/openai/concepts/models#embeddings-models-1), currently in Europe and the United States.
 
-1. [A region for Azure AI Search](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-search). 
+1. [A region for Azure AI Search](search-region-support.md). 
 
 1. To support hybrid queries that include [semantic ranking](semantic-how-to-query-request.md), or if you want to try machine learning model integration using a [custom skill](cognitive-search-custom-skill-interface.md) in an [AI enrichment pipeline](cognitive-search-concept-intro.md), note the regions that provide those features.
 

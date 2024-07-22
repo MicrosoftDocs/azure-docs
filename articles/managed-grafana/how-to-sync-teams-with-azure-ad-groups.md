@@ -11,7 +11,7 @@ ms.date: 06/7/2024
 
 # Configure Grafana teams with Microsoft Entra groups and Grafana team sync
 
-In this guide, you learn how to useMicrosoft Entra groups with [Grafana Team Sync](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-team-sync/) to manage dashboard permissions in Azure Managed Grafana.
+In this guide, you learn how to use Microsoft Entra groups with [Grafana Team Sync](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-team-sync/) to manage dashboard permissions in Azure Managed Grafana.
 
 In Azure Managed Grafana, you can use Azure's role-based access control (RBAC) roles for Grafana to define access rights. These permissions apply to all resources in your Grafana workspace by default, not per folder or dashboard. If you assign a user to the Grafana Editor role, that user can edit any dashboard in your Grafana workspace. However, with Grafana's [granular permission model](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-team-sync/), you can adjust a user's default permission level for specific dashboards or dashboard folders. 
 

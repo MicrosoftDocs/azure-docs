@@ -6,9 +6,9 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, devx-track-azurecli
-ms.author: xunwan
-author: SturgeonMi
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: xunwan
 ms.date: 06/20/2023
 ---
 

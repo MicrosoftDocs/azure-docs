@@ -7,7 +7,7 @@ metadata:
   author: dcurwin
   manager: raynew
   ms.topic: FAQ
-  ms.date: 06/20/2023
+  ms.date: 07/17/2024
 title: Common questions about virtual machines
 summary: |
 
@@ -64,3 +64,11 @@ sections:
           - Isolation of environments per customer account/subscription.
           - Only metadata containing scan results is sent outside the isolated scanning environment.
           - All operations are audited.
+
+
+      - question: |
+          What is the auto-provisioning feature for Bring Your Own License (BYOL), and can it be applied on multiple solutions?
+        answer: |
+          The Defender for Cloud BYOL integration only allows one solution to have auto-provisioning enabled per subscription. The BYOL feature scans all unhealthy machines on the subscription. Unhealthy refers to any machine that doesn't have a VA solution installed, and automatically remediates them by installing the selected VA solution.
+
+          Auto-provisioning will use the single selected BYOL solution for remediation. If no solution is selected, or if multiple solutions have auto-provisioning enabled, the system will not perform an auto-remediation process since it can't decide which solution to prioritize on its own.

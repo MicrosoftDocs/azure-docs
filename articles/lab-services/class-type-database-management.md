@@ -10,6 +10,8 @@ ms.custom: devdivchpfy22
 
 # Set up a lab to teach database management for relational databases
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article describes how to set up a lab for a basic database management class in Azure Lab Services. Database concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It's most noted for its quick processing, proven reliability, ease, and flexibility of use.

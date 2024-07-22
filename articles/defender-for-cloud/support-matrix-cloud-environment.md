@@ -4,10 +4,10 @@ author: Elazark
 ms.author: elkrieger
 description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
-ms.date: 05/29/2024
+ms.date: 06/24/2024
 ---
 
-# Defender for Cloud support for Azure commercial/other clouds
+# Defender for Cloud support matrices for Azure commercial/other clouds
 
 This article indicates which Defender for Cloud features are supported in Azure commercial and government clouds.
 

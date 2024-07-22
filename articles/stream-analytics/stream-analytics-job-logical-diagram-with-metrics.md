@@ -46,7 +46,7 @@ It also provides the job operation actions in the menu section. You can use them
 
 ## Troubleshoot with metrics
 
-A job's metrics provides lots of insights to your job's health. You can view these metrics through the job diagram in its chart section in job level or in the step level. To learn about Stream Analytics job metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). Job diagram integrates these metrics into the query steps (diagram). You can use these metrics within steps to monitor and analyze your job.
+A job's metrics provides lots of insights to your job's health. You can view these metrics through the job diagram in its chart section in job level or in the step level. To learn about Stream Analytics job metrics definition, see [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics). Job diagram integrates these metrics into the query steps (diagram). You can use these metrics within steps to monitor and analyze your job.
 
 ### Is the job running well with its computation resource?
 
@@ -82,7 +82,7 @@ For more assistance, try our [Microsoft Q&A question page for  Azure Stream Anal
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Stream Analytics job diagram (preview) in Azure portal](./job-diagram-with-metrics.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics management REST API reference](/rest/api/streamanalytics/)

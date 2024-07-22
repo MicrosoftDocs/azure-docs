@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Manage your Cloud NGFW by Palo Alto Networks resource
             url: palo-alto-manage.md
+          - text: Deploying Cloud NGFW by Palo Alto Networks and Application Gateway
+            url: palo-alto-application-gateway.md
 
   # Card
   - title: Create a Cloud NGFW by Palo Alto Networks resource
@@ -35,5 +37,7 @@ landingContent:
         links:
           - text: Troubleshooting Cloud NGFW by Palo Alto Networks
             url: palo-alto-troubleshoot.md
+          - text: Deploying Cloud NGFW by Palo Alto Networks and Application Gateway
+            url: palo-alto-application-gateway.md
 
   

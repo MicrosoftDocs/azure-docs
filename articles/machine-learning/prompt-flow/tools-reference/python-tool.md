@@ -9,9 +9,9 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: reference
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 11/02/2023
 ---
 

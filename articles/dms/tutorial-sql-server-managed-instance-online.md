@@ -17,7 +17,7 @@ ms.custom:
 [!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
 > [!NOTE]
-> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](tutorial-sql-server-managed-instance-online-ads.md).
+> This tutorial uses an older version of the Azure Database Migration Service. For improved functionality and supportability, consider migrating to Azure SQL Managed Instance by using the [Azure SQL migration extension for Azure Data Studio](/data-migration/sql-server/managed-instance/database-migration-service).
 >
 > To compare features between versions, review [compare versions](dms-overview.md#compare-versions).
 
@@ -88,7 +88,7 @@ To complete this tutorial, you need to:
 * Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
-* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+* Create a Microsoft Entra Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure SQL Managed Instance and Azure Storage Container. For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal).
 
   > [!NOTE]
   > The Application ID used by the Azure Database Migration Service supports secret (password-based) authentication for service principals. It does not support certificate-based authentication.
@@ -149,7 +149,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Select target** screen, specify the **Application ID** and **Key** that the DMS instance can use to connect to the target instance of SQL Managed Instance and the Azure Storage Account.
 
-    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
+    For more information, see the article [Use portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal).
 
 2. Select the **Subscription** containing the target instance of SQL Managed Instance, and then choose the target SQL Managed instance.
 

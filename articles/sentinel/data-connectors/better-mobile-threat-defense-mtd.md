@@ -89,7 +89,6 @@ BetterMTDNetflowLog_CL
   - In **Better MTD Console**, click on **Policies** on the side bar
   - Click on the **Edit** button of the Policy that you are using.
   - For each Incident types that you want to be logged go to **Send to Integrations** field and select **Sentinel**
-6. For additional information, please refer to our [Documentation](https://mtd-docs.bmobi.net/integrations/how-to-setup-azure-sentinel-integration#mtd-integration-configuration).
 
 
 

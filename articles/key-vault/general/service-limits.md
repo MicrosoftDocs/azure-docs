@@ -12,5 +12,5 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault service limits
 
-[!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
 

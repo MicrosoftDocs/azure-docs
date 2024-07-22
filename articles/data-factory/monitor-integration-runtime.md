@@ -20,7 +20,7 @@ ms.custom:
 - Self-hosted integration runtime
 - Azure-SQL Server Integration Services (SSIS) integration runtime
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 

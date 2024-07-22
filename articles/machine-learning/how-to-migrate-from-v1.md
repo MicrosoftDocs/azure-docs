@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: balapv
-ms.author: balapv
+author: sdgilley
+ms.author: sgilley
 ms.date: 02/22/2024
-ms.reviewer: sgilley
+ms.reviewer: balapv
 ms.custom: devplatv2, devx-track-python
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---

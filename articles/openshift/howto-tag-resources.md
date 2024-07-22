@@ -2,7 +2,7 @@
 title: Tag ARO resources using Azure Policy
 description: Learn how to tag ARO resources in a cluster's resource group using Azure Policy
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/30/2023
 author: johnmarco
 ms.author: johnmarc

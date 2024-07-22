@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 07/12/2024
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino

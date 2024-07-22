@@ -2,7 +2,7 @@
 title: Get secure resource access to AKS by using Trusted Access
 description: Learn how to use the Trusted Access feature to give Azure resources access to Azure Kubernetes Service (AKS) clusters.
 author: schaffererin
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 03/05/2024
 ms.author: schaffererin

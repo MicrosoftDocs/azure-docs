@@ -28,7 +28,7 @@ If you're using [Microsoft Entra ID](../../active-directory/fundamentals/active-
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
 
 ### Restrictions
-[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../includes/disks-azure-ad-upload-download-restrictions.md)]
 
 ### Assign RBAC role
 

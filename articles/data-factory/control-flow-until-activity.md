@@ -257,7 +257,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 ### PowerShell commands
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 

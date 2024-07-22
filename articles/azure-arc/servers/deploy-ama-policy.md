@@ -2,7 +2,7 @@
 title: How to deploy and configure Azure Monitor Agent using Azure Policy
 description: Learn how to deploy and configure Azure Monitor Agent using Azure Policy.
 ms.date: 05/17/2023
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Deploy and configure Azure Monitor Agent using Azure Policy

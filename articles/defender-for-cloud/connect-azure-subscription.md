@@ -1,8 +1,8 @@
 ---
 title: Connect your Azure subscriptions
-description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
+description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud and protect your cloud-based applications.
 ms.topic: install-set-up-deploy
-ms.date: 02/08/2024
+ms.date: 06/25/2024
 ms.custom: mode-other
 ---
 
@@ -68,6 +68,9 @@ To enable all of Defender for Cloud's protections, you need to enable the plans 
 >
 > - You can enable **Microsoft Defender for Storage accounts**, **Microsoft Defender for SQL**, **Microsoft Defender for open-source relational databases** at either the subscription level or resource level.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
+
+> [!IMPORTANT]
+> Microsoft Defender for SQL is a subscription level bundle that uses either a default or custom workspace.
 
 When you enable Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
 

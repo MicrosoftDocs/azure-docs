@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: security
 ms.date: 03/24/2022
 ms.author: mesrivas
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 
 
 ---

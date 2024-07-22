@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: engagement-fy23
 ms.date: 11/16/2022
-ms.author: sngun
-ms.reviewer: sngun, wiassaf
+ms.author: whhender
+ms.reviewer: whhender, wiassaf
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022

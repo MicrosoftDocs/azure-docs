@@ -10,7 +10,7 @@ ms.date: 10/23/2023
 
 # Create custom APIs you can call from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 Although Azure Logic Apps offers hundreds of connectors 
 that you can use in logic app workflows, you might want to call APIs, 

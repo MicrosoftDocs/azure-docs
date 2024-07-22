@@ -14,11 +14,11 @@ To create or edit a lab in the Azure Lab Services website ([https://labs.azure.c
 
 1. From the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu option highlighted.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the Access control (IAM) page with Add role assignment menu option highlighted.":::
 
 1. On the **Role** tab, select the *Lab Creator* role.
 
-    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add roll assignment page with Role tab selected." lightbox="../../../includes/role-based-access-control/media/add-role-assignment-role-generic.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows the Add roll assignment page with Role tab selected." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png":::
 
 1. On the **Members** tab, select the user you want to add to the *Lab Creators* role.
 

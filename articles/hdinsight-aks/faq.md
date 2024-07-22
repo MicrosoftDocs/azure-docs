@@ -10,6 +10,8 @@ ms.date: 08/29/2023
 
 This article addresses some common questions about Azure HDInsight on AKS.
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 ## General
 
 * What is HDInsight on AKS?
@@ -101,7 +103,7 @@ This article addresses some common questions about Azure HDInsight on AKS.
 
 * What is state backend management and how it's done in HDInsight on AKS? 
 
-   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information,see [Flink overview](./flink/flink-overview.md)
+   Backends determine where state is stored. When checkpointing is activated, state is persisted upon checkpoints to guard against data loss and recover consistently. How the state is represented internally, and how and where it's persisted upon checkpoints depends on the chosen State Backend. For more information, see [Flink overview](./flink/flink-overview.md)
 
 ### Apache Spark 
 

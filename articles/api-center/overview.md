@@ -37,7 +37,7 @@ Create and use an API center for the following:
 
 * **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example, representing Azure API Management or other API management solutions.
 
-* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up linting and analysis to enforce API definition quality.  
+* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up [linting and analysis](enable-api-analysis-linting.md) to enforce API definition quality. Integrate with tools such as Dev Proxy to ensure that apps don't use unregistered [shadow APIs](discover-shadow-apis-dev-proxy.md) or APIs that don't meet organizational standards.
 
 * **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md)​.
 

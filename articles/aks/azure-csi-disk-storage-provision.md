@@ -5,7 +5,7 @@ description: Learn how to create a static or dynamic persistent volume with Azur
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
-ms.date: 03/05/2024
+ms.date: 06/28/2024
 author: tamram
 ms.author: tamram
 
@@ -46,7 +46,7 @@ The following table includes parameters you can use to define a custom storage c
 |--- | --- | --- | --- | ---
 |skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `PremiumV2_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
-|cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
+|cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting](PremiumV2_LRS and UltraSSD_LRS only support `None` caching mode) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |resourceGroup | Specify the resource group for the Azure Disks | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster|
 |DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] IOPS Capability (minimum: 2 IOPS/GiB) | 100~160000 | No | `500`|
 |DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] or [Premium SSD v2][premiumv2_lrs_disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|

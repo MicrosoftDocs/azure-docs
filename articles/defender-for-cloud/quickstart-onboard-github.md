@@ -7,23 +7,21 @@ ms.custom: ignite-2023
 #customer intent: As a user, I want to learn how to connect my GitHub Environment to Defender for Cloud so that I can enhance the security of my GitHub resources.
 ---
 
-# Quickstart: Connect your GitHub Environment to Microsoft Defender for Cloud
+# Quick Start: Connect your GitHub Environment to Microsoft Defender for Cloud
 
-In this quickstart, you connect your GitHub organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your GitHub repositories.
+In this quick start, you connect your GitHub organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your GitHub repositories.
 
-By connecting your GitHub organizations to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources. These features include:
+By connecting your GitHub environments to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitHub resources and improve security posture. [Learn more](defender-for-devops-introduction.md).
 
-- **Foundational Cloud Security Posture Management (CSPM) features**: You can assess your GitHub security posture through GitHub-specific security recommendations. You can also learn about all the [recommendations for GitHub](recommendations-reference.md) resources.
 
-- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your GitHub repositories allows you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md).
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+To complete this quick start, you need:
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- GitHub Enterprise with GitHub Advanced Security enabled for posture assessments of secrets, dependencies, IaC misconfigurations, and code quality analysis within GitHub repositories.
+- GitHub Enterprise with GitHub Advanced Security enabled for posture assessments of secrets, dependencies, Infrastructure-as-Code misconfigurations, and code quality analysis within GitHub repositories.
 
 ## Availability
 
@@ -56,11 +54,7 @@ To connect your GitHub account to Microsoft Defender for Cloud:
 1. Enter a name (limit of 20 characters), and then select your subscription, resource group, and region.
 
    The subscription is the location where Defender for Cloud creates and stores the GitHub connection.
-
-1. Select **Next: select plans**. Configure the Defender CSPM plan status for your GitHub connector. Learn more about [Defender CSPM](concept-cloud-security-posture-management.md) and see [Support and prerequisites](devops-support.md) for premium DevOps security features.
-
-    :::image type="content" source="media/quickstart-onboard-ado/select-plans.png" alt-text="Screenshot that shows plan selection for DevOps connectors." lightbox="media/quickstart-onboard-ado/select-plans.png":::
-
+   
 1. Select **Next: Configure access**.
 
 1. Select **Authorize** to grant your Azure subscription access to your GitHub repositories. Sign in, if necessary, with an account that has permissions to the repositories that you want to protect.
@@ -91,7 +85,7 @@ The Defender for Cloud service automatically discovers the organizations where y
 > [!NOTE]
 > To ensure proper functionality of advanced DevOps posture capabilities in Defender for Cloud, only one instance of a GitHub organization can be onboarded to the Azure Tenant you are creating a connector in.
 
-Upon successful onboarding, DevOps resources (e.g., repositories, builds) will be present within the Inventory and DevOps security pages. It might take up to 8 hours for resources to appear. Security scanning recommendations might require [an additional step to configure your pipelines](azure-devops-extension.yml). Refresh intervals for security findings vary by recommendation and details can be found on the Recommendations page.
+Upon successful onboarding, DevOps resources (e.g., repositories, builds) will be present within the Inventory and DevOps security pages. It might take up to 8 hours for resources to appear. Security scanning recommendations might require [an additional step to configure your workflows](github-action.md). Refresh intervals for security findings vary by recommendation and details can be found on the Recommendations page.
 
 ## Next steps
 

@@ -12,6 +12,8 @@ ms.topic: how-to
 
 # Bring a Linux custom image from a physical lab environment to Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes how to import a Linux-based custom image from a physical lab environment for creating a lab in Azure Lab Services. 
 
 Azure supports various [distributions and versions](/azure/virtual-machines/linux/create-upload-generic). The steps to bring a custom Linux image from a VHD varies for each distribution. Every distribution is different because each one has unique prerequisites for running on Azure.

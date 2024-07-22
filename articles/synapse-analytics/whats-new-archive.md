@@ -3,7 +3,7 @@ title: Previous monthly updates in Azure Synapse Analytics
 description: Archive of the new features and documentation improvements for Azure Synapse Analytics
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: rymajidi, sngun
+ms.reviewer: rymajidi, whhender
 ms.date: 07/21/2023
 ms.service: synapse-analytics
 ms.subservice: overview

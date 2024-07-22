@@ -3,7 +3,7 @@ title: Apache Tez application hangs in Azure HDInsight
 description: Apache Tez application hangs in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 06/07/2023
+ms.date: 06/25/2024
 ---
 
 # Scenario: Apache Tez application hangs in Azure HDInsight
@@ -12,7 +12,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-After submitting Apache Hive job, from Tez view the job status is "Running", but doesn't appear to make any progress
+After you submit Apache Hive job, from Tez view the job status is **Running**, but doesn't appear to make any progress.
 
 ## Cause
 

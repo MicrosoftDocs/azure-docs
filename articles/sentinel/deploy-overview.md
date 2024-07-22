@@ -4,7 +4,7 @@ description: Learn about the steps to deploy Microsoft Sentinel including the ph
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 06/18/2024
+ms.date: 06/28/2024
 ms.service: microsoft-sentinel
 ---
 
@@ -76,3 +76,5 @@ When you're finished with your deployment of Microsoft Sentinel, continue to exp
 - [Extract incident entities with non-native action](tutorial-extract-incident-entities.md)
 - [Investigate with UEBA](investigate-with-ueba.md)
 - [Build and monitor Zero Trust](sentinel-solution.md)
+
+Review the [Microsoft Sentinel operational guide](ops-guide.md) for the regular SOC activities we recommend that you perform daily, weekly, and monthly.

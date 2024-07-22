@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/21/2023
+ms.date: 06/15/2024
 ms.custom: references_regions
 ---
 # Security FAQs for Azure NetApp Files

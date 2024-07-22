@@ -50,10 +50,17 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Command is only available with hubs created in these regions:
 
-    > [!IMPORTANT]
-    > For Cohere family models, the serverless API model deployment offering is only available with hubs created in **EastUS2** or **Sweden Central** region.
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+    
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
@@ -684,3 +691,4 @@ Models deployed as a serverless API with pay-as-you-go billing are protected by 
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

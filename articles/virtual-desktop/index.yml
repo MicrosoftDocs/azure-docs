@@ -88,8 +88,6 @@ landingContent:
             url: /training/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
       - linkListType: reference
         links:
-          - text: User experience estimator
-            url: https://azure.microsoft.com/services/virtual-desktop/assessment/
           - text: Pricing calculator
             url: https://azure.microsoft.com/pricing/calculator/
 

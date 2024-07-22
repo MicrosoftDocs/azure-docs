@@ -6,6 +6,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/how-to-javascript-vector-index-query.md",
+      "redirect_url": "/azure/cosmos-db/nosql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/account-databases-containers-items.md",
       "redirect_url": "/azure/cosmos-db/resource-model",
       "redirect_document_id": true
@@ -3976,12 +3981,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-dotnet.md",
+      "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-dotnet.md",
       "redirect_url": "/azure/cosmos-db/mongodb/quickstart-javascript",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-nodejs.md",
+      "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-nodejs.md",
       "redirect_url": "/azure/cosmos-db/mongodb/quickstart-dotnet",
       "redirect_document_id": false
     },
@@ -5645,7 +5650,7 @@
       "redirect_url": "/azure/cosmos-db/nosql/stored-procedures-triggers-udfs",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path_from_root": "/articles/cosmos-db/nosql/query/geospatial-intro.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/geospatial",
       "redirect_document_id": true
@@ -5791,9 +5796,34 @@
       "redirect_document_id": false
     },
     {
-        "source_path_from_root":"/articles/cosmos-db/high-availability.md",
-        "redirect_url":"/azure/reliability/reliability-cosmos-db-nosql",
-        "redirect_document_id":false
+      "source_path_from_root": "/articles/cosmos-db/high-availability.md",
+      "redirect_url": "/azure/reliability/reliability-cosmos-db-nosql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/synapse-link-use-cases.md",
+      "redirect_url": "/azure/cosmos-db/analytics-and-business-intelligence-use-cases",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/notebooks-overview.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/notebooks-faq.yml",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-import-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook-vscode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-create-notebook.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook-vscode",
+      "redirect_document_id": false
     }
   ]
 }

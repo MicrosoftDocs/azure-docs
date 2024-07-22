@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 03/25/2024
+ms.date: 07/19/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---

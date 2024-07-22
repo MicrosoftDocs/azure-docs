@@ -1,5 +1,5 @@
 ---
-title: Export data to Blob Storage IoT Central
+title: Export data to Blob Storage
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Blob Storage
 services: iot-central
 author: dominicbetts

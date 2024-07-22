@@ -2,8 +2,8 @@
 title: Work with datasets using the QGIS plugin
 titleSuffix: Microsoft Azure Maps Creator
 description: How to view and edit indoor map data using the Azure Maps QGIS plugin
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -18,8 +18,8 @@ The [Azure Maps QGIS plugin] is used to view and edit [datasets] in [QGIS]. It e
 
 ## Prerequisites
 
-- Understanding of [Creator concepts].
-- An Azure Maps Creator [dataset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- Understanding of [Creator concepts]
+- A  [dataset]
 - A basic working knowledge of [QGIS]
 
 ## Get started
@@ -204,4 +204,3 @@ If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag
 [MICROSOFT Q&A]: /answers/questions/ask
 [QGIS]: https://qgis.org/en/site/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md

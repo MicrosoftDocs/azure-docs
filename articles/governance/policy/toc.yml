@@ -21,7 +21,7 @@
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
   - name: Assign a policy - REST
-    displayName: armclient, postman
+    displayName: az rest
     href: ./assign-policy-rest-api.md
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager

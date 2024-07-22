@@ -11,7 +11,7 @@ ms.date: 09/21/2023
 
 Defender for SQL protects your IaaS SQL Servers by identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.
 
-Defender for Cloud populates with alerts when it detects suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, anomalous database access, and query patterns. The alerts created by these types of events appear on the [alerts reference page](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics).
+Defender for Cloud populates with alerts when it detects suspicious database activities, potentially harmful attempts to access or exploit SQL machines, SQL injection attacks, anomalous database access, and query patterns. The alerts created by these types of events appear on the [alerts reference page](alerts-sql-database-and-azure-synapse-analytics.md).
 
 Defender for Cloud uses vulnerability assessment to discover, track, and assist you in the remediation of potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state and provide details of any security findings.
 
@@ -122,7 +122,7 @@ Alerts are designed to be self-contained, with detailed remediation steps and in
 For related information, see these resources:
 
 - [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
-- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics)
+- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-sql-database-and-azure-synapse-analytics.md)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.

@@ -8,10 +8,10 @@ ms.subservice: mlops
 ms.custom: build-2023
 ms.topic: reference
 
-author: Bozhong68
-ms.author: bozhlin
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 08/31/2022
-ms.reviewer: ssalgado
+ms.reviewer: bozhlin
 ---
 
 # CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema

@@ -23,14 +23,6 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 
 This content applies to the flexible orchestration mode. For uniform orchestration mode, go to [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)
 
-
-> [!IMPORTANT]
-> Capacity Reservations with virtual machine set using flexible orchestration is currently in general availability for Fault Domain equlas to 1.
-
-> [!IMPORTANT]
-> Capacity Reservations with virtual machine set using flexible orchestration is currently in Public Preview for Fault Domain greater than 1. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> During the preview, always attach reserved capacity during creation of new scale sets using flexible orchestration mode. There are known issues attaching capacity reservations to existing scale sets using flexible orchestration. Microsoft will update this page as more options become enabled during preview. 
-
 ## Associate a new virtual machine scale set to a Capacity Reservation group
 
 **Option 1: Add to Virtual Machine profile** - If the Scale Set with flexible orchestration includes a VM profile, add the Capacity Reservation group property to the profile during Scale Set creation. Follow the same process used for a Scale Set using uniform orchestration. For sample code, see [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md). 
@@ -41,7 +33,7 @@ This content applies to the flexible orchestration mode. For uniform orchestrati
 
 **Step 1: Add to the Virtual Machine Scale Set** - For sample code, see [Associate a virtual machine scale set with uniform orchestration to a Capacity Reservation group](capacity-reservation-associate-virtual-machine-scale-set.md). 
 
-**Step 2: Add to the Virtual Machines deployed** - You must add the Capacity Reservation group to the Virtual Machines deployed using the Scale Set. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
+**Step 2: Add to the Virtual Machines deployed** - You must add the Capacity Reservation group to the Virtual Machines deployed using the Scale Set depending on the upgrade mode. Follow the same process used to associate a VM. For sample code, see [Associate a virtual machine to a Capacity Reservation group](capacity-reservation-associate-vm.md). 
 
 ## Next steps
 

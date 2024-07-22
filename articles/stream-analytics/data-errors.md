@@ -16,7 +16,7 @@ This article outlines the different error types, causes, and resource log detail
 
 ## Resource Logs schema
 
-See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
+See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azure-stream-analytics-reference.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
 
 ```json
 {

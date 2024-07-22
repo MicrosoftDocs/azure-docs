@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: franksolomon
-author: samuel100
-ms.author: samkemp
+ms.reviewer: None
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 07/05/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---

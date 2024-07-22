@@ -35,7 +35,7 @@ A knowledge store is a logical construction that's physically expressed as a loo
 
 ## Projection definition
 
-Projections are specified under the "knowledgeStore" property of a [skillset](/rest/api/searchservice/create-skillset). Projection definitions are used during indexer invocation to create and load objects in Azure Storage with enriched content. If you're unfamiliar with these concepts, start with [AI enrichment](cognitive-search-concept-intro.md) for an introduction.
+Projections are specified under the "knowledgeStore" property of a [skillset](/rest/api/searchservice/skillsets/create). Projection definitions are used during indexer invocation to create and load objects in Azure Storage with enriched content. If you're unfamiliar with these concepts, start with [AI enrichment](cognitive-search-concept-intro.md) for an introduction.
 
 The following example illustrates the placement of projections under knowledgeStore, and the basic construction. The name, type, and content source make up a projection definition.
 

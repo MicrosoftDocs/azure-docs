@@ -139,6 +139,9 @@ This section provides an overview of how BGP communities get used with ExpressRo
 
 For private peering, if you [configure a custom BGP community value](./how-to-configure-custom-bgp-communities.md) on your Azure virtual networks, you'll see this custom value and a regional BGP community value on the Azure routes advertised to your on-premises over ExpressRoute.
 
+> [!NOTE]
+> In order for Azure routes to show regional BGP community values, you first must configure the custom BGP community value for the virtual network.
+
 For Microsoft peering, you're connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region. You also have access to all Microsoft cloud services across all regions within the geopolitical boundary.
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in North Europe and West Europe. 

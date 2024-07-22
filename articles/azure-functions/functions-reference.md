@@ -3,7 +3,7 @@ title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 09/06/2023
+ms.date: 06/26/2024
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -85,9 +85,6 @@ These tools integrate with [Azure Functions Core Tools](./functions-develop-loca
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.  
-::: zone-end  
-::: zone pivot="programming-language-python"  
-Portal editing is only supported for [Python version 1](functions-reference-python.md?pivots=python-mode-configuration), which uses the function.json file.  
 ::: zone-end  
 
 ## Deployment

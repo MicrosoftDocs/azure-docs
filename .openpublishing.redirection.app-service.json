@@ -552,7 +552,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/configure-language-java.md",
-            "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
+            "redirect_url": "/azure/app-service/configure-language-java-deploy-run?pivots=platform-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/configure-language-java.md",
+            "redirect_url": "/azure/app-service/configure-language-java-deploy-run",
             "redirect_document_id": false
         },
         {
@@ -1848,6 +1853,16 @@
         {
             "source_path_from_root": "/articles/app-service-web/scripts/app-service-powershell-scale-manual.md",
             "redirect_url": "/azure/app-service/scripts/powershell-scale-manual",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/get-resource-events.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/overview-monitoring.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
             "redirect_document_id": false
         },
         {

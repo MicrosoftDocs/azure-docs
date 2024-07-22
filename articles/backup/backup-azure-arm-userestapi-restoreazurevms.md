@@ -472,7 +472,7 @@ The response is returned in the following format:
 
 #### Step 2:
 
-Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
+Use the Get Access Token API to authorize your request to access replicated restore points in the secondary region:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20

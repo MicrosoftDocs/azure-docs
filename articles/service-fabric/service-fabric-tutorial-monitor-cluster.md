@@ -30,7 +30,7 @@ In this tutorial series you learn how to:
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

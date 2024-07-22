@@ -191,7 +191,7 @@ internal class LoggerExample
 > [!NOTE]
 > By default, the Application Insights Logger (`ApplicationInsightsLoggerProvider`) forwards exceptions to the Snapshot Debugger via `TelemetryClient.TrackException`. This behavior is controlled via the `TrackExceptionsAsExceptionTelemetry` property on the `ApplicationInsightsLoggerOptions` class. If you set `TrackExceptionsAsExceptionTelemetry` to `false` when configuring the Application Insights Logger, then the preceding example will not trigger the Snapshot Debugger. In this case, modify your code to call `TrackException` manually.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Next steps
 

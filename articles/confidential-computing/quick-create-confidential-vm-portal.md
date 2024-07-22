@@ -123,7 +123,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     q. Go to the disk encryption set resource in the Azure portal.
 
-    r. Select the pink banner to grant permissions to Azure Key Vault.
+    r. When you see a blue info banner, please follow the instructions provided to grant access. On encountering a pink banner, simply select it to grant the necessary permissions to Azure Key Vault.
 
    > [!IMPORTANT]
    > You must perform this step to successfully create the confidential VM.

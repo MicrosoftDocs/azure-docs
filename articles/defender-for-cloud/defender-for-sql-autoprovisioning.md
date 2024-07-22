@@ -64,7 +64,7 @@ Once the SQL server-targeted AMA autoprovisioning process has been enabled, you 
 For related information, see these resources:
 
 - [How Microsoft Defender for Azure SQL can protect SQL servers anywhere](https://www.youtube.com/watch?v=V7RdB6RSVpc).
-- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics)
+- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-sql-database-and-azure-synapse-analytics.md)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
 - Check out [common questions](faq-defender-for-databases.yml) about Defender for Databases.

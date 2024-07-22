@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using PowerShell. This type of connection requires the native VPN client to be configured on each connecting client computer. Most of the steps in this article can be performed using Azure Cloud Shell, except for uploading certificates for certificate authentication.
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 

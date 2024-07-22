@@ -1,8 +1,8 @@
 ---
 title: Facility Ontology in Microsoft Azure Maps Creator
 description: Facility Ontology that describes the feature class definitions for Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -550,9 +550,6 @@ The `category` class feature defines category names. For example: "room.conferen
 Learn more about Creator for indoor maps by reading:
 
 > [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 <!---------   Internal Links     --------------->
@@ -585,7 +582,7 @@ Learn more about Creator for indoor maps by reading:
 <!---------   learn.microsoft.com links     --------------->
 [Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
-[What is Azure Maps Creator?]: about-creator.md
+
 <!---------   External Links     --------------->
 [Azure Maps services]: https://aka.ms/AzureMaps
 [feature object]: https://www.rfc-editor.org/rfc/rfc7946#section-3.2

@@ -33,7 +33,7 @@ This article contains the following examples:
 
 [!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a serverless function app for C# 
 

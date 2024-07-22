@@ -27,11 +27,12 @@ A daily cap on a Log Analytics workspace allows you to avoid unexpected increase
 ## How the daily cap works
 Each workspace has a daily cap that defines its own data volume limit.  When the daily cap is reached, a warning banner appears across the top of the page for the selected Log Analytics workspace in the Azure portal, and an operation event is sent to the *Operation* table under the **LogManagement** category. You can optionally create an alert rule to send an alert when this event is created.
 
+The data size used for the daily cap is the size after customer-defined data transformations. (Learn more about data [transformations in Data Collection Rules](../essentials/data-collection-transformations.md).)  
+
 Data collection resumes at the reset time which is a different hour of the day for each workspace.  This reset hour can't be configured. You can optionally create an alert rule to send an alert when this event is created.
 
 > [!NOTE]
-> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected, particularly if the workspace is receiving high volumes of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
-
+> The daily cap can't stop data collection at precisely the specified cap level and some excess data is expected. The data collection beyond the daily cap can be particularly large if the workspace is receiving high rates of data. If data is collected above the cap, it's still billed. See [View the effect of the Daily Cap](#view-the-effect-of-the-daily-cap) for a query that is helpful in studying the daily cap behavior. 
 ## When to use a daily cap
 Daily caps are typically used by organizations that are particularly cost conscious. They shouldn't be used as a method to reduce costs, but rather as a preventative measure to ensure that you don't exceed a particular budget. 
 

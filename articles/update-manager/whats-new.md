@@ -5,12 +5,18 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/13/2024
+ms.date: 07/05/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
+
+## June 2024
+
+### New region support
+
+General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions).
 
 ## May 2024
 

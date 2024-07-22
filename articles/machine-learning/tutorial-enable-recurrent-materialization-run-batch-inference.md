@@ -7,10 +7,10 @@ ms.service: machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: rsethur
-ms.author: seramasu
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 11/28/2023
-ms.reviewer: franksolomon
+ms.reviewer: seramasu
 ms.custom: sdkv2, build-2023, ignite-2023, update-code
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---

@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 This sample script creates an app in App Service with its related resources, and then deploys a Private Endpoint.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 
 ## Sample script

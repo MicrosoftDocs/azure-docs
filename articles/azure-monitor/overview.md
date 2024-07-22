@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: rboucher
 ms.author: robb
-ms.date: 02/05/2024
+ms.date: 07/15/2024
 ms.reviewer: robb
 ---
 # Azure Monitor overview

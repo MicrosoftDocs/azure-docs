@@ -116,8 +116,10 @@
       href: service-bus-transactions.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
-    - name: Geo-disaster recovery and geo-replication
+    - name: Geo-Disaster Recovery
       href: service-bus-geo-dr.md
+    - name: Geo-Replication
+      href: service-bus-geo-replication.md
     - name: Asynchronous messaging and high availability
       href: service-bus-async-messaging.md
     - name: Handling outages and disasters

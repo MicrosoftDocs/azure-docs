@@ -57,7 +57,7 @@ Create an Azure Bastion host to securely manage the virtual machines in the back
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -315,7 +315,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create the test virtual machine
 

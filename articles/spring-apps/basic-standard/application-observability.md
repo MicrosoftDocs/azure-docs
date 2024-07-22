@@ -41,7 +41,7 @@ Log Analytics and Application Insights are deeply integrated with Azure Spring A
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [application-observability-with-basic-standard-plan](includes/application-observability/application-observability-with-basic-standard-plan.md)]
 

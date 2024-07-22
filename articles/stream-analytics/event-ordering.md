@@ -76,5 +76,5 @@ When a partition doesn't have any data for more than the configured late arrival
 
 ## Next steps
 * [Time handling considerations](stream-analytics-time-handling.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
+* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
+* [Azure Stream Analytics metrics dimensions](monitor-azure-stream-analytics-reference.md#metric-dimensions)

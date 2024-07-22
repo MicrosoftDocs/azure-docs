@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 09/13/2023
 ---
 

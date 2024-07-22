@@ -12,6 +12,8 @@ The first step in understanding compliance in Azure is to identify the status of
 
 The Azure PowerShell modules can be used to manage Azure resources from the command line or in scripts. This article explains how to use Azure PowerShell to create a policy assignment.
 
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

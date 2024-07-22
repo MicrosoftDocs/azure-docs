@@ -27,7 +27,7 @@ You'll use a template to deploy a test environment that has a central VNet (10.0
 - a firewall subnet (10.0.100.0/24)
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 

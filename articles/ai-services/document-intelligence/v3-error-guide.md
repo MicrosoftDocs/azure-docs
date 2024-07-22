@@ -2,13 +2,13 @@
 title: "Reference: Document Intelligence (formerly Form Recognizer) Errors"
 titleSuffix: Azure AI services
 description: Learn how errors are represented in Document Intelligence and find a list of possible errors returned by the service.
-author: paulhsu
+author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/11/2024
 ms.author: paulhsu
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -16,7 +16,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 # Error guide v4.0, v3.1, and v3.0
 
-Document Intelligence uses a unified design to represent all errors encountered in the REST APIs.  Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
+Document Intelligence uses a unified design to represent all errors encountered in the REST APIs. Whenever an API operation returns a 4xx or 5xx status code, additional information about the error is returned in the response JSON body as follows:
 
 ```json
 {
@@ -31,7 +31,7 @@ Document Intelligence uses a unified design to represent all errors encountered 
 }
 ```
 
-For long-running operations where multiple errors are encountered, the top-level error code is set to the most severe error, with the individual errors listed under the *error.details* property.  In such scenarios, the *target* property of each individual error specifies the trigger of the error.
+For long-running operations where multiple errors are encountered, the top-level error code is set to the most severe error, with the individual errors listed under the *error.details* property. In such scenarios, the *target* property of each individual error specifies the trigger of the error.
 
 ```json
 {
@@ -68,7 +68,7 @@ The top-level *error.code* property can be one of the following error code messa
 | Conflict             | The request couldn't be completed due to a conflict.  | 409         |
 | UnsupportedMediaType | Request content type isn't supported.                 | 415         |
 | InternalServerError  | An unexpected error occurred.                          | 500         |
-| ServiceUnavailable   | A transient error has occurred. Try again.      | 503         |
+| ServiceUnavailable   | A transient error occurred. Try again.      | 503         |
 
 When possible, more details are specified in the *inner error* property.
 
@@ -104,5 +104,5 @@ When possible, more details are specified in the *inner error* property.
 | InvalidRequest | OperationNotCancellable | The operation can no longer be canceled. |
 | InvalidRequest | TrainingContentMissing | Training data is missing: {details} |
 | InvalidRequest | UnsupportedContent | Content isn't supported: {details} |
-| NotFound | ModelNotFound | The requested model wasn't found. It's deleted or still building. |
-| NotFound | OperationNotFound | The requested operation wasn't found. The identifier is invalid or the operation has expired. |
+| NotFound | ModelNotFound | The requested model wasn't found. It was deleted or still building. |
+| NotFound | OperationNotFound | The requested operation wasn't found. The identifier is invalid or the operation is expired. |

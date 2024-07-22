@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Azure Database for MySQL - Flexible Server documentation
-summary: "Azure Database for MySQL - Flexible Server is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
+title: Azure Database for MySQL
+summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can use Azure Database for MySQL - Flexible Server to deploy your MySQL database in Azure."
   ms.service: mysql
@@ -144,32 +144,6 @@ landingContent:
             url: ../app-service/quickstart-wordpress.md
 
 # Card 7
-  - title: Azure Database for MySQL - Single Server
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Database for MySQL - Single Server?
-            url: single-server/single-server-overview.md
-          - text: What's new in Azure Database for MySQL - Single Server?
-            url: single-server/single-server-whats-new.md
-      - linkListType: whats-new
-        links:
-          - text: What's new in Azure Database for MySQL - Single Server?
-            url: single-server/single-server-whats-new.md
-      - linkListType: concept
-        links:
-          - text: Server concepts
-            url: single-server/concepts-servers.md
-          - text: Understand pricing tiers
-            url: single-server/concepts-pricing-tiers.md
-          - text: Limitations
-            url: flexible-server/concepts-limitations.md
-      - linkListType: quickstart
-        links:
-          - text: Create a server using Azure CLI
-            url: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
-
-# Card 8
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
@@ -195,7 +169,7 @@ landingContent:
           - text: Troubleshooting best practices
             url: single-server/concepts-troubleshooting-best-practices.md
 
-# Card 9
+# Card 8
   - title: Reference
     linkLists:
       - linkListType: download

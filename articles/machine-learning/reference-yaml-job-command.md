@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, devx-track-python, update-code1
-author: balapv
-ms.author: balapv
+author: Blackmist
+ms.author: larryfr
 ms.date: 11/28/2022
-ms.reviewer: larryfr
+ms.reviewer: balapv
 ---
 
 # CLI (v2) command job YAML schema

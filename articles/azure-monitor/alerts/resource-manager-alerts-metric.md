@@ -347,7 +347,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"
@@ -1014,7 +1014,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "5",
+        "threshold": 5,
         "timeAggregation": "Total"
       }
     },
@@ -1030,7 +1030,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "250",
+        "threshold": 250,
         "timeAggregation": "Average"
       }
     },
@@ -1307,7 +1307,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "5",
+        "threshold": 5,
         "timeAggregation": "Total"
       }
     },
@@ -1940,7 +1940,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"
@@ -2282,8 +2282,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -2420,7 +2420,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"
@@ -3231,8 +3231,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -3369,7 +3369,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"
@@ -4179,8 +4179,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -4318,7 +4318,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"

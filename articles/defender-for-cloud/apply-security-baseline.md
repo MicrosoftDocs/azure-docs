@@ -10,7 +10,7 @@ ms.date: 06/27/2023
 # Review hardening recommendations
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) as of June 30, 2024. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 > [!NOTE]
 > As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
@@ -30,7 +30,7 @@ Use the security recommendations described in this article to assess the machine
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|Free|
-|Prerequisites:|Machines must (1) be members of a workgroup, (2) have the Guest Configuration extension, (3) have a system-assigned managed-identity, and (4) be running a supported OS:<br>• Windows Server 2012, 2012r2, 2016 or 2019<br>• Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>• Debian 7, 8, 9, or 10<br>• CentOS 7 or 8<br>• Red Hat Enterprise Linux (RHEL) 7 or 8<br>• Oracle Linux 7 or 8<br>• SUSE Linux Enterprise Server 12|
+|Prerequisites:|Machines must (1) be members of a workgroup, (2) have the Guest Configuration extension, (3) have a system-assigned managed-identity, and (4) be running a supported OS:<br>• Windows Server 2012, 2012r2, 2016 or 2019<br>• Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>• Debian 7, 8, 9, or 10<br>• CentOS 7 or 8 (CentOS is End Of Life (EOL) as of June 30, 2024. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).)<br>• Red Hat Enterprise Linux (RHEL) 7 or 8<br>• Oracle Linux 7 or 8<br>• SUSE Linux Enterprise Server 12|
 |Required roles and permissions:|To install the Guest Configuration extension and its prerequisites, **write** permission is required on the relevant machines.<br>To **view** the recommendations and explore the OS baseline data, **read** permission is required at the subscription level.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)|
 

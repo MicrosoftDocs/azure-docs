@@ -20,7 +20,7 @@ author: lgayhardt
 The following table provides an index of tools in prompt flow.
 
 | Tool name | Description | Package name |
-|------|-----------|-------------|--------------|
+|------|-----------|-------------|
 | [LLM](./llm-tool.md) | Use large language models (LLM) with the Azure OpenAI Service for tasks such as text completion or chat. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Prompt](./prompt-tool.md) | Craft a prompt by using Jinja as the templating language. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Python](./python-tool.md) | Run Python code. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
@@ -28,7 +28,7 @@ The following table provides an index of tools in prompt flow.
 | [Content Safety (Text)](./content-safety-tool.md) | Use Azure AI Content Safety to detect harmful content. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Embedding](./embedding-tool.md) | Use Azure OpenAI embedding models to create an embedding vector that represents the input text. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
 | [Serp API](./serp-api-tool.md) | Use Serp API to obtain search results from a specific search engine. | [promptflow-tools](https://pypi.org/project/promptflow-tools/) |
-| [Index Lookup](./index-lookup-tool.md) | Search a vector-based query for relevant results using one or more text queries. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
+| [Index Lookup](./index-lookup-tool.md)<sup>1</sup> | Search a vector-based query for relevant results using one or more text queries. | [promptflow-vectordb](https://pypi.org/project/promptflow-vectordb/) |
 
 <sup>1</sup> The Index Lookup tool replaces the three deprecated legacy index tools: Vector Index Lookup, Vector DB Lookup, and Faiss Index Lookup. If you have a flow that contains one of those tools, follow the [migration steps](./index-lookup-tool.md#migrate-from-legacy-tools-to-the-index-lookup-tool) to upgrade your flow.
 

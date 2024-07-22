@@ -16,7 +16,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [conceptual overview of this feature](./concepts-fleet.md), which provides an explanation of fleets and member clusters referenced in this document.
 * Read the [conceptual overview of fleet types](./concepts-choosing-fleet.md), which provides a comparison of different fleet configuration options.

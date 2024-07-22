@@ -5,6 +5,7 @@ summary: Azure Service Fabric is a distributed systems platform that makes it ea
 
 metadata:
   ms.service: service-fabric
+  ms.author: akashdubey
   ms.topic: landing-page
   ms.date: 07/11/2022
 

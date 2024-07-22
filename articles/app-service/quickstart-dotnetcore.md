@@ -13,6 +13,7 @@ author: cephalin
 ms.author: cephalin
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
+ms.collection: ce-skilling-ai-copilot
 ---
 
 <!-- NOTES:

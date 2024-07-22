@@ -219,7 +219,7 @@ You must also create or assign an existing virtual machine to run the self-hoste
 1. Select **Review + create**.
 1. Review the settings, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ### Create a private endpoint
 

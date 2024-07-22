@@ -22,7 +22,7 @@ When you're running an Azure Service Fabric cluster, it's a good idea to collect
 One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as [Azure Monitor logs](./service-fabric-diagnostics-oms-setup.md) or another log-parsing solution.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 The following tools are used in this article:

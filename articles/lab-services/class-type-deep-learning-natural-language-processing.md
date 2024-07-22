@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Set up a lab focused on deep learning in natural language processing using Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows you how to set up a lab focused on deep learning in Natural Language Processing (NLP) using Azure Lab Services. NLP is a form of Artificial Intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  

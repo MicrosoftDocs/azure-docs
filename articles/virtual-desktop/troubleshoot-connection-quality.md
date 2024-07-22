@@ -30,9 +30,9 @@ To reduce round trip time:
 
 - Check your compute resources by looking at CPU utilization and available memory on your VM. You can view your compute resources by following the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configure-performance-counters) to set up a performance counter to track certain information. For example, you can use the Processor Information(_Total)\\% Processor Time counter to track CPU utilization, or the Memory(\*)\\Available Mbytes counter for available memory. Both of these counters are enabled by default in Azure Virtual Desktop Insights. If both counters show that CPU usage is too high or available memory is too low, your VM size or storage may be too small to support your users' workloads, and you'll need to upgrade to a larger size.
 
-## Optimize VM latency with the Azure Virtual Desktop Experience Estimator tool
+## Optimize VM latency by reviewing Azure network round-trip latency statistics
 
-The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
+Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md). To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users. We recommend you review the statistics every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
 
 ## My connection data isn't going to Azure Log Analytics
 

@@ -4,7 +4,7 @@ description: This article discusses best practices for managing Java Archive (JA
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Safely manage jar dependencies

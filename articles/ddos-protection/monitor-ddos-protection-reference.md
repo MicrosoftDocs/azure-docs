@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 07/17/2024
 ms.custom: template-concept
 ---
 

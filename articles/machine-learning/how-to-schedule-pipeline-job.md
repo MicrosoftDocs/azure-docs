@@ -5,9 +5,9 @@ description: Learn how to schedule pipeline jobs that allow you to automate rout
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 03/27/2023
 ms.topic: how-to
 ---

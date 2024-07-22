@@ -14,6 +14,8 @@ ms.custom: mode-portal
 
 # Quickstart: Create and connect to a lab in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this quickstart, you create a Windows-based lab virtual machine (VM) with Azure Lab Services and connect to it by using remote desktop (RDP). Azure Lab Services enables you to create labs with infrastructure managed by Azure. You can create labs for running classroom trainings, hackathons, or for experimenting.
 
 To create the lab VM, you first create a lab plan in the Azure portal. Use the Azure Lab Services website to add a lab based on an Azure Marketplace VM image. After you publish the VM, you can register for the lab and connect to it by using remote desktop.

@@ -8,7 +8,7 @@ ms.service: azure-virtual-machine-scale-sets
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 06/10/2024
-ms.custom: template-how-to, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # (Preview) Enable Trusted launch on existing Virtual machine Scale set
@@ -22,9 +22,7 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 ## Limitations
 
 - Enabling Trusted launch on existing [virtual machine Scale sets with data disks attached](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) is currently not supported.
-
-    - To validate if scale is configured with data disk, navigate to scale set -> **Disks** under **Settings** menu -> check under heading **Data disks**
-
+  - To validate if scale set is configured with data disk, navigate to scale set -> **Disks** under **Settings** menu -> check under heading **Data disks**
     :::image type="content" source="./media/trusted-launch/00-vmss-with-data-disks.png" alt-text="Screenshot of the scale set with data disks.":::
 
 - Enabling Trusted launch on existing [virtual machine Scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
@@ -307,7 +305,15 @@ To roll-back changes from Trusted launch to previous known good configuration, s
 
 > [!NOTE]
 >
-> - Azure CLI currently does not supports roll-back of Scale set Uniform from Trusted launch to Standard. As workaround, use Azure PowerShell or ARM template to execute roll-back.
+> Required Azure CLI version **2.62.0** or above for roll-back of VMSS uniform from Trusted launch to Non-Trusted launch configuration.
+
+To roll-back changes from Trusted launch to previous known good configuration, set `--security-type` to `Standard` as shown. Optionally, you can also revert other parameter changes - OS image, virtual machine size, and repeat steps 2-5 described with [Enable Trusted launch on existing scale set](#enable-trusted-launch-on-existing-scale-set-uniform)
+
+```azurecli-interactive
+az vmss update --name MyScaleSet `
+        --resource-group MyResourceGroup `
+        --security-type Standard
+```
 
 ### [PowerShell](#tab/powershell)
 

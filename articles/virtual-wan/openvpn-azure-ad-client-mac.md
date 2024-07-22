@@ -4,9 +4,8 @@ description: 'Preview: Learn how to configure a macOS VPN client to connect to a
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
 

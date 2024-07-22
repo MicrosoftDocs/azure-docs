@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 # Find and use Azure Marketplace VM images with Azure PowerShell
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -67,7 +67,7 @@ The Windows image alias names and their details are:
 ```output
 Alias                   Architecture    Offer                         Publisher               Sku                                 Urn                                                                              Version
 ----------------------- --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------   ---------
-Win2022Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                      latest
+Win2022AzureEdition     x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition       MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest        latest
 Win2022AzureEditionCore x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest   latest
 Win10                   x64             Windows                       MicrosoftVisualStudio   Windows-10-N-x64                    MicrosoftVisualStudio:Windows:Windows-10-N-x64:latest                            latest
 Win2019Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                      latest

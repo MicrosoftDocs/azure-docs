@@ -4,7 +4,8 @@ titleSuffix: Azure Linux AKS Container Host partner solutions
 description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.topic: conceptual
 ms.custom: linux-related-content
 ms.date: 06/13/2024
 ---

@@ -12,6 +12,8 @@ ms.date: 04/24/2023
 
 # Set up a lab to teach R on Windows with Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows you how to set up a class in Azure Lab Services for teaching R and RStudio.

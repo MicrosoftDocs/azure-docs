@@ -13,7 +13,11 @@ summary: |
   [!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
   
   Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure Cosmos DB and Azure Synapse Analytics. It enables customers to run near real-time analytics over their operational data with full performance isolation from their transactional workloads and without an ETL pipeline. This article answers commonly asked questions about Synapse Link for Azure Cosmos DB.
-  
+
+  > [!IMPORTANT]
+  > Mirroring in Microsoft Fabric is now available in preview for NoSql API. This feature provides all the capabilities of Azure Synapse Link with better analytical performance, ability to unify your data estate with Fabric OneLake and open access to your data in OneLake with Delta Parquet format. If you are considering Azure Synapse Link, we recommend that you try mirroring to assess overall fit for your organization. To get started with mirroring, click [here](/fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context). 
+
+
 
 sections:
   - name: General FAQ
@@ -21,7 +25,7 @@ sections:
       - question: |
           Is Azure Synapse Link supported for all Azure Cosmos DB APIs?
         answer: |
-          Azure Synapse Link is supported for the Azure Cosmos DB API for NoSQL and for the Azure Cosmos DB API for MongoDB. The support for Azure Cosmos DB API for Gremlin is now in preview.
+          Azure Synapse Link is supported for the Azure Cosmos DB APIs for NoSQL, Gremlin, and MongoDB. The support for Azure Cosmos DB API for Gremlin is now in preview.
 
       - question: |
           Is Azure Synapse Link supported for multi-region Azure Cosmos DB accounts?
@@ -64,6 +68,11 @@ sections:
           What permissions do I need to enable Synapse Link in my database account?
         answer: |
           You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level.
+          
+      - question: |
+          Why Synapse Workspace doesn't list my Gremlin Graphs in Data Explorer?
+        answer: |
+          Data Explorer in Synapse Workspaces doesn't support Gremlin graphs in the tree view. But you can still run queries.
                     
 
   - name: Azure Cosmos DB analytical store

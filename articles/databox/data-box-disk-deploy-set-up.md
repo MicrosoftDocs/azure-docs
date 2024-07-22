@@ -23,7 +23,7 @@ ms.author: shaas
 > Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
 

@@ -30,6 +30,8 @@ Ensure that there are no **long running transactions**. Long running transaction
 > [!NOTE]
 > For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
 
+To prevent the Online migration from running out of storage to store the logs, ensure that you have sufficient tablespace space using a provisioned managed disk. To achieve this, disable the server parameter `azure.enable_temp_tablespaces_on_local_ssd` on the Flexible Server for the duration of the migration, and restore it to the original state after the migration.
+
 ### Set up target
 
 - Azure Database for PostgreSQL must be set up in Azure before migration.

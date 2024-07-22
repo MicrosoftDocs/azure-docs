@@ -23,7 +23,7 @@ The Azure Monitor Agent is currently supported only for Windows Security Events,
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 
-- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-data-collection.md).
 
 - **Build custom filters** to choose the exact events you want to ingest. The Azure Monitor Agent uses these rules to filter the data *at the source* and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
 
@@ -60,7 +60,7 @@ See below how to create data collection rules.
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-windows-events.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
     Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
 

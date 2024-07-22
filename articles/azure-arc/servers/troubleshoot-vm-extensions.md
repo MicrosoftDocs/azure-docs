@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Arc-enabled servers VM extension issues
 description: This article tells how to troubleshoot and resolve issues with Azure VM extensions that arise with Azure Arc-enabled servers.
 ms.date: 07/16/2021
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Arc-enabled servers VM extension issues

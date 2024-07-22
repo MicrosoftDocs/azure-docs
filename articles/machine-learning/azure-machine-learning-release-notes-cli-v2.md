@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: engagement-fy23
 ms.topic: reference
-ms.author: hancwang
-author: luigiw
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: hancwang
 ms.date: 11/08/2022
 ---
 

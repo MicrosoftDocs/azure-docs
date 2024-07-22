@@ -3,7 +3,7 @@ title: "Quickstart: Create a workload classifier - T-SQL"
 description: Use T-SQL to create a workload classifier with high importance.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 02/04/2020
 ms.service: synapse-analytics
 ms.subservice: sql-dw

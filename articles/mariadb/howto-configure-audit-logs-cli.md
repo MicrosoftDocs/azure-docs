@@ -17,7 +17,7 @@ ms.custom:
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) from the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

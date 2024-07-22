@@ -199,15 +199,15 @@ While you can set up as many OTLP-configured endpoints as you like, each endpoin
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az containerap env telemetry otlp add \
-  --name "otlp1"
+az containerapp env telemetry otlp add \
+  --name "otlp1" \
   --endpoint "ENDPOINT_URL_1" \
   --insecure false \
   --headers "api-key-1=key" \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-metrics true
-az containerap env telemetry otlp add \
-  --name "otlp2"
+az containerapp env telemetry otlp add \
+  --name "otlp2" \
   --endpoint "ENDPOINT_URL_2" \
   --insecure true \
   --enable-open-telemetry-traces true \

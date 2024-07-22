@@ -211,7 +211,7 @@ You can configure the following settings for a NIC:
 >
 >The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC changes. For more information, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## View network interface settings
 

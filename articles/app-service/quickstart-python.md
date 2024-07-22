@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
+title: 'Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 07/26/2023
+ms.date: 06/28/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
@@ -13,7 +13,7 @@ ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdi
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-In this quickstart, you'll deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
+In this quickstart, you deploy a Python web app (Django, Flask, or FastAPI) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 
@@ -25,7 +25,7 @@ To complete this quickstart, you need:
 
 ## 1 - Sample application
 
-This quickstart can be completed using either Flask or Django. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
+This quickstart can be completed using either Flask, Django, or FastAPI. A sample application in each framework is provided to help you follow along with this quickstart. Download or clone the sample application to your local workstation.
 
 ### [Flask](#tab/flask)
 
@@ -37,6 +37,12 @@ git clone https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart
 
 ```Console
 git clone https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart
+```
+
+### [FastAPI](#tab/fastapi)
+
+```Console
+git clone https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart.git
 ```
 
 ---
@@ -103,6 +109,36 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
+### [FastAPI](#tab/fastapi)
+
+1. Go to the application folder:
+
+    ```Console
+    cd msdocs-python-fastapi-webapp-quickstart
+    ```
+
+1. Create a virtual environment for the app:
+
+    [!INCLUDE [Virtual environment setup](./includes/quickstart-python/virtual-environment-setup.md)]
+
+1. Install the dependencies:
+
+    ```Console
+    pip install -r requirements.txt
+    ```
+
+1. Run the app:
+
+    ```Console
+    uvicorn main:app --reload
+    ```
+
+1. Browse to the sample application at `http://localhost:8000` in a web browser.
+
+    :::image type="content" source="./media/quickstart-python/run-django-app-localhost.png" alt-text="Screenshot of the FastAPI app running locally in a browser.":::
+
+Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+
 ---
 
 ## 2 - Create a web app in Azure
@@ -121,6 +157,7 @@ To create Azure resources in VS Code, you must have the [Azure Tools extension p
 > [Download Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
 
 In the application folder, open VS Code:
+
 ```Console
 code .
 ```
@@ -178,7 +215,73 @@ Azure App service supports multiple methods to deploy your application code to A
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 4 - Browse to the app
+## 4 - Configure startup script
+
+Based on the presence of certain files in a deployment, App Service automatically detects whether an app is a Django or Flask app and performs default steps to run your app. For apps based on other web frameworks like FastAPI, you need to configure a startup script for App Service to run your app; otherwise, App Service runs a default read-only app located in the *opt/defaultsite* folder.
+
+To learn more about how App Service runs Python apps and how you can configure and customize its behavior with your app, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
+
+### [Azure CLI](#tab/azure-cli/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
+
+### [Azure CLI](#tab/azure-cli/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
+
+### [Azure CLI](#tab/azure-cli/fastapi)
+
+For FastAPI, you must configure a custom startup command for App Service to run your app. The following command starts Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
+
+First, configure the startup command using the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
+
+```azurecli
+az webapp config set \
+    --startup-file "gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app" \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+Next, restart the web app using the [az webapp restart](/cli/azure/webapp#az-webapp-restart) command.
+
+```azurecli
+az webapp restart \
+    --name $APP_SERVICE_NAME \
+    --resource-group $RESOURCE_GROUP_NAME
+```
+
+### [VS Code](#tab/vscode-aztools/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
+
+### [VS Code](#tab/vscode-aztools/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
+
+### [VS Code](#tab/vscode-aztools/fastapi)
+
+Use Azure CLI or the Azure portal to configure the startup command.
+
+### [Azure portal](#tab/azure-portal/flask)
+
+App Service automatically detects the presence of a Flask app. No additional configuration is needed for this quickstart.
+
+### [Azure portal](#tab/azure-portal/django)
+
+App Service automatically detects the presence of a Django app. No additional configuration is needed for this quickstart.
+
+### [Azure portal](#tab/azure-portal/fastapi)
+
+For FastAPI, you must configure a custom startup command for App Service to run your app. The following command starts Gunicorn with 2 Uvicorn worker processes: `gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app`.
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Configure startup command from Azure portal 1](./includes/quickstart-python/configure-startup-azure-portal-1.md)] | :::image type="content" source="./media/quickstart-python/configure-startup-azure-portal-1-240px.png" alt-text="A screenshot of the location in the Azure portal where to configure the startup command." lightbox="./media/quickstart-python/configure-startup-azure-portal-1.png"::: |
+| [!INCLUDE [Configure startup command from Azure portal 2](./includes/quickstart-python/configure-startup-azure-portal-2.md)] | :::image type="content" source="./media/quickstart-python/configure-startup-azure-portal-2-240px.png" alt-text="A screenshot of how to reset the web app in the Azure portal." lightbox="./media/quickstart-python/configure-startup-azure-portal-2.png"::: |
+
+---
+
+## 5 - Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see a default app page, wait a minute and refresh the browser.
 
@@ -190,17 +293,21 @@ The Python sample code is running a Linux container in App Service using a built
 
 Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
-## 5 - Stream logs
+## 6 - Stream logs
 
 Azure App Service captures all messages output to the console to assist you in diagnosing issues with your application. The sample apps include `print()` statements to demonstrate this capability.
 
 ### [Flask](#tab/flask)
 
-:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="11,24,27":::
+:::code language="python" source="~/msdocs-python-flask-webapp-quickstart/app.py" range="9-29" highlight="3,16,19":::
 
 ### [Django](#tab/django)
 
 :::code language="python" source="~/msdocs-python-django-webapp-quickstart/hello_azure/views.py" range="5-21" highlight="2,11,14":::
+
+### [FastAPI](#tab/fastapi)
+
+:::code language="python" source="~/msdocs-python-fastapi-webapp-quickstart/main.py" range="12-30" highlight="3,15,18":::
 
 ---
 
@@ -291,7 +398,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django or Flask) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](./configure-language-python.md)

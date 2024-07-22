@@ -78,10 +78,18 @@ The following two types of errors are classified as **user errors**:
 |Memory size usage per namespace| No | Memory Usage | Percent | The percentage memory usage of the namespace. | Replica |
 
 ### Error metrics
+
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
 | ------------------- | ----------------- | --- | --- | --- | --- | 
 |Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/><br/>Operation Result |
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
+
+### Geo-Replication metrics
+
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+| ------------------- | ----------------- | --- | --- | --- | --- | 
+|Replication Lag Duration| No | Seconds | Max | The offset in seconds between the latest action on the primary and the secondary regions. | |
+|Replication Lag Count | No | Count | Max | The offset in number of operations between the latest action on the primary and the secondary regions. | |
 
 ## Metric dimensions
 

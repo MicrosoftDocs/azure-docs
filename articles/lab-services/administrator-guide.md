@@ -11,6 +11,8 @@ ms.custom: devdivchpfy22
 
 # Azure Lab Services - Administrator guide
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they set up a lab plan, administrators or educators create labs that are associated with the lab plan. This article provides a high-level overview of the Azure resources that are involved and guidance to create them.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]

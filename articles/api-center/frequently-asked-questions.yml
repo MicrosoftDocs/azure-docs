@@ -21,9 +21,9 @@ sections:
 
           API Management is a runtime API governance and observability solution that enables you to expose APIs securely at scale, monitor their health, and analyze their usage. [Learn more](../api-management/api-management-key-concepts.md)
  
-          API Center is a design-time API governance and centralized API discovery solution. Use an API center to collect and maintain your organization's API inventory with rich metadata, and assess and help enforce API design consistency and quality.
+          API Center is a design-time API governance and centralized API discovery solution. It acts as a repository and governance tool for all APIs within an organization, regardless of where they are in their lifecycle or where they are deployed. Use an API center to collect and maintain your organization's API inventory with rich metadata, and assess and help enforce API design consistency and quality.
 
-          Both services support portals for developers to discover APIs. In API Management, the developer portal is scoped to a single instance. In API Center, the portal can show APIs from any number of API Management instances, APIs managed with other API management solutions, and unmanaged APIs. 
+          Read more in [The Rising Significance of APIs - Azure API Management & API Center](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/the-rising-significance-of-apis-azure-api-management-amp-api/ba-p/4181292).
     
       - question: How do I use Azure API Center with my API management solution?
         answer: |

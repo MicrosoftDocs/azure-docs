@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret don't exist in the key vault. These steps can also be used if you want to maintain a separate copy of the key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

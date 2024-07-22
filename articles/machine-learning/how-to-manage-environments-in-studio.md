@@ -5,9 +5,9 @@ description: Learn how to create and manage environments in the Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: ositanachi
-ms.author:  osiotugo
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: osiotugo
 ms.date: 03/05/2024
 ms.topic: how-to
 ms.custom:

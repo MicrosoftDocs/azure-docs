@@ -7,7 +7,7 @@ author: winthrop28
 ms.service: web-application-firewall
 ms.date: 10/12/2023
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Web Application Firewall on Azure Application Gateway bot protection overview

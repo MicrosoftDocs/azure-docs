@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: tutorial
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 06/21/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -22,7 +22,9 @@ ms.subservice: B2C
 
 # Review tenant creation permission in Azure Active Directory B2C
 
-Anyone who creates an Azure Active Directory B2C (Azure AD B2C) becomes the *Global Administrator* of the tenant. It's a security risk if a non-admin user is allowed to create a tenant. In this article, you learn how, as an admin, you can restrict tenant creation for non-admins. Also, you'll learn how, as a non-admin user, you can check if you've permission to create a tenant.
+Anyone who creates an Azure Active Directory B2C (Azure AD B2C) becomes the *Global Administrator* of the tenant. It's a security risk if a non-admin user is allowed to create a tenant. 
+
+In this article, you learn how, as an admin, you can restrict tenant creation for non-admins. Also, you learn how, as a non-admin user, you can check if you've permission to create a tenant.
 
 ## Prerequisites 
 

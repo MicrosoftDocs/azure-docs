@@ -25,7 +25,7 @@ You can find the **Properties** pane as follows:
 >
 >
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Problem: I cannot access my website, but my deployment is started and all role instances are ready
 The website URL link shown in the portal does not include the port. The default port for websites is 80. If your application is configured to run in a different port, you must add the correct port number to the URL when accessing the website.

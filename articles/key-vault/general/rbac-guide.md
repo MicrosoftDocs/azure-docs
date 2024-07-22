@@ -148,7 +148,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
     | Assign access to | Current user |
     | Members | Search by email address |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -187,7 +187,7 @@ Above role assignment provides ability to list key vault objects in key vault.
     | Assign access to | Current user |
     | Members | Search by email address |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -233,7 +233,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
     | Assign access to | Current user |
     | Members | Search by email address |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 # [Azure CLI](#tab/azure-cli)
 

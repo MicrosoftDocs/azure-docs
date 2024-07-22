@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: franksolomon
-author: samuel100
-ms.author: samkemp
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: swatig 
 ms.date: 07/13/2023
 ms.custom: data4ml
 #Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.

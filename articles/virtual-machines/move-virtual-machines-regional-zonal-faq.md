@@ -3,7 +3,7 @@ title: FAQ - Move Azure single instance Virtual Machines from regional to zonal 
 description: FAQs for single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2024
 ms.author: ankitadutta
 ---

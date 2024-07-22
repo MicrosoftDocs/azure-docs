@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.reviewer: mopeakande
-author: dem108
-ms.author: sehan
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.subservice: mlops
 ms.date: 10/24/2023
 ms.topic: conceptual

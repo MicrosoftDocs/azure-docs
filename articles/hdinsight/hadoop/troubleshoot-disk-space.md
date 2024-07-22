@@ -3,7 +3,7 @@ title: Manage disk space in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for managing disk space issues when interacting with Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Manage disk space in Azure HDInsight
@@ -34,7 +34,7 @@ Review the following configurations:
 
 * Ensure that the cluster size is appropriate for the workload. The workload might have changed recently or the cluster might have been resized. [Scale up](../hdinsight-scaling-best-practices.md) the cluster to match a higher workload.
 
-* `/mnt/resource` might be filled with orphaned files (as if resource manager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
+* `/mnt/resource` might be filled with orphaned files (as if Resource Manager restart). If necessary, manually clean `/mnt/resource/hadoop/yarn/log` and `/mnt/resource/hadoop/yarn/local`.
 
 ## Next steps
 

@@ -12,8 +12,6 @@ ms.custom: "include file"
 
 
 
-Stream Analytics has [many metrics](../stream-analytics-job-metrics.md) available to monitor a job's health. To troubleshoot performance problems with your job, you can split and filter metrics by using the following dimensions. 
-
 | Dimension                 | Definition                               | 
 | ---------------------- | ---------------------------------------- | 
 | **Logical Name**       | The input or output name for a Stream Analytics job. |

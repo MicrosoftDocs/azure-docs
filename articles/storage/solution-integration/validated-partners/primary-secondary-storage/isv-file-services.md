@@ -72,88 +72,89 @@ This article compares several ISV solutions that provide files services in Azure
 | **Panzura**| **CloudFS** is an enterprise global file system with added resiliency and high-performance. Offers ransomware protection. | - Simplified legacy storage replacement <br> - Backup and disaster recovery, with granular recovery ability <br> - Cloud native access to unstructured data for Analytics, AI/ML. <br> - Multi-site file collaboration, with automatic file locking and real time global file consistency <br> - Global remote work with cloud VDI <br> - Accelerated cloud migration for legacy workloads |
 | **Qumulo** | **Qumulo** on Azure offers multiple petabytes (PiB) of storage capacity, and up to 20 GB/s of performance per file system. Windows (SMB) and Linux (NFS) are both natively supported, and Qumulo provides onboard real-time workload analytics. | – Primary file storage for High Performance Compute, Media & Entertainment, Genomics, Electronic design, and Financial modeling. |
 | **Tiger Technology** | **Tiger Bridge** is a data management software solution. Provides tiering between an NTFS file system and Azure Blob Storage or Azure managed disks. Creates a single namespace with local file locking. | - Cloud archive<br> - Continuous data protection (CDP) <br> - Disaster Recovery for Windows servers <br> - Multi-site sync and collaboration <br> - Remote workflows (VDI)<br> - Native access to cloud data for Analytics, AI, ML |
+| **WEKA** | **WEKA Data Platform** provides a fast, and scalable file storage system with a software-defined approach to data. It accelerates storage performance, reduces cloud storage costs, and simplifies data operations across on-premises, and cloud environments. | - Enterprise, and Generative AI <br> - High-Performance Computing (HPC) <br> - Containerized workloads <br> - Tiering, backup, and disaster recovery (DR) from on-premises WEKA systems |
 | **XenData** | **Cloud File Gateway** creates a highly scalable global file system using windows file servers | - Global sharing of engineering and scientific files <br> - Collaborative video editing |
 
 ## ISV solutions comparison
 
 ### Supported protocols
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **SMB 2.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **SMB 3.0**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **SMB 3.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **NFS v3**                                          | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **NFS v4.1**                                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **iSCSI**                                           | No                   | Yes                            | No                        | No                    | Yes                   | No                    |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  | XenData               |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| **SMB 2.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **SMB 3.0**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **SMB 3.1**                                         | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **NFS v3**                                          | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **NFS v4.1**                                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **iSCSI**                                           | No                   | Yes                            | No                        | No                    | Yes                   | No                    | No                    |
 
 ### Supported services for persistent storage
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Managed disks**                                   | No                   | Yes                            | Yes                       | No                    | Yes                   | No                    |
-| **Unmanaged disks**                                 | No                   | No                             | No                        | No                    | Yes                   | No                    |
-| **Azure Storage Block blobs**                       | Yes                  | Yes (tiering)                  | Yes                       | No                    | Yes                   | Yes                   |
-| **Azure Storage Page blobs**                        | No                   | Yes (for HA)                   | Yes                       | Yes                   | No                    | No                    |
-| **Azure Archive tier support**                      | No                   | No                             | Yes                       | No                    | Yes                   | Yes                   |
-| **Files accessible in non-opaque format**           | No                   | No                             | No                        | No                    | Yes                   | Yes                   |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                     | XenData               |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|--------------------------|-----------------------|
+| **Managed disks**                                   | No                   | Yes                            | Yes                       | No                    | Yes                   | No                       | No                    |
+| **Unmanaged disks**                                 | No                   | No                             | No                        | No                    | Yes                   | No                       | No                    |
+| **Azure Storage Block blobs**                       | Yes                  | Yes (tiering)                  | Yes                       | No                    | Yes                   | Yes (tiering, snapshots) | Yes                   |
+| **Azure Storage Page blobs**                        | No                   | Yes (for HA)                   | Yes                       | Yes                   | No                    | No                       | No                    |
+| **Azure Archive tier support**                      | No                   | No                             | Yes                       | No                    | Yes                   | No                       | Yes                   |
+| **Files accessible in non-opaque format**           | No                   | No                             | No                        | No                    | Yes                   | No                       | Yes                   |
 
 ### Extended features
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Operating Environment**                           | UniFS                | ONTAP                          | PFOS                      | Qumulo Core           | Windows Server        | Windows Server              |
-| **High-Availability**                               | Yes                  | Yes                            | Yes                       | Yes                   | Yes (requires setup)  | Yes                   |
-| **Automatic failover between nodes in the cluster** | Yes                  | Yes                            | Yes                       | Yes                   | Yes (windows cluster) | yes (windows cluster) |
-| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | No                    | Yes (windows cluster) | yes (windows cluster) |
-| **Automatic failover across regions**               | Yes (with Nasuni support)| No                         | No                        | No                    | Yes (windows cluster) | yes (windows cluster) |
-| **Snapshot support**                                | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | No                    |
-| **Consistent snapshot support**                     | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | No                    |
-| **Integrated backup**                               | Yes                  | Yes (Add-on)                   | No                        | Yes                   | Yes                   | Yes                   |
-| **Versioning**                                      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
-| **File level restore**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **Volume level restore**                            | Yes                  | Yes                            | Yes                       | No                    | Yes                   | Yes                   |
-| **WORM**                                            | Yes                  | Yes                            | No                        | No                    | Yes                   | No                    |
-| **Automatic tiering**                               | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
-| **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   | Yes                   |
-| **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
-| **Caching of active data**                          | Yes                  | Yes                            | Yes                       | Yes                   | yes                   | Yes                   |
-| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Predictive            | LRU                   | LRU                   |
-| **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | No                    |
-| **De-duplication**                                  | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    |
-| **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  | XenData               |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| **Operating Environment**                           | UniFS                | ONTAP                          | PFOS                      | Qumulo Core           | Windows Server        | WekaFS                | Windows Server        |
+| **High-Availability**                               | Yes                  | Yes                            | Yes                       | Yes                   | Yes (requires setup)  | Yes                   | Yes                   |
+| **Automatic failover between nodes in the cluster** | Yes                  | Yes                            | Yes                       | Yes                   | Yes (windows cluster) | Yes                   | Yes (windows cluster) |
+| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
+| **Automatic failover across regions**               | Yes (with Nasuni support)| No                         | No                        | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
+| **Snapshot support**                                | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
+| **Consistent snapshot support**                     | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
+| **Integrated backup**                               | Yes                  | Yes (Add-on)                   | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
+| **Versioning**                                      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
+| **File level restore**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **Volume level restore**                            | Yes                  | Yes                            | Yes                       | No                    | Yes                   | Yes                   | Yes                   |
+| **WORM**                                            | Yes                  | Yes                            | No                        | No                    | Yes                   | Yes                   | No                    |
+| **Automatic tiering**                               | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
+| **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   | No                    | Yes                   |
+| **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
+| **Caching of active data**                          | Yes                  | Yes                            | Yes                       | Yes                   | yes                   | Yes                   | Yes                   |
+| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Predictive            | LRU                   | Linux page cache      | LRU                   |
+| **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
+| **Deduplication**                                   | Yes                  | Yes                            | Yes                       | No                    | No                    | Yes                   | No                    |
+| **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    | No                    |
 
 ### Authentication sources
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Microsoft Entra ID support**                                | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       |
-| **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   |
-| **LDAP support**                                    | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  |XenData                |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| **Microsoft Entra ID support**                      | Yes (via AD DS)      | Yes (via AD DS)                | Yes (via AD DS)           | Yes                   | Yes (via AD DS)       | Yes (via AD DS)       | Yes (via AD DS)       |
+| **Active directory support**                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **LDAP support**                                    | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
 
 ### Management
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **REST API**                                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | No                    |
-| **Web GUI**                                         | Yes                  | Yes                            | Yes                       | Yes                   | No                    | No                    |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  |XenData               |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|----------------------|
+| **REST API**                                        | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                   |
+| **Web GUI**                                         | Yes                  | Yes                            | Yes                       | Yes                   | No                    | Yes                   | No                   |
 
 ### Scalability
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **Maximum number of nodes in a single cluster**     | 100                  | 2 (HA)                         | Tested  up to 60 nodes    | 100                   | N / A                 | N / A                 |
-| **Maximum number of volumes**                       | 800                  | 1024                           | Unlimited                 | N / A                 | N / A                 | 1                     |
-| **Maximum number of snapshots**                     | Unlimited            | Unlimited                      | Unlimited                 | Unlimited             | N / A                 | N / A                 |
-| **Maximum size of a single namespace**              | Unlimited            | Depends on infrastructure      | Unlimited                 | Unlimited             | N / A                 | N / A                 |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  |XenData                |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| **Maximum number of nodes in a single cluster**     | 100                  | 2 (HA)                         | Tested  up to 60 nodes    | 100                   | N / A                 | 100 per Proximity Placement Group | N / A                 |
+| **Maximum number of volumes**                       | 800                  | 1024                           | Unlimited                 | N / A                 | N / A                 | 1024                  | 1                     |
+| **Maximum number of snapshots**                     | Unlimited            | Unlimited                      | Unlimited                 | Unlimited             | N / A                 | 24000 per namespace   | N / A                 |
+| **Maximum size of a single namespace**              | Unlimited            | Depends on infrastructure      | Unlimited                 | Unlimited             | N / A                 | 14 EiB                | N / A                 |
 
 ### Licensing
 
-|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | XenData               |
-|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|
-| **BYOL**                                            | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | yes                   |
-| **Azure Benefit Eligible**                          | No                   | Yes                            | Yes                       | Yes                   | No                    | No                    |
-| **Deployment model (IaaS, SaaS)**                   | IaaS                 | IaaS                           | IaaS                      | SaaS                  | IaaS                  | IaaS                  |
+|                                                     | Nasuni               | NetApp CVO                     | Panzura                   | Qumulo                | Tiger Technology      | WEKA                  | XenData               |
+|-----------------------------------------------------|----------------------|--------------------------------|---------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
+| **BYOL**                                            | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | Yes                   |
+| **Azure Benefit Eligible**                          | No                   | Yes                            | Yes                       | Yes                   | No                    | Yes                   | No                    |
+| **Deployment model (IaaS, SaaS)**                   | IaaS                 | IaaS                           | IaaS                      | SaaS                  | IaaS                  | IaaS                  | IaaS                  |
 
 ### Other features
 
@@ -183,6 +184,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Support for REST, and FTP
 
 **Tiger Technology**
+- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tigertechnologyinc1692954347771.tiger_bridge_saas_soft_only_us)
 - Invisible to applications
 - Partial Restore
 - Windows Shell integration (overlay, context menu, property sheet)
@@ -190,6 +192,14 @@ This article compares several ISV solutions that provide files services in Azure
 - Option to apply renames to the cloud target
 - Partial write to objects
 - Ransomware protection
+
+**WEKA**
+- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/weka1652213882079.weka_data_platform)
+- Consistent high performance at scale to accelerate Enterprise AI, Generative AI, and HPC workflows
+- WEKA Cloud Deployment Manager, and Terraform driven automated deployment, and scaling
+- Automated data tiering, and snapshots to Azure blob storage
+- Supports POSIX, NFS, SMB, and S3 protocols
+- Supports data encryption in flight, and at rest
 
 **XenData**
 - The Azure Cosmos DB service provides fast synchronization of multiple gateways, including application-specific owner files for global collaboration 

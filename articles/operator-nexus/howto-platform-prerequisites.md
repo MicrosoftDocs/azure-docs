@@ -463,7 +463,7 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.5.1
+   - Purity Code Level: Refer to [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
    - Safe Mode: Disabled
    - Array Time zone: UTC
    - DNS (Domain Name System) Server IP Address: 172.27.255.201

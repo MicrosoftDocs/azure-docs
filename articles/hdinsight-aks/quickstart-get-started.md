@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Get started with one-click deployment 
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 
 This article describes how to use readily available ARM templates to create a cluster pool and cluster in few clicks. 

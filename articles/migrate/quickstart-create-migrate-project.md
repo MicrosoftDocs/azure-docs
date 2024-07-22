@@ -16,7 +16,7 @@ This quickstart describes how to set up an Azure Migrate project Recovery by usi
 
 This template creates an Azure Migrate project that will be used further for assessing and migrating your Azure on-premises servers, infrastructure, applications, and data.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

@@ -19,7 +19,7 @@ A virtual network is the fundamental building block for private networks in Azur
 
 :::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ When the deployment finishes, a message indicates that the deployment succeeded.
 Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
 
 > [!NOTE]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 Use the [Azure Bastion as a Service](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep) Bicep template from [Azure Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) to deploy and configure Bastion in your virtual network. This Bicep template defines the following Azure resources:
 

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: mithigpe
-author: minthigpen
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 03/29/2024
 ms.custom: responsible-ml, devx-track-python
 ---

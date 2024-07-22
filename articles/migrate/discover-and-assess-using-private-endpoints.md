@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 02/12/2024
+ms.date: 07/02/2024
 ms.custom: engagement-fy23
 ---
  
@@ -141,7 +141,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-4. **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
+4. **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 

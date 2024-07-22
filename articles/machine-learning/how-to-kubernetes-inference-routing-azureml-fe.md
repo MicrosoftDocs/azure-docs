@@ -2,9 +2,9 @@
 title: Inference router and connectivity requirements
 description: Learn about what is Azure Machine Learning inference router, how autoscaling works, and how to configure and meet inference requests performance (# of requests per second and latency)
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 02/05/2024

@@ -2,7 +2,7 @@
 title: Azure Red Hat OpenShift Responsibility Assignment Matrix
 description: Learn about the ownership of responsibilities for the operation of an Azure Red Hat OpenShift cluster
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/17/2024
 author: johnmarco
 ms.author: johnmarc

@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Quickstart: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multitenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant model, review [Single-tenant versus multitenant and integration service environment](single-tenant-overview-compare.md).
 

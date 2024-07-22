@@ -6,6 +6,7 @@ metadata:
   title: Azure Arc-enabled Kubernetes
   description: Learn about how to manage on-premises machines in Azure
   ms.service: azure-arc
+  ms.author: rayoflores
   ms.topic: landing-page
   ms.date: 03/02/2021
 

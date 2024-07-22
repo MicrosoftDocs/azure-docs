@@ -5,7 +5,7 @@ description: Common questions about the retirement of Azure Front Door (classic)
 services: front-door
 author: duongau
 ms.service: frontdoor
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 03/27/2024
 ms.author: duau
 ms.custom: ai-usage

@@ -28,7 +28,7 @@ You are able to manually trigger an upgrade to the latest version of Redis softw
 
 | **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
 |:--------------------------|:----------------------------------------------:|:----------------------------:|
-| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.2 (GA) / Redis 7.2 (Preview)|
+| **Lastest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.0 (GA) / Redis 7.2 (Preview)|
 | **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
 
 ### Enterprise tier E1 (preview) SKU

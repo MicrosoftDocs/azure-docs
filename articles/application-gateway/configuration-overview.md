@@ -4,7 +4,7 @@ description: This article describes how to configure the components of Azure App
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/09/2020
 ms.author: greglin
 ---

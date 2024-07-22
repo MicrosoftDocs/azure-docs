@@ -32,7 +32,7 @@ Some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powersh
 Install-Module -Name Az.ImageBuilder
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription by using the

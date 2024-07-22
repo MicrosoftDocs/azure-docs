@@ -158,9 +158,9 @@ az vmss create \
 - An existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
 - An Azure Virtual Network for the Virtual Machine Scale Set.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Sign in to Azure CLI
 

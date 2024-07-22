@@ -18,7 +18,7 @@ ms.date: 01/05/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Supported capabilities
 

@@ -248,6 +248,9 @@ relabelings:
   targetLabel: instance
 ```
 
+> [!NOTE]
+> If you have relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets.
+
 ### Metric Relabelings
 
 Metric relabelings are applied after scraping and before ingestion. Use the `metricRelabelings` section to filter metrics after scraping. The following examples show how to do so.
@@ -456,6 +459,17 @@ metric_relabel_configs:
   action: keep
   regex: '.+'
 ```
+
+> [!NOTE]
+> 
+> If you wish to add labels to all the jobs in your custom configuration, explicitly add labels using metrics_relabel_configs for each job. Global external labels are not supported via configmap based prometheus configuration.
+> ```yaml
+> relabel_configs:
+> - source_labels: [__address__]
+>   target_label: example_label
+>   replacement: 'example_value'
+> ```
+>
 
 ---
 

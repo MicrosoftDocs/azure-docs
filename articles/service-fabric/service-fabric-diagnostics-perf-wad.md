@@ -17,7 +17,7 @@ This document covers steps required to set up collection of performance counters
 > The WAD extension should be deployed on your cluster for these steps to work for you. If it is not set up, head over to [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Collect performance counters via the WadCfg
 

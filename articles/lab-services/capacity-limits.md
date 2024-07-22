@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Capacity limits in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure Lab Services has default capacity limits on Azure subscriptions that adhere to Azure Compute quota limitations and to mitigate fraud. All Azure subscriptions have an initial capacity limit, which can vary based on subscription type, number of standard compute cores, and GPU cores available inside Azure Lab Services. The capacity limit restricts how many virtual machines you can create inside your lab before you need to request a limit increase.  
 
 If you're close to, or have reached your subscription's core limit, you see warning messages from Azure Lab Services in the portal.  The core limits affect the following actions:

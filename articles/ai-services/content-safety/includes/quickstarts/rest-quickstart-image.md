@@ -51,9 +51,7 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
   "image": {
     "content": "<base_64_string>"
   },
-  "categories": [
-    "Hate", "SelfHarm", "Sexual", "Violence"
-  ],
+  "categories": ["Hate", "SelfHarm", "Sexual", "Violence"],
   "outputType": "FourSeverityLevels"
 }'
 ```
@@ -63,9 +61,9 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 >
 > ```
 > {
->  "image": {
->    "blobUrl": "<your_storage_url>"
->  }
+>   "image": {
+>     "blobUrl": "<your_storage_url>"
+>   }
 > }
 > ```
 
@@ -91,24 +89,24 @@ You should see the image moderation results displayed as JSON data in the consol
 
 ```json
 {
-    "categoriesAnalysis": [
-        {
-            "category": "Hate",
-            "severity": 2
-        },
-        {
-            "category": "SelfHarm",
-            "severity": 0
-        },
-        {
-            "category": "Sexual",
-            "severity": 0
-        },
-        {
-            "category": "Violence",
-            "severity": 0
-        }
-    ]
+  "categoriesAnalysis": [
+    {
+      "category": "Hate",
+      "severity": 2
+    },
+    {
+      "category": "SelfHarm",
+      "severity": 0
+    },
+    {
+      "category": "Sexual",
+      "severity": 0
+    },
+    {
+      "category": "Violence",
+      "severity": 0
+    }
+  ]
 }
 ```
 

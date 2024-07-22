@@ -114,7 +114,7 @@ In this section, you trigger a pipeline run and then monitor it.
 
 ## Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 In this section, you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package. 
 

@@ -24,7 +24,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 - Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -67,7 +67,7 @@ The Azure Marketplace offer you're going to use in this article requires a Micro
 Use the following steps to deploy a service principal and get its Application (client) ID and secret from the Azure portal. For more information, see [Create and use a service principal to deploy an Azure Red Hat OpenShift cluster](/azure/openshift/howto-create-service-principal?pivots=aro-azureportal).
 
 > [!NOTE]
-> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see the [Permissions required for registering an app](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app) section of [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal).
+> You must have sufficient permissions to register an application with your Microsoft Entra tenant. If you run into a problem, check the required permissions to make sure your account can create the identity. For more information, see [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 
 1. Sign in to your Azure account through the [Azure portal](https://portal.azure.com/).
 1. Select **Microsoft Entra ID**.

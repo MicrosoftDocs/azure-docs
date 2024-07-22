@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subject-rbac-steps
 ---
 
@@ -130,12 +130,12 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
        --address-prefixes 10.1.0.0/24 \
-       --name service-runtime-subnet 
+       --name service-runtime-subnet
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
        --address-prefixes 10.1.1.0/24 \
-       --name apps-subnet 
+       --name apps-subnet
    ```
 
 ---

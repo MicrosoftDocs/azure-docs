@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: build-2023
 ms.topic: how-to
-ms.author: lebaro
-author: lebaro-msft
-ms.reviewer: sgilley 
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: lebaro
 ms.date: 04/10/2023
 monikerRange: 'azureml-api-1 || azureml-api-2'
 #Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.

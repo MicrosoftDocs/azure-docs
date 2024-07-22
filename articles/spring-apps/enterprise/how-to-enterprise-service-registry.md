@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: yoterada
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -222,10 +222,10 @@ You can also set up the application bindings from the Azure portal, as shown in 
 You can now choose to bind your application to the Service Registry directly when creating a new app by using the following commands:
 
 ```azurecli
-az spring app create \ 
-    --resource-group <resource-group> \ 
-    --service <service-name> \ 
-    --name <app-name> \ 
+az spring app create \
+    --resource-group <resource-group> \
+    --service <service-name> \
+    --name <app-name> \
     --bind-service-registry
 ```
 

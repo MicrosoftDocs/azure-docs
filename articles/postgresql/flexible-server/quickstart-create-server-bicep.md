@@ -20,7 +20,7 @@ In this quickstart, you learn how to use a Bicep file to create an Azure Databas
 
 Azure Database for PostgreSQL flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use Bicep to provision an Azure Database for PostgreSQL flexible server instance to deploy multiple servers or multiple databases on a server.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

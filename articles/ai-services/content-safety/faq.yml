@@ -38,6 +38,10 @@ sections:
           - Azure AI Content Safety supports multilingual content moderation in English, Japanese, German, Spanish, French, Portuguese, Italian, and Chinese.
           - Azure AI Content Safety enables responsible AI practices by monitoring both user-generated and AI-generated content.
       - question: |
+          Can I detect harmful content in custom categories that I define myself?
+        answer: |
+          Yes, you can use the Azure AI Content Safety custom categories API to create categories, upload examples, and train the service to detect similar content. Custom categories are available for both text and image moderation.
+      - question: |
           How does billing work for the Azure AI Content Safety service?
         answer: |
           In the S tier, there are two types of APIs. For the Text API, the service is billed for the amount of text records submitted to the service. For the Image API, the service is billed for the number of images submitted to the service.

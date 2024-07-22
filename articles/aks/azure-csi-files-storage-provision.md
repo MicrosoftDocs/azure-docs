@@ -5,7 +5,7 @@ description: Learn how to create a static or dynamic persistent volume with Azur
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
-ms.date: 03/05/2024
+ms.date: 07/20/2024
 author: tamram
 ms.author: tamram
 
@@ -57,6 +57,7 @@ The following table includes parameters you can use to define a custom storage c
 |shareName | Specify Azure file share name. | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
 |shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
 |skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
+|storageAccount | Specify an Azure storage account name.| storageAccountName | - No | When a specific storage account name is not provided, the driver will look for a suitable storage account that matches the account settings within the same resource group. If it fails to find a matching storage account, it will create a new one. However, if a storage account name is specified, the storage account must already exist. |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
 |tags | [Tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
 |--- | **Following parameters are only for SMB protocol** | --- | --- |
@@ -107,6 +108,7 @@ For more information on Kubernetes storage classes for Azure Files, see [Kuberne
      - mfsymlinks
      - cache=strict
      - actimeo=30
+     - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
     parameters:
       skuName: Premium_LRS
     ```
@@ -239,6 +241,7 @@ mountOptions:
   - mfsymlinks
   - cache=strict
   - actimeo=30
+  - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 parameters:
   skuName: Premium_LRS
 ```
@@ -352,7 +355,7 @@ Kubernetes needs credentials to access the file share created in the previous st
       storageClassName: azurefile-csi
       csi:
         driver: file.csi.azure.com
-        volumeHandle: unique-volumeid  # make sure this volumeid is unique for every identical share in the cluster
+        volumeHandle: "{resource-group-name}#{account-name}#{file-share-name}"  # make sure this volumeid is unique for every identical share in the cluster
         volumeAttributes:
           resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as node
           shareName: aksshare
@@ -367,7 +370,7 @@ Kubernetes needs credentials to access the file share created in the previous st
         - mfsymlinks
         - cache=strict
         - nosharesock
-        - nobrl
+        - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
     ```
 
 2. Create the persistent volume using the [`kubectl create`][kubectl-create] command.
@@ -469,7 +472,7 @@ spec:
         volumeAttributes:
           secretName: azure-secret  # required
           shareName: aksshare  # required
-          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock'  # optional
+          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock,nobrl'  # optional
 ```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 09/28/2022
-ms.reviewer: mopeakande
+ms.reviewer: sehan
 ms.custom: upgrade
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

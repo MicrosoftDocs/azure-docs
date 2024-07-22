@@ -249,6 +249,11 @@
             "source_path_from_root": "/articles/ai-services/content-safety/how-to/incident-response.md",
             "redirect_url": "/azure/ai-services/content-safety/how-to/custom-categories-rapid",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/content-safety/concepts/custom-categories-rapid.md",
+            "redirect_url": "/azure/ai-services/content-safety/concepts/custom-categories",
+            "redirect_document_id": true
           }
 	]
 }

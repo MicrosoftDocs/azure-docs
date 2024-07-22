@@ -6,9 +6,9 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 12/11/2020
+ms.date: 06/21/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 # Configure TLS mutual authentication for Azure App Service
 
@@ -26,7 +26,7 @@ To set up your app to require client certificates:
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
+1. Set **Client certificate mode** to **Require**. Select **Save** at the top of the page.
 
 ### [Azure CLI](#tab/azurecli)
 To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -36,7 +36,7 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 ```
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe Bicep snippet is provided for you:
+For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -55,9 +55,9 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 }
 ```
 
-### [ARM](#tab/arm)
+### [ARM template](#tab/arm)
 
-For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe ARM template snippet is provided for you:
+For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
 ```ARM
 {
@@ -88,25 +88,25 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Next to **Certificate exclusion paths**, click the edit icon.
+1. Next to **Certificate exclusion paths**, select the edit icon.
 
-1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
+1. Select **New path**, specify a path, or a list of paths separated by `,` or `;`, and select **OK**.
 
-1. Click **Save** at the top of the page.
+1. Select **Save** at the top of the page.
 
-In the following screenshot, any path for your app that starts with `/public` does not request a client certificate. Path matching is case-insensitive.
+In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
 
 ## Access client certificate
 
-In App Service, TLS termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the frontend load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
 
-## ASP.NET 5+, ASP.NET Core 3.1 sample
+## ASP.NET Core sample
 
 For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
 
@@ -241,12 +241,12 @@ public class Startup
             private bool IsValidClientCertificate()
             {
                 // In this example we will only accept the certificate as a valid certificate if all the conditions below are met:
-                // 1. The certificate is not expired and is active for the current time on server.
+                // 1. The certificate isn't expired and is active for the current time on server.
                 // 2. The subject name of the certificate has the common name nildevecc
                 // 3. The issuer name of the certificate has the common name nildevecc and organization name Microsoft Corp
                 // 4. The thumbprint of the certificate is 30757A2E831977D8BD9C8496E4C99AB26CB9622B
                 //
-                // This example does NOT test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
+                // This example doesn't test that this certificate is chained to a Trusted Root Authority (or revoked) on the server 
                 // and it allows for self signed certificates
                 //
 
@@ -344,7 +344,7 @@ export class AuthorizationHandler {
 
 ## Java sample
 
-The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate has not expired.
+The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate hasn't expired.
 
 
 ```java
@@ -384,8 +384,8 @@ public class ClientCertValidator {
 
     /**
      * Check that the certificate's thumbprint matches the one given in the constructor, and that the
-     * certificate has not expired.
-     * @return True if the certificate's thumbprint matches and has not expired. False otherwise.
+     * certificate hasn't expired.
+     * @return True if the certificate's thumbprint matches and hasn't expired. False otherwise.
      */
     public boolean certificateIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
         return certificateHasNotExpired() && thumbprintIsValid();
@@ -393,7 +393,7 @@ public class ClientCertValidator {
 
     /**
      * Check certificate's timestamp.
-     * @return Returns true if the certificate has not expired. Returns false if it has expired.
+     * @return Returns true if the certificate hasn't expired. Returns false if it has expired.
      */
     private boolean certificateHasNotExpired() {
         Date currentTime = new java.util.Date();
@@ -437,5 +437,148 @@ public class ClientCertValidator {
     }
 }
 ```
+
+## Python sample
+
+The following Flask and Django Python code samples implement a decorator named `authorize_certificate` that can be used on a view function to permit access only to callers that present a valid client certificate. It expects a PEM formatted certificate in the `X-ARR-ClientCert` header and uses the Python [cryptography](https://pypi.org/project/cryptography/) package to validate the certificate based on its fingerprint (thumbprint), subject common name, issuer common name, and beginning and expiration dates. If validation fails, the decorator ensures that an HTTP response with status code 403 (Forbidden) is returned to the client.
+
+### [Flask](#tab/flask)
+
+```python
+from functools import wraps
+from datetime import datetime, timezone
+from flask import abort, request
+from cryptography import x509
+from cryptography.x509.oid import NameOID
+from cryptography.hazmat.primitives import hashes
+
+
+def validate_cert(request):
+
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+    
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
+
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
+        return False
+    
+def authorize_certificate(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not validate_cert(request):
+            abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
+```
+
+The following code snippet shows how to use the decorator on a Flask view function.
+
+```python
+@app.route('/hellocert')
+@authorize_certificate
+def hellocert():
+   print('Request for hellocert page received')
+   return render_template('index.html')
+```
+
+### [Django](#tab/django)
+
+```python
+from functools import wraps
+from datetime import datetime, timezone
+from django.core.exceptions import PermissionDenied
+from cryptography import x509
+from cryptography.x509.oid import NameOID
+from cryptography.hazmat.primitives import hashes
+
+
+def validate_cert(request):
+
+    try:
+        cert_value =  request.headers.get('X-ARR-ClientCert')
+        if cert_value is None:
+            return False
+        
+        cert_data = ''.join(['-----BEGIN CERTIFICATE-----\n', cert_value, '\n-----END CERTIFICATE-----\n',])
+        cert = x509.load_pem_x509_certificate(cert_data.encode('utf-8'))
+    
+        fingerprint = cert.fingerprint(hashes.SHA1())
+        if fingerprint != b'12345678901234567890':
+            return False
+        
+        subject = cert.subject
+        subject_cn = subject.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if subject_cn != "contoso.com":
+            return False
+        
+        issuer = cert.issuer
+        issuer_cn = issuer.get_attributes_for_oid(NameOID.COMMON_NAME)[0].value
+        if issuer_cn != "contoso.com":
+            return False
+    
+        current_time = datetime.now(timezone.utc)
+    
+        if current_time < cert.not_valid_before_utc:
+            return False
+        
+        if current_time > cert.not_valid_after_utc:
+            return False
+        
+        return True
+
+    except Exception as e:
+        # Handle any errors encountered during validation
+        print(f"Encountered the following error during certificate validation: {e}")
+        return False
+
+def authorize_certificate(view):
+    @wraps(view)
+    def _wrapped_view(request, *args, **kwargs):
+        if not validate_cert(request):
+            raise PermissionDenied
+        return view(request, *args, **kwargs)
+    return _wrapped_view
+```
+
+The following code snippet shows how to use the decorator on a Django view function.
+
+```python
+@authorize_certificate
+def hellocert(request):
+    print('Request for hellocert page received')
+    return render(request, 'hello_azure/index.html')
+```
+
+---
 
 [exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

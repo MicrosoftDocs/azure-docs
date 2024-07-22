@@ -24,18 +24,14 @@ To speed up development, you might find it easier to deploy your function app pr
 
 For more information, see the [.zip deployment reference](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## Deployment .zip file requirements
-
-The .zip file that you use for push deployment must contain all of the files needed to run your function.
-
 >[!IMPORTANT]
 > When you use .zip deployment, any files from an existing deployment that aren't found in the .zip file are deleted from your function app.  
 
-[!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+## Deployment .zip file requirements
 
-A function app includes all of the files and folders in the `wwwroot` directory. A .zip file deployment includes the contents of the `wwwroot` directory, but not the directory itself. When deploying a C# class library project, you must include the compiled library files and dependencies in a `bin` subfolder in your .zip package.
+[!INCLUDE [functions-deployment-zip-structure](../../includes/functions-deployment-zip-structure.md)]
 
-When you are developing on a local computer, you can manually create a .zip file of the function app project folder using built-in .zip compression functionality or third-party tools.
+A zip deployment process extracts the zip archive's files and folders in the `wwwroot` directory. If you include the parent directory when creating the archive, the system will not find the files it expects to see in `wwwroot`.
 
 ## <a name="cli"></a>Deploy by using Azure CLI
 

@@ -20,7 +20,7 @@ When you complete the steps described in this article, you see that the event da
 
 ![Screenshot of the Azure Event Grid Viewer that shows event data that has been sent to the web app.](./media/storage-blob-event-quickstart/view-results.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

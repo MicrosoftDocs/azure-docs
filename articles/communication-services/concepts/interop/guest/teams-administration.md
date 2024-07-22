@@ -29,8 +29,6 @@ Tenant configurations are organization-wide settings that impact everyone in the
 
 |Setting name | 	Description|	Tenant configuration	|Property	|
 |--|--|--|--|
-|Enable federation with Azure Communication Services| If enabled, Azure Communication Services users can join Teams meeting as Communication Services users even if Teams anonymous users are not allowed|	[CsTeamsAcsFederationConfiguration](/PowerShell/module/teams/set-csteamsacsfederationconfiguration)| 	EnableAcsUsers|
-|List federated Azure Communication Services resources | Users from listed Azure Communication Services resources can join Teams meeting if Teams anonymous users are not allowed to join. |[CsTeamsAcsFederationConfiguration](/PowerShell/module/teams/set-csteamsacsfederationconfiguration)| 	AllowedAcsResources |
 |[Anonymous users can join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | If disabled, Teams external users can't join Teams meetings. |	[CsTeamsMeetingConfiguration](/PowerShell/module/skype/set-csteamsmeetingconfiguration) |	DisableAnonymousJoin |
 
 Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings. Use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.

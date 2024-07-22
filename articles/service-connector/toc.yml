@@ -111,6 +111,8 @@ items:
       href: concept-region-support.md
     - name: Permission requirements
       href: concept-permission.md
+    - name: Microsoft Entra roles
+      href: concept-microsoft-entra-roles.md
 - name: How-to guides
   expanded: false
   items: 

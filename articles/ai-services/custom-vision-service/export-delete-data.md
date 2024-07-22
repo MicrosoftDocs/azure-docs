@@ -17,7 +17,7 @@ ms.custom: cogserv-non-critical-vision
 
 Custom Vision collects user data to operate the service, but customers have full control to viewing and delete their data using the Custom Vision [Training APIs](https://go.microsoft.com/fwlink/?linkid=865446).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 To learn how to view or delete different kinds of user data in Custom Vision, see the following table:
 

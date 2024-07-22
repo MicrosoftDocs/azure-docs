@@ -35,7 +35,17 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in **East US 2** and **Sweden Central**.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in these regions:
+
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+       
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 - An Azure [AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -303,3 +313,4 @@ Models deployed as a serverless API are protected by Azure AI content safety. Wi
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

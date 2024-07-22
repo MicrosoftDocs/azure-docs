@@ -25,7 +25,7 @@ When you assign a public IP address to an Azure resource, you enable the followi
 
 - Outbound connectivity to the Internet using a predictable IP address.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address
 

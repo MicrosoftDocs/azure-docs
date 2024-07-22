@@ -25,7 +25,7 @@ The guide covers the following topics:
 * Steps to be followed before enabling disk encryption on Service Fabric cluster nodes in Windows.
 * Steps to be followed to enable disk encryption on Service Fabric  cluster nodes in Windows.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -34,9 +34,9 @@ Here's what you need to get started:
 
 Here's how to create a Conditional Access policy that requires multifactor authentication when connecting to Azure Virtual Desktop:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, security administrator, or Conditional Access administrator.
-1. In the search bar, type *Microsoft Entra Conditional Access* and select the matching service entry.
-1. From the overview, select **Create new policy**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Browse to **Protection** > **Conditional Access** > **Policies**.
+1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments** > **Users**, select **0 users and groups selected**.
 1. Under the **Include** tab, select **Select users and groups** and check **Users and groups**, then under **Select**, select **0 users and groups selected**.

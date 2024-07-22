@@ -6,7 +6,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 05/17/2023
 ms.author: victorh
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.custom: devx-track-azurepowershell
 ---
 

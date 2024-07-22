@@ -153,7 +153,7 @@ Beginning **June 2023**, you can no longer add playbooks to analytics rules in t
 
 ## Run a playbook manually, on demand
 
-You can also manually run a playbook on demand, whether in response to alerts, incidents (in preview), or entities (also in preview). This can be useful in situations where you want more human input into and control over orchestration and response processes.
+You can also manually run a playbook on demand, whether in response to alerts, incidents, or entities. This can be useful in situations where you want more human input into and control over orchestration and response processes.
 
 ### Run a playbook manually on an alert
 
@@ -187,7 +187,7 @@ In the Azure portal, select one of the following tabs as needed for your environ
 
 You can see the run history for playbooks on an alert by selecting the **Runs** tab on the **Alert playbooks** pane. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run opens the full run log in Logic Apps.
 
-### Run a playbook manually on an incident (preview)
+### Run a playbook manually on an incident
 
 This procedure differs, depending on if you're working in Microsoft Sentinel or in the unified security operations platform. Select the relevant tab for your environment:
 
@@ -196,7 +196,7 @@ This procedure differs, depending on if you're working in Microsoft Sentinel or 
 
 1. In the **Incidents** page, select an incident.
 
-1. From the incident details pane that appears on the side, select **Actions > Run playbook (Preview)**. 
+1. From the incident details pane that appears on the side, select **Actions > Run playbook**. 
 
     Selecting the three dots at the end of the incident's line on the grid or right-clicking the incident displays the same list as the **Action** button.
 
@@ -216,7 +216,7 @@ This procedure differs, depending on if you're working in Microsoft Sentinel or 
 
 1. In the **Incidents** page, select an incident.
 
-1. From the incident details pane that appears on the side, select **Run Playbook (Preview)**.
+1. From the incident details pane that appears on the side, select **Run Playbook**.
 
 1. The **Run playbook on incident** panel opens on the side, with all related playbooks for the selected incident. In the **Action** column, select **Run playbook** for the playbook you want to run immediately.
 
@@ -231,7 +231,7 @@ The **Actions** column might also show one of the following statuses:
 
 View the run history for playbooks on an incident by selecting the **Runs** tab on the **Run playbook on incident** panel. It might take a few seconds for any just-completed run to appear in the list. Selecting a specific run opens the full run log in Logic Apps.
 
-### Run a playbook manually on an entity (preview)
+### Run a playbook manually on an entity
 
 This procedure isn't supported in the unified security operations platform.
 
@@ -243,11 +243,11 @@ Select an entity in one of the following ways, depending on your originating con
 
 In the **Entities** widget in the **Overview** tab, locate your entity, and do one of the following: 
 
-- Don't select the entity. Instead, select the three dots to the right of the entity, and then select **Run playbook (Preview)**. Locate the playbook you want to run, and select **Run** in that playbook's row.
+- Don't select the entity. Instead, select the three dots to the right of the entity, and then select **Run playbook**. Locate the playbook you want to run, and select **Run** in that playbook's row.
 
 - Select the entity to open the **Entities tab** of the incident details page. Locate your entity on the list, and select the three dots to the right. Locate the playbook you want to run, and select **Run** in that playbook's row.
 
-- Select an entity and drill down to the entity details page. Then, select the **Run playbook (Preview)** button in the left-hand panel. Locate the playbook you want to run, and select **Run** in that playbook's row.
+- Select an entity and drill down to the entity details page. Then, select the **Run playbook** button in the left-hand panel. Locate the playbook you want to run, and select **Run** in that playbook's row.
 
 #### [Incident details page (legacy)](#tab/incident-details-legacy)
 
@@ -257,8 +257,8 @@ In the **Entities** widget in the **Overview** tab, locate your entity, and do o
 
 1. Do one of the following:
 
-    - Select the **Run playbook (Preview)** link at the end of the entity line in the list.  
-    - Select the entity to drill down to the entity details page and select the **Run playbook (Preview)** button in the left-hand panel.
+    - Select the **Run playbook** link at the end of the entity line in the list.  
+    - Select the entity to drill down to the entity details page and select the **Run playbook** button in the left-hand panel.
 
 1. Locate the playbook you want to run, and select **Run** in that playbook's row.
 
@@ -266,9 +266,9 @@ In the **Entities** widget in the **Overview** tab, locate your entity, and do o
 
 **If you're in the Investigation graph:**
 
-1. Select an entity in the graph and then select the **Run playbook (Preview)** button in the entity side panel.  
+1. Select an entity in the graph and then select the **Run playbook** button in the entity side panel.  
 
-    For some entity types, you might have to select the **Entity actions** button and from the resulting menu select **Run playbook (Preview)**.
+    For some entity types, you might have to select the **Entity actions** button and from the resulting menu select **Run playbook**.
 
 1. Locate the playbook you want to run, and select **Run** in that playbook's row.
     
@@ -277,7 +277,7 @@ In the **Entities** widget in the **Overview** tab, locate your entity, and do o
 **If you're proactively hunting for threats:**
 
 1. From the **Entity behavior** screen, select an entity from the lists on the page, or search for and select another entity.
-1. In the [entity page](../entity-pages.md), select the **Run playbook (Preview)** button in the left-hand panel.
+1. In the [entity page](../entity-pages.md), select the **Run playbook** button in the left-hand panel.
 1. Locate the playbook you want to run, and select **Run** in that playbook's row.
 ---
 

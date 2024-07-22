@@ -20,7 +20,7 @@ In IoT Hub, managed identities can be used for egress connectivity from IoT Hub 
 
 - Understand the managed identity differences between *system-assigned* and *user-assigned* in [What are managed identities for Azure resources?](./../active-directory/managed-identities-azure-resources/overview.md)
 
-- An [IoT hub](iot-hub-create-through-portal.md) 
+- An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## System-assigned managed identity
 
@@ -242,14 +242,14 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select **Azure Event Hubs Data Sender**.
 
     > [!NOTE]
     > For a storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as the role. For a service bus, select **Azure Service Bus Data Sender**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
@@ -300,7 +300,7 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
 
@@ -336,7 +336,7 @@ IoT Hub supports the functionality to [import/export devices](iot-hub-bulk-ident
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select **Storage Blob Data Contributor**. (Don't select **Contributor** or **Storage Account Contributor**.)
 

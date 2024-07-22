@@ -1175,7 +1175,7 @@ items:
         topicHref: /azure/spring-apps/consumption-dedicated/index
   - name: Dev Box
     tocHref: /azure/dev-box/
-    topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box
+    topicHref: /azure/dev-box/index
   - name: Azure Deployment Environments
     tocHref: /azure/deployment-environments/
     topicHref: /azure/deployment-environments/index
@@ -1188,7 +1188,7 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Microsoft Copilot for Azure
+  - name: Microsoft Copilot in Azure
     tocHref: /azure/copilot/
     topicHref: /azure/copilot/
   - name: Operator Call Protection

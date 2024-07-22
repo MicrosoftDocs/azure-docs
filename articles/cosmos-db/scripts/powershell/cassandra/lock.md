@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Create a resource lock for Azure Cosmos DB Cassandra API keyspace and table using Azure PowerShell
 [!INCLUDE[Cassandra](../../../includes/appliesto-cassandra.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

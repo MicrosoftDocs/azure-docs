@@ -704,7 +704,7 @@ Container insights support viewing metrics stored in your Log Analytics workspac
 
 ### Why are log lines larger than 16 KB split into multiple records in Log Analytics?
 
-The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file.
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16 KB](https://github.com/moby/moby/pull/22982) into multiple lines when they're copied from stdout or stderr to a file. Use [Multi-line logging](./container-insights-logs-schema.md#multi-line-logging-in-container-insights) to get log record size up to 64KB.
           
 
 ## Next steps

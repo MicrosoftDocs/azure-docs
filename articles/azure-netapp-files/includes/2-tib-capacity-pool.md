@@ -2,7 +2,7 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 03/20/2024
+ms.date: 05/20/2024
 ms.author: anfdocs
 
 # azure-netapp-files-resource-limits.md

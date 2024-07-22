@@ -64,4 +64,4 @@ Deploy your service with the new Diagnostics configuration. Application Insights
 > [!div class="nextstepaction"]
 > [Generate load and view Profiler traces](./profiler-data.md)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]

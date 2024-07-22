@@ -5,7 +5,7 @@ description: How to create an aligned document that specifies a list of phrases 
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.topic: conceptual
 ms.custom: cogserv-non-critical-translator
@@ -32,11 +32,11 @@ The [neural phrase dictionary](../../neural-dictionary.md) extends our [dynamic 
 
 ## Sentence dictionary
 
-A sentence dictionary is case-insensitive. The sentence dictionary allows you to specify an exact target translation for a source sentence. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. A source dictionary entry that ends with punctuation is ignored during the match. If only a portion of the sentence matches, the entry isn't matched.  When a match is detected, the target entry of the sentence dictionary is returned.
+A sentence dictionary is case-insensitive. The sentence dictionary allows you to specify an exact target translation for a source sentence. For a sentence dictionary match to occur, the entire submitted sentence must match the source dictionary entry. A source dictionary entry that ends with punctuation is ignored during the match. If only a portion of the sentence matches, the entry isn't matched. When a match is detected, the target entry of the sentence dictionary is returned.
 
 ## Dictionary-only trainings
 
-You can train a model using only dictionary data. To do so, select only the dictionary document (or multiple dictionary documents) that you wish to include and select **Create model**. Since this training is dictionary-only, there's no minimum number of training sentences required. Your model typically completes training faster than a standard training.  The resulting models use the Microsoft baseline models for translation with the addition of the dictionaries you add.  You don't get a test report.
+You can train a model using only dictionary data. To do so, select only the dictionary document (or multiple dictionary documents) that you wish to include and select **Create model**. Since this training is dictionary-only, there's no minimum number of training sentences required. Your model typically completes training faster than a standard training. The resulting models use the Microsoft baseline models for translation with the addition of the dictionaries you add. You don't get a test report.
 
 >[!Note]
 >Custom Translator doesn't sentence align dictionary files, so it is important that there are an equal number of source and target phrases/sentences in your dictionary documents and that they are precisely aligned.
@@ -47,14 +47,14 @@ You can train a model using only dictionary data. To do so, select only the dict
 
 - The phrase dictionary should be used sparingly. When a phrase within a sentence is replaced, the context of that sentence is lost or limited for translating the rest of the sentence. The result is that, while the phrase or word within the sentence is translated according to the provided dictionary, the overall translation quality of the sentence often suffers.
 
-- The phrase dictionary works well for compound nouns like product names ("_Microsoft SQL Server_"), proper names ("_City of Hamburg_"), or product features ("_pivot table_"). It doesn't work as well for verbs or adjectives because those words are typically highly contextual within the source or target language. The best practice is to avoid phrase dictionary entries for anything but compound nouns.
+- The phrase dictionary works well for compound nouns like product names ("_Microsoft SQL Server_"), proper names ("_City of Hamburg_"), or product features ("_pivot table_"). It doesn't work as well for verbs or adjectives because, typically, those words are highly contextual within the source or target language. The best practice is to avoid phrase dictionary entries for anything but compound nouns.
 
 - If you're using a phrase dictionary, capitalization and punctuation are important. Dictionary entries are case- and punctuation-sensitive. Custom Translator only matches words and phrases in the input sentence that use exactly the same capitalization and punctuation marks as specified in the source dictionary file. Also, translations reflect the capitalization and punctuation provided in the target dictionary file.
 
   **Example**
 
   - If you're training an English-to-Spanish system that uses a phrase dictionary and you specify _SQL server_ in the source file and _Microsoft SQL Server_ in the target file. When you request the translation of a sentence that contains the phrase _SQL server_, Custom Translator matches the dictionary entry and the translation that contains _Microsoft SQL Server_.
-  - When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as _sql server_, _sql Server_ or _SQL Server_, it **won't** return a match from your dictionary.
+  - When you request translation of a sentence that includes the same phrase but **doesn't** match what is in your source file, such as _sql server_, _sql Server_, or _SQL Server_, it **won't** return a match from your dictionary.
   - The translation follows the rules of the target language as specified in your phrase dictionary.
 
 - For more information about neural phrase dictionary, _see_ [neural dictionary guidance and recommendations](../../neural-dictionary.md#guidance-and-recommendations).
@@ -63,7 +63,7 @@ You can train a model using only dictionary data. To do so, select only the dict
 
   **Example**
 
-  - If your source dictionary contains "_This sentence ends with punctuation!_", then any translation requests containing "_This sentence ends with punctuation_" matches.
+  - If your source dictionary contains "_This sentence ends with punctuation!_", then any translation requests that contain "_This sentence ends with punctuation_" matches.
 
 - Your dictionary should contain unique source lines. If a source line (a word, phrase, or sentence) appears more than once in a dictionary file, the system always uses the **last entry** provided and return the target when a match is found.
 

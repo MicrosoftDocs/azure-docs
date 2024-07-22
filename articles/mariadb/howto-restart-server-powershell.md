@@ -42,7 +42,7 @@ To complete this how-to guide, you need:
 If you choose to use PowerShell locally, connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Restart the server
 

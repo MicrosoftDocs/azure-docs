@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-azurecli, sdkv1
-ms.author: meerakurup 
-author: meerakurup 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: meerakurup
 ms.date: 08/29/2022
 ---
 

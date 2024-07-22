@@ -117,7 +117,7 @@ The Functions extension lets you create the required function app project at the
 
 1. For the function name, enter **HttpExample**, select Enter, and then select **Function** authorization.
 
-   This authorization level requires that you provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
+   This authorization level requires that you provide a [function key](function-keys-how-to.md) when you call the function endpoint.
 
    :::image type="content" source="./media/functions-develop-vs-code/create-function-auth.png" alt-text="Screenshot for creating function authorization.":::
 

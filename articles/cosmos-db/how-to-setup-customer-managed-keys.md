@@ -117,7 +117,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" alt-text="Screenshot of the Grant access to this resource option on the Access control page.":::
 
-1. Search the **Key Vault Crypto Service Encryption User** role and assign it to yourself. This assignment is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
+1. Search the **Key Vault Administrator** role and assign it to yourself. This assignment is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
 
@@ -138,7 +138,7 @@ Next, use the access control page to confirm that all roles have been configured
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" alt-text="Screenshot of the View access to resource option on the Access control page.":::
 
-1. On the page, set the scope to **“this resource”** and verify that you have the Key Vault Crypto Service Encryption User role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role.
+1. On the page, set the scope to **“this resource”** and verify that you have the Key Vault Administrator role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role.
 
 ## Generate a key in Azure Key Vault
 
@@ -345,6 +345,9 @@ az cosmosdb show \
 
 
 ---
+
+> [!IMPORTANT]
+> Depending on your network configuration, you may need to allow access to Azure Cosmos DB from other Azure services.
 
 ## Using a managed identity in the Azure Key Vault access policy
 

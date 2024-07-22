@@ -81,7 +81,7 @@ In this section, you'll create a virtual network and subnet.
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -235,7 +235,7 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
     | Availability set | Select **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

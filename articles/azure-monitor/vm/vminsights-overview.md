@@ -40,7 +40,7 @@ Access VM insights for all your virtual machines and virtual machine scale sets 
 
 ## Limitations
 
-- VM insights collects a predefined set of metrics from the VM client and doesn't collect any event data. You can use the Azure portal to [create data collection rules](../agents/data-collection-rule-azure-monitor-agent.md) to collect events and additional performance counters using the same Azure Monitor agent used by VM insights.
+- VM insights collects a predefined set of metrics from the VM client and doesn't collect any event data. You can use the Azure portal to [create data collection rules](../agents/azure-monitor-agent-data-collection.md) to collect events and additional performance counters using the same Azure Monitor agent used by VM insights.
 - VM insights doesn't support sending data to multiple Log Analytics workspaces (multi-homing).
 
 ## Next steps

@@ -31,7 +31,7 @@ For details about the permissions required for each Azure Storage operation on a
 
 ## Call PowerShell commands using Microsoft Entra credentials
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Microsoft Entra credentials, create a storage context to reference the storage account, and include the `-UseConnectedAccount` parameter.
 

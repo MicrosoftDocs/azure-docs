@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: devx-track-python
 ms.topic: tutorial
-author: lebaro-msft
-ms.author: lebaro
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: lebaro
 ms.date: 11/28/2023
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---

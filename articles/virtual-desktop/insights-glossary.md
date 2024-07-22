@@ -185,7 +185,7 @@ You can also select entries to view additional information. You can view which h
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
 
 ## Session history
 
