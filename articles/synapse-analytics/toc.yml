@@ -165,7 +165,7 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Monitor
+      - name: Monitor Synapse Analytics
         href: monitor-synapse-analytics.md
       - name: Monitoring data reference
         href: monitor-synapse-analytics-reference.md
@@ -1592,6 +1592,10 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+  - name: Monitor
+    items:
+    - name: Learn about monitoring
+      href: monitor-articles.md
 - name: Guidance
   items:
   - name: Azure Synapse Success by Design

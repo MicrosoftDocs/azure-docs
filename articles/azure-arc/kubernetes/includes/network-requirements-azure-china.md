@@ -22,5 +22,4 @@ ms.date: 02/15/2024
 |`https://graph.chinacloudapi.cn/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 |`*.arc.azure.cn` | Required to manage connected clusters in Azure portal.|
 |`https://<region>.obo.arc.azure.cn:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
-|`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
 |`quay.azk8s.cn`<br/>`registryk8s.azk8s.cn`<br/>`k8sgcr.azk8s.cn`<br/>`usgcr.azk8s.cn`<br/>`dockerhub.azk8s.cn/<repo-name>/<image-name>:<version>`|Container registry proxy servers for Azure China VMs.|

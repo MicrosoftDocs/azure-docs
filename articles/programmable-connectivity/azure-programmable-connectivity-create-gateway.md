@@ -5,13 +5,17 @@ author: anzaman
 ms.author: alzam
 ms.service: azure-programmable-connectivity
 ms.topic: overview 
-ms.date: 02/08/2024
+ms.date: 07/22/2024
 ms.custom: template-overview
 ---
 
 # Quickstart: Create an APC gateway
  
 In this quickstart, you learn how to create an Azure Programmable Connectivity (APC) gateway and subscribe to API plans in the Azure portal.
+
+> [!NOTE]
+> Deleting and modifying existing APC gateways is not supported during the preview. Please open a support ticket in the Azure Portal if you need to delete an APC Gateway.
+>
 
 ## Prerequisites
 
