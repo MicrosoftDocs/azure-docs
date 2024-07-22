@@ -32,7 +32,8 @@ ms.author: lajanuar
 [!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
-Model compose behavior is changing from api-version=2024-07-31-preview. Model Compose would need an explicit classifier trained instead of an implicit classifier. The following behavior only applies to v3.1 and previous versions
+> [!IMPORTANT]
+> Best practices Model compose behavior is changing from api-version=2024-07-31-preview, for more info refer to [Composed Models Updated](concept-custom-models-updated.md). The following behavior only applies to v3.1 and previous versions
 
 **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis using a composed model, the service performs a classification to decide which custom model best represents the submitted document.
 
