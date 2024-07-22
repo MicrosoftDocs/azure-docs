@@ -36,7 +36,7 @@ You can access the screen to create a GitHub Workflow using the command palette 
     * **Build context**: Select a build context.
     * **ACR Resource Group**: Select an ACR resource group.
     * **Container Registry**: Select a container registry.
-    * **Azure Container Registy image**: Select or enter an Azure Container Registry image.
+    * **Azure Container Registry image**: Select or enter an Azure Container Registry image.
     * **Cluster Resource Group**: Select your cluster resource group.
     * **Cluster**: Select your AKS cluster.
     * **Namespace**: Select or enter a namespace in which you will deploy into.
