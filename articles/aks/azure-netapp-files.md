@@ -26,6 +26,8 @@ Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workl
 
 You can take advantage of Astra Trident's Container Storage Interface (CSI) driver for Azure NetApp Files to abstract underlying details and create, expand, and snapshot volumes on-demand. Also, using Astra Trident enables you to use [Astra Control Service][astra-control-service] built on top of Astra Trident. Using the Astra Control Service, you can backup, recover, move, and manage the application-data lifecycle of your AKS workloads across clusters within and across Azure regions to meet your business and service continuity needs.
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Before you begin
 
 The following considerations apply when you use Azure NetApp Files:
