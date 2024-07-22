@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 07/22/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
@@ -52,6 +52,15 @@ The following table shows the largest MTU size supported on the Azure Network In
 - The newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell installed in Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows)
 
 ---
+
+## Resource examples
+
+The following resources are used as examples in this article. Replace these values with your values.
+
+| Resource | Name | IP Address |
+|----------|-------|-------------|
+| **Virtual Machine 1** | vm-1 | 10.0.0.4 |
+| **Virtual Machine 2** | vm-2 | 10.0.0.5 |
 
 ## Precautions
 
@@ -150,82 +159,11 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
     ```
 
-1. Sign-in to **vm-2**.
-
-1. Use the `ip` command to show the current network interfaces and their MTU settings, Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
-
-    ```bash
-    ip address show
-    ```
-
-    ```output
-    azureuser@vm-2:~$ ip address show
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-        inet 127.0.0.1/8 scope host lo
-           valid_lft forever preferred_lft forever
-        inet6 ::1/128 scope host 
-           valid_lft forever preferred_lft forever
-    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
-        inet 10.0.0.5/24 metric 100 brd 10.0.0.255 scope global eth0
-           valid_lft forever preferred_lft forever
-        inet6 fe80::222:48ff:febd:2f39/64 scope link 
-           valid_lft forever preferred_lft forever
-    3: enP4697s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master eth0 state UP group default qlen 1000
-        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
-        altname enP4697p0s2
-        inet6 fe80::222:48ff:febd:2f39/64 scope link 
-           valid_lft forever preferred_lft forever
-    ```
-
-1. Set the MTU value on **vm-2** to the highest value supported by the network interface. 
-
-    * For the Mellanox adapter, use the following example to set the MTU value to **3900**:
-
-    ```bash
-    echo '3900' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
-    ```
-
-    * For the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9000**:
-
-    ```bash
-    echo '9000' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
-    ```
-
-    >[!IMPORTANT]
-    > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
-
-1. Use the `ip` command to verify that the MTU settings are applied to the network interface:
-
-    ```bash
-    ip address show
-    ```
-
-    ```output
-    azureuser@vm-2:~$ ip address show
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-        inet 127.0.0.1/8 scope host lo
-           valid_lft forever preferred_lft forever
-        inet6 ::1/128 scope host 
-           valid_lft forever preferred_lft forever
-    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq state UP group default qlen 1000
-        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
-        inet 10.0.0.5/24 metric 100 brd 10.0.0.255 scope global eth0
-           valid_lft forever preferred_lft forever
-        inet6 fe80::222:48ff:febd:2f39/64 scope link 
-           valid_lft forever preferred_lft forever
-    3: enP4697s1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 3900 qdisc mq master eth0 state UP group default qlen 1000
-        link/ether 00:22:48:bd:2f:39 brd ff:ff:ff:ff:ff:ff
-        altname enP4697p0s2
-        inet6 fe80::222:48ff:febd:2f39/64 scope link 
-           valid_lft forever preferred_lft forever
-    ```
+1. Sign-in to **vm-2** to repeat the previous steps to set the MTU value to the highest value supported by the network interface.
 
 1. Sign-in to **vm-1**.
 
-1. Use the following example to execute the Linux shell script to test the largest MTU size that can be used for a specific network path:
+1. Use the following example to execute the Linux shell script to test the largest MTU size that can be used for a specific network path. Replace the value of the destination host with the IP address of **vm-2**.
 
     ```bash
     ./GetPathMtu.sh 10.0.0.5
@@ -250,7 +188,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.4
     ```
 
-1. If successful, the output is similar to the following example. If the script's output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
+1. The output is similar to the following example. If the script's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
      ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.4
@@ -375,110 +313,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
     ```  
 
-1. Sign-in to **vm-2**.
-
-1. Open a PowerShell window as an administrator.
-
-1. Use `Get-NetIPAddress` to show the IP address of **vm-2**. Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.5**.
-
-    ```powershell
-    Get-NetIPAddress -AddressFamily IPv4
-    ```
-
-    ```output
-    PS C:\Users\azureuser> Get-NetIPAddress -AddressFamily IPv4
-
-    IPAddress         : 10.0.0.5
-    InterfaceIndex    : 7
-    InterfaceAlias    : Ethernet
-    AddressFamily     : IPv4
-    Type              : Unicast
-    PrefixLength      : 24
-    PrefixOrigin      : Dhcp
-    SuffixOrigin      : Dhcp
-    AddressState      : Preferred
-    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
-    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
-    SkipAsSource      : False
-    PolicyStore       : ActiveStore
-
-    IPAddress         : 127.0.0.1
-    InterfaceIndex    : 1
-    InterfaceAlias    : Loopback Pseudo-Interface 1
-    AddressFamily     : IPv4
-    Type              : Unicast
-    PrefixLength      : 8
-    PrefixOrigin      : WellKnown
-    SuffixOrigin      : WellKnown
-    AddressState      : Preferred
-    ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
-    PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
-    SkipAsSource      : False
-    PolicyStore       : ActiveStore
-    ```
-
-1. Use the following example to display the current network interfaces.
-
-    ```powershell
-    Get-NetAdapter
-    ```
-
-    ```output
-    PS C:\Users\azureuser> Get-NetAdapter
-
-    Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
-    ----                      --------------------                    ------- ------       ----------             ---------
-    Ethernet 2                Mellanox ConnectX-5 Virtual Adapter          10 Up           60-45-BD-CC-77-02       100 Gbps
-    Ethernet                  Microsoft Hyper-V Network Adapter             6 Up           60-45-BD-CC-77-02       100 Gbps
-    ```
-
-    The virtual machine has two network interfaces displayed in the output.
-
-1. Record the value of the MAC address of the network interface and the name. You'll need these values for the next step. For the purposes of this article, the example values are **60-45-BD-CC-77-02** and **Ethernet 2**. Replace the values with your own value.
-
-1. Use the following example to display the current MTU value for the network interface.
-
-    ```powershell
-    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
-    ```
-    
-    ```output
-    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
-
-    MtuSize : 1500
-    ```
-
-1. Windows Virtual machines support both the Mellanox interface and the Microsoft Azure Network Adapter. 
-    
-    * To set the value on the Mellanox interface, use the following example to set the MTU value to **4088**. Replace the value of the MAC address with your own value.
-
-    ```powershell
-    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-02"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 4088
-    ```
-
-    * To set the value on the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9014**. Replace the value of the MAC address with your own value.
-
-    ```powershell
-    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-02"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
-    ```
-
-1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-2**:
-
-    ```powershell
-    Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
-    ```
-
-1. Use the following example to verify the MTU value is set on the network interface.
-
-    ```powershell
-    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
-    ```
-
-    ```output
-    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
-
-    MtuSize : 4088
-    ```
+1. Sign-in to **vm-2** to repeat the previous steps to set the MTU value to the highest value supported by the network interface.
 
 1. Sign-in to **vm-1**.
 
@@ -490,10 +325,10 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.5 -MtuSize
     ```
 
-1. If successful, the output is similar to the following example. If the commands output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the Test-Connection command.
+1. The output is similar to the following example. If the script's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
     ```output
-    PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.5
+    PS C:\Users\azureuser> Test-Connection -TargetName 10.0.0.5 -MtuSize
 
        Destination: 10.0.0.5
 
@@ -545,7 +380,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 1. If successful, the output is similar to the following example. If the commands output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the Test-Connection command.
 
     ```output
-    PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.4
+    PS C:\Users\azureuser> Test-Connection -TargetName 10.0.0.4 -MutSize
 
        Destination: 10.0.0.4
 
