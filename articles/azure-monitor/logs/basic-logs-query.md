@@ -24,13 +24,13 @@ Queries on data in Basic and Auxiliary tables are subject to the following limit
 
 #### Kusto Query Language (KQL) language limitations
 
-Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/data-explorer/kusto/query/scalar-functions) and [aggregation](azure/data-explorer/kusto/query/aggregation-functions) functions. However, Basic or Auxiliary table queries are limited to a single table. Therefore, these limitations apply:  
+Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/data-explorer/kusto/query/scalar-functions) and [aggregation](/azure/data-explorer/kusto/query/aggregation-functions) functions. However, Basic or Auxiliary table queries are limited to a single table. Therefore, these limitations apply:  
 
 - Operators that join data from multiple tables are limited:
     - [join](/azure/data-explorer/kusto/query/join-operator?pivots=azuremonitor), [find](/azure/data-explorer/kusto/query/find-operator?pivots=azuremonitor), [search](/azure/data-explorer/kusto/query/search-operator), and [externaldata](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) aren't supported.
     - [lookup](/azure/data-explorer/kusto/query/lookup-operator) and [union](/azure/data-explorer/kusto/query/union-operator?pivots=azuremonitor) are supported, but limited to up to five Analytics tables.
 - [User-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) aren't supported.
-- [Cross-service](/azure/azure-monitor/logs/cross-workspace-query) and [cross-resource](/azure-monitor/logs/cross-workspace-query) queries aren't supported.
+- [Cross-service](/azure/azure-monitor/logs/cross-workspace-query) and [cross-resource](/azure/azure-monitor/logs/cross-workspace-query) queries aren't supported.
 
 
 #### Time range
