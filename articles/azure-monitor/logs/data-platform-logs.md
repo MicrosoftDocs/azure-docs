@@ -48,7 +48,7 @@ Users who are familiar with KQL can use Log Analytics KQL mode to edit and creat
 For a description of Log Analytics, see [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md). For a walkthrough of using Log Analytics features to create a simple log query and analyze its results, see [Log Analytics tutorial](./log-analytics-tutorial.md).
 
 
-## Built-in Insights and custom dashboards, workbooks, and reports
+## Built-in insights and custom dashboards, workbooks, and reports
 
 Many of Azure Monitor's [ready-to-use, curated Insights experiences](../insights/insights-overview.md) store data in Azure Monitor Logs, and present this data in an intuitive way so you can monitor the performance and availability of your cloud and hybrid applications and their supporting components.
 
@@ -88,10 +88,10 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 |Query price included |✅                                                            | ❌                                                            | ❌                                                            | 
 |Ingestion cost |Standard                                                            | Reduced                                                            | Minimal                                                            | 
 | Interactive retention                                  | 30 days (90 days for Microsoft Sentinel and Application Insights).<br> Can be extended to up to two years at a prorated monthly long-term retention charge. | 30 days                                                      | 30 days                                                      |
-| Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years                                               |
+| Total retention                                        | Up to 12 years                                               | Up to 12 years                                               | Up to 12 years*<br>*Public preview limitation: Auxiliary plan total retention is currently fixed at 365 days.                                              |
 
 > [!NOTE]
-> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
+> The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
 ## Data collection
 
