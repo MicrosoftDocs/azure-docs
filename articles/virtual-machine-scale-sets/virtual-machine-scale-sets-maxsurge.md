@@ -1,5 +1,5 @@
 ---
-title: Rolling upgrades with MaxSurge for Virtual Machine Scale Sets (Preview)
+title: Rolling upgrades with MaxSurge for Virtual Machine Scale Sets (preview)
 description: Learn about how to utilize rolling upgrades with MaxSurge on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
@@ -12,9 +12,9 @@ ms.custom: upgradepolicy
 # Rolling upgrades with MaxSurge on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrades with MaxSurge for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
+> Rolling upgrades with MaxSurge for Virtual Machine Scale Sets with Uniform Orchestration is in general availability (GA). 
 >
-> **Rolling upgrades with MaxSurge for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
+> **Rolling upgrades with MaxSurge for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview.** 
 >
 > Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
@@ -34,13 +34,13 @@ Rolling upgrades with MaxSurge creates new instances with the latest scale set m
 Enabling or disabling MaxSurge can be done at any point in time. This includes during or after scale set provisioning. When using a rolling upgrade policy, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md). It's suggested to create the scale set with a manual upgrade policy and update the policy to rolling after successfully confirming the application health is being properly reported. 
 
 
-### [Portal](#tab/portal1)
+### [Portal](#tab/portal)
 
 Select the Virtual Machine Scale Set you want to change the upgrade policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select **Rolling - Upgrades roll out in batches with optional pause**. 
 
 :::image type="content" source="../virtual-machine-scale-sets/media/upgrade-policy/rolling-upgrade-policy-portal.png" alt-text="Screenshot showing updating the upgrade policy and enabling MaxSurge in the Azure portal.":::
 
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update). 
 
 ```azurecli-interactive
@@ -57,7 +57,7 @@ az vmss update \
 
 ```
 
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell)
 Update an existing Virtual Machine Scale Set using [Update-AzVmss](/powershell/module/az.compute/update-azvmss). 
 
 ```azurepowershell-interactive
@@ -79,7 +79,7 @@ Update-Azvmss -ResourceGroupName "myResourceGroup" `
     -VirtualMachineScaleSet $vmss
 ```
 
-### [ARM Template](#tab/template1)
+### [ARM Template](#tab/template)
 
 Update the properties section of your ARM template and set the upgrade policy to rolling and various rolling upgrade options.  
 
@@ -125,7 +125,7 @@ Any changes that result in an update to the scale set model result in a MaxSurge
 Yes. The process of canceling a MaxSurge upgrade is the same as canceling an in place rolling upgrade. You can stop the upgrade from the Azure portal, CLI, PowerShell, or any other SDK. 
 
 ### What happens if the newly created virtual machine enters a failed state during a MaxSurge upgrade? 
-During an MaxSurge upgrade, new virtual machines are created to replace virtual machines running the old model. If the newly created virtual machine fails to enter a healthy state, that virtual machine is deleted and the rolling upgrade is canceled. 
+During a MaxSurge upgrade, new virtual machines are created to replace virtual machines running the old model. If the newly created virtual machine fails to enter a healthy state, that virtual machine is deleted and the rolling upgrade is canceled. 
 
 
 
