@@ -21,8 +21,6 @@ Customers can scale an Azure API Management instance in a dedicated service tier
 > * In the **Basic**, **Standard**, and **Premium** tiers of the API Management service, you can configure an instance to [scale automatically](api-management-howto-autoscale.md) based on a set of rules.
 > * API Management instances in the **Consumption** tier scale automatically based on the traffic. Currently, you cannot upgrade from or downgrade to the Consumption tier.
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
-
 The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance doesn't allow adding more units, you need to upgrade to a higher-level tier.
 
 > [!NOTE]
@@ -79,6 +77,15 @@ You can use the portal to scale your API Management instance. How you scale depe
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Scale** from the left-hand menu.
+1. Specify the new number of **Units** - use the slider, or select or type the number.
+1. Select **Save**.
+
+### Add or remove units - workspace gateway
+
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left menu, under **APIs**, select **Workspaces** > the name of your workspace.
+1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the name of your gateway.
+1. In the left menu, under **Deployment and infrastructure**,  select **Scale**.
 1. Specify the new number of **Units** - use the slider, or select or type the number.
 1. Select **Save**.
 

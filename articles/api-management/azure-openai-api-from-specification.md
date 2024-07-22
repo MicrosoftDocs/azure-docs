@@ -31,7 +31,11 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 
 ## Option 1. Import API from Azure OpenAI Service
 
-You can import an Azure OpenAI API directly to API Management from the Azure OpenAI Service. When you import the API, API Management automatically configures:
+You can import an Azure OpenAI API directly to API Management from the Azure OpenAI Service. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+When you import the API, API Management automatically configures:
 
 * Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
