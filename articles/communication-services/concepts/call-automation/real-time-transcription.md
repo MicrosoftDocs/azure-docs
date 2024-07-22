@@ -37,3 +37,7 @@ Using the transcript generated throughout the call, you can leverage other AI to
 ## Sample flow of real-time transcription using Call Automation
 ![Real-time transcription flow](./media/transcription.png)
 
+## Next Steps
+- Check out our how-to guide to learn [how-to use our Real-time Transcription](../../how-tos/call-automation/real-time-transcription-tutorial.md) to users.
+- Learn about [usage and operational logs](../analytics/logs/call-automation-logs.md) published by call automation.
+
