@@ -41,18 +41,21 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 
 ## Create a service connection in AKS with Service Connector (preview)
 
-### Register the Service Connector resource provider
+### Register the Service Connector and Kubernetes Configuration resource providers
 
-* If you're using Service Connector for the first time, register the Service Connector resource provider using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
+* Register the Service Connector and Kubernetes Configuration resource providers using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.ServiceLinker
     ```
 
-    > [!TIP]
-    > You can check if the resource provider is already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` command. If the output is `Registered`, then Service Connector is already registered.
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.KubernetesConfiguration
+    ```
 
-<!-- check if registering RP is still necessary-->
+    > [!TIP]
+    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
+
 
 ### Create a new connection
 
