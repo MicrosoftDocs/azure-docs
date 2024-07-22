@@ -512,7 +512,7 @@ Apart from deploying with the pay-as-you-go managed service, you can also deploy
 - `Llama Guard 3 8B`
 - `Prompt Guard`
 
-Follow these steps to deploy a model such as `Meta-Llama-3.1-70B-Instruct ` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
+Follow these steps to deploy a model such as `Meta-Llama-3.1-70B-Instruct ` to a managed compute in [Azure AI Studio](https://ai.azure.com).
 
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
@@ -520,7 +520,7 @@ Follow these steps to deploy a model such as `Meta-Llama-3.1-70B-Instruct ` to a
 
 1. On the model's **Details** page, select **Deploy** next to the **View license** button.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the managed compute option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
 
 1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
 
