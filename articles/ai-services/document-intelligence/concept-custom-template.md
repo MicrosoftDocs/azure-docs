@@ -47,15 +47,15 @@ Custom template models share the same labeling format and strategy as custom neu
 
 Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions.
 
-| Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
-|:--:|:--:|:--:|:--:|:--:|
-| Supported| Supported | Supported | Supported| Supported |
+| Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions | Overlapping fields |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| Supported| Supported | Supported | Supported| Supported | Not supported |
 
 ::: moniker range=">=doc-intel-3.0.0"
 
 ## Tabular fields
 
-With the release of API versions ```2022-06-30-preview``` and  later, custom template models will add support for **cross page** tabular fields (tables):  
+With the release of API versions v3.0 and  later, custom template models will add support for **cross page** tabular fields (tables):  
 
 * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
@@ -104,7 +104,7 @@ Template models rely on a defined visual template, changes to the template resul
 
 ::: moniker range="doc-intel-4.0.0"
 
-Custom template models are generally available with the [v4.0 API](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true). If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
+Custom template models are generally available starting with v2.0 API and later versions. If you're starting with a new project or have an existing labeled dataset, use the v3.1 or v3.0 API with Document Intelligence Studio to train a custom template model.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
@@ -113,7 +113,8 @@ Custom template models are generally available with the [v4.0 API](/rest/api/ais
 With the v3.0 and later APIs, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 
 ```REST
-https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-02-29-preview
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07-31-preview
+
 
 {
   "modelId": "string",
