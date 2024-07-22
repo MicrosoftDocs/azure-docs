@@ -96,18 +96,18 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 ### Comparing Capabilities
 
 | Service/Feature                                                                 | Workbooks                                                      | Azure Managed Grafana                   |
-|:--------------------------------------------------------------------------------|:--------------------------------------------------------------:|:---------------------------------------:|
+|:---------------------------------------------------------------------------------|:--------------------------------------------------------------:|:---------------------------------------:|
 | &nbsp;                                                                          |                                                                |                                         |
 | **Fully Azure Native Reporting**                                                | ✅                                                             |                                         |
 | In the Azure portal, no other entry points required                             | ✅                                                             |                                         |
 | Leveraged by Azure Monitor Insights                                             | ✅                                                             |                                         |
 | Visualizations are native ARM resources                                         | ✅                                                             |                                         |
-| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                             | Only Azure CLI supported                |
-| Access model Identical to Azure RBAC                                            | ✅                                                             | Not supported for Prometheus            |
-| Included in Azure Cost                                                          | ✅                                                             | Additional per user pricing             |
+| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                             | ☑️<br>Only Azure CLI supported                |
+| Access model Identical to Azure RBAC                                            | ✅                                                             | ☑️<br>Not supported for Prometheus            |
+| Included in Azure Cost                                                          | ✅                                                             | ☑️<br>Additional per user pricing             |
 | Reports and guided workflows in the Azure portal                                | ✅                                                             |                                         |
 | &nbsp;                                                                          |                                                                |                                         |
-| **Complete set of  Azure datasources**                                          | ✅                                                             | Not supported ARM and Resource Health   |
+| **Complete set of  Azure datasources**                                          | ✅                                                             | ☑️<br>Not supported ARM and Resource Health   |
 | ARM, Azure Resource Health, Azure Service Health                                | ✅                                                             |                                         |
 | Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                             | ✅                                      |
 | &nbsp;                                                                          |                                                                |                                         |
@@ -120,13 +120,13 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 | Supports integrations actions and runbooks                                      | ✅                                                             |                                         |
 | &nbsp;                                                                          |                                                                |                                         |
 | **Multi-tenancy and portability**                                               |                                                                | ✅                                      |
-| Single view for multiple Azure tenants                                          | Via Lighthouse                                                 | ✅                                      |
+| Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                                 | ✅                                      |
 | Visualizations available outside of the Azure portal                            |                                                                | ✅                                      |
 | On demand and scheduled reports outside of the Azure portal                     |                                                                | ✅                                      |
 | Azure service principal and Azure SQL Managed Instance auth                     |                                                                | ✅                                      |
 | &nbsp;                                                                          |                                                                |                                         |
 | **Multicloud  and multi-platform**                                              |                                                                | ✅                                      |
-| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | Requires ARC and Azure Monitor instrumentation and ingestion   | ✅                                      |
+| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | ☑️<br>Requires ARC and Azure Monitor instrumentation and ingestion   | ✅                                      |
 | OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                | ✅                                      |
 | Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                | ✅                                      |
 | Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                | ✅                                      |
