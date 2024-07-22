@@ -30,7 +30,7 @@ Queries of data in Basic or Auxiliary tables support all KQL [scalar](/azure/dat
     - [join](/azure/data-explorer/kusto/query/join-operator?pivots=azuremonitor), [find](/azure/data-explorer/kusto/query/find-operator?pivots=azuremonitor), [search](/azure/data-explorer/kusto/query/search-operator), and [externaldata](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) aren't supported.
     - [lookup](/azure/data-explorer/kusto/query/lookup-operator) and [union](/azure/data-explorer/kusto/query/union-operator?pivots=azuremonitor) are supported, but limited to up to five Analytics tables.
 - [User-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) aren't supported.
-- [Cross-service](/azure/azure-monitor/logs/cross-workspace-query) and [cross-resource](/azure-monitor/logs/azure-monitor-data-explorer-proxy) queries aren't supported.
+- [Cross-service](/azure/azure-monitor/logs/cross-workspace-query) and [cross-resource](/azure-monitor/logs/cross-workspace-query) queries aren't supported.
 
 
 #### Time range

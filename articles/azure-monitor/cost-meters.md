@@ -16,6 +16,7 @@ The following table lists the meters used to bill for data ingestion in your Log
 
 | Pricing tier |ServiceName | MeterName  | Regional Meter? |
 | -------- | -------- | -------- | -------- |
+| (any)        | Azure Monitor  | Auxiliary Logs Data Ingestion | yes |
 | (any)        | Azure Monitor  | Basic Logs Data Ingestion | yes |
 | Pay-as-you-go | Log Analytics | Pay-as-you-go Data Ingestion | yes |
 | 100 GB/day Commitment Tier | Azure Monitor  | 100 GB Commitment Tier Capacity Reservation | yes |
