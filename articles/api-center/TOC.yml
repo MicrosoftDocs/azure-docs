@@ -40,6 +40,8 @@
         href: import-api-management-apis.md
       - name: Build and register APIs - VS Code extension
         href: use-vscode-extension.md
+      - name: Register APIs using GitHub Actions
+        href: register-apis-github-actions.md
 - name: API governance
   items:
       - name: Use metadata for governance
