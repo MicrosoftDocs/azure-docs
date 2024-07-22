@@ -105,7 +105,7 @@ Create a service connection between your AKS cluster and your SQL database in th
     az aks connection create sql \
         --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
         --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
-    --secret name=<secret-name> secret=<secret>
+        --secret name=<secret-name> secret=<secret>
     ```
 
 ---
