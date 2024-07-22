@@ -216,7 +216,7 @@ and `-Recurse` parameters:
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## Move management groups and subscriptions
+## <a name="move-subscriptions">Move management groups and subscriptions
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can become children of another management group. A subscription that moves to a
@@ -320,7 +320,7 @@ To remove the subscription from the management group, use the `subscription remo
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-### Move a subscription in an ARM template
+### <a name="move-subscriptions-in-arm-template">Move a subscription in an ARM template
 
 To move a subscription in an Azure Resource Manager template (ARM template), use the following
 template and deploy it at the [tenant level](../../azure-resource-manager/templates/deploy-to-tenant.md):
