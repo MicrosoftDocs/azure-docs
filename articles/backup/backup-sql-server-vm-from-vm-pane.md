@@ -36,7 +36,7 @@ You can enable backup on your SQL Server VM from the **Backup** blade in the VM.
 
 1. Select the banner on the top of the page to open the SQL Server backup view.
 
-    ![Screenshot shows the SQL Server backup vie.w](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
+    ![Screenshot shows the SQL Server backup view.](./media/backup-sql-server-vm-from-vm-pane/sql-server-backup-view.png)
 
     >[!NOTE]
     >Don't see the banner? The banner is only displayed for those SQL Server VMs that are created using Azure Marketplace images. It's additionally displayed for the VMs that are protected with Azure VM Backup. For other images, you can configure backup as explained [here](backup-sql-server-database-azure-vms.md).
