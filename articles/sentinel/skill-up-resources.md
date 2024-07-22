@@ -203,7 +203,7 @@ Want more in-depth information? View the ["Improving the breadth and coverage of
 
 If you prefer another long-term retention solution, see [Export from Microsoft Sentinel / Log Analytics workspace to Azure Storage and Event Hubs](/cli/azure/monitor/log-analytics/workspace/data-export) or [Move logs to long-term storage by using Azure Logic Apps](../azure-monitor/logs/logs-export-logic-app.md). The advantage of using Logic Apps is that it can export historical data.
 
-Finally, you can set fine-grained retention periods by using [table-level retention settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). For more information, see [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md).
+Finally, you can set fine-grained retention periods by using [table-level retention settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). For more information, see [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-configure.md).
 
 
 #### Log security
