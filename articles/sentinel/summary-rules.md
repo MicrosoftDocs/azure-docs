@@ -16,17 +16,13 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-Use summary rules in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled to provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
+Use summary rules in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled using [Azure Monitor summary rules](/azure/azure-monitor/logs/summary-rules) and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md##auxiliary-logs-and-basic-logs).
 
 - **Access summary rule results via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
 - **Run high performance KQL queries** on summarized data.
 - **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly.
-
-For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
-
-Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
+Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -42,7 +38,7 @@ To create summary rules in Microsoft Sentinel:
 
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
-- To use summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+- To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Create a summary rule
 
@@ -105,9 +101,12 @@ Existing summary rules are listed on the **Summary rules (Preview)** page, where
  
 To delete a rule, select the rule row and then select **Delete** in the toolbar at the top of the page.
 
+> [!NOTE]
+> Azure Monitor also supports creating summary rules via API or an Azure Resource Monitor (ARM) template. For more information, see [Create or update a summary rule](/azure/azure-monitor/logs/summary-rules?tabs=api).
+
 ## Sample summary rule scenarios
 
-This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule. For more information and examples, see [Use summary rules with auxiliary logs (sample process)](#use-summary-rules-with-auxiliary-logs-sample-process) and [Log sources to use for Basic Logs ingestion](basic-logs-use-cases.md).
+This section reviews common scenarios for creating summary rules in Microsoft Sentinel, and our recommendations for how to configure each rule. For more information and examples, see [Use summary rules with auxiliary logs (sample process)](#use-summary-rules-with-auxiliary-logs-sample-process) and [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
 ### Quickly find a malicious IP address in your network traffic
 
@@ -250,7 +249,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 ## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with auxiliary logs, using a custom connection to ingest CEF data from Logstash.
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an AMR template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
@@ -353,4 +352,5 @@ This procedure describes a sample process for using summary rules with auxiliary
 
 - [Aggregate data in Log Analytics workspace with Summary rules](/azure/azure-monitor/logs/summary-rules)
 - [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md)
-- [Log sources to use for Basic Logs or Auxiliary Logs ingestion](basic-logs-use-cases.md)
+- [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
+- **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
