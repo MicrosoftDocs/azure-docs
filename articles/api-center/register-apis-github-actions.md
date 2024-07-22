@@ -148,9 +148,9 @@ permissions:
   pull-requests: read
 env:
   # set this to your Azure API Center resource group name
-  RESOURCE_GROUP: apicenterrg
+  RESOURCE_GROUP: <YOUR_RESOURCE_GROUP>
   # set this to your Azure API Center service name
-  SERVICE_NAME: myapicenter
+  SERVICE_NAME: <YOUR_API_CENTER>
 jobs:
   register:
     runs-on: ubuntu-latest
