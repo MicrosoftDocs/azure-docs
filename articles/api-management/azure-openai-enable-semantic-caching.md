@@ -13,9 +13,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Enable semantic caching for Azure OpenAI APIs in Azure API Management
 
-[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
 
 Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## Prerequisites
 
