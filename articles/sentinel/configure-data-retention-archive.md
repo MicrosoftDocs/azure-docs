@@ -16,7 +16,7 @@ In the previous deployment step, you enabled the User and Entity Behavior Analyt
 
 Retention policies define when to remove or archive data in a Log Analytics workspace. Archiving lets you keep older, less used data in your workspace at a reduced cost. To set up data retention, use one or both of these methods, depending on your use case:
 
-- [Configure data retention and archive for one or more tables](../azure-monitor/logs/data-retention-archive.md) (one table at a time)
+- [Configure data retention and archive for one or more tables](../azure-monitor/logs/data-retention-configure.md) (one table at a time)
 - [Configure data retention and archive for multiple tables](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Archive-Log-Tool) at once
 
 ## Next steps

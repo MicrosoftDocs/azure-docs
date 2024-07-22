@@ -61,7 +61,7 @@ This table describes the possible resource health status values for a log search
 |Syntax error |The query is failing because of a syntax error.| Review the query and try again.|
 |The response size is too large|The query is failing because its response size is too large.|Review your query and the [log queries limits](../service-limits.md#log-queries-and-language).|
 |Query consuming too many resources |The query is failing because it's consuming too many resources.|Review your query. View our [best practices for optimizing log queries](../logs/query-optimization.md).|
-|Query validation error|The query is failing because of a validation error. |Check if the table referenced in your query is set to [Compare the Basic and Analytics log data plans](../logs/basic-logs-configure.md#compare-the-basic-and-analytics-log-data-plans), which doesn't support alerts. |
+|Query validation error|The query is failing because of a validation error. |Check if the table referenced in your query is set to the [Basic or Auxiliary table plans](../logs/logs-table-plans.md), which don't support alerts. |
 |Workspace not found |The target Log Analytics workspace for this alert rule couldn't be found. |The target specified in the scope of the alert rule was moved, renamed, or deleted. Recreate your alert rule with a valid Log Analytics workspace target.|
 |Application Insights resource not found|The target Application Insights resource for this alert rule couldn't be found.     |The target specified in the scope of the alert rule was moved, renamed, or deleted. Recreate your alert rule with a valid Log Analytics workspace target.    |
 |Query is throttled|The query is failing for the rule because of throttling (Error 429).     |Review your query and the [log queries limits](../service-limits.md#user-query-throttling).    |
@@ -69,7 +69,7 @@ This table describes the possible resource health status values for a log search
 |NSP validation failed |The query is failing because of NSP validations issues.| Review your network security perimeter rules to ensure your alert rule is correctly configured.|
 |Active alerts limit exceeded |Alert evaluation failed due to exceeding the limit of fired (non- resolved) alerts per day.     |See [Azure Monitor service limits](../service-limits.md).   |
 |Dimension combinations limit exceeded | Alert evaluation failed due to exceeding the allowed limit of dimension combinations values meeting the threshold.|See [Azure Monitor service limits](../service-limits.md).     |
-|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health the fequency should be 5 minutes or lower. |
+|Unavailable for unknown reason | Today, the report health status is supported only for rules with a frequency of 15 minutes or lower.| For using Resource Health, the frequency should be 5 minutes or lower. |
 
 
 ## Add a new resource health alert
