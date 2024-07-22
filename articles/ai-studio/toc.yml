@@ -88,6 +88,8 @@ items:
       displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
+    - name: Distillation
+      href: concepts/concept-model-distillation.md
     - name: Serverless API models
       items:
       - name: Deploy models as serverless API
