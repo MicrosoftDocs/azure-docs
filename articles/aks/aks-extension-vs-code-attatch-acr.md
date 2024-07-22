@@ -58,11 +58,19 @@ You can access the screen for attaching your container registry to your AKS clus
 
 For more information, see [AKS extension for Visual Studio Code features][aks-vscode-features].
 
-## Product support/feedback
+## Product support and feedback
 
-If you have a question or would like to offer product feedback. Please open an issue on the [AKS extension GitHub repository](https://github.com/Azure/vscode-aks-tools/issues/new/choose).
+If you have a question or want to offer product feedback, please open an issue on the [AKS extension GitHub repository][aks-vscode-github].
 
 ## Next steps
 
-To learn more about other AKS add-ons and extensions, see [Add-ons, extensions, and other integrations with AKS](./integrations.md).
+To learn more about other AKS add-ons and extensions, see [Add-ons, extensions, and other integrations for AKS][aks-addons].
+
+<!---LINKS--->
+[create-acr-cli]: ../container-registry/container-registry-get-started-azure-cli.md
+[deploy-aks-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[install-aks-vscode]: ./aks-extension-vs-code.md#installation
+[aks-vscode-features]: https://code.visualstudio.com/docs/azure/aksextensions#_features
+[aks-vscode-github]: https://github.com/Azure/vscode-aks-tools/issues/new/choose
+[aks-addons]: ./integrations.md
 
