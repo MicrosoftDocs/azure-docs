@@ -20,7 +20,7 @@ Use summary rules in Microsoft Sentinel to aggregate large sets of data in the b
 
 - **Access summary rule results via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
 - **Run high performance KQL queries** on summarized data.
-- **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
+- **Use summary rule results for longer** in historical investigations, hunting, and compliance activities.
 
 Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
 
@@ -217,7 +217,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 **Solution**: We recommed using summary rules to do the following:
 
-1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. ASIM functions might be helpful in the summary query. <!--why?-->
+1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. [ASIM functions](normalization-functions.md) might be helpful in the summary query when interacting with your McAfee logs.
 
 1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. For example:
 
