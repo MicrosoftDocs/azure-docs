@@ -169,7 +169,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.5
     ```
 
-1. If successful, the output is similar to the following example. If the script's output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
+1. The output is similar to the following example. If the script's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
 
     ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.5
@@ -325,7 +325,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.5 -MtuSize
     ```
 
-1. The output is similar to the following example. If the script's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the GetPathMTU script.
+1. The output is similar to the following example. If the command's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the `Test-Connection` command.
 
     ```output
     PS C:\Users\azureuser> Test-Connection -TargetName 10.0.0.5 -MtuSize
@@ -377,7 +377,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.4 -MtuSize
     ```
 
-1. If successful, the output is similar to the following example. If the commands output isn't successful, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the Test-Connection command.
+1. The output is similar to the following example. If the command's output doesn't display the setting on the network interface, it indicates that the MTU size isn't set correctly. Alternatively, it could mean that a network device along the path only supports the MTU size returned by the `Test-Connection` command.
 
     ```output
     PS C:\Users\azureuser> Test-Connection -TargetName 10.0.0.4 -MutSize
