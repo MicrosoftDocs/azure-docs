@@ -73,9 +73,5 @@ When creating a field, select the right subtype to minimize post processing, for
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom template models](concept-custom-template.md)
+  > [Custom models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-custom?view=doc-intel-4.0.0)
 
-* Learn more about custom neural models:
-
-  > [!div class="nextstepaction"]
-  > [Custom neural models](concept-custom-neural.md)
