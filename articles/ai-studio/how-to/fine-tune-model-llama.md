@@ -194,7 +194,7 @@ To fine-tune a LLama 3.1 model:
     > [!NOTE]
     > If the you has their training/validation files in a credential less datastore, they will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. That would be this setting on the "Datastore" page, after clicking "Update authentication" > Select the following option: 
 	
-	![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](media/how-to/fine-tune/phi-3/credentials.png)
+	![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](media/how-to/fine-tune/llama/credentials.png)
 
     Make sure all your training examples follow the expected format for inference. To fine-tune models effectively, ensure a balanced and diverse dataset. This involves maintaining data balance, including various scenarios, and periodically refining training data to align with real-world expectations, ultimately leading to more accurate and balanced model responses.
     - The batch size to use for training. When set to -1, batch_size is calculated as 0.2% of examples in training set and the max is 256.
