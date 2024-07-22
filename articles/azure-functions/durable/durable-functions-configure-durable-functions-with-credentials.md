@@ -35,7 +35,7 @@ If you don't have an existing durable function project deployed in Azure, we rec
 
 ## Configure your app to use managed identity credentials
 
-Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as Azure Key Vault. A managed identity is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
+Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as Azure Key Vault. Managed identity access is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
 
 > [!NOTE]
 > A managed identity is available to apps only when they execute in Azure. When an app is configured to use identity-based connections, a locally executing app instead uses your *developer credentials* to authenticate with Azure resources. Then, when the app is deployed in Azure, it uses your managed identity configuration.
