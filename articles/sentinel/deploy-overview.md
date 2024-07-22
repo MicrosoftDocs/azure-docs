@@ -36,7 +36,7 @@ The deployment phase is typically performed by a SOC analyst or related roles.
 | [**2. Configure content**](configure-content.md) | Configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems: Data connectors, analytics rules, automation rules, playbooks, workbooks, and watchlists. |
 | [**3. Set up a cross-workspace architecture**](use-multiple-workspaces.md) |If your environment requires multiple workspaces, you can now set them up as part of your deployment. In this article, you learn how to set up Microsoft Sentinel to extend across multiple workspaces and tenants. |
 | [**4. Enable User and Entity Behavior Analytics (UEBA)**](enable-entity-behavior-analytics.md) | Enable and use the UEBA feature to streamline the analysis process.  |
-| [**5. Set up data retention and archive**](configure-data-retention-configure.md) |Set up data retention and archive, to make sure your organization retains the data that's important in the long term.  |
+| [**5. Set up data retention and archive**](data-retention-configure.md) |Set up data retention and archive, to make sure your organization retains the data that's important in the long term.  |
 
 ## Fine tune and review: Checklist for post-deployment
 
