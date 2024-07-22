@@ -14,11 +14,11 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP teams.
+Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
 
 ## Azure prerequisites
 
-Typically, Azure prerequisites are managed by your security teams.
+Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
@@ -29,7 +29,7 @@ Typically, Azure prerequisites are managed by your security teams.
 
 ## System prerequisites
 
-Typically, system prerequisites are managed by your infrastructure teams.
+Typically, system prerequisites are managed by your **infrastructure** teams.
 
 | Prerequisite | Description |
 | ---- | ----------- |
@@ -43,7 +43,7 @@ Typically, system prerequisites are managed by your infrastructure teams.
 
 ## SAP prerequisites
 
-We recommend that your SAP team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
+We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
 | Prerequisite | Description |
 | ---- | ----------- |
@@ -51,9 +51,6 @@ We recommend that your SAP team verify and ensure SAP system prerequisites. We s
 | **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. |
-| **SAP auditing** | Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB. |
-
-<!--this is where we'd redirect to from sap auditing-->
 
 ### SAP role requirements
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy and configure the SAP data connector agent container | Microsoft Sentinel
-description: This article describes how to deploy the container that hosts the SAP data connector agent, in order to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel Solution for SAP.
+title: Connect your SAP system by deploying your data connector agent | Microsoft Sentinel
+description: This article describes how to connect your SAP system to Microsoft Sentinel by deploying the container that that hosts the SAP data connector agent.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
@@ -10,10 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security operator, I want to deploy the container that hosts the SAP data connector agent, so that I can ingest SAP data into Microsoft Sentinel.
+#customerIntent: As an security, infrastructure, or SAP BASIS team member, I want to deploy the container that hosts the Microsoft Sentinel SAP data connector agent, so that I can ingest SAP data into Microsoft Sentinel.
 ---
 
-# Deploy and configure the container hosting the SAP data connector agent
+# Connect your SAP system by deploying your data connector agent
 
 For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
@@ -21,7 +21,7 @@ This article describes how to deploy the container that hosts the SAP data conne
 
 :::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP teams.
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP BASIS teams.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -31,9 +31,11 @@ Before you deploy the data connector agent:
 
 - Make sure that have all the deployment prerequisites in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-- If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+- Make sure that you have the [Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md) installed in your Microsoft Sentinel workspace.
 
-The procedures in this step require coordination between your security, infrastructure, and SAP teams.
+- Make sure that your system is fully [prepared for the deployment](preparing-sap.md). If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+
+The procedures in this step require coordination between your security, infrastructure, and SAP BASIS teams.
 
 ## Watch a demo video
 

@@ -13,7 +13,7 @@ This article provides a reference of the configurable parameters available in th
 
 For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
 
 ## Secret storage location
 

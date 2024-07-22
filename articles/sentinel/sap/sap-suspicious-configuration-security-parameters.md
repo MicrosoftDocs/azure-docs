@@ -15,7 +15,7 @@ The Microsoft Sentinel solution for SAP applications provides updates for this c
 
 This article doesn't describe the parameters, and isn't a recommendation to configuring the parameters. For configuration considerations, consult your SAP admins. For parameter descriptions, see the SAP documentation.
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
 
 ## Prerequisites
 

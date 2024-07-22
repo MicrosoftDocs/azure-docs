@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 05/22/2024
-#customerIntent: I'm a SOC analyst who wants to learn about the Microsoft Sentinel solution for SAP applications.
+#customerIntent: As a SOC analyst, I want to learn more about the Microsoft Sentinel solution for SAP applications, which I can use to connect my SAP system to Microsoft Sentinel, and start ingesting and analyzing SAP data in Microsoft Sentinel.
 ---
 
 # Microsoft Sentinel solution for SAP applications
@@ -60,6 +60,13 @@ The Microsoft Sentinel solution for SAP applications supports the following type
 |**Backdoor creation  (persistency)**     |      <li> Creation of new internet facing interfaces (ICF)<li> Directly accessing sensitive tables by remote-function-call<li>  Assigning new service handlers to ICF <li>Execution of obsolete programs<li> User unlocks and uses other users     |
 |**Data exfiltration**     |   <li> Multiple files downloads <li>Spool takeovers<li> Allowing access to insecure FTP servers and connections from unauthorized hosts<li> Dynamic RFC Destination <li>HANA DB - user admin actions from database level     |
 |**Initial Access**     |   <li> Brute force<li>   Multiple logons from the same IP<li>   Privileged user logons from unexpected networks <li>SPNego Replay Attack        |
+
+## Investigation support
+
+Investigate SAP incidents just as you would any other incidents in Microsoft Sentinel and Microsoft Defender. For more information, see:
+
+- [Navigate and investigate incidents in Microsoft Sentinel](../investigate-incidents.md)
+- [Investigate and respond with Microsoft Defender XDR](/defender-xdr/incident-response-overview)
 
 ## Certification
 

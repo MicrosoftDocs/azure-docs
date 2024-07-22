@@ -12,11 +12,11 @@ ms.date: 05/28/2024
 
 Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters.
 
-This article provides guidance on how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, and is part of the second step in the deployment process, and is typically handled by your SAP team.
+This article provides guidance on how to enable and configure auditing for the Microsoft Sentinel solution for SAP applications, and is part of the second step in the deployment process, and is typically handled by your SAP BASIS team.
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Procedures in this article are typically performed by your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Procedures in this article are typically performed by your SAP BASIS teams.
 
 <!--this is pure SAP instructions and really shouldn't be in Microsoft docs. I feel for security admins trying to do this but we really can't document SAP procedures .... I'd like to remove this altogether and just add it into the prereqs page instead. it's unfortunate b/c we're getting about 250 pv a month on it...-->
 

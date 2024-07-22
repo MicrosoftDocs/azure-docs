@@ -13,7 +13,7 @@ The Microsoft Sentinel SAP data connector agent container users an [update scrip
 
 This article describes the configurable parameters available in the update script.
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
 
 ## Script process overview
 

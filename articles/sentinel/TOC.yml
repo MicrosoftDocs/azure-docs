@@ -151,16 +151,12 @@
             href: sap/deployment-overview.md
           - name: Deployment prerequisites
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-          - name: Prepare SAP environment
-            items:
-            - name: Configure SAP authorizations and deploy optional SAP change requests
-              href: sap/preparing-sap.md
-            - name: Configure SAP auditing for Microsoft Sentinel
-              href: sap/configure-audit.md
-          - name: Deploy the data connector agent
-            href: sap/deploy-data-connector-agent-container.md        
-          - name: Deploy SAP security content
+          - name: Deploy the solution for SAP applications
             href: sap/deploy-sap-security-content.md
+          - name: Prepare your SAP environment
+            href: sap/preparing-sap.md
+          - name: Connect your SAP system
+            href: sap/deploy-data-connector-agent-container.md
           - name: Configure intial solution content
             href: sap/deployment-solution-configuration.md
           - name: Optional deployment steps
@@ -190,8 +186,6 @@
               href: sap/reference-systemconfig-json.md
             - name: Systemconfig.ini file reference (legacy)
               href: sap/reference-systemconfig.md
-            - name: Sample SAP ingestion profiles
-              href: sap/select-ingestion-profiles.md 
         - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
         - name: Monitor SAP audit logs

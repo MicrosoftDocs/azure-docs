@@ -1,13 +1,13 @@
 ---
-title: Configure initial Microsoft Sentinel solution for SAP applications content
-description: This article shows you how to configure initial security content for the Microsoft Sentinel solution for SAP applications.
+title: Enable SAP detections and threat protection with Microsoft Sentinel
+description: This article shows you how to configure initial security content for the Microsoft Sentinel solution for SAP applications in order to start enabling SAP detections and threat protection.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 07/07/2024
 ---
 
-# Configure initial Microsoft Sentinel solution for SAP applications content
+# Enable SAP detections and threat protection
 
 While deploying the Microsoft Sentinel data collector agent and solution for SAP applications provides you with the ability to monitor SAP systems for suspicious activities and identify threats, additional configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for getting started with the security content delivered with the Microsoft Sentinel solution for SAP applications, and is the last step in deploying the SAP integration.
 

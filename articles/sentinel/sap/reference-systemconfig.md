@@ -12,7 +12,7 @@ ms.custom: devx-track-extended-java
 
 The *systemconfig.ini* file is used to configure the behavior of the Microsoft Sentinel for SAP applications data connector agent. This article describes the options available in each section of the configuration file.
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
 
 > [!IMPORTANT]
 > Microsoft Sentinel solution for SAP applications uses the *[systemconfig.json file](reference-systemconfig-json.md)* for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *systemconfig.ini* file.

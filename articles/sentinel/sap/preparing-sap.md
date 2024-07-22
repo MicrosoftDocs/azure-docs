@@ -1,7 +1,7 @@
 ---
-title: Configure SAP authorizations and deploy optional SAP change requests (CRS)
+title: Configure your SAP system for the Microsoft Sentinel solution
 titleSuffix: Microsoft Sentinel
-description: Learn how to configure SAP authorizations and deploy optional SAP change requests to prepare your SAP environment for the SAP agent installation and connection to your SAP systems.
+description: Learn about extra preparations required in your SAP system to install the SAP data connector agent and connect Microsoft Sentinel to your SAP system.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 05/28/2024
 #customerIntent: As an SAP admin, I want to know how to configure SAP authorizations and deploy and SAP change requests (CRs) to prepare the environment for the installation of the SAP agent, so that it can properly connect to my SAP systems.
 ---
 
-# Configure SAP authorizations and deploy optional SAP change requests
+# Configure your SAP system for the Microsoft Sentinel solution
 
 This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
 
@@ -17,7 +17,7 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your SAP team.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your SAP BASIS team.
 
 [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
 
@@ -283,11 +283,16 @@ If needed, you can [remove the user role and the optional CR installed on your A
 | S_TABU_NAM | TABLE | USRSTAMP |
 | S_TABU_NAM | TABLE | UST04 |
 
+## Configure SAP auditing
+
+Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
+
+For more information, see <!--naomi to find link in sap docs-->
+<!--this is where we'd redirect to from sap auditing-->
+
 ## Deploy optional CRs
 
-This section presents a step-by-step guide to deploying extra, optional CRs. It's intended for SOC engineers or implementers who might not necessarily be SAP experts.
-
-We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator.
+This section lists extra, optional SAP change requests (CRs) available for you to deploy. Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator.
 
 The following table describes the optional CRs available to deploy:
 
@@ -296,6 +301,11 @@ The following table describes the optional CRs available to deploy:
 |**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations). |
 |**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
+For more information, see:
+
+<!--Naomi to get links in SAP docs-->
+
+<!-- remove this
 ### Prerequisites for deploying CRs
 
 1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username**, and **password** before beginning the deployment process. For the following example, the following details are assumed:
@@ -309,7 +319,6 @@ The following table describes the optional CRs available to deploy:
 
 1. Make sure you know which [CR you want to deploy](#deploy-optional-crs).
 
-1. If you're deploying the NPLK900202 CR to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional).
 
 ### Set up the files
 
@@ -368,8 +377,6 @@ The following table describes the optional CRs available to deploy:
 
 ### Import the CRs
 
-<!--i don't see this in SAP docs, but im not sure we should go into such detail. is there something we can refer to? even if it's behind a paywall.-->
-
 This procedure provides a sample set of steps for how to import the Microsoft Sentinel solution CRs to your SAP system. Your SAP system may have different options and buttons. In such cases, refer to the SAP system documentation for exact instructions.
 
 1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
@@ -405,6 +412,7 @@ This procedure provides a sample set of steps for how to import the Microsoft Se
 1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
 
 1. If you deployed the *NPLK900202* CR, it's expected to display a **Warning**. Select the entry with the warning to verify that the warnings displayed are of type  `"Table \<tablename\>` was activated."
+-->
 
 ## Verify that the PAHI table is updated at regular intervals
 
@@ -416,6 +424,9 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 > [!TIP]
 > For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
 
+If the PAHI table is updated regularly, the SAP_COLLECTOR_FOR_PERFMONITOR job is scheduled and runs hourly. If the SAP_COLLECTOR_FOR_PERFMONITOR job doesn't exist, make sure to configure it as needed. For more information, see <!--naomi to find links-->
+
+<!--removing this--
 **To verify that the PAHI table is updated regularly**:
 
 1. Check whether the `SAP_COLLECTOR_FOR_PERFMONITOR` job, based on the RSCOLL00 program, is scheduled and running hourly, by the DDIC user in the 000 client.
@@ -427,6 +438,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
     - `RSDB_PAR` report: Reads the database parameters and stores them in the PAHI table.
 
 If the job exists and is configured correctly, no further steps are needed.
+
 
 ### Configure the SAP_COLLECTOR_FOR_PERFMONITOR job if it doesn't already exist
 
@@ -450,6 +462,7 @@ The screenshots shown in this procedure are examples, and your SAP system may lo
 1. Select **Save** both inside the dialog, and then select **Save** at the bottom.
 
 1. To release the job, select **Save** at the top.
+-->
 
 ## Configure your system to use SNC for secure connections
 
@@ -457,6 +470,9 @@ By default, the SAP data connector agent connects to an SAP server using a remot
 
 However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
 
+In a production environment, we strongly recommend that your consult with SAP admnistrators to create a deployment plan for configuring SNC.
+
+<!-- removing this
 > [!NOTE]
 > This section describes a sample case for configuring SNC. In a production environment, we strongly recommended that you consult with SAP administrators to create a deployment plan.
 
@@ -465,11 +481,11 @@ However, you might need to make the connection on an encrypted channel or use cl
     - The [SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
     - Network connectivity. SNC uses port 48*xx* (where *xx* is the SAP instance number) to connect to the SAP server.
     - Your SAP server configured to support SNC authentication. <!--for more information, see xref-->
-    - A self-signed or enterprise certificate authority (CA)-issued certificate for user authentication.
+<!--    - A self-signed or enterprise certificate authority (CA)-issued certificate for user authentication.
 
 1. Export your SAP server certificate in a **Base64** format, and then import it to your SAP system. Make sure that you're importing the correct certificate for your system, including the public keys. <!--which system are we importing to?-->
 
-    We recommend using a certificate issued by an enterprise CA. In such cases, if both the root and subordinate CA servers are used, import both the certificates. If you're using a self-signed certificate instead, import the self-signed, user certificate.
+<!--    We recommend using a certificate issued by an enterprise CA. In such cases, if both the root and subordinate CA servers are used, import both the certificates. If you're using a self-signed certificate instead, import the self-signed, user certificate.
 
 1. Associate the certificate with a SAP system user account. When doing this, configure the user's **SNC Name** as the user's certificate subject name prefixed with **p:**. For example: **p: CN=SentinelUser,DC=Contoso,DC=com**.
 
@@ -477,7 +493,7 @@ However, you might need to make the connection on an encrypted channel or use cl
 
 1. Map your SAP service provider to external user IDs using the following values: <!--this is only ABAP. But should we be making this generic to support Java in the future?-->
 
-    - Define the external ID as **CN=Sentinel**, **C=US**.
+<!--    - Define the external ID as **CN=Sentinel**, **C=US**.
     - Define the sequence number as **000**.
     - Define the user as **SENTINEL**.
 
@@ -485,19 +501,20 @@ However, you might need to make the connection on an encrypted channel or use cl
 
 1. Transfer the client certificate, including both private and public keys to the system where the container will be created. <!--i thought we only needed public keys?-->
 
-    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
+<!--    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
 
 1. Transfer the server certificate, including the public key only to the system where the SAP data connector agent container will be created. The server certificate must be in Base64 *.crt* format. <!--did we just do this by exporting and importing?-->
 
-1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
+<!--1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
 
 If you're configuring your system to use SNC connections, make sure to use the relevant procedure when configuring your SAP data connector agent container.
+-->
 
-## Remove the user role and the optional CR installed on your ABAP system
+## Remove the user role and any optional CR installed on your ABAP system
 
 If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
 
-To do so, import the deletion CR *NPLK900259* into your ABAP system.
+To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see <!--naomi to find link in sap docs for importing CRs-->
 
 ## Next step
 

@@ -14,7 +14,7 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 
 We typically recommend using the default process, as described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). 
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
 
 ## Prerequisites
 
@@ -207,7 +207,9 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
 ## Manually configure the Microsoft Sentinel for SAP data connector
 
-The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the procedures in this section to manually configure data connector settings. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
+The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
+
+For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
 
 <!--do we need this if we have the references?
 The following code shows a sample **systemconfig.json** file: 
@@ -270,7 +272,11 @@ javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST u
 
 ### Define the SAP logs that are sent to Microsoft Sentinel
 
-Add the following code to the Microsoft Sentinel solution for SAP applications **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
+The default **systemconfig** file is configured to cover built-in analytics, the SAP user authorization master data tables, with users and privilege information, and the ability to track changes and activities on the SAP landscape. The default configuration provides more logging information to allow for post-breach investigations and extended hunting abilities.
+
+However you might want to customize your configuration over time, especially as business processes tend to be seasonal.
+
+Use the following code to the Microsoft Sentinel solution for SAP applications **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
 
 For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference (public preview)](sap-solution-log-reference.md).
 
@@ -297,6 +303,110 @@ GW = False
 JAVAFilesLogs = False
 ##############################################################
 ```
+
+Use the following code to configure a detection-focused profile, which includes the core security logs of the SAP landscape required for the most of the analytics rules to perform well. Post-breach investigations and hunting capabilities are limited.
+
+```python
+##############################################################
+[Logs Activation Status]
+# ABAP RFC Logs - Retrieved by using RFC interface
+ABAPAuditLog = True
+ABAPJobLog = False
+ABAPSpoolLog = False
+ABAPSpoolOutputLog = False
+ABAPChangeDocsLog = True
+ABAPAppLog = False
+ABAPWorkflowLog = False
+ABAPCRLog = True
+ABAPTableDataLog = False
+# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+ABAPFilesLogs = False
+SysLog = False
+ICM = False
+WP = False
+GW = False
+# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+JAVAFilesLogs = False
+[ABAP Table Selector]
+AGR_TCODES_FULL = True
+USR01_FULL = True
+USR02_FULL = True
+USR02_INCREMENTAL = True
+AGR_1251_FULL = True
+AGR_USERS_FULL = True
+AGR_USERS_INCREMENTAL = True
+AGR_PROF_FULL = True
+UST04_FULL = True
+USR21_FULL = True
+ADR6_FULL = True
+ADCP_FULL = True
+USR05_FULL = True
+USGRP_USER_FULL = True
+USER_ADDR_FULL = True
+DEVACCESS_FULL = True
+AGR_DEFINE_FULL = True
+AGR_DEFINE_INCREMENTAL = True
+PAHI_FULL = False
+AGR_AGRS_FULL = True
+USRSTAMP_FULL = True
+USRSTAMP_INCREMENTAL = True
+AGR_FLAGS_FULL = True
+AGR_FLAGS_INCREMENTAL = True
+SNCSYSACL_FULL = False
+USRACL_FULL = False
+```
+
+Use the following code to configure a minimal profile, which includes the SAP Security Audit Log, which is the most important source of data that the Microsoft Sentinel solution for SAP applications uses to analyze activities on the SAP landscape. Enabling this log is the minimal requirement to provide any security coverage.
+
+```python
+[Logs Activation Status]
+# ABAP RFC Logs - Retrieved by using RFC interface
+ABAPAuditLog = True
+ABAPJobLog = False
+ABAPSpoolLog = False
+ABAPSpoolOutputLog = False
+ABAPChangeDocsLog = False
+ABAPAppLog = False
+ABAPWorkflowLog = False
+ABAPCRLog = False
+ABAPTableDataLog = False
+# ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+ABAPFilesLogs = False
+SysLog = False
+ICM = False
+WP = False
+GW = False
+# Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+JAVAFilesLogs = False
+[ABAP Table Selector]
+AGR_TCODES_FULL = False
+USR01_FULL = False
+USR02_FULL = False
+USR02_INCREMENTAL = False
+AGR_1251_FULL = False
+AGR_USERS_FULL = False
+AGR_USERS_INCREMENTAL = False
+AGR_PROF_FULL = False
+UST04_FULL = False
+USR21_FULL = False
+ADR6_FULL = False
+ADCP_FULL = False
+USR05_FULL = False
+USGRP_USER_FULL = False
+USER_ADDR_FULL = False
+DEVACCESS_FULL = False
+AGR_DEFINE_FULL = False
+AGR_DEFINE_INCREMENTAL = False
+PAHI_FULL = False
+AGR_AGRS_FULL = False
+USRSTAMP_FULL = False
+USRSTAMP_INCREMENTAL = False
+AGR_FLAGS_FULL = False
+AGR_FLAGS_INCREMENTAL = False
+SNCSYSACL_FULL = False
+USRACL_FULL = False
+```
+
 
 ### SAL logs connector settings
 
