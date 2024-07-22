@@ -40,13 +40,6 @@ The following table shows an index of tools in prompt flow.
 
 _*The asterisk marks indicate custom tools, which are created by the community that extend prompt flow's capabilities for specific use cases. They aren't officially maintained or endorsed by prompt flow team. When you encounter questions or issues for these tools, prioritize using the support contact if it's provided in the description._
 
-
-The following table shows an index of custom tools created by the community to extend prompt flow's capabilities for specific use case. They are not officially maintained or endorsed by prompt flow team. For questions or issues when using a tool, please use the support contact in the description.
-
-| Tool name | Description | Environment | Package name | 
-|------|-----------|-------------|--------------|
-| [Azure AI Language tools](https://microsoft.github.io/promptflow/integrations/tools/azure-ai-language-tool.html) | Azure AI Language enables users with task-oriented and optimized pre-trained or custom language models to effectively understand and analyze documents and conversations. This collection of tools is a wrapper for various Azure AI Language APIs. The current list of supported capabilities is as follows: **Abstractive Summarization, Extractive Summarization, Conversation Summarization, Entity Recognition, Key Phrase Extraction, Language Detection, PII Entity Recognition, Conversational PII, Sentiment Analysis, Conversational Language Understanding, Translator**. You can learn how to use them by the [Sample flows](https://github.com/microsoft/promptflow/tree/e4542f6ff5d223d9800a3687a7cfd62531a9607c/examples/flows/integrations/azure-ai-language). **Support contact:** taincidents@microsoft.com | Custom | [promptflow-azure-ai-language](https://pypi.org/project/promptflow-azure-ai-language/) |
-
 To discover more custom tools developed by the open-source community, see [More custom tools](https://microsoft.github.io/promptflow/integrations/tools/index.html). 
   
   
