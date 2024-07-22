@@ -1,12 +1,12 @@
 ---
-title: Tutorial: Set up a table with the Auxiliary plan for low-cost data ingestion and retention in your Log Analytics workspace
-description: Create a custom table with the Auxiliary table plan in your Log Analytics workspace. 
+title: Set up a table with the Auxiliary plan for low-cost data ingestion and retention in your Log Analytics workspace
+description: Create a custom table with the Auxiliary table plan in your Log Analytics workspace for low-cost ingestion and retention of log data. 
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.service: azure-monitor
 ms.topic: how-to 
-ms.date: 07/14/2024
+ms.date: 07/21/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to create a custom table with the Auxiliary table plan, so that I can ingest and retain data at a low cost for auditing and compliance.
 ---
 
