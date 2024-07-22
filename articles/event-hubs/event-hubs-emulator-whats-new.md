@@ -1,5 +1,5 @@
 ---
-title: What's new with Event Hubs Emulator
+title: What's new with Event Hubs emulator
 titleSuffix: Azure Event Hubs
 description: View the updates for the latest version and previous versions of the Azure Event Hubs emulator.
 author: Sannidhya
@@ -24,7 +24,7 @@ This article provides a detailed overview of the enhancements introduced in the 
 
 This release provides enhanced connectivity fixes for Emulator. Details are below:
  
-  - When emulator container and interacting application is running natively on local machine, use following connection string:
+  - When the emulator container and interacting application are running natively on local machine, use following connection string:
 
   `"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
@@ -32,7 +32,7 @@ This release provides enhanced connectivity fixes for Emulator. Details are belo
 
   `"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
-  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emualtor container has default value i.e."eventhubs-emulator":
+  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value i.e."eventhubs-emulator":
 
   `Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"`
 
