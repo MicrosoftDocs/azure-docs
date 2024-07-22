@@ -251,13 +251,13 @@
     - name: AKS extension for Visual Studio Code
       items:
         - name: Attach to Azure Container Registry (ACR)
-          href: aks-extension-vs-code-attatch-acr.md
+          href: aks-extension-attatch-azure-container-registry.md
         - name: Create a Dockerfile
-          href: aks-extension-vs-code-draft-dockerfile.md
+          href: aks-extension-draft-dockerfile.md
         - name: Create a Kubernetes deployment
-          href: aks-extension-vs-code-draft-deployment.md
+          href: aks-extension-draft-deployment.md
         - name: Create a GitHub Workflow
-          href: aks-extension-vs-code-draft-github-workflow.md
+          href: aks-extension-draft-github-workflow.md
     - name: Migration
       items:
         - name: Plan and execute a migration
