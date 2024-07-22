@@ -1,10 +1,10 @@
 ---
 title: Edge Secured-core certified devices
 description: List of devices that have passed the Edge Secured-core certifications
-author: dimatx
-ms.author: dimatokar
+author: sufenfong
+ms.author: sufon
 ms.topic: conceptual 
-ms.date: 01/26/2024
+ms.date: 07/22/2024
 ms.custom: Edge Secured-core certified devices
 ms.service: certification
 ---
