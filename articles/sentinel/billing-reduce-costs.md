@@ -71,7 +71,7 @@ Microsoft Sentinel data retention is free for the first 90 days. To adjust the d
 
 Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
 
-To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md).
 
 Alternatively, you can use Azure Data Explorer for long-term data retention at lower cost. Azure Data Explorer provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
 

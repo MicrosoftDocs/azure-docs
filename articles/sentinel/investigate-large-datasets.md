@@ -38,7 +38,7 @@ Use search to find events in any of the following log types:
 - [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
 - [Basic logs](../azure-monitor/logs/basic-logs-configure.md)
 
-You can also search analytics or basic log data stored in [archived logs](../azure-monitor/logs/data-retention-archive.md).
+You can also search analytics or basic log data stored in [archived logs](../azure-monitor/logs/data-retention-configure.md).
 
 ### Limitations of a search job
 
