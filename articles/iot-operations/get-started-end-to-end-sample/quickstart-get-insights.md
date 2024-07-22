@@ -29,7 +29,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a **premium workspace** with **Contributor** or above permissions.
 
-Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant admin. For more information, see [Enable tenant settings in the admin portal](../fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant admin. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
 ## What problem will we solve?
 
@@ -43,7 +43,7 @@ In this section, you set up a Microsoft Fabric eventstream to connect your event
 
 In this section, you create a Microsoft Fabric eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric, and eventually into a KQL database.
 
-Follow the steps in [Create an eventstream in Microsoft Fabric](../fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) to create a new eventstream from the Real-Time Intelligence capabilities.
+Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) to create a new eventstream from the Real-Time Intelligence capabilities.
 
 Creation of the new eventstream in your workspace can take a few seconds. After the eventstream is created, you're directed to the main editor where you can start with adding sources to the eventstream.
 
@@ -128,16 +128,16 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](../fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset name and timestamp, and will display visual summaries of temperature and pressure data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset name and timestamp, and will display visual summaries of temperature and pressure data.
 
 >[!NOTE]
->You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](../fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+>You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
 ### Create dashboard and connect data source
 
-Follow the steps in the [Create a new dashboard](../fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
+Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
 
-Then, follow the steps in the [Add data source](../fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source.  Keep the following notes in mind:
+Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source.  Keep the following notes in mind:
 * In the **Data sources** pane, your database will be under **OneLake data hub**.
 
 ### Configure parameters
