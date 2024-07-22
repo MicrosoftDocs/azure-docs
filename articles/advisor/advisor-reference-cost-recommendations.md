@@ -174,6 +174,9 @@ We've analyzed the usage patterns of your virtual machine scale sets over the pa
 
 Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdown underutilized virtual machine scale sets)](https://aka.ms/aa_lowusagerec_vmss_learnmore).
 
+> [!TIP]  
+> If you are unsure whether you can shutdown an idle resource without causing a chaos, you can firstly restrict access to the resource. Make sure the resource's role is restricted, too. Leave the resource up for a few weeks and if nobody has connected to it or has complained, chances are the resource can be shut down safely.
+
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
 With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
