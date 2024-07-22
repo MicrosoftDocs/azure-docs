@@ -210,7 +210,7 @@ To connect to a Rooms call, use RoomCallLocator which takes RoomId.
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
 CallLocator roomCallLocator = new RoomCallLocator("<RoomId>");
-ConnctCallResult response = await client.ConnectAsync(roomCallLocator, callbackUri);
+ConnectCallResult response = await client.ConnectAsync(roomCallLocator, callbackUri);
 ```
 
 ### [Java](#tab/java)
