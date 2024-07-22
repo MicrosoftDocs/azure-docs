@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 06/17/2024
 ms.author: greglin 
 ---
 
@@ -158,6 +158,9 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
+|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status will include error information.|
+|sslClientCertificateFingerprint|The SHA1 thumbprint of the client certificate for an established TLS connection.|
+|sslClientCertificateIssuerName|The issuer DN string of the client certificate for an established TLS connection.|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|

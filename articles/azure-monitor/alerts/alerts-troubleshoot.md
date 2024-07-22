@@ -214,7 +214,7 @@ If you received a notification for an alert (such as an email or an SMS) more th
 
 ### **The `MetricValue` field contains "null" for resolved log search alert notifications.**
 
-   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-the-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there's no value that caused the alert to resolve, but rather elapsed time.
+   This is by design. Stateful log search alerts use a [time-based resolution logic](./alerts-create-log-alert-rule.md#configure-alert-rule-details) rather than value-based. Azure Monitor is sending a null metric value since there's no value that caused the alert to resolve, but rather elapsed time.
 
 ### The dimensions list is empty or alert title doesn't contain a dimension name
 

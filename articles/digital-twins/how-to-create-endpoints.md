@@ -168,7 +168,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
     | Assign access to | **Managed identity** |
     | Members | Select the user-assigned or system-assigned managed identity of your Azure Digital Twins instance that's being assigned the role. A user-assigned identity will have the name you chose when you created the identity, and a system-assigned identity will have a name that matches the name of your Azure Digital Twins instance. |
     
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="../../includes/role-based-access-control/media/add-role-assignment-page.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the 'Add role assignment' page for an Azure Digital Twins instance." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png":::
 
 # [CLI](#tab/cli)
 

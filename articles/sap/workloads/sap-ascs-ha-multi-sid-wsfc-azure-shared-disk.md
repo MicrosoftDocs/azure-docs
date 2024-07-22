@@ -8,7 +8,7 @@ ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.date: 01/19/2024
+ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
@@ -162,9 +162,6 @@ Configure additional frontend IP and load balancing rule for SAP SID, PR2 system
 
 > [!NOTE]
 > Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
-
-> [!IMPORTANT]
-> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

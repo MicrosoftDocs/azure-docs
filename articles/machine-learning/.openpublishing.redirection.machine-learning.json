@@ -172,8 +172,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-fpga-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-and-where.md",
@@ -2008,7 +2008,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-fpga-web-service.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-custom-docker-image.md",

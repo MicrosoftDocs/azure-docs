@@ -39,7 +39,7 @@ ThreatIntelligenceIndicator
 
 Installation and setup instructions
 
-Use the documentation from this Github repository to install and configure the Datalake to Microsoft Sentinel connector. 
+Use the documentation from this GitHub repository to install and configure the Datalake to Microsoft Sentinel connector. 
 
 https://github.com/cert-orangecyberdefense/datalake2sentinel
 

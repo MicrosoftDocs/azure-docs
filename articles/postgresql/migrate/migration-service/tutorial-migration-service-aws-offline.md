@@ -4,7 +4,7 @@ description: "Learn to migrate offline seamlessly from AWS RDS to Azure Database
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/20/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: tutorial

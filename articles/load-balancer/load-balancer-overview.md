@@ -22,7 +22,7 @@ A **[public load balancer](./components.md#frontend-ip-configurations)** can pro
 
 An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used in scenarios where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts public and internal load balancers directing traffic to web and business tiers.":::
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
@@ -36,7 +36,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Load balance **[internal](./quickstart-load-balancer-standard-internal-portal.md)** and **[external](./quickstart-load-balancer-standard-public-portal.md)** traffic to Azure virtual machines.
 
-- Pass-through load balancing, which results in ultra-low latency. 
+- Pass-through load balancing which results in ultra-low latency. 
 
 - Increase availability by distributing resources **[within](./tutorial-load-balancer-standard-public-zonal-portal.md)** and **[across](./quickstart-load-balancer-standard-public-portal.md)** zones.
 

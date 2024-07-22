@@ -2,7 +2,7 @@
 title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 01/11/2024
+ms.date: 07/20/2024
 author: mgoedtel
 ms.subservice: aks-storage
 ---
@@ -444,7 +444,7 @@ Migration from in-tree to CSI is supported by creating a static volume:
         - mfsymlinks
         - cache=strict
         - nosharesock
-        - nobrl
+        - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
     ```
 
 5. Create a file named *azurefile-mount-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume* using the following code.
@@ -515,7 +515,7 @@ Migration from in-tree to CSI is supported by creating a static volume:
 - Protect your newly migrated CSI Driver based PVs by [backing them up using Azure Backup for AKS](../backup/azure-kubernetes-service-cluster-backup.md).
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-the-cluster
+[aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-cluster-access
 [azure-resource-locks]: ../azure-resource-manager/management/lock-resources.md
 [csi-driver-overview]: csi-storage-drivers.md
 [aks-storage-backups-best-practices]: operator-best-practices-storage.md

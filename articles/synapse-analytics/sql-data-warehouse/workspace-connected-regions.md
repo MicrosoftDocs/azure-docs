@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: references_regions
 ---
 

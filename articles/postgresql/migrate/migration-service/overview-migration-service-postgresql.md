@@ -4,7 +4,7 @@ description: Concepts about migrating into Azure Database for PostgreSQL - Flexi
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
-ms.date: 06/14/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview

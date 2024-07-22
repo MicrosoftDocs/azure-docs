@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: lagayhar
-author: zhanxia
-ms.author: zhanxia
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 4/28/2023
 ---
 

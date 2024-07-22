@@ -5,7 +5,7 @@ description: Network scenarios for connecting source and target
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: how-to
 ---

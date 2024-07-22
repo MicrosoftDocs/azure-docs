@@ -338,7 +338,7 @@ Output from command is a null bracket:
 
 ---
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).

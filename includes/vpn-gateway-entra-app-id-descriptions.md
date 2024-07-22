@@ -3,8 +3,8 @@ author: cherylmc
 ms.author: cherylmc
 ms.date: 05/24/2024
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: include
-
 ---
 VPN Gateway now supports a new Microsoft-registered App ID and corresponding Audience values for the latest versions of the Azure VPN Client. When you configure a P2S VPN gateway using the new Audience values, you skip the Azure VPN Client app manual registration process for your Microsoft Entra tenant. The App ID is already created and your tenant is automatically able to use it with no extra registration steps. This process is more secure than manually registering the Azure VPN Client because you don't need to authorize the app or assign permissions via the Global administrator role.
 

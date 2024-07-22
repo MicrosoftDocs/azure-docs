@@ -13,7 +13,7 @@ ms.date: 08/31/2021
 
 Azure [virtual machine (VM) extensions](../virtual-machines/extensions/features-windows.md) are small applications that provide post-deployment configuration and automation tasks on Azure VMs. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Virtual machine extensions
 

@@ -20,7 +20,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 > * Configure a Spring Boot web application to use Microsoft Entra authentication with MySQL Database.
 > * Connect to MySQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -279,4 +279,4 @@ curl https://${WEBAPP_URL}/checklist/1
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](../app-service/configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](../app-service/configure-language-java-security.md?pivots=platform-linux)

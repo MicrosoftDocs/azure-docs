@@ -4,7 +4,7 @@ description: Providing the online prerequisites for the migration service in Azu
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/12/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -47,6 +47,9 @@ If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher b
     - Set `max_wal_senders` to a value greater than one. It should be at least the same as `max_replication_slots`, plus the number of senders already used on your instance.
     - The `wal_sender_timeout` parameter ends inactive replication connections longer than the specified number of milliseconds. The default for an AWS RDS for PostgreSQL instance is `30000 milliseconds (30 seconds)`. Setting the value to 0 (zero) disables the timeout mechanism and is a valid setting for migration.
 
+- In the target Flexible Server, to prevent the Online migration from running out of storage to store the logs, ensure that you have sufficient tablespace space using a provisioned managed disk. To achieve this, disable the server parameter `azure.enable_temp_tablespaces_on_local_ssd` for the duration of the migration, and restore it to the original state after the migration.
+
+
 ### Configure network setup
 
 Network setup is crucial for the migration service to function correctly. Ensure that the source PostgreSQL server can communicate with the target Azure Database for PostgreSQL server. The following network configurations are essential for a successful migration.
@@ -55,22 +58,7 @@ For information about network setup, visit [Network guide for migration service]
 
 ### Enable extensions
 
-- Use the select command in the source to list all the extensions that are being used - `select extname, extversion from pg_extension;`
-- Search for azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL – Flexible server. Enable the extensions found in the source within the PostgreSQL flexible server.
-
-:::image type="content" source="../../media/tutorial-migration-service-aws-online/az-flexible-server-enable-extensions.png" alt-text="Screenshot of enable extensions." lightbox="../../media/tutorial-migration-service-aws-online/az-flexible-server-enable-extensions.png":::
-
-- Check if the list contains any of the following extensions:
-    - PG_CRON
-    - PG_HINT_PLAN
-    - PG_PARTMAN_BGW
-    - PG_PREWARM
-    - PG_STAT_STATEMENTS
-    - PG_AUDIT
-    - PGLOGICAL
-    - WAL2JSON
-
-If yes, search the server parameters page for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart.
+[!INCLUDE [prerequisites-migration-service-extensions](../prerequisites/prerequisites-migration-service-extensions.md)]
 
 ### Check server parameters
 
