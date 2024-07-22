@@ -2,7 +2,7 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 12/07/2023
+ms.date: 07/24/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -369,5 +369,8 @@ Invoke-AzRestMethod `
 
     
 ## Next steps
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn more on the [overview of pre and post events in Azure Update Manager](pre-post-scripts-overview.md).
+- Learn more on [how to create pre and post events](pre-post-events-schedule-maintenance-configuration.md)
+- To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
+- Learn more on [how Create pre and post events using Azure Functions](tutorial-using-functions.md).
  

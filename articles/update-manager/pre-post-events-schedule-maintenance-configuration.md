@@ -1,15 +1,15 @@
 ---
-title: Create the pre and post maintenance configuration events (preview) in Azure Update Manager
+title: Create the pre and post maintenance configuration events in Azure Update Manager
 description: The article provides the steps to create the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/09/2024
+ms.date: 07/24/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
 ---
 
-# Create pre and post events (preview)
+# Create pre and post events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
@@ -28,7 +28,7 @@ Azure Update Manager leverages Event grid to create and manage pre and post even
 1. **Pre and post event** - You can follow the steps shared in the following section to create a pre and post event for schedule maintenance configuration. To learn more about the terms used in the Basics tab of Event Grid, see [Event Grid](../event-grid/concepts.md) terms.
 
 
-## Create a pre and post event (preview)
+## Create a pre and post event
 
 ::: zone pivot="new-mc"
 
@@ -386,7 +386,7 @@ PUT /subscriptions/<subscription Id>/resourceGroups/<resource group name>/provid
 
 
 ## Next steps
-- For an overview of pre and post events (preview) in Azure Update Manager, refer [here](pre-post-scripts-overview.md).
+- For an overview of pre and post events in Azure Update Manager, refer [here](pre-post-scripts-overview.md).
 - To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
 - To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
 - To learn how to use pre and post events to turn on and off your VMs using Azure Functions, refer [here](tutorial-using-functions.md).
