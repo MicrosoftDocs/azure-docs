@@ -34,6 +34,7 @@ This recommendation replaces the old recommendation *Cognitive Services accounts
 **Description**: By restricting network access, you can ensure that only allowed networks can access the service. This can be achieved by configuring network rules so that only applications from allowed networks can access the Azure AI service resource.
 
 This recommendation replaces the old recommendation *Cognitive Services accounts should restrict network access*. It was formerly in category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources.
+
 **Severity**: Medium
 
 
