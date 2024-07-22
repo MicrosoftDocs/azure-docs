@@ -175,7 +175,7 @@ To connect to any 1:1 or group call, use the ServerCallLocator. If you started a
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
 CallLocator serverCallLocator = new ServerCallLocator("<ServerCallId>");
-ConnctCallResult response = await client.ConnectAsync(serverCallLocator, callbackUri);
+ConnectCallResult response = await client.ConnectAsync(serverCallLocator, callbackUri);
 ```
 
 ### [Java](#tab/java)
