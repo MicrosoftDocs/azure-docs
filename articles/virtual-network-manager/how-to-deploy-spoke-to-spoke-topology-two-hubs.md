@@ -11,20 +11,20 @@ ms.topic: how-to
 
 # How to deploy Spoke-to-Spoke topology with two hubs
 
-In this article, you'll learn how to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager. This scenario is useful when you have a hub and spoke architecture in multiple Azure regions. In the past, customers with firewalls or network virtual appliances performed many manual operations to do cross-hub and spoke in the past. Users needed many user-defined routes to be set up by hand, and when there were changes in spoke virtual networks, such as adding new spoke virtual networks and subnets, they also needed to change user-defined routes and route tables. UDR management with Virtual Network Manager can help you automate these tasks.
+In this article, you learn how to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager. This scenario is useful when you have a hub and spoke architecture in multiple Azure regions. In the past, customers with firewalls or network virtual appliances performed many manual operations to do cross-hub and spoke in the past. Users needed many user-defined routes(UDRs) to be set up by hand, and when there were changes in spoke virtual networks, such as adding new spoke virtual networks and subnets, they also needed to change user-defined routes and route tables. UDR management with Virtual Network Manager can help you automate these tasks.
 
 ## Prerequisites
 
-:::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/spoke-to-spoke-two-hubs-topology-network-manager.png" alt-text="Diagram of spoke to spoke topology with two hub and spoke networks and resources.":::
+:::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/spoke-to-spoke-two-hubs-topology-network-manager.png" alt-text="Diagram of a multi-hub topology with hub-and-spoke virtual network topologies.":::
 
 - An Azure subscription with a Virtual Network Manager deployed with UDR management enabled.
-- Two hub and spoke topologies deployed in different Azure regions.
+- Two hub-and-spoke topologies deployed in different Azure regions.
 - Azure firewall instances deployed in each regional hub - total of two instances.
 - Hub virtual networks in each region are peered with each other.
 - Virtual machines deployed in the spoke virtual networks in each region to confirm network connectivity across regions.
 
 > [!NOTE]
-> For this scenario, you need to have two hub and spoke topologies deployed in different Azure regions. Examples in this scenario will use **West US 2** as **Region 1** and **West US 3** as **Region 2**. You may use any other Azure regions as needed.
+> For this scenario, you have hub-and-spoke topologies deployed in two different Azure regions. Examples in this scenario will use **West US 2** as **Region 1** and **West US 3** as **Region 2**. You may use any other Azure regions as needed.
 
 ## Create network groups
 
@@ -54,12 +54,12 @@ In this step, you add the spoke virtual networks and Azure Firewall subnets to t
 
 1. In the network manager instance, navigate to **Network groups** under **Settings**.
 2. Select the network group for the spoke virtual networks in region 1 - **ng-spoke-<region1>**.
-3. Under **Manage membships of your network group**, select **Add virtual networks**.
+3. Under **Manage memberships of your network group**, select **Add virtual networks**.
 4. In the **Manually add members** window, select the spoke virtual networks in region 1, then select **Add**.
 
 ## Deploy hub and spoke topologies in each region
 
-In this step, you deploy two hub and spoke topologies in different Azure regions. You use connectivity configurations in your network manager.
+In this step, you create two connectivity configurations in your network manager instance to deploy hub and spoke topologies in each region. You create a connectivity configuration for each hub and spoke topology in each region.
 
 1. In your network manager instance, navigate to **Configurations** under **Settings**.
 2. Select **+ Create**>**Connectivity configuration**.
@@ -71,7 +71,7 @@ In this step, you deploy two hub and spoke topologies in different Azure regions
   |-------|-------|
   | **Topology** | Select **Hub and spoke**. |
   | **Hub** | Choose **Select a hub** and select the hub virtual network in region 1. |
-  | **Spoke network groups** | Select **Add*.</br>In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-<region1>**,**ng-spoke-<region2>** |
+  | **Spoke network groups** | Select **Add*.</br> In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-<region1>**,**ng-spoke-<region2>** |
 
 6. Select the **Visualization** tab or **Next: Visualization** to review the topology.
 7. Select **Review + create** then **Create and start deployment** to deploy the connectivity configuration.
@@ -138,7 +138,7 @@ In this step, you create a routing rule for the spoke virtual networks in region
 
 In these steps, you create a routing rule for the Azure Firewall subnet in region 1 allowing communication with the spoke virtual networks in region 2.
 
-For this example, the remote regions address prefixes will be summarized. Summarizing address prefixes offers the benefit of not needing to change the routing rules for the FW subnet even if new spokes are added to each region. However, it's important to pre-define the address prefixes used in each region, including for future use. 
+For this example, the remote regions address prefixes are summarized. Summarizing address prefixes offers the benefit of not needing to change the routing rules for the Azure firewall subnet even if new spokes are added to each region. However, it's important to predefine the address prefixes used in each region, including for future use. 
 
 1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 1 - **rc-azfw-<region1>**.
 2. In the **Edit a rule collection** window, select **+ Add**.
@@ -235,8 +235,6 @@ In this step, you confirm the routing configuration by testing network connectiv
     :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration." lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet.png":::
     
 ## Adding spoke virtual network to the existing Multi Hub-Spoke topologies
-
-## Next steps
 
 ## Next steps
 
