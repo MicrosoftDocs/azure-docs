@@ -220,7 +220,7 @@
     items:
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
-    - name: Monitoring Azure Service Bus
+    - name: Monitor Azure Service Bus
       href: monitor-service-bus.md
     - name: Azure Monitor - Service Bus insights
       href: service-bus-insights.md
@@ -299,7 +299,7 @@
       href: service-bus-messaging-exceptions.md
 - name: Reference
   items:
-  - name: Monitor data reference
+  - name: Monitoring data reference
     href: monitor-service-bus-reference.md
   - name: .NET
     items:
