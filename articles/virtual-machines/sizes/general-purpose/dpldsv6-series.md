@@ -1,14 +1,14 @@
 ---
 title: Dpldsv6 size series
 description: Information on and specifications of the Dpldsv6-series sizes
-author: archat
+author: archatC
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
 ms.topic: conceptual
 ms.date: 07/22/2024
-ms.author: archatC
+ms.author: archat
 ms.reviewer: mattmcinnes, tomvcassidy
 ---
 
