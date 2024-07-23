@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 02/19/2024
+ms.date: 07/23/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
@@ -57,7 +57,7 @@ Select the instance where you deployed Azure IoT Operations in the previous quic
 
 ## Add an asset endpoint
 
-When you deployed Azure IoT Operations, you chose to include a built-in OPC PLC simulator. In this step, you add an asset endpoint that enables you to connect to the OPC PLC simulator.
+When you deployed Azure IoT Operations in the previous article, you included a built-in OPC PLC simulator. In this step, you add an asset endpoint that enables you to connect to the OPC PLC simulator.
 
 To add an asset endpoint:
 
@@ -72,7 +72,6 @@ To add an asset endpoint:
     | Asset endpoint name | `opc-ua-connector-0` |
     | OPC UA server URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication mode | `Anonymous` |
-    | Transport authentication | `Do not use transport authentication certificate` |
 
 1. To save the definition, select **Create**.
 
@@ -131,8 +130,8 @@ To create an asset, select **Create asset**. Then enter the following asset info
 
 | Field | Value |
 | --- | --- |
-| Asset name | `thermostat` |
 | Asset Endpoint | `opc-ua-connector-0` |
+| Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later quickstart queries for them:
@@ -160,7 +159,7 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 The **Observability mode** is one of the following values: `none`, `gauge`, `counter`, `histogram`, or `log`.
 
-You can override the default sampling interval and queue size for each tag.
+You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 
 :::image type="content" source="media/quickstart-add-assets/add-tag.png" alt-text="Screenshot of Azure IoT Operations add tag page.":::
 
