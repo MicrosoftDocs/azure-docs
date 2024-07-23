@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for Cloud features
 description: What's new and updated in Microsoft Defender for Cloud features
 ms.topic: overview
-ms.date: 07/21/2024
+ms.date: 07/23/2024
 ---
 
 # What's new in Defender for Cloud features
@@ -33,6 +33,8 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 |--|--|--|
 |August 1 | Upcoming update | [Defender for Cloud is removing sensitivity labels from the Defender portal](#defender-for-cloud-is-removing-sensitivity-labels-from-the-defender-portal) |
 | August 1 | Upcoming update | [Sensitivity label consent changes](#sensitivity-label-consent-changes) |
+| August 1 | GA | [Enable Microsoft Defender for SQL servers on machines at scale](#enable-microsoft-defender-for-sql-servers-on-machines-at-scale) |
+
 
 ### Defender for Cloud is removing sensitivity labels from the Defender portal
 
@@ -63,6 +65,14 @@ You will no longer need to provide consent to benefit from custom information ty
 With this upcoming change, all custom information types and sensitivity labels will be automatically imported into the Microsoft Defender for Cloud portal.
 
 Learn more about [data sensitivity settings](data-sensitivity-settings.md#import-custom-sensitivity-info-typeslabels).
+
+### Enable Microsoft Defender for SQL servers on machines at scale
+
+August 1, 2024
+
+You can now enable Microsoft Defender for SQL servers on machines at scale. This feature allows you to enable Microsoft Defender for SQL on multiple servers at once, saving time and effort. 
+
+Learn how to [enable Microsoft Defender for SQL servers on machines at scale](enable-defender-for-sql-at-scale.md).
 
 ## July 2024
 
