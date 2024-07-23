@@ -30,7 +30,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 - Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md##setting-require-authorization)
+  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
   isn't enabled. This new management group becomes a child of the Root Management Group or the
   [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
   and the creator is given an "Owner" role assignment. Management group service allows this ability
