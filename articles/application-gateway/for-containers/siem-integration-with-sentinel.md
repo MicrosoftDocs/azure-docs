@@ -39,7 +39,7 @@ In this QuickStart guide, you set up:
         - a. Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
         - b. Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
       
-        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/alllogs.png)
+        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logsset.png)
 
      > [!NOTE]
      > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
@@ -97,6 +97,6 @@ In this QuickStart guide, you set up:
     - f. Click on the entity to view **Insights** to dig deeper into investigation.
       
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/insights.png" alt="A screenshot of the insights ." width="40%">
-7. [Automate Playbook and Alerts](../../sentinel/automation/automate-responses-with-playbooks) to create an alert for extra security measures and communication.
+7. [Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
 
 Congratulations, You can now create security barriers on your logs and investigate any incidents!
