@@ -337,10 +337,14 @@ To check which persistent volume a persistent volume claim is bound to, run `kub
 
 ### Expand a storage pool
 
-You can expand storage pools backed by Azure Disks to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
+You can expand storage pools backed by Azure Disks to scale up quickly and without downtime. Shrinking storage pools isn't currently supported. Storage pool expansion isn't supported for Ultra Disks or Premium SSD v2.
 
 > [!NOTE]
-> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage).
+> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing.md).
+
+Currently, storage pool expansion has the following limitation when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` SKUs:
+
+- If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools > 4 TiB can be expanded up to the maximum storage capacity available.
 
 Follow these instructions to expand an existing storage pool for Azure Disks.
 
@@ -354,6 +358,9 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
        requests:
          storage: 2Ti
    ```
+
+  > [!NOTE]
+  > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks will be expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
 
 1. Apply the YAML manifest file to expand the storage pool.
    
