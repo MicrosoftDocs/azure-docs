@@ -304,7 +304,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     ```output
     PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
 
-    MtuSize : 4088
+    MtuSize : 4074
     ```
 
 1. Internet Control Message Protocol (ICMP) traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
@@ -476,7 +476,19 @@ To revert the changes made in this article, use the following steps:
 1. Use the following example to set the MTU value to the default value of **1500**:
 
     ```powershell
-    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 1500
+    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 1514
+    ```
+
+1. Use the following example to verify the MTU value is set on the network interface:
+
+    ```powershell
+    Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+    ```
+
+    ```output
+    PS C:\Users\azureuser> Get-NetAdapter -Name "Ethernet 2" | Format-List -Property MtuSize
+
+    MtuSize : 1500
     ```
 
 1. Use the following steps on **vm-1** to set the MTU value for **vm-2** to persist reboots.
