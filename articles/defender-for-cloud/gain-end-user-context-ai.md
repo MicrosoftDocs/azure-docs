@@ -32,7 +32,7 @@ If a field’s name is misspelled, the Azure OpenAI API call will still succeed.
 
 The provided schema consists of the `SecurityContext` objects that contains several parameters that describe the application itself, and the end user that interacts with the application. These fields assist your security operations teams to investigate and mitigate security incidents by providing a comprehensive approach to protecting your AI applications.
 
-- End used ID
+- End user ID
 - End user type
 - End user tenant's ID
 - Source IP address.

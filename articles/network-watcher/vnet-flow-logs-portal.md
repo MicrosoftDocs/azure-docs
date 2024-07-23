@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 07/23/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
@@ -113,9 +113,9 @@ To enable traffic analytics for a flow log, follow these steps:
 
     | Setting | Value |
     | ------- | ----- |
-    | Traffic analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
     | Subscription | Select the Azure subscription of your Log Analytics workspace. |
     | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+    | Traffic analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
 
     :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png":::
 
