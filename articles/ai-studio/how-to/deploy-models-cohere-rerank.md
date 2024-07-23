@@ -86,21 +86,13 @@ To create a deployment:
 1. Select **Model catalog** from the left sidebar.
 1. Search for *Cohere*.
 1. Select **cohere-rerank-3-english** to open the Model Details page.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-directly-from-catalog.png":::
-
 1. Select **Deploy** to open a serverless API deployment window for the model.
 1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
 
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
     1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
-
-        :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-start-from-project.png"::: 
-
     1. Select **Confirm** to open a serverless API deployment window for the model.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deploy-pay-as-you-go.png":::
 
 1. Select the project in which you want to deploy your model.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
@@ -108,11 +100,7 @@ To create a deployment:
 1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-embed/embed-english-existing-subscription.png":::
-
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-embed/embed-english-deployment-name.png" alt-text="A screenshot showing how to indicate the name of the deployment you want to create." lightbox="../media/deploy-monitor/cohere-embed/embed-english-deployment-name.png":::
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#rerank-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
@@ -143,7 +131,7 @@ These models can be consumed using the embed API.
     Authorization: Bearer <TOKEN>
     Content-type: application/json
 
-## v1/rerank Request Schema
+### v1/rerank Request Schema
 
 Cohere Rerank 3 - English and Rerank 3 - Multilingual accept the following parameters for a `v1/rerank` API call:
 
@@ -156,7 +144,7 @@ Cohere Rerank 3 - English and Rerank 3 - Multilingual accept the following param
 |`max_chunks_per_doc` |`integer` |None |The maximum number of chunks to produce internally from a document.|
 |`rank_fields` |`array of strings` |None |If a JSON object is provided, you can specify which keys you would like to have considered for reranking. The model will rerank based on order of the fields passed in (i.e. `rank_fields=['title','author','text']` will rerank using the values in `title`, `author`, `text` sequentially. If the length of title, author, and text exceeds the context length of the model, the chunking will not re-consider earlier fields). If not provided, the model will use the default text field for ranking. |
 
-## v1/rerank Response Schema
+### v1/rerank Response Schema
 
 Response fields are fully documented on [Cohere's Rerank API reference](https://docs.cohere.com/reference/rerank). The response payload is a dictionary with the following fields:
 
