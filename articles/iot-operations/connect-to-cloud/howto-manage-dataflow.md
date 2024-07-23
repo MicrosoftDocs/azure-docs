@@ -106,3 +106,6 @@ You can delete an endpoint in the Azure IoT Operations portal. Be cautious if th
 ```bash
 kubectl delete endpoint my-endpoint
 ```
+## Next steps
+
+Tutorial

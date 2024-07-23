@@ -63,7 +63,7 @@ spec:
 
 | Name                        | Description                                                                        |
 |-----------------------------|------------------------------------------------------------------------------------|
-| operationType               | `source`                                                                           |
+| operationType               | *source*                                                                           |
 | sourceSettings              | Settings for the *source* operation                                                |
 | sourceSettings.endpointRef  | Reference to the *source* endpoint                                                 |
 | sourceSettings.dataSources  | Data sources for the *source* operation. Wildcards ( `#` and `+` ) are supported.  |
@@ -87,7 +87,7 @@ spec:
 
 | Name                               | Description                                                                        |
 |------------------------------------|------------------------------------------------------------------------------------|
-| sourceSettings.serializationFormat | Format of the serialization. For example, `avroBinary`                             |
+| sourceSettings.serializationFormat | Format of the serialization. For example, *avroBinary*                             |
 | sourceSettings.schemaRef           | Reference to the schema used for the source data                                   |
 
 > [!TIP]
@@ -126,7 +126,7 @@ spec:
 
 | Name                                 | Description                                                                     |
 |--------------------------------------|---------------------------------------------------------------------------------|
-| operationType                        | `builtInTransformation`                                                         |
+| operationType                        | *builtInTransformation*                                                         |
 | name                                 | Name of the transformation                                                      |
 | builtInTransformationSettings        | Settings for the *builtInTransformation* operation                              |
 | builtInTransformationSettings.enrich | Add additional data to the source data given a dataset and condition to match   |
@@ -220,7 +220,7 @@ spec:
           output: location
 ```
 
-To learn more, see the [Dataflow Language Design]().
+To learn more, see the [Dataflow language design](concept-dataflow-language.md).
 
 ### Serialize data according to a schema
 
@@ -409,46 +409,6 @@ And the outcome can be viewed as a response:
 }
 ```
 
-## Configure dataflow profile
+## Next steps
 
-By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
-
-### Default settings
-
-The default settings for a dataflow profile are:
-
-* Instances: (null)
-* Log level: Info
-* Node tolerations: None
-* Diagnostic settings: None
-
-### Scaling
-
-To manually scale the dataflow profile, specify the maximum number of instances you want to run.
-
-```yaml
-spec:
-  maxInstances: 3
-```
-
-Or use the portal under the Dataflows > Scaling section and set the number of instances.
-
-If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
-
-### Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
-
-You can configure other deployment-wide settings such as log level, node tolerations, and diagnostic settings.
-
-```yaml
-spec:
-  logLevel: debug
-  tolerations:
-    - key: "node-role.kubernetes.io/edge"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
-  diagnostics:
-    ...
-```
-
-Or use the portal under the Dataflows > Settings section.
+Learn how to [Manage dataflows](howto-manage-dataflow.md) to change the default profile, enable or disable dataflows, view health status and metrics, delete dataflows, and export dataflow configurations.

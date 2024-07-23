@@ -79,6 +79,8 @@ items:
           href: connect-to-cloud/howto-create-dataflow.md
         - name: Manage dataflows
           href: connect-to-cloud/howto-manage-dataflow.md
+        - name: Dataflow language reference
+          href: connect-to-cloud/concept-dataflow-language.md
         - name: Connect to MQTT or Event Grid
           href: connect-to-cloud/howto-configure-mqtt-bridge.md
         - name: Bridge MQTT data between IoT MQ and Azure Event Grid
