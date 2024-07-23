@@ -142,7 +142,7 @@ Most container apps have a single container. In advanced scenarios, an app may a
 
 ### <a name="allocations"></a>vCPU and memory allocation requirements
 
-When you use the Consumption plan, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
+When you use the Consumption plan, the total CPU and memory allocated to all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory |
 |---|---|
