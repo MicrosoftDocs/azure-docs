@@ -12,4 +12,4 @@ ms.author: msmbaldwin
 > [!IMPORTANT]
 > Azure Payment HSM is a specialized service. To qualify for onboarding and use of Azure Payment HSM, customers must have an assigned Microsoft Account Manager and have a Cloud Service Architect (CSA).
 >
-> To inquire about the service, start the qualification process, and prepare the prerequisites before on-boarding, ask your Microsoft account manager and CSA to send a request [via email](mailto:paymentHSMRequest@microsoft.com).
+> To inquire about the service, start the qualification process, and prepare the prerequisites before on-boarding, ask your Microsoft account manager and CSA to send a request through the [Payment HSM: Initial contact form](https://forms.office.com/r/yxREMbybct).

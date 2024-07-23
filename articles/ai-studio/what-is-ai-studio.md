@@ -183,7 +183,6 @@ You can [explore AI Studio (including the model catalog)](./how-to/model-catalog
 
 But for full functionality there are some requirements:
 - You need an [Azure account](https://azure.microsoft.com/free/). 
-- You also need to apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access). You receive a follow-up email when your subscription is added.
 
 ## Next steps 
 

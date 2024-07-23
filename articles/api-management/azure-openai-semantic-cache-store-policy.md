@@ -1,5 +1,5 @@
 ---
-title: Azure API Management policy reference - azure-openai-sematic-cache-store
+title: Azure API Management policy reference - azure-openai-semantic-cache-store
 description: Reference for the azure-openai-semantic-cache-store policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 06/25/2024
 ms.author: danlep
 ---
 

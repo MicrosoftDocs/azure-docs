@@ -56,7 +56,7 @@ If you share gallery resources to someone outside of your Azure tenant, they wil
 
 1. On the page for your gallery, in the menu on the left, select **Access control (IAM)**. 
 1. Under **Add**, select **Add role assignment**. The **Add role assignment** page will open. 
-1. Under **Role**, select **Contributor**.
+1. Under **Role**, select **Reader**.
 1. Ensure that the user is selected in the Members tab.For **Assign access to**, keep the default of **User, group, or service principal**.
 1. Click **Select** members and choose a user account from the page that opens on the right.
 1. If the user is outside of your organization, you'll see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
@@ -77,7 +77,7 @@ Use the object ID as a scope, along with an email address and [az role assignmen
 
 ```azurecli-interactive
 az role assignment create \
-   --role "Contributor" \
+   --role "Reader" \
    --assignee <email address> \
    --scope <gallery ID>
 ```
@@ -94,7 +94,7 @@ $user = Get-AzADUser -StartsWith alinne_montes@contoso.com
 # Grant access to the user for our gallery
 New-AzRoleAssignment `
    -ObjectId $user.Id `
-   -RoleDefinitionName Contributor `
+   -RoleDefinitionName Reader `
    -ResourceName $gallery.Name `
    -ResourceType Microsoft.Compute/galleries `
    -ResourceGroupName $resourceGroup.ResourceGroupName

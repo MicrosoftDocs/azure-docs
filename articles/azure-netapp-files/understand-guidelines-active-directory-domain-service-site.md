@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 07/15/2024
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -37,29 +37,31 @@ Ensure that you meet the following requirements about network topology and confi
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
     * Peered virtual network topologies with AD DS domain controllers must have peering configured correctly to support Azure NetApp Files to AD DS domain controller network connectivity.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
-* Ensure that the latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
+* Ensure that the network latency is less than 10 ms RTT between Azure NetApp Files and AD DS domain controllers.
+
+For more information on Microsoft Active Directory requirements for network latency over a WAN, see
+[Creating a Site Design](/windows-server/identity/ad-ds/plan/creating-a-site-design).
 
 The required network ports are as follows:
 
-| Service | Port | Protocol |
+| Service | Ports | Protocols |
 | -- | - | - |
-|AD Web Services | 9389 | TCP |
-| DNS* | 53 | TCP |
-| DNS* | 53 | UDP |
-| ICMPv4 | N/A | Echo Reply |
-| Kerberos | 464 | TCP |
-| Kerberos | 464 | UDP |
-| Kerberos | 88 | TCP |
-| Kerberos | 88 | UDP |
-| LDAP | 389 | TCP |
-| LDAP | 389 | UDP |
-| LDAP | 389 | TLS | 
-| LDAP | 3268 | TCP |
-| NetBIOS name | 138 | UDP |
-| SAM/LSA | 445 | TCP |
-| SAM/LSA | 445 | UDP |
+| ICMPv4 (ping) | N/A | Echo Reply |
+| DNS* | 53 | TCP, UDP |
+| Kerberos | 88 | TCP, UDP |
+| NetBIOS Datagram Service | 138 | UDP |
+| NetBIOS | 139 | UDP | 
+| LDAP** | 389 | TCP, UDP | 
+| SAM/LSA/SMB | 445 | TCP, UDP |
+| Kerberos (kpasswd) | 464 | TCP, UDP |
+| Active Directory Global Catalog | 3268 | TCP |
+| Active Directory Secure Global Catalog | 3269 | TCP |
+| Active Directory Web Service | 9389 | TCP |
 
-*DNS running on AD DS domain controller
+\* Active Directory DNS only 
+
+
+\*\* LDAP over SSL (port 636) isn't currently supported. Instead, use [LDAP over StartTLS](configure-ldap-over-tls.md) (port 389) to encrypt LDAP traffic.
 
 ### DNS requirements 
 

@@ -3,7 +3,7 @@ title: Access Azure Key Vault with the CSI Driver Identity Provider
 description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure credentials and user identities.
 author: nickomang
 ms.author: nickoman
-ms.topic: article
+ms.topic: how-to
 ms.subservice: aks-security
 ms.date: 12/19/2023
 ms.custom: devx-track-azurecli
@@ -201,7 +201,7 @@ In this security model, you can grant access to your cluster's resources to team
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
 
     ```azurecli-interactive
-    az identity create -resource-group <resource-group> --name <identity-name>
+    az identity create --resource-group <resource-group> --name <identity-name>
     az vmss identity assign --resource-group <resource-group> --name <agent-pool-vmss> --identities <identity-resource-id>
     az vm identity assign --resource-group <resource-group> --name <agent-pool-vm> --identities <identity-resource-id>
 

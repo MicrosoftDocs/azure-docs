@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/02/2023
+ms.date: 06/26/2024
 ms.author: anfdocs
 ---
 
@@ -62,7 +62,6 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * Italy North
 * Japan East
 * Japan West
-
 * Korea Central
 * Korea South
 * North Central US
@@ -81,6 +80,9 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * UAE North
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2

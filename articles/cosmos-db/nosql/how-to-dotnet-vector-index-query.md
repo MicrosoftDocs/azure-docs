@@ -108,23 +108,27 @@ For our example with book details, the vector policy can look like the example J
 Once the vector embedding paths are decided, vector indexes need to be added to the indexing policy. Currently, the vector search feature for Azure Cosmos DB for NoSQL is supported only on new containers so you need to apply the vector policy during the time of container creation and it can’t be modified later.  For this example, the indexing policy would look something like this: 
 
 ```csharp 
-  Collection<Embedding> collection = new Collection<Embedding>(embeddings);
-  ContainerProperties properties = new ContainerProperties(id: "vector-container", partitionKeyPath: "/id")
-  {   
-      VectorEmbeddingPolicy = new(collection),
-      IndexingPolicy = new IndexingPolicy()
-      {
-          VectorIndexes = new()
-          {
-              new VectorIndexPath()
-              {
-                  Path = "/vector",
-                  Type = VectorIndexType.QuantizedFlat,
-              }
-          }
-      },
-  };
+    Collection<Embedding> collection = new Collection<Embedding>(embeddings);
+    ContainerProperties properties = new ContainerProperties(id: "vector-container", partitionKeyPath: "/id")
+    {   
+        VectorEmbeddingPolicy = new(collection),
+        IndexingPolicy = new IndexingPolicy()
+        {
+            VectorIndexes = new()
+            {
+                new VectorIndexPath()
+                {
+                    Path = "/vector",
+                    Type = VectorIndexType.QuantizedFlat,
+                }
+            }
+        },
+    };
+    properties.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });    
+    properties.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/vector/*" });
 ``` 
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.

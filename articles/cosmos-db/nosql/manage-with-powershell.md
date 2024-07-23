@@ -831,8 +831,6 @@ Remove-AzResourceLock `
 * [Create an Azure Cosmos DB container](how-to-create-container.md)
 * [Configure time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-
 [powershell-install-configure]: /powershell/azure/
 [scaling-globally]: ../distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: ../distribute-data-globally.md

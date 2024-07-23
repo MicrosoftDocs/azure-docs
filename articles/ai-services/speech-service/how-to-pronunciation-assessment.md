@@ -91,7 +91,7 @@ In the `SpeechRecognizer`, you can specify the language to learn or practice imp
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var recognizer = new SpeechRecognizer(config, "en-US", audioInput);
+var recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
 ```
 
 ::: zone-end  
@@ -99,7 +99,7 @@ var recognizer = new SpeechRecognizer(config, "en-US", audioInput);
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config, "en-US", audioConfig);
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "en-US", audioConfig);
 ```
 
 ::: zone-end
@@ -107,7 +107,7 @@ auto recognizer = SpeechRecognizer::FromConfig(config, "en-US", audioConfig);
 ::: zone pivot="programming-language-java"
 
 ```Java
-SpeechRecognizer recognizer = new SpeechRecognizer(config, "en-US", audioInput);
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
 ```
 
 ::: zone-end
@@ -131,7 +131,7 @@ speechConfig.speechRecognitionLanguage = "en-US";
 ::: zone pivot="programming-language-objectivec"
 
 ```ObjectiveC
-SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:pronAudioSource];
+SPXSpeechRecognizer* recognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
 ```
 
 ::: zone-end
@@ -139,7 +139,7 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 ::: zone pivot="programming-language-swift"
 
 ```swift
-let reco = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, language: "en-US", audioConfiguration: audioInput)
+let recognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, language: "en-US", audioConfiguration: audioConfig)
 ```
 
 ::: zone-end

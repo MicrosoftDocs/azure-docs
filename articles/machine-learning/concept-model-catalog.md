@@ -153,7 +153,26 @@ Phi-3-medium-4k-instruct, Phi-3-medium-128k-instruct  | [Microsoft Managed Count
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning implements a default configuration of [Azure AI Content Safety](../ai-services/content-safety/overview.md) text moderation filters for harmful content (hate, self-harm, sexual, and violence) for language models deployed with MaaS. To learn more about content filtering (preview), see [harm categories in Azure AI Content Safety](../ai-services/content-safety/concepts/harm-categories.md). Content filtering (preview) occurs synchronously as the service processes prompts to generate content, and you may be billed separately as per [AACS pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/) for such use. You can disable content filtering (preview) for individual serverless endpoints when you first deploy a language model or in the deployment details page by selecting the content filtering toggle. You may be at higher risk of exposing users to harmful content if you turn off content filters. 
+[!INCLUDE [content-safety-serverless-models](../ai-studio/includes/content-safety-serverless-models.md)]
+
+### Network isolation for models deployed via Serverless APIs
+
+Endpoints for models deployed as Serverless APIs follow the public network access (PNA) flag setting of the workspace in which the deployment exists. To secure your MaaS endpoint, disable the PNA flag on your workspace. You can secure inbound communication from a client to your endpoint by using a private endpoint for the workspace.
+
+To set the PNA flag for the workspace:
+
+* Go to the [Azure portal](https://ms.portal.azure.com/).
+* Search for _Azure Machine Learning_, and select your workspace from the list of workspaces.
+* On the Overview page, use the left navigation pane to go to **Settings** > **Networking**.
+* Under the **Public access** tab, you can configure settings for the public network access flag.
+* Save your changes. Your changes might take up to five minutes to propagate.
+
+#### Limitations
+
+* If you have a workspace with a private endpoint created before July 11, 2024, new MaaS endpoints added to this workspace won't follow its networking configuration. Instead, you need to create a new private endpoint for the workspace and create new serverless API deployments in the workspace so that the new deployments can follow the workspace's networking configuration. 
+* If you have a workspace with MaaS deployments created before July 11, 2024, and you enable a private endpoint on this workspace, the existing MaaS deployments won't follow the workspace's networking configuration. For serverless API deployments in the workspace to follow the workspace's configuration, you need to create the deployments again.
+* Currently [On Your Data](#rag-with-models-deployed-through-maas) support isn't available for MaaS deployments in private workspaces, since private workspaces have the PNA flag disabled.
+* Any network configuration change (for example, enabling or disabling the PNA flag) might take up to five minutes to propagate.
 
 ## Learn more
 
