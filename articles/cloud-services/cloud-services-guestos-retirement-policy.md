@@ -17,11 +17,11 @@ The information on this page relates to the Azure Guest operating system ([Guest
 
 Microsoft has a published [support policy for the Guest OS](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). This page describes how the policy is implemented.
 
-The policy is
+The policy is:
 
-1. Microsoft supports **at least the latest two families of the Guest OS**. When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.
-2. Microsoft supports **at least the latest two versions of the supported Guest OS families**.
-3. Microsoft supports **at least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers have 12 months from the official retirement date to update to a newer version.
+* Microsoft supports **at least the latest two families of the Guest OS**. When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.
+* Microsoft supports **at least the latest two versions of the supported Guest OS families**.
+* Microsoft supports **at least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers have 12 months from the official retirement date to update to a newer version.
 
 At times, more than two families or releases may be supported. Official Guest OS support information appears on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
@@ -33,9 +33,9 @@ Once the retirement is announced, customers have a 12 month "transition" period 
 
 A gradual retirement process begins six (6) months into the transition period. During this time:
 
-1. Microsoft notifies customers of the retirement.
-2. The newer version of the Azure SDK doesn't support the retired Guest OS family.
-3. New deployments and redeployments of Cloud Services are prohibited on the retired family
+* Microsoft notifies customers of the retirement.
+* The newer version of the Azure SDK doesn't support the retired Guest OS family.
+* New deployments and redeployments of Cloud Services are prohibited on the retired family
 
 Microsoft continues to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date." On the expiration date, cloud services still running are unsupported under the Azure Service Level Agreement (SLA). Microsoft has the discretion to force upgrade, delete or stop those services after that date.
 
@@ -61,9 +61,9 @@ These periods may be made longer at Microsoft's discretion to ease customer tran
 
 We recommend that you use latest Guest OS family for designing your Cloud Services.
 
-1. Start planning your migration to a newer family early.
-2. Set up temporary test deployments to test your Cloud Service running on the new family.
-3. Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
+* Start planning your migration to a newer family early.
+* Set up temporary test deployments to test your Cloud Service running on the new family.
+* Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
 
 **What if my web application requires deeper integration with the OS?**
 
