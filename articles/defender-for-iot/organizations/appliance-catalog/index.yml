@@ -7,6 +7,7 @@ metadata:
   title: Microsoft Defender for IoT - OT monitoring appliance reference
   description: Learn about the appliances available for use with Microsoft Defender for IoT OT sensors and on-premises management consoles.
   ms.topic: landing-page
+  ms.author: raynew
   ms.date: 07/24/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -31,8 +32,8 @@ landingContent:
             url: hpe-proliant-dl20-gen-11.md
           - text: Dell Edge 5200 (Rugged MIL-STD-810G)
             url: dell-edge-5200.md
-          - text: Dell PowerEdge R350 
-            url: dell-poweredge-r350-e1800.md
+          - text: Dell PowerEdge R360 
+            url: dell-poweredge-r360-e1800.md
 
   # Card
   - title: Production line
@@ -70,7 +71,9 @@ landingContent:
           - text: HPE ProLiant DL20 Gen10 Plus (4SFF) (E1800)
             url: hpe-proliant-dl20-plus-enterprise.md
           - text: HPE ProLiant DL20 Gen10 (E1800)
-            url: hpe-proliant-dl20-legacy.md              
+            url: hpe-proliant-dl20-legacy.md                
+          - text: Dell PowerEdge R350 
+            url: dell-poweredge-r350-e1800.md
           - text: Dell PowerEdge R340 XL (E1800)
             url: dell-poweredge-r340-xl-legacy.md            
           - text: HPE ProLiant DL20 Gen10 (NHP 2LFF) (L500 Rugged)

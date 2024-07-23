@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
+ms.custom: subject-rbac-steps, devx-track-azurepowershell
 ---
 
 # Connect to Azure AI Search using roles
@@ -139,7 +139,7 @@ Another combination of roles that provides full access is Contributor or Owner, 
 
 1. Select **+ Add** > **Add role assignment**.
 
-   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. Select a role:
 
