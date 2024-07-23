@@ -1214,6 +1214,20 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
 
 
 
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("You are a helpful assistant that always generate responses in JSON format, using. the following format: { ""answer"": ""response"" }."),
+    },
+    ResponseFormat = ChatCompletionsResponseFormat.JsonObject
+};
+
+response = client.Complete(requestOptions);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
