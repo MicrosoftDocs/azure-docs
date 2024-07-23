@@ -4,7 +4,7 @@ description: How-to guide for disabling geo-backups for a dedicated SQL pool (fo
 author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.date: 01/09/2024
+ms.date: 07/23/2024
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
