@@ -15,24 +15,10 @@ ms.custom: references_regions
 
 This article provides steps and information necessary to get started with Azure Payment HSM.
 
-1. First, engage with your Microsoft account manager and get your business cases approved by Azure Payment HSM Product Manager.  See [Getting started with Azure Payment HSM](getting-started.md). Ask your Microsoft account manager and Cloud Service Architect (CSA) to send a request [via email](mailto:paymentHSMRequest@microsoft.com).
+1. First, engage with your Microsoft account manager and get your business cases approved by Azure Payment HSM Product Manager.  See [Getting started with Azure Payment HSM](getting-started.md). Ask your Microsoft account manager and Cloud Service Architect (CSA) to send a through the fill out the [Payment HSM: initial contact form](https://forms.office.com/r/yxREMbybct).
+
 2. The Azure Payment HSM comes with payShield Manager license so you can remotely manage the HSM; you must have Thales smart cards and card readers for payShield Manager before onboarding Azure payment HSM.  The minimum requirement is one compatible USB Smartcard reader with at least 5 payShield Manager Smartcards. Contact your Thales sales representative for the purchase or using existing compatible smart cards and readers. For more information, see the [Payment HSM support: Prerequisites](support-guide.md#prerequisites).
-
-3. Provide your contact information to the Microsoft account team and the Azure Payment HSM Product Manager [via email](mailto:paymentHSMRequest@microsoft.com), so they can set up your Thales support account.
-  
-    A Thales Customer ID is created, so you can submit payShield 10K support issues as well as download documentation, software, and firmware from Thales portal. The customer team can use the Thales Customer ID to create individual account access to Thales support portal.
-
-    | Email Form |
-    |--|
-    |Trading Name:|
-    |Full Address:<br><br><br> 
-    |Country:|
-    |Post Code:|
-    |Contact:|
-    | Address Type: Civil / Military |
-    | Telephone No. (with Country Code): |
-    | Is it state owned/governmental: Y / N
-    |Located in a Free trade zone: Y / N|
+3. Fill out the [Payment HSM: Thales support account request form](https://forms.office.com/r/tDNPwLCsqB) to provide your contact information to the Microsoft account team and the Azure Payment HSM Product Manager, so they can set up your Thales support account. After your Thales Customer ID is created, so you can submit payShield 10K support issues as well as download documentation, software, and firmware from Thales portal. The customer team can use the Thales Customer ID to create individual account access to Thales support portal.
 4. You must next engage with the Microsoft CSAs to plan your deployment, and to understand the networking requirements and constraints/workarounds before onboarding the service. For details, see:
     - [Azure Payment HSM deployment scenarios](deployment-scenarios.md)
     - [Solution design for Azure Payment HSM](solution-design.md)
