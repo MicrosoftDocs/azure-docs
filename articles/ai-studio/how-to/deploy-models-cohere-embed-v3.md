@@ -96,7 +96,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```python
-
 import os
 from azure.ai.inference import EmbeddingsClient
 from azure.core.credentials import AzureKeyCredential
@@ -105,7 +104,6 @@ model = EmbeddingsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
-
 ```
 
 ### Get the model's capabilities
@@ -115,9 +113,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```python
-
 model.get_model_info()
-
 ```
 
 The response is as follows:
@@ -125,13 +121,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "Cohere-embed-v3-english",
     "model_type": "embeddings",
     "model_provider_name": "Cohere"
 }
-
 ```
 
 ### Create embeddings
@@ -140,11 +134,9 @@ Create an embedding request to see the output of the model.
 
 
 ```python
-
 response = model.embed(
     input=["The ultimate answer to the question of life"],
 )
-
 ```
 
 > [!TIP]
@@ -157,7 +149,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```python
-
 import numpy as np
 
 for embed in response.data:
@@ -165,7 +156,6 @@ for embed in response.data:
 
 print("Model:", response.model)
 print("Usage:", response.usage)
-
 ```
 
 It is usually useful to compute embeddings in batch of inputs. The parameter `inputs` can be a list of strings, where each string is a different input. The response will be a list of embeddings, where each embedding corresponds to the input in the same position.
@@ -173,14 +163,12 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 
 
 ```python
-
 response = model.embed(
     input=[
         "The ultimate answer to the question of life", 
         "The largest planet in our solar system is Jupiter",
     ],
 )
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -188,7 +176,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```python
-
 import numpy as np
 
 for embed in response.data:
@@ -196,7 +183,6 @@ for embed in response.data:
 
 print("Model:", response.model)
 print("Usage:", response.usage)
-
 ```
 
 > [!TIP]
@@ -213,14 +199,12 @@ The following example shows how to create embeddings that is used to create an e
 
 
 ```python
-
 from azure.ai.inference.models import EmbeddingInputType
 
 response = model.embed(
     input=["The answer to the ultimate question of life, the universe, and everything is 42"],
     input_type=EmbeddingInputType.DCOUMENT,
 )
-
 ```
 
 When working on a query to retrieve such document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
@@ -228,14 +212,12 @@ When working on a query to retrieve such document, you can use the following cod
 
 
 ```python
-
 from azure.ai.inference.models import EmbeddingInputType
 
 response = model.embed(
     input=["What's the ultimate meaning of life?"],
     input_type=EmbeddingInputType.QUERY,
 )
-
 ```
 
 Cohere Embed V3 models can optimize the embeddings based on the intention of it.
@@ -319,7 +301,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```javascript
-
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -328,7 +309,6 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
-
 ```
 
 ### Get the model's capabilities
@@ -338,9 +318,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-
 await client.path("info").get()
-
 ```
 
 The response is as follows:
@@ -348,13 +326,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "{$model_name}",
     "model_type": "{$model_type}",
     "model_provider_name": "{$model_provider}"
 }
-
 ```
 
 ### Create embeddings
@@ -363,13 +339,11 @@ Create an embedding request to see the output of the model.
 
 
 ```javascript
-
 var response = await client.path("/embeddings").post({
     body: {
         input=["The ultimate answer to the question of life"],
     }
 });
-
 ```
 
 > [!TIP]
@@ -382,7 +356,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```javascript
-
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -390,7 +363,6 @@ if (isUnexpected(response)) {
 console.log(response.embedding);
 console.log(response.body.model);
 console.log(response.body.usage);
-
 ```
 
 It is usually useful to compute embeddings in batch of inputs. The parameter `inputs` can be a list of strings, where each string is a different input. The response will be a list of embeddings, where each embedding corresponds to the input in the same position.
@@ -398,7 +370,6 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 
 
 ```javascript
-
 var response = await client.path("/embeddings").post({
     body: {
         input=[
@@ -407,7 +378,6 @@ var response = await client.path("/embeddings").post({
         ],
     }
 });
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -415,7 +385,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```javascript
-
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -423,7 +392,6 @@ if (isUnexpected(response)) {
 console.log(response.embedding);
 console.log(response.body.model);
 console.log(response.body.usage);
-
 ```
 
 > [!TIP]
@@ -440,14 +408,12 @@ The following example shows how to create embeddings that is used to create an e
 
 
 ```javascript
-
 var response = await client.path("/embeddings").post({
     body: {
         input=["The answer to the ultimate question of life, the universe, and everything is 42"],
         input_type="document",
     }
 });
-
 ```
 
 When working on a query to retrieve such document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
@@ -455,14 +421,12 @@ When working on a query to retrieve such document, you can use the following cod
 
 
 ```javascript
-
 var response = await client.path("/embeddings").post({
     body: {
         input=["What's the ultimate meaning of life?"],
         input_type="query",
     }
 });
-
 ```
 
 Cohere Embed V3 models can optimize the embeddings based on the intention of it.

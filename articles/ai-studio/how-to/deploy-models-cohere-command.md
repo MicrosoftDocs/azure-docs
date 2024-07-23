@@ -115,7 +115,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```python
-
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
@@ -124,7 +123,6 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
-
 ```
 
 ### Get the model's capabilities
@@ -134,9 +132,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```python
-
 model.get_model_info()
-
 ```
 
 The response is as follows:
@@ -144,13 +140,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "Cohere-command-r-plus",
     "model_type": "chat-completions",
     "model_provider_name": "Cohere"
 }
-
 ```
 
 ### Create a chat completion request
@@ -159,7 +153,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```python
-
 from azure.ai.inference.models import SystemMessage, UserMessage
 
 response = model.complete(
@@ -168,7 +161,6 @@ response = model.complete(
         UserMessage(content="How many languages are in the world?"),
     ],
 )
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -176,23 +168,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```python
-
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
 print("Usage:", response.usage)
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```python
-
 result = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -202,14 +191,16 @@ result = model.complete(
     top_p=1,
     max_tokens=2048,
 )
-
 ```
+
+To stream completions, set `stream=True` when you call the model.
+
+
 
 To visualize the output, define a helper function to print the stream.
 
 
 ```python
-
 def print_stream(result):
     """
     Prints the chat completion with streaming. Some delay is added to simulate 
@@ -219,17 +210,14 @@ def print_stream(result):
     for update in result:
         print(update.choices[0].delta.content, end="")
         time.sleep(0.05)
-
 ```
 
-When you use streaming, responses look as follows:
+We can visualize how streaming generates content:
 
 
 
 ```python
-
 print_stream(result)
-
 ```
 
 #### Explore more parameters
@@ -238,7 +226,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```python
-
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
 response = model.complete(
@@ -254,7 +241,6 @@ response = model.complete(
     top_p=1,
     response_format={ "type": ChatCompletionsResponseFormat.TEXT },
 )
-
 ```
 
 #### JSON outputs
@@ -264,7 +250,6 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
 
 
 ```python
-
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant that always generate responses in JSON format, using."
@@ -273,7 +258,6 @@ response = model.complete(
     ],
     response_format={ "type": ChatCompletionsResponseFormat.JSON_OBJECT }
 )
-
 ```
 
 ### Pass extra parameters to the model
@@ -282,8 +266,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```python
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```python
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -293,7 +286,6 @@ response = model.complete(
         "logprobs": True
     }
 )
-
 ```
 
 ### Tools
@@ -305,7 +297,6 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 ```python
-
 from azure.ai.inference.models import FunctionDefinition, ChatCompletionsFunctionToolDefinition
 
 flight_info = ChatCompletionsFunctionToolDefinition(
@@ -330,7 +321,6 @@ flight_info = ChatCompletionsFunctionToolDefinition(
 )
 
 tools = [flight_info]
-
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
@@ -338,12 +328,10 @@ In this simple example, we will implement this function in a simple way by just 
 
 
 ```python
-
 def get_flight_info(loc_origin: str, loc_destination: str):
     return { 
         "info": f"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
     }
-
 ```
 
 > [!NOTE]
@@ -356,7 +344,6 @@ Let's prompt the model to help us booking flights with the help of this function
 
 
 ```python
-
 messages = [
     SystemMessage(
         content="You are a helpful assistant that help users to find information about traveling, how to get"
@@ -371,7 +358,6 @@ messages = [
 response = model.complete(
     messages=messages, tools=tools, tool_choice="auto"
 )
-
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
@@ -379,13 +365,11 @@ You can find out if a tool needs to be called by inspecting the response. When a
 
 
 ```python
-
 response_message = response.choices[0].message
 tool_calls = response_message.tool_calls
 
 print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
-
 ```
 
 Let's append this message to the chat history:
@@ -393,11 +377,9 @@ Let's append this message to the chat history:
 
 
 ```python
-
 messages.append(
     response_message
 )
-
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
@@ -405,7 +387,6 @@ Now, it's time to call the appropiate function to handle the tool call. In the f
 
 
 ```python
-
 import json
 from azure.ai.inference.models import ToolMessage
 
@@ -438,7 +419,6 @@ for tool_call in tool_calls:
             content=json.dumps(function_response)
         )
     )
-
 ```
 
 Let's see the response from the model now:
@@ -446,12 +426,10 @@ Let's see the response from the model now:
 
 
 ```python
-
 response = model.complete(
     messages=messages,
     tools=tools,
 )
-
 ```
 
 ### Content safety
@@ -465,7 +443,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```python
-
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
 
 try:
@@ -487,7 +464,6 @@ except HttpResponseError as ex:
             raise ex
     else:
         raise ex
-
 ```
 
 > [!TIP]
@@ -591,7 +567,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```javascript
-
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -600,7 +575,6 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
-
 ```
 
 ### Get the model's capabilities
@@ -610,9 +584,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-
 await client.path("info").get()
-
 ```
 
 The response is as follows:
@@ -620,13 +592,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "Cohere-command-r-plus",
     "model_type": "chat-completions",
     "model_provider_name": "Cohere"
 }
-
 ```
 
 ### Create a chat completion request
@@ -635,7 +605,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -646,7 +615,6 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 });
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -654,7 +622,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```javascript
-
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -662,19 +629,17 @@ if (isUnexpected(response)) {
 console.log(response.body.choices[0].message.content);
 console.log(response.body.model);
 console.log(response.body.usage);
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -685,15 +650,17 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 }).asNodeStream();
-
 ```
 
-When you use streaming, responses look as follows:
+To stream completions, set `stream=True` when you call the model.
+
+
+
+We can visualize how streaming generates content:
 
 
 
 ```javascript
-
 var stream = response.body;
 if (!stream) {
     throw new Error("The response stream is undefined");
@@ -713,7 +680,6 @@ for await (const event of sses) {
         console.log(choice.delta?.content ?? "");
     }
 }
-
 ```
 
 #### Explore more parameters
@@ -722,7 +688,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -740,7 +705,6 @@ var response = await client.path("/chat/completions").post({
         response_format = { "type": "text" },
     }
 });
-
 ```
 
 #### JSON outputs
@@ -750,7 +714,6 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant that always generate responses in JSON format, using."
         + " the following format: { \"answer\": \"response\" }." },
@@ -763,7 +726,6 @@ var response = await client.path("/chat/completions").post({
         response_format: { type: "json_object" }
     }
 });
-
 ```
 
 ### Pass extra parameters to the model
@@ -772,8 +734,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```javascript
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```javascript
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -781,14 +752,13 @@ var messages = [
 
 var response = await client.path("/chat/completions").post({
     headers: {
-        "extra-params": "passthrough"
+        "extra-params": "pass-through"
     },
     body: {
         messages: messages,
         logprobs: true
     }
 });
-
 ```
 
 ### Tools
@@ -800,7 +770,6 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 ```javascript
-
 const flight_info = {
     name: "get_flight_info",
     description: "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
@@ -826,7 +795,6 @@ const tools = [
         function: flight_info,
     },
 ];
-
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
@@ -834,13 +802,11 @@ In this simple example, we will implement this function in a simple way by just 
 
 
 ```javascript
-
 function get_flight_info(loc_origin, loc_destination) {
     return {
         info: "There are no flights available from " + loc_origin + " to " + loc_destination + ". You should take a train, specially if it helps to reduce CO2 emissions."
     }
 }
-
 ```
 
 > [!NOTE]
@@ -853,7 +819,6 @@ Let's prompt the model to help us booking flights with the help of this function
 
 
 ```javascript
-
 var result = await client.path("/chat/completions").post({
     body: {
         messages: messages,
@@ -861,7 +826,6 @@ var result = await client.path("/chat/completions").post({
         tool_choice: "auto"
     }
 });
-
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
@@ -869,13 +833,11 @@ You can find out if a tool needs to be called by inspecting the response. When a
 
 
 ```javascript
-
 const response_message = response.body.choices[0].message
 const tool_calls = response_message.tool_calls
 
 console.log("Finish reason: " + response.body.choices[0].finish_reason)
 console.log("Tool call: " + tool_calls)
-
 ```
 
 Let's append this message to the chat history:
@@ -883,9 +845,7 @@ Let's append this message to the chat history:
 
 
 ```javascript
-
 messages.push(response_message);
-
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
@@ -893,7 +853,6 @@ Now, it's time to call the appropiate function to handle the tool call. In the f
 
 
 ```javascript
-
 function applyToolCall({ function: call, id }) {
     // Get the tool details:
     const tool_params = JSON.parse(call.arguments);
@@ -920,7 +879,6 @@ for (const tool_call of tool_calls) {
         }
     )
 }
-
 ```
 
 Let's see the response from the model now:
@@ -928,14 +886,12 @@ Let's see the response from the model now:
 
 
 ```javascript
-
 var result = await client.path("/chat/completions").post({
     body: {
         messages: messages,
         tools: tools,
     }
 });
-
 ```
 
 ### Content safety
@@ -949,7 +905,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```javascript
-
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
@@ -976,7 +931,6 @@ catch (error) {
         }
     }
 }
-
 ```
 
 > [!TIP]
@@ -1085,14 +1039,12 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```csharp
-
 ChatCompletionsClient client = null;
 
 client = new ChatCompletionsClient(
     new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
 );
-
 ```
 
 ### Get the model's capabilities
@@ -1102,9 +1054,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```csharp
-
 Response<ModelInfo> modelInfo = client.GetModelInfo();
-
 ```
 
 The response is as follows:
@@ -1112,11 +1062,9 @@ The response is as follows:
 
 
 ```console
-
 Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
 Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
 Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
-
 ```
 
 ### Create a chat completion request
@@ -1125,7 +1073,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```csharp
-
 ChatCompletionsOptions requestOptions = null;
 Response<ChatCompletions> response = null;
 
@@ -1138,7 +1085,6 @@ requestOptions = new ChatCompletionsOptions()
 };
 
 response = client.Complete(requestOptions);
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -1146,23 +1092,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```csharp
-
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 Console.WriteLine($"Model: {response.Value.Model}");
 Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```csharp
-
 static async Task RunAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = null;
@@ -1180,21 +1123,40 @@ static async Task RunAsync(ChatCompletionsClient client)
 
     printStream(streamResponse);
 }
-
 ```
 
-When you use streaming, responses look as follows:
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+
+
+
+To visualize the output, define an asynchronous method to print the stream in the console.
+
+
+```csharp
+static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+{
+    StringBuilder contentBuilder = new();
+    await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
+    {
+        if (chatUpdate.Role.HasValue)
+        {
+            Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        }
+        if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+        {
+            Console.Write(chatUpdate.ContentUpdate);
+        }
+    }
+}
+```
+
+We can visualize how streaming generates content:
 
 
 
 ```csharp
-
-static async Task RunWithAsyncContext(ChatCompletionsClient client)
-{
-    // In this case we are using Nito.AsyncEx package
-    AsyncContext.Run(() => RunAsync(client));
-}
-
+// In this case we are using Nito.AsyncEx package
+AsyncContext.Run(() => RunAsync(client));
 ```
 
 #### Explore more parameters
@@ -1203,7 +1165,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```csharp
-
 requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
@@ -1221,7 +1182,6 @@ requestOptions = new ChatCompletionsOptions()
 
 response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-
 ```
 
 #### JSON outputs
@@ -1236,8 +1196,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```csharp
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```csharp
 requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
@@ -1249,7 +1218,6 @@ requestOptions = new ChatCompletionsOptions()
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-
 ```
 
 ### Tools
@@ -1261,7 +1229,6 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 ```csharp
-
 FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
 {
     Description = "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
@@ -1287,7 +1254,6 @@ FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
 };
 
 ChatCompletionsFunctionToolDefinition getFlightTool = new ChatCompletionsFunctionToolDefinition(flightInfoFunction);
-
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
@@ -1295,12 +1261,10 @@ In this simple example, we will implement this function in a simple way by just 
 
 
 ```csharp
-
 static string getFlightInfo(string loc_origin, string loc_destination)
 {
     return $"{{ {{ \"info\": \"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions.\" }} }}";
 }
-
 ```
 
 > [!NOTE]
@@ -1313,7 +1277,6 @@ Let's prompt the model to help us booking flights with the help of this function
 
 
 ```csharp
-
 var chatHistory = new List<ChatRequestMessage>(){
         new ChatRequestSystemMessage("You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries."),
         new ChatRequestUserMessage("When is the next flight from Miami to Seattle?")
@@ -1324,7 +1287,6 @@ requestOptions.Tools.Add(getFlightTool);
 requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 
 response = client.Complete(requestOptions);
-
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
@@ -1332,13 +1294,11 @@ You can find out if a tool needs to be called by inspecting the response. When a
 
 
 ```csharp
-
 var responseMenssage = response.Value.Choices[0].Message;
 var toolsCall = responseMenssage.ToolCalls;
 
 Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
 Console.WriteLine($"Tool call: {toolsCall[0].Id}");
-
 ```
 
 Let's append this message to the chat history:
@@ -1346,9 +1306,7 @@ Let's append this message to the chat history:
 
 
 ```csharp
-
 requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
-
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
@@ -1356,7 +1314,6 @@ Now, it's time to call the appropiate function to handle the tool call. In the f
 
 
 ```csharp
-
 foreach (ChatCompletionsToolCall tool in toolsCall )
 {
     //Get the tool details:
@@ -1376,7 +1333,6 @@ foreach (ChatCompletionsToolCall tool in toolsCall )
     Console.WriteLine("->", toolResponse);
     requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
 }
-
 ```
 
 Let's see the response from the model now:
@@ -1384,9 +1340,7 @@ Let's see the response from the model now:
 
 
 ```csharp
-
 response = client.Complete(requestOptions);
-
 ```
 
 ### Content safety
@@ -1400,7 +1354,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```csharp
-
 try
 {
     requestOptions = new ChatCompletionsOptions()
@@ -1425,7 +1378,6 @@ catch (RequestFailedException ex)
         throw;
     }
 }
-
 ```
 
 > [!TIP]
@@ -1593,7 +1545,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -1616,7 +1568,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 }
 ```
 
-When you use streaming, responses look as follows:
+We can visualize how streaming generates content:
 
 
 
@@ -1772,6 +1724,16 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
+
+
+
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
 
 

@@ -67,7 +67,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```python
-
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
@@ -76,7 +75,6 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
-
 ```
 
 ### Get the model's capabilities
@@ -86,9 +84,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```python
-
 model.get_model_info()
-
 ```
 
 The response is as follows:
@@ -96,13 +92,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "Jamba-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "AI21"
 }
-
 ```
 
 ### Create a chat completion request
@@ -111,7 +105,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```python
-
 from azure.ai.inference.models import SystemMessage, UserMessage
 
 response = model.complete(
@@ -120,7 +113,6 @@ response = model.complete(
         UserMessage(content="How many languages are in the world?"),
     ],
 )
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -128,23 +120,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```python
-
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
 print("Usage:", response.usage)
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```python
-
 result = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -154,14 +143,16 @@ result = model.complete(
     top_p=1,
     max_tokens=2048,
 )
-
 ```
+
+To stream completions, set `stream=True` when you call the model.
+
+
 
 To visualize the output, define a helper function to print the stream.
 
 
 ```python
-
 def print_stream(result):
     """
     Prints the chat completion with streaming. Some delay is added to simulate 
@@ -171,17 +162,14 @@ def print_stream(result):
     for update in result:
         print(update.choices[0].delta.content, end="")
         time.sleep(0.05)
-
 ```
 
-When you use streaming, responses look as follows:
+We can visualize how streaming generates content:
 
 
 
 ```python
-
 print_stream(result)
-
 ```
 
 #### Explore more parameters
@@ -190,7 +178,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```python
-
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
 response = model.complete(
@@ -206,7 +193,6 @@ response = model.complete(
     top_p=1,
     response_format={ "type": ChatCompletionsResponseFormat.TEXT },
 )
-
 ```
 
 > [!WARNING]
@@ -220,8 +206,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```python
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```python
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -231,7 +226,6 @@ response = model.complete(
         "logprobs": True
     }
 )
-
 ```
 
 ### Content safety
@@ -245,7 +239,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```python
-
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
 
 try:
@@ -267,7 +260,6 @@ except HttpResponseError as ex:
             raise ex
     else:
         raise ex
-
 ```
 
 > [!TIP]
@@ -320,7 +312,6 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```javascript
-
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -329,7 +320,6 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
-
 ```
 
 ### Get the model's capabilities
@@ -339,9 +329,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-
 await client.path("info").get()
-
 ```
 
 The response is as follows:
@@ -349,13 +337,11 @@ The response is as follows:
 
 
 ```console
-
 {
     "model_name": "Jamba-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "AI21"
 }
-
 ```
 
 ### Create a chat completion request
@@ -364,7 +350,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -375,7 +360,6 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 });
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -383,7 +367,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```javascript
-
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -391,19 +374,17 @@ if (isUnexpected(response)) {
 console.log(response.body.choices[0].message.content);
 console.log(response.body.model);
 console.log(response.body.usage);
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -414,15 +395,17 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 }).asNodeStream();
-
 ```
 
-When you use streaming, responses look as follows:
+To stream completions, set `stream=True` when you call the model.
+
+
+
+We can visualize how streaming generates content:
 
 
 
 ```javascript
-
 var stream = response.body;
 if (!stream) {
     throw new Error("The response stream is undefined");
@@ -442,7 +425,6 @@ for await (const event of sses) {
         console.log(choice.delta?.content ?? "");
     }
 }
-
 ```
 
 #### Explore more parameters
@@ -451,7 +433,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```javascript
-
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -469,7 +450,6 @@ var response = await client.path("/chat/completions").post({
         response_format = { "type": "text" },
     }
 });
-
 ```
 
 > [!WARNING]
@@ -483,8 +463,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```javascript
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```javascript
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -492,14 +481,13 @@ var messages = [
 
 var response = await client.path("/chat/completions").post({
     headers: {
-        "extra-params": "passthrough"
+        "extra-params": "pass-through"
     },
     body: {
         messages: messages,
         logprobs: true
     }
 });
-
 ```
 
 ### Content safety
@@ -513,7 +501,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```javascript
-
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
@@ -540,7 +527,6 @@ catch (error) {
         }
     }
 }
-
 ```
 
 > [!TIP]
@@ -598,14 +584,12 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 ```csharp
-
 ChatCompletionsClient client = null;
 
 client = new ChatCompletionsClient(
     new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
 );
-
 ```
 
 ### Get the model's capabilities
@@ -615,9 +599,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```csharp
-
 Response<ModelInfo> modelInfo = client.GetModelInfo();
-
 ```
 
 The response is as follows:
@@ -625,11 +607,9 @@ The response is as follows:
 
 
 ```console
-
 Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
 Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
 Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
-
 ```
 
 ### Create a chat completion request
@@ -638,7 +618,6 @@ Create a chat completion request to see the output of the model.
 
 
 ```csharp
-
 ChatCompletionsOptions requestOptions = null;
 Response<ChatCompletions> response = null;
 
@@ -651,7 +630,6 @@ requestOptions = new ChatCompletionsOptions()
 };
 
 response = client.Complete(requestOptions);
-
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -659,23 +637,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```csharp
-
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 Console.WriteLine($"Model: {response.Value.Model}");
 Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
-
 ```
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
 ```csharp
-
 static async Task RunAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = null;
@@ -693,21 +668,40 @@ static async Task RunAsync(ChatCompletionsClient client)
 
     printStream(streamResponse);
 }
-
 ```
 
-When you use streaming, responses look as follows:
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+
+
+
+To visualize the output, define an asynchronous method to print the stream in the console.
+
+
+```csharp
+static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+{
+    StringBuilder contentBuilder = new();
+    await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
+    {
+        if (chatUpdate.Role.HasValue)
+        {
+            Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        }
+        if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+        {
+            Console.Write(chatUpdate.ContentUpdate);
+        }
+    }
+}
+```
+
+We can visualize how streaming generates content:
 
 
 
 ```csharp
-
-static async Task RunWithAsyncContext(ChatCompletionsClient client)
-{
-    // In this case we are using Nito.AsyncEx package
-    AsyncContext.Run(() => RunAsync(client));
-}
-
+// In this case we are using Nito.AsyncEx package
+AsyncContext.Run(() => RunAsync(client));
 ```
 
 #### Explore more parameters
@@ -716,7 +710,6 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 
 ```csharp
-
 requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
@@ -734,7 +727,6 @@ requestOptions = new ChatCompletionsOptions()
 
 response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-
 ```
 
 > [!WARNING]
@@ -748,8 +740,17 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```csharp
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
+
+
+```csharp
 requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
@@ -761,7 +762,6 @@ requestOptions = new ChatCompletionsOptions()
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-
 ```
 
 ### Content safety
@@ -775,7 +775,6 @@ The following example shows how to handle events when the model detects harmful 
 
 
 ```csharp
-
 try
 {
     requestOptions = new ChatCompletionsOptions()
@@ -800,7 +799,6 @@ catch (RequestFailedException ex)
         throw;
     }
 }
-
 ```
 
 > [!TIP]
@@ -917,7 +915,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
 
@@ -940,7 +938,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 }
 ```
 
-When you use streaming, responses look as follows:
+We can visualize how streaming generates content:
 
 
 
@@ -1053,6 +1051,16 @@ Explore other parameters that you can specify in the inference client. For a ful
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
+
+
+
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
 
 
 
