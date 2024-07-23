@@ -33,6 +33,9 @@ Rolling upgrade policy is best suited for production workloads.
 
 ## Concepts
 
+> [!NOTE]
+> [Automatic OS image upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [automatic extension upgrades](../virtual-machines/automatic-extension-upgrade.md) automatically inherit the rolling upgrade policy and use it to perform upgrades. 
+
 |Setting | Description |
 |---|---|
 |**Upgrade Policy Mode** | The upgrade policy modes available on Virtual Machine Scale Sets are **Automatic**, **Manual**, and **Rolling**. | 
