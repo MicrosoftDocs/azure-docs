@@ -19,7 +19,7 @@ Azure Communication Services emits the following Advanced Messaging event types:
 |-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | [Microsoft.Communication.AdvancedMessageReceived](#microsoftcommunicationadvancedmessagereceived-event)                           | Published when Communication Services Advanced Messaging receives a message.                                                  |
 | [Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated](#microsoftcommunicationadvancedmessagedeliverystatusupdated-event) | Published when Communication Services Advanced Messaging receives a status update for a previously sent message notification. |
-| [Microsoft.Communication.AdvancedMessageAnalysisCompleted](#microsoftcommunicationadvancedmessageanalysiscompleted-event)             |    Published when Communication Service completes an AI Analysis with a customer message.  |
+| [Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview)](#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event)             |    Published when Communication Service completes an AI Analysis with a customer message.  |
 
 
 ## Event responses
