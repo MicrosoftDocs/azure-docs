@@ -52,6 +52,8 @@ Ultra disks must be used as data disks and can only be created as empty disks. Y
 
 Ultra Disks offer up to 100 TiB per region per subscription by default, but Ultra Disks support higher capacity by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
+For billing purposes, the size you deploy as is rounded up to the next largest provisioned Disk Size, and you're billed by that Disk Size. So if you were to deploy a 200 GiB Ultra Disk, it's billed for 256 GiB.
+
 The following table provides a comparison of disk sizes and performance caps to help you decide which to use.
 
 |Disk Size (GiB)  |IOPS Cap  |Throughput Cap (MB/s)  |

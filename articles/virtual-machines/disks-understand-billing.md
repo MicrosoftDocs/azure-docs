@@ -20,11 +20,13 @@ There are two kinds of snapshots offered for Azure managed disks: Full snapshots
 
 ## Ultra Disks
 
-The price of an Azure Ultra Disk is determined by the combination of how large the disk is (its size) and what performance you select (IOPS and throughput) for your disk. If you share an Ultra Disk between multiple VMs that can affect its price as well. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more information on how these factors work, see the [Ultra disks](disks-types.md#ultra-disks) section of the [Azure managed disk types](disks-types.md) article.
+The price of an Azure Ultra Disk is determined by the combination of how large the disk is (its Disk Size) and what performance you select (IOPS and throughput) for your disk. If you share an Ultra Disk between multiple VMs that can affect its price as well. The following sections focus on these factors as they relate to the price of your Ultra Disk. For more information on how these factors work, see the [Ultra disks](disks-types.md#ultra-disks) section of the [Azure managed disk types](disks-types.md) article.
 
 ### Ultra Disk size
 
-The size of your Ultra Disk also determines what performance caps your disk has. You have granular control of how much IOPS and throughput your disk has, up to that size's performance cap. Pricing increases as you increase your disk's size, and when you set higher IOPS and throughput. Ultra Disks offer up to 32 TiB per region per subscription by default, but support higher size by request. To request an increase in size, request a quota increase or contact Azure Support. 
+For billing purposes, when you create or modify an Ultra Disk, the size you set is rounded up to the next largest provisioned Disk Size, and you're billed by that Disk Size. So if you were to deploy a 200 GiB Ultra Disk, it stays a 200 GiB disk but it's billed for 256 GiB.
+
+The Disk Size of your Ultra Disk also determines what performance caps your disk has. You have granular control of how much IOPS and throughput your disk has, up to that size's performance cap. Pricing increases as you increase your disk's size, and when you set higher IOPS and throughput. Ultra Disks offer up to 32 TiB per region per subscription by default, but support higher size by request. To request an increase in size, request a quota increase or contact Azure Support. 
 
 The following table outlines the available disk sizes and performance caps. Pricing increases as you increase in size.
 
