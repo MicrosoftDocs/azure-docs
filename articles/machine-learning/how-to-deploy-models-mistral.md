@@ -142,7 +142,7 @@ To learn about billing for Mistral models deployed as a serverless API with pay-
 
 ### Consume the Mistral family of models as a service
 
-You can consume Mistral Large models by using the chat API.
+You can consume Mistral models by using the chat API.
 
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.

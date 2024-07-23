@@ -148,7 +148,7 @@ To learn about billing for the Mistral AI model deployed as a serverless API wit
 
 ### Consume the Mistral family of models as a service
 
-You can consume Mistral family models by using the chat API.
+You can consume Mistral models by using the chat API.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
