@@ -3,8 +3,8 @@ title: Parse document or chunk text
 description: Parse a document or chunk text for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/26/2024
 # Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my Standard workflow in Azure Logic Apps.
@@ -18,18 +18,18 @@ ms.date: 07/26/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sometimes you have to convert content into token form or break down a large document into smaller pieces before you can use this content with some actions. For example, the such as **Azure AI Search** or **Azure OpenAI** expect tokenized input and can handle only a limited number of tokens, which are words or chunks of characters.
+Sometimes you have to convert content into token form, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
-For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively convert content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
+For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
 
 > [!TIP]
 >
 > To learn more, you can ask Azure Copilot these questions:
 >
-> - *What is parsing in AI?*
 > - *What is a token in AI?*
 > - *What is tokenized input?*
 > - *What is tokenized string output?*
+> - *What is parsing in AI?*
 > - *What is chunking in AI?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
@@ -76,7 +76,7 @@ If you use other content sources, such as Azure Blob Storage, SharePoint, OneDri
 
       :::image type="content" source="media/parse-document-chunk-text/parse-document.png" alt-text="Screenshot shows sample workflow with Body output in the action named Parse a document." lightbox="media/parse-document-chunk-text/parse-document.png":::
 
-1. Under the **Parse a document** action, add the actions that you want to work with the tokenized output string, for example, **Chunk text**, which this guide describes later.
+1. Under the **Parse a document** action, add the actions that you want to work with the tokenized string output, for example, **Chunk text**, which this guide describes later.
 
 ## Parse a document - Reference
 
@@ -192,7 +192,7 @@ The following example includes other actions that create a complete workflow pat
 | 2 | Get the content. | **HTTP** | An **HTTP** action that retrieves the uploaded document using the file URL from the trigger output. |
 | 3 | Compose document details. | **Compose** | A **Data Operations** action that concatenates various items. <br><br>This example concatenates key-value information about the document. |
 | 4 | Create token string. | **Parse a document** | A **Data Operations** action that produces a tokenized string using the output from the **Compose** action. |
-| 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on either the number of characters or tokens per content chunk. | 
+| 5 | Create content chunks. | **Chunk text** | A **Data Operations** action that splits the token string into pieces, based on either the number of characters or tokens per content chunk. |
 | 6 | Convert tokenized and chunked text to JSON. | **Parse JSON** | A **Data Operations** action that converts the chunked output into a JSON array. |
 | 7 | Select JSON array items. | **Select** | A **Data Operations** action that selects multiple items from the JSON array. |
 | 8 | Generate the embeddings. | **Get multiple embeddings** | An **Azure OpenAI** action that creates embeddings for each JSON array item. |
