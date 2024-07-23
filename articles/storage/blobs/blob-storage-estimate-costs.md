@@ -21,11 +21,11 @@ All calculations are based on a fictitious price. You can find each price in the
 
 ## The cost to store data
 
-You can calculate the storage costs by multiplying the <u>size of the data</u> in GB by the <u>price of storage</u>. For example (assuming the sample pricing), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = $117.78 per month. 
+You can calculate your storage costs by multiplying the <u>size of your data</u> in GB by the <u>price of storage</u>. For example (assuming [sample pricing](#sample-prices)), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = $117.78 per month. 
 
-Depending on how much storage you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount in advance. You can reserve capacity for data that you store in the hot, cool, and archive access tiers in increments of 100 TB and 1 PB sizes for 1-year and 3-year commitment duration. 
+Depending on how much storage you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount. You can reserve capacity in increments of 100 TB and 1 PB sizes for 1-year and 3-year commitment duration. Reserved capacity is available only for data stored in the hot, cool, and archive access tiers.
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table compares the cost per GB of storing 100 TB (102,400 GB) of data with pay-as-you-go pricing versus reserved capacity pricing.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table compares the cost of storing 100 TB (102,400 GB) of data with pay-as-you-go pricing versus reserved capacity pricing.
 
 | Calculation                                           | Hot    | Cool | Archive |
 |-------------------------------------------------------|--------|------|---------|
@@ -33,14 +33,19 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Monthly price for 100 TB of storage (1-year reserved) | $1,747 | $966 | $183    |
 | Monthly price for 100 TB of storage (3-year reserved) | $1,406 | $872 | $168    |
 
-Even if you aren't storing 100 TB, reserving capacity might make sense due it's lower cost per GB. For example, if the pay-as-you-go pricing of 1 GB in the hot tier is $0.0208, then the break even point would be the cost of reserved capacity divided by the pay-as-you-go storage rate. In the case of the hot tier, that would be $1,747 / $.0208 = 83,990 GB (roughly 82 TB). If you plan to use at least 82 TB of data, then reserved capacity begins to make sense. The following table calculates break even points for each access tier.
+To calculate the amount of TB of storage where reserved capacity begins to make sense, divide the cost of reserved capacity by the pay-as-you-go rate. For example, if the cost of 1-year reserved capacity for cool tier storage is $966 and the pay-as-you-go rate is $0.0115, then the calculation is  $966 / $0.0115 = 84,000 GB (roughly 82 TB). If you plan to store at least 82 TB of data in the cool tier, then reserved capacity begins to make sense. The following table calculates break even points for each access tier.
 
-| Calculation                                          | Hot     | Cool    | Archive |
-|------------------------------------------------------|---------|---------|---------|
-| Monthly price per GB of Data storage (pay-as-you-go) | $0.0208 | $0.0115 | $0.002  |
-| Price for 100 TB of reserved storage                 | $1,747  | $966    | $183    |
-| Break even for 1-year reserved capacity              | 82 TB   | 82 TB   | 89 TB   |
-| Break even for 3-year reserved capacity              | 66 TB   | 76 TB   | 84 TB   |
+| Calculation                                          | Hot         | Cool    | Archive |
+|------------------------------------------------------|-------------|---------|---------|
+| Monthly price per GB of Data storage (pay-as-you-go) | $0.0208     | $0.0115 | $0.002  |
+| Price for 100 TB of reserved storage                 | $1,747      | $966    | $183    |
+| Break even for 1-year reserved capacity              | 84 TB<sup>1 | 82 TB   | 89 TB   |
+| Break even for 3-year reserved capacity              | 67 TB<sup>1 | 76 TB   | 84 TB   |
+
+<sup>1</sup>The hot tier has multiple pay-as-you-go rates. The price of the first 50TB and the price of the second 50TB are factored into this calculation.<br />
+
+> [!NOTE]
+> Reserved capacity is tied to an access tier. Data that you move out of that tier is billed at the rate of the destination tier.
 
 ## The cost to upload
 
@@ -202,7 +207,8 @@ The following table includes sample (fictitious) prices for each request to the 
 | All other operations (per 10,000)                               | $0.0044 | $0.0044 | $0.0052       | $.0044  |
 | Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $.022   |
 | Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
-| Price of Data storage (pay-as-you-go)                           | $0.0208 | $0.0115 | $0.0045       | $0.002  |
+| Price of Data storage first 50 TB (pay-as-you-go)               | $0.0208 | $0.0115 | $0.0045       | $0.002  |
+| Price of Data storage next 450 TB (pay-as-you-go)               | $0.020  | $0.0115 | $0.0045       | $0.002  |
 | Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
 | Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
 
@@ -216,7 +222,8 @@ The following table includes sample prices (fictitious) prices for each request 
 | Iterative Read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
 | Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $0.022  |
 | Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
-| Data storage prices (pay-as-you-go)                             | $0.021  | $0.012  | $0.0045       | $0.002  |
+| Data storage prices first 50 TB (pay-as-you-go)                 | $0.021  | $0.012  | $0.0045       | $0.002  |
+| Data storage prices next 450 TB (pay-as-you-go)                 | $0.020  | $0.012  | $0.0045       | $0.002  |
 | Price of 100 TB (1-year reserved capacity)                      | $1,747  | $966    | Not available | $183    |
 | Price of 100 TB (3-year reserved capacity)                      | $1,406  | $872    | Not available | $168    |
 
