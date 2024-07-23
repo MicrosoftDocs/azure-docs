@@ -83,6 +83,7 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 
 > [!NOTE]
 > The Try Azure Cosmos DB sandbox account supports global distribution in only the  **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. By default, the Try Azure Cosmos DB sandbox account is created in East US.  Azure support tickets can't be created for Try Azure Cosmos DB sandbox accounts. If the account exceeds the maximum resource limits, it's automatically deleted.  Don’t use personal or sensitive data in your sandbox database during the trial period.
+
 ---
 
 ## Create your Try Azure Cosmos DB account
