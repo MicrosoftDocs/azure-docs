@@ -51,12 +51,12 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
 1. Assign roles:
 
-    1. Add the following role assignments for the Azure OpenAI managed identity: 
+    1. On Azure AI Search, add two role assignments for the Azure OpenAI managed identity: 
 
        - **Search Index Data Reader**
        - **Search Service Contributor**
 
-    1. Assign yourself to a role on Azure OpenAI. In this quickstart, the requests to Azure OpenAI are sent on your behalf: 
+    1. On Azure OpenAI, assign yourself to a role. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system: 
 
        - **Cognitive Services OpenAI User**
 
