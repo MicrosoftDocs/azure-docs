@@ -1,7 +1,7 @@
 ---
 title: Cross workspace queries
 description: The API supports the ability to query across multiple workspaces.
-ms.date: 08/06/2022
+ms.date: 07/21/2024
 author: guywi-ms
 ms.author: guywild
 ms.topic: article
@@ -68,7 +68,7 @@ Example:
     Authorization: Bearer <user token>
     
     {
-    "query": "union (AzureActivity | where timestamp > ago(1d), (workspaces('AIFabrikamDemo').AzureActivity | where timestamp> ago(1d))"
+    "query": "union (AzureActivity | where timestamp > ago(1d)), (workspaces('00000000-0000-0000-0000-000000000000').AzureActivity | where timestamp> ago(1d))"
     }
 ```
 
