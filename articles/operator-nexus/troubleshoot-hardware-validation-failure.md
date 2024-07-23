@@ -215,7 +215,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### Network info category
 
-* Network Interface Card (NIC) Check Failure
+* Network Interface Cards (NIC) Check Failure
     * Dell server NIC specs are defined in the SKU. A mismatched link status indicates loose or faulty cabling or crossed cables. A mismatched model indicates incorrect NIC card is inserted in to slot. Missing link/model fetched values indicate NICs that are failed, missing, or inserted in to incorrect slots.
 
     ```json
@@ -340,7 +340,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct in the cluster object, attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
 
 * Preboot execution environment (PXE) MAC Address Check Failure
     * The PXE MAC address is defined in the cluster for each BMM. A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
@@ -354,7 +354,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
+    * To troubleshoot this problem, ensure that correct MAC address is defined in the cluster. If MAC is correct in the cluster object, attempt a flea drain. If problem persists ensure that server is racked in the correct location, cabled accordingly, and that the correct IP is assigned.
 
 ### Health info category
 
@@ -400,7 +400,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * To troubleshoot a server health failure engage vendor.
 
-* Health Check Lifecycle (LC) Log Failures
+* Health Check LifeCycle (LC) Log Failures
     * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
     ```json
