@@ -166,7 +166,7 @@ To buy a reservation: 
 
     :::image type="content" source="../media/provisioned/select-purchase.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/select-purchase.png":::
 
-    - Select the reservation scope. This identifies the deployments that will be included in the discount. Options include: 
+    - Select the reservation scope. This identifies the deployments that will be included in the discount. Options include:
 
         - Resource Group
         - Single Subscription
