@@ -66,7 +66,7 @@ Before you can use your app's managed identity, make some changes to the app con
 
    Use *one of the following methods* depending on the cloud that your app runs in.
 
-   * **Azure cloud**: If your app runs In *global Azure*, add a setting that identifies an Azure storage account name:
+   * **Azure cloud**: If your app runs in *public Azure*, add a setting that identifies an Azure storage account name:
 
      * `AzureWebJobsStorage__<accountName>`
 
@@ -75,7 +75,7 @@ Before you can use your app's managed identity, make some changes to the app con
    * **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (endpoint) for the storage account instead of an account name.
 
      > [!NOTE]
-     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
+     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
 
      * `AzureWebJobsStorage__<blobServiceUri>`
 
@@ -161,7 +161,7 @@ In the Azure portal, run and test the application. To run and test the app local
 
    Use *one of the following methods* depending on the cloud that your app runs in.
 
-   * **Azure cloud**: If your app runs In *global Azure*, add a setting that identifies an Azure storage account name:
+   * **Azure cloud**: If your app runs in *public Azure*, add a setting that identifies an Azure storage account name:
 
      * `AzureWebJobsStorage__<accountName>`
 
@@ -170,7 +170,7 @@ In the Azure portal, run and test the application. To run and test the app local
    * **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (endpoint) for the storage account instead of an account name.
 
      > [!NOTE]
-     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
+     > If you're using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option to provide a specific service URL. For more information about using Azure Storage with Azure Government, see [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md).
 
      * `AzureWebJobsStorage__<blobServiceUri>`
 
