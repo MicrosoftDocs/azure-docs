@@ -5,9 +5,9 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 7/18/2024
+ms.date: 7/23/2024
 ms.reviewer: ju-shim
-ms.custom: upgradepolicy, devx-track-azurepowershell
+ms.custom: upgradepolicy, maxsurge
 ---
 # Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
 

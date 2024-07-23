@@ -5,9 +5,9 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.date: 7/19/2024
+ms.date: 7/23/2024
 ms.reviewer: ju-shim
-ms.custom: upgradepolicy
+ms.custom: upgradepolicy. maxsurge
 ---
 # Rolling upgrades with MaxSurge on Virtual Machine Scale Sets (Preview)
 
@@ -38,7 +38,7 @@ Rolling upgrades with MaxSurge can help improve service uptime during upgrade ev
 
 When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. Additionally, these new virtual machines have new IP addresses and be placed into an existing subnet. You also need to have enough IP address quota and subnet space available to deploy these newly created virtual machines. 
 
-During the rolling upgrade processes, Azure performs a quota check before each new batch. If that quota check fails, the rolling upgrade will be canceled. You can restart a rolling upgrade by making a new change to the scale set model or triggering a generic model update. For more information, see [restart a rolling upgrade](virtual-machine-scale-sets-configure-rolling-upgrades.md#restart-a-rolling-upgrade)
+During the rolling upgrade processes, Azure performs a quota check before each new batch. If that quota check fails, the rolling upgrade will be canceled. You can restart a rolling upgrade by making a new change to the scale set model or triggering a generic model update. For more information, see [restart a rolling upgrade](virtual-machine-scale-sets-configure-rolling-upgrades.md#restart-a-rolling-upgrade).
 
 ## MaxSurge vs in place upgrades
 
