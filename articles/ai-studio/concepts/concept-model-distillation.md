@@ -33,7 +33,7 @@ The main steps in knowledge distillation involve:
  
 You can use the sample notebook available at this [link](https://aka.ms/meta-llama-3.1-distillation) to see how to perform distillation. In this sample notebook, the teacher model used the Meta Llama 3.1 405B Instruct model, and the student model used the Meta Llama 3.1 8B Instruct.
 
-We used an advanced prompt during synthetic data generation, which incorporates Chain of thougth (COT) reasoning, resulting in higher accuracy data labels in the synthetic data. This further improves the accuracy of the distilled model.
+We used an advanced prompt during synthetic data generation, which incorporates Chain of thought (COT) reasoning, resulting in higher accuracy data labels in the synthetic data. This further improves the accuracy of the distilled model.
 
 ## Next steps
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
