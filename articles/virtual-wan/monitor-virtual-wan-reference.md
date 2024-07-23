@@ -93,6 +93,8 @@ The following table lists the metrics available for the microsoft.network/p2svpn
 
 [!INCLUDE [microsoft.network/p2svpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-p2svpngateways-metrics-include.md)]
 
+This table contains more information about some of the metrics in the preceding table.
+
 | Metric | Description |
 |:-------|:------------|
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
@@ -106,6 +108,8 @@ The following table lists the metrics available for the microsoft.network/expres
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
 [!INCLUDE [microsoft.network/expressroutegateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutegateways-metrics-include.md)]
+
+This table contains more information about some of the metrics in the preceding table.
 
 | Metric | Description |
 |:-------|:------------|
@@ -162,10 +166,10 @@ microsoft.network/expressroutegateways
 
 [!INCLUDE [microsoft.network/p2svpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-p2svpngateways-logs-include.md)]
 
-The following diagnostics are available for Virtual WAN point-to-site VPN gateways:
+This table contains more information about the preceding table.
 
-| Metric | Description|
-| --- | --- |
+| Metric | Description |
+|:-------|:------------|
 | **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
 | **P2S Diagnostic Logs** | These events are User VPN P2S (Point-to-site) configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
@@ -174,14 +178,14 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 
 [!INCLUDE [microsoft.network/vpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-vpngateways-logs-include.md)]
 
-| Metric | Description|
-| --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics.|
-| **Tunnel Diagnostic Logs** | IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and other diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device.|
+This table contains more information about the preceding table.
+
+| Metric | Description |
+|:-------|:------------|
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
+| **Tunnel Diagnostic Logs** | IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and other diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device. |
 | **Route Diagnostic Logs** | Logs related to events for static routes, BGP, route updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
-
-
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

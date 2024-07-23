@@ -98,15 +98,15 @@ The following example contains a query to obtain site-to-site route diagnostics.
 
 `AzureDiagnostics | where Category == "RouteDiagnosticLog"`
 
-Replace the following values, after the **= =**, as needed based on the tables reported in the previous section of this article.
+Replace the following values, after the `==`, as needed based on the tables reported in the previous section of this article.
 
-- "GatewayDiagnosticLog"
-- "IKEDiagnosticLog"
-- "P2SDiagnosticLog”
-- "TunnelDiagnosticLog"
-- "RouteDiagnosticLog"
+- GatewayDiagnosticLog
+- IKEDiagnosticLog
+- P2SDiagnosticLog
+- TunnelDiagnosticLog
+- RouteDiagnosticLog
 
-In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
+In order to run the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
 
 :::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
 
@@ -130,11 +130,12 @@ The following steps help you create, edit, and view diagnostic settings:
 
 1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the following example), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
 
-    :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
+   :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
+
 1. After clicking **Save**, you should start seeing logs appear in this log analytics workspace within a few hours. 
 1. To monitor a **secured hub (with Azure Firewall)**, then diagnostics and logging configuration must be done from accessing the **Diagnostic Setting** tab:
 
-      :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings." lightbox="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" :::
+   :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings." lightbox="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" :::
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -142,8 +143,8 @@ The following steps help you create, edit, and view diagnostic settings:
 ## <a name="azure-firewall"></a>Monitoring secured hub (Azure Firewall)
 
 If you chose to secure your virtual hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
-You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
-For every Azure Virtual WAN you secure and convert to a Secured Hub, Azure Firewall creates an explicit firewall resource object. The object is in the resource group where the hub is located.
+
+You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources. For every Azure Virtual WAN you secure and convert to a Secured Hub, Azure Firewall creates an explicit firewall resource object. The object is in the resource group where the hub is located.
 
 :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-resources-portal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group." lightbox="./media/monitor-virtual-wan-reference/firewall-resources-portal.png":::
 
