@@ -2,7 +2,7 @@
 title: Connect machines at scale using Group Policy with a PowerShell script
 description: In this article, you learn how to create a Group Policy Object to onboard Active Directory-joined Windows machines to Azure Arc-enabled servers.
 ms.date: 05/04/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: template-how-to
 ---
 

@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 05/08/2024
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
@@ -675,7 +676,7 @@ Here are some other things you can say to fine-tune the answer you get.
 Learn more about running Java apps on App Service in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Configure a Java app in Azure App Service](configure-language-java.md?pivots=platform-linux)
+> [Configure a Java app in Azure App Service](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

@@ -14,7 +14,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You're limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+Bicep allows a maximum of 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -59,7 +59,7 @@ param storageAccountConfig {
 }
 ```
 
-For more information, see [User-defined data types](./user-defined-data-types.md#user-defined-data-type-syntax).
+For more information, see [User-defined data types](./user-defined-data-types.md#syntax).
 
 ## Default value
 
@@ -77,7 +77,13 @@ param location string = resourceGroup().location
 
 You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+
+output siteNameOutput string = siteName
+output hostingPlanOutput string = hostingPlanName
+```
 
 However, you can't reference a [variable](./variables.md) as the default value.
 
@@ -99,7 +105,7 @@ The following table describes the available decorators and how to use them.
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| [allowed](#allowed-values) | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
+| [allowed](#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
@@ -197,7 +203,7 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
-Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered
+Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered.
 
 ### Metadata
 
@@ -214,7 +220,7 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Use parameter
 
@@ -235,7 +241,54 @@ It can be easier to organize related values by passing them in as an object. Thi
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
+
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Next steps
 

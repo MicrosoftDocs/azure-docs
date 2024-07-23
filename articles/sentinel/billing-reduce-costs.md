@@ -41,7 +41,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
 
-Unlike analytics logs, [basic logs](../azure-monitor/logs/basic-logs-configure.md) are typically verbose. They contain a mix of high volume and low security value data that isn't frequently used or accessed on demand for ad-hoc querying, investigations, and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+Unlike analytics logs, [basic logs](../azure-monitor/logs/logs-table-plans.md) are typically verbose. They contain a mix of high volume and low security value data that isn't frequently used or accessed on demand for ad-hoc querying, investigations, and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 ## Optimize Log Analytics costs with dedicated clusters
 
@@ -71,7 +71,7 @@ Microsoft Sentinel data retention is free for the first 90 days. To adjust the d
 
 Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
 
-To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md).
 
 Alternatively, you can use Azure Data Explorer for long-term data retention at lower cost. Azure Data Explorer provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
 
@@ -83,7 +83,7 @@ For more information, see [Integrate Azure Data Explorer for long-term log reten
 
 The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent.
 
-Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-data-collection.md).
 
 Besides for the predefined sets of events that you can select to ingest, such as All events, Minimal, or Common, data collection rules enable you to build custom filters and select specific events to ingest. The Azure Monitor Agent uses these rules to filter the data at the source, and then ingest only the events you selected, while leaving everything else behind. Selecting specific events to ingest can help you optimize your costs and save more.
 

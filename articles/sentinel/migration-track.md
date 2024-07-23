@@ -188,7 +188,7 @@ The **ArchiveRetention** value is calculated by subtracting the **TotalRetention
 
 If you prefer to make changes in the UI, select **Update Retention in UI** to open the relevant page.
 
-Learn about [data lifecycle management](../azure-monitor/logs/data-retention-archive.md). 
+Learn about [data lifecycle management](../azure-monitor/logs/data-retention-configure.md). 
 
 ## Enable migration tips and instructions
 
