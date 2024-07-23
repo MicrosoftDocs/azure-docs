@@ -21,7 +21,7 @@ summary: |
   **Certificates**
   
   - [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tls-ssl-certificate-incomplete-)
-  - [What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--windows-azure-tools-encryption-certificate-for-extensions--)
+  - [What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--microsoft-azure-tools-encryption-certificate-for-extensions--)
   - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request--csr--without--rdp-ing--in-to-the-instance-)
   - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
   - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p7b--)
@@ -37,17 +37,17 @@ summary: |
   
   - [How do I set the idle timeout for Azure load balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer-)
   - [How do I associate a static IP address to my Cloud Service?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service-)
-  - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provide?](#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provides-)
+  - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provide?](#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provide-)
   - [How to enable HTTP/2 on Cloud Services VM?](#how-to-enable-http-2-on-cloud-services-vm-)
   
   **Permissions**
   
   - [Are Microsoft internal engineers able to remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission-)
-  - [I can't remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file--i-get-following-error--an-authentication-error-has-occurred--code--0x80004005-)
+  - [I can't remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-can-t-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file--i-get-following-error--an-authentication-error-has-occurred--code--0x80004005-)
   
   **Scaling**
   
-  - [I can't scale beyond X instances](#i-cannot-scale-beyond-x-instances)
+  - [I can't scale beyond X instances](#i-can-t-scale-beyond-x-instances)
   - [How can I configure Auto-Scale based on Memory metrics?](#how-can-i-configure-auto-scale-based-on-memory-metrics-)
   
   **Generic**
@@ -55,7 +55,7 @@ summary: |
   - [How do I add `nosniff` to my website?](#how-do-i-add--nosniff--to-my-website-)
   - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role-)
   - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service-)
-  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space-)
+  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-little-free-disk-space-)
   - [How can I add an Antimalware extension for my Cloud Services in an automated way?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
   - [How to enable Server Name Indication (SNI) for Cloud Services?](#how-to-enable-server-name-indication--sni--for-cloud-services-)
   - [How can I add tags to my Azure Cloud Service?](#how-can-i-add-tags-to-my-azure-cloud-service--)
