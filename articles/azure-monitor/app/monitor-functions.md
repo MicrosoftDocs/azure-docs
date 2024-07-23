@@ -37,6 +37,10 @@ On the function app **Overview** pane, go to **Application Insights**. Under **C
 > [!div class="mx-imgBorder"]
 :::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
 
+### Configuration
+
+If you are using an Azure Function App that is not on a consumption plan you can configure this feature by adding environment variables in App settings. The available configurations are documented [here](../app/java-standalone-config.md). For Azure Functions on a consumption plan, the available configuration options are limited to WEBSITE_SITE_NAME, APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL, and APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL. For any other configurations, please follow the steps outlined [here](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent) to deploy your own agent. Keep in mind, that deploying your own agent will have an 8 to 9 second cold start implication on your Function.
+
 ### Troubleshooting
 
 Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then select **Application settings** and use the following steps to fix the issue.
@@ -139,6 +143,7 @@ Example:
   </root>
 </configuration>
 ```
+
 
 ## Distributed tracing for Node.js function apps
 
