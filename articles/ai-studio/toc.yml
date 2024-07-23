@@ -145,7 +145,7 @@ items:
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
     - name: Synthetic Data Generation
-      href: concepts/synthetic-data-generation.md
+      href: concepts/concept-synthetic-data.md
       displayName: code,sdk
   - name: Develop generative AI apps
     items:
