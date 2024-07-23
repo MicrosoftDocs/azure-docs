@@ -49,7 +49,7 @@ There are two options available for configuring the pacemaker cluster for RHEL w
 ### Use an SBD device
 
 > [!NOTE]
-> The fencing mechanism with SBD is supported on RHEL 8.8 and higher, as well as RHEL 9.0 and higher.
+> The fencing mechanism with SBD is supported on RHEL 8.8 and higher, and RHEL 9.0 and higher.
 
 You can configure the SBD device by using either of two options:
 
@@ -240,7 +240,7 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
    sudo yum install -y pcs pacemaker sbd fence-agents-sbd
    ```
 
-3. **[A]** Enable iSCSI and SBD services
+3. **[A]** Enable iSCSI service.
 
    ```bash
    sudo systemctl enable iscsid iscsi
@@ -410,7 +410,7 @@ This section applies only if you want to use an SBD Device with an Azure shared 
 
 ### Configure Azure shared disk with PowerShell
 
-To create and attach an Azure shared disk with PowerShell, execute following instruction. If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../virtual-machines/disks-deploy-zrs.md.
+To create and attach an Azure shared disk with PowerShell, execute following instruction. If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../virtual-machines/disks-deploy-zrs.md).
 
 ```powershell
 $ResourceGroup = "MyResourceGroup"
