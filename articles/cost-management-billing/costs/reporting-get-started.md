@@ -46,7 +46,7 @@ Need to go beyond the basics with Power BI? The Cost Management connector for Po
 
 ## Cost details and exports
 
-If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, weekly, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-export-acm-data.md).
+If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, weekly, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-improved-exports.md).
 
 :::image type="content" source="./media/reporting-get-started/exports.png" alt-text="Screenshot showing the list of exports." lightbox="./media/reporting-get-started/exports.png" :::
 
@@ -79,4 +79,4 @@ The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/i
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 - [Connect to Microsoft Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
-- [Create and manage exported data](tutorial-export-acm-data.md).
+- [Create and manage exported data](tutorial-improved-exports.md).

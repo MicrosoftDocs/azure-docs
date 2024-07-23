@@ -48,7 +48,7 @@ landingContent:
       - text: Cost Management Power BI connector
         url: /power-bi/connect-data/desktop-connect-azure-cost-management
       - text: Export Cost Management data
-        url: ../costs/tutorial-export-acm-data.md
+        url: ../costs/tutorial-improved-exports.md
       - text: Microsoft Customer Agreement FAQ
         url: microsoft-customer-agreement-faq.yml
 

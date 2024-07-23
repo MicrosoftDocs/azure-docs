@@ -20,7 +20,7 @@ Both are different names for the same dataset. Usage Details is the original nam
 
 ### Why do I get Usage Details API timeouts?
 
-Cost datasets available from the Usage Details API can often be overly large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might time out before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-export-acm-data.md).
+Cost datasets available from the Usage Details API can often be overly large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might time out before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-improved-exports.md).
 
 ### What is the difference between legacy and modern usage details?
 
