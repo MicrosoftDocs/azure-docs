@@ -11,7 +11,7 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 07/12/2024
+  ms.date: 07/23/2024
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -123,6 +123,9 @@ conceptualContent:
             - url: /azure/private-link/how-to-approve-private-link-cross-subscription
               itemType: concept
               text: Approve Private Link connections across subscriptions
+            - url: /azure/dns/private-resolver-hybrid-dns
+              itemType: concept
+              text: Resolve Azure and on-premises domains
 
     # Section 2
     - title: Learn more
