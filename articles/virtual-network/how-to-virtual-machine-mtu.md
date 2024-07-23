@@ -180,9 +180,9 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     3900
     ```
 
-1. Use `PING` to verify the MTU size is set on the network interface. 
-
-    ```bash
+1. Verify the MTU size on the network interface using `PING`. For Linux, use the -M, -s, and -c flags. The -M option instructs ping to NOT fragment, -s sets the packet size, and -c sets the number of pings to send. To determine the packet size, subtract 28 from the MTU setting of 3900.
+    
+```bash
     ping 10.0.0.5 -c 10 -M do -s 3872
     ```
     
@@ -347,7 +347,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     vm-1             10.0.0.5                        1 Success             3892
     ```
 
-1. Use `PING` to verify the MTU size is set on the network interface. 
+1. Verify the MTU size on the network interface using `PING`. For Windows, use -f and -l. The -f option instructs ping to NOT fragment and -l sets the packet size. To determine the packet size, subtract 28 from the MTU setting of 3900.
 
     ```powershell
     ping 10.0.0.5 -f -l 3872
