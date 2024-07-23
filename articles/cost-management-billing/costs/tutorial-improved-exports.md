@@ -135,10 +135,9 @@ Enable **Allow trusted Azure services access** on the storage account. You can t
 
 :::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access.png" alt-text="Screenshot showing Allow Azure services on the trusted services list exception option." lightbox="./media/tutorial-improved-exports/allow-trusted-access.png" :::
 
-If you missed enabling that setting, you can easily do so from the **Exports** page when creating a new export.
+If you missed enabling that setting, it's automatically enabled when you create a new export and use an existing Storage account.
 
-UPDATE
-:::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access-export.png" alt-text="Screenshot showing the Allow trusted Azure services access option." lightbox="./media/tutorial-improved-exports/allow-trusted-access-export.png" :::
+:::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access-export.png" alt-text="Screenshot showing the trusted Azure service access is allowed note." lightbox="./media/tutorial-improved-exports/allow-trusted-access-export.png" :::
 
 A system-assigned managed identity is created for a new job export when created or modified. You must have permissions because Cost Management uses the privilege to assign the *StorageBlobDataContributor* role to the managed identity. The permission is restricted to the storage account container scope. After the export job is created or updated, the user doesn't require Owner permissions for regular runtime operations.
 
