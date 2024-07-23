@@ -1,10 +1,10 @@
 ---
-title: How to use Cohere Command embedding models with Azure AI studio
+title: How to use Cohere Embed V3 models with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Cohere Command embeddings models with Azure AI studio.
+description: Learn how to use Cohere Embed V3 models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/19/2024
+ms.date: 07/23/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples
 ---
 
-# How to use Cohere Command embedding models with Azure AI studio
+# How to use Cohere Embed V3 models with Azure AI studio
 
-In this guide, you learn about Cohere Command models and how to use them with Azure AI studio.
+In this guide, you learn about Cohere Embed V3 models and how to use them with Azure AI studio.
 The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
 
 
@@ -95,7 +95,7 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```python
+```#
 import os
 from azure.ai.inference import EmbeddingsClient
 from azure.core.credentials import AzureKeyCredential
@@ -112,7 +112,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```python
+```#
 model.get_model_info()
 ```
 
@@ -133,7 +133,7 @@ The response is as follows:
 Create an embedding request to see the output of the model.
 
 
-```python
+```#
 response = model.embed(
     input=["The ultimate answer to the question of life"],
 )
@@ -148,7 +148,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```python
+```#
 import numpy as np
 
 for embed in response.data:
@@ -162,7 +162,7 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 
 
 
-```python
+```#
 response = model.embed(
     input=[
         "The ultimate answer to the question of life", 
@@ -175,7 +175,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```python
+```#
 import numpy as np
 
 for embed in response.data:
@@ -198,7 +198,7 @@ The following example shows how to create embeddings that is used to create an e
 
 
 
-```python
+```#
 from azure.ai.inference.models import EmbeddingInputType
 
 response = model.embed(
@@ -211,7 +211,7 @@ When working on a query to retrieve such document, you can use the following cod
 
 
 
-```python
+```#
 from azure.ai.inference.models import EmbeddingInputType
 
 response = model.embed(
@@ -300,7 +300,7 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```javascript
+```//
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -317,7 +317,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```javascript
+```//
 await client.path("info").get()
 ```
 
@@ -338,7 +338,7 @@ The response is as follows:
 Create an embedding request to see the output of the model.
 
 
-```javascript
+```//
 var response = await client.path("/embeddings").post({
     body: {
         input=["The ultimate answer to the question of life"],
@@ -355,7 +355,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```javascript
+```//
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -369,7 +369,7 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 
 
 
-```javascript
+```//
 var response = await client.path("/embeddings").post({
     body: {
         input=[
@@ -384,7 +384,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```javascript
+```//
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -407,7 +407,7 @@ The following example shows how to create embeddings that is used to create an e
 
 
 
-```javascript
+```//
 var response = await client.path("/embeddings").post({
     body: {
         input=["The answer to the ultimate question of life, the universe, and everything is 42"],
@@ -420,7 +420,7 @@ When working on a query to retrieve such document, you can use the following cod
 
 
 
-```javascript
+```//
 var response = await client.path("/embeddings").post({
     body: {
         input=["What's the ultimate meaning of life?"],
@@ -525,7 +525,7 @@ The response is as follows:
 Create an embedding request to see the output of the model.
 
 
-```json
+```#
 {
     "input": [
         "The ultimate answer to the question of life"
@@ -542,7 +542,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```json
+```#
 {
     "id": "0ab1234c-d5e6-7fgh-i890-j1234k123456",
     "object": "list",
@@ -572,7 +572,7 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 
 
 
-```json
+```#
 {
     "input": [
         "The ultimate answer to the question of life", 
@@ -585,7 +585,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```json
+```#
 {
     "id": "0ab1234c-d5e6-7fgh-i890-j1234k123456",
     "object": "list",
@@ -635,7 +635,7 @@ The following example shows how to create embeddings that is used to create an e
 
 
 
-```json
+```#
 {
     "input": [
         "The answer to the ultimate question of life, the universe, and everything is 42"
@@ -648,7 +648,7 @@ When working on a query to retrieve such document, you can use the following cod
 
 
 
-```json
+```#
 {
     "input": [
         "What's the ultimate meaning of life?"

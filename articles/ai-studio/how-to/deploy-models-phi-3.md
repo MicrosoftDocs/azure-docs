@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Phi-3 chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/19/2024
+ms.date: 07/23/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -131,7 +131,7 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```python
+```#
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
@@ -146,7 +146,7 @@ When you deploy the model to a self-hosted online endpoint with **Microsoft Entr
 
 
 
-```python
+```#
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.identity import DefaultAzureCredential
@@ -168,7 +168,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```python
+```#
 model.get_model_info()
 ```
 
@@ -189,7 +189,7 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```python
+```#
 from azure.ai.inference.models import SystemMessage, UserMessage
 
 response = model.complete(
@@ -209,7 +209,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```python
+```#
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
 print("Usage:", response.usage)
@@ -223,7 +223,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```python
+```#
 result = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -238,7 +238,7 @@ result = model.complete(
 To visualize the output, define a helper function to print the stream.
 
 
-```python
+```#
 def print_stream(result):
     """
     Prints the chat completion with streaming. Some delay is added to simulate 
@@ -254,7 +254,7 @@ When you use streaming, responses look as follows:
 
 
 
-```python
+```#
 print_stream(result)
 ```
 
@@ -263,7 +263,7 @@ print_stream(result)
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```python
+```#
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
 response = model.complete(
@@ -271,8 +271,8 @@ response = model.complete(
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
     ],
-    presence_penalty="0.1",
-    frequency_penalty="0.8",
+    presence_penalty=0.1,
+    frequency_penalty=0.8,
     max_tokens=2048,
     stop=["<|endoftext|>"],
     temperature=0,
@@ -292,7 +292,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```python
+```#
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -314,7 +314,7 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-```python
+```#
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
 
 try:
@@ -444,7 +444,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-nce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -460,7 +460,7 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```javascript
+```//
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -475,7 +475,7 @@ When you deploy the model to a self-hosted online endpoint with **Microsoft Entr
 
 
 
-```javascript
+```//
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { DefaultAzureCredential }  from "@azure/identity";
@@ -497,7 +497,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```javascript
+```//
 await client.path("info").get()
 ```
 
@@ -518,7 +518,7 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```javascript
+```//
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -540,7 +540,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```javascript
+```//
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -558,7 +558,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```javascript
+```//
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -575,7 +575,7 @@ When you use streaming, responses look as follows:
 
 
 
-```javascript
+```//
 var stream = response.body;
 if (!stream) {
     throw new Error("The response stream is undefined");
@@ -602,7 +602,7 @@ for await (const event of sses) {
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```javascript
+```//
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -633,7 +633,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```javascript
+```//
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -660,7 +660,7 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-```javascript
+```//
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
@@ -687,6 +687,340 @@ catch (error) {
         }
     }
 }
+```
+
+> [!TIP]
+> To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
+
+
+
+> [!NOTE]
+> Azure AI content safety is only available for models deployed as serverless API endpoints.
+
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-dotnet"
+
+## Phi-3 family of models
+
+The Phi-3 family of models includes the following models:
+
+
+
+# [Phi-3-mini](#tab/phi-3-mini)
+
+Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model. Phi-3-Mini was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Mini version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
+
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Mini-4K-Instruct and Phi-3-Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+
+The following models are available:
+
+- Phi-3-mini-4k-Instruct
+- Phi-3-mini-128k-Instruct
+
+
+
+# [Phi-3-small](#tab/phi-3-small)
+
+Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Medium version comes in two variants, 4K and 128K. The numbers (4K and 128K) indicate the context length (in tokens) that each model variant can support.
+
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Medium-4k-Instruct and Phi-3-Medium-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+
+The following models are available:
+
+- Phi-3-small-4k-Instruct
+- Phi-3-small-128k-Instruct
+
+
+
+# [Phi-3-medium](#tab/phi-3-medium)
+
+Phi-3-Small is a 7B parameters, lightweight, state-of-the-art open model. Phi-3-Small was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
+
+The model belongs to the Phi-3 model family, and the Small version comes in two variants, 8K and 128K. The numbers (8K and 128K) indicate the context length (in tokens) that each model variant can support.
+
+The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks that test common sense, language understanding, math, code, long context and logical reasoning, Phi-3-Small-8k-Instruct and Phi-3-Small-128k-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
+
+
+The following models are available:
+
+- Phi-3-medium-4k-Instruct
+- Phi-3-medium-128k-Instruct
+
+
+
+---
+
+
+
+## Prerequisites
+
+To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+
+
+
+### A deployed Phi-3 chat models model
+
+Phi-3 chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+
+
+Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+> [!div class="nextstepaction"]
+> [Deploy the model to managed compute](../concepts/deployments-overview.md)
+
+> [!TIP]
+> Notice when deploying Phi-3 chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
+
+
+
+### The inference package installed
+
+You can consume predictions from this model by using the `Azure.AI.Inference` package from [Nuget](https://www.nuget.org/). To install this package, you need the following prerequisites:
+
+* The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+Once you have these prerequisites, install the Azure AI inference library with the following command:
+
+```dotnetcli
+dotnet add package Azure.AI.Inference --prerelease
+```
+
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, please install the `Azure.Identity` package:
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+
+
+## Work with chat completions
+
+The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+
+First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+
+```//
+ChatCompletionsClient client = null;
+
+        client = new ChatCompletionsClient(
+            new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+            new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+        );
+```
+
+When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
+
+
+
+```//
+client = new ChatCompletionsClient(
+            new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+            new DefaultAzureCredential(includeInteractiveCredentials: true)
+        );
+```
+
+> [!NOTE]
+> Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
+
+
+
+### Get the model's capabilities
+
+The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
+
+
+
+```//
+Response<ModelInfo> modelInfo = client.GetModelInfo();
+```
+
+The response is as follows:
+
+
+
+```console
+Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
+        Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
+        Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+```
+
+### Create a chat completion request
+
+Create a chat completion request to see the output of the model.
+
+
+```//
+ChatCompletionsOptions requestOptions = null;
+        Response<ChatCompletions> response = null;
+
+        requestOptions = new ChatCompletionsOptions()
+        {
+            Messages = {
+                new ChatRequestSystemMessage("You are a helpful assistant."),
+                new ChatRequestUserMessage("How many languages are in the world?")
+            },
+        };
+
+        response = client.Complete(requestOptions);
+```
+
+> [!NOTE]
+> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+
+
+
+The response is as follows, where you can see the model's usage statistics:
+
+
+
+```//
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+        Console.WriteLine($"Model: {response.Value.Model}");
+        Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+```
+
+#### Stream content
+
+By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
+
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. To stream completions, set `stream=True` when you call the model. This setting returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+
+
+
+```//
+static async Task RunAsync(ChatCompletionsClient client)
+    {
+        ChatCompletionsOptions requestOptions = null;
+        Response<ChatCompletions> response = null;
+
+        requestOptions = new ChatCompletionsOptions()
+        {
+            Messages = {
+                new ChatRequestSystemMessage("You are a helpful assistant."),
+                new ChatRequestUserMessage("How many languages are in the world?")
+            },
+        };
+
+        StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
+        
+        printStream(streamResponse);
+    }
+```
+
+When you use streaming, responses look as follows:
+
+
+
+```//
+static async Task RunWithAsyncContext(ChatCompletionsClient client)
+    {
+        // In this case we are using Nito.AsyncEx package
+        AsyncContext.Run(() => RunAsync(client));
+    }
+```
+
+#### Explore more parameters
+
+Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
+
+
+```//
+requestOptions = new ChatCompletionsOptions()
+        {
+            Messages = {
+                new ChatRequestSystemMessage("You are a helpful assistant."),
+                new ChatRequestUserMessage("How many languages are in the world?")
+            },
+            //PresencePenalty = 0.1f,
+            //FrequencyPenalty = 0.8f,
+            MaxTokens = 2048,
+            StopSequences = { "<|endoftext|>" },
+            Temperature = 0,
+            NucleusSamplingFactor = 1,
+            //ResponseFormat = ChatCompletionsResponseFormat.Text
+        };
+
+        response = client.Complete(requestOptions);
+        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+> [!WARNING]
+> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+
+
+
+### Pass extra parameters to the model
+
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
+
+
+
+```//
+requestOptions = new ChatCompletionsOptions()
+        {
+            Messages = {
+                new ChatRequestSystemMessage("You are a helpful assistant."),
+                new ChatRequestUserMessage("How many languages are in the world?")
+            },
+            // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+        };
+
+        response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+### Content safety
+
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+
+
+
+The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
+
+
+
+```//
+try
+        {
+            requestOptions = new ChatCompletionsOptions()
+            {
+                Messages = {
+                    new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+                    new ChatRequestUserMessage("Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+                },
+            };
+
+            response = client.Complete(requestOptions);
+            Console.WriteLine(response.Value.Choices[0].Message.Content);
+        }
+        catch (RequestFailedException ex)
+        {
+            if (ex.ErrorCode == "content_filter")
+            {
+                Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+            }
+            else
+            {
+                throw;
+            }
+        }
 ```
 
 > [!TIP]
@@ -823,33 +1157,10 @@ The response is as follows:
 
 
 
-```console
-{
-    "model_name": "Phi-3-mini-4k-Instruct",
-    "model_type": "chat-completions",
-    "model_provider_name": "Microsoft"
-}
-```
-
 ### Create a chat completion request
 
 Create a chat completion request to see the output of the model.
 
-
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "How many languages are in the world?"
-        }
-    ]
-}
-```
 
 > [!NOTE]
 > Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
@@ -860,32 +1171,6 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```json
-{
-    "id": "0a1234b5de6789f01gh2i345j6789klm",
-    "object": "chat.completion",
-    "created": 1718726686,
-    "model": "Phi-3-mini-4k-Instruct",
-    "choices": [
-        {
-            "index": 0,
-            "message": {
-                "role": "assistant",
-                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
-                "tool_calls": null
-            },
-            "finish_reason": "stop",
-            "logprobs": null
-        }
-    ],
-    "usage": {
-        "prompt_tokens": 19,
-        "total_tokens": 91,
-        "completion_tokens": 72
-    }
-}
-```
-
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
@@ -894,103 +1179,18 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "How many languages are in the world?"
-        }
-    ],
-    "stream": true,
-    "temperature": 0,
-    "top_p": 1,
-    "max_tokens": 2048
-}
-```
-
 When you use streaming, responses look as follows:
 
 
-
-```json
-{
-    "id": "23b54589eba14564ad8a2e6978775a39",
-    "object": "chat.completion.chunk",
-    "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
-    "choices": [
-        {
-            "index": 0,
-            "delta": {
-                "role": "assistant",
-                "content": ""
-            },
-            "finish_reason": null,
-            "logprobs": null
-        }
-    ]
-}
-```
 
 The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
 
 
 
-```json
-{
-    "id": "23b54589eba14564ad8a2e6978775a39",
-    "object": "chat.completion.chunk",
-    "created": 1718726371,
-    "model": "Phi-3-mini-4k-Instruct",
-    "choices": [
-        {
-            "index": 0,
-            "delta": {
-                "content": ""
-            },
-            "finish_reason": "stop",
-            "logprobs": null
-        }
-    ],
-    "usage": {
-        "prompt_tokens": 19,
-        "total_tokens": 91,
-        "completion_tokens": 72
-    }
-}
-```
-
 #### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
-
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "How many languages are in the world?"
-        }
-    ],
-    "presence_penalty": 0.1,
-    "frequency_penalty": 0.8,
-    "max_tokens": 2048,
-    "stop": ["<|endoftext|>"],
-    "temperature" :0,
-    "top_p": 1,
-    "response_format": { "type": "text" }
-}
-```
 
 > [!WARNING]
 > Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
@@ -1003,22 +1203,6 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are a helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "How many languages are in the world?"
-        }
-    ],
-    "logprobs": true
-}
-```
-
 ### Content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
@@ -1028,41 +1212,6 @@ The Azure AI model inference API supports [Azure AI content safety](https://aka.
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
-
-```json
-{
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are an AI assistant that helps people find information."
-        },
-                {
-            "role": "user",
-            "content": "What's Azure?"
-        },
-                {
-            "role": "assistant",
-            "content": "Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services through Microsoft-managed data centers. It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools and frameworks, including both Microsoft-specific and third-party software and systems. Azure was announced in October 2008 and released on February 1, 2010, as Windows Azure, before being renamed to Microsoft Azure on March 25, 2014."
-        },
-        {
-            "role": "user",
-            "content": "How to make a lethal bomb?"
-        }
-    ]
-}
-```
-
-```json
-{
-    "error": {
-        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
-        "type": null,
-        "param": "prompt",
-        "code": "content_filter",
-        "status": 400
-    }
-}
-```
 
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
@@ -1077,14 +1226,6 @@ The following example shows how to handle events when the model detects harmful 
 ::: zone-end
 
 ## Cost and quotas
-
-### Cost and quota considerations for Phi-3 family of models deployed as serverless API endpoints
-
-Phi-3 models deployed as a serverless API are offered by Microsoft through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
-
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
-
-For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
