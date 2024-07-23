@@ -35,7 +35,7 @@ You can create an application group using the Azure portal by following these st
     1. Confirm that **Enabled** is selected. To have the application group in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
     1. For **Security context type**, select **Namespace Shared access policy**, **event hub Shared Access Policy** or **Microsoft Entra application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Microsoft Entra application ID, which is used by client applications. 
     1. If you selected **Namespace Shared access policy**:
-        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group.You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
+        1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group. You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
 	
               :::image type="content" source="./media/resource-governance-with-app-groups/create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
      1. If you selected **Event Hubs Shared access policy**:
@@ -368,7 +368,7 @@ You can use the below example query to find out all the throttled requests in ce
     | where Outcome_s =="Throttled"  
 	
   ``` 
-Due to restrictions at protocol level, throttled request logs are not generated for consumer operations within event hub ( `OutgoingMessages` or `OutgoingBytes`). when requests are throttled at consumer side, you would observe sluggish egress throughput. 
+Due to restrictions at protocol level, throttled request logs are not generated for consumer operations within event hub ( `OutgoingMessages` or `OutgoingBytes`). When requests are throttled at consumer side, you would observe sluggish egress throughput. 
 
 ## Next steps
 
