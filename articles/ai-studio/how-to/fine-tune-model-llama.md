@@ -5,7 +5,7 @@ description: Learn how to fine-tune Meta Llama models in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 7/18/2024
+ms.date: 7/23/2024
 ms.reviewer: rasavage
 reviewer: shubhirajMsft
 ms.author: ssalgado
@@ -30,18 +30,18 @@ The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md
 
 The following models are available in Azure Marketplace for Llama 3.1 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Llama-3.1-80B-Instruct` (preview)
-- `LLama-3.1-8b-Instruct` (preview)
+- `Meta-Llama-3.1-80B-Instruct` (preview)
+- `Meta-LLama-3.1-8b-Instruct` (preview)
 ![IMPORTANT]
-> At this time we can not do fine-tuning for Llama 3.1 with context length of 128K. The current context length is limited to 65k.
+> At this time we are not able to do fine-tuning for Llama 3.1 with sequence length of 128K. 
 
 # [Meta Llama 2](#tab/llama-two)
 
 The following models are available in Azure Marketplace for Llama 2 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Llama-2-70b` (preview)
-- `Llama-2-13b` (preview)
-- `Llama-2-7b` (preview)
+- `Meta Llama-2-70b` (preview)
+- `Meta Llama-2-13b` (preview)
+- `Meta Llama-2-7b` (preview)
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
 
@@ -192,7 +192,7 @@ To fine-tune a LLama 3.1 model:
 1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.
 
     > [!NOTE]
-    > If the you has their training/validation files in a credential less datastore, they will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. That would be this setting on the "Datastore" page, after clicking "Update authentication" > Select the following option: 
+    > If you have your training/validation files in a credential less datastore, you will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. On the "Datastore" page, after clicking "Update authentication" > Select the following option: 
 	
 	![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](../media/how-to/fine-tune/llama/credentials.png)
 
