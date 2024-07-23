@@ -8,6 +8,8 @@ ms.reviewer: mmcc
 
 # Data Collection Basics of Azure Monitor Application Insights
 
+Before you can monitor your application, it needs to be instrumented.
+
 In the following sections, we cover some data collection basics of Azure Monitor Application Insights.
 
 ## Instrumentation Options
@@ -24,7 +26,7 @@ There are two methods to instrument your application:
 > [!TIP]
 > Currently, [Microsoft Entra authentication](azure-ad-authentication.md) is not available with autoinstrumentation. If you require Microsoft Entra auth, you'll need to use manual instrumentation.
 
-**Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. There are two options for manual instrumentation:
+**Manual instrumentation** is coding against the Application Insights or OpenTelemetry API. In the context of a user, it typically refers to installing a language-specific SDK in an application. This means that you have to manage the updates to the latest package version by yourself. You can use this option if you need to make custom dependency calls or API calls that are not captured by default with autoinstrumentation. There are two options for manual instrumentation:
 
 - [Application Insights SDKs](asp-net-core.md)
 - [Azure Monitor OpenTelemetry Distros](opentelemetry-enable.md).

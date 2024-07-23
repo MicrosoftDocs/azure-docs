@@ -3,8 +3,7 @@ title: Performance best practices for Oracle on Azure VMs
 description: Performance best practices for Oracle on Azure VMs - optimizing performance, dependability, and cost for your Oracle workloads on Azure VMs.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: oracle
 ms.topic: article
 ms.date: 06/13/2023
@@ -92,9 +91,8 @@ Snapshots can be cloned to provide read/write access to current data for test an
 
 ## Automate VMs and storage selection 
 
-Consider using Community tool [Oracle Migration Assistant Tool](https://github.com/Azure/Oracle-Workloads-for-Azure/tree/main/omat) (OMAT) to get the right VM SKUs with recommended storage options including disk types, Elastic SAN & ANF with indicative cost based on list price.  You can provide AWR report of the Oracle database as a input and run the OMT tool script to get an output of the recommended VM SKUs and storage options that aligns with the performance requirements of the database and is cost effective. 
+Consider using Community tool [Oracle Migration Assistant Tool (OMAT)](https://github.com/Azure/Oracle-Workloads-for-Azure/tree/main/omat) to get the right VM SKUs with recommended storage options including disk types, Elastic SAN & ANF with indicative cost based on list price.  You can provide AWR report of the Oracle database as a input and run the OMT tool script to get an output of the recommended VM SKUs and storage options that aligns with the performance requirements of the database and is cost effective. 
 
 ## Next steps
 - [Migrate Oracle workload to Azure VMs (IaaS)](oracle-migration.md)
 - [Partner storage offerings for Oracle on Azure VMs](oracle-third-party-storage.md)
-

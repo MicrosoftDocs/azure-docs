@@ -122,8 +122,32 @@ param initialPoolAgentOptions object = {}
 //   "hugepagesSize": "2M/1G"
 // }
 
-@description('The SSH public key that will be associated with the "azureuser" user for secure remote login')
-param sshPublicKey string = ''
+@description('The cluster wide SSH public key that will be associated with the given user for secure remote login')
+param sshPublicKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
+
+@description('The control plane SSH public key that will be associated with the given user for secure remote login')
+param controlPlaneSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
+
+@description('The agent pool SSH public key that will be associated with the given user for secure remote login')
+param agentPoolSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
 
 @description('The labels to assign to the nodes in the cluster for identification and organization')
 param labels array = []
@@ -157,16 +181,15 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
     }
     administratorConfiguration: {
       adminUsername: adminUsername
-      sshPublicKeys: [
-        {
-          keyData: sshPublicKey
-        }
-      ]
+      sshPublicKeys: empty(sshPublicKeys) ? [] : sshPublicKeys
     }
     initialAgentPoolConfigurations: [
       {
         name: '${kubernetesClusterName}-nodepool-1'
-        administratorConfiguration: {}
+        administratorConfiguration: {
+          adminUsername: adminUsername
+          sshPublicKeys: empty(agentPoolSshKeys) ? [] : agentPoolSshKeys
+        }
         count: systemPoolNodeCount
         vmSkuName: workerVmSkuName
         mode: 'System'
@@ -185,7 +208,10 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
       }
     ]
     controlPlaneNodeConfiguration: {
-      administratorConfiguration: {}
+      administratorConfiguration: {
+        adminUsername: adminUsername
+        sshPublicKeys: empty(controlPlaneSshKeys) ? [] : controlPlaneSshKeys
+      }
       count: controlPlaneCount
       vmSkuName: controlPlaneVmSkuName
       availabilityZones: empty(controlPlaneZones) ? null : controlPlaneZones

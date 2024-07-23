@@ -20,15 +20,15 @@ Alternatively, browse to the **Monitoring** blade in the left panel and select t
 
 :::image type="content" source="./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png" alt-text="Diagram that shows Stream Analytics job monitoring dashboard." lightbox="./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png":::
 
-There are 17 types of metrics provided by Azure Stream Analytics service. To learn about the details of them, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md).
+There are 17 types of metrics provided by Azure Stream Analytics service. To learn about the details of them, see [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics-descriptions).
 
-You can also use these metrics to [monitor the performance of your Stream Analytics job](./stream-analytics-job-metrics.md#scenarios-to-monitor). 
+You can also use these metrics to [monitor the performance of your Stream Analytics job](monitor-azure-stream-analytics.md#azure-stream-analytics-metrics).
 
 ## Operate and aggregate metrics in portal monitor
 
 There are several options available for you to operate and aggregate the metrics in portal monitor page. 
 
-To check the metrics data for a specific dimension, you can use **Add filter**. There are three important metrics dimensions available. To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md).
+To check the metrics data for a specific dimension, you can use **Add filter**. There are three important metrics dimensions available. To learn more about the metric dimensions, see [Azure Stream Analytics metrics dimensions](monitor-azure-stream-analytics-reference.md#metric-dimensions).
 
 :::image type="content" source="./media/stream-analytics-monitoring/03-stream-analytics-monitoring-filter.png" alt-text="Diagram that shows Stream Analytics job metrics filter." lightbox="./media/stream-analytics-monitoring/03-stream-analytics-monitoring-filter.png":::
 
@@ -50,8 +50,6 @@ For further assistance, try our [Microsoft Q&A question page for Azure Stream An
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
 * [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)

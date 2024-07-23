@@ -62,7 +62,6 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Geo-filtering | &check; | &check; | &check; | &check; | &check; | &check; |
 | Token authentication |  |  |  |  |  | &check; |
 | DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
-| DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
 | Domain Fronting Block | &check; | &check; | &check; | &check; | &check; | &check; |
 | **Analytics and reporting** | | | | | | |
 | Monitoring Metrics | &check; (more metrics than Classic) | &check; (more metrics than Classic) | &check; | &check; | &check; | &check; |
@@ -74,7 +73,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Management via REST API, .NET, de.js, or PowerShell | &check; | &check; | &check; | &check; | &check; | &check; |
 | Compression MIME types | Configurable | Configurable | Configurable | Configurable | Configurable | Configurable |
 | Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2, brotli |
-| Azure Policy integration |  |  | &check; |  |  |  |
+| Azure Policy integration | &check; | &check; | &check; |  |  |  |
 | Azure Advisory integration | &check; | &check; |  | &check; | &check; | &check; |
 | Managed Identities with Azure Key Vault | &check; | &check; |  |  |  |  |
 | **Pricing** | | | | | | |

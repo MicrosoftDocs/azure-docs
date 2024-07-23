@@ -43,7 +43,7 @@ To submit a batch synthesis request, construct the HTTP POST request body follow
 - Set the required `inputKind` property.
 - If the `inputKind` property is set to `PlainText`, you must also set the `voice` property in the `synthesisConfig`. In the example below, the `inputKind` is set to `SSML`, so the `speechSynthesis` isn't set.
 - Set the required `SynthesisId` property. Choose a unique `SynthesisId` for the same speech resource. The `SynthesisId` can be a string of 3 to 64 characters, including letters, numbers, '-', or '_', with the condition that it must start and end with a letter or number.
-- Set the required `talkingAvatarCharacter` and `talkingAvatarStyle` properties. You can find supported avatar characters and styles [here](./avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).
+- Set the required `talkingAvatarCharacter` and `talkingAvatarStyle` properties. You can find supported avatar characters and styles [here](./avatar-gestures-with-ssml.md#supported-prebuilt-avatar-characters-styles-and-gestures).
 - Optionally, you can set the `videoFormat`, `backgroundColor`, and other properties. For more information, see [batch synthesis properties](batch-synthesis-avatar-properties.md).
 
 > [!NOTE]

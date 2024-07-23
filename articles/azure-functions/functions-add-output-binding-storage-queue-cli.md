@@ -5,7 +5,7 @@ ms.date: 04/25/2024
 ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 

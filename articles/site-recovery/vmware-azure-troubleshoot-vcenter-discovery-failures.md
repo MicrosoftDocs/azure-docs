@@ -55,7 +55,7 @@ Use the PsExec tool to access the System user context and determine whether the 
 
 For Discovery proxy configuration:
 
-1. Open IE in system user context using the PsExec tool.
+1. Open Internet Explorer in system user context using the PsExec tool.
     
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 

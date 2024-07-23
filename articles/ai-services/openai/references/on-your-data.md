@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI On Your Data Python & REST API.
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 07/18/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -14,7 +14,7 @@ ms.custom: devx-track-python
 
 # Azure OpenAI On Your Data API Reference
 
-This article provides reference documentation for Python and REST for the new Azure OpenAI On Your Data API. The latest API version is `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
+This article provides reference documentation for Python and REST for the new Azure OpenAI On Your Data API. The latest API version is `2024-05-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-05-01-preview).
 
 > [!NOTE]
 > Since API version `2024-02-15-preview` we introduced the following breaking changes comparing to earlier API versions:
@@ -30,9 +30,10 @@ POST {endpoint}/openai/deployments/{deployment-id}/chat/completions?api-version=
 **Supported versions**
 * `2024-02-15-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-02-15-preview/inference.json).
 * `2024-02-01` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01).
+* `2024-05-01-preview` [Swagger spec](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2024-05-01-preview)
 
 > [!NOTE]
-> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are only supported in the `2024-02-15-preview` API version as a preview.
+> [Azure Machine learning indexes](./azure-machine-learning.md), [Pinecone](./pinecone.md), and [Elasticsearch](./elasticsearch.md) are supported as a preview.
 
 ## URI parameters
 
@@ -48,7 +49,7 @@ The request body inherits the same schema of chat completions API request. This 
 
 |Name | Type | Required | Description |
 |--- | --- | --- | --- |
-| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data.|
+| `data_sources` | [DataSource](#data-source)[] | True | The configuration entries for Azure OpenAI On Your Data. There must be exactly one element in the array. If `data_sources` is not provided, the service uses chat completions model directly, and does not use Azure OpenAI On Your Data. When you specify the `data_sources` parameter, you won't be able to to use the `logprobs` or `top_logprobs` parameters. |
 
 ## Response body
 
@@ -67,6 +68,8 @@ The response assistant message schema inherits from the chat completions assista
 |--- | --- | --- | --- |
 | `citations` | [Citation](#citation)[] | False | The data source retrieval result, used to generate the assistant message in the response. Clients can render references from the citations. |
 | `intent` | string | False | The detected intent from the chat history. Passing back the previous intent is no longer needed. Ignore this property. |
+| `all_retrieved_documents` | [Retrieved documents](#retrieved-documents)[] | False | All the retrieved documents. |
+
 
 ## Citation
 
@@ -77,6 +80,16 @@ The response assistant message schema inherits from the chat completions assista
 | `url` | string | False | The URL of the citation.|
 | `filepath` | string | False | The file path of the citation.|
 | `chunk_id` | string | False | The chunk ID of the citation.|
+
+## Retrieved documents
+
+|Name | Type | Required | Description |
+|--- | --- | --- | --- |
+| `search_queries` | string[] | True | The search queries used to retrieve the document. |
+| `data_source_index` | integer | True | The index of the data source. |
+| `original_search_score` | double | True | The original search score of the retrieved document. |
+| `rerank_score` | double | False | The rerank score of the retrieved document. |
+| `filter_reason` | string | False | Represents the rationale for filtering the document. If the document does not undergo filtering, this field will remain unset. Will be `score` if the document is filtered by original search score threshold defined by `strictness`. Will be `rerank` if the document is not filtered by original search score threshold, but is filtered by rerank score and `top_n_documents`. |
 
 ## Data source
 
@@ -124,7 +137,7 @@ token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://co
 client = AzureOpenAI(
     azure_endpoint=endpoint,
     azure_ad_token_provider=token_provider,
-    api_version="2024-02-01",
+    api_version="2024-05-01-preview",
 )
 
 completion = client.chat.completions.create(
@@ -161,13 +174,27 @@ completion = client.chat.completions.create(
 
 print(completion.model_dump_json(indent=2))
 
+# render the citations
+
+content = completion.choices[0].message.content
+context = completion.choices[0].message.context
+for citation_index, citation in enumerate(context["citations"]):
+    citation_reference = f"[doc{citation_index + 1}]"
+    url = "https://example.com/?redirect=" + citation["url"] # replace with actual host and encode the URL
+    filepath = citation["filepath"]
+    title = citation["title"]
+    snippet = citation["content"]
+    chunk_id = citation["chunk_id"]
+    replaced_html = f"<a href='{url}' title='{title}\n{snippet}''>(See from file {filepath}, Part {chunk_id})</a>"
+    content = content.replace(citation_reference, replaced_html)
+print(content)
 ```
 
 # [REST](#tab/rest)
 
 ```bash
 az rest --method POST \
- --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-02-01 \
+ --uri $AzureOpenAIEndpoint/openai/deployments/$ChatCompletionsDeploymentName/chat/completions?api-version=2024-05-01-preview \
  --resource https://cognitiveservices.azure.com/ \
  --body \
 '

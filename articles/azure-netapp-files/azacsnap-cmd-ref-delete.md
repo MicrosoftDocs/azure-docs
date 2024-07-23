@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 01/18/2023
+ms.date: 06/10/2024
 ms.author: phjensen
 ---
 
@@ -32,6 +32,9 @@ The `-c delete` command has the following options:
 
 - `--delete sync` when used with options `--dbsid <SID>` and `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
+  > [!IMPORTANT]
+  > In case the `anfBackup` option is configured in the AzAcSnap JSON configuration file, then for the `--snapshot <snapshot name>` the volume portion of the snapshot name must not be provided!
+
 - `[--force]` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
 
 - `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
@@ -48,7 +51,7 @@ gets the storage snapshot name and deletes both the entry in the backup catalog
 and the snapshot from all of the volumes containing the named snapshot.
 
 ```bash
-azacsnap -c delete --delete sync --snapshot hana_hourly.2020-01-22_2358
+azacsnap -c delete --delete sync --dbsid H80 --snapshot hana_hourly.2020-01-22_2358
 ```
 
 > [!NOTE]

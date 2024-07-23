@@ -1,11 +1,11 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-author: MaryMichael-MS
-ms.author: v-michaelar
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 03/06/2024
+ms.date: 05/22/2024
 ms.custom: engagement-fy24
 ---
 
@@ -23,32 +23,6 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 **Software inventory** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the server level. We don't yet offer app, role, or feature-based assessments.
 **Assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate: Discovery and assessment, Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
 **Migration** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using the Migration and modernization tool and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
-
-> [!NOTE]
-> Currently, ISV tools can't send data to Azure Migrate in Azure Government. You can use integrated Microsoft tools, or use partner tools independently.
-
-## Supported tools
-
-Specific tool support is summarized in the table.
-
-**Tool** | **Assess** | **Migrate**
---- | --- | ---
-Azure Migrate: Discovery and assessment | Assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), and [physical servers](./tutorial-discover-physical.md). |  Not available (N/A)
-Migration and modernization | N/A | Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/A | Migrate VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads.
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
-[CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454)| Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
-[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Assess VMware VMs, Hyper-V VMs, physical server sand other cloud workloads. |  Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.
-[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads.| N/A
-[DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
-[DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB.
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
-[Movere](/movere/overview) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical servers, workstations (including VDI) and other cloud workloads. | N/A
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/A | Migrate VMware VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical servers, and other cloud workloads
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers and other cloud workloads, and SQL Server databases. | N/A
-[Webapp Migration Assistant](https://appmigration.microsoft.com/) | Assess web apps | Migrate web apps.
-[Zerto](https://go.microsoft.com/fwlink/?linkid=2157322) | N/A |  Migrate VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads.
 
 ## Project
 

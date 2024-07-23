@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph alerts sample queries
 description: Sample queries that can be used to create alerts for your Azure resources using an Azure Resource Graph query and a Log Analytics workspace.
-ms.date: 03/20/2024
+ms.date: 06/18/2024
 ms.topic: sample
 ---
 

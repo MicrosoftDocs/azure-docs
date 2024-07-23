@@ -3,7 +3,7 @@ title: Configure MQ diagnostics service
 description: How to configure the Azure IoT MQ diagnostics service to create a Prometheus endpoint, and monitor the health of the system.
 author: kgremban
 ms.author: kgremban
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

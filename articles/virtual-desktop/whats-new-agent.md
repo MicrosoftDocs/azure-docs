@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
-author: Heidilohr
+author: sipastak
 ms.topic: release-notes
-ms.date: 05/07/2024
-ms.author: helohr
+ms.date: 07/15/2024
+ms.author: sipastak
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
@@ -26,13 +26,53 @@ A rollout may take several weeks before the agent is available in all environmen
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.8431.2300 |
-| Validation | 1.0.8804.1400  |
+| Production | 1.0.9103.3700 |
+| Validation | 1.0.9103.5000 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.8804.1400 (validation)
+## Version 1.0.9103.5000 (validation) 
+
+*Published: July 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.3800 
+
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.3700  
+
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.2300 
+
+*Published: June 2024*  
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.1000 
+
+*Published: May 2024*
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.8804.1400
 
 *Published: April 2024*
 
@@ -48,13 +88,13 @@ In this update, we've made the following changes:
 
 *Published: April 2024*
 
-In this update, we made the following changes:
+In this update, we've made the following changes:
 
 - Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
 
 - General improvements and bug fixes. 
 
-## Version 1.0.8431.1500 (validation)
+## Version 1.0.8431.1500
 
 *Published: March 2024*
 

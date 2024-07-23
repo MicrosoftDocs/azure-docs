@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 * Communicate between VMs
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -166,7 +166,7 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 
 Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

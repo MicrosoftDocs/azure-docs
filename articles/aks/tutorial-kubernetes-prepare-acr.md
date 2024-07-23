@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Create an Azure Container Registry and build images
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload sample application container images.
 ms.topic: tutorial
-ms.date: 11/28/2023
+ms.date: 06/10/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -69,6 +69,9 @@ Before creating an ACR instance, you need a resource group. An Azure resource gr
 2. Create an ACR instance using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet and provide your own unique registry name. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. The rest of this tutorial uses an environment variable, `$ACRNAME`, as a placeholder for the container registry name. You can set this environment variable to your unique ACR name to use in future commands. The *Basic* SKU is a cost-optimized entry point for development purposes that provides a balance of storage and throughput.
 
     ```azurepowershell-interactive
+    $rand=New-Object System.Random
+    $RAND=$rand.Next()
+    $ACRNAME="myregistry$RAND" # Or replace with your own name
     New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name $ACRNAME -Location eastus -Sku Basic
     ```
 

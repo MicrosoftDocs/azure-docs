@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 04/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -41,9 +41,11 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
-- Currently, AKS clusters using a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- Currently, AKS clusters using a service principal aren't supported. If your AKS cluster uses a service principal for authorization, you can update the cluster to use a [system-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
-- You can deploy the Backup Extension in the Ubuntu-based cluster nodes. AKS Clusters with the Windows-based nodes aren't supported by Azure Backup for AKS.
+- You can only install the Backup Extension on agent nodes with Ubuntu and Azure Linux as Operating System. AKS Clusters with Windows based agent nodes do not allow Backup Extension installation.
+
+- You cannot install Backup Extension in AKS Cluster with ARM64 based agent nodes irrespective of Operating System (Ubuntu/Azure Linux/Windows) running on these nodes.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
@@ -59,6 +61,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - For successful backup and restore operations, the Backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 
+- Backup vault does not support Azure Lighthouse. Thus, cross tenant management cannot be enabled by Lighthouse for Azure Backup for AKS and you cannot backup/restore AKS Clusters across tenant.
+
 - Here are the AKS backup limits:
 
   | Setting | Limit |
@@ -67,6 +71,8 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
+
+- Configuration of a storage account with private endpoint is supported.
 
 ### Additional limitations for Vaulted backup and Cross Region Restore (preview)
 

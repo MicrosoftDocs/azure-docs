@@ -138,7 +138,7 @@ After logging is turned on, you can determine if the 403 is due to access policy
 
 "Client address (00.00.00.00) is not authorized and caller is not a trusted service"
 
-There is a limited list of "Azure Trusted Services". Azure Web Sites are **not** a Trusted Azure Service. For more information, see the blog post [Key Vault Firewall access by Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
+There is a limited list of "Azure Trusted Services". Azure Web Sites are **not** a Trusted Azure Service. For more information, see the blog post [Trusted services](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 

@@ -38,7 +38,7 @@ This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/identity-detect-faces.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* The [tutorials](./Tutorials/liveness.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 For a more structured approach, follow a Training module for Face.
 * [Detect and analyze faces with the Face service](/training/modules/detect-analyze-faces/)
@@ -91,6 +91,7 @@ Concepts
 Face liveness SDK reference docs:
 - [Java (Android)](https://aka.ms/liveness-sdk-java)
 - [Swift (iOS)](https://aka.ms/liveness-sdk-ios)
+- [JavaScript (Web)](https://aka.ms/liveness-sdk-web)
 
 ## Face recognition
 
@@ -131,7 +132,7 @@ And these images are the candidate faces:
 
 ![Five images of people smiling. Images A and B show the same person.](./media/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) reference documentation.
+To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar) reference documentation.
 
 ## Group faces
 

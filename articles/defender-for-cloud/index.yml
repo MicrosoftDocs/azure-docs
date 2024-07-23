@@ -6,7 +6,7 @@ summary: Microsoft Defender for Cloud provides unified security management and a
 metadata:
   title: Microsoft Defender for Cloud documentation
   description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials.
-  author: elkrieger
+  author: ElazarK
   ms.author: elkrieger
   manager: raynew
   ms.topic: landing-page
@@ -90,10 +90,6 @@ landingContent:
   # Card
   - title: Defend multicloud resources
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Use Defender for Cloud to protect multicloud resources
-            url: multicloud.yml
       - linkListType: video
         links:
           - text: Protecting multicloud environments (AWS & GCP)

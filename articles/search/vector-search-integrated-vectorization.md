@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 06/11/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
 
 > [!IMPORTANT] 
-> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) provides this feature.
+> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs provide this feature.
 
 Integrated vectorization is an extension of the indexing and query pipelines in Azure AI Search. It adds the following capabilities:
 
@@ -62,9 +62,9 @@ The diagram focuses on integrated vectorization, but your solution isn't limited
 
 ## Availability and pricing
 
-Integrated vectorization is available in all regions and tiers. However, if you're using Azure OpenAI and the AzureOpenAIEmbedding skill, check [regional availability]( https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services) of that service.
+Integrated vectorization is available in all regions and tiers. However, if you're using Azure OpenAI and Azure AI skills and vectorizers, make sure your Azure AI multi-service account is [available in the same regions as Azure AI Search](search-region-support.md).
 
-If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) for feature availability. 
+If you're using a custom skill and an Azure hosting mechanism (such as an Azure function app, Azure Web App, and Azure Kubernetes), check the [Azure product by region page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search) for feature availability. 
 
 Data chunking (Text Split skill) is free and available on all Azure AI services in all regions.
 
@@ -102,8 +102,18 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 > [!TIP]
 > [Try the new **Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to explore integrated vectorization before writing any code.
->
-> Or, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+
+### Secure connections to vectorizers and models
+
+If your architecture requires private connections that bypass the internet, you can create a [shared private link connection](search-indexer-howto-access-private.md) to the embedding models used by skills during indexing and vectorizers at query time. 
+
+Shared private links only work for Azure-to-Azure connections. If you're connecting to OpenAI or another external model, the connection must be over the public internet.
+
+For vectorization scenarios, you would use:
+
++ `openai_account` for embedding models hosted on an Azure OpenAI resource.
+
++ `sites` for embedding models accessed as a [custom skill](cognitive-search-custom-skill-interface.md) or [custom vectorizer](vector-search-vectorizer-custom-web-api.md). The `sites` group ID is for App services and Azure functions, which you could use to host an embedding model that isn't one of the Azure OpenAI embedding models.
 
 ## Limitations
 
@@ -115,8 +125,7 @@ On Azure AI Search, remember there are [service limits](search-limits-quotas-cap
 
 Finally, the following features aren't currently supported: 
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
-+ [Shared private link connections](search-indexer-howto-access-private.md) to a vectorizer
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) are not supported for vectorizer configuration.
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 
