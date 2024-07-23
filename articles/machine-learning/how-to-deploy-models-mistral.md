@@ -19,7 +19,7 @@ In this article, you learn how to use Azure Machine Learning studio to deploy th
 
 Mistral AI offers two categories of models in Azure Machine Learning studio. These models are available in the [model catalog](concept-model-catalog.md).
 
-* __Premium models__: Mistral Large, Mistral Large 2407, and Mistral Small. 
+* __Premium models__: Mistral Large (2402), Mistral Large (2407), and Mistral Small. 
 * __Open models__: Mistral Nemo, Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. 
 
 All the premium models and Mistral Nemo (an open model) can be deployed as serverless APIs with pay-as-you-go token-based billing. The other open models can be deployed to managed computes in your own Azure subscription.
@@ -32,17 +32,17 @@ You can browse the Mistral family of models in the model catalog by filtering on
 
 Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities. There are two variants available for the Mistral Large model version:
 
-- Mistral Large
-- Mistral Large 2407
+- Mistral Large (2402)
+- Mistral Large (2407)
 
-Additionally, some attributes of _Mistral Large_ include:
+Additionally, some attributes of _Mistral Large (2402)_ include:
 
 - __Specialized in RAG.__ Crucial information isn't lost in the middle of long context windows (up to 32 K tokens).
 - __Strong in coding.__ Code generation, review, and comments. Supports all mainstream coding languages.
 - __Multi-lingual by design.__ Best-in-class performance in French, German, Spanish, and Italian - in addition to English. Dozens of other languages are supported.
 - __Responsible AI compliant.__ Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
 
-And attributes of _Mistral Large 2407_ include:
+And attributes of _Mistral Large (2407)_ include:
 
 - **Multi-lingual by design.** Supports dozens of languages, including English, French, German, Spanish, and Italian.
 - **Proficient in coding.** Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
@@ -84,7 +84,7 @@ Additionally, Mistral Nemo is:
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large**, **Mistral Large 2407**, **Mistral Small**, and **Mistral Nemo** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+**Mistral Large (2402)**, **Mistral Large (2407)**, **Mistral Small**, and **Mistral Nemo** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
 
 
 ### Prerequisites
@@ -106,13 +106,13 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ### Create a new deployment
 
-The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy Mistral Nemo or any of the premium Mistral models by replacing the model name.
+The following steps demonstrate the deployment of Mistral Large (2402), but you can use the same steps to deploy Mistral Nemo or any of the premium Mistral models by replacing the model name.
 
 To create a deployment:
 
 1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
 1. Select the workspace in which you want to deploy your model. To use the serverless API model deployment offering, your workspace must belong to one of the regions listed in the [prerequisites](#prerequisites).
-1. Choose the model you want to deploy, for example Mistral-large, from the [model catalog](https://ml.azure.com/model/catalog).
+1. Choose the model you want to deploy, for example the Mistral Large (2402) model, from the [model catalog](https://ml.azure.com/model/catalog).
 
    Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
 
@@ -123,7 +123,7 @@ To create a deployment:
 
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. 
 1. You can also select the **Pricing and terms** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (for example, Mistral-large). This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a workspace.
+1. If this is your first time deploying the model in the workspace, you have to subscribe your workspace for the particular offering (for example, Mistral Large (2402)). This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a workspace.
 
 1. Once you subscribe the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. If this scenario applies to you, you'll see a **Continue to deploy** option to select.
 
@@ -142,7 +142,7 @@ To learn about billing for Mistral models deployed as a serverless API with pay-
 
 ### Consume the Mistral family of models as a service
 
-You can consume Mistral Large by using the chat API.
+You can consume Mistral Large models by using the chat API.
 
 1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
 1. Find and select the deployment you created.
