@@ -80,13 +80,13 @@ If your network infrastructure uses the [hub and spoke network architecture](htt
 
 The following sections explain how to enable central DNS resolution for Azure Storage blobs by using [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview). The same principles apply to Azure Storage files and other Azure services that support private link.
 
-### Create private DNS zones
+### Create private DNS zone
 
-Create private DNS zones in the central connectivity subscription. In this case, we create `privatelink.blob.core.windows.net` private DNS zone in the connectivity subscription. For more information, see [Azure Private Endpoint DNS configuration](https://learn.microsoft.com/azure/private-link/private-endpoint-dns).
+Create private DNS zone in the central connectivity subscription. In this case, we create `privatelink.blob.core.windows.net` private DNS zone in the connectivity subscription. For more information, see [Azure Private Endpoint DNS configuration](https://learn.microsoft.com/azure/private-link/private-endpoint-dns).
 
-### Policy definitions
+### Policy definition
 
-In addition to the private DNS zones, we also need to [create a set of custom Azure Policy definitions](https://learn.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition). These definitions automatically create the required DNS record in the central private DNS zone when private endpoints are created.
+In addition to the private DNS zone, we also need to [create a custom Azure Policy definition](https://learn.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition). This definition automatically creates the required DNS record in the central private DNS zone when private endpoint is created.
 
 The following policy triggers when you create a private endpoint resource with a service-specific `groupId`. The `groupId` is the ID of the group obtained from the remote resource (service) that this private endpoint should connect to. In this example, the `groupId` for Azure Storage blobs is `blob`. For more information on the `groupId` for other Azure services, see [Azure Private Endpoint DNS configuration](https://learn.microsoft.com/azure/private-link/private-endpoint-dns), under the `Subresource` column.
 
@@ -194,7 +194,7 @@ The policy then triggers a deployment of a `privateDNSZoneGroup` within the priv
 
 ### Policy assignment
 
-After deploying the policy definitions, assign the policies at the desired scope and specify the private DNS zone as a parameter. When enabling (or disabling) private storage access feature, the DNS records for private endpoints will be automatically registered (and removed once a private endpoint is deleted) from the corresponding private DNS zone.
+After deploying the policy definition, assign the policy at the desired scope and specify the central private DNS zone as the parameter. When enabling (or disabling) private storage access feature, the DNS records for private endpoints will be automatically registered (and removed once a private endpoint is deleted) from the corresponding private DNS zone.
 
 ## Extra costs
 
