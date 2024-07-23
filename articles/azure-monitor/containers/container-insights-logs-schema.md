@@ -57,8 +57,23 @@ resources
 | order by tolower(name) asc
 ```
 
-## Enable Kubernetes metadata
-When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` called `KubernetesMetadata` that enhances troubleshooting with simple log queries and removes the need for joining with other tables. The fields in this column include: `PodLabels`, `PodAnnotations`, `PodUid`, `Image`, `ImageID`, `ImageRepo`, `ImageTag`.
+## Kubernetes metadata and logs filtering
+Kubernetes metadata and logs filtering enhances the ContainerLogsV2 schema with additional Kubernetes metadata. The logs filtering feature provides filtering capabilities for both workload and platform  containers. These features give you richer context and improved visibility into your workloads.
+
+### Features
+
+- **Enhanced ContainerLogV2 schema**
+    When Kubernetes Logs Metadata is enabled, it adds a column to `ContainerLogV2` called `KubernetesMetadata` that enhances troubleshooting with simple log queries and removes the need for joining with other tables. The fields in this column include: `PodLabels`, `PodAnnotations`, `PodUid`, `Image`, `ImageID`, `ImageRepo`, `ImageTag`. These fields enhance the troubleshooting experience using log queries without having to join with other tables.
+- **Log level**
+    This feature adds a `LogLevel` column to ContainerLogV2 with the possible values **critical**, **error**, **warning**, **info**, **debug**, **trace**, or **unknown**. This helps you assess application health based on severity level. Adding the Grafana dashboard, you can visualize the log level trends over time and quickly pinpoint affected resources.
+- **Grafana dashboard for visualization**
+    The Grafana dashboard provides a color-coded visualization of the **log level** and also provides insights into Log Volume, Log Rate, Log Records, Logs. You can get time-sensitive analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. The dashboard also provides a detailed breakdown by computer, pod, and container, which empowers in-depth analysis and pinpointed troubleshooting. 
+- **Annotation based log filtering for workloads**
+    Efficient log filtering through pod annotations. This allows you to focus on relevant information without sifting through noise. Annotation-based filtering enables you to exclude log collection for certain pods and containers by annotating the pod, which would help reduce the log analytics cost significantly. See [Annotation-based log filtering](./container-insights-logs-schema.md#annotation-based-log-filtering) for details on configuring annotation based filtering.
+- **ConfigMap based log filtering for platform logs (System Kubernetes Namespaces)**
+    Platform logs are emitted by containers in the system (or similar restricted) namespaces. By default, all the container logs from the system namespace are excluded to minimize the cost of data in your Log Analytics workspace. In specific troubleshooting scenarios though, container logs of system container play a crucial role. One example is the `coredns` container in the `kube-system` namespace.
+
+### Enable Kubernetes metadata
 
 > [!IMPORTANT]
 > Collection of Kubernetes metadata requires [managed identity authentication](./container-insights-authentication.md#migrate-to-managed-identity-authentication) and [ContainerLogsV2](./container-insights-logs-schema.md)
@@ -77,7 +92,7 @@ After a few minutes, the `KubernetesMetadata` column should be included with any
 
 :::image type="content" source="./media/container-insights-logging-v2/container-log-v2.png" lightbox="./media/container-insights-logging-v2/container-log-v2.png" alt-text="Screenshot that shows containerlogv2." border="false":::
 
-## Install Grafana dashboard
+### Install Grafana dashboard
 The Kubernetes Logs Metadata Grafana dashboard displays color-coded visualizations of log levels ranging from CRITICAL to UNKNOWN and also reports on Log Volume, Log Rate, Log Records, Logs. You can get time-sensitive analysis, dynamic insights into log level trends over time, and crucial real-time monitoring. It also provides a detailed breakdown by computer, pod, and container, which enables in-depth analysis and pinpointed troubleshooting.​ By visually distinguishing severity levels, you can quickly pinpoint affected resources, view in depth details, and zoom into critical details. 
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=15c1c297-9e96-47bf-a31e-76056d026bd1]
