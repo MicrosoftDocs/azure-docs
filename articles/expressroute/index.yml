@@ -173,7 +173,7 @@ landingContent:
             url: /rest/api/expressroute
       - linkListType: architecture
         links:
-          - text: Reference Architecutre for Hybrid Networking
+          - text: Reference Architecture for Hybrid Networking
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Reference Architecture for Hybrid Networking with VPN Failover
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover
