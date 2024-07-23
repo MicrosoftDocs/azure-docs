@@ -2919,6 +2919,8 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
+  - id: v1
+    title: "1.0"
   - id: v23-10
     title: "2023-10-01"  
   - id: v23-11
