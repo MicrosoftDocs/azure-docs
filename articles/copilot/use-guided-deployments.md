@@ -33,7 +33,7 @@ Copilot in Azure can help you deploy an NGINX web server, Azure MySQL Flexible S
 
 ### LEMP stack example
 
-You can say "**I want to deploy a LEMP stack on a Ubuntu VM**". Copilot in Azure checks for deployment experiences, and presents you with two deployment options: **Guided** or **Quickick**.
+You can say "**I want to deploy a LEMP stack on a Ubuntu VM**". Copilot in Azure checks for deployment experiences, and presents you with two deployment options: **Guided deployment** or **Quick deployment**.
 
 :::image type="content" source="media/use-guided-deployments/lemp-stack-deployment.png" alt-text="Screenshot showing Copilot in Azure presenting deployment options for a LEMP stack on Ubuntu.":::
 
