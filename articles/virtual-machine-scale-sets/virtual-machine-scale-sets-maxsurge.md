@@ -34,6 +34,11 @@ Rolling upgrades with MaxSurge can help improve service uptime during upgrade ev
 |**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale set that show as failed or unhealthy when a rolling upgrade begins, the scale set updates those instances first. |
 |**Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. |
 
+## Considerations
+
+When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. Additionally, these new virtual machines will have new IP addresses and be placed into an existing subnet. You also need to have enough IP address quota and subnet space available to deploy these newly created virtual machines. 
+
+During the rolling upgrade processes, Azure performs a quota check before each new batch. If that quota check fails, the rolling upgrade will be canceled. You can restart a rolling upgrade by making a new change to the scale set model or triggering a generic model update. For more information, see [restart a rolling upgrade](virtual-machine-scale-sets-configure-rolling-upgrades.md#restart-a-rolling-upgrade)
 
 ## MaxSurge vs in place upgrades
 
@@ -123,15 +128,6 @@ Yes. All upgrade policies including rolling upgrades with MaxSurge are generally
 
 ### Is MaxSurge generally available for Virtual Machine Scale Sets with Flexible Orchestration? 
 No. All upgrade policies including rolling upgrades with MaxSurge are in Public Preview for Virtual Machine Scale Sets with Flexible Orchestration. 
-
-### Do MaxSurge upgrades require more quota? 
-Yes. When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. 
-
-### Do MaxSurge upgrades require additional IP addresses? 
-Yes. These newly created virtual machines have new IP addresses and count towards your total allowed IP addresses available per your subscription. 
-
-### Do MaxSurge upgrades require additional subnet space? 
-Yes. These newly created virtual machines have new IP addresses and there needs to be enough space available in the specified subnet to be added.
 
 ### What triggers a MaxSurge upgrade? 
 Any changes that result in an update to the scale set model result in a MaxSurge upgrade. This includes upgrades that generally don't require a restart such as adding Data Disks. 
