@@ -23,7 +23,7 @@ In Azure AI Studio, you can leverage Distillation to efficiently train the stude
 
 ## Distillation
 
-In machine learning, distillation is a technique used to transfer knowledge from a large, complex model (often called the “teacher model”) to a smaller, simpler model (the “student model”). This process helps the smaller model achieve similar performance to the larger one while being more efficient in terms of computation and memory usage12.
+In machine learning, distillation is a technique used to transfer knowledge from a large, complex model (often called the “teacher model”) to a smaller, simpler model (the “student model”). This process helps the smaller model achieve similar performance to the larger one while being more efficient in terms of computation and memory usage.
 
 The main steps in knowledge distillation involve:
 
