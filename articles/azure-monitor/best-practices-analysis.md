@@ -147,6 +147,9 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 | Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                          |
 | Dashboard playlists/rotation                                                    |                                                                    | ✅                                          |
 
+✅ Supported
+☑️ Supported with requirements/limitations
+
 ## Other options
 
 Some Azure Monitor partners provide visualization functionality. An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions might have an extra cost.
