@@ -121,9 +121,9 @@ Please note for fine-tuning Azure OpenAI models, you must add a connection to an
 
 ### Llama 2 family models
 The following Llama 2 family models are supported in Azure AI Studio for fine-tuning:
-- `Llama-2-70b`
-- `Llama-2-7b`
-- `Llama-2-13b`
+- `Meta-Llama-2-70b`
+- `Meta-Llama-2-7b`
+- `Meta-Llama-2-13b`
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
 
