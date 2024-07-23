@@ -96,18 +96,12 @@ The following table summarizes the resulting redundancy configuration at every s
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
-> - Australia East
-> - Central US
+> - France Central 
+> - France South 
+> - India Central 
+> - India West 
 > - East Asia
-> - East US 2
-> - France Central
-> - India Central
-> - India West
-> - Southeast Asia
-> - Switzerland North
-> - Switzerland West
-> - UK South
-> - West Europe
+> - Southeast Asia 
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > 
@@ -115,11 +109,7 @@ The following table summarizes the resulting redundancy configuration at every s
 
 [!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
 
-There are many scenarios for which planned failover is ideal. These scenarios include: 
-
-- Disaster recovery (DR) planning and testing.
-- Recovery during an outage that doesn't affect your primary region's storage service endpoints, but prevents another service from providing access to your workloads.
-- To proactively prepare for large-scale disasters, such as a hurricane, that may impact a region.
+Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
 
 During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
@@ -167,12 +157,12 @@ Microsoft may initiate a regional failover in extreme circumstances, such as a c
 
 > [!IMPORTANT]
 > Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
-> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover-preview).
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region or a datacenter. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover-preview).
 
 ### Anticipate data loss and inconsistencies
 
 > [!CAUTION]
-> Customer-managed (unplanned) failover usually involves some amount data loss, and can also potentially introduce file and data inconsistencies. In your disaster recovery plan, it's important to consider the impact that an account failover would have on your data before initiating one.
+> Customer-managed unplanned failover usually involves some amount of data loss, and can also potentially introduce file and data inconsistencies. In your disaster recovery plan, it's important to consider the impact that an account failover would have on your data before initiating one.
 
 Because data is written asynchronously from the primary region to the secondary region, there's always a delay before a write to the primary region is copied to the secondary. If the primary region becomes unavailable, it's possible that the most recent writes might not yet be copied to the secondary.
 
