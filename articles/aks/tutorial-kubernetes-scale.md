@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
-ms.date: 03/05/2023
+ms.date: 06/10/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -160,18 +160,24 @@ The following example increases the number of nodes to three in the Kubernetes c
     Once the cluster successfully scales, your output will be similar to following example output:
 
     ```output
+    "aadProfile": null,
+    "addonProfiles": null,
     "agentPoolProfiles": [
       {
+        ...
         "count": 3,
-        "dnsPrefix": null,
-        "fqdn": null,
-        "name": "myAKSCluster",
-        "osDiskSizeGb": null,
+        "mode": "System",
+        "name": "nodepool1",
+        "osDiskSizeGb": 128,
+        "osDiskType": "Managed",
         "osType": "Linux",
         "ports": null,
-        "vmSize": "Standard_D2_v2",
+        "vmSize": "Standard_DS2_v2",
         "vnetSubnetId": null
+        ...
       }
+      ...
+    ]
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -185,30 +191,24 @@ The following example increases the number of nodes to three in the Kubernetes c
     Once the cluster successfully scales, your output will be similar to following example output:
 
     ```output
-    ProvisioningState       : Succeeded
-    MaxAgentPools           : 100
-    KubernetesVersion       : 1.19.9
-    DnsPrefix               : myAKSCluster
-    Fqdn                    : myakscluster-000a0aa0.hcp.eastus.azmk8s.io
-    PrivateFQDN             :
-    AgentPoolProfiles       : {default}
-    WindowsProfile          : Microsoft.Azure.Commands.Aks.Models.PSManagedClusterWindowsProfile
-    AddonProfiles           : {}
-    NodeResourceGroup       : MC_myresourcegroup_myAKSCluster_eastus
-    EnableRBAC              : True
-    EnablePodSecurityPolicy :
-    NetworkProfile          : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceNetworkProfile
-    AadProfile              :
-    ApiServerAccessProfile  :
-    Identity                :
-    LinuxProfile            : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceLinuxProfile
-    ServicePrincipalProfile : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceServicePrincipalProfile
-    Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/Micros
-                          oft.ContainerService/managedClusters/myAKSCluster
-    Name                    : myAKSCluster
-    Type                    : Microsoft.ContainerService/ManagedClusters
-    Location                : eastus
-    Tags                    : {}
+    ...
+    ProvisioningState        : Succeeded
+    MaxAgentPools            : 100
+    KubernetesVersion        : 1.28
+    CurrentKubernetesVersion : 1.28.9
+    DnsPrefix                : myAKSCluster
+    Fqdn                     : myakscluster-000a0aa0.hcp.eastus.azmk8s.io
+    PrivateFQDN              :
+    AzurePortalFQDN          : myakscluster-000a0aa0.portal.hcp.eastus.azmk8s.io
+    AgentPoolProfiles        : {default}
+    ...
+    ResourceGroupName        : myResourceGroup
+    Id                       : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Mic
+                               rosoft.ContainerService/managedClusters/myAKSCluster
+    Name                     : myAKSCluster
+    Type                     : Microsoft.ContainerService/ManagedClusters
+    Location                 : eastus
+    Tags                     :
     ```
 
 ---
