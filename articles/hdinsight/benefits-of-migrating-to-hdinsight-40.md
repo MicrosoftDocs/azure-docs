@@ -3,7 +3,7 @@ title: Benefits of migrating to Azure HDInsight 4.0.
 description: Learn the benefits of migrating to Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 07/23/2024
 ---
 # Significant version changes in HDInsight 4.0 and advantages
 
@@ -101,7 +101,7 @@ Set synchronization of partitions to occur every 10 minutes, expressed in second
 :::image type="content" source="./media/hdinsight-migrate-to-40/ambari-hive-config.png" alt-text=" Screenshot that shows an Ambari Hive configuration file with a frequency value.":::
 
 > [!WARNING]
-> Running `management.task` every 10 minutes puts pressure on the SQL Server database transaction units (DTUs). This feature also adds cost to storage access because the partition management threads runs at regular intervals, even when the cluster is idle.
+> Running `management.task` every 10 minutes puts pressure on the SQL Server database transaction units (DTUs).
 
 You can verify the output from the Azure portal.
 
