@@ -108,4 +108,6 @@ A third plan, known as **Basic logs**, provides similar functionality to the aux
 
 - For a more in-depth comparison of log data plans, and more general information about log types, see [Azure Monitor Logs overview | Table plans](../azure-monitor/logs/data-platform-logs.md#table-plans).
 
+- To set up a table in the Auxiliary logs plan, see [Set up a table with the Auxiliary plan in your Log Analytics workspace (Preview)](../azure-monitor/logs/create-custom-table-auxiliary.md).
+
 - To understand more about retention periods&mdash;which exist across plans&mdash;see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
