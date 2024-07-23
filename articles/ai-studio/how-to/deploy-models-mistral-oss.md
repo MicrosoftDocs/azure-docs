@@ -127,7 +127,8 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```#
+```python
+
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
@@ -136,13 +137,15 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
+
 ```
 
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
 
-```#
+```python
+
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.identity import DefaultAzureCredential
@@ -151,6 +154,7 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=DefaultAzureCredential(),
 )
+
 ```
 
 ### Get the model's capabilities
@@ -159,8 +163,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```#
+```python
+
 model.get_model_info()
+
 ```
 
 The response is as follows:
@@ -168,11 +174,13 @@ The response is as follows:
 
 
 ```console
+
 {
     "model_name": "mistralai-Mistral-7B-Instruct-v01",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
+
 ```
 
 ### Create a chat completion request
@@ -180,7 +188,8 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```#
+```python
+
 from azure.ai.inference.models import SystemMessage, UserMessage
 
 response = model.complete(
@@ -189,6 +198,7 @@ response = model.complete(
         UserMessage(content="How many languages are in the world?"),
     ],
 )
+
 ```
 
 > [!NOTE]
@@ -200,10 +210,12 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```#
+```python
+
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
 print("Usage:", response.usage)
+
 ```
 
 #### Stream content
@@ -214,7 +226,8 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```#
+```python
+
 result = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -224,12 +237,14 @@ result = model.complete(
     top_p=1,
     max_tokens=2048,
 )
+
 ```
 
 To visualize the output, define a helper function to print the stream.
 
 
-```#
+```python
+
 def print_stream(result):
     """
     Prints the chat completion with streaming. Some delay is added to simulate 
@@ -239,14 +254,17 @@ def print_stream(result):
     for update in result:
         print(update.choices[0].delta.content, end="")
         time.sleep(0.05)
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```#
+```python
+
 print_stream(result)
+
 ```
 
 #### Explore more parameters
@@ -254,7 +272,8 @@ print_stream(result)
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```#
+```python
+
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
 response = model.complete(
@@ -270,6 +289,7 @@ response = model.complete(
     top_p=1,
     response_format={ "type": ChatCompletionsResponseFormat.TEXT },
 )
+
 ```
 
 > [!WARNING]
@@ -283,7 +303,8 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```#
+```python
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -293,6 +314,7 @@ response = model.complete(
         "logprobs": True
     }
 )
+
 ```
 
 ::: zone-end
@@ -404,7 +426,8 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```//
+```javascript
+
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -413,13 +436,15 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
+
 ```
 
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
 
-```//
+```javascript
+
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { DefaultAzureCredential }  from "@azure/identity";
@@ -428,6 +453,7 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new DefaultAzureCredential()
 );
+
 ```
 
 ### Get the model's capabilities
@@ -436,8 +462,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```//
+```javascript
+
 await client.path("info").get()
+
 ```
 
 The response is as follows:
@@ -445,11 +473,13 @@ The response is as follows:
 
 
 ```console
+
 {
     "model_name": "mistralai-Mistral-7B-Instruct-v01",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
+
 ```
 
 ### Create a chat completion request
@@ -457,7 +487,8 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -468,6 +499,7 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 });
+
 ```
 
 > [!NOTE]
@@ -479,7 +511,8 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```//
+```javascript
+
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -487,6 +520,7 @@ if (isUnexpected(response)) {
 console.log(response.body.choices[0].message.content);
 console.log(response.body.model);
 console.log(response.body.usage);
+
 ```
 
 #### Stream content
@@ -497,7 +531,8 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -508,13 +543,15 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 }).asNodeStream();
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```//
+```javascript
+
 var stream = response.body;
 if (!stream) {
     throw new Error("The response stream is undefined");
@@ -534,6 +571,7 @@ for await (const event of sses) {
         console.log(choice.delta?.content ?? "");
     }
 }
+
 ```
 
 #### Explore more parameters
@@ -541,7 +579,8 @@ for await (const event of sses) {
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -559,6 +598,7 @@ var response = await client.path("/chat/completions").post({
         response_format = { "type": "text" },
     }
 });
+
 ```
 
 > [!WARNING]
@@ -572,7 +612,8 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -587,6 +628,7 @@ var response = await client.path("/chat/completions").post({
         logprobs: true
     }
 });
+
 ```
 
 ::: zone-end
@@ -703,24 +745,28 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```//
+```csharp
+
 ChatCompletionsClient client = null;
 
-        client = new ChatCompletionsClient(
-            new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-            new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
-        );
+client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+);
+
 ```
 
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
 
-```//
+```csharp
+
 client = new ChatCompletionsClient(
-            new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-            new DefaultAzureCredential(includeInteractiveCredentials: true)
-        );
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new DefaultAzureCredential(includeInteractiveCredentials: true)
+);
+
 ```
 
 ### Get the model's capabilities
@@ -729,8 +775,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```//
+```csharp
+
 Response<ModelInfo> modelInfo = client.GetModelInfo();
+
 ```
 
 The response is as follows:
@@ -738,9 +786,11 @@ The response is as follows:
 
 
 ```console
+
 Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
-        Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
-        Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
+Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+
 ```
 
 ### Create a chat completion request
@@ -748,19 +798,21 @@ Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
 Create a chat completion request to see the output of the model.
 
 
-```//
+```csharp
+
 ChatCompletionsOptions requestOptions = null;
-        Response<ChatCompletions> response = null;
+Response<ChatCompletions> response = null;
 
-        requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-        };
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+};
 
-        response = client.Complete(requestOptions);
+response = client.Complete(requestOptions);
+
 ```
 
 > [!NOTE]
@@ -772,10 +824,12 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
-```//
+```csharp
+
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-        Console.WriteLine($"Model: {response.Value.Model}");
-        Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+Console.WriteLine($"Model: {response.Value.Model}");
+Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+
 ```
 
 #### Stream content
@@ -786,36 +840,40 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```//
+```csharp
+
 static async Task RunAsync(ChatCompletionsClient client)
+{
+    ChatCompletionsOptions requestOptions = null;
+    Response<ChatCompletions> response = null;
+
+    requestOptions = new ChatCompletionsOptions()
     {
-        ChatCompletionsOptions requestOptions = null;
-        Response<ChatCompletions> response = null;
+        Messages = {
+            new ChatRequestSystemMessage("You are a helpful assistant."),
+            new ChatRequestUserMessage("How many languages are in the world?")
+        },
+    };
 
-        requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-        };
+    StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-        StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
-        
-        printStream(streamResponse);
-    }
+    printStream(streamResponse);
+}
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```//
+```csharp
+
 static async Task RunWithAsyncContext(ChatCompletionsClient client)
-    {
-        // In this case we are using Nito.AsyncEx package
-        AsyncContext.Run(() => RunAsync(client));
-    }
+{
+    // In this case we are using Nito.AsyncEx package
+    AsyncContext.Run(() => RunAsync(client));
+}
+
 ```
 
 #### Explore more parameters
@@ -823,24 +881,26 @@ static async Task RunWithAsyncContext(ChatCompletionsClient client)
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```//
-requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-            //PresencePenalty = 0.1f,
-            //FrequencyPenalty = 0.8f,
-            MaxTokens = 2048,
-            StopSequences = { "<|endoftext|>" },
-            Temperature = 0,
-            NucleusSamplingFactor = 1,
-            //ResponseFormat = ChatCompletionsResponseFormat.Text
-        };
+```csharp
 
-        response = client.Complete(requestOptions);
-        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    //PresencePenalty = 0.1f,
+    //FrequencyPenalty = 0.8f,
+    MaxTokens = 2048,
+    StopSequences = { "<|endoftext|>" },
+    Temperature = 0,
+    NucleusSamplingFactor = 1,
+    //ResponseFormat = ChatCompletionsResponseFormat.Text
+};
+
+response = client.Complete(requestOptions);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+
 ```
 
 > [!WARNING]
@@ -854,18 +914,20 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```//
-requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-            // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
-        };
+```csharp
 
-        response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
-        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+
 ```
 
 ::: zone-end
@@ -984,10 +1046,33 @@ The response is as follows:
 
 
 
+```console
+{
+    "model_name": "mistralai-Mistral-7B-Instruct-v01",
+    "model_type": "chat-completions",
+    "model_provider_name": "MistralAI"
+}
+```
+
 ### Create a chat completion request
 
 Create a chat completion request to see the output of the model.
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ]
+}
+```
 
 > [!NOTE]
 > Notice that mistralai-Mistral-7B-Instruct-v01, mistralai-Mistral-7B-Instruct-v02 and mistralai-Mixtral-8x22B-Instruct-v0-1 doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
@@ -998,6 +1083,32 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "mistralai-Mistral-7B-Instruct-v01",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
+
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
@@ -1006,18 +1117,129 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
+
 When you use streaming, responses look as follows:
 
 
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "mistralai-Mistral-7B-Instruct-v01",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
 
 The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
 
 
 
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "mistralai-Mistral-7B-Instruct-v01",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
+
 #### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "mistralai-Mistral-7B-Instruct-v01",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
 > [!WARNING]
 > Notice that Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
@@ -1029,6 +1251,22 @@ Explore other parameters that you can specify in the inference client. For a ful
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
 
 ::: zone-end
 

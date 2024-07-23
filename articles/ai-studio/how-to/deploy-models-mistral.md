@@ -114,7 +114,8 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```#
+```python
+
 import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
@@ -123,6 +124,7 @@ model = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
+
 ```
 
 ### Get the model's capabilities
@@ -131,8 +133,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```#
+```python
+
 model.get_model_info()
+
 ```
 
 The response is as follows:
@@ -140,11 +144,13 @@ The response is as follows:
 
 
 ```console
+
 {
     "model_name": "Mistral-Large",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
+
 ```
 
 ### Create a chat completion request
@@ -152,7 +158,8 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```#
+```python
+
 from azure.ai.inference.models import SystemMessage, UserMessage
 
 response = model.complete(
@@ -161,16 +168,19 @@ response = model.complete(
         UserMessage(content="How many languages are in the world?"),
     ],
 )
+
 ```
 
 The response is as follows, where you can see the model's usage statistics:
 
 
 
-```#
+```python
+
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
 print("Usage:", response.usage)
+
 ```
 
 #### Stream content
@@ -181,7 +191,8 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```#
+```python
+
 result = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -191,12 +202,14 @@ result = model.complete(
     top_p=1,
     max_tokens=2048,
 )
+
 ```
 
 To visualize the output, define a helper function to print the stream.
 
 
-```#
+```python
+
 def print_stream(result):
     """
     Prints the chat completion with streaming. Some delay is added to simulate 
@@ -206,14 +219,17 @@ def print_stream(result):
     for update in result:
         print(update.choices[0].delta.content, end="")
         time.sleep(0.05)
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```#
+```python
+
 print_stream(result)
+
 ```
 
 #### Explore more parameters
@@ -221,7 +237,8 @@ print_stream(result)
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```#
+```python
+
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
 response = model.complete(
@@ -237,6 +254,7 @@ response = model.complete(
     top_p=1,
     response_format={ "type": ChatCompletionsResponseFormat.TEXT },
 )
+
 ```
 
 #### JSON outputs
@@ -245,7 +263,8 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
 
 
 
-```#
+```python
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant that always generate responses in JSON format, using."
@@ -254,6 +273,7 @@ response = model.complete(
     ],
     response_format={ "type": ChatCompletionsResponseFormat.JSON_OBJECT }
 )
+
 ```
 
 ### Pass extra parameters to the model
@@ -262,7 +282,8 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```#
+```python
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -272,6 +293,7 @@ response = model.complete(
         "logprobs": True
     }
 )
+
 ```
 
 ### Safe mode
@@ -284,7 +306,8 @@ The Azure AI Model Inference API allows you to pass this extra paramter in the f
 
 
 
-```#
+```python
+
 response = model.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
@@ -294,6 +317,7 @@ response = model.complete(
         "safe_mode": True
     }
 )
+
 ```
 
 ### Tools
@@ -304,7 +328,8 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 
-```#
+```python
+
 from azure.ai.inference.models import FunctionDefinition, ChatCompletionsFunctionToolDefinition
 
 flight_info = ChatCompletionsFunctionToolDefinition(
@@ -329,24 +354,28 @@ flight_info = ChatCompletionsFunctionToolDefinition(
 )
 
 tools = [flight_info]
+
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
 
 
 
-```#
+```python
+
 def get_flight_info(loc_origin: str, loc_destination: str):
     return { 
         "info": f"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
     }
+
 ```
 
 Let's prompt the model to help us booking flights with the help of this function:
 
 
 
-```#
+```python
+
 messages = [
     SystemMessage(
         content="You are a helpful assistant that help users to find information about traveling, how to get"
@@ -361,35 +390,41 @@ messages = [
 response = model.complete(
     messages=messages, tools=tools, tool_choice="auto"
 )
+
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
 
 
 
-```#
+```python
+
 response_message = response.choices[0].message
 tool_calls = response_message.tool_calls
 
 print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
+
 ```
 
 Let's append this message to the chat history:
 
 
 
-```#
+```python
+
 messages.append(
     response_message
 )
+
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
 
 
 
-```#
+```python
+
 import json
 from azure.ai.inference.models import ToolMessage
 
@@ -422,17 +457,20 @@ for tool_call in tool_calls:
             content=json.dumps(function_response)
         )
     )
+
 ```
 
 Let's see the response from the model now:
 
 
 
-```#
+```python
+
 response = model.complete(
     messages=messages,
     tools=tools,
 )
+
 ```
 
 ### Content safety
@@ -445,7 +483,8 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-```#
+```python
+
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
 
 try:
@@ -467,6 +506,7 @@ except HttpResponseError as ex:
             raise ex
     else:
         raise ex
+
 ```
 
 > [!TIP]
@@ -570,7 +610,8 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```//
+```javascript
+
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
@@ -579,6 +620,7 @@ const client = new ModelClient(
     process.env.AZURE_INFERENCE_ENDPOINT, 
     new AzureKeyCredential(process.env.AZURE_INFERENCE_CREDENTIAL)
 );
+
 ```
 
 ### Get the model's capabilities
@@ -587,8 +629,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```//
+```javascript
+
 await client.path("info").get()
+
 ```
 
 The response is as follows:
@@ -596,11 +640,13 @@ The response is as follows:
 
 
 ```console
+
 {
     "model_name": "Mistral-Large",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
+
 ```
 
 ### Create a chat completion request
@@ -608,7 +654,8 @@ The response is as follows:
 Create a chat completion request to see the output of the model.
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -619,13 +666,15 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 });
+
 ```
 
 The response is as follows, where you can see the model's usage statistics:
 
 
 
-```//
+```javascript
+
 if (isUnexpected(response)) {
     throw response.body.error;
 }
@@ -633,6 +682,7 @@ if (isUnexpected(response)) {
 console.log(response.body.choices[0].message.content);
 console.log(response.body.model);
 console.log(response.body.usage);
+
 ```
 
 #### Stream content
@@ -643,7 +693,8 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -654,13 +705,15 @@ var response = await client.path("/chat/completions").post({
         messages: messages,
     }
 }).asNodeStream();
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```//
+```javascript
+
 var stream = response.body;
 if (!stream) {
     throw new Error("The response stream is undefined");
@@ -680,6 +733,7 @@ for await (const event of sses) {
         console.log(choice.delta?.content ?? "");
     }
 }
+
 ```
 
 #### Explore more parameters
@@ -687,7 +741,8 @@ for await (const event of sses) {
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -705,6 +760,7 @@ var response = await client.path("/chat/completions").post({
         response_format = { "type": "text" },
     }
 });
+
 ```
 
 #### JSON outputs
@@ -713,7 +769,8 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant that always generate responses in JSON format, using."
         + " the following format: { \"answer\": \"response\" }." },
@@ -726,6 +783,7 @@ var response = await client.path("/chat/completions").post({
         response_format: { type: "json_object" }
     }
 });
+
 ```
 
 ### Pass extra parameters to the model
@@ -734,7 +792,8 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -749,6 +808,7 @@ var response = await client.path("/chat/completions").post({
         logprobs: true
     }
 });
+
 ```
 
 ### Safe mode
@@ -761,7 +821,8 @@ The Azure AI Model Inference API allows you to pass this extra paramter in the f
 
 
 
-```//
+```javascript
+
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
     { role: "user", content: "How many languages are in the world?" },
@@ -776,6 +837,7 @@ var response = await client.path("/chat/completions").post({
         safe_mode: true
     }
 });
+
 ```
 
 ### Tools
@@ -786,7 +848,8 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 
-```//
+```javascript
+
 const flight_info = {
     name: "get_flight_info",
     description: "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
@@ -812,25 +875,29 @@ const tools = [
         function: flight_info,
     },
 ];
+
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
 
 
 
-```//
+```javascript
+
 function get_flight_info(loc_origin, loc_destination) {
     return {
         info: "There are no flights available from " + loc_origin + " to " + loc_destination + ". You should take a train, specially if it helps to reduce CO2 emissions."
     }
 }
+
 ```
 
 Let's prompt the model to help us booking flights with the help of this function:
 
 
 
-```//
+```javascript
+
 var result = await client.path("/chat/completions").post({
     body: {
         messages: messages,
@@ -838,33 +905,39 @@ var result = await client.path("/chat/completions").post({
         tool_choice: "auto"
     }
 });
+
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
 
 
 
-```//
+```javascript
+
 const response_message = response.body.choices[0].message
 const tool_calls = response_message.tool_calls
 
 console.log("Finish reason: " + response.body.choices[0].finish_reason)
 console.log("Tool call: " + tool_calls)
+
 ```
 
 Let's append this message to the chat history:
 
 
 
-```//
+```javascript
+
 messages.push(response_message);
+
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
 
 
 
-```//
+```javascript
+
 function applyToolCall({ function: call, id }) {
     // Get the tool details:
     const tool_params = JSON.parse(call.arguments);
@@ -891,19 +964,22 @@ for (const tool_call of tool_calls) {
         }
     )
 }
+
 ```
 
 Let's see the response from the model now:
 
 
 
-```//
+```javascript
+
 var result = await client.path("/chat/completions").post({
     body: {
         messages: messages,
         tools: tools,
     }
 });
+
 ```
 
 ### Content safety
@@ -916,7 +992,8 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-```//
+```javascript
+
 try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
@@ -928,7 +1005,7 @@ try {
             messages: messages,
         }
     });
-    
+
     console.log(response.body.choices[0].message.content)
 }
 catch (error) {
@@ -943,6 +1020,7 @@ catch (error) {
         }
     }
 }
+
 ```
 
 > [!TIP]
@@ -1051,13 +1129,15 @@ First, let's create a client to consume the model. In this example, we assume th
 
 
 
-```//
+```csharp
+
 ChatCompletionsClient client = null;
 
-        client = new ChatCompletionsClient(
-            new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-            new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
-        );
+client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
+);
+
 ```
 
 ### Get the model's capabilities
@@ -1066,8 +1146,10 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 
-```//
+```csharp
+
 Response<ModelInfo> modelInfo = client.GetModelInfo();
+
 ```
 
 The response is as follows:
@@ -1075,9 +1157,11 @@ The response is as follows:
 
 
 ```console
+
 Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
-        Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
-        Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
+Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+
 ```
 
 ### Create a chat completion request
@@ -1085,29 +1169,33 @@ Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
 Create a chat completion request to see the output of the model.
 
 
-```//
+```csharp
+
 ChatCompletionsOptions requestOptions = null;
-        Response<ChatCompletions> response = null;
+Response<ChatCompletions> response = null;
 
-        requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-        };
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+};
 
-        response = client.Complete(requestOptions);
+response = client.Complete(requestOptions);
+
 ```
 
 The response is as follows, where you can see the model's usage statistics:
 
 
 
-```//
+```csharp
+
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
-        Console.WriteLine($"Model: {response.Value.Model}");
-        Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+Console.WriteLine($"Model: {response.Value.Model}");
+Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+
 ```
 
 #### Stream content
@@ -1118,36 +1206,40 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
-```//
+```csharp
+
 static async Task RunAsync(ChatCompletionsClient client)
+{
+    ChatCompletionsOptions requestOptions = null;
+    Response<ChatCompletions> response = null;
+
+    requestOptions = new ChatCompletionsOptions()
     {
-        ChatCompletionsOptions requestOptions = null;
-        Response<ChatCompletions> response = null;
+        Messages = {
+            new ChatRequestSystemMessage("You are a helpful assistant."),
+            new ChatRequestUserMessage("How many languages are in the world?")
+        },
+    };
 
-        requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-        };
+    StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-        StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
-        
-        printStream(streamResponse);
-    }
+    printStream(streamResponse);
+}
+
 ```
 
 When you use streaming, responses look as follows:
 
 
 
-```//
+```csharp
+
 static async Task RunWithAsyncContext(ChatCompletionsClient client)
-    {
-        // In this case we are using Nito.AsyncEx package
-        AsyncContext.Run(() => RunAsync(client));
-    }
+{
+    // In this case we are using Nito.AsyncEx package
+    AsyncContext.Run(() => RunAsync(client));
+}
+
 ```
 
 #### Explore more parameters
@@ -1155,24 +1247,26 @@ static async Task RunWithAsyncContext(ChatCompletionsClient client)
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
 
-```//
-requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-            //PresencePenalty = 0.1f,
-            //FrequencyPenalty = 0.8f,
-            MaxTokens = 2048,
-            StopSequences = { "<|endoftext|>" },
-            Temperature = 0,
-            NucleusSamplingFactor = 1,
-            //ResponseFormat = ChatCompletionsResponseFormat.Text
-        };
+```csharp
 
-        response = client.Complete(requestOptions);
-        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    //PresencePenalty = 0.1f,
+    //FrequencyPenalty = 0.8f,
+    MaxTokens = 2048,
+    StopSequences = { "<|endoftext|>" },
+    Temperature = 0,
+    NucleusSamplingFactor = 1,
+    //ResponseFormat = ChatCompletionsResponseFormat.Text
+};
+
+response = client.Complete(requestOptions);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+
 ```
 
 #### JSON outputs
@@ -1187,18 +1281,20 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```//
-requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-            // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
-        };
+```csharp
 
-        response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
-        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+
 ```
 
 ### Safe mode
@@ -1211,18 +1307,20 @@ The Azure AI Model Inference API allows you to pass this extra paramter in the f
 
 
 
-```//
-requestOptions = new ChatCompletionsOptions()
-        {
-            Messages = {
-                new ChatRequestSystemMessage("You are a helpful assistant."),
-                new ChatRequestUserMessage("How many languages are in the world?")
-            },
-            // AdditionalProperties = { { "safe_mode", BinaryData.FromString("true") } },
-        };
+```csharp
 
-        response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
-        Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    // AdditionalProperties = { { "safe_mode", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+
 ```
 
 ### Tools
@@ -1233,114 +1331,128 @@ In this example, we are creating a tool definition that is able to look from fli
 
 
 
-```//
-FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
-        {
-            Description = "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
-            Parameters = BinaryData.FromObjectAsJson(new
-                {
-                    Type = "object",
-                    Properties = new
-                    {
-                        origin_city = new
-                        {
-                            Type = "string",
-                            Description = "The name of the city where the flight originates"
-                        },
-                        destination_city = new
-                        {
-                            Type = "string",
-                            Description = "The flight destination city"
-                        }
-                    }
-                },
-                new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }
-            )
-        };
+```csharp
 
-        ChatCompletionsFunctionToolDefinition getFlightTool = new ChatCompletionsFunctionToolDefinition(flightInfoFunction);
+FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
+{
+    Description = "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+    Parameters = BinaryData.FromObjectAsJson(new
+        {
+            Type = "object",
+            Properties = new
+            {
+                origin_city = new
+                {
+                    Type = "string",
+                    Description = "The name of the city where the flight originates"
+                },
+                destination_city = new
+                {
+                    Type = "string",
+                    Description = "The flight destination city"
+                }
+            }
+        },
+        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }
+    )
+};
+
+ChatCompletionsFunctionToolDefinition getFlightTool = new ChatCompletionsFunctionToolDefinition(flightInfoFunction);
+
 ```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
 
 
 
-```//
+```csharp
+
 static string getFlightInfo(string loc_origin, string loc_destination)
-    {
-        return $"{{ {{ \"info\": \"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions.\" }} }}";
-    }
+{
+    return $"{{ {{ \"info\": \"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions.\" }} }}";
+}
+
 ```
 
 Let's prompt the model to help us booking flights with the help of this function:
 
 
 
-```//
+```csharp
+
 var chatHistory = new List<ChatRequestMessage>(){
-                new ChatRequestSystemMessage("You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries."),
-                new ChatRequestUserMessage("When is the next flight from Miami to Seattle?")
-            };
+        new ChatRequestSystemMessage("You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries."),
+        new ChatRequestUserMessage("When is the next flight from Miami to Seattle?")
+    };
 
-        requestOptions = new ChatCompletionsOptions(chatHistory);
-        requestOptions.Tools.Add(getFlightTool);
-        requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
+requestOptions = new ChatCompletionsOptions(chatHistory);
+requestOptions.Tools.Add(getFlightTool);
+requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 
-        response = client.Complete(requestOptions);
+response = client.Complete(requestOptions);
+
 ```
 
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
 
 
 
-```//
-var responseMenssage = response.Value.Choices[0].Message;
-        var toolsCall = responseMenssage.ToolCalls;
+```csharp
 
-        Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
-        Console.WriteLine($"Tool call: {toolsCall[0].Id}");
+var responseMenssage = response.Value.Choices[0].Message;
+var toolsCall = responseMenssage.ToolCalls;
+
+Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
+Console.WriteLine($"Tool call: {toolsCall[0].Id}");
+
 ```
 
 Let's append this message to the chat history:
 
 
 
-```//
+```csharp
+
 requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
+
 ```
 
 Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
 
 
 
-```//
+```csharp
+
 foreach (ChatCompletionsToolCall tool in toolsCall )
-        {
-            //Get the tool details:
-            string callId = tool.Id;
-            string toolName = (string) tool.GetType().GetProperty("Name").GetValue(tool, null); //tool.Name;
-            string toolArgumentsString = (string) tool.GetType().GetProperty("Arguments").GetValue(tool, null); //tool.Arguments;
-            Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
+{
+    //Get the tool details:
+    string callId = tool.Id;
+    string toolName = (string) tool.GetType().GetProperty("Name").GetValue(tool, null); //tool.Name;
+    string toolArgumentsString = (string) tool.GetType().GetProperty("Arguments").GetValue(tool, null); //tool.Arguments;
+    Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
 
-            // Call the function defined above using `locals()`, which returns the list of all functions 
-            // available in the scope as a dictionary. Notice that this is just done as a simple way to get
-            // the function callable from its string name. Then we can call it with the corresponding
-            // arguments.
+    // Call the function defined above using `locals()`, which returns the list of all functions 
+    // available in the scope as a dictionary. Notice that this is just done as a simple way to get
+    // the function callable from its string name. Then we can call it with the corresponding
+    // arguments.
 
-            var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
-            string toolResponse = (string) typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
+    var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+    string toolResponse = (string) typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
 
-            Console.WriteLine("->", toolResponse);
-            requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
-        }
+    Console.WriteLine("->", toolResponse);
+    requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
+}
+
 ```
 
 Let's see the response from the model now:
 
 
 
-```//
+```csharp
+
 response = client.Complete(requestOptions);
+
 ```
 
 ### Content safety
@@ -1353,31 +1465,33 @@ The following example shows how to handle events when the model detects harmful 
 
 
 
-```//
-try
-        {
-            requestOptions = new ChatCompletionsOptions()
-            {
-                Messages = {
-                    new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
-                    new ChatRequestUserMessage("Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
-                },
-            };
+```csharp
 
-            response = client.Complete(requestOptions);
-            Console.WriteLine(response.Value.Choices[0].Message.Content);
-        }
-        catch (RequestFailedException ex)
-        {
-            if (ex.ErrorCode == "content_filter")
-            {
-                Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
-            }
-            else
-            {
-                throw;
-            }
-        }
+try
+{
+    requestOptions = new ChatCompletionsOptions()
+    {
+        Messages = {
+            new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+            new ChatRequestUserMessage("Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+        },
+    };
+
+    response = client.Complete(requestOptions);
+    Console.WriteLine(response.Value.Choices[0].Message.Content);
+}
+catch (RequestFailedException ex)
+{
+    if (ex.ErrorCode == "content_filter")
+    {
+        Console.WriteLine($"Your query has trigger Azure Content Safeaty: {ex.Message}");
+    }
+    else
+    {
+        throw;
+    }
+}
+
 ```
 
 > [!TIP]
@@ -1484,14 +1598,63 @@ The response is as follows:
 
 
 
+```console
+{
+    "model_name": "Mistral-Large",
+    "model_type": "chat-completions",
+    "model_provider_name": "MistralAI"
+}
+```
+
 ### Create a chat completion request
 
 Create a chat completion request to see the output of the model.
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ]
+}
+```
+
 The response is as follows, where you can see the model's usage statistics:
 
 
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
 #### Stream content
 
@@ -1501,18 +1664,129 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "stream": true,
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 2048
+}
+```
+
 When you use streaming, responses look as follows:
 
 
+
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "role": "assistant",
+                "content": ""
+            },
+            "finish_reason": null,
+            "logprobs": null
+        }
+    ]
+}
+```
 
 The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
 
 
 
+```json
+{
+    "id": "23b54589eba14564ad8a2e6978775a39",
+    "object": "chat.completion.chunk",
+    "created": 1718726371,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "delta": {
+                "content": ""
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
+
 #### Explore more parameters
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "presence_penalty": 0.1,
+    "frequency_penalty": 0.8,
+    "max_tokens": 2048,
+    "stop": ["<|endoftext|>"],
+    "temperature" :0,
+    "top_p": 1,
+    "response_format": { "type": "text" }
+}
+```
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726686,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 19,
+        "total_tokens": 91,
+        "completion_tokens": 72
+    }
+}
+```
 
 #### JSON outputs
 
@@ -1520,11 +1794,69 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that always generate responses in JSON format, using the following format: { \"answer\": \"response\" }"
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "response_format": { "type": "json_object" }
+}
+```
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718727522,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "{\"answer\": \"There are approximately 7,117 living languages in the world today, according to the latest estimates. However, this number can vary as some languages become extinct and others are newly discovered or classified.\"}",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 39,
+        "total_tokens": 87,
+        "completion_tokens": 48
+    }
+}
+```
+
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
 
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "logprobs": true
+}
+```
 
 ### Safe mode
 
@@ -1536,6 +1868,22 @@ The Azure AI Model Inference API allows you to pass this extra paramter in the f
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "safemode": true
+}
+```
+
 ### Tools
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
@@ -1543,6 +1891,33 @@ Mistral premium chat models supports the use of tools, which can be an extraordi
 In this example, we are creating a tool definition that is able to look from flight information from two different cities.
 
 
+
+```json
+{
+    "type": "function",
+    "function": {
+        "name": "get_flight_info",
+        "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "origin_city": {
+                    "type": "string",
+                    "description": "The name of the city where the flight originates"
+                },
+                "destination_city": {
+                    "type": "string",
+                    "description": "The flight destination city"
+                }
+            },
+            "required": [
+                "origin_city",
+                "destination_city"
+            ]
+        }
+    }
+}
+```
 
 In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
 
@@ -1552,9 +1927,87 @@ Let's prompt the model to help us booking flights with the help of this function
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_flight_info",
+                "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "origin_city": {
+                            "type": "string",
+                            "description": "The name of the city where the flight originates"
+                        },
+                        "destination_city": {
+                            "type": "string",
+                            "description": "The flight destination city"
+                        }
+                    },
+                    "required": [
+                        "origin_city",
+                        "destination_city"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
 
 
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726007,
+    "model": "Mistral-Large",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "",
+                "tool_calls": [
+                    {
+                        "id": "abc0dF1gh",
+                        "type": "function",
+                        "function": {
+                            "name": "get_flight_info",
+                            "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                            "call_id": null
+                        }
+                    }
+                ]
+            },
+            "finish_reason": "tool_calls",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 190,
+        "total_tokens": 226,
+        "completion_tokens": 36
+    }
+}
+```
 
 Let's append this message to the chat history:
 
@@ -1568,6 +2021,65 @@ Let's see the response from the model now:
 
 
 
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        },
+        {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+                {
+                    "id": "abc0DeFgH",
+                    "type": "function",
+                    "function": {
+                        "name": "get_flight_info",
+                        "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                        "call_id": null
+                    }
+                }
+            ]
+        },
+        {
+            "role": "tool",
+            "content": "{ \"info\": \"There are no flights available from Miami to Seattle. You should take a train, specially if it helps to reduce CO2 emissions.\" }",
+            "tool_call_id": "abc0DeFgH" 
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+            "name": "get_flight_info",
+            "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+            "parameters":{
+                "type": "object",
+                "properties": {
+                    "origin_city": {
+                        "type": "string",
+                        "description": "The name of the city where the flight originates"
+                    },
+                    "destination_city": {
+                        "type": "string",
+                        "description": "The flight destination city"
+                    }
+                },
+                "required": ["origin_city", "destination_city"]
+            }
+            }
+        }
+    ]
+}
+```
+
 ### Content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
@@ -1577,6 +2089,33 @@ The Azure AI model inference API supports [Azure AI content safety](https://aka.
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
 
 
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
+        },
+                {
+            "role": "user",
+            "content": "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+        }
+    ]
+}
+```
+
+```json
+{
+    "error": {
+        "message": "The response was filtered due to the prompt triggering Microsoft's content management policy. Please modify your prompt and retry.",
+        "type": null,
+        "param": "prompt",
+        "code": "content_filter",
+        "status": 400
+    }
+}
+```
 
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
