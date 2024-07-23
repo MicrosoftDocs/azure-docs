@@ -67,11 +67,11 @@ When you use the legacy SBMP protocol, those objects are then serialized with th
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
-While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. While AMQP has a powerful binary encoding model, it's tied to the AMQP messaging ecosystem, and HTTP clients will have trouble decoding such payloads. 
+While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. While AMQP has a powerful binary encoding model, it's tied to the AMQP messaging ecosystem, and HTTP clients will have trouble decoding such payloads.
 
-The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control. 
+The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control.
 
-If the payload of a message can't be deserialized, then it's recommended to [dead-letter the message](./service-bus-dead-letter-queues.md?source=recommendations#application-level-dead-lettering).
+When handling object deserialization from the message payload, developers should take into consideration that messages may arrive from multiple sources using different serialization methods. This can also happen when evolving a single application, where old versions may continue to run alongside newer versions. In these cases, it is recommended to have additional deserialization methods to try if the first attempt at deserialization fails. One library that supports this is [NServiceBus](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers). If all deserialization methods fail, then it's recommended to [dead-letter the message](./service-bus-dead-letter-queues.md?source=recommendations#application-level-dead-lettering).
 
 ## Next steps
 

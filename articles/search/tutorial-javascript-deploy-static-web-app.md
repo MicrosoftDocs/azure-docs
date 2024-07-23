@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/25/2024
+ms.date: 07/22/2024
 ms.custom:
   - devx-track-js
   - ignite-2023

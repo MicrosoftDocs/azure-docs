@@ -132,7 +132,7 @@ And these images are the candidate faces:
 
 ![Five images of people smiling. Images A and B show the same person.](./media/FaceFindSimilar.Candidates.jpg)
 
-To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) reference documentation.
+To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concept-face-recognition.md) concepts guide or the [Find Similar API](/rest/api/face/face-recognition-operations/find-similar) reference documentation.
 
 ## Group faces
 
