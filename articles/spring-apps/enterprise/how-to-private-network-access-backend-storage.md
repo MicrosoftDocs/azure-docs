@@ -93,7 +93,7 @@ The following policy triggers when you create a private endpoint resource with a
 The policy then triggers a deployment of a `privateDNSZoneGroup` within the private endpoint, which associates the private endpoint with the private DNS zone that's specified as the parameter. In this example, the private DNS zone resource ID is `
 /subscriptions/<subscription-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net`.
 
-```
+```json
 {
   "mode": "Indexed",
   "policyRule": {
