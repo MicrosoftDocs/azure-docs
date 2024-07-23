@@ -27,11 +27,11 @@ To complete this quickstart, you need:
 
 If you don't have an existing durable function project deployed in Azure, we recommend that you start with one of the following quickstarts:
 
-* [Create your first durable function - C#](durable-functions-create-first-csharp.md)
-* [Create your first durable function - JavaScript](quickstart-js-vscode.md)
-* [Create your first durable function - Python](quickstart-python-vscode.md)
-* [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
-* [Create your first durable function - Java](quickstart-java.md)
+* [Create your first Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
+* [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
+* [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
+* [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+* [Create your first Durable Functions app - Java](quickstart-java.md)
 
 ## Configure your app to use managed identity credentials
 

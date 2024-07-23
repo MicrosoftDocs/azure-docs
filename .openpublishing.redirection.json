@@ -13,6 +13,7 @@
     {
       "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-integrate-maps.md",
@@ -4330,6 +4331,11 @@
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
             "redirect_url": "/azure/azure-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable-functions-create-first-csharp.md",
+            "redirect_url": "/azure/azure-functions/durable-functions-isolated-create-first-csharp.md",
             "redirect_document_id": false
         },
         {

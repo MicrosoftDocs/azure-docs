@@ -16,7 +16,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 # [C#](#tab/csharp)
 
-* [Complete the quickstart article](durable-functions-create-first-csharp.md)
+* [Complete the quickstart article](durable-functions-isolated-create-first-csharp.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
 
 # [JavaScript](#tab/javascript)

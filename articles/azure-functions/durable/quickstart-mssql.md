@@ -30,7 +30,7 @@ Specifically, this quickstart assumes that you have already:
 
 If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts:
 
-- [Create your first Durable Functions app - C#](durable-functions-create-first-csharp.md)
+- [Create your first Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
 - [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
 - [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
 - [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)

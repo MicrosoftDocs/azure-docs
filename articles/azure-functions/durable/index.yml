@@ -83,7 +83,7 @@ landingContent:
           - text: Function chaining
             url: durable-functions-sequence.md
           - text: Async HTTP APIs
-            url: durable-functions-create-first-csharp.md
+            url: durable-functions-isolated-create-first-csharp.md
           - text: Fan-out/fan-in
             url: durable-functions-cloud-backup.md
           - text: Monitors
