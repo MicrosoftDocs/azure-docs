@@ -12,7 +12,7 @@ ms.topic: include
 ms.custom: include file
 ms.author: slpavkov
 ---
-# SMS error codes
+## SMS error codes
 
 The SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the `DeliveryStatusDetails` field in the SMS delivery report. 
 

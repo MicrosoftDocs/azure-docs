@@ -12,11 +12,11 @@ ms.topic: include
 ms.custom: include file
 ms.author: slpavkov
 ---
-# PSTN call response codes with ParticipantEndReason
+## PSTN call response codes with ParticipantEndReason
 
 This section provides troubleshooting information for various combinations of `ParticipantEndReason` and `ParticipantEndSubCode` response codes. For the tables in this section, `ParticipantEndReason` = **Code** and `ParticipantEndSubCode` = **SubCode**.
 
-## ParticipantEndReason 0
+### ParticipantEndReason 0
 
 Response `ParticipantEndReason` with value 0 usually means normal call clearing and marks calls that completed without errors.
 
@@ -27,7 +27,7 @@ Response `ParticipantEndReason` with value 0 usually means normal call clearing 
 | 540000 | 0 | Normal PSTN call end:<br/> - User ended the call.<br/>  - Call ended by media agent.  | Success | |
 
 
-## ParticipantEndReason 4xx
+### ParticipantEndReason 4xx
 
 Response `ParticipantEndReason` with value 4xx means that the call didn't connect.
 
@@ -48,7 +48,7 @@ Response `ParticipantEndReason` with value 4xx means that the call didn't connec
 | 560487 | 497 | - The caller terminated the call request.<br/> - Request terminated with normal call clearing. |  | Retry the call. |
 
 
-## ParticipantEndReason 5xx 
+### ParticipantEndReason 5xx 
 
 Response `ParticipantEndReason` with value 5xx means that the call failed due to a problem with a software or hardware component required to complete the connection.
 
@@ -58,7 +58,7 @@ Response `ParticipantEndReason` with value 5xx means that the call failed due to
 | 560503 | 503 | - Call failed because of an internal server error in one of the services involved in the call.<br/> - The network used to establish the call is out of order.<br/> - A temporary failure in one of the services involved in the call. |  | - Check your network and routing configuration for possible issues. Verify that your network firewall rules are correct.<br/> - Retry the call. If the issue persist contact your telco provider or Microsoft support.<br/> - For direct routing calls, check your Session Border Control logs and settings and timeouts configuration, to see if your SBC caused the failure. |
 
 
-## ParticipantEndReason 603
+### ParticipantEndReason 603
 
 Response `ParticipantEndReason` with value 603 means that the call was rejected without connecting.
 

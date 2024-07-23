@@ -12,7 +12,7 @@ ms.topic: include
 ms.custom: include file
 ms.author: slpavkov
 ---
-# Chat SDK error codes
+## Chat SDK error codes
 
 The Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
 
