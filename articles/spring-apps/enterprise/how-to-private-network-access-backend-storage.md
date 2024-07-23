@@ -72,6 +72,130 @@ az spring update \
     --enable-private-storage-access <true-or-false>
 ```
 
+## Use central DNS resolution
+
+If your network infrastructure uses the [hub and spoke network architecture](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale), with private DNS zones hosted centrally in the same subscription where the hub VNet deploys, you can enable central DNS resolution for private storage access feature by configuring the DNS settings appropriately. This setup ensures that:
++ When a private endpoint is created, the corresponding DNS records are automatically added to the centralized private DNS zone.
++ DNS records are managed according to the lifecycle of the private endpoint, meaning they are automatically removed when the private endpoint is deleted.
+
+The following sections explain how to enable central DNS resolution for Azure Storage blobs by using [Azure Policy](https://learn.microsoft.com/azure/governance/policy/overview). The same principles apply to Azure Storage files and other Azure services that support private link.
+
+### Create private DNS zones
+
+Create private DNS zones in the central connectivity subscription. In this case, we create `privatelink.blob.core.windows.net` private DNS zone in the connectivity subscription. For more information, see [Azure Private Endpoint DNS configuration](https://learn.microsoft.com/azure/private-link/private-endpoint-dns).
+
+### Policy definitions
+
+In addition to the private DNS zones, we also need to [create a set of custom Azure Policy definitions](https://learn.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition). These definitions automatically create the required DNS record in the central private DNS zone when private endpoints are created.
+
+The following policy triggers when you create a private endpoint resource with a service-specific `groupId`. The `groupId` is the ID of the group obtained from the remote resource (service) that this private endpoint should connect to. In this example, the `groupId` for Azure Storage blobs is `blob`. For more information on the `groupId` for other Azure services, see [Azure Private Endpoint DNS configuration](https://learn.microsoft.com/azure/private-link/private-endpoint-dns), under the `Subresource` column.
+
+The policy then triggers a deployment of a `privateDNSZoneGroup` within the private endpoint, which associates the private endpoint with the private DNS zone that's specified as the parameter. In this example, the private DNS zone resource ID is `
+/subscriptions/<subscription-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net`.
+
+```
+{
+  "mode": "Indexed",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Network/privateEndpoints"
+        },
+        {
+          "value": "[contains(resourceGroup().name, 'ap-res_')]",
+          "equals": "true"
+        },
+        {
+          "count": {
+            "field": "Microsoft.Network/privateEndpoints/privateLinkServiceConnections[*].groupIds[*]",
+            "where": {
+              "field": "Microsoft.Network/privateEndpoints/privateLinkServiceConnections[*].groupIds[*]",
+              "equals": "blob"
+            }
+          },
+          "greaterOrEquals": 1
+        }
+      ]
+    },
+    "then": {
+      "effect": "deployIfNotExists",
+      "details": {
+        "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+        "evaluationDelay": "AfterProvisioningSuccess",
+        "roleDefinitionIds": [
+          "/providers/Microsoft.Authorization/roleDefinitions/4d97b98b-1d4f-4787-a291-c67834d212e7"
+        ],
+        "deployment": {
+          "properties": {
+            "mode": "incremental",
+            "template": {
+              "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+              "contentVersion": "1.0.0.0",
+              "parameters": {
+                "privateDnsZoneId": {
+                  "type": "string"
+                },
+                "privateEndpointName": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                }
+              },
+              "resources": [
+                {
+                  "name": "[concat(parameters('privateEndpointName'), '/deployedByPolicy')]",
+                  "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+                  "apiVersion": "2020-03-01",
+                  "location": "[parameters('location')]",
+                  "properties": {
+                    "privateDnsZoneConfigs": [
+                      {
+                        "name": "storageBlob-privateDnsZone",
+                        "properties": {
+                          "privateDnsZoneId": "[parameters('privateDnsZoneId')]"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "parameters": {
+              "privateDnsZoneId": {
+                "value": "[parameters('privateDnsZoneId')]"
+              },
+              "privateEndpointName": {
+                "value": "[field('name')]"
+              },
+              "location": {
+                "value": "[field('location')]"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "privateDnsZoneId": {
+      "type": "String",
+      "metadata": {
+        "displayName": "privateDnsZoneId",
+        "description": null,
+        "strongType": "Microsoft.Network/privateDnsZones"
+      }
+    }
+  }
+}
+```
+
+### Policy assignment
+
+After deploying the policy definitions, assign the policies at the desired scope and specify the private DNS zone as a parameter. When enabling (or disabling) private storage access feature, the DNS records for private endpoints will be automatically registered (and removed once a private endpoint is deleted) from the corresponding private DNS zone.
+
 ## Extra costs
 
 The Azure Spring Apps instance doesn't incur charges for this feature. However, you're billed for the private link resources hosted in your subscription that support this feature. For more information, see [Azure Private Link Pricing](https://azure.microsoft.com/pricing/details/private-link/) and [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
