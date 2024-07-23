@@ -49,19 +49,40 @@ To calculate the amount of TB of storage where reserved capacity begins to make 
 
 ## The cost to upload, download, and copy data
 
-Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob. 
+When you transfer data, you're billed for _write_ and _read_ operations. Your client utility might also use operations to list container contents or get blob properties. The AzCopy utility is optimized to upload blobs reliably and efficiently and can serve as a canonical example on which to base your cost estimates. See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md) for example calculations. 
+
+#### The cost to upload
+
+Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
+
+To estimate costs, see [The cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
+
+#### The cost to download
 
 A blob that is downloaded from the Blob Service endpoint, incurs the cost of a single _read_ operation. A blob downloaded from the Data Lake Storage endpoint incurs the cost of multiple read operations because blobs must be downloaded in 4 MiB blocks and. Each 4 MiB block is billed as a separate read operation.  
 
+To estimate costs, see [The cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
+
+#### The cost to copy between containers
+
 A blob that is copied between containers incurs the cost of a single _write_ operation which is based on the destination tier. If the destination container is in another account, you're also billed for data retrieval and for read operation that is based on the source tier. If the destination account is in another region, you're also billed for network egress charges. 
 
-Other than write and read operations, your client utility might use other types of operations to complete the task of uploading, downloading, or copying data. For example, a client utility might use operations to list container contents or to get blob properties. The AzCopy utility is optimized to upload blobs reliably and efficiently and can serve as a canonical example on which to base your cost estimates. For example calculations, see [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md). 
+To estimate costs, see [The cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
 
-## The cost to rename objects
+## The cost to rename blobs and directories
 
-- Clearly identify which operations are used and how they are billed.
-- For HNS, we show a write transaction, but it might be iterative write operations. This would be billed per 100. This is being investigated.
-- For FNS, this amounts to a complete copy exercise. Show the cost of each approach.
+If you rename a blob in a flat namespace account, you must copy the blob to a new blob and then delete the old blob.
+Delete operations are free
+If you rename a blob in a hierarchical namespace account, you can use a single rename operation because you are operating on a single zero-length blob.
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to rename 1000 directories that each contain 1000 blobs.
+
+| Price factor                                                                                | Hot        | Cool       | Cold       |
+|---------------------------------------------------------------------------------------------|------------|------------|------------|
+| Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055 | $0.00001   | $0.000018  |
+| **Cost to rename blob virtual directories (1000 * (1000 * operation price))**               | **$5.50**  | **$10.00** | **$18.00** |
+| Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715  | $0.000715  | $0.000715  |
+| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715** | **$0.715** | **0.715**  |
 
 ## The cost to change access tiers
 
@@ -77,8 +98,8 @@ The following table includes sample (fictitious) prices for each request to the 
 
 | Price factor                                                    | Hot     | Cool    | Cold          | Archive |
 |-----------------------------------------------------------------|---------|---------|---------------|---------|
-| Price of write transactions (per 10,000)                        | $0.055  | $0.10   | $0.18         | $.11    |
-| Price of read transactions (per 10,000)                         | $0.0044 | $0.01   | $0.10         | $5.50   |
+| Price of write operations (per 10,000)                          | $0.055  | $0.10   | $0.18         | $.11    |
+| Price of read operations (per 10,000)                           | $0.0044 | $0.01   | $0.10         | $5.50   |
 | Price of data retrieval (per GiB)                               | Free    | $0.01   | $0.03         | $.022   |
 | List and container operations (per 10,000)                      | $0.055  | $0.055  | $0.065        | $.055   |
 | All other operations (per 10,000)                               | $0.0044 | $0.0044 | $0.0052       | $.0044  |
@@ -93,10 +114,11 @@ The following table includes sample prices (fictitious) prices for each request 
 
 | Price factor                                                    | Hot     | Cool    | Cold          | Archive |
 |-----------------------------------------------------------------|---------|---------|---------------|---------|
-| Price of write transactions (every 4MiB, per 10,000)            | $0.0715 | $0.13   | $0.234        | $0.143  |
-| Price of read transactions (every 4MiB, per 10,000)             | $0.0057 | $0.013  | $0.13         | $7.15   |
+| Price of write operations (every 4MiB, per 10,000)              | $0.0715 | $0.13   | $0.234        | $0.143  |
+| Price of read operations (every 4MiB, per 10,000)               | $0.0057 | $0.013  | $0.13         | $7.15   |
 | Price of data retrieval (per GiB)                               | Free    | $0.01   | $0.03         | $0.022  |
-| Iterative Read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
+| Iterative write operations (per 100)                            | $0.0715 | $0.0715 | $0.0715       | $0.0715 |
+| Iterative read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
 | Price of data retrieval (per GB)                                | Free    | $0.01   | $0.03         | $0.022  |
 | Network bandwidth between regions within North America (per GB) | $0.02   | $0.02   | $0.02         | $0.02   |
 | Data storage prices first 50 TB (pay-as-you-go)                 | $0.021  | $0.012  | $0.0045       | $0.002  |
