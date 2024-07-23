@@ -8,7 +8,7 @@ ms.custom: enterprise-iot
 
 # Welcome to Microsoft Defender for IoT
 
-[!INCLUDE [defender-iot-defender-reference](/includes/defender-iot-defender-reference.md)]
+[!INCLUDE [defender-iot-defender-reference](includes/defender-iot-defender-reference.md)]
 
 > [!NOTE]
 > OT monitoring with Microsoft Defender for IoT is now available for purchase with site-based licenses, purchased on the Microsoft 365 admin center.
