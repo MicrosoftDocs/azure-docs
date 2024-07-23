@@ -73,7 +73,10 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
         :::image type="content" source="./media/handle-advanced-messaging-events/create-event-subscription.png" lightbox="./media/handle-advanced-messaging-events/create-event-subscription.png" alt-text="Screenshot that shows create event subscription properties.":::
    
 
-        Optional: 
+        Optional:
+       
+        [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
+       
         Select the AdvancedMessageAnalysisCompleted event in preview to receive message analysis events. Instruction on how to enable message analysis can be found at [Enable Message Analysis with Azure OpenAI](../whatsapp/message-analysis-with-azure-openai-quickstart.md)
         
         :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create message analysis event subscription properties.":::
