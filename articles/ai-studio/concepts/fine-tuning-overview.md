@@ -100,6 +100,7 @@ There isn't a single right answer to this question, but you should have clearly 
 Now that you know when to leverage fine-tuning for your use-case, you can go to Azure AI Studio to find several models available to fine-tune including:
 - Azure OpenAI models
 - Llama 2 family models
+- Llama 3.1 family of models
 
 
 ### Azure OpenAI models
@@ -125,6 +126,13 @@ The following Llama 2 family models are supported in Azure AI Studio for fine-tu
 - `Llama-2-13b`
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
+
+### Llama 3.1 family models
+The following Llama 3.1 family models are supported in Azure AI Studio for fine-tuning:
+- `Llama-3.1-70b`
+- `Llama-3.1-7b`
+
+Fine-tuning of Llama 3.1 models is currently supported in projects located in West US 3.
 
 ## Related content
 
