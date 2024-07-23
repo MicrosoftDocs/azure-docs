@@ -1,9 +1,9 @@
 ---
 title: Overview of enhanced soft delete for Azure Backup
 description: This article gives an overview of enhanced soft delete for Azure Backup.
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: references_regions
-ms.date: 03/02/2024
+ms.date: 07/18/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
