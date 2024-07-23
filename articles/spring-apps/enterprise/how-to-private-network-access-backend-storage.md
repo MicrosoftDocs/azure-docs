@@ -211,5 +211,5 @@ If you're using a custom domain name system (DNS) server and the Azure DNS IP `1
 
 ## Next step
 
-[Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md)
-[Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
+* [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md)
+* [Private Link and DNS integration at scale](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)
