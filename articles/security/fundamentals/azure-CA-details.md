@@ -258,6 +258,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 ### Article change log
 
+- July 22, 2024: Added Entrust CAs from a parallel Microsoft 365 article to provide a comprehensive list.
 - June 27, 2024: Removed the following CAs, which were superseded by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
 
     | Certificate Authority | Serial Number<br>Thumbprint |
