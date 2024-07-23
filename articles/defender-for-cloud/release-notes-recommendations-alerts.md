@@ -22,7 +22,10 @@ This article summarizes what's new in security recommendations and alerts in Mic
 > `https://aka.ms/mdc/rss-recommendations-alerts`
 
 - Review a complete list of multicloud security recommendations and alerts:
+  - [AI recommendations](/azure/defender-for-cloud/recommendations-reference-ai)
+    
   - [Compute recommendations](recommendations-reference-compute.md)
+    
   - [Container recommendations](recommendations-reference-container.md)
   - [Data recommendations](recommendations-reference-data.md)
   - [DevOps recommendations](recommendations-reference-devops.md)
@@ -46,7 +49,8 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| July 14 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
+| July  | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
+|July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
 | June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all-repositories) |
@@ -134,8 +138,8 @@ New and updated recommendations and alerts are added to the table in date order.
 | January 25  | Alert (Azure network layer)    | Update to informational                                      | `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)` |
 | January 25  | Alert (Azure network layer)    | Update to informational                                      | `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)` |
 | January 25  | Alert (Azure Resource Manager) | Update to informational                                      | `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)` |
-| January 4   | Recommendation                 | Preview                                                      | [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference-data.md#cognitive-services-accounts-should-have-local-authentication-methods-disabled)<br/> Microsoft Cloud Security Benchmark |
-| January 4   | Recommendation preview         | [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link)<br/> Microsoft Cloud Security Benchmark |                                                              |
+| January 4   | Recommendation                 | Preview                                                      | Cognitive Services accounts should have local authentication methods disabled<br/> Microsoft Cloud Security Benchmark |
+| January 4   | Recommendation preview         | Cognitive Services should use private link<br/> Microsoft Cloud Security Benchmark |                                                              |
 | January 4   | Recommendation                 | Preview                                                      | [Virtual machines and virtual machine scale sets should have encryption at host enabled](recommendations-reference-compute.md#virtual-machines-and-virtual-machine-scale-sets-should-have-encryption-at-host-enabled)<br/> Microsoft Cloud Security Benchmark |
 | January 4   | Recommendation                 | Preview                                                      | [Azure Cosmos DB should disable public network access](recommendations-reference-data.md#azure-cosmos-db-should-disable-public-network-access)<br/> Microsoft Cloud Security Benchmark |
 | January 4   | Recommendation                 | Preview                                                      | [Cosmos DB accounts should use private link](recommendations-reference-data.md#cosmos-db-accounts-should-use-private-link)<br/> Microsoft Cloud Security Benchmark |

@@ -29,7 +29,7 @@ If you're using [Microsoft Entra ID](../../active-directory/fundamentals/active-
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Restrictions
-[!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]
+[!INCLUDE [disks-azure-ad-upload-download-restrictions](../includes/disks-azure-ad-upload-download-restrictions.md)]
 
 ### Assign RBAC role
 

@@ -15,7 +15,7 @@ ms.author: eur
 In this overview, you learn about the benefits and capabilities of the speech to text feature of the Speech service, which is part of Azure AI services. Speech to text can be used for [real-time](#real-time-speech-to-text), [batch transcription](#batch-transcription-api), or [fast transcription](./fast-transcription-create.md) of audio streams into text. 
 
 > [!NOTE]
-> To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription-api), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
+> To compare pricing of [real-time](#real-time-speech-to-text), [batch transcription](#batch-transcription-api), and [fast transcription](./fast-transcription-create.md), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
 For a full list of available speech to text languages, see [Language and voice support](language-support.md?tabs=stt).
 
@@ -36,7 +36,7 @@ Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and th
 Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
 
 - Quick audio or video transcription, subtitles, and edit. 
-- Video dubbing  
+- Video translation  
 
 > [!NOTE]
 > Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview and later. 
