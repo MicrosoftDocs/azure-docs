@@ -11,7 +11,7 @@ ms.author: tamram
 
 # Use Pod Security Admission in Azure Kubernetes Service (AKS)
 
-Pod Security Admission (PSA) uses labels to enforce Pod Security Standards policies on pods running in a namespace. AKS enables Pod Security Admission is enabled by default. For more information about Pod Security Admission and Pod Security Standards, see [Enforce Pod Security Standards with namespace labels][kubernetes-psa] and [Pod Security Standards][kubernetes-pss].
+Pod Security Admission (PSA) uses labels to enforce Pod Security Standards policies on pods running in a namespace. In AKS, Pod Security Admission is enabled by default. For more information about Pod Security Admission and Pod Security Standards, see [Enforce Pod Security Standards with namespace labels][kubernetes-psa] and [Pod Security Standards][kubernetes-pss].
 
 Pod Security Admission is a built-in policy solution for single cluster implementations. If you want to use an enterprise-grade policy, we recommend you use [Azure policy](use-azure-policy.md).
 

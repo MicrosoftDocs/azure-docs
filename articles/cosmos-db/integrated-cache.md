@@ -5,7 +5,7 @@ author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
-ms.date: 12/27/2023
+ms.date: 7/19/2024
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ---
@@ -55,6 +55,7 @@ Item cache is used for point reads (key/value look ups based on the Item ID and 
 
 - New writes, updates, and deletes are automatically populated in the item cache of the node that the request is routed through
 - Items from point read requests where the item isn’t already in the cache (cache miss) of the node the request is routed through are added to the item cache
+- Read requests for multiple items, such as ReadMany, populate the query cache as a set instead of the item cache as individual items
 - Requests that are part of a [transactional batch](./nosql/transactional-batch.md) or in [bulk mode](./nosql/how-to-migrate-from-bulk-executor-library.md#enable-bulk-support) don't populate the item cache
 
 ### Item cache invalidation and eviction
@@ -73,6 +74,7 @@ The query cache is used to cache queries. The query cache transforms a query int
 
 - If the cache doesn't have a result for that query (cache miss) on the node it was routed through, the query is sent to the backend. After the query is run, the cache will store the results for that query
 - Queries with the same shape but different parameters or request options that affect the results (ex. max item count) are stored as their own key/value pair
+- Read requests for multiple items, such as ReadMany, populate the query cache. ReadMany results are stored as a set, and requests with different inputs will be stored as their own key/value pair
 
 ### Query cache eviction
 
@@ -132,11 +134,11 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 
 [Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
 
-## Bypass the integrated cache (Preview)
+## Bypass the integrated cache
 
-The integrated cache has a limited storage capacity determined by the dedicated gateway SKU provisioned. By default, all requests from clients configured with the dedicated gateway connection string go through the integrated cache and take up cache space. You can control which items and queries are cached with the bypass integrated cache request option, currently in preview. This request option is useful for item writes or read requests that aren't expected to be frequently repeated. Bypassing the integrated cache for items with infrequent access saves cache space for items with more repeats, increasing RU saving potential and reducing evictions. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
+The integrated cache has a limited storage capacity determined by the dedicated gateway SKU provisioned. By default, all requests from clients configured with the dedicated gateway connection string go through the integrated cache and take up cache space. You can control which items and queries are cached with the bypass integrated cache request option. This request option is useful for item writes or read requests that aren't expected to be frequently repeated. Bypassing the integrated cache for items with infrequent access saves cache space for items with more repeats, increasing RU saving potential and reducing evictions. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
 
-[Learn to bypass the integrated cache.](how-to-configure-integrated-cache.md#bypass-the-integrated-cache-preview)
+[Learn to bypass the integrated cache.](how-to-configure-integrated-cache.md#bypass-the-integrated-cache)
 
 ## Metrics
 

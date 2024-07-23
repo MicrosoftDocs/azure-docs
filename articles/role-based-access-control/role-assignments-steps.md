@@ -5,13 +5,13 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 06/25/2024
 ms.author: rolyon
 ---
 
 # Steps to assign an Azure role
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes the high-level steps to assign Azure roles using the [Azure portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md), or the [REST API](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] This article describes the high-level steps to assign Azure roles using the [Azure portal](role-assignments-portal.yml), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md), or the [REST API](role-assignments-rest.md).
 
 ## Step 1: Determine who needs access
 
@@ -88,11 +88,11 @@ If you are using a service principal to assign roles, you might get the error "I
 
 Once you know the security principal, role, and scope, you can assign the role. You can assign roles using the Azure portal, Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs.
 
-You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
+You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. You can have up to **500** role assignments in each management group. For more information, see [Troubleshoot Azure RBAC limits](troubleshoot-limits.md).
 
 Check out the following articles for detailed steps for how to assign roles.
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)
 - [Assign Azure roles using Azure CLI](role-assignments-cli.md)
 - [Assign Azure roles using the REST API](role-assignments-rest.md)

@@ -46,7 +46,7 @@ You also want to determine your use case. What are you trying to accomplish with
 
 Do you want this automation to be activated when new incidents or alerts are created? Or anytime an incident gets updated?
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Threat detection in Microsoft Sentinel](threat-detection.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
@@ -91,6 +91,8 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 Use the options in the **Conditions** area to define conditions for your automation rule.
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (*Contains*) or exclusive (*Does not contain*), and then select the analytic rule name from the drop-down list.
+
+    Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
 - Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations platform:
 

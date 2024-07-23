@@ -1,9 +1,9 @@
 ---
 title: Hive dialect in Apache Flink® clusters on HDInsight on AKS
-description: how to use Hive dialect in Apache Flink® clusters on HDInsight on AKS
+description: How to use Hive dialect in Apache Flink® clusters on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 04/17/2024
 ---
 
 # Hive dialect in Apache Flink® clusters on HDInsight on AKS
@@ -14,14 +14,14 @@ In this article, learn how to use Hive dialect in Apache Flink clusters on HDIns
 
 ## Introduction
 
-The user cannot change the default `flink` dialect to hive dialect for their usage on HDInsight on AKS clusters. All the SQL operations fail once changed to hive dialect with the following error.
+The user can't change the default `flink` dialect to hive dialect for their usage on HDInsight on AKS clusters. All the SQL operations fail once changed to hive dialect with the following error.
 
 ```Caused by: 
 
-*java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader*
+*java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader can't be cast to class java.net.URLClassLoader*
 ```
 
-The reason for this issue arises due to an open [Hive Jira](https://issues.apache.org/jira/browse/HIVE-21584). Currently, Hive assumes that the system class loader is an instance of URLClassLoader. In `Java 11`, this assumption is not the case.
+The reason for this issue arises due to an open [Hive Jira](https://issues.apache.org/jira/browse/HIVE-21584). Currently, Hive assumes that the system class loader is an instance of URLClassLoader. In `Java 11`, this assumption isn't the case.
 
 ## How to use Hive dialect in Flink
 
@@ -31,24 +31,21 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
      ```command
      rm /opt/flink-webssh/lib/flink-sql-connector-hive*jar
      ```
-  1. Download the below jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
+  1. Download the following jar in `webssh` pod and add it under the /opt/flink-webssh/lib wget https://aka.ms/hdiflinkhivejdk11jar.
     (The above hive jar has the fix [https://issues.apache.org/jira/browse/HIVE-27508](https://issues.apache.org/jira/browse/HIVE-27508))
 
-  1. ```
-     mv $FLINK_HOME/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar $FLINK_HOME/lib/flink-table-planner_2.12-1.16.0-0.0.18.jar
-     ```
-
-  1. ```
-     mv $FLINK_HOME/lib/flink-table-planner-loader-1.16.0-0.0.18.jar $FLINK_HOME/opt/flink-table-planner-loader-1.16.0-0.0.18.jar
-     ```
-
+    ```console
+    mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
+    mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.17.0-*.*.*.*.jar /opt/flink-webssh/lib/
+    ```
+  
   1. Add the following keys in the `flink` configuration management under core-site.xml section:
-     ```
+     ```console
      fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
      flink.hadoop.fs.azure.account.key.<STORAGE>.dfs.core.windows.net: <KEY>
      ```
 
-- Here is an overview of [hive-dialect queries](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/)
+- Here's an overview of [hive-dialect queries](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/table/hive-compatibility/hive-dialect/queries/overview/)
   
   - Executing Hive dialect in Flink without partitioning
     
@@ -157,5 +154,5 @@ The reason for this issue arises due to an open [Hive Jira](https://issues.apach
   :::image type="content" source="./media/hive-dialect-flink/flink-container-table-3.png" alt-text="Screenshot shows container table 3." lightbox="./media/hive-dialect-flink/flink-container-table-3.png":::
 
 ### Reference
-- [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/hive/hive_dialect/#hive-dialect)
+- [Hive Dialect in Apache Flink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/table/hive-compatibility/hive-dialect/overview/)
 - Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

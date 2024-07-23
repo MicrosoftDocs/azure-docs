@@ -7,21 +7,21 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: overview
-ms.date: 02/15/2024
+ms.date: 06/30/2024
 ms.custom: build-2023, build-2023-dataai
 recommendations: false
 ---
 
 # What is Azure OpenAI Service?
 
-Azure OpenAI Service provides REST API access to OpenAI's powerful language models including the GPT-4, GPT-4 Turbo with Vision, GPT-3.5-Turbo, and Embeddings model series. In addition, the new GPT-4 and GPT-3.5-Turbo model series have now reached general availability. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
+Azure OpenAI Service provides REST API access to OpenAI's powerful language models including GPT-4o, GPT-4 Turbo with Vision, GPT-4, GPT-3.5-Turbo, and Embeddings model series. These models can be easily adapted to your specific task including but not limited to content generation, summarization, image understanding, semantic search, and natural language to code translation. Users can access the service through REST APIs, Python SDK, or our web-based interface in the Azure OpenAI Studio.
 
 ### Features overview
 
 | Feature | Azure OpenAI |
 | --- | --- |
-| Models available | **GPT-4 series (including GPT-4 Turbo with Vision)** <br>**GPT-3.5-Turbo series**<br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
-| Fine-tuning (preview) | `GPT-3.5-Turbo` (0613) <br> `babbage-002` <br> `davinci-002`.|
+| Models available | **GPT-4o**<br> **GPT-4 series (including GPT-4 Turbo with Vision)** <br>**GPT-3.5-Turbo series**<br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Fine-tuning | `GPT-4` (preview) <br>`GPT-3.5-Turbo` (0613) <br> `babbage-002` <br> `davinci-002`.|
 | Price | [Available here](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) <br> For details on GPT-4 Turbo with Vision, see the [special pricing information](../openai/concepts/gpt-with-vision.md#special-pricing-information).|
 | Virtual network support & private link support | Yes, unless using [Azure OpenAI on your data](./concepts/use-your-data.md).  |
 | Managed Identity| Yes, via Microsoft Entra ID | 
@@ -35,15 +35,7 @@ At Microsoft, we're committed to the advancement of AI driven by principles that
 
 ## How do I get access to Azure OpenAI?
 
-How do I get access to Azure OpenAI?
-
-Access is currently limited as we navigate high demand, upcoming product improvements, and <a href="https://www.microsoft.com/ai/responsible-ai?activetab=pivot1:primaryr6" target="_blank">Microsoft’s commitment to responsible AI</a>. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. 
-
-More specific information is included in the application form. We appreciate your patience as we work to responsibly enable broader access to Azure OpenAI.
-
-Apply here for access:
-
-<a href="https://aka.ms/oaiapply" target="_blank">Apply now</a>
+A Limited Access registration form is not required to access most Azure OpenAI models. Learn more on the [Azure OpenAI Limited Access page](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context).
 
 ## Comparing Azure OpenAI and OpenAI
 
@@ -125,7 +117,7 @@ The service provides users access to several different models. Each model provid
 
 The DALL-E models (some in preview; see [models](./concepts/models.md#dall-e)) generate images from text prompts that the user provides.
 
-The Whisper models, currently in preview, can be used to transcribe and translate speech to text.
+The Whisper models can be used to transcribe and translate speech to text.
 
 The text to speech models, currently in preview, can be used to synthesize text to speech.
 

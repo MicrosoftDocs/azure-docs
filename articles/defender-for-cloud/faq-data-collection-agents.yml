@@ -3,12 +3,12 @@ metadata:
   title: Common questions - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud. Data collection agents are a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: elkrieger
+  author: ElazarK
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 01/22/2024
+  ms.date: 05/16/2024
 
 title: 'Common questions about data collection, agents, and workspaces'
 summary: |
@@ -211,10 +211,50 @@ sections:
   - name: Agentless
     questions:
       - question: |
+          Does Agentless scanning scan deallocated VMs?
+        answer: |
+          No. Agentless scanning doesn't scan deallocated VMs.
+      
+      - question: |
+          Does Agentless scanning scan OS Disk and Data Disks?
+        answer: |
+          Yes. Agentless scanning scans both OS Disk and Data Disks.
+      
+      - question: |
+          What time of the day my VM is scanned, including start and end time?
+        answer: |
+          The time of the day is dynamic and can change across different account and subscriptions.
+      
+      - question: |
+          Is there any telemetry regarding the copied snapshot?
+        answer: |
+          In AWS, the operations on the customer account are traceable through CloudTrail.
+      
+      - question: |
           Which data is collected from snapshots?
         answer: |
           Agentless scanning collects data similar to the data an agent collects to perform the same analysis. Raw data, PIIs or sensitive business data isn't collected, and only metadata results are sent to Defender for Cloud.
 
+      - question: |
+          Where are the Disk snapshots copied?
+        answer: |
+          AgentlessThe analysis of the snapshots takes place in secure environments managed by Defender for Cloud.
+          
+          The environments are regional across multi-cloud, such that snapshots remain at the same cloud region as the VM they originated from (for example – a snapshot of an EC2 instance in US west will be analysed at the same region, without being copied to another region or cloud).
+          
+          The scanning environment where disks are analyzed is volatile, isolated, and highly secure.
+      
+      - question: |
+          How is the Disk snapshot handled in Microsoft Account? Can Microsoft share Agentless scanning platform security & privacy principles?
+        answer: |
+          Agentless scanning platform is audited & compliant with Microsoft’s strict security and privacy standards.
+          Some of the measures taken are (not a comprehensive list): 
+          - Physical isolation per region, additional isolation per customer and subscription​ 
+          - E2E encryption at rest and transit​ 
+          - Disk snapshots immediately purged after scan​ 
+          - Only metadata (i.e. security findings) leaves the isolated scanning environment​ 
+          - The scanning environment is autonomous​ 
+          - All operations are internally audited 
 
       - question: |
           What are the costs related to agentless scanning?
@@ -252,7 +292,7 @@ sections:
           > [!NOTE]
           > The log analytics pricing tier of workspaces created by Defender for Cloud doesn't affect Defender for Cloud billing.
           
-          [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+          [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
           
           
       - question: |

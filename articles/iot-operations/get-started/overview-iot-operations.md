@@ -13,7 +13,7 @@ ms.date: 10/18/2023
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-_Azure IoT Operations Preview_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
+_Azure IoT Operations Preview_ is a unified data plane for the edge. It's composed of a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters such as [AKS Edge Essentials](#validated-environments). It enables data capture from various different systems and integrates with data modeling applications such as Microsoft Fabric to help organizations deploy the industrial metaverse.
 
 Azure IoT Operations:
 
@@ -35,13 +35,16 @@ There are two core elements in the Azure IoT Operations Preview architecture:
   * **Azure IoT Data Processor Preview** - a configurable data processing service that can manage the complexities and diversity of industrial data. Use Data Processor to make data from disparate sources more understandable, usable, and valuable.
   * **Azure IoT MQ Preview** - an edge-native MQTT broker that powers event-driven architectures.
   * **Azure IoT OPC UA Broker Preview** - an OPC UA broker that handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
-* **Azure IoT Operations (preview) portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment.
+* **Azure IoT Operations (preview) portal**. This web UI provides a unified experience for operational technologists to manage assets and Data Processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
 
 ## Deploy
 
 Azure IoT Operations runs on Arc-enabled Kubernetes clusters on the edge. You can deploy Azure IoT Operations by using the Azure portal or the Azure CLI.
 
-[Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment, configuration, and update of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+[Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md) manages the deployment and configuration of the Azure IoT Operations components that run on your Arc-enabled Kubernetes cluster.
+
+> [!NOTE]
+> During public preview, there's no support for upgrading an existing Azure IoT Operations deployment to a newer version. Instead, remove Azure IoT Operations from your cluster and then deploy the latest version. For more information, see [Update Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md#update-azure-iot-operations).
 
 ## Manage devices and assets
 
@@ -70,6 +73,9 @@ A Data Processor pipeline typically:
 1. Subscribes to an MQTT topic to retrieve messages.
 1. Processes the messages by using one or more configurable stages.
 1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
+
+> [!NOTE]
+> Data Processor is an optional component of Azure IoT Operations. To use it, you must chose to add it when you deploy Azure IoT Operations.
 
 ## Connect to the cloud
 

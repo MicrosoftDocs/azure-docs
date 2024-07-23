@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: ssalgadodev
-ms.author: tbombach
-ms.reviewer: ssalgado
+ms.author: ssalgado
+ms.reviewer: tbombach
 ms.date: 01/25/2024
 ms.custom:
   - cliv2

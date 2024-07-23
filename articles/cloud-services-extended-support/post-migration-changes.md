@@ -10,8 +10,9 @@ ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ---
  
-# Post migration changes
-The Cloud Services (classic) deployment is converted to a Cloud Service (extended support) deployment. For more information, see [Cloud Services (extended support) documentation](deploy-prerequisite.md).  
+# Post-migration changes
+
+The Cloud Services (classic) deployment is converted to a Cloud Services (extended support) deployment. For more information, see [Cloud Services (extended support) documentation](deploy-prerequisite.md).  
 
 ## Changes to deployment files 
 
@@ -19,7 +20,7 @@ Minor changes are made to customer’s .csdef and .cscfg file to make the deploy
 
 - Virtual Network uses full Azure Resource Manager resource ID instead of just the resource name in the NetworkConfiguration section of the .cscfg file. For example, `/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/vnet-name`. For virtual networks belonging to the same resource group as the cloud service, you can choose to update the .cscfg file back to using just the virtual network name.  
 
-- Classic sizes like Small, Large, ExtraLarge are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef file. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-service-definition-file-csdef-updates)
+- Classic sizes like Small, Large, ExtraLarge are replaced by their new size names, Standard_A*. The size names need to be changed to their new names in .csdef file. For more information, see [Cloud Services (extended support) deployment prerequisites](deploy-prerequisite.md#required-definition-file-updates)
 
 - Use the Get API to get the latest copy of the deployment files. 
     - Get the template using [Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates), and [REST API](/rest/api/resources/resourcegroups/exporttemplate) 
@@ -36,8 +37,8 @@ Customers need to update their tooling and automation to start using the new API
     - As part of migration, the names of few resources like the Cloud Service, public IP addresses, etc. change. These changes might need to be reflected in deployment files before update of Cloud Service. [Learn More about the names of resources changing](in-place-migration-technical-details.md#translation-of-resources-and-naming-convention-post-migration).  
 
 - Recreate rules and policies required to manage and scale cloud services 
-    - [Auto Scale rules](configure-scaling.md) are not migrated. After migration, recreate the auto scale rules.  
-    - [Alerts](enable-alerts.md) are not migrated. After migration, recreate the alerts.
+    - [Auto Scale rules](configure-scaling.md) aren't migrated. After migration, recreate the auto scale rules.  
+    - [Alerts](enable-alerts.md) aren't migrated. After migration, recreate the alerts.
     - The Key Vault is created without any access policies. [Create appropriate policies](../key-vault/general/assign-access-policy-portal.md) on the Key Vault to view or manage your certificates. Certificates will be visible under settings on the tab called secrets.
 
 
@@ -45,11 +46,11 @@ Customers need to update their tooling and automation to start using the new API
 
 As a standard practice to manage your certificates, all the valid .pfx certificate files should be added to certificate store in Key Vault and update would work perfectly fine via any client - Portal, PowerShell or REST API.
 
-Currently, Azure Portal does a validation for you to check if all the required Certificates are uploaded in certificate store in Key Vault and warns if a certificate is not found. However, if you are planning to use Certificates as secrets, then these certificates cannot be validated for their thumbprint and any update operation which involves addition of secrets would fail via Portal. Customers are reccomended to use PowerShell or RestAPI to continue updates involving Secrets.
+Currently, the Azure portal does a validation for you to check if all the required Certificates are uploaded in certificate store in Key Vault and warns if a certificate isn't found. However, if you're planning to use Certificates as secrets, then these certificates can't be validated for their thumbprint and any update operation that involves addition of secrets would fail via Portal. Customers are recommended to use PowerShell or RestAPI to continue updates involving Secrets.
 
 
 ## Changes for Update via Visual Studio
-If you were publishing updates via Visual Studio directly, then you would need to first download the latest CSCFG file from your deployment post migration. Use this file as reference to add Network Configuration details to your current CSCFG file in Visual Studio project. Then build the solution and publish it. You may have to choose the Key Vault and Resource Group for this update.
+If you were publishing updates via Visual Studio directly, then you would need to first download the latest CSCFG file from your deployment post migration. Use this file as reference to add Network Configuration details to your current CSCFG file in Visual Studio project. Then build the solution and publish it. You might have to choose the Key Vault and Resource Group for this update.
 
 
 ## Next steps

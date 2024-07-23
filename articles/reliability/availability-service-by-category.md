@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 06/13/2024
 ms.author: anaharris
 ms.custom: references_regions
 ---
@@ -32,7 +32,7 @@ Azure services are presented in the following tables by category. Note that some
 > |----------------------------------------|---------------------------------------------------|
 > | Azure Application Gateway              | Azure API Management                              |
 > | Azure Backup                           | Azure App Configuration                           |
-> | Azure Cosmos DB                        | Azure App Service                                 |
+> | Azure Cosmos DB for NoSQL              | Azure App Service                                 |
 > | Azure Event Hubs                       | Microsoft Entra Domain Services            |
 > | Azure ExpressRoute                     | Azure Bastion                                     |
 > | Azure Key Vault                        | Azure Batch                                       |
@@ -76,13 +76,13 @@ Azure services are presented in the following tables by category. Note that some
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
 
 > [!div class="mx-tableFixed"]
-> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Foundational       |
+> | ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic       |
 > |----------------------------------------|
 > | Azure API for FHIR                                   |
 > | Azure Analysis Services                              |
 > | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure AI services                             |
+> | Azure Container Apps                                 |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
@@ -92,6 +92,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure Machine Learning                               |
+> | Azure Managed HSM                                    |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
 > | Microsoft Purview                                        |

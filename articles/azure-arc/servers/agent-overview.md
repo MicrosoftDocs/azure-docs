@@ -1,13 +1,17 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 12/06/2023
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: overview
 ---
 
 # Overview of Azure Connected Machine agent
 
 The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers.
+
+> [!WARNING]
+> Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
+> 
 
 ## Agent components
 
@@ -28,7 +32,7 @@ The Azure Connected Machine agent package contains several logical components bu
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+> The [Azure Monitor agent (AMA)](../../azure-monitor/agents/azure-monitor-agent-overview.md) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
 
 ## Agent resources
 
@@ -195,7 +199,7 @@ azcmagent config set extensions.agent.cpulimit 80
 
 Metadata information about a connected machine is collected after the Connected Machine agent registers with Azure Arc-enabled servers. Specifically:
 
-* Operating system name, type, and version
+* Operating system name, edition, type, and version
 * Computer name
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
@@ -214,6 +218,15 @@ Metadata information about a connected machine is collected after the Connected 
 * Total physical memory
 * Serial number
 * SMBIOS asset tag
+* Network interface information
+  * IP address
+  * Subnet
+* Windows licensing information
+  * OS license status
+  * OS license channel
+  * Extended Security Updates eligibility
+  * Extended Security Updates license status
+  * Extended Security Updates license channel
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID
@@ -247,6 +260,12 @@ The agent requests the following metadata information from Azure:
 Agent deployment and machine connection require certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
 
 We provide several options for deploying the agent. For more information, see [Plan for deployment](plan-at-scale-deployment.md) and [Deployment options](deployment-options.md).
+
+## Disaster Recovery
+
+There are no customer-enabled disaster recovery options for Arc-enabled servers. In the event of an outage in an Azure region, the system will failover to another region in the same [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/) (if one exists). While this failover procedure is automatic, it does take some time. The Connected Machine agent will be disconnected during this period and will show a status of **Disconnected** until the failover is complete. The system will failback to its original region once the outage has been restored.
+
+An outage of Azure Arc won't affect the customer workload itself; only management of the applicable servers via Arc will be impaired.
 
 ## Next steps
 

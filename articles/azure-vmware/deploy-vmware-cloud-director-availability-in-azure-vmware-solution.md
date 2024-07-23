@@ -4,7 +4,7 @@ description: Learn how to install and configure VMware Cloud Director Availabili
 author: suzuber
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 1/22/2024
+ms.date: 4/15/2024
 --- 
 
 # Deploy VMware Cloud Director Availability in Azure VMware Solution
@@ -55,7 +55,7 @@ VMware Cloud Director Availability installation in the Azure VMware Solution clo
 
 The following diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution.
 
-:::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png" alt-text="Diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution."lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png"::: 
+:::image type="content" source="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png" alt-text="Diagram shows VMware Cloud Director Availability appliances installed in both on-premises and Azure VMware Solution." lightbox="media/deploy-vmware-cloud-director-availability/vmware-cloud-director-availability-diagram.png"::: 
 
 ## Install and configure VMware Cloud Director Availability on Azure VMware Solution
 

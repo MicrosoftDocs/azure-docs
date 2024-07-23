@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.custom: linux-related-content
-ms.date: 10/09/2023
+ms.date: 07/19/2024
 ms.author: radeltch
 ---
 
@@ -76,6 +76,9 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support a software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For more information, see [Support Policies for RHEL High-Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 >
 > The only supported fencing mechanism for Pacemaker RHEL clusters on Azure is an Azure fence agent.  
+
+> [!IMPORTANT]
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
 
 The following items are prefixed with:
 
@@ -341,7 +344,7 @@ Assign the custom role `Linux Fence Agent Role` that was created in the last sec
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 Make sure to assign the role for both cluster nodes.
 
@@ -488,8 +491,10 @@ When the cluster health attribute is set for a node, the location constraint tri
 
    ```bash
    sudo pcs resource create health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   ocf:heartbeat:azure-events-az \
+   op monitor interval=10s timeout=240s \
+   op start timeout=10s start-delay=90s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
    ```
 
 1. Take the Pacemaker cluster out of maintenance mode.

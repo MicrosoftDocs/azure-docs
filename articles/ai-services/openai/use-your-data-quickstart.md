@@ -47,11 +47,8 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
 
-  Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. [See Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
-- An Azure OpenAI resource deployed in a [supported region](./concepts/use-your-data.md#regional-availability-and-model-support) with a [supported model](./concepts/use-your-data.md#supported-models).
+- An Azure OpenAI resource deployed in a [supported region and with a supported model](./concepts/use-your-data.md#regional-availability-and-model-support).
 
 - Be sure that you are assigned at least the [Cognitive Services Contributor](./how-to/role-based-access-control.md#cognitive-services-contributor) role for the Azure OpenAI resource.
 
@@ -119,7 +116,7 @@ In this quickstart you can use your own data with Azure OpenAI models. Using Azu
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI or Azure AI Search resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Azure AI services resources](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure AI Search resources](/azure/search/search-get-started-portal#clean-up-resources)

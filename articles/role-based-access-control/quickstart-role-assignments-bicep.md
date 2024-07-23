@@ -16,7 +16,7 @@ ms.author: rolyon
 
 [Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this quickstart, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This quickstart uses Bicep to grant the access.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Get-AzRoleAssignment -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group.
 

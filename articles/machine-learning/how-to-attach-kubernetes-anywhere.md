@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.custom: devplatv2
 ms.date: 12/22/2023
 #Customer intent: As part of ML Professionals focusing on ML infratrasture setup using self-managed compute, I want to understand what Kubernetes compute target is used for and what benefits it proves.
@@ -18,7 +18,7 @@ ms.date: 12/22/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-With Azure Machine Learning CLI/Python SDK v2, Azure Machine Learning introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubernetes compute target in Azure Machine Learning, and use it to train or deploy models. 
+With Azure Machine Learning CLI/Python SDK v2, Azure Machine Learning introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service (AKS)** cluster or **Azure Arc-enabled Kubernetes (Arc Kubernetes)** cluster to become a Kubernetes compute target in Azure Machine Learning, and use it to train or deploy models. 
 
 :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure Machine Learning connects to Kubernetes." lightbox="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png":::
  
@@ -66,7 +66,7 @@ Train model in cloud, deploy model on-premises | Cloud | Make use of cloud compu
 
 `KubernetesCompute` target in Azure Machine Learning workloads (training and model inference) has the following limitations:
 * The availability of **Preview features** in Azure Machine Learning isn't guaranteed.
-    * Identified limitation: Models (including the foundational model) from the **Model Catalog** aren't supported on Kubernetes online endpoints.
+    * Identified limitation: Models (including the foundational model) from the **Model Catalog** and **Registry** aren't supported on Kubernetes online endpoints.
 
 ## Recommended best practices
 

@@ -23,11 +23,7 @@ The file size limit for the Azure OpenAI Whisper model is 25 MB. If you need to 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI Service in the desired Azure subscription.
 - An Azure OpenAI resource with a `whisper` model deployed in a supported region. [Whisper model regional availability](./concepts/models.md#whisper-models). For more information, see [Create a resource and deploy a model with Azure OpenAI](how-to/create-resource.md).
-
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). 
 
 ## Set up
 
@@ -42,7 +38,7 @@ To successfully make a call against Azure OpenAI, you'll need an **endpoint** an
 
 Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-:::image type="content" source="media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="media/quickstarts/endpoint.png":::
+:::image type="content" source="media/quickstarts/endpoint.png" alt-text="Screenshot of the overview UI for an Azure OpenAI resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="media/quickstarts/endpoint.png":::
 
 Create and assign persistent environment variables for your key and endpoint.
 
@@ -100,7 +96,7 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
 - [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)

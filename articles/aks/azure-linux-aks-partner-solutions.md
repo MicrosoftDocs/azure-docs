@@ -4,23 +4,24 @@ titleSuffix: Azure Linux AKS Container Host partner solutions
 description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.topic: conceptual
 ms.custom: linux-related-content
-ms.date: 03/19/2024
+ms.date: 06/13/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
 
 Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
-Our third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
+The third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
 | DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#netapp) |
 | Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) |
 | Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera](#tigera-inc) |
-| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
+| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Palo Alto Networks](#palo-alto-networks) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
 | Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
 | Config Management  | [Corent](#corent)                                                                              |
 | Migration          | [Catalogic](#catalogic)                                                                        |
@@ -31,6 +32,8 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 
 ### Advantech
 
+#### iFactoryEHS
+
 :::image type="icon" source="./media/azure-linux-aks-partner-solutions/advantech.png":::
 
 | Solution | Categories |
@@ -40,6 +43,24 @@ DevOps streamlines the delivery process, improves collaboration across teams, an
 The right EHS management system can strengthen organizations behind the scenes and enable them to continuously put their best foot forward. iFactoryEHS solution is designed to help manufacturers manage employee health, improve safety, and analyze environmental footprints while ensuring operational continuity.
 
 For more information, see [Advantech & iFactoryEHS](https://page.advantech.com/en/global/solutions/ifactory/ifactory_ehs).
+
+#### FactoryOEE
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/factoryoee.png":::
+
+| Solution | Categories |
+|----------|------------|
+| FactoryOEE | DevOps |
+
+Advantech FactoryOEE is an innovative factory management tool that enhances production efficiency and focuses on energy consumption and carbon emissions.
+
+<details> <summary> See more </summary><br>
+
+Through advanced data analytics, it monitors energy usage in real-time, reducing carbon footprint. We're committed to creating an efficient, eco-friendly production model, optimizing your factory for peak performance while minimizing environmental impact. Choose FactoryOEE for the perfect balance of efficiency and sustainability.
+
+</details>
+
+For more information, see [Advantech & FactoryOEE solutions](https://wise-paas.advantech.com/marketplace/product/advantech.FactoryOEE) and [Advantech on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/advantech.ifactory_tpm?tab=Overview).
 
 ### Akuity
 
@@ -140,7 +161,7 @@ Spot Ocean allows organizations to effectively manage their containers’ infras
 
 Ocean ensures cloud-native applications always get continuously optimized infrastructure that's balanced for performance, availability, and cost.
 
-Spot Ocean continuously analyzes how containers use the underling infrastructure, and automatically scales compute resources to maximize utilization and availability with an optimal blend of spot VMs, reserved instances, savings plans, and pay-as-you-go compute resources.
+Spot Ocean continuously analyzes how containers use the underlying infrastructure, and automatically scales compute resources to maximize utilization and availability with an optimal blend of spot VMs, reserved instances, savings plans, and pay-as-you-go compute resources.
 
 With Spot Ocean, users gain:
 
@@ -251,6 +272,26 @@ For more information, see [Dynatrace Solutions](https://www.dynatrace.com/techno
 ## Security
 
 Ensure the integrity and confidentiality of applications and foster trust and compliance across your infrastructure.
+
+### Palo Alto Networks
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/palo-alto-networks.png":::
+
+| Solution | Categories |
+|----------|------------|
+| Prisma Cloud Compute Edition | Security |
+
+Prisma Cloud Compute Edition by Palo Alto Networks securely accelerates your time-to-market with support for Azure Linux for AKS and enhanced Kubernetes container security. Gain full lifecycle cloud workload protection (CWP) for hosts, containers, serverless functions, web applications, and APIs.
+
+<details> <summary> See more </summary><br>
+
+Protect against Layer 7 and OWASP Top 10 threats with Prisma Cloud security. Proactively reduce risk, detect vulnerabilities, and protect your applications. Agentless architecture options are also available for frictionless vulnerability scanning and risk assessment.
+
+With Prisma Cloud by Palo Alto Networks you get always on, real-time app visibility and control to eliminate blind spots, reduce alerts, provide security guidance, and accelerate innovation.
+
+</details>
+
+For more information, see [Palo Alto Networks Solutions](https://www.paloaltonetworks.com/prisma/environments/azure) and [Prisma Cloud Compute Edition on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pcce_twistlock?tab=Overview).
 
 ### Tetrate
 

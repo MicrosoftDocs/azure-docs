@@ -12,6 +12,8 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
@@ -136,10 +138,10 @@ By default, the App Service resource provider doesn't have access to your key va
 > [!NOTE]
 > Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.  For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md?tabs=azure-cli).
 
-| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions |
-|--|--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get |
-| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List |
+| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions | Key vault RBAC permissions |
+|--|--|--|--|--|
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get | Certificate User |
+| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List | |
 
 ### Import a certificate from your vault to your app
 
@@ -309,18 +311,19 @@ After the certificate renews inside your key vault, App Service automatically sy
 
 ## Frequently asked questions
 
-- [How can I automate adding a bring-your-owncertificate to an app?](#how-can-i-automate-adding-a-bring-your-owncertificate-to-an-app)
-- [Frequently asked questions for App Service certificates](configure-ssl-app-service-certificate.md#frequently-asked-questions)
-#### How can I automate adding a bring-your-owncertificate to an app?
+### How can I automate adding a bring-your-owncertificate to an app?
 
 - [Azure CLI: Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
 - [Azure PowerShell Bind a custom TLS/SSL certificate to a web app using PowerShell](scripts/powershell-configure-ssl-certificate.md)
 
-#### Can I configure a private CA certificate on my app?
-
-App Service has a list of Trusted Root Certificates which you cannot modify in the multi-tenant variant version of App Service, but you can load your own CA certificate in the Trusted Root Store in an App Service Environment (ASE), which is a single-tenant environment in App Service. (The Free, Basic, Standard, and Premium App Service Plans are all multi-tenant, and the Isolated Plans are single-tenant.)
-- [Private client certificate](environment/overview-certificates.md)
-
+### Can I use a private CA (certificate authority) certificate for inbound TLS on my app?
+You can use a private CA certificate for inbound TLS in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). This isn't possible in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I make outbound calls using a private CA (certificate authority) client certificate from my app?
+This is only supported for Windows container apps in multi-tenant App Service. In addition, you can make outbound calls using a private CA client certificate with both code-based and container-based apps in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+ 
+### Can I load a private CA (certificate authority) certificate in my App Service Trusted Root Store?
+You can load your own CA certificate into the Trusted Root Store in an [App Service Environment version 3 (ASEv3)](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multi-tenant). For more information on App Service multi-tenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ## More resources
 

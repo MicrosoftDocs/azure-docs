@@ -7,7 +7,7 @@ ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 08/31/2023
+ms.date: 06/27/2024
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -121,7 +121,7 @@ For more information, see the [Azure Information Protection product documentatio
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
-|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/purview/information-protection-client#supported-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
 <sup><a name="aipnote3"></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
@@ -149,7 +149,7 @@ The following table displays the current Defender for Cloud feature availability
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Microsoft Defender for Cloud free features**                                                                                                                                       |                |                                |
 | <li> [Continuous export](../../defender-for-cloud/continuous-export.md)                                                                                                                 | GA             | GA                             |
-| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.md)                                                                                                               | GA             | GA                             |
+| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.yml)                                                                                                               | GA             | GA                             |
 | <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |
@@ -173,7 +173,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA (activity monitoring)              |
 | <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
-| <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
+| <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | GA | GA                                  |
 | **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
 | <li> [Just-in-time VM access](../../defender-for-cloud/just-in-time-access-overview.md)                                                                                                 | GA             | GA                             |
 | <li> [File integrity monitoring](../../defender-for-cloud/file-integrity-monitoring-overview.md)                                                                                 | GA             | GA                             |

@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 06/17/2024
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -67,6 +67,7 @@ This section provides references for solutions for Linux OSS applications and da
 
 ### Mainframe refactor
 
+* [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/deploy-ibm-power-workloads)
 * [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
 * [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
 * [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)

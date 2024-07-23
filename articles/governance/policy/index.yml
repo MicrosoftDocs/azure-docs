@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 02/29/2024
+  ms.date: 04/08/2024
 
 landingContent:
   - title: About Azure Policy
@@ -19,8 +19,8 @@ landingContent:
         links:
           - text: What is Azure Policy?
             url: ./overview.md
-          - text: Policy effects
-            url: ./concepts/effects.md
+          - text: Policy effect
+            url: ./concepts/effect-basics.md
           - text: Definition structure
             url: ./concepts/definition-structure-basics.md
           - text: Scope
@@ -89,7 +89,7 @@ landingContent:
             url: ./concepts/regulatory-compliance.md
           - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Azure Automanage Machine Configuration
+          - text: Azure Machine Configuration
             url: ../machine-configuration/overview.md
 
   - title: Review & Remediate resources

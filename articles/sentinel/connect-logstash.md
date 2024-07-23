@@ -93,8 +93,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key => "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -113,8 +113,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key =>  "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -224,4 +224,4 @@ If you are not seeing any data in this log file, generate and send some events l
 
 In this document, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

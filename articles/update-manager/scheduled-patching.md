@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 02/26/2024
+ms.date: 06/24/2024
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
+> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md). 
 
 You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
 
@@ -23,11 +23,11 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 
 ## Prerequisites for scheduled patching
 
-1. See [Prerequisites for Update Manager](./overview.md#prerequisites).
+1. See [Prerequisites for Update Manager](prerequisites.md).
 1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](./overview.md#prerequisites).
+	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
 ## Schedule patching in an availability set
 

@@ -69,6 +69,8 @@ Metrics play an important role in cluster monitoring, identifying issues, and op
 - [List of default platform metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-containerservice-managedclusters-metrics)
 - [List of default Prometheus metrics](../azure-monitor/containers/prometheus-metrics-scrape-default.md)
 
+AKS also exposes metrics from a critical Control Plane components such as API server, ETCD, Scheduler through Azure Managed Prometheus. This feature is currently in preview and more details can be found [here](./monitor-control-plane-metrics.md).
+
 ## Logs
 
 ### AKS control plane/resource logs
@@ -82,7 +84,7 @@ See [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings
 > 
 > - Disable kube-audit logging when not required.
 > - Enable collection from *kube-audit-admin*, which excludes the get and list audit events. 
-> - Enable resource-specific logs as described below and configure `AKSAudit` table as [basic logs](../azure-monitor/logs/basic-logs-configure.md).
+> - Enable resource-specific logs as described below and configure `AKSAudit` table as [basic logs](../azure-monitor/logs/logs-table-plans.md).
 > 
 > See [Monitor Kubernetes clusters using Azure services and cloud native tools](../azure-monitor/containers/monitor-kubernetes.md) for further recommendations and [Cost optimization and Azure Monitor](../azure-monitor/best-practices-cost.md) for further strategies to reduce your monitoring costs.
 
@@ -93,7 +95,7 @@ AKS supports either [Azure diagnostics mode](../azure-monitor/essentials/resourc
 Resource-specific mode is recommended for AKS for the following reasons:
 
 - Data is easier to query because it's in individual tables dedicated to AKS.
-- Supports configuration as [basic logs](../azure-monitor/logs/basic-logs-configure.md) for significant cost savings.
+- Supports configuration as [basic logs](../azure-monitor/logs/logs-table-plans.md) for significant cost savings.
 
 For more information on the difference between collection modes including how to change an existing setting, see [Select the collection mode](../azure-monitor/essentials/resource-logs.md#select-the-collection-mode).
 
@@ -101,7 +103,7 @@ For more information on the difference between collection modes including how to
 > The ability to select the collection mode isn't available in the Azure portal in all regions yet. For those regions where it's not yet available, use CLI to create the diagnostic setting with a command such as the following:
 > 
 > ```azurecli
-> az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{""category"": ""kube-audit"",""enabled"": true}, {""category"": ""kube-audit-admin"", ""enabled"": true}, {""category"": ""kube-apiserver"", ""enabled"": true}, {""category"": ""kube-controller-manager"", ""enabled"": true}, {""category"": ""kube-scheduler"", ""enabled"": true}, {""category"": ""cluster-autoscaler"", ""enabled"": true}, {""category"": ""cloud-controller-manager"", ""enabled"": true}, {""category"": ""guard"", ""enabled"": true}, {""category"": ""csi-azuredisk-controller"", ""enabled"": true}, {""category"": ""csi-azurefile-controller"", ""enabled"": true}, {""category"": ""csi-snapshot-controller"", ""enabled"": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true
+> az monitor diagnostic-settings create --name AKS-Diagnostics --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerService/managedClusters/my-cluster --logs '[{"category": "kube-audit","enabled": true}, {"category": "kube-audit-admin", "enabled": true}, {"category": "kube-apiserver", "enabled": true}, {"category": "kube-controller-manager", "enabled": true}, {"category": "kube-scheduler", "enabled": true}, {"category": "cluster-autoscaler", "enabled": true}, {"category": "cloud-controller-manager", "enabled": true}, {"category": "guard", "enabled": true}, {"category": "csi-azuredisk-controller", "enabled": true}, {"category": "csi-azurefile-controller", "enabled": true}, {"category": "csi-snapshot-controller", "enabled": true}]'  --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace --export-to-resource-specific true
 > ```
 
 #### Sample log queries
@@ -147,7 +149,7 @@ Azure Monitor Container Insights provides a schema for container logs known as C
 - PodName
 - PodNamespace
 
-In addition, this schema is compatible with [Basic Logs](../azure-monitor/logs/basic-logs-configure.md?tabs=portal-1#set-a-tables-log-data-plan) data plan, which offers a low-cost alternative to standard analytics logs. The Basic log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. For more information, see [Manage tables in a Log Analytics workspace](../azure-monitor/logs/manage-logs-tables.md?tabs=azure-portal).
+In addition, this schema is compatible with [Basic Logs](../azure-monitor/logs/logs-table-plans.md?tabs=portal-1#set-the-table-plan) data plan, which offers a low-cost alternative to standard analytics logs. The Basic log data plan lets you save on the cost of ingesting and storing high-volume verbose logs in your Log Analytics workspace for debugging, troubleshooting, and auditing, but not for analytics and alerts. For more information, see [Manage tables in a Log Analytics workspace](../azure-monitor/logs/manage-logs-tables.md?tabs=azure-portal).
 ContainerLogV2 is the recommended approach and is the default schema for customers onboarding container insights with Managed Identity Auth using ARM, Bicep, Terraform, Policy, and Azure portal. For more information about how to enable ContainerLogV2 through either the cluster's Data Collection Rule (DCR) or ConfigMap, see [Enable the ContainerLogV2 schema](../azure-monitor/containers/container-insights-logs-schema.md?tabs=configure-portal#enable-the-containerlogv2-schema). 
 
 ## Visualization
@@ -176,9 +178,9 @@ When you [enable collection of Prometheus metrics](#integrations) for your clust
 
  Level | Alerts |
 |:---|:---|
-| Pod level | KubePodCrashLooping<br>Job didn't complete in time<br>Pod container restarted in last 1 hour<br>Ready state of pods is less than 80%<br>Number of pods in failed state are greater than 0<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobNotCompleted<br>KubeJobFailed<br>Average CPU usage per container is greater than 95%<br>Average Memory usage per container is greater than 95%<br>KubeletPodStartUpLatencyHigh  |
-| Cluster level | Average PV usage is greater than 80%<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeVersionMismatch<br>KubeClientErrors<br>CPUThrottlingHigh<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors |
-| Node level | Average node CPU utilization is greater than 80%<br>Working set memory for a node is greater than 80%<br>Number of OOM killed containers is greater than 0<br>KubeNodeUnreachable<br>KubeNodeNotReady<br>KubeNodeReadinessFlapping<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeletPlegDurationHigh<br>KubeletServerCertificateExpiration<br>KubeletClientCertificateRenewalErrors<br>KubeletServerCertificateRenewalErrors<br>KubeQuotaAlmostFull<br>KubeQuotaFullyUsed<br>KubeQuotaExceeded |
+| Cluster level | KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeContainerOOMKilledCount<br>KubeClientErrors<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeQuotaAlmostFull |
+| Node level | KubeNodeUnreachable<br>KubeNodeReadinessFlapping |
+| Pod level | KubePVUsageHigh<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubePodCrashLooping<br>KubeJobStale<br>KubePodContainerRestart<br>KubePodReadyStateLow<br>KubePodFailedState<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobFailed<br>KubeContainerAverageCPUHigh<br>KubeContainerAverageMemoryHigh<br>KubeletPodStartUpLatencyHigh |
 
 
 
@@ -213,4 +215,3 @@ When the [Network Observability](/azure/aks/network-observability-overview) add-
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
 - See [Monitoring AKS data reference](monitor-aks-reference.md) for a reference of the metrics, logs, and other important values created by AKS.
-

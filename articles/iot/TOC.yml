@@ -35,16 +35,18 @@ items:
         href: iot-phone-app-how-to.md
       - name: Use IoT Explorer
         href: howto-use-iot-explorer.md
-      - name: Use IoT Plug and Play 
+      - name: Use IoT Plug and Play
         items:
         - name: Manage digital twins
           href: howto-manage-digital-twin.md
         - name: Convert a device to IoT Plug and Play
           href: howto-convert-to-pnp.md
+      - name: Connect an on-premises SAP system to Azure
+        href: howto-connect-on-premises-sap-to-azure.md
 
   - name: Tutorials
     items:
-    - name: Send telemetry to IoT Hub 
+    - name: Send telemetry to IoT Hub
       href: tutorial-send-telemetry-iot-hub.md
     - name: Build a device solution with IoT Hub
       items:
@@ -54,29 +56,43 @@ items:
         href: tutorial-connect-device.md
       - name: Interact with a device from your solution
         href: tutorial-service.md
-    - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
-      href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+    - name: Embedded device development
+      items:
+        - name: Connect an MXCHIP AZ3166 to IoT Hub
+          href: tutorial-devkit-mxchip-az3166-iot-hub.md
+        - name: Connect an STMicroelectronics B-L475E to IoT Hub
+          href: tutorial-devkit-stm-b-l475e-iot-hub.md
+        - name: Connect an ESPRESSIF ESP32 Kit to IoT Hub
+          href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
+        - name: Troubleshoot embedded device tutorials
+          href: troubleshoot-embedded-device-tutorials.md
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Use MQTT to connect aMobile device
+    - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
+    - name: Implement the Industrial IoT reference solution
+      href: tutorial-iot-industrial-solution-architecture.md
 
   - name: Concepts
     items:
       - name: Security architecture
-        href: iot-security-architecture.md    
-      - name: IoT Devices
+        href: iot-security-architecture.md
+      - name: IoT device development
         items:
+        - name: What is IoT device development
+          href: concepts-iot-device-development.md
         - name: IoT device types
           href: concepts-iot-device-types.md
         - name: C SDK and Embedded C SDK usage scenarios
           href: concepts-using-c-sdk-and-embedded-c-sdk.md
         - name: Manage device reconnections
-          href: concepts-manage-device-reconnections.md 
+          href: concepts-manage-device-reconnections.md
         - name: IoT device selection
           href: concepts-iot-device-selection.md
+        - name: Guide for Eclipse ThreadX security practices
+          href: concepts-eclipse-threadx-security-practices.md
       - name: IoT Plug and Play
         items:
         - name: What is IoT Plug and Play?
@@ -92,7 +108,7 @@ items:
         - name: Service developer guide
           href: concepts-developer-guide-service.md
         - name: Digital twins
-          href: concepts-digital-twin.md   
+          href: concepts-digital-twin.md
         - name: Device models
           items:
           - name: Modeling guide
@@ -102,13 +118,13 @@ items:
           - name: Model parser
             href: concepts-model-parser.md
       - name: MQTT support
-        items: 
+        items:
         - name: Use MQTT with IoT Hub
           href: iot-mqtt-connect-to-iot-hub.md
         - name: Use MQTT with DPS
           href: iot-mqtt-connect-to-iot-dps.md
         - name: MQTT 5 support (preview)
-          items: 
+          items:
           - name: MQTT 5 overview
             href: iot-mqtt-5-preview.md
           - name: MQTT 5 API reference
@@ -117,7 +133,7 @@ items:
   - name: Resources
     items:
     - name: Support and help options
-      href: iot-support-help.md  
+      href: iot-support-help.md
     - name: IoT glossary
       href: iot-glossary.md
     - name: Azure IoT services
@@ -134,8 +150,6 @@ items:
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: Device and Service SDKs

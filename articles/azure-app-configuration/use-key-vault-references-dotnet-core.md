@@ -21,7 +21,7 @@ Your application uses the App Configuration client provider to retrieve Key Vaul
 
 Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services don't communicate directly.
 
-This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the ASP.NET core quickstart listed in the prerequisites below. Before you continue, complete this [quickstart](./quickstart-aspnet-core-app.md).
 
 You can use any code editor to do the steps in this tutorial. For example, [Visual Studio Code](https://code.visualstudio.com/) is a cross-platform code editor that's available for the Windows, macOS, and Linux operating systems.
 
@@ -33,9 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start this tutorial, install the [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Finish the quickstart: [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Create a vault
 

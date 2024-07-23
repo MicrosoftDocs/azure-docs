@@ -6,11 +6,11 @@ description: Learn how to use Azure OpenAI's latest fine-tuning capabilities wit
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: tutorial
-ms.date: 10/16/2023
-author: mrbullwinkle 
+ms.date: 05/15/2024
+author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Azure OpenAI GPT-3.5 Turbo fine-tuning tutorial
@@ -29,15 +29,13 @@ In this tutorial you learn how to:
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI in the desired Azure subscription Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. 
+- An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
 - Python 3.8 or later version
-- The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`.
-- The OpenAI Python library should be at least version: `0.28.1`.
+- The following Python libraries: `json`, `requests`, `os`, `tiktoken`, `time`, `openai`, `numpy`.
 - [Jupyter Notebooks](https://jupyter.org/)
 - An Azure OpenAI resource in a [region where `gpt-35-turbo-0613` fine-tuning is available](../concepts/models.md). If you don't have a resource the process of creating one is documented in our resource [deployment guide](../how-to/create-resource.md).
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
-- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
+- If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).
 
 
 > [!IMPORTANT]
@@ -49,8 +47,10 @@ In this tutorial you learn how to:
 
 # [OpenAI Python 1.x](#tab/python-new)
 
+This tutorial provides examples of some of the latest OpenAI features include seed/events/checkpoints. In order to take advantage of these features you may need to run `pip install openai --upgrade` to upgrade to the latest release.
+
 ```cmd
-pip install openai requests tiktoken
+pip install openai requests tiktoken numpy
 ```
 
 # [OpenAI Python 0.28.1](#tab/python)
@@ -60,7 +60,7 @@ pip install openai requests tiktoken
 If you haven't already, you need to install the following libraries:
 
 ```cmd
-pip install "openai==0.28.1" requests tiktoken
+pip install "openai==0.28.1" requests tiktoken numpy
 ```
 
 ---
@@ -72,11 +72,11 @@ pip install "openai==0.28.1" requests tiktoken
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -118,7 +118,7 @@ For this example we'll modify this slightly by changing to:
 {"messages": [{"role": "system", "content": "Clippy is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
-While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out. However, it is entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
+While these three examples are helpful to give you the general format, if you want to steer your custom fine-tuned model to respond in a similar way you would need more examples. Generally you want **at least 50 high quality examples** to start out. However, it's entirely possible to have a use case that might require 1,000's of high quality training examples to be successful.
 
 In general, doubling the dataset size can lead to a linear increase in model quality. But keep in mind, low quality examples can negatively impact performance. If you train the model on a large amount of internal data, without first pruning the dataset for only the highest quality examples, you could end up with a model that performs much worse than expected.
 
@@ -159,6 +159,8 @@ Create the files in the same directory that you're running the Jupyter Notebook,
 Now you need to run some preliminary checks on our training and validation files.
 
 ```python
+# Run preliminary checks
+
 import json
 
 # Load the training set
@@ -203,6 +205,8 @@ In this case we only have 10 training and 10 validation examples so while this w
 Now you can then run some additional code from OpenAI using the tiktoken library to validate the token counts. Individual examples need to remain under the `gpt-35-turbo-0613` model's input token limit of 4096 tokens.
 
 ```python
+# Validate token counts
+
 import json
 import tiktoken
 import numpy as np
@@ -248,7 +252,7 @@ for file in files:
         messages = ex.get("messages", {})
         total_tokens.append(num_tokens_from_messages(messages))
         assistant_tokens.append(num_assistant_tokens_from_messages(messages))
-    
+
     print_distribution(total_tokens, "total tokens")
     print_distribution(assistant_tokens, "assistant tokens")
     print('*' * 50)
@@ -294,9 +298,9 @@ import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2024-02-01"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),
+  api_version = "2024-05-01-preview"  # This API version or later is required to access seed/events/checkpoint features
 )
 
 training_file_name = 'training_set.jsonl'
@@ -305,12 +309,12 @@ validation_file_name = 'validation_set.jsonl'
 # Upload the training and validation dataset files to Azure OpenAI with the SDK.
 
 training_response = client.files.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune"
+    file = open(training_file_name, "rb"), purpose="fine-tune"
 )
 training_file_id = training_response.id
 
 validation_response = client.files.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune"
+    file = open(validation_file_name, "rb"), purpose="fine-tune"
 )
 validation_file_id = validation_response.id
 
@@ -322,13 +326,14 @@ print("Validation file ID:", validation_file_id)
 
 ```Python
 # Upload fine-tuning files
+
 import openai
 import os
 
-openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
+openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = 'azure'
-openai.api_version = '2024-02-01' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+openai.api_version = '2023-05-01' 
 
 training_file_name = 'training_set.jsonl'
 validation_file_name = 'validation_set.jsonl'
@@ -336,12 +341,12 @@ validation_file_name = 'validation_set.jsonl'
 # Upload the training and validation dataset files to Azure OpenAI with the SDK.
 
 training_response = openai.File.create(
-    file=open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
+    file = open(training_file_name, "rb"), purpose="fine-tune", user_provided_filename="training_set.jsonl"
 )
 training_file_id = training_response["id"]
 
 validation_response = openai.File.create(
-    file=open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
+    file = open(validation_file_name, "rb"), purpose="fine-tune", user_provided_filename="validation_set.jsonl"
 )
 validation_file_id = validation_response["id"]
 
@@ -354,8 +359,8 @@ print("Validation file ID:", validation_file_id)
 **Output:**
 
 ```output
-Training file ID: file-9ace76cb11f54fdd8358af27abf4a3ea
-Validation file ID: file-70a3f525ed774e78a77994d7a1698c4b
+Training file ID: file-0e3aa3f2e81e49a5b8b96166ea214626
+Validation file ID: file-8556c3bb41b7416bb7519b47fcd1dd6b
 ```
 
 ## Begin fine-tuning
@@ -364,11 +369,16 @@ Now that the fine-tuning files have been successfully uploaded you can submit yo
 
 # [OpenAI Python 1.x](#tab/python-new)
 
+In this example we're also passing the seed parameter. The seed controls the reproducibility of the job. Passing in the same seed and job parameters should produce the same results, but can differ in rare cases. If a seed isn't specified, one will be generated for you.
+
 ```python
+# Submit fine-tuning training job
+
 response = client.fine_tuning.jobs.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+    training_file = training_file_id,
+    validation_file = validation_file_id,
+    model = "gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters.
+    seed = 105 # seed parameter controls reproducibility of the fine-tuning job. If no seed is specified one will be generated automatically.
 )
 
 job_id = response.id
@@ -385,10 +395,12 @@ print(response.model_dump_json(indent=2))
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
+# Submit fine-tuning training job
+
 response = openai.FineTuningJob.create(
-    training_file=training_file_id,
-    validation_file=validation_file_id,
-    model="gpt-35-turbo-0613",
+    training_file = training_file_id,
+    validation_file = validation_file_id,
+    model = "gpt-35-turbo-0613",
 )
 
 job_id = response["id"]
@@ -403,23 +415,33 @@ print(response)
 
 ---
 
-**Output:**
+**Python 1.x Output:**
 
-```output
-Job ID: ftjob-40e78bc022034229a6e3a222c927651c
+```json
+Job ID: ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6
 Status: pending
 {
+  "id": "ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6",
+  "created_at": 1715824115,
+  "error": null,
+  "fine_tuned_model": null,
+  "finished_at": null,
   "hyperparameters": {
-    "n_epochs": 2
+    "n_epochs": -1,
+    "batch_size": -1,
+    "learning_rate_multiplier": 1
   },
-  "status": "pending",
   "model": "gpt-35-turbo-0613",
-  "training_file": "file-90ac5d43102f4d42a3477fd30053c758",
-  "validation_file": "file-e21aad7dddbc4ddc98ba35c790a016e5",
-  "id": "ftjob-40e78bc022034229a6e3a222c927651c",
-  "created_at": 1697156464,
-  "updated_at": 1697156464,
-  "object": "fine_tuning.job"
+  "object": "fine_tuning.job",
+  "organization_id": null,
+  "result_files": null,
+  "seed": 105,
+  "status": "pending",
+  "trained_tokens": null,
+  "training_file": "file-0e3aa3f2e81e49a5b8b96166ea214626",
+  "validation_file": "file-8556c3bb41b7416bb7519b47fcd1dd6b",
+  "estimated_finish": null,
+  "integrations": null
 }
 ```
 
@@ -446,7 +468,7 @@ status = response.status
 # If the job isn't done yet, poll it every 10 seconds.
 while status not in ["succeeded", "failed"]:
     time.sleep(10)
-    
+
     response = client.fine_tuning.jobs.retrieve(job_id)
     print(response.model_dump_json(indent=2))
     print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
@@ -480,7 +502,7 @@ status = response["status"]
 # If the job isn't done yet, poll it every 10 seconds.
 while status not in ["succeeded", "failed"]:
     time.sleep(10)
-    
+
     response = openai.FineTuningJob.retrieve(job_id)
     print(response)
     print("Elapsed time: {} minutes {} seconds".format(int((time.time() - start_time) // 60), int((time.time() - start_time) % 60)))
@@ -498,40 +520,297 @@ print(f'Found {len(response["data"])} fine-tune jobs.')
 
 ---
 
-**Output:**
+**Python 1.x Output:**
 
-```ouput
+```json
+Job ID: ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6
+Status: pending
 {
-    "hyperparameters": {
-        "n_epochs": 2
-    },
-    "status": "running",
-    "model": "gpt-35-turbo-0613",
-    "training_file": "file-9ace76cb11f54fdd8358af27abf4a3ea",
-    "validation_file": "file-70a3f525ed774e78a77994d7a1698c4b",
-    "id": "ftjob-0f4191f0c59a4256b7a797a3d9eed219",
-    "created_at": 1695307968,
-    "updated_at": 1695310376,
-    "object": "fine_tuning.job"
+  "id": "ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6",
+  "created_at": 1715824115,
+  "error": null,
+  "fine_tuned_model": null,
+  "finished_at": null,
+  "hyperparameters": {
+    "n_epochs": -1,
+    "batch_size": -1,
+    "learning_rate_multiplier": 1
+  },
+  "model": "gpt-35-turbo-0613",
+  "object": "fine_tuning.job",
+  "organization_id": null,
+  "result_files": null,
+  "seed": 105,
+  "status": "pending",
+  "trained_tokens": null,
+  "training_file": "file-0e3aa3f2e81e49a5b8b96166ea214626",
+  "validation_file": "file-8556c3bb41b7416bb7519b47fcd1dd6b",
+  "estimated_finish": null,
+  "integrations": null
 }
-Elapsed time: 40 minutes 45 seconds
-Status: running
 ```
 
-It isn't unusual for training to take more than an hour to complete. Once training is completed the output message will change to:
+It isn't unusual for training to take more than an hour to complete. Once training is completed the output message will change to something like:
 
 ```output
-Fine-tuning job ftjob-b044a9d3cf9c4228b5d393567f693b83 finished with status: succeeded
-Checking other fine-tuning jobs for this resource.
-Found 2 fine-tune jobs.
+Fine-tuning job ftjob-900fcfc7ea1d4360a9f0cb1697b4eaa6 finished with status: succeeded
+Checking other fine-tune jobs for this resource.
+Found 4 fine-tune jobs.
 ```
 
-To get the full results, run the following:
+## List fine-tuning events
+
+API version: `2024-05-01-preview` or later is required for this command.
+
+While not necessary to complete fine-tuning it can be helpful to examine the individual fine-tuning events that were generated during training. The full training results can also be examined after training is complete in the [training results file](../how-to/fine-tuning.md#analyze-your-customized-model).
 
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
-#Retrieve fine_tuned_model name
+response = client.fine_tuning.jobs.list_events(fine_tuning_job_id=job_id, limit=10)
+print(response.model_dump_json(indent=2))
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the latest release.
+
+---
+
+**Python 1.x Output:**
+
+```json
+{
+  "data": [
+    {
+      "id": "ftevent-179d02d6178f4a0486516ff8cbcdbfb6",
+      "created_at": 1715826339,
+      "level": "info",
+      "message": "Training hours billed: 0.500",
+      "object": "fine_tuning.job.event",
+      "type": "message"
+    },
+    {
+      "id": "ftevent-467bc5e766224e97b5561055dc4c39c0",
+      "created_at": 1715826339,
+      "level": "info",
+      "message": "Completed results file: file-175c81c590074388bdb49e8e0d91bac3",
+      "object": "fine_tuning.job.event",
+      "type": "message"
+    },
+    {
+      "id": "ftevent-a30c44da4c304180b327c3be3a7a7e51",
+      "created_at": 1715826337,
+      "level": "info",
+      "message": "Postprocessing started.",
+      "object": "fine_tuning.job.event",
+      "type": "message"
+    },
+    {
+      "id": "ftevent-ea10a008f1a045e9914de98b6b47514b",
+      "created_at": 1715826303,
+      "level": "info",
+      "message": "Job succeeded.",
+      "object": "fine_tuning.job.event",
+      "type": "message"
+    },
+    {
+      "id": "ftevent-008dc754dc9e61b008dc754dc9e61b00",
+      "created_at": 1715825614,
+      "level": "info",
+      "message": "Step 100: training loss=0.001647822093218565",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 100,
+        "train_loss": 0.001647822093218565,
+        "train_mean_token_accuracy": 1,
+        "valid_loss": 1.5170825719833374,
+        "valid_mean_token_accuracy": 0.75,
+        "full_valid_loss": 1.7539110545870624,
+        "full_valid_mean_token_accuracy": 0.7215189873417721
+      }
+    },
+    {
+      "id": "ftevent-008dc754dc3f03a008dc754dc3f03a00",
+      "created_at": 1715825604,
+      "level": "info",
+      "message": "Step 90: training loss=0.00971441250294447",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 90,
+        "train_loss": 0.00971441250294447,
+        "train_mean_token_accuracy": 1,
+        "valid_loss": 1.3702410459518433,
+        "valid_mean_token_accuracy": 0.75,
+        "full_valid_loss": 1.7371194453179082,
+        "full_valid_mean_token_accuracy": 0.7278481012658228
+      }
+    },
+    {
+      "id": "ftevent-008dc754dbdfa59008dc754dbdfa5900",
+      "created_at": 1715825594,
+      "level": "info",
+      "message": "Step 80: training loss=0.0032251903321594",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 80,
+        "train_loss": 0.0032251903321594,
+        "train_mean_token_accuracy": 1,
+        "valid_loss": 1.4242165088653564,
+        "valid_mean_token_accuracy": 0.75,
+        "full_valid_loss": 1.6554046099698996,
+        "full_valid_mean_token_accuracy": 0.7278481012658228
+      }
+    },
+    {
+      "id": "ftevent-008dc754db80478008dc754db8047800",
+      "created_at": 1715825584,
+      "level": "info",
+      "message": "Step 70: training loss=0.07380199432373047",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 70,
+        "train_loss": 0.07380199432373047,
+        "train_mean_token_accuracy": 1,
+        "valid_loss": 1.2011798620224,
+        "valid_mean_token_accuracy": 0.75,
+        "full_valid_loss": 1.508960385865803,
+        "full_valid_mean_token_accuracy": 0.740506329113924
+      }
+    },
+    {
+      "id": "ftevent-008dc754db20e97008dc754db20e9700",
+      "created_at": 1715825574,
+      "level": "info",
+      "message": "Step 60: training loss=0.245253324508667",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 60,
+        "train_loss": 0.245253324508667,
+        "train_mean_token_accuracy": 0.875,
+        "valid_loss": 1.0585949420928955,
+        "valid_mean_token_accuracy": 0.75,
+        "full_valid_loss": 1.3787144045286541,
+        "full_valid_mean_token_accuracy": 0.7341772151898734
+      }
+    },
+    {
+      "id": "ftevent-008dc754dac18b6008dc754dac18b600",
+      "created_at": 1715825564,
+      "level": "info",
+      "message": "Step 50: training loss=0.1696014404296875",
+      "object": "fine_tuning.job.event",
+      "type": "metrics",
+      "data": {
+        "step": 50,
+        "train_loss": 0.1696014404296875,
+        "train_mean_token_accuracy": 0.8999999761581421,
+        "valid_loss": 0.8862184286117554,
+        "valid_mean_token_accuracy": 0.8125,
+        "full_valid_loss": 1.2814022257358213,
+        "full_valid_mean_token_accuracy": 0.7151898734177216
+      }
+    }
+  ],
+  "has_more": true,
+  "object": "list"
+}
+```
+
+## List checkpoints
+
+API version: `2024-05-01-preview` or later is required for this command.
+
+When each training epoch completes a checkpoint is generated. A checkpoint is a fully functional version of a model which can both be deployed and used as the target model for subsequent fine-tuning jobs. Checkpoints can be particularly useful, as they can provide a snapshot of your model prior to overfitting having occurred. When a fine-tuning job completes you will have the three most recent versions of the model available to deploy. The final epoch will be represented by your fine-tuned model, the previous two epochs will be available as checkpoints.
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+response = client.fine_tuning.jobs.checkpoints.list(job_id)
+print(response.model_dump_json(indent=2))
+```
+
+# [OpenAI Python 0.28.1](#tab/python)
+
+This command isn't available in the 0.28.1 OpenAI Python library. Upgrade to the latest release.
+
+---
+
+**Python 1.x Output:**
+
+```json
+{
+  "data": [
+    {
+      "id": "ftchkpt-148ab69f0a404cf9ab55a73d51b152de",
+      "created_at": 1715743077,
+      "fine_tuned_model_checkpoint": "gpt-35-turbo-0613.ft-372c72db22c34e6f9ccb62c26ee0fbd9",
+      "fine_tuning_job_id": "ftjob-372c72db22c34e6f9ccb62c26ee0fbd9",
+      "metrics": {
+        "full_valid_loss": 1.8258173013035255,
+        "full_valid_mean_token_accuracy": 0.7151898734177216,
+        "step": 100.0,
+        "train_loss": 0.004080486483871937,
+        "train_mean_token_accuracy": 1.0,
+        "valid_loss": 1.5915886163711548,
+        "valid_mean_token_accuracy": 0.75
+      },
+      "object": "fine_tuning.job.checkpoint",
+      "step_number": 100
+    },
+    {
+      "id": "ftchkpt-e559c011ecc04fc68eaa339d8227d02d",
+      "created_at": 1715743013,
+      "fine_tuned_model_checkpoint": "gpt-35-turbo-0613.ft-372c72db22c34e6f9ccb62c26ee0fbd9:ckpt-step-90",
+      "fine_tuning_job_id": "ftjob-372c72db22c34e6f9ccb62c26ee0fbd9",
+      "metrics": {
+        "full_valid_loss": 1.7958603267428241,
+        "full_valid_mean_token_accuracy": 0.7215189873417721,
+        "step": 90.0,
+        "train_loss": 0.0011079151881858706,
+        "train_mean_token_accuracy": 1.0,
+        "valid_loss": 1.6084896326065063,
+        "valid_mean_token_accuracy": 0.75
+      },
+      "object": "fine_tuning.job.checkpoint",
+      "step_number": 90
+    },
+    {
+      "id": "ftchkpt-8ae8beef3dcd4dfbbe9212e79bb53265",
+      "created_at": 1715742984,
+      "fine_tuned_model_checkpoint": "gpt-35-turbo-0613.ft-372c72db22c34e6f9ccb62c26ee0fbd9:ckpt-step-80",
+      "fine_tuning_job_id": "ftjob-372c72db22c34e6f9ccb62c26ee0fbd9",
+      "metrics": {
+        "full_valid_loss": 1.6909511662736725,
+        "full_valid_mean_token_accuracy": 0.7088607594936709,
+        "step": 80.0,
+        "train_loss": 0.000667572021484375,
+        "train_mean_token_accuracy": 1.0,
+        "valid_loss": 1.4677599668502808,
+        "valid_mean_token_accuracy": 0.75
+      },
+      "object": "fine_tuning.job.checkpoint",
+      "step_number": 80
+    }
+  ],
+  "has_more": false,
+  "object": "list"
+}
+```
+
+## Final training run results
+
+To get the final results, run the following:
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# Retrieve fine_tuned_model name
 
 response = client.fine_tuning.jobs.retrieve(job_id)
 
@@ -542,14 +821,13 @@ fine_tuned_model = response.fine_tuned_model
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-#Retrieve fine_tuned_model name
+# Retrieve fine_tuned_model name
 
 response = openai.FineTuningJob.retrieve(job_id)
 
 print(response)
 fine_tuned_model = response["fine_tuned_model"]
 ```
-
 
 ---
 
@@ -571,20 +849,22 @@ Alternatively, you can deploy your fine-tuned model using any of the other commo
 [!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
 
 ```python
+# Deploy fine-tuned model
+
 import json
 import requests
 
-token= os.getenv("TEMP_AUTH_TOKEN") 
-subscription = "<YOUR_SUBSCRIPTION_ID>"  
+token = os.getenv("TEMP_AUTH_TOKEN")
+subscription = "<YOUR_SUBSCRIPTION_ID>"
 resource_group = "<YOUR_RESOURCE_GROUP_NAME>"
 resource_name = "<YOUR_AZURE_OPENAI_RESOURCE_NAME>"
-model_deployment_name ="YOUR_CUSTOM_MODEL_DEPLOYMENT_NAME"
+model_deployment_name = "YOUR_CUSTOM_MODEL_DEPLOYMENT_NAME"
 
-deploy_params = {'api-version': "2023-05-01"} 
+deploy_params = {'api-version': "2023-05-01"}
 deploy_headers = {'Authorization': 'Bearer {}'.format(token), 'Content-Type': 'application/json'}
 
 deploy_data = {
-    "sku": {"name": "standard", "capacity": 1}, 
+    "sku": {"name": "standard", "capacity": 1},
     "properties": {
         "model": {
             "format": "OpenAI",
@@ -619,18 +899,20 @@ After your fine-tuned model is deployed, you can use it like any other deployed 
 # [OpenAI Python 1.x](#tab/python-new)
 
 ```python
+# Use the deployed customized model
+
 import os
 from openai import AzureOpenAI
 
 client = AzureOpenAI(
-  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
-  api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
-  api_version="2024-02-01"
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"),
+  api_key = os.getenv("AZURE_OPENAI_API_KEY"),
+  api_version = "2024-02-01"
 )
 
 response = client.chat.completions.create(
-    model="gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
+    model = "gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
+    messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
         {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
@@ -644,16 +926,19 @@ print(response.choices[0].message.content)
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
+# Use the deployed customized model
+
 import os
 import openai
+
 openai.api_type = "azure"
-openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") 
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
-    engine="gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
-    messages=[
+    engine = "gpt-35-turbo-ft", # engine = "Custom deployment name you chose for your fine-tuning model"
+    messages = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
         {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
@@ -673,14 +958,14 @@ Unlike other types of Azure OpenAI models, fine-tuned/customized models have [an
 
 Deleting the deployment won't affect the model itself, so you can re-deploy the fine-tuned model that you trained for this tutorial at any time.
 
-You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/aiservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.  
+You can delete the deployment in [Azure OpenAI Studio](https://oai.azure.com/), via [REST API](/rest/api/aiservices/accountmanagement/deployments/delete?tabs=HTTP), [Azure CLI](/cli/azure/cognitiveservices/account/deployment#az-cognitiveservices-account-deployment-delete()), or other supported deployment methods.
 
 ## Troubleshooting
 
 ### How do I enable fine-tuning? Create a custom model is greyed out in Azure OpenAI Studio?
 
 In order to successfully access fine-tuning you need **Cognitive Services OpenAI Contributor assigned**. Even someone with high-level Service Administrator permissions would still need this account explicitly set in order to access fine-tuning. For more information please review the [role-based access control guidance](/azure/ai-services/openai/how-to/role-based-access-control#cognitive-services-openai-contributor).
- 
+
 ## Next steps
 
 - Learn more about [fine-tuning in Azure OpenAI](../how-to/fine-tuning.md)

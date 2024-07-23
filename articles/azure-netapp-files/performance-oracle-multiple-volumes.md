@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
 
@@ -25,6 +25,8 @@ The testing occurred in two phases:
 ### SLOB2 scale-up performance 
 
 The following charts capture the performance profile of a single E104ids_v5 Azure VM running a single Oracle 19c database against eight Azure NetApp Files volumes with eight storage endpoints. The volumes are spread across three ASM disk groups: data, log, and archive. Five volumes were allocated to the data disk group, two volumes to the log disk group, and one volume to the archive disk group. All results captured throughout this article were collected using production Azure regions and active production Azure services. 
+
+To deploy Oracle on Azure virtual machines using multiple Azure NetApp Files volumes on multiple storage endpoints, use [application volume group for Oracle](application-volume-group-oracle-introduction.md).
 
 #### Single-host architecture
 

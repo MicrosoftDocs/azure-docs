@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Use PaaS services with an Azure Kubernetes Service (AKS) cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to use the Azure Service Bus service with your AKS cluster.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 06/10/2024
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a developer, I want to learn how to use PaaS services with an Azure Kubernetes Service (AKS) cluster so that I can deploy and manage my applications.
 ---
@@ -71,13 +71,13 @@ In previous tutorials, you used a RabbitMQ container to store orders submitted b
 1. Create an Azure Service Bus namespace using the [`az servicebus namespace create`][az-servicebus-namespace-create] command.
 
     ```azurecli-interactive
-    az servicebus namespace create -n $SB_NS -g $RG_NAME -l $LOC_NAME
+    az servicebus namespace create --name $SB_NS --resource-group $RG_NAME --location $LOC_NAME
     ```
 
 2. Create an Azure Service Bus queue using the [`az servicebus queue create`][az-servicebus-queue-create] command.
 
     ```azurecli-interactive
-    az servicebus queue create -n orders -g $RG_NAME --namespace-name $SB_NS -g $RG_NAME
+    az servicebus queue create --name orders --resource-group $RG_NAME --namespace-name $SB_NS
     ```
 
 3. Create an Azure Service Bus authorization rule using the [`az servicebus queue authorization-rule create`][az-servicebus-queue-authorization-rule-create] command.
@@ -143,7 +143,7 @@ In previous tutorials, you used a RabbitMQ container to store orders submitted b
     ```
 
 2. Open the `aks-store-quickstart.yaml` file in a text editor.
-3. Remove the existing `rabbitmq` Deployment, ConfigMap, and Service sections and replace the existing `order-service` Deployment section with the following content:
+3. Remove the existing `rabbitmq` StatefulSet, ConfigMap, and Service sections and replace the existing `order-service` Deployment section with the following content:
 
     ```yaml
     apiVersion: apps/v1
@@ -289,7 +289,7 @@ In previous tutorials, you used a RabbitMQ container to store orders submitted b
     kubectl get service store-front
     ```
 
-2. Navigate to the external IP address of the `store-front` service in your browser.
+2. Navigate to the external IP address of the `store-front` service in your browser using `http://<external-ip>`.
 3. Place an order by choosing a product and selecting **Add to cart**.
 4. Select **Cart** to view your order, and then select **Checkout**.
 

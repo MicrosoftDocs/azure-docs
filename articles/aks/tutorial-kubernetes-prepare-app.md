@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Prepare an application for Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 ms.topic: tutorial
-ms.date: 02/15/2023
+ms.date: 06/10/2024
 author: schaffererin
 ms.author: schaffererin
 
@@ -183,7 +183,7 @@ You can use [Docker Compose][docker-compose] to automate building container imag
 
 ### Docker
 
-1. Create the container image, download the Redis image, and start the application using the `docker compose` command:
+1. Create the container image, download the RabbitMQ image, and start the application using the `docker compose` command:
 
     ```console
     docker compose -f docker-compose-quickstart.yml up -d
@@ -294,9 +294,9 @@ In the next tutorial, you learn how to create a cluster using the `azd` template
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
+[docker-for-linux]: https://docs.docker.com/desktop/install/linux-install/
+[docker-for-mac]: https://docs.docker.com/desktop/install/mac-install/
+[docker-for-windows]: https://docs.docker.com/desktop/install/windows-install/
 [docker-get-started]: https://docs.docker.com/get-started/
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/

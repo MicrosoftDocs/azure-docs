@@ -13,7 +13,7 @@ ms.date: 01/31/2024
 
 # Exchange RosettaNet messages for B2B integration using workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To send and receive RosettaNet messages in workflows that you create using Azure Logic Apps, you can use the RosettaNet connector, which provides actions that manage and support communication that follows RosettaNet standards. RosettaNet is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies. For more information, visit the [RosettaNet site](https://www.gs1us.org/resources/rosettanet).
 

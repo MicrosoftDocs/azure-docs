@@ -20,19 +20,18 @@ Learn more about [DevOps security](defender-for-devops-introduction.md) benefits
 
 DevOps recommendations don't affect your [secure score](secure-score-security-controls.md). To decide which recommendations to resolve first, look at the severity of each recommendation and its potential impact on your secure score.
 
-## DevOps recommendations
 
-### Azure DevOps recommendations
+## Azure DevOps recommendations
 
 ### [Azure DevOps repositories should have GitHub Advanced Security for Azure DevOps (GHAzDO) enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c7a934bf-7be6-407a-84d9-4f20e6e49592/showSecurityCenterCommandBar~/false)
 
-**Description**: DevOps security in Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across Azure DevOps. With enablement of GitHub Advanced Security for Azure DevOps (GHAzDO) repositories includes GitHub Advanced Security for Azure DevOps you get findings about secrets, dependencies, and code vulnerabilities in your Azure DevOps repositories surfaced in Microsoft Defender for Cloud.
+**Description**:  DevOps security in Defender for Cloud uses a central console to empower security teams with the ability to protect applications and resources from code to cloud across Azure DevOps. With enablement of GitHub Advanced Security for Azure DevOps (GHAzDO) repositories including GitHub Advanced Security for Azure DevOps, you get findings about secrets, dependencies, and code vulnerabilities in your Azure DevOps repositories surfaced in Microsoft Defender for Cloud.
 
 **Severity**: High
 
 ### [Azure DevOps repositories should have secret scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b5ef903f-8655-473b-9784-4f749eeb25c6/showSecurityCenterCommandBar~/false)
 
-**Description**: Secrets were found in code repositories. Remediate immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. Note: The Microsoft Security DevOps credential scanning tool only scans builds on which it is configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
+**Description**: Secrets were found in code repositories. Remediate immediately to prevent a security breach. Secrets found in repositories can leak, or be discovered by adversaries, leading to compromise of an application or service. The Microsoft Security DevOps credential scanning tool only scans builds on which it is configured to run. Therefore, results might not reflect the complete status of secrets in your repositories.
 
 **Severity**: High
 
@@ -44,17 +43,17 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Azure DevOps repositories should have dependency vulnerability scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/2ea72208-8558-4011-8dcd-d93375a4003d/showSecurityCenterCommandBar~/false)
 
-**Description**: Dependency vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+**Description**: Dependency vulnerabilities found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
 
 **Severity**: Medium
 
 ### [Azure DevOps repositories should have infrastructure as code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/6588c4d4-fbbb-4fb8-be45-7c2de7dc1b3b/showSecurityCenterCommandBar~/false)
 
-**Description**: Infrastructure as code security configuration issues have been found in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
+**Description**: Infrastructure as code security configuration issues found in repositories. The issues were detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
 
 **Severity**: Medium
 
-### [Azure DevOps build pipelines shouldn't have secrets available to builds of forks](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/d5711372-9b5f-4926-a711-13dcf51565a6)
+### [Azure DevOps pipelines shouldn't have secrets available to builds of forks](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/d5711372-9b5f-4926-a711-13dcf51565a6)
 
 **Description**: In public repositories, it's possible that people from outside the organization create forks and run builds on the forked repository. In such a case, if this setting is enabled, outsiders can get access to build pipeline secrets that were meant to be internal.
 
@@ -62,7 +61,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Azure DevOps service connections shouldn't grant access to all pipelines](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9245366d-393f-49c5-b8e6-258b1b1c2daa)
 
-**Description**: Service connections are used to create connections from Azure Pipelines to external and remote services for executing tasks in a job. Pipeline permissions control which pipelines are authorized to use the service connection. To support security of the pipeline operations, service connections shouldn't be granted access to all YAML pipelines. This helps to maintain the principle of least privilege because a vulnerability in components used by one pipeline can be leveraged by an attacker to attack other pipelines having access to critical resources.
+**Description**: Service connections are used to create connections from Azure Pipelines to external and remote services for executing tasks in a job. Pipeline permissions control which pipelines are authorized to use the service connection. To support security of the pipeline operations, service connections shouldn't be granted access to all YAML pipelines. This helps to maintain the principle of least privilege because a vulnerability in components used by one pipeline can be used by an attacker to attack other pipelines with access to critical resources.
 
 **Severity**: High
 
@@ -84,7 +83,37 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: Medium
 
-### GitHub recommendations
+### [(Preview) Azure DevOps repositories should have API security testing findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/d42301a5-4d23-4457-97c8-f2f2e9eb979e)
+
+**Description**: API security vulnerabilities found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+
+**Severity**: Medium
+
+### [(Preview) Azure DevOps repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/470742ea-324a-406c-b91f-fc1da6a27c0c) 
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
+
+**Severity**: High
+
+### [(Preview) Azure DevOps repositories should not allow requestors to approve their own Pull Requests](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816)
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in Azure DevOps repositories. We recommend prohibiting pull request creators from approving their own submissions to ensure that every change undergoes objective review by someone other than the author. By doing this, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
+
+**Severity**: High
+
+### [(Preview) Azure DevOps projects should have creation of classic pipelines disabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
+
+**Description**: Disabling the creation of classic build and release pipelines prevents a security concern that stems from YAML and classic pipelines sharing the same resources, for example the same service connections. Potential attackers can leverage classic pipelines to create processes that evade typical defense mechanisms set up around modern YAML pipelines.
+
+**Severity**: High
+
+## GitHub recommendations
+
+### [GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
+
+**Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organizational secrets. Organization-level secrets let you share secrets between multiple repositories. This reduces the need to create duplicate secrets. However, once a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.<br/><br/> This recommendation is provided in Defender for Cloud foundational security posture, if you have connected Azure DevOps to Defender for Cloud.
+
+**Severity**: High
 
 ### [GitHub repositories should have secret scanning enabled](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/b6ad173c-0cc6-4d44-b954-8217c8837a8e/showSecurityCenterCommandBar~/false)
 
@@ -106,13 +135,13 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitHub repositories should have secret scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/dd98425c-1407-40cc-8a2c-da5d0a2f80da/showSecurityCenterCommandBar~/false)
 
-**Description**: Secrets have been found in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service.
+**Description**: Secrets found in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service.
 
 **Severity**: High
 
 ### [GitHub repositories should have code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/18aa4e75-776a-4296-97f0-fe1cf10d679c/showSecurityCenterCommandBar~/false)
 
-**Description**: Vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+**Description**: Vulnerabilities found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
 
 **Severity**: Medium
 
@@ -124,7 +153,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitHub repositories should have infrastructure as code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/d9be0ff8-3eb0-4348-82f6-c1e735f85983/showSecurityCenterCommandBar~/false)
 
-**Description**: Infrastructure as code security configuration issues have been found in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
+**Description**: Infrastructure as code security configuration issues were found in repositories. The issues were detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
 
 **Severity**: Medium
 
@@ -172,21 +201,45 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [(Preview) GitHub repositories should have API security testing findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/7ad00833-a0f0-47b9-b377-5665bd5d9074/showSecurityCenterCommandBar~/false)
 
-**Description**: API security vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+**Description**: API security vulnerabilities were found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
 
 **Severity**: Medium
+
+### [(Preview) GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
+
+**Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organization secrets. Organization-level secrets let you share secrets between multiple repositories, reducing the need to create duplicate secrets. However, when a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.
+
+**Severity**: High
+
+### [(Preview) GitHub organizations should block Copilot suggestions that match public code](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98e858ed-6e88-4698-b538-f51b31ad57f6)
+
+**Description**: Enabling GitHub Copilot's filter to block code suggestions matching public code on GitHub enhances security and legal compliance. It prevents the unintentional incorporation of public or open-source code, reducing the risk of legal issues and ensuring adherence to licensing terms. Additionally, it helps avoid introducing potential vulnerabilities from public code into the organization's projects, thereby maintaining higher code quality and security. When the filter is enabled, GitHub Copilot checks code suggestions with their surrounding code of about 150 characters against public code on GitHub. If there is a match or near match, the suggestion will not be shown.
+
+**Severity**: High
+
+### [(Preview) GitHub organizations should enforce multifactor authentication for outside collaborators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a9621d26-9d8c-4cd6-8ad0-84501eb88f17)
+
+**Description**: Enforcing multifactor authentication for outside collaborators in a GitHub organization is a security measure that requires collaborators to use an additional form of identification besides their password to access the organization's repositories and resources. This enhances security by protecting against unauthorized access, even if a password is compromised, and helps ensure compliance with industry standards. It involves informing collaborators about the requirement and providing support for the transition, ultimately reducing the risk of data breaches.
+
+**Severity**: High
+
+### [(Preview) GitHub repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/20be7df7-9ebb-4fb4-95a9-3ae19b78b80a)
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in GitHub repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
+
+**Severity**: High
 
 ### GitLab recommendations
 
 ### [GitLab projects should have secret scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/867001c3-2d01-4db7-b513-5cb97638f23d/showSecurityCenterCommandBar~/false)
 
-**Description**: Secrets have been found in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service.
+**Description**: Secrets were found in code repositories. This should be remediated immediately to prevent a security breach. Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service.
 
 **Severity**: High
 
 ### [GitLab projects should have code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/cd3e4ff3-b1bc-4a42-b10d-e2f9f99e2991/showSecurityCenterCommandBar~/false)
 
-**Description**: Vulnerabilities have been found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
+**Description**: Vulnerabilities were found in code repositories. To improve the security posture of the repositories, it is highly recommended to remediate these vulnerabilities.
 
 **Severity**: Medium
 
@@ -198,7 +251,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [GitLab projects should have infrastructure as code scanning findings resolved](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/ec1bface-60ff-46b6-b1dc-67171a4882d5/showSecurityCenterCommandBar~/false)
 
-**Description**: Infrastructure as code security configuration issues have been found in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
+**Description**: Infrastructure as code security configuration issues were found in repositories. The issues shown were detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
 
 **Severity**: Medium
 
@@ -227,7 +280,7 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ### [Code repositories should have infrastructure as code scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/2ebc815f-7bc7-4573-994d-e1cc46fb4a35/showSecurityCenterCommandBar~/false)
 
-**Description**: DevOps security in Defender for Cloud has found infrastructure as code security configuration issues in repositories. The issues shown below have been detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
+**Description**: DevOps security in Defender for Cloud has found infrastructure as code security configuration issues in repositories. The issues shown were detected in template files. To improve the security posture of the related cloud resources, it is highly recommended to remediate these issues.
  (No related policy)
 
 **Severity**: Medium
@@ -255,5 +308,5 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 ## Related content
 
-- [What are security policies, initiatives, and recommendations?](security-policy-concept.md)
-- [Review your security recommendations](review-security-recommendations.md)
+- [Learn about security recommendations](security-policy-concept.md)
+- [Review security recommendations](review-security-recommendations.md)

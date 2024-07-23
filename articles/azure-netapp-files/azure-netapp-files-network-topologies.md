@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/10/2024
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -14,6 +14,8 @@ ms.custom: references_regions
 Network architecture planning is a key element of designing any application infrastructure. This article helps you design an effective network architecture for your workloads to benefit from the rich capabilities of Azure NetApp Files.
 
 Azure NetApp Files volumes are designed to be contained in a special purpose subnet called a [delegated subnet](../virtual-network/virtual-network-manage-subnet.md) within your Azure Virtual Network. Therefore, you can access the volumes directly from within Azure over VNet peering or from on-premises over a Virtual Network Gateway (ExpressRoute or VPN Gateway). The subnet is dedicated to Azure NetApp Files and there's no connectivity to the Internet. 
+
+<a name="regions-standard-network-features"></a>The option to set Standard network features on new volumes and to modify network features for existing volumes is supported in all Azure NetApp Files-enabled regions. 
 
 ## Configurable network features  
 
@@ -24,54 +26,6 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 * ***Basic***  
     Selecting this setting enables selective connectivity patterns and limited IP scale as mentioned in the [Considerations](#considerations) section. All the [constraints](#constraints) apply in this setting. 
-
-### Supported regions 
-
-<a name="regions-standard-network-features"></a>The option to set Standard network features on new volumes and to modify network features for existing volumes is available in the following regions: 
-
-*   Australia Central
-*   Australia Central 2
-*   Australia East
-*   Australia Southeast
-*   Brazil South
-*   Brazil Southeast 
-*   Canada Central
-*   Canada East
-*   Central India
-*   Central US
-*   East Asia
-*   East US
-*   East US 2
-*	France Central
-*   Germany North
-*   Germany West Central
-*   Japan East
-*   Japan West
-*   Korea Central
-*   Korea South 
-*	North Central US
-*   North Europe
-*   Norway East
-*   Norway West 
-*   Qatar Central
-*   South Africa North
-*	South Central US
-*   South India 
-*   Southeast Asia
-*   Sweden Central
-*   Switzerland North
-*   Switzerland West
-*   UAE Central
-*   UAE North
-*   UK South
-*   UK West
-*   US Gov Arizona 
-*   US Gov Texas
-*	US Gov Virginia
-*	West Europe
-*   West US
-*   West US 2
-*	West US 3 
 
 ## Considerations
 

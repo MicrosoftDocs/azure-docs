@@ -123,6 +123,135 @@ az connectedk8s connect --name <cluster-name> --resource-group <resource-group> 
 
 If everything is working correctly, your pods should all be in the `Running` state. Run `kubectl get pods -n azure-arc` to confirm whether any pod's state is not `Running`.
 
+
+### Check whether the DNS resolution is successful for the endpoint
+
+From within the pod, you can run a DNS lookup to the endpoint.
+
+What if you can't run the [kubectl exec](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) command to connect to the pod and install the DNS Utils package? In this situation, you can [start a test pod in the same namespace as the problematic pod](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/#create-a-simple-pod-to-use-as-a-test-environment), and then run the tests.
+
+> [!NOTE]
+>
+> If the DNS resolution or egress traffic doesn't let you install the necessary network packages, you can use the `rishasi/ubuntu-netutil:1.0` docker image. In this image, the required packages are already installed.
+
+Here's an example procedure for checking DNS resolution:
+
+1. Start a test pod in the same namespace as the problematic pod:
+
+   ```bash
+   kubectl run -it --rm test-pod --namespace <namespace> --image=debian:stable
+   ```
+
+   After the test pod is running, you'll gain access to the pod.
+
+1. Run the following `apt-get` commands to install other tool packages:
+
+   ```bash
+   apt-get update -y
+   apt-get install dnsutils -y
+   apt-get install curl -y
+   apt-get install netcat -y
+   ```
+
+1. After the packages are installed, run the [nslookup](/windows-server/administration/windows-commands/nslookup) command to test the DNS resolution to the endpoint:
+
+   ```console
+   $ nslookup microsoft.com
+   Server:         10.0.0.10
+   Address:        10.0.0.10#53
+   ...
+   ...
+   Name:   microsoft.com
+   Address: 20.53.203.50
+   ```
+
+1. Try the DNS resolution from the upstream DNS server directly. This example uses Azure DNS:
+
+   ```console
+   $ nslookup microsoft.com 168.63.129.16
+   Server:         168.63.129.16
+   Address:        168.63.129.16#53
+   ...
+   ...
+   Address: 20.81.111.85
+   ```
+
+1. Run the `host` command to check whether the DNS requests are routed to the upstream server:
+
+   ```console
+   $ host -a microsoft.com
+   Trying "microsoft.com.default.svc.cluster.local"
+   Trying "microsoft.com.svc.cluster.local"
+   Trying "microsoft.com.cluster.local"
+   Trying "microsoft.com.00idcnmrrm4edot5s2or1onxsc.bx.internal.cloudapp.net"
+   Trying "microsoft.com"
+   Trying "microsoft.com"
+   ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62884
+   ;; flags: qr rd ra; QUERY: 1, ANSWER: 27, AUTHORITY: 0, ADDITIONAL: 5
+   
+   ;; QUESTION SECTION:
+   ;microsoft.com.                 IN      ANY
+   
+   ;; ANSWER SECTION:
+   microsoft.com.          30      IN      NS      ns1-39.azure-dns.com.
+   ...
+   ...
+   ns4-39.azure-dns.info.  30      IN      A       13.107.206.39
+   
+   Received 2121 bytes from 10.0.0.10#53 in 232 ms
+   ```
+
+1. Run a test pod in the Windows node pool:
+
+   ```bash
+   # For a Windows environment, use the Resolve-DnsName cmdlet.
+   kubectl run dnsutil-win --image='mcr.microsoft.com/windows/servercore:1809' --overrides='{"spec": { "nodeSelector": {"kubernetes.io/os": "windows"}}}' -- powershell "Start-Sleep -s 3600"
+   ```
+
+1. Run the [kubectl exec](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) command to connect to the pod by using PowerShell:
+
+   ```bash
+   kubectl exec -it dnsutil-win powershell
+   ```
+
+1. Run the [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) cmdlet in PowerShell to check whether the DNS resolution is working for the endpoint:
+
+   ```console
+   PS C:\> Resolve-DnsName www.microsoft.com 
+   
+   Name                           Type   TTL   Section    NameHost
+   ----                           ----   ---   -------    --------
+   www.microsoft.com              CNAME  20    Answer     www.microsoft.com-c-3.edgekey.net
+   www.microsoft.com-c-3.edgekey. CNAME  20    Answer     www.microsoft.com-c-3.edgekey.net.globalredir.akadns.net
+   net
+   www.microsoft.com-c-3.edgekey. CNAME  20    Answer     e13678.dscb.akamaiedge.net
+   net.globalredir.akadns.net
+   
+   Name       : e13678.dscb.akamaiedge.net 
+   QueryType  : AAAA
+   TTL        : 20
+   Section    : Answer
+   IP6Address : 2600:1408:c400:484::356e   
+   
+   
+   Name       : e13678.dscb.akamaiedge.net 
+   QueryType  : AAAA
+   TTL        : 20
+   Section    : Answer
+   IP6Address : 2600:1408:c400:496::356e 
+   
+   
+   Name       : e13678.dscb.akamaiedge.net
+   QueryType  : A
+   TTL        : 12
+   Section    : Answer
+   IP4Address : 23.200.197.152
+   ```
+
+If the DNS resolution is not successful, verify the DNS configuration for the cluster.
+
+
+
 ### Still having problems?
 
 The steps above will resolve many common connection issues, but if you're still unable to connect successfully, generate a troubleshooting log file and then [open a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) so we can investigate the problem further.

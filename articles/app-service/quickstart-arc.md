@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 10/19/2023
+ms.date: 06/10/2024
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 author: msangapu-msft
@@ -110,7 +110,7 @@ az webapp create \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
-    --deployment-container-image-name mcr.microsoft.com/appsvc/node:14-lts
+    --deployment-container-image-name mcr.microsoft.com/appsvc/staticsite:latest
 ```
 
 <!-- `TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"` -->
@@ -123,5 +123,5 @@ To update the image after the app is create, see [Change the Docker image of a c
 - [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
 - [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
 - [Configure a Linux Python app](configure-language-python.md)
-- [Configure a Java app](configure-language-java.md?pivots=platform-linux)
+- [Configure a Java app](configure-language-java-deploy-run.md?pivots=platform-linux)
 - [Configure a custom container](configure-custom-container.md?pivots=container-linux)

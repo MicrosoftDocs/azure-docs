@@ -59,7 +59,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 ---
 
-This REST API is an administrator API, so it requires your function app [master key](functions-bindings-http-webhook-trigger.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+This REST API is an administrator API, so it requires your function app [master key](function-keys-how-to.md). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
 
 Here's an example of the response that provides the system key:
 
@@ -128,8 +128,6 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
-
-You can also use the *ngrok* utility to forward remote requests to your locally running functions. For more information, see [this tutorial](./functions-event-grid-blob-trigger.md#start-local-debugging).
 
 ### Create a viewer web app
 

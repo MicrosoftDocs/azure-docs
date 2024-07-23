@@ -2,7 +2,7 @@
 title: Connect hybrid machines to Azure by using PowerShell
 description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc-enabled servers. You can do this with PowerShell.
 ms.date: 07/16/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,6 +15,8 @@ This method requires that you have administrator permissions on the machine to i
 Before you get started, review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
 
 ## Prerequisites
 

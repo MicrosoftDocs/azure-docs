@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -179,6 +179,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
+> | [Microsoft.ApiCenter](./permissions/integration.md#microsoftapicenter) |  | [Azure API Center](/azure/api-center/overview) |
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |
@@ -275,6 +276,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Features](./permissions/management-and-governance.md#microsoftfeatures) |  | [Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.GuestConfiguration](./permissions/management-and-governance.md#microsoftguestconfiguration) | Audit settings inside a machine using Azure Policy. | [Azure Policy](/azure/governance/policy/) |
 > | [Microsoft.Intune](./permissions/management-and-governance.md#microsoftintune) | Enable your workforce to be productive on all their devices, while keeping your organization's information protected. |  |
+> | [Microsoft.Maintenance](./permissions/management-and-governance.md#microsoftmaintenance) |  | [Azure Maintenance](/azure/virtual-machines/maintenance-configurations)<br/>[Azure Update Manager](/azure/update-manager/overview) |
 > | [Microsoft.ManagedServices](./permissions/management-and-governance.md#microsoftmanagedservices) |  | [Azure Lighthouse](/azure/lighthouse/) |
 > | [Microsoft.Management](./permissions/management-and-governance.md#microsoftmanagement) | Use management groups to efficiently apply governance controls and manage groups of Azure subscriptions. | [Management Groups](/azure/governance/management-groups/) |
 > | [Microsoft.PolicyInsights](./permissions/management-and-governance.md#microsoftpolicyinsights) | Summarize policy states for the subscription level policy definition. | [Azure Policy](/azure/governance/policy/) |

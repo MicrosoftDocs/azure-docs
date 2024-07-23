@@ -1,14 +1,14 @@
 ---
 title: Connect your GitLab groups
 description: Learn how to connect your GitLab Environment to Defender for Cloud.
-ms.date: 01/24/2023
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.custom: ignite-2023
 ---
 
 # Quickstart: Connect your GitLab Environment to Microsoft Defender for Cloud
 
-In this quickstart, you connect your GitLab groups on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your GitLab resources.
+In this quickstart, you connect your GitLab groups on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to automatically discover your GitLab resources.
 
 By connecting your GitLab groups to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your GitLab resources. These features include:
 
@@ -53,11 +53,7 @@ To connect your GitLab Group to Defender for Cloud by using a native connector:
 1. Enter a name, subscription, resource group, and region.
 
     The subscription is the location where Microsoft Defender for Cloud creates and stores the GitLab connection.
-
-1. Select **Next: select plans**. Configure the Defender CSPM plan status for your GitLab connector. Learn more about [Defender CSPM](concept-cloud-security-posture-management.md) and see [Support and prerequisites](devops-support.md) for premium DevOps security features.
-
-    :::image type="content" source="media/quickstart-onboard-ado/select-plans.png" alt-text="Screenshot that shows plan selection for DevOps connectors." lightbox="media/quickstart-onboard-ado/select-plans.png":::
-
+   
 1. Select **Next: Configure access**.
 
 1. Select **Authorize**.
@@ -69,7 +65,7 @@ To connect your GitLab Group to Defender for Cloud by using a native connector:
     - Select **all existing groups** to autodiscover all subgroups and projects in groups you're currently an Owner in.
     - Select **all existing and future groups** to autodiscover all subgroups and projects in all current and future groups you're an Owner in.
 
-Since GitLab projects are onboarded at no additional cost, autodiscover is applied across the group to ensure Defender for Cloud can comprehensively assess the security posture and respond to security threats across your entire DevOps ecosystem. Groups can later be manually added and removed through **Microsoft Defender for Cloud** > **Environment settings**.
+Since GitLab projects are onboarded at no additional cost, autodiscovery is applied across the group to ensure Defender for Cloud can comprehensively assess the security posture and respond to security threats across your entire DevOps ecosystem. Groups can later be manually added and removed through **Microsoft Defender for Cloud** > **Environment settings**.
 
 1. Select **Next: Review and generate**.
 

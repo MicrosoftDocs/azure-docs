@@ -3,6 +3,7 @@ title: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.service: azure-kubernetes-service
 ms.date: 03/28/2024
 ms.author: shasb
 author: shashankbarsin
@@ -33,17 +34,7 @@ export LOCATION=<location>
 
 ## Install Istio add-on
 
-This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see [install an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep]. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
-
-When you install the Istio add-on, it deploys the following set of resources to your AKS cluster to enable Istio functionality:
-
-* Istio control plane components, such as Pilot, Mixer, and Citadel
-* Istio ingress gateway
-* Istio egress gateway
-* Istio sidecar injector webhook
-* Istio CRDs (Custom Resource Definitions)
-
-When you enable Istio on your AKS cluster, the sidecar proxy is automatically injected into your application pods. The sidecar proxy is responsible for intercepting all network traffic to and from the pod, and forwarding it to the appropriate destination. In Istio, the sidecar proxy is called **istio-proxy** instead of **envoy**, which is used in other service mesh solutions like Open Sevice Mesh (OSM).
+This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see the guide for [installing an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep]. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
 
 ### Revision selection
 
@@ -62,9 +53,10 @@ To install the Istio add-on when creating the cluster, use the `--enable-azure-s
 az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
 
 az aks create \
---resource-group ${RESOURCE_GROUP} \
---name ${CLUSTER} \
---enable-asm
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${CLUSTER} \
+    --enable-asm \
+    --generate-ssh-keys    
 ```
 
 ### Install mesh for existing cluster
@@ -106,12 +98,13 @@ Confirm the `istiod` pod has a status of `Running`. For example:
 
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
-istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
+istiod-asm-1-18-74f7f7c46c-xfdtl   2/2     Running   0          2m
+istiod-asm-1-18-74f7f7c46c-4nt2v   2/2     Running   0          2m
 ```
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, you will need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed.
+To automatically install sidecar to any new pods, you need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed.
 
 If you're unsure which revision is installed, use:
 
@@ -212,7 +205,7 @@ reviews-v2-7d79d5bd5d-8zzqd       2/2     Running   0          2m41s
 reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
 ```
 
-Confirm that all the pods have status of `Running` with 2 containers in the `READY` column. The second container (`istio-proxy`) added to each pod is the Envoy sidecar injected by Istio, and the other is the application container.
+Confirm that all the pods have status of `Running` with two containers in the `READY` column. The second container (`istio-proxy`) added to each pod is the Envoy sidecar injected by Istio, and the other is the application container.
 
 To test this sample application against ingress, check out [next-steps](#next-steps).
 
@@ -248,6 +241,7 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ## Next steps
 
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
+* [Scale istiod and ingress gateway HPA][istio-scaling-guide]
 
 <!--- External Links --->
 [install-aks-cluster-istio-bicep]: https://github.com/Azure-Samples/aks-istio-addon-bicep
@@ -263,4 +257,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 [istio-deploy-ingress]: istio-deploy-ingress.md
 [az-aks-mesh-get-revisions]: /cli/azure/aks/mesh#az-aks-mesh-get-revisions(aks-preview)
 [bicep-aks-resource-definition]: /azure/templates/microsoft.containerservice/managedclusters
-
+[istio-scaling-guide]: istio-scale.md#scaling
