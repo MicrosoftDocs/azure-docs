@@ -811,6 +811,10 @@ Some configurations must be maintained at the App Service level as site settings
 
 On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
 
+### functionsRuntimeAdminIsolationEnabled
+
+Determines if the `/admin` endpoints are exposed for the function app. When "false", the app will serve these endpoints, and they can only be accessed using the master key for the function app. When "true", these endpoints are not served by the app.
+
 ### linuxFxVersion 
 
 For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a predefined value or a custom image URI.

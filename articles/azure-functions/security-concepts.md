@@ -60,6 +60,10 @@ While access keys can provide some mitigation for unwanted access, the only way 
 
 For the highest level of security, you can also secure the entire application architecture inside a virtual network [using private endpoints](#deploy-your-function-app-to-a-virtual-network) or by [running in isolation.](#deploy-your-function-app-in-isolation).   
 
+### Disable administrative endpoints
+
+Function apps can serve administrative endpoints under the `/admin` route that can be used for operations such as obtaining host status information and performing test invocations. When exposed, requests against these endpoints must include the app's master key. Administrative operations are also available through the [Azure Resource Manager `Microsoft.Web/sites` API](/rest/api/appservice/web-apps), which offers Azure RBAC. You can disable the `/admin` endpoints by setting the `functionsRuntimeAdminIsolationEnabled` site property to `true`.
+
 ### Enable App Service Authentication/Authorization
 
 The App Service platform lets you use Microsoft Entra ID and several third-party identity providers to authenticate clients. You can use this strategy to implement custom authorization rules for your functions, and you can work with user information from your function code. To learn more, see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md) and [Working with client identities](functions-bindings-http-webhook-trigger.md#working-with-client-identities).
