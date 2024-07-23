@@ -1605,6 +1605,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -4160,6 +4165,21 @@
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
             "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
             "redirect_document_id": false
         },
         {
