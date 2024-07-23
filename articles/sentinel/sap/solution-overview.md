@@ -10,7 +10,7 @@ ms.date: 05/22/2024
 
 # Microsoft Sentinel solution for SAP applications
 
-SAP systems pose a unique security challenge, as they handle extremely sensitive information, are a prime target for attackers, and traditionally provide little visibility for security operations teams.
+SAP systems pose a unique security challenge, as they handle sensitive information, are a prime target for attackers, and traditionally provide little visibility for security operations teams.
 
 An SAP system breach could result in stolen files, exposed data, or a disrupted supply chain. Once an attacker is in the system, there are few controls to detect exfiltration or other bad acts. SAP activity needs to be correlated with other data across the organization for effective threat detection.
 
@@ -26,7 +26,7 @@ The Microsoft Sentinel solution for SAP applications continuously monitors SAP s
 
 The Microsoft Sentinel solution for SAP applications also offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
-For example, the following image shows a multi-SID SAP landscape with a split between productive and non-productive systems, including the SAP BTP. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
+For example, the following image shows a multi-SID SAP landscape with a split between productive and nonproductive systems, including the SAP BTP. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
@@ -61,6 +61,8 @@ The Microsoft Sentinel solution for SAP applications supports the following type
 |**Data exfiltration**     |   <li> Multiple files downloads <li>Spool takeovers<li> Allowing access to insecure FTP servers and connections from unauthorized hosts<li> Dynamic RFC Destination <li>HANA DB - user admin actions from database level     |
 |**Initial Access**     |   <li> Brute force<li>   Multiple logons from the same IP<li>   Privileged user logons from unexpected networks <li>SPNego Replay Attack        |
 
+For more information, see [Built-in analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
+
 ## Investigation support
 
 Investigate SAP incidents just as you would any other incidents in Microsoft Sentinel and Microsoft Defender. For more information, see:
@@ -80,9 +82,9 @@ For more information, see the certification on the [SAP Certified Solutions Dire
 
 ## Solution pricing
 
-While the Microsoft Sentinel for SAP solution is free to install, there is an additional hourly charge for activating and using the solution on production systems.
+While the Microsoft Sentinel for SAP solution is free to install, there's an extra hourly charge for activating and using the solution on production systems.
 
-- The additional hourly charge applies to connected production systems only.
+- The extra hourly charge applies to connected production systems only.
 - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table.
 
 For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md) and [Microsoft Sentinel solution for SAP® applications](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).

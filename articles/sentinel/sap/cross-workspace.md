@@ -38,7 +38,7 @@ Maintaining separate workspaces for the SAP and SOC data has the following benef
 |**Alerts**     |   Microsoft Sentinel can trigger alerts that include both SOC and SAP data, and it can run those alerts on the SOC workspace.  |
 |**Data isolation**     |   The SAP BASIS team has its own Microsoft Sentinel workspace that includes all features except detections that include both SOC and SAP data.   <br><br>The SOC can see and investigate SAP incidents. If the SAP BASIS team faces an event that it can't explain by using existing data, the team can assign the incident to the SOC.   |
 |**Flexibility**     |   The SAP BASIS team can focus on the control of internal threats in its landscape, and the SOC can focus on external threats.     |
-|**Pricing**     |  There's no additional charge for ingestion fees, because data is ingested only once into Microsoft Sentinel. However, each workspace has its own [pricing tier](../design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).       |
+|**Pricing**     |  There's no extra charge for ingestion fees, because data is ingested only once into Microsoft Sentinel. However, each workspace has its own [pricing tier](../design-your-workspace-architecture.md#step-5-collecting-any-non-soc-data).       |
 
 The following table maps data and feature access for SAP and SOC teams when they each maintain their own workspace:
 
@@ -51,7 +51,7 @@ The following table maps data and feature access for SAP and SOC teams when they
 <sup>*</sup> The SOC team can see these functions in both workspaces. The SAP BASIS team can see these functions only in the SAP workspace.
 
 > [!NOTE]
-> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs ](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
+> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
 
 ## Store SAP data only in the SOC workspace
 
@@ -69,7 +69,7 @@ After the data collector agent is configured with the correct resource ID, the S
 
 There are no costs associated with this approach because the data is ingested only once into Microsoft Sentinel.
 
-When you manage access by resource, the SAP BASIS team sees only raw and unformatted data, accessibile via Log Analytics or Power BI. The SAP BASIS team can't use any Microsoft Sentinel features.
+When you manage access by resource, the SAP BASIS team sees only raw and unformatted data, accessible via Log Analytics or Power BI. The SAP BASIS team can't use any Microsoft Sentinel features.
 
 ## Related content
 
