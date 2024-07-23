@@ -41,12 +41,14 @@ In this step, you deploy four network groups to represent the spoke virtual netw
 2. In the left pane, select **Network groups** under **Settings**.
 3. Select **+ Create**.
 4. In the **Create a network group** window, enter the following details then select **Create**:
+   
     | **Field** | **Value** |
     |-------|-------|
     | **Name** | Enter **ng-spoke-*\<region1\>*** or the name of the network of the first hub virtual network in region one. |
     | **Description** | Enter a description for the network group. |
     | **Member type** | Select **Virtual network** from the dropdown menu. |
-1. Repeat the steps create the remaining network groups for the spoke virtual networks in region 2 and the Azure Firewall subnets in each region based on the table above.
+    
+5. Repeat the steps create the remaining network groups for the spoke virtual networks in region 2 and the Azure Firewall subnets in each region based on the table above.
 
 ## Add members to the network groups
 
