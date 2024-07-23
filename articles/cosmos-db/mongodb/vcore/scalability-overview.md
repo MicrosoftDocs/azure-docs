@@ -45,7 +45,7 @@ Disk IOPS influences write operations in the vCore based service for Azure Cosmo
 As mentioned earlier, storage and compute resources are decoupled for billing and provisioning. While they function as a cohesive unit, they can be scaled independently. The M30 cluster tier can have 32 TB disks provisioned. Similarly, the M200 cluster tier can have 32 GB disks provisioned to optimize for both storage and compute costs. 
 
 ### Lower TCO with large disks (32 TB and beyond)
-Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4 TB. The vCore based service for Azure Cosmos DB for MongoDB provides upto 8x that capacity with 32 TB disks. For storage heavy workloads, a 4 TB storage capacity per physical shard requires a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
+Typically, NoSQL databases with a vCore based model limit the storage per physical shard to 4 TB. The vCore based service for Azure Cosmos DB for MongoDB provides up to 8x that capacity with 32 TB disks. For storage heavy workloads, a 4 TB storage capacity per physical shard requires a massive fleet of compute resources just to sustain the storage requirements of the workload. Compute is more expensive than storage and over provisioning compute due to capacity limits in a service can inflate costs rapidly. 
 
 Let's consider a storage heavy workload with 200 TB of data.
 
