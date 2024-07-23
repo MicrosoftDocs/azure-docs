@@ -1396,7 +1396,10 @@ In this example, the function's output is that there are no flights available fo
 ```csharp
 static string getFlightInfo(string loc_origin, string loc_destination)
 {
-    return $"{{ {{ \"info\": \"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions.\" }} }}";
+    return JsonConvert.SerializeObject(new
+    {
+        info = $"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
+    });
 }
 ```
 
@@ -1450,10 +1453,10 @@ foreach (ChatCompletionsToolCall tool in toolsCall )
     string toolArgumentsString = (string) tool.GetType().GetProperty("Arguments").GetValue(tool, null); //tool.Arguments;
     Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
 
-    // Call the function defined above using `locals()`, which returns the list of all functions 
-    // available in the scope as a dictionary. Notice that this is just done as a simple way to get
-    // the function callable from its string name. Then we can call it with the corresponding
-    // arguments.
+    // Call the function defined above using reflection, which allow us to call a function 
+    // by it's string name. Notice that this is just done for demonstration purposes as a simple 
+    // way to get the function callable from its string name. Then we can call it with the 
+    // corresponding arguments.
 
     var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
     string toolResponse = (string) typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
