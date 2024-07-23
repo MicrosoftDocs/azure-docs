@@ -20,7 +20,9 @@ monikerRange: '<=doc-intel-4.0.0'
 
 [!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)]   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
-Document Intelligence models require handful of training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md) or [custom template model (custom form)](../concept-custom-generative.md). This document walks you through the process of training the custom models.
+[!IMPORTANT] Custom generative model training behavior is different from custom template and neural model training. The following document covers training only for custom template and neural models. For guidance on custom generative, refer to [Custom Generative](concept-custom-generative.md)
+
+Document Intelligence custom models require a handful of training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md) or [custom template model (custom form)](../concept-custom-generative.md). This document walks you through the process of training the custom models.
 
 ## Custom model input requirements
 
@@ -53,9 +55,9 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
 
 1. Start by navigating to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). The first time you use the Studio, you need to [initialize your subscription, resource group, and resource](../quickstarts/try-document-intelligence-studio.md). Then, follow the [prerequisites for custom projects](../quickstarts/try-document-intelligence-studio.md#added-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
-1. In the Studio, select the **Custom models** tile, on the custom models page and select the **Create a project** button.
+1. In the Studio, select the **Custom extraction model** tile and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
+    :::image type="content" source="../media/how-to/studio_custom_createproject.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
 
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
 
@@ -64,11 +66,11 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
     > [!IMPORTANT]
     > Custom neural models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md#supported-regions).
 
-    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot of Select the Document Intelligence resource.":::
+    :::image type="content" source="../media/how-to/studio_custom_configureresource.png" alt-text="Screenshot of Select the Document Intelligence resource.":::
 
 1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
-    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot of Select the storage account.":::
+    :::image type="content" source="../media/how-to/studio_addtrainingsource.png" alt-text="Screenshot of Select the storage account.":::
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -80,7 +82,7 @@ The files you uploaded to storage are listed on the left of your screen, with th
 
 1. Start labeling your dataset and creating your first field by selecting the plus (➕) button on the top-right of the screen.
 
-    :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot of Create a label.":::
+    :::image type="content" source="../media/how-to/studio_addfield.png" alt-text="Screenshot of Create a label.":::
 
 1. Enter a name for the field.
 
