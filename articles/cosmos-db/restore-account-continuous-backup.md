@@ -89,7 +89,7 @@ You can use Azure portal to completely restore a deleted account within 30 days 
    * **Restore Target Account** – The target account name needs to follow same guidelines as when you are creating a new account. This account will be created by the restore process in the same region where your source account exists.
   
    > [!NOTE]
-   > For MongoDB API accounts, you may notice the MongoDB version dropping to v3.6 from a higher version upon restore of a deleted account. You are required to [upgrade its MongoDB version](https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/upgrade-version) to your desired version via the Features blade to maintain MongoDB version.
+   > For MongoDB API accounts, you may notice the MongoDB version dropping to v3.6 from a higher version upon restore of a deleted account. You are required to [upgrade its MongoDB version](./mongodb/upgrade-version.md) to your desired version via the Features blade to maintain MongoDB version.
 
 ### <a id="track-restore-status"></a>Track the status of restore operation
 
