@@ -1,24 +1,35 @@
 ---
-title: Tutorial - Improved exports experience - Preview
-description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
+title: Tutorial - Create and manage Cost Management exports
+description: This tutorial helps you create automatic exports for your actual and amortized costs.
 author: jojohpm
 ms.author: jojoh
-ms.date: 07/17/2024
+ms.date: 07/22/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: banders
 ---
 
-# Tutorial: Improved exports experience - Preview
+# Tutorial: Create and manage Cost Management exports
 
-This tutorial helps you create automatic exports using the improved exports experience that can be enabled from [Cost Management labs](enable-preview-features-cost-management-labs.md#exports-preview) by selecting **Exports (preview)** button. The improved Exports experience is designed to streamline your FinOps practice by automating the export of other cost-impacting datasets. The updated exports are optimized to handle large datasets while enhancing the user experience.
+If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that Cost Management collects. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
 
-Review [Azure updates](https://azure.microsoft.com/updates/) to see when the feature becomes available generally available.
+This tutorial helps you create one-time and automatic exports. The exports feature is optimized to handle large datasets.
 
-## Improved functionality
+In this tutorial, you learn how to:
 
-The improved exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
+> [!div class="checklist"]
+> * Create exports
+> * Configure exports for storage accounts with a firewall
+> * Manage exports
+> * Enable file partitioning for large datasets
+> * Verify that data is collected
+> * View export run history
+> * Understand export data types
+
+## Updated functionality
+
+The exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
 FinOps datasets are often large and challenging to manage. Exports improve file manageability, reduce download latency, and help save on storage and network charges with the following functionality:
 
 - File partitioning, which breaks the file into manageable smaller chunks.
@@ -45,15 +56,17 @@ For Azure Storage accounts:
   - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.  
   Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
-    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+    :::image type="content" source="./media/tutorial-improved-exports/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-improved-exports/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
-
-Enable the new exports experience from Cost Management labs by selecting **Exports (preview)**. For more information about how to enable Exports (preview), see [Explore preview features](enable-preview-features-cost-management-labs.md#explore-preview-features). The preview feature is being deployed progressively.
 
 ## Create exports
 
 You can create multiple exports of various data types using the following steps.
+
+> [!NOTE]
+> - You can create exports on subscription, resource group, management group, department, and enrollment scopes. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+> - When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
 ### Choose a scope and navigate to Exports
 
@@ -62,12 +75,6 @@ You can create multiple exports of various data types using the following steps.
 1. Select a billing scope.
 1. In the left navigation menu, select **Exports**.
 
-> [!NOTE]
-> - You can create exports on subscription, resource group, management group, department, and enrollment scopes. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
-> - When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
-   
-
-   
 ### Create new exports
 
 On the Exports page, at the top of the page, select **+ Create**.
@@ -82,7 +89,7 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 1. Once you select a template, you see the **Datasets** tab where you can customize your export name by entering a common **Export prefix**, edit the preselected configuration, and add or remove exports from the list. 
 1. You can change the template and discard your export configurations by navigating back to the **Basics** tab and selecting a new template.  
 
-### Optionally add more exports
+### Optional - Add more exports
 
 1. On the **Datasets** tab, you can add another export by selecting **+ Add export**. 
 2. Select the **Type of data**, the **Dataset version**, and enter an **Export name**. Optionally, you can enter an **Export description**.
@@ -113,6 +120,35 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 
 Review your export configuration and make any necessary changes. When done, select **Review + create** to complete the process.
 
+Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list, and then select either **Disable** or **Delete**.
+
+Initially, it can take 12-24 hours before the export runs. However, it can take longer before the data appear in exported files.
+
+## Configure exports for storage accounts with a firewall
+
+If you need to export to a storage account behind the firewall for security and compliance requirements, ensure that you have all [prerequisites](#prerequisites) met.
+
+> [!NOTE]
+> If you have an existing scheduled export and your change your storage network configuration, you must update the export and save it to reflect the changes.
+
+Enable **Allow trusted Azure services access** on the storage account. You can turn that on while configuring the firewall of the storage account, from the Networking page. Here's a screenshot showing the page.
+
+UPDATE
+:::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access.png" alt-text="Screenshot showing Allow Azure services on the trusted services list exception option." lightbox="./media/tutorial-improved-exports/allow-trusted-access.png" :::
+
+If you missed enabling that setting, you can easily do so from the **Exports** page when creating a new export.
+
+UPDATE
+:::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access-export.png" alt-text="Screenshot showing the Allow trusted Azure services access option." lightbox="./media/tutorial-improved-exports/allow-trusted-access-export.png" :::
+
+A system-assigned managed identity is created for a new job export when created or modified. You must have permissions because Cost Management uses the privilege to assign the *StorageBlobDataContributor* role to the managed identity. The permission is restricted to the storage account container scope. After the export job is created or updated, the user doesn't require Owner permissions for regular runtime operations.
+
+> [!NOTE]
+> - When a user updates destination details or deletes an export, the *StorageBlobDataContributor* role assigned to the managed identity is automatically removed. To enable the system to remove the role assignment, the user must have `microsoft.Authorization/roleAssignments/delete` permissions. If the permissions aren't available, the user needs to manually remove the role assignment on the managed identity.
+> - Currently, firewalls are supported for storage accounts in the same tenant. However, firewalls on storage accounts aren't supported for cross-tenant exports.
+
+Add exports to the list of trusted services. For more information, see [Trusted access based on a managed identity](../../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity).
+
 ## Manage exports
 
 You can view and manage your exports by navigating to the Exports page where a summary of details for each export appears, including:
@@ -135,9 +171,18 @@ You can perform the following actions by selecting the ellipsis (**…**) on the
 
 :::image type="content" source="./media/tutorial-improved-exports/exports-list-details.png" alt-text="Screenshot showing the list of exports and details." lightbox="./media/tutorial-improved-exports/exports-list-details.png" :::
 
-### Schedule frequency
+### Understand schedule frequency
 
-All types of data support various schedule frequency options, as described in the following table.
+Scheduled exports get affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For instance, the export is scheduled to run once every UTC day. It creates a daily export of costs accumulated from the start of the month to the current date. It occurs at a daily frequency. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
+
+Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
+
+- When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
+    - Example - A weekly export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19. The weekly export is scheduled to run every Friday.
+- When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
+    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18. The weekly export is scheduled to run every Thursday.
+
+Each export creates a new file, so older exports aren't overwritten. All types of data support various schedule frequency options, as described in the following table.
 
 | **Type of data** | **Frequency options** |
 | --- | --- |
@@ -147,7 +192,105 @@ All types of data support various schedule frequency options, as described in th
 | Reservation transactions | • One-time export <br> • Daily export <br> • Monthly export of last month's data|
 | Cost and usage details (actual)<br> Cost and usage details (amortized) <br> Cost and usage details (FOCUS)<br> Cost and usage details (usage only) | • One-time export <br>• Daily export of month-to-date costs<br>•  Monthly export of last month's costs <br>• Monthly export of last billing month's costs |
 
-## Understand data types
+## Optional - Create an export for multiple subscriptions
+
+You can use a management group to aggregate subscription cost information in a single container. Exports support management group scope for Enterprise Agreement but not for Microsoft Customer Agreement or other subscription types. Multiple currencies are also not supported in management group exports.
+
+Exports at the management group scope support only usage charges. Purchases, including reservations and savings plans aren't supported. Amortized cost reports are also not supported. When you create an export from the Azure portal for a management group scope, the metric field isn't shown because it defaults to the usage type. When you create a management group scope export using the REST API, choose [ExportType](/rest/api/cost-management/exports/create-or-update#exporttype) as `Usage`.
+
+1. Create one management group and assign subscriptions to it, if you haven't already.
+1. In cost analysis, set the scope to your management group and select **Select this management group**.
+    :::image type="content" source="./media/tutorial-improved-exports/management-group-scope.png" alt-text="Screenshot showing the Select this management group option." lightbox="./media/tutorial-improved-exports/management-group-scope.png":::
+    UPDATE
+1. Create an export at the scope to get cost management data for the subscriptions in the management group.
+    :::image type="content" source="./media/tutorial-improved-exports/new-export-management-group-scope.png" alt-text="Screenshot showing the Create new export option with a management group scope.":::
+    UPDATE
+
+## Optional - Enable file partitioning for large datasets
+
+If you have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, you can enable Exports to chunk your file into multiple smaller file partitions to help with data ingestion. When you initially configure your export, set the **File Partitioning** setting to **On**. The setting is **Off** by default.
+
+:::image type="content" source="./media/tutorial-improved-exports/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-improved-exports/file-partition.png" :::
+
+If you don't have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, then you don't see the **File Partitioning** option.
+
+Partitioning isn't currently supported for resource groups or management group scopes.
+
+### Update existing exports for file partitioning
+
+If you have existing exports and you want to set up file partitioning, create a new export. File partitioning is only available with the latest Exports version. There might be minor changes to some of the fields in the usage files that get created.
+
+If you enable file partitioning on an existing export, you might see minor changes to the fields in file output. Any changes are due to updates that were made to Exports after you initially set yours up.
+
+### Partitioning output
+
+When file partitioning is enabled, you get a file for each partition of data in the export along with a _manifest.json file. The manifest contains a summary of the full dataset and information for each file partition in it. Each file partition has headers and contains only a subset of the full dataset. To handle the full dataset, you must ingest each partition of the export.
+
+Here's a _manifest.json example manifest file.
+
+```json
+{
+  "manifestVersion": "2021-01-01",
+  "dataFormat": "csv",
+  "blobCount": 1,
+  "byteCount": 160769,
+  "dataRowCount": 136,
+  "blobs": [
+    {
+      "blobName": "blobName.csv",
+      "byteCount": 160769,
+      "dataRowCount": 136,
+      "headerRowCount": 1,
+      "contentMD5": "md5Hash"
+    }
+  ]
+}
+```
+
+### Update export version
+
+When you create a scheduled export in the Azure portal or with the API, it always runs on the exports version used at creation time. Azure keeps your previously created exports on the same version, unless you update it. Doing so prevents changes in the charges and to CSV fields if the export version is changed. As the export functionality changes over time, field names are sometimes changed and new fields are added.
+
+If you want to use the latest data and fields available, we recommend that you create a new export in the Azure portal. To update an existing export to the latest version, update it in the Azure portal or with the latest Export API version. Updating an existing export might cause you to see minor differences in the fields and charges in files that are produced afterward.
+
+## Verify that data is collected
+
+You can easily verify that your Cost Management data is being collected and view the exported CSV file using Azure Storage Explorer.
+
+In the export list, select the storage account name. On the storage account page, select Open in Explorer. If you see a confirmation box, select **Yes** to open the file in Azure Storage Explorer.
+
+:::image type="content" border="true" source="./media/tutorial-improved-exports/storage-account-page.png" alt-text="Screenshot showing the Storage account page with example information and link to Open in Explorer.":::
+
+In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
+
+:::image type="content" border="true" source="./media/tutorial-improved-exports/storage-explorer.png" alt-text="Screenshot showing example information in Storage Explorer.":::
+
+The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
+
+:::image type="content" border="true" source="./media/tutorial-improved-exports/example-export-data.png" alt-text="Screenshot showing exported CSV data in Excel.":::
+
+### Download an exported CSV data file
+
+To download the CSV file, browse to the file in Microsoft Azure Storage Explorer and download it.
+
+## View export run history
+
+You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run. Here's an example showing the run history.
+
+:::image type="content" source="./media/tutorial-improved-exports/run-history.png" alt-text="Screenshot shows the Exports pane.":::
+
+Select an export to view the run history.
+
+:::image type="content" source="./media/tutorial-improved-exports/single-export-run-history.png" alt-text="Screenshot shows the run history of an export.":::
+
+### Export runs twice a day for the first five days of the month
+
+There are two runs per day for the first five days of each month after you create a daily export. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
+
+>[!NOTE]
+> Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
+
+## Understand export data types
 
 For a comprehensive reference of all available datasets, including the schema for current and historical versions, see [Cost Management dataset schema index](/azure/cost-management-billing/dataset-schema/schema-index). 
 
@@ -177,19 +320,73 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 ## Limitations
 
-The improved exports experience currently has the following limitations.
+The exports experience currently has the following limitations.
 
 - The new exports experience doesn't fully support the management group scope and it has feature limitations.
-
-- Azure internal and MOSP billing scopes and subscriptions don’t support FOCUS datasets.
+- Azure MOSP billing scopes and subscriptions don’t support FOCUS datasets.
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
 ## FAQ
 
-1. Why is file partitioning enabled in exports? 
+Here are some frequently asked questions and answers about exports.
 
-The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file. 
+### Why is file partitioning enabled in exports?
 
-## Next steps
+The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file.
 
-- Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
+### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
+
+If you see garbled characters in Excel and you use an Asian-based language, such as Japanese or Chinese, you can resolve this issue with the following steps:
+
+For new versions of Excel:
+
+1. Open Excel.
+1. Select the **Data** tab at the top.
+1. Select the **From Text/CSV** option.
+    :::image type="content" source="./media/tutorial-improved-exports/new-excel-from-text.png" alt-text="Screenshot showing the Excel From Text/CSV option." lightbox="./media/tutorial-improved-exports/new-excel-from-text.png" :::
+1. Select the CSV file that you want to import.
+1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.
+    :::image type="content" source="./media/tutorial-improved-exports/new-excel-file-origin.png" alt-text="Screenshot showing the Excel File origin option." lightbox="./media/tutorial-improved-exports/new-excel-file-origin.png" :::
+1. Select **Load**.
+
+For older versions of MS Excel:
+
+1.	Open Excel.
+1.	Select the **Data** tab at the top.
+1.	Select the **From Text** option and then select the CSV file that you want to import.
+1.	Excel shows the Text Import Wizard.
+1.	In the wizard, select the **Delimited** option.
+1.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
+1.	Select **Next**.
+1.	Next, select the **Comma** option and then select **Finish**.
+1.	In the dialog window that appears, select **OK**.
+
+### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
+
+You might notice discrepancies between the aggregated cost from an exported file and the cost displayed in Cost Analysis. These differences can occur if the tool you use to read and aggregate the total cost truncates decimal values. This issue is common in tools like Power BI and Microsoft Excel.
+
+### Why is my Power BI report missing decimal values?
+
+Check if decimal places are being dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
+
+To manually transform a column to a decimal number in Power BI, follow these steps:
+
+1. Go to the **Table** view.
+1. Select **Transform data**.
+1. Right-click the required column.
+1. Change the type to **Decimal Number**.
+
+### Why do I get a conversion error in Microsoft Excel?
+
+When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://insider.microsoft365.com/blog/control-data-conversions-in-excel-for-windows-and-mac).
+
+:::image type="content" source="./media/tutorial-improved-exports/excel-convert-dialog.png" border="true" alt-text="Screenshot showing the Convert dialog.":::
+
+If the correct conversion isn't used, you get a green triangle with a `Number Stored as Text` error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
+
+:::image type="content" source="./media/tutorial-improved-exports/number-stored-as-text-error.png" border="true" alt-text="Screenshot showing the Number stored as text error.":::
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Review and act on optimization recommendations](tutorial-acm-opt-recommendations.md)
