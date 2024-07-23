@@ -13,8 +13,6 @@ ms.custom: template-concept
 
 In this article, you learn how scopes enable management groups or subscriptions to use certain features of Azure Virtual Network Manager. You also learn about the concept of hierarchy and how it can affect Azure Virtual Network Manager users.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Virtual Network Manager resources
 
 An Azure Virtual Network Manager instance includes the following resources:

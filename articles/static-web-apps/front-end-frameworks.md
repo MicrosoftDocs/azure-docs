@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 07/18/2020
+ms.date: 06/24/2024
 ms.author: cshoe
 ---
 
@@ -24,7 +24,7 @@ The intent of the table columns is explained by the following items:
 - **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](build-configuration.md#custom-build-commands).
 
 > [!NOTE]
-> Some web frameworks that feature server-side rendering and can be deployed to Azure Static Web Apps. This means your app is built into static assets and Azure Functions files. In the configuration file, the static assets are mapped to the *output location* and the Azure Functions files map to the *API artifact location*. 
+> Some web frameworks that feature server-side rendering and can be deployed to Azure Static Web Apps. This means your app is built into static assets along with Azure Functions. In the configuration file, the static assets are mapped to the *output location* and the Azure Functions files map to the *API artifact location*. 
 
 | Framework | Output location (App artifact location) | API artifact location | Custom build command |
 |--|--|--|--|

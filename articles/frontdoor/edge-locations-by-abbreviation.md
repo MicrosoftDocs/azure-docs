@@ -16,7 +16,7 @@ This article lists Microsoft POP (point-of-presence) locations, sorted by locati
 
 ## POP locations
 
-[!INCLUDE [front-door-edge-locations-by-abbreviation](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations-by-abbreviation.md)]
+[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
 
 ## Next steps
 

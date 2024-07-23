@@ -61,17 +61,17 @@ When in transit or stored inside of Service Bus, the payload is always an opaque
 
 Unlike the Java or .NET Standard variants, the .NET Framework version of the Service Bus API supports creating **BrokeredMessage** instances by passing arbitrary .NET objects into the constructor. 
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 When you use the legacy SBMP protocol, those objects are then serialized with the default binary serializer, or with a serializer that is externally supplied. The object is serialized into an AMQP object. The receiver can retrieve those objects with the [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method, supplying the expected type. With AMQP, the objects are serialized into an AMQP graph of `ArrayList` and `IDictionary<string,object>` objects, and any AMQP client can decode them. 
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
-While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. While AMQP has a powerful binary encoding model, it's tied to the AMQP messaging ecosystem, and HTTP clients will have trouble decoding such payloads. 
+While this hidden serialization magic is convenient, applications should take explicit control of object serialization and turn their object graphs into streams before including them into a message, and do the reverse on the receiver side. This yields interoperable results. While AMQP has a powerful binary encoding model, it's tied to the AMQP messaging ecosystem, and HTTP clients will have trouble decoding such payloads.
 
-The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control. 
+The .NET Standard and Java API variants only accept byte arrays, which means that the application must handle object serialization control.
 
-If the payload of a message can't be deserialized, then it's recommended to [dead-letter the message](./service-bus-dead-letter-queues.md?source=recommendations#application-level-dead-lettering).
+When handling object deserialization from the message payload, developers should take into consideration that messages may arrive from multiple sources using different serialization methods. This can also happen when evolving a single application, where old versions may continue to run alongside newer versions. In these cases, it is recommended to have additional deserialization methods to try if the first attempt at deserialization fails. One library that supports this is [NServiceBus](https://docs.particular.net/nservicebus/serialization/#specifying-additional-deserializers). If all deserialization methods fail, then it's recommended to [dead-letter the message](./service-bus-dead-letter-queues.md?source=recommendations#application-level-dead-lettering).
 
 ## Next steps
 

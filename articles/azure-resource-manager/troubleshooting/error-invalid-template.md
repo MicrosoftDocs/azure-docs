@@ -3,7 +3,7 @@ title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ---
 
 # Resolve errors for invalid template

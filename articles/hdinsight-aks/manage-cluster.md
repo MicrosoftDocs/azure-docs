@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # Manage clusters
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Clusters are individual compute workloads such as Apache Spark, Apache Flink, and Trino, which can be created rapidly in few minutes with preset configurations and few clicks.
 
 This article describes how to manage a cluster using Azure portal. 

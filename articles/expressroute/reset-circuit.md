@@ -28,7 +28,7 @@ When an operation on an ExpressRoute circuit doesn't complete successfully, the 
 
 ## Azure PowerShell
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 

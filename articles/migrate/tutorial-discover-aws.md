@@ -157,13 +157,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script

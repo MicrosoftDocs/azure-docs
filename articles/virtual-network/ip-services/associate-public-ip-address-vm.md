@@ -218,6 +218,8 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
 1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
 ---
+> [!NOTE]  
+> To share a VM with an external user, you must add a public IP address to the VM. Alternatively, external users can connect to VM's private IP address through Azure Bastion.
 
 ## Allow network traffic to the VM
 

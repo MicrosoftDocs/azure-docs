@@ -2,16 +2,16 @@
 title: Connect Syslog data to Microsoft Sentinel
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/14/2023
-ms.author: yelevin
+ms.date: 06/18/2024
 ---
 
 # Collect data from Linux-based sources using Syslog
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

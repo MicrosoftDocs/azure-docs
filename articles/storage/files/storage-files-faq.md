@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions (FAQ) about Azure Files a
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 05/09/2024
+ms.date: 06/24/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
@@ -205,7 +205,7 @@ ms.topic: conceptual
 ### Clean up share snapshots
 * <a id="delete-share-keep-snapshots"></a>
 **Can I delete my share but not delete my share snapshots?**  
-    If you have active share snapshots on your share, you can't delete your share. You can use an API to delete share snapshots, along with the share. You also can delete both the share snapshots and the share in the Azure portal.
+    No. The delete file share workflow will automatically delete the snapshots when you delete the share.
 
 ## Billing and pricing
 

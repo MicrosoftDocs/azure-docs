@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/31/2024
+ms.date: 07/18/2024
 recommendations: false
 ---
 
@@ -18,7 +18,88 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## July 2024
+
+### GPT-4o mini preview model available for early access
+
+GPT-4o mini is the latest model from OpenAI [launched on July 18, 2024](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/).
+
+From OpenAI:
+
+*"GPT-4o mini surpasses GPT-3.5 Turbo and other small models on academic benchmarks across both textual intelligence and multimodal reasoning, and supports the same range of languages as GPT-4o. It also demonstrates strong performance in function calling, which can enable developers to build applications that fetch data or take actions with external systems, and improved long-context performance compared to GPT-3.5 Turbo."*
+
+To start testing out the model today in Azure OpenAI, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+
+### New Responsible AI default content filtering policy 
+
+The new default content filtering policy `DefaultV2` delivers the latest safety and security mitigations for the GPT model series (text), including:
+- Prompt Shields for jailbreak attacks on user prompts (filter), 
+- Protected material detection for text (filter) on model completions 
+- Protected material detection for code (annotate) on model completions
+
+While there are no changes to content filters for existing resources and deployments (default or custom content filtering configurations remain unchanged), new resources and GPT deployments will automatically inherit the new content filtering policy `DefaultV2`. Customers have the option to switch between safety defaults and create custom content filtering configurations. 
+
+Refer to our [Default safety policy documentation](./concepts/default-safety-policies.md) for more information.
+
+### New GA API release
+
+API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
+
+- embeddings `encoding_format` & `dimensions` parameters.
+- chat completions `logprobs` & `top_logprobs` parameters.
+
+Refer to our [data plane inference reference documentation](./reference.md) for more information.
+
+### Expansion of regions available for global standard deployments of gpt-4o
+
+ GPT-4o is now available for [global standard deployments](./how-to/deployment-types.md) in:
+
+- australiaeast     
+- brazilsouth       
+- canadaeast        
+- eastus            
+- eastus2           
+- francecentral     git
+- germanywestcentral
+- japaneast         
+- koreacentral      
+- northcentralus    
+- norwayeast        
+- polandcentral     
+- southafricanorth  
+- southcentralus    
+- southindia        
+- swedencentral     
+- switzerlandnorth  
+- uksouth           
+- westeurope        
+- westus            
+- westus3           
+
+For information on global standard quota, consult the [quota and limits page](./quotas-limits.md).
+
+
 ## June 2024
+
+### Retirement date updates
+
+* Updated `gpt-35-turbo` 0301 retirement date to no earlier than October 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k`0613 retirement date to October 1, 2024.
+* Updated `gpt-4` & `gpt-4-32k` 0314 deprecation date to October 1, 2024, and retirement date to June 6, 2025.  
+
+Refer to our [model retirement guide](./concepts/model-retirements.md) for the latest information on model deprecation and retirement.
+
+### Token based billing for fine-tuning
+
+* Azure OpenAI fine-tuning billing is now based on the number of tokens in your training file – instead of the total elapsed training time. This can result in a significant cost reduction for some training runs, and makes estimating fine-tuning costs much easier. To learn more, you can consult the [official announcement](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/pricing-update-token-based-billing-for-fine-tuning-training/ba-p/4164465).
+
+### GPT-4o released in new regions
+
+* GPT-4o is now also available in:
+    -  Sweden Central for standard regional deployment.
+    -  Australia East, Canada East, Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+
+For the latest information on model availability, see the [models page](./concepts/models.md).
 
 ### Customer-managed key (CMK) support for Assistants
 
@@ -78,7 +159,7 @@ For more information, see the [deployment types guide](https://aka.ms/aoai/docs/
 
 ### DALL-E and GPT-4 Turbo Vision GA configurable content filters
 
-Create custom content filters for your DALL-E 2 and 3 and GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
+Create custom content filters for your DALL-E 2 and 3, GPT-4 Turbo with Vision GA (gpt-4-turbo-2024-04-09) and GPT-4o deployments. [Content filtering](/azure/ai-services/openai/concepts/content-filter?tabs=warning%2Cpython-new#configurability-preview)
 
 ### Asynchronous Filter available for all Azure OpenAI customers
 

@@ -22,7 +22,7 @@ If you want quick commands rather than a more in-depth explanation of SSH keys, 
 To create SSH keys and use them to connect to a Linux VM from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create and manage SSH keys for creating VMs in the portal.
 
 > [!Note]
-> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds. However, Azure portal support for ED25519 is limited to Azure public cloud regions only.
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 

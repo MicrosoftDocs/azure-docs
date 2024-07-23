@@ -102,7 +102,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 #### Create an App Service plan
 
-[!INCLUDE [app-service-plan](~/reusable-content/ce-skilling/azure/includes/app-service-plan.md)]
+[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
 1. Next to **Hosting Plan**, click **New**.
 

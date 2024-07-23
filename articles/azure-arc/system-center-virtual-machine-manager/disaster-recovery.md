@@ -6,8 +6,8 @@ ms.custom:
 ms.date: 12/28/2023
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ---
 

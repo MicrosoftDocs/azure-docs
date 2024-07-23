@@ -325,7 +325,7 @@ Creates a namespace of type `Microsoft.EventHub/Namespaces`, with one event hub,
 
 ## Commands to run deployment
 
-[!INCLUDE [app-service-deploy-commands](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 

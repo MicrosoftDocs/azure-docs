@@ -34,4 +34,4 @@ ms.date: 04/11/2024
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Microsoft CNAPP solution](episode-forty-eight.md)

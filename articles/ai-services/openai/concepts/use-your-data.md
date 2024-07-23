@@ -474,7 +474,7 @@ If the policy above doesn't meet your need, please consider other options, for e
 
 ## Token usage estimation for Azure OpenAI On Your Data
 
-Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
+Azure OpenAI On Your Data Retrieval Augmented Generation (RAG) is a service that leverages both a search service (such as Azure AI Search) and generation (Azure OpenAI models) to let users get answers for their questions based on provided data. 
 
 As part of this RAG pipeline, there are three steps at a high-level: 
 
@@ -592,7 +592,7 @@ Each user message can translate to multiple search queries, all of which get sen
 
 ## Regional availability and model support
 
-| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`\*\* | `gpt-turbo (0409)` |
+| Region | `gpt-35-turbo-16k (0613)` | `gpt-35-turbo (1106)` | `gpt-4-32k (0613)` | `gpt-4 (1106-preview)` | `gpt-4 (0125-preview)` | `gpt-4 (0613)`  | `gpt-4o`\*\* | `gpt-4 (turbo-2024-04-09)` |
 |------|---|---|---|---|---|----|----|----|
 | Australia East | ✅ | ✅ | ✅ |✅ |   | ✅ | | | 
 | Canada East | ✅ | ✅ | ✅ |✅ |   | ✅ |  | | 

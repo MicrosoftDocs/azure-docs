@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 06/06/2024
+ms.date: 07/18/2024
 ms.topic: how-to
 ---
 
@@ -31,7 +31,7 @@ To mark a directory as a favorite, select its star icon. Those directories will 
 
 To switch to a different directory, find the directory that you want to work in, then select the **Switch** button in its row.
 
-:::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
+:::image type="content" source="media/set-preferences/settings-directories-subscriptions-default-filter.png" lightbox="media/set-preferences/settings-directories-subscriptions-default-filter.png" alt-text="Screenshot showing the Directories settings pane.":::
 
 ### Subscription filters
 
@@ -90,14 +90,21 @@ To delete a filter, select the trash can icon in that filter's row. You can't de
 The **Appearance + startup views** pane has two sections. The **Appearance** section lets you choose menu behavior, your color theme, and whether to use a high-contrast theme. 
 The **Startup views** section lets you set options for what you see when you first sign in to the Azure portal.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
+:::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" lightbox="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
-### Set menu behavior
+### Portal menu behavior
 
-The **Menu behavior** section lets you choose how the default Azure portal menu behaves.
+The **Menu behavior** section lets you choose how the [Azure portal menu](azure-portal-overview.md#portal-menu) appears.
 
 - **Flyout**: The menu is hidden until you need it. You can select the menu icon in the upper left hand corner to open or close the menu.
 - **Docked**: The menu is always visible. You can collapse the menu to provide more working space.
+
+### Service menu behavior
+
+The **Service menu behavior** section lets you choose how items in [service menus](azure-portal-overview.md#service-menu) are displayed.
+
+- **Collapsed**: Groups of commands in service menus will appear collapsed. You can still manually select any top-level item to display the commands within that menu group.
+- **Expanded**: Groups of commands in service menus will appear expanded. You can still manually select any top-level item to collapse that menu group.
 
 ### Choose a theme or enable high contrast
 
@@ -208,11 +215,9 @@ The inactivity timeout setting helps to protect resources from unauthorized acce
 
 In the drop-down menu next to **Sign me out when inactive**, choose the duration after which your Azure portal session is signed out if you're idle.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive.png" alt-text="Screenshot showing the user timeout settings option.":::
-
 Select **Apply** to save your changes. After that, if you're inactive during the portal session, Azure portal will sign out after the duration you set.
 
-If your admin has enabled an inactivity timeout policy, you can still set your own, as long as it's shorter than the directory-level setting. To do so, select **Override the directory inactivity timeout policy**, then enter a time interval for the **Override value**.
+If your admin has enabled an inactivity timeout policy, you can still choose your own timeout duration, but it must be shorter than the directory-level setting. To do so, select **Override the directory inactivity timeout policy**, then enter a time interval for the **Override value**.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-sign-out-inactive-user.png" alt-text="Screenshot showing the directory inactivity timeout override setting.":::
 
@@ -234,13 +239,19 @@ To change a previously selected timeout, any Global Administrator can follow the
 
 Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become available. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
 
-To enable or disable pop-up notifications, select or clear **Enable pop-up notifications**.
+To enable or disable pop-up notifications, select or clear **Show pop-up notifications**.
 
 To read all notifications received during your current session, select the **Notifications** icon from the global header.
 
 :::image type="content" source="media/set-preferences/read-notifications.png" alt-text="Screenshot showing the Notifications icon in the global header.":::
 
 To view notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
+
+### Enable or disable teaching bubbles
+
+Teaching bubbles may appear in the portal when new features are released. These bubbles contain information to help you understand how new features work.
+
+To enable or disable teaching bubbles in the portal, select or clear **Show teaching bubbles**.
 
 ## Next steps
 

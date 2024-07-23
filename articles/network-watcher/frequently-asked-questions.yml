@@ -99,7 +99,7 @@ sections:
           What are the resource limits on Network Watcher?
         answer: |
           Network Watcher has the following limits:
-          [!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
+          [!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
 
   - name: Service availability and redundancy
     questions:

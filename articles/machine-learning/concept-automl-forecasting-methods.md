@@ -3,9 +3,9 @@ title: Overview of forecasting methods in AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML uses machine learning to build forecasting models
 services: machine-learning
-author: ericwrightatwork
-ms.author: erwright
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: erwright
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
@@ -165,7 +165,7 @@ Each Series in Own Group (1:1) | All Series in Single Group (N:1)
 -------------------| -----------------
 Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, TCNForecaster
 
-More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-many-models-in-pipeline/automl-forecasting-demand-many-models-in-pipeline.ipynb).
+More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecast_pipeline/aml-demand-forecast-mm-pipeline/aml-demand-forecast-mm-pipeline.ipynb).
 
 ## Next steps
 

@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 03/13/2024
 ---
 

@@ -74,7 +74,7 @@ Place your cursor in the parameters block, add a carriage return, type `"`, and 
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/9.png" alt-text="Screenshot showing a parameter being added to the ARM template.":::
 
-Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
+Update the name of the parameter to `storageAccountName` and the description to `Storage account name`.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/10.png" alt-text="Screenshot showing the completed parameter in an ARM template.":::
 

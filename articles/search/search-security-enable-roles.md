@@ -8,32 +8,34 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 06/18/2024
 
 ---
 
 # Enable or disable role-based access control in Azure AI Search
 
-Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
+Before you can assign roles for authorized access to Azure AI Search, enable role-based access control on your search service.
 
-Roles for service administration (control plane) are built in and can't be disabled. Roles for data plane operations are optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to use role-based authentication for data plane operations, you must enable role-based access on your service.
+Role-based access for data plane operations is optional, but recommended as the more secure option. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
-In this article, learn how to configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
+Roles for service administration (control plane) are built in and can't be enabled or disabled. 
 
 > [!NOTE]
-> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent Azure SDK client libraries.
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
-
 + A search service in any region, on any tier, including free.
+
++ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 ## Enable role-based access for data plane operations
 
-When you enable roles, the change is effective immediately, but wait a few seconds before assigning roles.
+Configure your search service to recognize an **authorization** header on data requests that provide an OAuth2 access token.
 
-The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
+When you enable roles for the data plane, the change is effective immediately, but wait a few seconds before assigning roles.
+
+The default failure mode for unauthorized requests is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
 
 ### [**Azure portal**](#tab/config-svc-portal)
 
@@ -50,6 +52,12 @@ The default failure mode is `http401WithBearerChallenge`. Alternatively, you can
    | API Key | (default). Requires [API keys](search-security-api-keys.md) on the request header for authorization. |
    | Role-based access control | Requires membership in a role assignment to complete the task. It also requires an authorization header on the request. |
    | Both | Requests are valid using either an API key or role-based access control, but if you provide both in the same request, the API key is used. |
+
+1. As an administrator, if you choose a roles-only approach, [assign data plane roles](search-security-rbac.md) to your user account to restore full administrative access over data plane operations in the Azure portal. Roles include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader. You need all three roles if you want equivalent access.
+
+   Sometimes it can take five to ten minutes for role assignments to take effect. Until that happens, the following message appears in the portal pages used for data plane operations.
+
+   :::image type="content" source="media/search-security-rbac/you-do-not-have-access.png" alt-text="Screenshot of portal message indicating insufficient permissions.":::
 
 ### [**Azure CLI**](#tab/config-svc-cli)
 

@@ -230,6 +230,12 @@ Here's a sample configuration of local logging:
         telemetry.logs.local.localsyslog.facility: "7"
 ```
 
+### Using local JSON endpoint
+
+#### Known limitations
+
+- We only support up to 3072 bytes of request/response payload for local diagnostics. Anything above, may break JSON format due to chunking.
+
 ### Using local syslog logs
 
 #### Configuring gateway to stream logs

@@ -5,9 +5,9 @@ author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
 ms.subservice: aks-monitoring
-ms.custom: ignite-2023, devx-track-azurecli, build-2024
+ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 06/17/2024
 
 #CustomerIntent: As a cluster operator, I want to obtain cost management information, perform cost attribution, and improve my cluster footprint
 ---
@@ -50,21 +50,8 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 * AKS Automatic is not supported at this time.
 
-* If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
+* If using the Azure CLI, you must have version `2.61.0` or later installed.
 
-### Install or update the `aks-preview` Azure CLI extension
-
-Install the `aks-preview` Azure CLI extension using the [`az extension add`][az-extension-add] command.
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-If you need to update the extension version, you can do this using the [`az extension update`][az-extension-update] command.
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
 
 ## Enable cost analysis on your AKS cluster
 
@@ -83,13 +70,7 @@ You can enable the cost analysis with the `--enable-cost-analysis` flag during o
 The following example creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
-az aks create \
-    --resource-group <resource-group> \
-    --name <cluster-name> \
-    --location <location> \
-    --tier standard \
-    --enable-cost-analysis \
-    --generate-ssh-keys
+az aks create --resource-group <resource-group> --name <cluster-name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
 ```
 
 The following example updates an existing AKS cluster in the `Standard` tier to enable cost analysis:
@@ -99,7 +80,9 @@ az aks update --resource-group <resource-group> --name <cluster-name> --enable-c
 ```
 
 > [!WARNING]
-> The AKS cost analysis addon Memory usage is dependent on the number of containers deployed. Memory consumption can be roughly approximated by 200MB + 0.5MB per Container. The current memory limit is set to 4GB which will support approximately 7000 containers per cluster but could be more or less depending on various factors. These estimates are subject to change.
+> The AKS cost analysis add-on Memory usage is dependent on the number of containers deployed. Memory consumption can be roughly approximated by 200 MB + 0.5 MB per container. The current memory limit is set to 4 GB which will support approximately 7000 containers per cluster. These estimates could be more or less depending on various factors and are subject to change.
+>
+> If you are experiencing issues such as the add-on pod getting `OOMKilled` or stuck in a `Pending` state, refer to the [AKS cost analysis add-on issues](/troubleshoot/azure/azure-kubernetes/aks-cost-analysis-add-on-issues) troubleshooting guide.
 
 ## Disable cost analysis
 
@@ -110,7 +93,7 @@ az aks update --name myAKSCluster --resource-group myResourceGroup --disable-cos
 ```
 
 > [!NOTE]
-> If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis as shown here.
+> If you intend to downgrade your cluster from the `Standard` or `Premium` tiers to the `Free` tier while cost analysis is enabled, you must first explicitly disable cost analysis.
 
 ## View the cost data
 

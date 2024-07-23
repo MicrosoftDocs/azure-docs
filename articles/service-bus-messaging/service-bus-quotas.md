@@ -9,5 +9,5 @@ ms.date: 12/07/2023
 This section lists basic quotas and throttling thresholds in Azure Service Bus messaging.
 
 ## Messaging quotas
-[!INCLUDE [service-bus-quotas-table](~/reusable-content/ce-skilling/azure/includes/service-bus-quotas-table.md)]
+[!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
