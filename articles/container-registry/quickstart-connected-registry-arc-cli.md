@@ -130,6 +130,56 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
     --resource-group myresourcegroup \
     --cluster-type connectedClusters
     ```
+    **Example Output**
+
+    ```output
+      {
+      "aksAssignedIdentity": null,
+      "autoUpgradeMinorVersion": true,
+      "configurationProtectedSettings": {
+        "connectionString": ""
+      },
+      "configurationSettings": {
+        "pvc.storageClassName": "standard",
+        "pvc.storageRequest": "250Gi",
+        "service.clusterIP": "[your service cluster ip]"
+      },
+      "currentVersion": "0.11.0",
+      "customLocationSettings": null,
+      "errorInfo": null,
+      "extensionType": "microsoft.containerregistry.connectedregistry",
+      "id": "/subscriptions/[your subscription id]/resourceGroups/[your resource group name]/providers/Microsoft.Kubernetes/connectedClusters/[your arc cluster name]/providers/Microsoft.KubernetesConfiguration/extensions/[your extension name]",
+      "identity": {
+        "principalId": "[identity principal id]",
+        "tenantId": null,
+        "type": "SystemAssigned"
+      },
+      "isSystemExtension": false,
+      "name": "[your extension name]",
+      "packageUri": null,
+      "plan": null,
+      "provisioningState": "Succeeded",
+      "releaseTrain": "preview",
+      "resourceGroup": "[your resource group]",
+      "scope": {
+        "cluster": {
+          "releaseNamespace": "connected-registry"
+        },
+        "namespace": null
+      },
+      "statuses": [],
+      "systemData": {
+        "createdAt": "2024-07-12T18:17:51.364427+00:00",
+        "createdBy": null,
+        "createdByType": null,
+        "lastModifiedAt": "2024-07-12T18:22:42.156799+00:00",
+        "lastModifiedBy": null,
+        "lastModifiedByType": null
+      },
+      "type": "Microsoft.KubernetesConfiguration/extensions",
+      "version": null
+    }
+    ```    
 
 2. Verify the Connected registry status and state
 
