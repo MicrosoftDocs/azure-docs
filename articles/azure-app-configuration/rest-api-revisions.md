@@ -16,8 +16,6 @@ For all operations, ``key`` is an optional parameter. If omitted, it implies any
 
 For all operations, ``label`` is an optional parameter. If omitted, it implies any label.
 
-This article applies to API version 1.0.
-
 ## Prerequisites
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]

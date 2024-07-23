@@ -2914,6 +2914,21 @@ groups:
     title: Stable release
   - id: preview-version
     title: Preview release
+# Owner: avanigupta
+- id: data-plane-api-version
+  title: API version pivots
+  prompt: Choose an API version
+  pivots:
+  - id: v1
+    title: "1.0"
+  - id: V22_11_preview
+    title: "2022-11-01-preview"
+  - id: V23_05_preview
+    title: "2023-05-01-preview"
+  - id: V23_10
+    title: "2023-10-01"  
+  - id: V23_11
+    title: "2023-11-01"
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience

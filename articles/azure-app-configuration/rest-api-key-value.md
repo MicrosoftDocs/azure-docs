@@ -5,14 +5,14 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 07/23/2024
+zone_pivot_groups: data-plane-api-version
+
 ---
 
 # Key-values
 
 A key-value is a resource identified by unique combination of `key` + `label`. `label` is optional. To explicitly reference a key-value without a label, use "\0" (URL encoded as ``%00``). See details for each operation.
-
-This article applies to API version 1.0.
 
 ## Operations
 
@@ -109,6 +109,22 @@ HTTP/1.1 200 OK
 Optional: ``key`` (If not specified, it implies any key.)
 Optional: ``label`` (If not specified, it implies any label.)
 
+:::zone target="docs" pivot="V23_11"
+Optional: ``tags`` (If not specified, it implies any tags.)
+
+```http
+GET /kv?key=Test*&tags=tag1=value1&tags=tag2=value2&api-version={api-version} HTTP/1.1
+```
+
+**Response:**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
+```
+:::zone-end
+
+
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
 ```
@@ -121,6 +137,58 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
 For additional options, see the "Filtering" section later in this article.
+
+
+:::zone target="docs" pivot="V23_10"
+:::zone target="docs" pivot="V23_11"
+
+
+## List key-values (conditionally)
+
+To improve client caching, use `If-Match` or `If-None-Match` request headers. The `etag` argument is part of the list key-values response body and header.
+If `If-Match` or `If-None-Match` are omitted, the operation is unconditional.
+
+The following response gets the key-value only if the current representation matches the specified `etag`:
+
+```http
+GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 412 PreconditionFailed
+```
+
+or
+
+```http
+HTTP/1.1 200 OK
+```
+
+The following response gets the key-values only if the current representation doesn't match the specified `etag`:
+
+```http
+GET /kv?key={key}label={label}&api-version={api-version} HTTP/1.1
+If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 304 NotModified
+```
+
+or
+
+```http
+HTTP/1.1 200 OK
+```
+
+:::zone-end
+:::zone-end
+
 
 ## Pagination
 
@@ -153,6 +221,16 @@ Link: <{relative uri}>; rel="next"
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
 
+:::zone target="docs" pivot="V23_11"
+
+For API Versions greater than `2023-11-01`, filtering by`tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+
+```http
+GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
+```
+
+:::zone-end
+
 ```http
 GET /kv?key={key}&label={label}&api-version={api-version}
 ```
@@ -173,6 +251,19 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod`|Matches the label **prod**|
 |`label=prod*`|Matches labels that start with **prod**|
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
+
+:::zone target="docs" pivot="V23_11"
+
+|Tags filter|Effect|
+|--|--|
+|`tags` is omitted or `tags=` |Matches **any** tag|
+|`tags=group=app1`|Matches KV where the tag name is `group` and tag value is `app1`|
+|`tags=group=app1&tags=env=prod`|Matches KV which contain at least 2 tags, where the tag names are `group` and `env` and tag values are `app1` and `prod` respectively (limited to 5 tag filters)|
+|`tags=tag1=%00`|Matches KV where the tag name is `tag1` and tag value is `null`|
+|`tags=tag1=`|Matches KV where the tag name is `tag1` and tag value is empty|
+
+:::zone-end
+
 
 ***Reserved characters***
 
