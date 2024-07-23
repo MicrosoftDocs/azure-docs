@@ -11,8 +11,8 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
 # Message Analysis: Responsible AI Transparency FAQ 
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
 
 ## What is Message Analysis? 
 
