@@ -3,7 +3,7 @@ title: Benefits of migrating to Azure HDInsight 4.0.
 description: Learn the benefits of migrating to Azure HDInsight 4.0.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 07/23/2024
 ---
 # Significant version changes in HDInsight 4.0 and advantages
 
@@ -95,7 +95,7 @@ Set synchronization of partitions to occur every 10 minutes expressed in seconds
 
 
 > [!WARNING]
-> With the `management.task` running every 10 minutes, there will be pressure on the SQL server DTU. This feature also adds cost to Storage access as the partition management threads runs at regular intervals even when cluster is idle.
+> With the `management.task` running every 10 minutes, there will be pressure on the SQL server DTU.
 
 You can verify the output from Microsoft Azure portal.
 
