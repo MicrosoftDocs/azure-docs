@@ -43,7 +43,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
 ### HBase
 
 - Advanced features:
-  - Procedure V2 (`procv2`), an updated framework for executing multistep HBase administrative operations.
+  - Procedure V2 (procv2), an updated framework for executing multistep HBase administrative operations.
   - Fully off-heap read/write path.
   - In-memory compactions.
   - HBase cluster support of the Azure Data Lake Storage Gen2 Premium tier.
@@ -56,7 +56,7 @@ HDInsight 4.0 has several advantages over HDInsight 3.6. Here's an overview of w
 
 - Advanced features:
   - Kafka partition distribution on Azure fault domains.
-  - Zstandard (`zstd`) compression support.
+  - Zstandard (zstd) compression support.
   - Kafka Consumer Incremental Rebalance.
   - Support for MirrorMaker 2.0.
 - Performance advantage:
@@ -145,7 +145,7 @@ Vectorized query execution is a feature that greatly reduces the CPU usage for t
 - Aggregate
 - Join
 
-Vectorization is also implemented for the ORC format. Spark also uses whole-stage code generation and this vectorization (for Parquet) since Spark 2.0. There's an added timestamp column for Parquet vectorization and format under LLAP.
+Vectorization is also implemented for the ORC format. Spark also uses whole-stage code generation and this vectorization (for Parquet) since Spark 2.0. There's an added time-stamp column for Parquet vectorization and format under LLAP.
 
 > [!WARNING]
 > Parquet writes are slow when you convert to zoned times from the time stamp. For more information, see the [issue details](https://issues.apache.org/jira/browse/HIVE-24693) on the Apache Hive site.
@@ -183,7 +183,7 @@ For more information, see the [Azure blog post on Hive materialized views](https
 
 ## Surrogate keys
 
-Use the built-in `SURROGATE_KEY` user-defined function (UDF) to automatically generate numerical IDs for rows as you enter data into a table. The generated surrogate keys can replace wide, multiple composite keys.
+Use the built-in `SURROGATE_KEY` UDF to automatically generate numerical IDs for rows as you enter data into a table. The generated surrogate keys can replace wide, multiple composite keys.
 
 Hive supports the surrogate keys on ACID tables only. The table that you want to join by using surrogate keys can't have column types that need to cast. These data types must be primitives, such as `INT` or `STRING`.
 
@@ -191,9 +191,9 @@ Joins that use the generated keys are faster than joins that use strings. Using 
 
 The `SURROGATE_KEY` UDF generates a unique ID for every row that you insert into a table. It generates keys based on the execution environment in a distributed system, which includes many factors such as:
 
-- Internal data structures.
-- State of a table.
-- Last transaction ID.
+- Internal data structures
+- State of a table
+- Last transaction ID
 
 Surrogate key generation doesn't require any coordination between compute tasks. The UDF takes no arguments, or two arguments are:
 
