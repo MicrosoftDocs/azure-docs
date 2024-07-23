@@ -711,8 +711,8 @@
           href: control-plane-metrics-default-list.md
         - name: View the kubelet logs
           href: kubelet-logs.md
-        - name: View container data real-time
-          href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: View container data in real time
+          href: container-insights-live-data.md
         - name: Cost analysis
           items:
           - name: Enable cost analysis on your cluster
