@@ -27,9 +27,9 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
-4. Select the **Container** tab.
+3. Select the **Container** tab.
 
-5. Select *Use quickstart image*.
+4. Select *Use quickstart image*.
 
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
