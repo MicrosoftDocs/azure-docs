@@ -36,8 +36,6 @@ spec:
   maxInstances: 3
 ```
 
-Or use the portal under the Dataflows > Scaling section and set the number of instances.
-
 If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
 
 ### Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
@@ -56,26 +54,20 @@ spec:
     ...
 ```
 
-Or use the portal under the Dataflows > Settings section.
-
 ## Manage dataflows
 
 ### Enable or disable dataflow
 
-To enable or disable a dataflow, you can use the Azure IoT Operations portal or by updating the Dataflow CR.
+To enable or disable a dataflow, you can update the Dataflow CR.
 
 ```yaml
 spec:
   mode: disabled
 ```
 
-### View dataflow health status and metrics
-
-You can view the health status and metrics of the dataflow in the Azure IoT Operations portal.
-
 ### Delete dataflow
 
-To delete a dataflow, you can use the Azure IoT Operations portal or by deleting the Dataflow CR.
+To delete a dataflow, delete the Dataflow CR.
 
 ```bash
 kubectl delete dataflow my-dataflow
@@ -83,7 +75,7 @@ kubectl delete dataflow my-dataflow
 
 ### Export dataflow configuration
 
-To export the dataflow configuration, you can use the Azure IoT Operations portal or by exporting the Dataflow CR.
+To export the dataflow configuration, export the Dataflow CR.
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
@@ -91,21 +83,14 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 
 ## Manage endpoints
 
-### View
-
-You can view the health, metrics, configuration, and associated dataflows of an endpoint in the Azure IoT Operations portal.
-
-### Edit
-
-You can edit an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
-
 ### Delete
 
-You can delete an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
+Be cautious if the endpoint is in use by a dataflow.
 
 ```bash
 kubectl delete endpoint my-endpoint
 ```
 ## Next steps
 
-Tutorial
+- [Create a dataflow](tutorial-dataflow-asset-event-grid.md)
+

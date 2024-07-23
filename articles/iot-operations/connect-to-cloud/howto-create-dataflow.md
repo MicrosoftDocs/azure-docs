@@ -14,32 +14,74 @@ ms.date: 07/22/2024
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a dataflow configuration with a source endpoint, transformation, and destination endpoint:
+The following is an example of a dataflow configuration with a MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
-  name: mq-to-kafka
-  namespace: azure-iot-operations
+  name: my-dataflow
 spec:
-  profileRef: example-dataflow
+  profileRef: my-dataflow-profile
+  mode: enabled
   operations:
     - operationType: source
-      # ...
+      name: my-source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+          - thermostats/+/telemetry/temperature/#
+          - humidifiers/+/telemetry/humidity/#
+        serializationFormat: avroBinary
+        schemaRef: aio-sr://exampleNamespace/exampleAvroSchema:1.0.0
     - operationType: builtInTransformation
-      # ...
+      name: my-transformation
+      builtInTransformationSettings:
+        enrich:
+          - dataset: erp
+            condition: $source.DataSetWriterName == $context(erp).asset
+        filter:
+          - inputs:
+              - payload.temperature.Value ? $last
+              - payload.Tag 10.Value
+            condition: "$1 * $2 < 100000"
+        map:
+          - inputs:
+              - Timestamp
+            output: Timestamp
+          - inputs:
+              - payload.temperature.Value
+            output: TemperatureF
+            conversion: 32 - ($1 * 9/5)
+          - inputs:
+              - payload.Tag 10.Value
+            output: Tag 10
+          - inputs:
+              - DataSetWriterName
+            output: Asset
+          - inputs:
+              - $context(erp).location
+            output: Location
+          - inputs:
+              - $context(erp).status
+            output: Status
+        serializationFormat: json
+        schemaRef: aio-sr://exampleNamespace/exmapleJsonSchema:1.0.0
     - operationType: destination
-      # ...
+      name: my-destination
+      destinationSettings:
+        endpointRef: kafka
+        dataDestination: factory/$topic.2
 ```
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the dataflow profile                                          |
-| operations[]                | Operations to be performed by the Dataflow                                 |
-| operationType               | Type of operation, such as source, destination, or transformation          |
+| profileRef                  | Reference to the [dataflow profile](howto-manage-dataflow.md#configure-dataflow-profile) |
+| mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
+| operations[]                | Operations to be performed by the dataflow                                 |
+| operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
 
-Review the following sections to learn how to configure the source, transformation, and destination for the dataflow.
+Review the following sections to learn how to configure the operation types of the dataflow.
 
 ## Configure source
 
@@ -82,7 +124,7 @@ spec:
   - operationType: source
     sourceSettings:
       serializationFormat: avroBinary
-      schemaRef: aio-sr://exampleNamespace/exmapleAvroSchema:1.0.0
+      schemaRef: aio-sr://exampleNamespace/exampleAvroSchema:1.0.0
 ```
 
 | Name                               | Description                                                                        |
@@ -260,9 +302,14 @@ To specify the schema, you can create a *Schema* custom resource with the schema
 
 To configure a destination for the dataflow, you need to specify the endpoint and a path (topic or table) for the destination.
 
+| Name                        | Description                                                                |
+|-----------------------------|----------------------------------------------------------------------------|
+| destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
+| destinationSettings.dataDestination | Destination for the data                                           |
+
 ### Use Asset as destination (portal only)
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the destination for the dataflow. This is only available in the portal.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the destination for the dataflow. Managing assets is only available in the Azure portal.
 
 ### Configure destination endpoint reference
 
@@ -271,8 +318,9 @@ To configure the endpoint for the destination, you need to specify the ID and en
 ```yaml
 spec:
   operations:
-  - destination:
-      id: destination1
+  - operationType: destination
+    name: destination1
+    destinationSettings:
       endpointRef: eventgrid
 ```
 
@@ -281,17 +329,19 @@ spec:
 Once you have the endpoint, you can configure the path for the destination. If the destination is an MQTT or Kafka endpoint, use the path to specify the topic.
 
 ```yaml
-- destination:
+- operationType: destination
+  destinationSettings:
     endpointRef: eventgrid
-    path: factory/$topic.2
+    dataDestination: factory/$topic.2
 ```
 
 For storage endpoints like Microsoft Fabric, use the path to specify the table name.
 
 ```yaml
-- destination:
+- operationType: destination
+  destinationSettings:
     endpointRef: adls
-    path: telemetryTable
+    dataDestination: telemetryTable
 ```
 
 #### Dynamic output path
@@ -299,8 +349,9 @@ For storage endpoints like Microsoft Fabric, use the path to specify the table n
 You can use dynamic path segments to reference properties or metadata from the source message. For example, you can use `$topic` to reference the topic from the source data.
 
 ```yaml
-- destination:
-    path: factory/$topic.2
+- operationType: destination
+  destinationSettings:
+    dataDestination: factory/$topic.2
 ```
 
 If the source is an MQTT broker, with messages coming from topic `thermostats/+/temperature/` , the output path is dynamically resolved. For example, if the source topic is `thermostats/1/temperature/` , the output path will be `factory/1` . To use the full source topic, you can use `$topic` without the index.
@@ -308,8 +359,9 @@ If the source is an MQTT broker, with messages coming from topic `thermostats/+/
 To use data from the MQTT or Kafka payload in the output path, you can use JSON path expressions.
 
 ```yaml
-- destination:
-    path: factory/$payload.temperature.value
+- operationType: destination
+  destinationSettings:
+    dataDestination: factory/$payload.temperature.value
 ```
 
 If the payload is a JSON object like `{"temperature": {"value": 25}}` , the output path will be `factory/25` .
@@ -317,15 +369,17 @@ If the payload is a JSON object like `{"temperature": {"value": 25}}` , the outp
 You can also use system properties like `timestamp` , `clientId` , and `messageId` .
 
 ```yaml
-- destination:
-    path: factory/$systemProperties.timestamp
+- operationType: destination
+  destinationSettings:
+    dataDestination: factory/$systemProperties.timestamp
 ```
 
 As well as user properties.
 
 ```yaml
-- destination:
-    path: factory/$userProperties.customer
+- operationType: destination
+  destinationSettings:
+    dataDestination: factory/$userProperties.customer
 ```
 
 If the user property is not present in the source data, the part of the path referencing the user property will be empty. For example, if the user property `customer` is not present in the source data, the output path will be `factory/` .
@@ -335,9 +389,10 @@ If you specified a `enrich` stage during transformation, you can use the enriche
 ```yaml
 spec:
   operations:
-  - destination:
+  - operationType: destination
+    destinationSettings:
       endpointRef: eventgrid
-      path: factory/$context(assetDataset).location
+      dataDestination: factory/$context(assetDataset).location
 ```
 
 Lastly, you can use `$subscription(example/topic)` to subscribe to a topic from the source endpoint and use the result in the path. This is useful when you want to use the value from a specific topic in the output path, like for meta Unified Namespace (UNS) topics.
@@ -345,9 +400,10 @@ Lastly, you can use `$subscription(example/topic)` to subscribe to a topic from 
 ```yaml
 spec:
   operations:
-  - destination:
+  - operationType: destination
+    destinationSettings:
       endpointRef: eventgrid
-      path: factory/$subscription(meta/thermostat/uns)
+      dataDestination: factory/$subscription(meta/thermostat/uns)
 ```
 
 Here, if the message from the `meta/thermostat/uns` topic is `thermostats/1/temperature/` , the output path will be `factory/thermostats/1/temperature/` .
@@ -363,18 +419,6 @@ The full list of parameters that can be used in the path includes:
 | `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
 | `$context(<dataset>).<property>` | A property from the contextualization dataset specified in `enrich` stage. |
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |
-
-| Name                        | Description                                                                |
-|-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the dataflow profile                                          |
-| operations                  | Operations to be performed by the Dataflow                                 |
-| operationType               | Type of operation, such as *source* or *destination*                       |
-| sourceSettings              | Settings for the *source* operation                                        |
-| sourceSettings.endpointRef  | Reference to the *source* endpoint                                         |
-| sourceSettings.dataSources  | Data sources for the *source* operation                                    |
-| destinationSettings         | Settings for the *destination* operation                                   |
-| destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
-| destinationSettings.dataDestination | Destination for the data                                           |
 
 
 ## Test dataflow
@@ -411,4 +455,6 @@ And the outcome can be viewed as a response:
 
 ## Next steps
 
-Learn how to [Manage dataflows](howto-manage-dataflow.md) to change the default profile, enable or disable dataflows, view health status and metrics, delete dataflows, and export dataflow configurations.
+- Learn how to [Manage dataflows](howto-manage-dataflow.md) to change the default dataflow profile settings.
+- Create a dataflow from an [asset to Azure Event Grid tutorial](tutorial-dataflow-asset-event-grid.md).
+- Create a dataflow from an [MQTT endpoint to Azure Event Grid tutorial](tutorial-dataflow-mqtt-event-grid.md).
