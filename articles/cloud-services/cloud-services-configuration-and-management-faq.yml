@@ -23,9 +23,9 @@ summary: |
   - [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tls-ssl-certificate-incomplete-)
   - [What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--microsoft-azure-tools-encryption-certificate-for-extensions--)
   - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request--csr--without--rdp-ing--in-to-the-instance-)
-  - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
+  - [My Cloud classic deployment model Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
   - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p7b--)
-  - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the--microsoft-azure-service-management-for-machinekey--certificate-)
+  - [What is the purpose of the "Microsoft Azure classic deployment model for MachineKey" certificate?](#what-is-the-purpose-of-the--microsoft-azure-service-management-for-machinekey--certificate-)
   
   **Monitoring and logging**
   
@@ -89,7 +89,7 @@ sections:
           The CSR is just a text file. It doesn't have to be created from the machine intended to use the certificate. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
           
       - question: |
-          My Cloud Service Management Certificate is expiring. How to renew it?
+          My Cloud classic deployment model Certificate is expiring. How to renew it?
         answer: |
           You can use following PowerShell commands to renew your Management Certificates:
           
@@ -107,7 +107,7 @@ sections:
           You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
       - question: |
-          What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
+          What is the purpose of the "Microsoft Azure classic deployment model for MachineKey" certificate?
         answer: |
           This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](/security-updates/securityadvisories/2018/4092731).
           
@@ -314,7 +314,7 @@ sections:
           
           It's unsupported to write to the %approot% drive. If you're writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder isn't meaningful. If you aren't sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
           
-          Azure doesn't write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
+          Azure doesn't write anything to the %approot% drive. Once the virtual hard disk (VHD) is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
           
           The journal settings are nonconfigurable, so you can't turn it off.
           
