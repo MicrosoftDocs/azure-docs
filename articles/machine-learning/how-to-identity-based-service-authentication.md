@@ -444,9 +444,10 @@ When you disable the admin user for ACR, Azure Machine Learning uses a managed i
     [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     ```azurecli-interactive
-    az ml workspace show -w <my workspace> \
-    -g <my resource group>
-    --query containerRegistry
+    az ml workspace show --name <my workspace name> \
+    --resource-group <my resource group> \
+    --subscription <my subscription id> \
+    --query container_registry
     ```
 
     This command returns a value similar to the following text. You only want the last portion of the text, which is the ACR instance name:
