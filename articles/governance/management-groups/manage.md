@@ -279,7 +279,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Select the management group that's the current parent.
 
-1. Select the ellipsis (**...**) at the end of the row for the subscription in the list that you want to move.
+1. Select the ellipsis (`...`) at the end of the row for the subscription in the list that you want to move.
 
    :::image type="content" source="./media/move_small.png" alt-text="Screenshot of the menu that includes the move option for a subscription." border="false":::
 
