@@ -449,7 +449,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+    An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
     PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3872
@@ -537,7 +537,7 @@ An indication that there is a mismatch in settings between the source and destin
         Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+    An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
     PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3872
