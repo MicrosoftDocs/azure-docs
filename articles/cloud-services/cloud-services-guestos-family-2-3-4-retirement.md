@@ -1,13 +1,13 @@
 ---
 title: Guest OS family 2, 3, and 4 retirement notice | Microsoft Docs
-description: Information about when the Azure Guest OS Family 2, 3, and 4 retirement happened and how to determine if you're affected.
+description: Information about when the Azure Guest OS Family 2, 3, and 4 retirement happened and how to determine if their retirement affects you.
 services: cloud-services
 ms.subservice: auto-os-updates
 author: raiye
 manager: timlt
 ms.service: cloud-services
 ms.topic: article
-ms.date: 07/08/2024
+ms.date: 07/23/2024
 ms.author: raiye
 ms.custom: compute-evergreen
 ---
@@ -39,11 +39,11 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Your cloud services are impacted by this retirement if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty.  If empty, the default `osFamily` attribute will point to `osFamily` `5`. 
+This retirement affects your cloud services if the `osFamily` column in the script output contains a `2`, `3`, `4`, or is empty. If empty, the default `osFamily` attribute points to `osFamily` `5`. 
 
 ## Recommendations
 
-If you're affected, we recommend you migrate your Cloud Service or [Cloud Services Extended Support](../cloud-services-extended-support/overview.md) roles to one of the supported Guest OS Families:
+If this retirement affects you, we recommend you migrate your Cloud Service or [Cloud Services Extended Support](../cloud-services-extended-support/overview.md) roles to one of the supported Guest OS Families:
 
 **Guest OS family 7.x** - Windows Server 2022 *(recommended)* 
 
