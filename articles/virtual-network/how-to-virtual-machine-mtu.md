@@ -501,7 +501,6 @@ To revert the changes made in this article, use the following steps:
 
 ---
 
-
 ## Related content
 
 * [Microsoft Azure Network Adapter (MANA) overview](/azure/virtual-network/accelerated-networking-mana-overview).
