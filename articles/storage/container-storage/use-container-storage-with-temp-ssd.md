@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -17,9 +17,9 @@ ms.custom: references_regions
 
 When your application needs sub-millisecond storage latency and doesn't require data durability, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
-There are two types of Ephemeral Disk available: local NVMe and [temp SSD](use-container-storage-with-temp-ssd.md). NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
+There are two types of Ephemeral Disk available: [local NVMe](use-container-storage-with-local-disk.md) and temp SSD. NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
 
-Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) to support the creation of persistent volumes from ephemeral disk storage pools.
+Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) and add the annotation `acstor.azure.com/accept-ephemeral-storage=true` in your persistent volume claim definition to support the creation of persistent volumes from ephemeral disk storage pools.
 
 ## Prerequisites
 
@@ -211,7 +211,8 @@ Follow these steps to create a storage pool using temp SSD.
      namespace: acstor
    spec:
      poolType:
-       ephemeralDisk: {}
+       ephemeralDisk:
+         diskType: temp
    ```
 
 1. Apply the YAML manifest file to create the storage pool.

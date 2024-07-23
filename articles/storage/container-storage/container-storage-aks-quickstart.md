@@ -1,15 +1,15 @@
 ---
-title: Quickstart for using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
+title: Quickstart for using Azure Container Storage with Azure Kubernetes Service (AKS)
 description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 07/12/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
 
-# Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
+# Quickstart: Use Azure Container Storage with Azure Kubernetes Service
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 
@@ -119,7 +119,7 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 
 ## Install Azure Container Storage on your AKS cluster
 
-If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
+If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
 Running this command will enable Azure Container Storage on the system node pool, which by default is named `nodepool1`\*. If you want to enable it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
 
@@ -147,7 +147,7 @@ If you want to install Azure Container Storage on specific node pools, follow th
    az aks nodepool list --resource-group <resource-group> --cluster-name <cluster-name>
    ```
    
-2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
+2. Run the following command to install Azure Container Storage on specific node pools. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify --storage-pool-option, and the values can be `NVMe` or `Temp`.
    
    ```azurecli-interactive
    az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type> --azure-container-storage-nodepools <comma separated values of nodepool names>

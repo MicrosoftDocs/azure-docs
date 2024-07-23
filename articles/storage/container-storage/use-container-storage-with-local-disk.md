@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/09/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ When your application needs sub-millisecond storage latency and doesn't require 
 
 There are two types of Ephemeral Disk available: local NVMe and [temp SSD](use-container-storage-with-temp-ssd.md). NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application needs higher IOPS or throughput than temp SSD, or requires more storage space. Be aware that Azure Container Storage only supports synchronous data replication for local NVMe.
 
-Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) to support the creation of persistent volumes from ephemeral disk storage pools.
+Due to the ephemeral nature of these disks, Azure Container Storage supports the use of *generic ephemeral volumes* by default when using ephemeral disk. However, certain use cases might call for *persistent volumes* even if the data isn't durable; for example, if you want to use existing YAML files or deployment templates that are hard-coded to use persistent volumes, and your workload supports application-level replication for durability. In such cases, you can [update your Azure Container Storage installation](#create-and-attach-persistent-volumes) and add the annotation `acstor.azure.com/accept-ephemeral-storage=true` in your persistent volume claim definition to support the creation of persistent volumes from ephemeral disk storage pools.
 
 ## Prerequisites
 
@@ -69,7 +69,8 @@ Follow these steps to create a storage pool using local NVMe.
      namespace: acstor
    spec:
      poolType:
-       ephemeralDisk: {}
+       ephemeralDisk:
+         diskType: nvme
    ```
 
 1. Apply the YAML manifest file to create the storage pool.
@@ -210,7 +211,8 @@ Follow these steps to create a storage pool using local NVMe.
      namespace: acstor
    spec:
      poolType:
-       ephemeralDisk: {}
+       ephemeralDisk:
+         diskType: nvme
    ```
 
 1. Apply the YAML manifest file to create the storage pool.
