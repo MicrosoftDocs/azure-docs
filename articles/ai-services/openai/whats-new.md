@@ -46,7 +46,7 @@ Refer to our [Default safety policy documentation](./concepts/default-safety-pol
 API version `2024-06-01` is the latest GA data plane inference API release. It replaces API version `2024-02-01` and adds support for:
 
 - embeddings `encoding_format` & `dimensions` parameters.
-- chat completions `logprops` & `top_logprobs` parameters.
+- chat completions `logprobs` & `top_logprobs` parameters.
 
 Refer to our [data plane inference reference documentation](./reference.md) for more information.
 
@@ -506,7 +506,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 ## April 2023
 
-- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
+- **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md).
 
 - **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 

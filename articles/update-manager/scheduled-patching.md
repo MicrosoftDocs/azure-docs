@@ -23,11 +23,11 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 
 ## Prerequisites for scheduled patching
 
-1. See [Prerequisites for Update Manager](./overview.md#prerequisites).
+1. See [Prerequisites for Update Manager](prerequisites.md).
 1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](./overview.md#prerequisites).
+	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
 ## Schedule patching in an availability set
 
