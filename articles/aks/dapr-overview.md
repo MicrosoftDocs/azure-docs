@@ -65,25 +65,7 @@ Microsoft provides best-effort support for [the latest version of Dapr and two p
 
 You can run Azure CLI commands to retrieve a list of available versions in [a cluster](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-cluster) or [a location](/cli/azure/k8s-extension/extension-types#az-k8s-extension-extension-types-list-versions-by-location).
 
-To view a list of the stable Dapr versions available to your managed AKS cluster, run the following command:
-
-```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr --release-train stable
-```
-
-To see the latest stable Dapr version available to your managed AKS cluster, run the following:
-
-```azurecli
-az k8s-extension extension-types list-versions-by-cluster --resource-group myResourceGroup --cluster-name myCluster --cluster-type managedClusters --extension-type microsoft.dapr  --release-train stable --show-latest
-```
-
-To view a list of the stable Dapr versions available _by location_:
-1. [Make sure you've registered the `ExtenstionTypes` feature to your Azure subscription.](./dapr.md#register-the-extenstiontypes-feature-to-your-azure-subscription)
-1. Run the following command.
-
-```azurecli
-az k8s-extension extension-types list-versions-by-location --location westus --extension-type microsoft.dapr
-```
+[Learn how to view and target the latest stable Dapr versions available to your managed AKS cluster.](./dapr.md#viewing-the-latest-stable-dapr-versions-available)
 
 ### Runtime support
 
@@ -116,7 +98,7 @@ The Dapr extension supports stable versions of Dapr APIs (building blocks).
 | [**Secrets**][dapr-secrets]                           | Stable | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | Stable | Retrieve and subscribe to application configuration items for supported configuration. stores.                                                                   |
 
-[!INCLUDE [component-support](../../includes/dapr-in-azure/dapr-support-policy.md)]
+[!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Clouds/regions
 

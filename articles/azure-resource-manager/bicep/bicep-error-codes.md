@@ -77,7 +77,7 @@ If you need more information about a particular warning or error code, select th
 | BCP069     | The function "{function}" is not supported. Use the "{@operator}" operator instead. |
 | BCP070     | Argument of type "{argumentType}" is not assignable to parameter of type "{parameterType}". |
 | BCP071     | Expected {expected}, but got {argumentCount}. |
-| [BCP072](./bicep-error-bcp072.md) | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
+| <a id='BCP072' />[BCP072](./bicep-error-bcp072.md) | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
 | [BCP073](./bicep-error-bcp073.md) | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
 | BCP074     | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP075     | Indexing over objects requires an index of type "{LanguageConstants.String}" but the provided index was of type "{wrongType}". |
