@@ -45,7 +45,7 @@ items:
     href: assessment-options.md
   - name: Overview of Pre and Post Events
     href: pre-post-scripts-overview.md
-  - name: Query resources with Azure Resource Graph
+  - name: Access Azure Update Manager operations data using Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
     href: manage-multiple-machines.md
