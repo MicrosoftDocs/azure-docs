@@ -59,13 +59,14 @@ When you use the [Detect] API, you can assign the model version with the `detect
 
 A request URL for the [Detect] REST API looks like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect?detectionModel={detectionModel}&recognitionModel={recognitionModel}&returnFaceId={returnFaceId}&returnFaceAttributes={returnFaceAttributes}&returnFaceLandmarks={returnFaceLandmarks}&returnRecognitionModel={returnRecognitionModel}&faceIdTimeToLive={faceIdTimeToLive}`
 
 If you are using the client library, you can assign the value for `detectionModel` by passing in an appropriate string. If you leave it unassigned, the API uses the default model version (`detection_01`). See the following code example for the .NET client library.
 
 ```csharp
 string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(url: imageUrl, returnFaceId: false, returnFaceLandmarks: false, recognitionModel: "recognition_04", detectionModel: "detection_03");
+var response = await faceClient.DetectAsync(new Uri(imageUrl), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: false, returnFaceLandmarks: false);
+var faces = response.Value;
 ```
 
 ## Add face to Person with specified model
@@ -77,12 +78,29 @@ See the following code example for the .NET client library.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My Person Group Name", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}", content);
+}
 
-string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
+string? personId = null;
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My Person Name" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    using (var response = await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}/persons", content))
+    {
+        string contentString = await response.Content.ReadAsStringAsync();
+        personId = (string?)(JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString)?["personId"]);
+    }
+}
 
 string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["url"] = imageUrl }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/persongroups/{personGroupId}/persons/{personId}/persistedfaces?detectionModel=detection_03", content);
+}
 ```
 
 This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Person** to it. Then it adds a Face to this **Person** using the `detection_03` model. If you don't specify the *detectionModel* parameter, the API uses the default model, `detection_01`.
@@ -95,10 +113,18 @@ This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Perso
 You can also specify a detection model when you add a face to an existing **FaceList** object. See the following code example for the .NET client library.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = "My face collection", ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/facelists/{faceListId}", content);
+}
 
 string imageUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/Face/images/detection1.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["url"] = imageUrl }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/facelists/{faceListId}/persistedfaces?detectionModel=detection_03", content);
+}
 ```
 
 This code creates a **FaceList** called `My face collection` and adds a Face to it with the `detection_03` model. If you don't specify the *detectionModel* parameter, the API uses the default model, `detection_01`.
@@ -113,6 +139,7 @@ In this article, you learned how to specify the detection model to use with diff
 
 * [Face .NET SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
+* [Face JavaScript SDK](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-javascript%253fpivots%253dprogramming-language-javascript)
 
 [Detect]: /rest/api/face/face-detection-operations/detect
 [Identify From Person Group]: /rest/api/face/face-recognition-operations/identify-from-person-group
