@@ -42,9 +42,12 @@ Read the following SAP Notes and articles first:
 ## Overview
 
 > [!IMPORTANT]
-> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
 
-There are two options available for configuring the pacemaker cluster for RHEL with an SBD device.
+There are two options available on Azure for configuring the fencing in a pacemaker cluster for RHEL: Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
+
+> [!IMPORTANT]
+> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
 
 ### Use an SBD device
 
@@ -399,9 +402,6 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
     systemctl show sbd | grep -i timeout
     # TimeoutStartUSec=2min 24s
     # TimeoutStopUSec=2min 24s
-    # JobTimeoutUSec=infinity
-    # JobRunningTimeoutUSec=infinity
-    # JobTimeoutAction=none
     ```
 
 ## SBD with an Azure shared disk
@@ -543,9 +543,6 @@ foreach ($vmName in $vmNames) {
    systemctl show sbd | grep -i timeout
    # TimeoutStartUSec=2min 24s
    # TimeoutStopUSec=2min 24s
-   # JobTimeoutUSec=infinity
-   # JobRunningTimeoutUSec=infinity
-   # JobTimeoutAction=none
    ```
 
 ## Azure fence agent configuration
@@ -623,9 +620,6 @@ The fencing device uses either a managed identity for Azure resource or a servic
     ---
 
 ## Cluster installation
-
-> [!IMPORTANT]
-> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
 
 Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 9 are marked in the document.
 
@@ -791,7 +785,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
-Based on the selected fencing mechanism, follow relevant instructions: [SBD as fencing device](#sbd-as-fencing-device) or [Azure fence agent as fencing device](#azure-fence-agent-as-fencing-device).
+Based on the selected fencing mechanism, follow only one section for relevant instructions: [SBD as fencing device](#sbd-as-fencing-device) or [Azure fence agent as fencing device](#azure-fence-agent-as-fencing-device).
 
 #### SBD as fencing device
 
@@ -990,7 +984,7 @@ When the cluster health attribute is set for a node, the location constraint tri
 > [!TIP]
 > This section is only applicable if you want to configure the special fencing device `fence_kdump`.  
 
-If you need to collect diagnostic information within the VM, it might be useful to configure another fencing device based on the fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete before other fencing methods are invoked. Note that `fence_kdump` isn't a replacement for traditional fence mechanisms, like the Azure fence agent, when you're using Azure VMs.
+If you need to collect diagnostic information within the VM, it might be useful to configure another fencing device based on the fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete before other fencing methods are invoked. Note that `fence_kdump` isn't a replacement for traditional fence mechanisms, like the SBD or Azure fence agent, when you're using Azure VMs.
 
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first-level fencing device, it introduces delays in the fencing operations and, respectively, delays in the application resources failover.
@@ -999,7 +993,7 @@ If you need to collect diagnostic information within the VM, it might be useful 
 >
 > The proposed `fence_kdump` timeout might need to be adapted to the specific environment.
 >
-> We recommend that you configure `fence_kdump` fencing only when necessary to collect diagnostics within the VM and always in combination with traditional fence methods, such as the Azure fence agent.
+> We recommend that you configure `fence_kdump` fencing only when necessary to collect diagnostics within the VM and always in combination with traditional fence methods, such as SBD or Azure fence agent.
 
 The following Red Hat KB articles contain important information about configuring `fence_kdump` fencing:
 
@@ -1037,18 +1031,19 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" pcmk_host_list="prod-cl1-0 prod-cl1-1"
     pcs stonith level add 1 prod-cl1-0 rsc_st_kdump
     pcs stonith level add 1 prod-cl1-1 rsc_st_kdump
-    pcs stonith level add 2 prod-cl1-0 rsc_st_azure
-    pcs stonith level add 2 prod-cl1-1 rsc_st_azure
+    # Replace <stonith-resource-name> to the resource name of the STONITH resource configured in your pacemaker cluster (example based on above configuration - sbd or rsc_st_azure)
+    pcs stonith level add 2 prod-cl1-0 <stonith-resource-name>
+    pcs stonith level add 2 prod-cl1-1 <stonith-resource-name>
     
     # Check the fencing level configuration 
     pcs stonith level
     # Example output
     # Target: prod-cl1-0
     # Level 1 - rsc_st_kdump
-    # Level 2 - rsc_st_azure
+    # Level 2 - <stonith-resource-name>
     # Target: prod-cl1-1
     # Level 1 - rsc_st_kdump
-    # Level 2 - rsc_st_azure
+    # Level 2 - <stonith-resource-name>
     ```
 
 1. **[A]** Allow the required ports for `fence_kdump` through the firewall.
@@ -1056,15 +1051,6 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     ```bash
     firewall-cmd --add-port=7410/udp
     firewall-cmd --add-port=7410/udp --permanent
-    ```
-
-1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
-
-    ```bash
-    lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
-    # Example output 
-    # -rw-r--r--   1 root     root          208 Jun  7 21:42 etc/hosts
-    # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
     ```
 
 1. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` from failing with a timeout for some `kexec-tools` versions. For more information, see [fence_kdump times out when fence_kdump_nodes isn't specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two-node cluster is presented here. After you make a change in `/etc/kdump.conf`, the kdump image must be regenerated. To regenerate, restart the `kdump` service.  
@@ -1078,6 +1064,15 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     
     # Restart the service on each node
     systemctl restart kdump
+    ```
+
+1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+
+    ```bash
+    lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
+    # Example output 
+    # -rw-r--r--   1 root     root          208 Jun  7 21:42 etc/hosts
+    # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
     ```
 
 1. Test the configuration by crashing a node. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).  
