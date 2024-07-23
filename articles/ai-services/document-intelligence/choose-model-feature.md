@@ -78,7 +78,8 @@ The following decision charts highlight the features of each **Document Intellig
 | Training set | Example documents | Your best solution |
 | -----------------|--------------|-------------------|
 |**Structured, consistent, documents with a static layout**. |Structured forms such as questionnaires or applications. | [**Custom template model**](./concept-custom-template.md)|
-|**Structured, semi-structured, and unstructured documents**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices</br>&#9679; Unstructured &rightarrow; letters| [**Custom neural model**](concept-custom-neural.md)|
+|**Structured and semi-structured**.|&#9679; Structured &rightarrow; surveys</br>&#9679; Semi-structured &rightarrow; invoices | [**Custom neural model**](concept-custom-neural.md)|
+|**Unstructured documents, documents with varying templates**.|&#9679; Unstructured documents like contracts or letters</br> &#9679; Varying document templates like loan statements from different mortgage companies| [**Custom generative model**](concept-custom-generative.md)|
 |**A collection of several models each trained on similar-type documents.** |&#9679; Supply purchase orders</br>&#9679; Equipment purchase orders</br>&#9679; Furniture purchase orders</br> **All composed into a single model**.| [**Composed custom model**](concept-composed-models.md)|
 
 ## Custom classification model
