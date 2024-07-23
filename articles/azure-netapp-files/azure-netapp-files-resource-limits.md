@@ -35,7 +35,7 @@ The following table describes resource limits for Azure NetApp Files:
 | Maximum size of a single large volume on dedicated capacity (preview) | 2,048 TiB | No |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
-|  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](#directory-limit).  |    No    |   
+|  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
 |  Maximum number of files `maxfiles` per volume     |  See [`maxfiles`](#maxfiles)  |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   100  |    No    | 
@@ -56,27 +56,7 @@ For more information, see [Capacity management FAQs](faq-capacity-management.md)
 
 For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
-## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB). If you reach the maximum size limit for a single directory for Azure NetApp Files, the error `No space left on device` occurs.   
-
-For a 320-MB directory, the number of blocks is 655,360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  This number translates to approximately 4 million files maximum for a 320-MB directory. However, the actual number of maximum files might be lower, depending on factors such as the number of files with non-ASCII characters in the directory. As such, you should use the `stat` command as follows to determine whether your directory is approaching its limit.  
-
-Examples:
-
-```console
-[makam@cycrh6rtp07 ~]$ stat bin
-File: 'bin'
-Size: 4096            Blocks: 8          IO Block: 65536  directory
-
-[makam@cycrh6rtp07 ~]$ stat tmp
-File: 'tmp'
-Size: 12288           Blocks: 24         IO Block: 65536  directory
- 
-[makam@cycrh6rtp07 ~]$ stat tmp1
-File: 'tmp1'
-Size: 4096            Blocks: 8          IO Block: 65536  directory
-```
 
 ## `Maxfiles` limits <a name="maxfiles"></a> 
 
