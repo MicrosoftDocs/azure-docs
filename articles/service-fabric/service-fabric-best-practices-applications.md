@@ -70,7 +70,7 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 
 
 ## Application diagnostics
-Be thorough about adding [application logging](./service-fabric-diagnostics-event-generation-app.md) in service calls. It will help you diagnose scenarios in which services call each other. For example, when A calls B calls C calls D, the call could fail anywhere. If you don't have enough logging, failures are hard to diagnose. If the services are logging too much because of call volumes, be sure to at least log errors and warnings.
+Be thorough about adding [application logging](monitor-service-fabric.md#application-logging) in service calls. It will help you diagnose scenarios in which services call each other. For example, when A calls B calls C calls D, the call could fail anywhere. If you don't have enough logging, failures are hard to diagnose. If the services are logging too much because of call volumes, be sure to at least log errors and warnings.
 
 ## Design guidance on Azure
 * Visit the [Azure architecture center](/azure/architecture/microservices/) for design guidance on [building microservices on Azure](/azure/architecture/microservices/).
