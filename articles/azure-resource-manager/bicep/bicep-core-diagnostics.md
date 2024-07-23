@@ -3,14 +3,14 @@ title: Bicep warnings and error codes
 description: Lists the warnings and error codes.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 07/12/2024
+ms.date: 07/23/2024
 ---
 
 # Bicep warning and error codes
 
 If you need more information about a particular warning or error code, select the **Feedback** button in the upper right corner of the page and specify the code.
 
-| Error Code | Error Description |
+| Code | Description |
 |------------|-------------------|
 | BCP001     | The following token is not recognized: "{token}". |
 | BCP002     | The multi-line comment at this location is not terminated. Terminate it with the */ character sequence. |
@@ -42,12 +42,12 @@ If you need more information about a particular warning or error code, select th
 | BCP030     | The output type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP031     | The parameter type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP032     | The value must be a compile-time constant. |
-| [BCP033](./bicep-error-bcp033.md) | Expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
+| <a id='BCP033' />[BCP033](./diagnostics/bcp033.md) | Expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
 | BCP034     | The enclosing array expected an item of type "{expectedType}", but the provided item was of type "{actualType}". |
-| [BCP035](./bicep-error-bcp035.md) | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
-| [BCP036](./bicep-error-bcp036.md) | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
-| [BCP037](./bicep-error-bcp037.md) | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
-| [BCP040](./bicep-error-bcp040.md) | String interpolation is not supported for keys on objects of type &lt;type-definition>. |
+| <a id='BCP035' />[BCP035](./diagnostics/bcp035.md) | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
+| <a id='BCP036' />[BCP036](./diagnostics/bcp036.md) | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
+| <a id='BCP037' />[BCP037](./diagnostics/bcp037.md) | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
+| <a id='BCP040' />[BCP040](./diagnostics/bcp040.md) | String interpolation is not supported for keys on objects of type &lt;type-definition>. |
 | BCP041     | Values of type "{valueType}" cannot be assigned to a variable. |
 | BCP043     | This is not a valid expression. |
 | BCP044     | Cannot apply operator "{operatorName}" to operand of type "{type}". |
@@ -77,8 +77,8 @@ If you need more information about a particular warning or error code, select th
 | BCP069     | The function "{function}" is not supported. Use the "{@operator}" operator instead. |
 | BCP070     | Argument of type "{argumentType}" is not assignable to parameter of type "{parameterType}". |
 | BCP071     | Expected {expected}, but got {argumentCount}. |
-| <a id='BCP072' />[BCP072](./bicep-error-bcp072.md) | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
-| [BCP073](./bicep-error-bcp073.md) | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
+| <a id='BCP072' />[BCP072](./diagnostics/bcp072.md) | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
+| <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
 | BCP074     | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP075     | Indexing over objects requires an index of type "{LanguageConstants.String}" but the provided index was of type "{wrongType}". |
 | BCP076     | Cannot index over expression of type "{wrongType}". Arrays or objects are required. |
@@ -251,13 +251,13 @@ If you need more information about a particular warning or error code, select th
 | BCP323     | The `[?]` (safe dereference) operator may not be used on resource or module collections. |
 | BCP325     | Expected a type identifier at this location. |
 | BCP326     | Nullable-typed parameters may not be assigned default values. They have an implicit default of 'null' that cannot be overridden. |
-| [BCP327](./bicep-error-bcp327.md) | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
-| [BCP328](./bicep-error-bcp328.md) | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
+| <a id='BCP327' />[BCP327](./diagnostics/bcp327.md) | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
+| <a id='BCP328' />[BCP328](./diagnostics/bcp328.md) | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
 | BCP329     | The provided value can be as small as {sourceMin} and may be too small to assign to a target with a configured minimum of {targetMin}. |
 | BCP330     | The provided value can be as large as {sourceMax} and may be too large to assign to a target with a configured maximum of {targetMax}. |
 | BCP331     | A type's "{minDecoratorName}" must be less than or equal to its "{maxDecoratorName}", but a minimum of {minValue} and a maximum of {maxValue} were specified. |
-| [BCP332](./bicep-error-bcp332.md) | The provided value (whose length will always be greater than or equal to &lt;string-length>) is too long to assign to a target for which the maximum allowable length is &lt;max-length>. |
-| [BCP333](./bicep-error-bcp333.md) | The provided value (whose length will always be less than or equal to &lt;string-length>) is too short to assign to a target for which the minimum allowable length is &lt;min-length>. |
+| <a id='BCP332' />[BCP332](./diagnostics/bcp332.md) | The provided value (whose length will always be greater than or equal to &lt;string-length>) is too long to assign to a target for which the maximum allowable length is &lt;max-length>. |
+| <a id='BCP333' />[BCP333](./diagnostics/bcp333.md) | The provided value (whose length will always be less than or equal to &lt;string-length>) is too short to assign to a target for which the minimum allowable length is &lt;min-length>. |
 | BCP334     | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
 | BCP335     | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
 | BCP337     | This declaration type is not valid for a Bicep Parameters file. Specify a "{LanguageConstants.UsingKeyword}", "{LanguageConstants.ParameterKeyword}" or "{LanguageConstants.VariableKeyword}" declaration. |
