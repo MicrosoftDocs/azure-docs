@@ -32,9 +32,9 @@ Azure Monitor currently doesn't support analyzing *Azure virtual network* metric
 
 :::image type="content" source="./media/monitor-virtual-network/metrics.png" alt-text="Screenshot of the metrics dashboard for Virtual Network." lightbox="./media/monitor-virtual-network/metrics-expanded.png":::
 
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
+[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
+
+For more information, see [Monitor and visualize network configurations with Azure NPM](kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -47,8 +47,6 @@ For the available resource log categories, their associated Log Analytics tables
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
-
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 

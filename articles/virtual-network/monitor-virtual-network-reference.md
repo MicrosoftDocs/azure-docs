@@ -25,9 +25,27 @@ The following table lists the metrics available for the Microsoft.Network/virtua
 
 [!INCLUDE [Microsoft.Network/virtualNetworks](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-virtualnetworks-metrics-include.md)]
 
+### Supported metrics for Microsoft.Network/networkInterfaces
+
+The following table lists the metrics available for the Microsoft.Network/networkInterfaces resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
 [!INCLUDE [Microsoft.Network/networkInterfaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-networkinterfaces-metrics-include.md)]
 
+### Supported metrics for Microsoft.Network/publicIPAddresses
+
+The following table lists the metrics available for the Microsoft.Network/publicIPAddresses resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
 [!INCLUDE [Microsoft.Network/publicIPAddresses](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-publicipaddresses-metrics-include.md)]
+
+### Supported metrics for Microsoft.Network/natGateways
+
+The following table lists the metrics available for the Microsoft.Network/natGateways resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
 [!INCLUDE [Microsoft.Network/natGateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-natgateways-metrics-include.md)]
 
