@@ -16,7 +16,7 @@ ms.author: v-baolianzou
 Learning a new language is an exciting journey, and the pronunciation assessment feature has made it easier than ever to improve your language skills. Get instant feedback on pronunciation accuracy, fluency, prosody, grammar, and vocabulary from your chatting experience.
 
 > [!NOTE]
-> The language learning feature currently supports only `en-US`. For available regions, refer to [available regions for pronunciation assessment](regions.md#speech-service). If you have any feedback on the language learning feature, fill out [this form](https://aka.ms/speechpa/intake).
+> The language learning feature currently supports only `en-US`. For available regions, refer to [available regions for pronunciation assessment](regions.md#speech-service). If using a text to speech avatar, refer to the available [regions](regions.md#speech-service) for text to speech avatar. If you have any feedback on the language learning feature, fill out [this form](https://aka.ms/speechpa/intake). 
 
 ## Common use cases
 
