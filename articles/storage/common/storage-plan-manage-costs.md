@@ -66,7 +66,7 @@ Azure Blob Storage uses the following base-2 units of measurement to represent s
 | GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
 | TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
 
-For more information about how to calculate the cost of storage, see [The cost to store data](the-cost-to-store-data).
+For more information about how to calculate the cost of storage, see [The cost to store data](the-cost-to-store-data.md).
 
 #### Operations meters
 

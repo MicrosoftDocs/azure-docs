@@ -47,138 +47,15 @@ To calculate the amount of TB of storage where reserved capacity begins to make 
 > [!NOTE]
 > Reserved capacity is tied to an access tier. Data that you move out of that tier is billed at the rate of the destination tier.
 
-## The cost to upload
+## The cost to upload, download, and copy data
 
-Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. 
+Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob. 
 
-The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
+A blob that is downloaded from the Blob Service endpoint, incurs the cost of a single _read_ operation. A blob downloaded from the Data Lake Storage endpoint incurs the cost of multiple read operations because blobs must be downloaded in 4 MiB blocks and. Each 4 MiB block is billed as a separate read operation.  
 
-The following tables calculates the number of write operations required to upload **1,000** blobs that are **5 GiB** to the Blob Service endpoint.
+A blob that is copied between containers incurs the cost of a single _write_ operation which is based on the destination tier. If the destination container is in another account, you're also billed for data retrieval and for read operation that is based on the source tier. If the destination account is in another region, you're also billed for network egress charges. 
 
-| Calculation                                                                 | Value       |
-|-----------------------------------------------------------------------------|-------------|
-| Number of MiB in 5 GiB                                                      | 5,120       |
-| Write operations to write the blocks of each blob (5,120 MiB / 8-MiB block) | 640         |
-| Write operation to commit the blocks of each blob                           | 1           |
-| **Total write operations (1,000 * 641)**                                    | **641,000** |
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs.
-
-| Price factor                                                     | Hot         | Cool        | Cold         | Archive     |
-|------------------------------------------------------------------|-------------|-------------|--------------|-------------|
-| Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.00001    |
-| **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$3.5255** |
-
-### The cost to download
-
-When you run the [azcopy copy](../common/storage-use-azcopy-blobs-download.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command,  you'll specify a source endpoint. That endpoint can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost of using each endpoint to download **1,000** blobs that are **5 GiB** each in size.
-
-#### Cost of downloading from the Blob Service endpoint
-
-If you download blobs from the Blob Service endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
-
-For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation, and the [Get Blob](/rest/api/storageservices/get-blob) operation. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation and the [Get Blob](/rest/api/storageservices/get-blob) operation is billed as a _read_ operation. 
-
-If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
-
-> [!NOTE]
-> This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
-
-| Price factor                                             | Hot            | Cool           | Cold           |
-|----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
-| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
-| **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
-| **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
-| Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
-| **Cost of data retrieval (5 * operation price)**         | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$0.051**     | **$0.161**     |
-
-
-#### Cost of downloading from the Data Lake Storage endpoint
-
-If you download blobs from the Data Lake Storage endpoint, AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
-
-For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation which is billed as an _All other operations_ operation. AzCopy downloads each block (4 MiB in size) by using the [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) operation. Each [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) call is billed as a _read_ operation. 
-
-If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded. 
-
-The following table calculates the number of write operations required to upload the blobs. 
-
-| Calculation                                                 | Value         |
-|-------------------------------------------------------------|---------------|
-| Number of MiB in 5 GiB                                      | 5,120         |
-| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
-| Total read operations (1000* 1,280)                         | **1,280,000** |
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
-
-> [!NOTE]
-> This table excludes the archive tier because you can't download directly from that tier. See [Blob rehydration from the archive tier](archive-rehydrate-overview.md).
-
-| Price factor                                              | Hot            | Cool           | Cold           |
-|-----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
-| **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)       | $0.00000044    | $0.00000044    | $0.00000052    |
-| **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)         | $0.00000057    | $0.00000130    | $0.00001300    |
-| **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
-| Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
-| **Cost of data retrieval (5 * operation price)**          | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$1.716**     | **$16.804**    |
-
-
-### Copying between containers
-
-When you run the [azcopy copy](../common/storage-use-azcopy-blobs-copy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command, you'll specify a source and destination endpoint. These endpoints can be either a Blob Service endpoint (`blob.core.windows.net`) or a Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint. This section calculates the cost to copy **1,000** blobs that are **5 GiB** each in size.
-
-> [!NOTE]
-> Blobs in the archive tier can be copied only to an online tier. Because all of these examples assume the same tier for source and destination, the archive tier is excluded from these tables. 
-
-#### Copying blobs within the same account
-
-Regardless of which endpoint you specify (Blob Service or Data Lake Storage), AzCopy uses the [List Blobs](/rest/api/storageservices/list-blobs) to enumerate blobs at the source location. A [List Blobs](/rest/api/storageservices/list-blobs) is billed as a _List and create container_ operation. One [List Blobs](/rest/api/storageservices/list-blobs) operation returns up to 5,000 blobs. Therefore, in this example, only one [List Blobs](/rest/api/storageservices/list-blobs) operation is required. 
-
-For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation for both the source blob and the blob that is copied to the destination. The [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation is billed as an _All other operations_ operation. AzCopy uses the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy blobs to another container which is billed as a _write_ operation that is based on the destination tier.
-
-| Price factor                                             | Hot            | Cool           | Cold           |
-|----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
-| **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
-| **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00104**   |
-| Price of a single write operation (price / 10,000)       | $0.0000055     | $0.00001       | $0.000018      |
-| **Cost to write (1000 * operation price)**               | **$0.0055**    | **$0.01**      | **$0.018**     |
-| **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0190**    |
-
-#### Copying blobs to another account in the same region
-
-This scenario is identical to the previous one except that you're also billed for data retrieval and for read operation that is based on the source tier. 
-
-| Price factor                                          | Hot          | Cool        | Cold        |
-|-------------------------------------------------------|--------------|-------------|-------------|
-| **Total from previous section**                       | **$3.5309**  | **$0.0064** | **$0.0110** |
-| Price of a single read operation (price / 10,000)     | $0.00000044  | $0.000001   | $0.00001    |
-| **Cost of read operations (1,000 * operation price)** | **$0.00044** | **$0.001**  | **$0.01**   |
-| Price of data retrieval (per GiB)                     | Free         | $0.01       | $0.03       |
-| **Cost of data retrieval (5 * operation price)**      | **$0.00**    | **$.05**    | **$.15**    |
-| **Total cost (previous section + retrieval + read)**  | **$3.53134** | **$0.0574** | **$0.171**  |
-
-#### Copying blobs to an account located in another region
-
-This scenario is identical to the previous one except you are billed for network egress charges. 
-
-| Price factor                                                    | Hot          | Cool        | Cold        |
-|-----------------------------------------------------------------|--------------|-------------|-------------|
-| **Total cost from previous section**                            | **$3.53134** | **$0.0574** | **$0.171**  |
-| Price of network egress (per GiB)                               | $0.02        | $0.02       | $0.02       |
-| **Total cost of network egress (5 * price of egress)** | **$.10**     | **$.10**    | **$.10**    |
-| **Total cost (previous section + egress)**                      | **$3.5513**  | **$0.0774** | **$0.191** |
+Other than write and read operations, your client utility might use other types of operations to complete the task of uploading, downloading, or copying data. For example, a client utility might use operations to list container contents or to get blob properties. The AzCopy utility is optimized to upload blobs reliably and efficiently and can serve as a canonical example on which to base your cost estimates. For example calculations, see [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md). 
 
 ## The cost to rename objects
 
