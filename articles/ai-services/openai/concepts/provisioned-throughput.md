@@ -3,7 +3,7 @@ title: Azure OpenAI Service provisioned throughput
 description: Learn about provisioned throughput and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 05/02/2024 
+ms.date: 07/32/2024 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -71,11 +71,42 @@ az cognitiveservices account deployment create \
 
 ### Quota
 
-Provisioned throughput quota represents a specific amount of total throughput you can deploy. Quota in the Azure OpenAI Service is managed at the subscription level. All Azure OpenAI resources within the subscription share this quota.
+#### Model independent quota
 
-Quota is specified in Provisioned throughput units and is specific to a (deployment type, model, region) triplet. Quota isn't interchangeable. Meaning you can't use quota for GPT-4 to deploy GPT-3.5-Turbo.
+Provisioned quota is granted on a per subscription/region basis, and unlike Standard offering quota, is model-independent.  Each quota item per subscription and region limits the total number of PTUs that can be deployed across all supported models and versions.
 
-While we make every attempt to ensure that quota is deployable, quota doesn't represent a guarantee that the underlying capacity is available. The service assigns capacity during the deployment operation and if capacity is unavailable the deployment fails with an out of capacity error.
+:::image type="content" source="../media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="../media/provisioned/model-independent-quota.png":::
+
+The new quota shows up in the AI Studio and Azure OpenAI Studio as a quota item named **Provisioned Managed Throughput Unit**.  In the Studio Quota pane, expanding the quota item will show the deployments contributing to usage of the quota.
+
+:::image type="content" source="../media/provisioned/quota.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="../media/provisioned/quota.png":::
+
+## Capacity transparency and quota definitions
+
+Azure OpenAI is a highly sought-after service where customer demand may exceed service GPU capacity. While Microsoft strives to provide capacity for all in-demand regions and models, selling out a region is always a possibility. This can impact some customers’ ability to create a deployment of the desired model, version, PTU count in a desired region. For existing customers, there is a negotiation about regional availability during the quota allocation process that results in a region selection. With the release of the self-service quota changes, this process changes in a few ways:
+
+- Quota is a limit on the maximum number of PTUs that can be deployed but is not a guarantee of capacity availability. This is the same quota meaning as for other Azure services, such as VMs.
+- Capacity is allocated to a customer at deployment time and is held by that customer for as long as the deployment exists. It isn't released unless the customer deletes or scales down the deployment.
+- Quota won't be considered an implicit commitment to pay, and it will not be reclaimed if not used.
+- Customers use real-time information on quota/capacity availability to choose for themselves an appropriate region for their scenario that can support the deployment they require.
+
+## Regional capacity transparency
+
+To assist users to find the capacity needed for their deployments, customers will use a new API and Studio experience to provide real-time information on.
+
+In AI Studio and Azure OpenAI Studio, the deployment experience will identify when a region lacks the capacity to support the desired model, version and number of PTUs, and will direct the user to a select an alternative region when needed.
+
+:::image type="content" source="../media/provisioned/check-capacity.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/check-capacity.png":::
+
+Details on the new deployment experience can be found in the updated Azure OpenAI [provisioned onboarding guide](../how-to/provisioned-throughput-onboarding.md).
+
+The new [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP) can also be used to programmatically identify the maximum sized deployment of a specified model that can be created in each region based on the availability of both quota in the subscription and service capacity in the region.
+
+If an acceptable region isn't available to support the desire model, version and/or PTUs, customers can also try the following steps:
+
+- Attempt the deployment with a smaller number of PTUs.
+- Attempt the deployment at a different time. Capacity availability changes dynamically based on customer demand and more capacity may become available later.
+- Ensure that quota is available in all acceptable regions. The [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP) and Studio experience consider quota availability in returning alternative regions for creating a deployment.
 
 ### Determining the number of PTUs needed for a workload
 
