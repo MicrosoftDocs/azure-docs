@@ -830,7 +830,7 @@ If the requirements aren't met, the service checks the settings and automaticall
 
     | Supported source data store type                             | Supported source authentication type                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, system-assigned managed identity authentication |                       |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, system-assigned managed identity authentication |                       
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, system-assigned managed identity authentication |
 
     >[!IMPORTANT]
