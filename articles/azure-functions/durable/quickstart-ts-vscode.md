@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a TypeScript durable function"
-description: Create and publish a TypeScript durable function in Azure Functions by using Visual Studio Code.
+title: "Quickstart: Create a TypeScript Durable Functions app"
+description: Create and publish a TypeScript Durable Functions app in Azure Functions by using Visual Studio Code.
 author: hossam-nasr
 ms.topic: quickstart
 ms.date: 07/09/2024
@@ -10,15 +10,15 @@ ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete, devx
 zone_pivot_groups: functions-nodejs-model
 ---
 
-# Quickstart: Create a TypeScript durable function
+# Quickstart: Create a TypeScript Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for your application.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
-![Screenshot of an Edge window. The window shows the output of invoking a simple durable function in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Screenshot of an Edge window. The window shows the output of invoking a simple Durable Functions app in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select  **Azure Functions: Create New Project**.
 
-    ![Screenshot of the Visual Studio Code command palette. Azure Functions Create New Project is highlighted.](media/quickstart-js-vscode/functions-create-project.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Visual Studio Code command palette, with Azure Functions Create New Project highlighted.":::
 
 2. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -136,7 +136,7 @@ To use the v4 programming model, you need to install the preview v3.x version of
 
 ## Create your functions
 
-The most basic durable function app has three functions:
+The most basic Durable Functions app has three functions:
 
 * **Orchestrator function**: A workflow that orchestrates other functions.
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
@@ -146,7 +146,7 @@ The most basic durable function app has three functions:
 
 ### Orchestrator function
 
-You use a template to create the durable function code in your project.
+You use a template to create the Durable Functions code in your project.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
@@ -154,9 +154,9 @@ You use a template to create the durable function code in your project.
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a durable functions orchestration. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your durable function. |
-    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions orchestration. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your Durable Functions app. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.ts* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
 
@@ -170,8 +170,8 @@ Next, you add the referenced `Hello` activity function.
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions activity | Create an activity function |
-    | Provide a function name | Hello | Name of your activity function |
+    | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
+    | **Provide a function name** | Enter **Hello**. | A name for your activity function. |
 
 You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.ts* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
@@ -205,9 +205,9 @@ One of the benefits of the v4 programming model is the flexibility of where you 
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file with a durable function orchestration, an activity function, and a durable client starter function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a Durable Functions orchestration, an activity function, and a durable client starter function. |
     | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your durable function. |
-    | **Provide a function name** | Enter **hello**. | The name for your durable function. |
+    | **Provide a function name** | Enter **Hello**. | A name for your durable function. |
 
 Open *src/functions/hello.ts* to view the functions you created.
 
@@ -217,7 +217,7 @@ You also added the `hello` activity function that is invoked by the orchestrator
 
 Finally, you added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
-You now have a durable function app that you can run locally and deploy to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 ::: zone-end
 
@@ -259,7 +259,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 4. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   ![Screenshot of the Visual Studio Code terminal panel. The URL of the HTTP starter function is highlighted.](media/quickstart-js-vscode/functions-f5.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot that shows the Visual Studio Code terminal panel. The URL of the HTTP starter function is highlighted." lightbox="media/quickstart-js-vscode/functions-f5.png":::
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -306,7 +306,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-   The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
+   The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app. It looks similar to this example:
 
    ```json
    {
@@ -362,7 +362,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-The TypeScript durable function app that you created and published by using Visual Studio Code is ready to use.
+The TypeScript Durable Functions app that you created and published by using Visual Studio Code is ready to use.
 
 ## Clean up resources
 
@@ -370,4 +370,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).

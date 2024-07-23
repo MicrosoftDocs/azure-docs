@@ -14,7 +14,7 @@ Durable Functions supports several [storage providers](durable-functions-storage
 
 > [!NOTE]
 >
-> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data state so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
+> - The MSSQL back end was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 
@@ -36,7 +36,7 @@ If you don't meet these prerequisites, we recommend that you begin with one of t
 - [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
 - [Create your first durable function - Java](quickstart-java.md)
 
-## Add the durable task MSSQL extension (.NET only)
+## Add the Durable Task MSSQL extension (.NET only)
 
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
