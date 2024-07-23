@@ -16,8 +16,8 @@ ms.topic: conceptual
 
 With data encryption with customer-managed keys for Azure Database for MySQL flexible server, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
 
-[!NOTE]  
-Azure Key Vault Managed HSM (Hardware Security Module) is currently supported for customer-managed keys for Azure Database for MySQL Flexible Server.
+> [!NOTE]  
+> Azure Key Vault Managed HSM (Hardware Security Module) is currently supported for customer-managed keys for Azure Database for MySQL Flexible Server.
 
 ## Benefits
 
