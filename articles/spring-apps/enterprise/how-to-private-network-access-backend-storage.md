@@ -194,7 +194,12 @@ The policy then triggers a deployment of a `privateDNSZoneGroup` within the priv
 
 ### Policy assignment
 
-After deploying the policy definition, assign the policy at the desired scope and specify the central private DNS zone as the parameter. When enabling (or disabling) private storage access feature, the DNS records for private endpoints will be automatically registered (and removed once a private endpoint is deleted) from the corresponding private DNS zone.
+After deploying the policy definition, assign the policy at the desired scope and specify the central private DNS zone as the parameter. Ensure that the policy assignment targets the Azure subscriptions hosting ASA service instances with the private storage access feature.
+
+> [!IMPORTANT]
+> In addition to [assigning the roleDefinition](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-policy-definition) defined in the policy, remember to assign the [Private DNS Zone Contributor role](https://learn.microsoft.com/azure/dns/dns-protect-private-zones-recordsets) in the subscription and resource group where the private DNS zones are hosted to the [managed identity created by the DeployIfNotExists policy assignment](https://learn.microsoft.com/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-managed-identity) that will be responsible to create and manage the private endpoint DNS record in the private DNS zone. This is because the private endpoint is usually located in the application subscription, while the private DNS zone is usually located in a different central connectivity subscription.
+
+After finishing the configurations, when enabling (or disabling) private storage access feature, the DNS records for private endpoints will be automatically registered (and removed once a private endpoint is deleted) from the corresponding private DNS zone.
 
 ## Extra costs
 
