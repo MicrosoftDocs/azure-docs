@@ -26,7 +26,7 @@ The following table highlights the key differences between using ContainerLogV2 
 | ------------------- | ----------------- | ------------------- |
 | Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2).<br>Additional columns are:<br>- `ContainerName`<br>- `PodName`<br>- `PodNamespace`<br>- `LogLevel`<sup>1</sup><br>- `KubernetesMetadata`<sup>2</sup> |
 | Onboarding | Only configurable through ConfigMap. | Configurable through both ConfigMap and DCR. <sup>3</sup>|
-| Pricing | Only compatible with full-priced analytics logs. | Supports the low cost [basic logs](../logs/basic-logs-configure.md) tier in addition to analytics logs. |
+| Pricing | Only compatible with full-priced analytics logs. | Supports the low cost [basic logs](../logs/logs-table-plans.md) tier in addition to analytics logs. |
 | Querying | Requires multiple join operations with inventory tables for standard queries. | Includes additional pod and container metadata to reduce query complexity and join operations. |
 | Multiline | Not supported, multiline entries are split into multiple rows. | Support for multiline logging to allow consolidated, single entries for multiline output. |
 
@@ -222,5 +222,5 @@ The following screenshots show multi-line logging for Go exception stack trace:
 
 
 ## Next steps
-* Configure [Basic Logs](../logs/basic-logs-configure.md) for ContainerLogv2.
+* Configure [Basic Logs](../logs/logs-table-plans.md) for ContainerLogv2.
 * Learn how [query data](./container-insights-log-query.md#container-logs) from ContainerLogV2
