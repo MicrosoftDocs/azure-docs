@@ -50,9 +50,9 @@
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Scalability
       items: 
-       - name: Scalability Overview
+       - name: Scalability overview
          href: scalability-overview.md
-       - name: Compute and Storage
+       - name: Compute and storage
          href: compute-storage.md 
     - name: Migration options
       href: migration-options.md
