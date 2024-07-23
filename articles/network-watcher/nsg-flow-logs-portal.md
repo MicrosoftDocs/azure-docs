@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/23/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
@@ -25,13 +25,15 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 - A network security group. If you need to create a network security group, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal).
 
-- An Azure storage account. If you need to create a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-portal).
+- An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal).
 
 ## Register Insights provider
 
 *Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, you can check its status by following these steps:
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/subscriptions.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/nsg-flow-logs-portal/subscriptions.png":::
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -55,18 +57,18 @@ Create a flow log for your network security group. This NSG flow log is saved in
 
     :::image type="content" source="./media/nsg-flow-logs-portal/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-logs.png":::
 
-1. Enter or select the following values in **Create a flow log**:
+1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your network security group that you want to log. |
-    | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myNSG**. Then, select **Confirm selection**. |
-    | Flow Log Name | Enter a name for the flow log or leave the default name. **myNSG-myResourceGroup-flowlog** is the default name for this example. |
+    | Flow log type | Select **Network security group** then select **+ Select target resource**. <br> Select the network security group that you want to flow log, then select **Confirm selection**. |
+    | Flow Log Name | Enter a name for the flow log or leave the default name. Azure portal uses ***{ResourceName}-{ResourceGroupName}-flowlog*** as a default name for the flow log. **myNSG-myResourceGroup-flowlog** is the default name used in this article. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
-    | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs. Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
+    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts).  Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
