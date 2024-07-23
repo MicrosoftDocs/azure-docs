@@ -4334,8 +4334,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/durable-functions-create-first-csharp.md",
-            "redirect_url": "/azure/azure-functions/durable-functions-isolated-create-first-csharp.md",
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-create-first-csharp.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp.md",
             "redirect_document_id": false
         },
         {
