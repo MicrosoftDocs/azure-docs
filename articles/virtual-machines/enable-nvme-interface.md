@@ -77,3 +77,6 @@ For more information about enabling the NVMe interface on virtual machines creat
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition)
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
+- [Azure portal - Plan ID: 2022-datacenter-azure-edition-hotpatch](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-hotpatch)
+- [Azure portal - Plan ID: 2022-datacenter-azure-edition-hotpatch-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-hotpatch-smalldisk)
+
