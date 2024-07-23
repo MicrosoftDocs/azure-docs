@@ -60,7 +60,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Embed is only available with hubs created in these regions:
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Rerank is only available with hubs created in these regions:
 
      * East US
      * East US 2
@@ -91,7 +91,7 @@ To create a deployment:
 
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select **Cohere-embed-v3-english**. to open the Model Details page.
+    1. Search for and select **Cohere-rerank-3-english**. to open the Model Details page.
     1. Select **Confirm** to open a serverless API deployment window for the model.
 
 1. Select the project in which you want to deploy your model.
@@ -103,14 +103,14 @@ To create a deployment:
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#rerank-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#rerank-api-reference-for-cohere-rerank-models-deployed-as-a-service) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
 To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
 
 ### Consume the Cohere Rerank models as a service
 
-These models can be consumed using the embed API.
+These models can be consumed using the Rerank API.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
@@ -118,11 +118,11 @@ These models can be consumed using the embed API.
 
 1. Copy the **Target** URL and the **Key** value.
 
-1. Cohere currently exposes `v1/rerank` for inference with the Rerank 3 - English and Rerank 3 - Multilingual models. schema.
+1. Cohere currently exposes `v1/rerank` for inference with the Rerank 3 - English and Rerank 3 - Multilingual models schema.
 
-    For more information on using the APIs, see the [reference](#rerank-api-reference-for-cohere-embed-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#rerank-api-reference-for-cohere-rerank-models-deployed-as-a-service) section.
 
-## Rerank API reference for Cohere Embed models deployed as a service
+## Rerank API reference for Cohere Rerank models deployed as a service
 
 ### v1/rerank Request
 
