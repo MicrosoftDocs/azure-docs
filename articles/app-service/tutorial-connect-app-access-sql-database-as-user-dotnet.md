@@ -46,7 +46,7 @@ What you will learn:
 > [!NOTE]
 >Microsoft Entra authentication is _different_ from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](../active-directory-domain-services/index.yml).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ If you haven't already, follow one of the two tutorials first. Alternatively, yo
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/cloud-shell-try-it-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it-no-header.md)]
 
 <a name='1-configure-database-server-with-azure-ad-authentication'></a>
 

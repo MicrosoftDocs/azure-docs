@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > - Disable the HTTPS protocol on your custom domain
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

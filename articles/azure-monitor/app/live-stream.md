@@ -44,7 +44,7 @@ Live metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
    * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Enabled by default.
    * [Java](./opentelemetry-enable.md?tabs=java): Enabled by default.
    * [Node.js](opentelemetry-enable.md?tabs=nodejs): Enabled by default.
-   * [Python](opentelemetry-enable.md?tabs=python): Enabled by default.
+   * [Python](opentelemetry-enable.md?tabs=python): Pass `enable_live_metrics=True` into `configure_azure_monitor`. See the [Azure Monitor OpenTelemetry Distro](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for more information.
   
   # [Classic API](#tab/classic)
   
@@ -55,11 +55,11 @@ Live metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ---
 
-2. Open the Application Insigwhts resource for your application in the [Azure portal](https://portal.azure.com). Select **Live metrics**, which is listed under **Investigate** in the left hand menu.
+2. Open the Application Insights resource for your application in the [Azure portal](https://portal.azure.com). Select **Live metrics**, which is listed under **Investigate** in the left hand menu.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## How do live metrics differ from metrics explorer and Log Analytics?
 
@@ -134,7 +134,7 @@ It's possible to try custom filters without having to set up an authenticated ch
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not supported**    |
 | Java                             | Supported (V2.0.0+) | Supported (V2.0.0+) | **Not supported**   | Supported (V3.2.0+) | **Not supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not supported**   | Supported (V1.3.0+) | **Not supported**    |
-| Python                           | **Not supported**   | **Not supported**   | **Not supported**   | **Not supported**   | **Not supported**    |
+| Python                           | Supported (Distro Version 1.6.0+) | **Not supported**   | **Not supported**   | **Not supported**   | **Not supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 

@@ -12,7 +12,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This article shows you how to deploy an Azure Resource Manager template (ARM template) that creates an Automation account. Using an ARM template takes fewer steps compared to other deployment methods. The JSON template specifies default values for parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 The sample template does the following steps:
 

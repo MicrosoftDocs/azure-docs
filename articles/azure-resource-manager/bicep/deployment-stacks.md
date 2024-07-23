@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 06/19/2024
+ms.date: 06/24/2024
 ---
 
 # Deployment stacks
@@ -43,6 +43,7 @@ Deployment stacks provide the following benefits:
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 - The PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When this value is used, the command detaches the managed resources and the resource groups. This value will be removed in the next update. Don't use this value.
 - In some cases, the New and Set cmdlets of Azure PowerShell may return a generic template validation error that is not clearly actionable. This bug will be fixed in the next release, but for now, if the error is unclear, you can run the cmdlet in debug mode to see a more detailed error in the raw response.
+- Deploy stacks are not supported by [Microsoft Graph provider](https://aka.ms/graphbicep).
 
 ## Built-in roles
 
@@ -137,7 +138,7 @@ To create a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -320,7 +321,7 @@ To update a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzManagmentGroupDeploymentStack `
+Set-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -783,7 +784,7 @@ To apply deny settings at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzManagmentGroupDeploymentStack `
+New-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -Location "<location>" `
   -TemplateFile "<bicep-file-name>" `
@@ -875,7 +876,7 @@ To export a deployment stack at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Save-AzManagmentGroupDeploymentStack `
+Save-AzManagementGroupDeploymentStack `
   -Name "<deployment-stack-name>" `
   -ManagementGroupId "<management-group-id>"
 ```

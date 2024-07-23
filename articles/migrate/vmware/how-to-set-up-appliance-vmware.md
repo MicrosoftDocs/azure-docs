@@ -76,16 +76,14 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Verify the latest appliance versions and hash values:
 
     - For the Azure public cloud:
-
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256F9C6FB3F011152D861DA43FFA1C5C8FF966931D5CE00F1F252D3A2F4723
+    
+      [!INCLUDE [public-cloud-vmware.md](../includes/public-cloud-vmware.md)]
 
     - For Azure Government:
 
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](../includes/security-hash-value.md)]
 
 #### Create the appliance server
 
@@ -149,7 +147,7 @@ In the configuration manager, select **Set up prerequisites**, and complete thes
 
         After the appliance is successfully registered, select **View details** to see the registration details.
 
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 or 7.0 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7.0, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
