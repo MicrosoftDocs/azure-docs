@@ -5,7 +5,7 @@ description: Learn how to fine-tune Meta Llama models in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 7/18/2024
+ms.date: 7/23/2024
 ms.reviewer: rasavage
 reviewer: shubhirajMsft
 ms.author: ssalgado
