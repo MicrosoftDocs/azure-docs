@@ -2919,12 +2919,6 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
-  - id: v1
-    title: "1.0"
-  - id: v22-11-preview
-    title: "2022-11-01-preview"
-  - id: v23-05-preview
-    title: "2023-05-01-preview"
   - id: v23-10
     title: "2023-10-01"  
   - id: v23-11
