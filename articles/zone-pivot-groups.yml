@@ -2474,6 +2474,21 @@ groups:
     title: PowerShell
   - id: client-clitier
     title: CLI
+# Owner: slpavkov
+- id: acs-calling-automation-pstn
+  title: Communication Services Response Codes
+  prompt: Choose a Communication Service
+  pivots:
+  - id: calling
+    title: Calling SDK
+  - id: automation
+    title: Call Automation SDK
+  - id: pstn
+    title: PSTN
+  - id: chat
+    title: Chat SDK
+  - id: sms
+    title: SMS SDK
 # Owner: prakulka
 - id: acs-tollfree-shortcode-alphanumeric
   title: Number Type

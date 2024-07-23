@@ -168,7 +168,7 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 ## Accessing Support Files in the Calling SDK
 
-Calling SDK provides convenient methods to access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. We recommend that you collect these logs any time you detect an issue.
+Calling SDK provides convenient methods to access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. We recommend that you collect these logs when you detect an issue.
 
 ## Enable and Access Call Logs
 
@@ -330,84 +330,8 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
 - [Calling SDK error codes](./troubleshooting-codes.md#calling-sdk-error-codes)
 - [Call Automation error codes](./troubleshooting-codes.md#call-automation-sdk-error-codes)
 - [PSTN call response codes](./troubleshooting-codes.md#pstn-call-response-codes-with-participantendreason)
-
-<!--## Calling SDK error codes
-
-The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
-
-| Error code | Description | Action to take |
-| -------- | ---------------| ---------------|
-| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
-| 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
-| 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
-| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
-| 430 | Unable to deliver message to client application. | Ensure that the client application is running and available. |
-| 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
-| 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
-| 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | Expected behavior. |
-| 490, 491, 496, 497, 498 | Local endpoint network issues. | Check your network. |
-| 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
-| 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
-
-## Call Automation SDK error codes 
-The below error codes are exposed by Call Automation SDK.
-
-| Error Code | Description | Actions to take |
-|--|--|--|
-| 400 | Bad request           | The input request is invalid. Look at the error message to determine which input is incorrect.
-| 400 | Play Failed           | Ensure your audio file is WAV, 16KHz, Mono and make sure the file url is publicly accessible. |
-| 400 | Recognize Failed      | Check the error message. The message highlights if this failure is due to timeout being reached or if operation was canceled. For more information about the error codes and messages you can check our how-to guide for [gathering user input](../how-tos/call-automation/recognize-action.md#event-codes).
-| 401 | Unauthorized          | HMAC authentication failed. Verify whether the connection string used to create CallAutomationClient is correct.
-| 403 | Forbidden             | Request is forbidden. Make sure that you can have access to the resource you are trying to access. 
-| 404 | Resource not found    | The call you are trying to act on doesn't exist. For example, transferring a call that has already disconnected.
-| 429 | Too many requests     | Retry after a delay suggested in the Retry-After header, then exponentially backoff.
-| 500 | Internal server error | Retry after a delay. If it persists, raise a support ticket.
-| 500 | Play Failed           | File a support request through the Azure portal. |
-| 500 | Recognize Failed      | Check error message and confirm the audio file format is valid (WAV, 16KHz, Mono), if the file format is valid then file a support request through Azure portal. |
-| 502 | Bad gateway           | Retry after a delay with a fresh http client.
-
-Consider the below tips when troubleshooting certain issues. 
-- Your application is not getting IncomingCall Event Grid event: Make sure the application endpoint has been [validated with Event Grid](../../event-grid/webhook-event-delivery.md) at the time of creating event subscription. The provisioning status for your event subscription is marked as succeeded if the validation was successful. 
-- Getting the error 'The field CallbackUri is invalid': Call Automation does not support HTTP endpoints. Make sure the callback url you provide supports HTTPS.
-- PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
-- Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
-
-Refer to [this article](./known-issues.md) to learn about any known issues being tracked by the product team.-->
-
-## Chat SDK error codes
-
-The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
-
-| Error code | Description | Action to take |
-| -------- | ---------------| ---------------|
-| 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
-| 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
-| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists, file a support request. |
-| 503 | Service Unavailable | File a support request through the Azure portal. |
-
-## SMS error codes
-
-The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the `DeliveryStatusDetails` field in the SMS delivery report. 
-
-| Error code | Description | Action to take |
-| -------- | ---------------| ---------------|
-| 2000 | Message Delivered Successfully |  |
-| 4000 | Message is rejected due to fraud detection | Ensure you aren't exceeding the maximum number of messages allowed for your number|
-| 4001 | Message is rejected due to invalid Source/From number format| Ensure the To number is in E.164 format and From number format is in E.164 or Short code format |
-| 4002 | Message is rejected due to invalid Destination/To number format| Ensure the To number is in E.164 format |
-| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you're trying to send to is supported |
-| 4004 | Message failed to deliver since Destination/To number doesn't exist| Ensure the To number you're sending to is valid |
-| 4005 | Message is blocked by Destination carrier|  |
-| 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
-| 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
-| 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
-| 4009 | Message is rejected by Microsoft Entitlement System| Most often this happens if fraudulent activity is detected. Contact support for more details |
-| 4010 | Message was blocked due to the toll-free number not being verified | [Review unverified sending limits](./sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible |
-| 5000 | Message failed to deliver. Reach out Microsoft support team for more details| File a support request through the Azure portal |
-| 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
-| 5002 | Carrier does not support delivery report | Most often this happens if a carrier does not support delivery reports. No action required as message may have been delivered already. |
-| 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
-
+- [Chat SDK error codes]
+- [SMS SDK error codes]
 
 ## Related articles
 - [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
