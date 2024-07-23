@@ -1,6 +1,6 @@
 ---
-title: Monitor workflow status, view run history, and set up alerts
-description: Check your workflow run status, review trigger and workflow run history, and enable alerts in Azure Logic Apps.
+title: Check workflow status, view run history, and set up alerts
+description: Check your workflow status, view workflow run history, and enable alerts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/10/2024
 ---
 
-# Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps
+# Check workflow status, view run history, and set up alerts in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -32,8 +32,8 @@ For real-time event monitoring and richer debugging, you can set up diagnostics 
 >
 > If your workflow runs in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md)
 > that was created to use an [internal access endpoint](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access),
-> you can view and access inputs and outputs from a workflow runs history *only from inside your virtual network*. Make sure that you have network
-> connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist
+> you can view and access inputs and outputs from a workflow run history *only from inside your virtual network*. Make sure that you have network
+> connectivity between the private endpoints and the computer from where you want to access run history. For example, your client computer can exist
 > inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual
 > private network. For more information, see [ISE endpoint access](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
@@ -150,7 +150,7 @@ Each time a trigger successfully fires, Azure Logic Apps creates a workflow inst
    | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
+   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
@@ -218,7 +218,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Running** | ![Running icon][running-icon] | The run was triggered and is in progress. However, this status can also appear for a run that's throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Tip**: If you set up [diagnostics logging](monitor-workflows-collect-diagnostic-data.md), you can get information about any throttle events that happen. |
    | **Skipped** | ![Skipped icon][skipped-icon] | The trigger condition was checked but wasn't met, so the run never started. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <br><br>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the run history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the run history based on whether the run's duration exceeded the retention limit. |
    | **Waiting** | ![Waiting icon][waiting-icon] | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
 
 1. On the **Run History** tab, select the run that you want to review.
@@ -282,7 +282,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 <a name="resubmit-workflow-run"></a>
 
-## Resubmit a workflow with same inputs
+## Rerun a workflow with same inputs
 
 You can rerun a previously finished workflow with the same inputs that the workflow used previously in the following ways:
 
@@ -298,7 +298,7 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
 - The resubmitted run executes the same workflow version as the original run, even if you updated the workflow definition.
 
-- You can resubmit only actions from sequential workflows. Workflows with parallel paths are currently not supported.
+- You can rerun only actions from sequential workflows. Workflows with parallel paths are currently not supported.
 
 - The workflow must have a completed state, such as Succeeded, Failed, or Cancelled.
 

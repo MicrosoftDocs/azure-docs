@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Use PaaS services with an Azure Kubernetes Service (AKS) cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to use the Azure Service Bus service with your AKS cluster.
 ms.topic: tutorial
-ms.date: 10/23/2023
+ms.date: 06/10/2024
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a developer, I want to learn how to use PaaS services with an Azure Kubernetes Service (AKS) cluster so that I can deploy and manage my applications.
 ---
@@ -289,7 +289,7 @@ In previous tutorials, you used a RabbitMQ container to store orders submitted b
     kubectl get service store-front
     ```
 
-2. Navigate to the external IP address of the `store-front` service in your browser.
+2. Navigate to the external IP address of the `store-front` service in your browser using `http://<external-ip>`.
 3. Place an order by choosing a product and selecting **Add to cart**.
 4. Select **Cart** to view your order, and then select **Checkout**.
 

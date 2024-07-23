@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 05/30/2023
+  ms.date: 07/22/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -91,7 +91,7 @@ procedureSection:
   - title: |
       Update a PO number
     summary: |
-      By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
+      By default, invoices for the billing profile don't have an associated PO number. After you add a PO number for a billing profile, the system regenerates the invoices within 24 hours. Afterward, the PO number appears on invoices for the billing profile.
       To add or change the PO number for a billing profile, use the following steps.
     steps:
       - |
@@ -129,7 +129,7 @@ procedureSection:
   - title: |
       Service and marketing emails
     summary: |
-      You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
+      You get prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
       - Service notifications
       - Security alerts
       - Billing purposes
@@ -167,9 +167,9 @@ procedureSection:
       - |
         For an MCA billing account, you can give the new email address permissions on your account.
   - title: |
-      Update your country or region
+      Update your country/region
     summary: |
-      Changing the country or region for an existing account isn't supported. However, you can work around this issue.
+      Changing the country/region for an existing account isn't supported. However, you can work around this issue.
     steps: 
       - |
          You can create a new account in a different country or region and then contact Azure support to transfer your subscription to the new account.
