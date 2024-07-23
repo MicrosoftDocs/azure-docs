@@ -9,7 +9,7 @@ ms.reviewer: merae
 ms.service: cosmos-db
 ms.custom: references_regions
 ms.topic: overview
-ms.date: 11/07/2022
+ms.date: 07/23/2024
 ---
 
 # Try Azure Cosmos DB free
