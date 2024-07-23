@@ -32,7 +32,8 @@ The following models are available in Azure Marketplace for Llama 3.1 when fine-
 
 - `Meta-Llama-3.1-80B-Instruct` (preview)
 - `Meta-LLama-3.1-8b-Instruct` (preview)
-![IMPORTANT]
+
+> [!IMPORTANT]
 > At this time we are not able to do fine-tuning for Llama 3.1 with sequence length of 128K. 
 
 # [Meta Llama 2](#tab/llama-two)
