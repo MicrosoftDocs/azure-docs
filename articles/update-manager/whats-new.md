@@ -12,11 +12,6 @@ ms.date: 07/24/2024
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
-## July 2024
-
-### Pre and Post events
-
-General Availability: Azure Update Manager now supports creating and managing pre and post events on scheduled maintenance configurations. [Learn more](pre-post-scripts-overview.md).
 
 ## June 2024
 
