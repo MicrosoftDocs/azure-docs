@@ -29,7 +29,7 @@ provide any other access to the management group hierarchy or to resources in th
 Both of
 these operations are available in the Azure built-in role Hierarchy Settings Administrator.
 
-## <a name="setting---default-management-group">Setting: Define the default management group
+## Setting: Define the default management group
 
 By default, a new subscription that you add in a tenant becomes a member of the root management
 group. If you assign policy assignments, Azure RBAC, and other governance
@@ -90,7 +90,7 @@ To set the default management group back to the root management group, use the s
 `defaultManagementGroup` to a value of
 `/providers/Microsoft.Management/managementGroups/{rootMgID}`.
 
-## <a name="setting---require-authorization">Setting: Require authorization
+## Setting: Require authorization
 
 Any user, by default, can create new management groups in a tenant. Admins of a tenant might want
 to provide these permissions only to specific users, to maintain consistency and conformity in the
