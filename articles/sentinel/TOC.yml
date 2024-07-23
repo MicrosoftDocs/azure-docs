@@ -165,8 +165,6 @@
               href: sap/sap-solution-deploy-alternate.md
             - name: Collect SAP HANA audit logs
               href: sap/collect-sap-hana-audit-logs.md
-            - name: Configure SAP audit log monitoring
-              href: sap/configure-audit-log-rules.md
           - name: Update the connector
             href: sap/update-sap-data-connector.md      
           - name: Disable the connector agent

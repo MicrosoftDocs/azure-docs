@@ -74,7 +74,6 @@ We recommend that you involve all relevant teams when planning your deployment t
 **Extra, optional configurations include**:
 
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-- [Configure audit log monitoring rules](configure-audit-log-rules.md)
 - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
 - [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
