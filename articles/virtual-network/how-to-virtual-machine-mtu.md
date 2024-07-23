@@ -180,6 +180,15 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     3900
     ```
 
+1. Use `PING` to verify the MTU size is set on the network interface. 
+
+    ```bash
+    ping 10.0.0.5 -c 10 -M do -s 3872
+    ```
+    
+    ```output
+    ```
+
 1. Sign-in to **vm-2**.
 
 1. Use the following example to run the Linux shell script to test the largest MTU size that can be used for a specific network path:
@@ -336,6 +345,15 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
                                               (ms)                      (B)
     ------           -------                   ------- ------           -------
     vm-1             10.0.0.5                        1 Success             3892
+    ```
+
+1. Use `PING` to verify the MTU size is set on the network interface. 
+
+    ```powershell
+    ping 10.0.0.5 -f -l 3872
+    ```
+    
+    ```output
     ```
 
 1. Use `netsh` to determine the subinterface name for the subsequent commands.
