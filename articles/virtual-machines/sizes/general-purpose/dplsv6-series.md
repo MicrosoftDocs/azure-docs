@@ -1,15 +1,15 @@
 ---
 title: Dplsv6 size series
 description: Information on and specifications of the Dplsv6-series sizes
-author: tomvcassidy
+author: archat
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
 ms.topic: conceptual
 ms.date: 07/22/2024
-ms.author: tomcassidy
-ms.reviewer: mattmcinnes
+ms.author: archatC
+ms.reviewer: mattmcinnes, tomcassidy
 ---
 
 # Dplsv6 sizes series
