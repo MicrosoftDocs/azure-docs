@@ -43,7 +43,7 @@ Rolling upgrades with MaxSurge creates new instances with the latest scale set m
 
 Rolling upgrades with MaxSurge disabled performs upgrades in place. Meaning the virtual machine undergoing the upgrade will not be available for traffic during the upgrade process. This reduces your scale set capacity during the upgrade process but does not consume any extra quota. 
 
-:::image type="content" source="./media/upgrade-policy/in-place-upgrade.png" alt-text="Diagram that shows the process of performing a rolling upgrade with MaxSurge.":::
+:::image type="content" source="./media/upgrade-policy/in-place-upgrade.png" alt-text="Diagram that shows the process of performing a rolling upgrade without maxsurge.":::
 
 ## Configure rolling upgrades with MaxSurge
 Enabling or disabling MaxSurge can be done at any point in time. This includes during or after scale set provisioning. When using a rolling upgrade policy, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md). It's suggested to create the scale set with a manual upgrade policy and update the policy to rolling after successfully confirming the application health is being properly reported. 
