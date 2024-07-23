@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
-description: "Quickstart: Deploy Azure IoT Operations Preview to a Kubernetes cluster running in Github Codespaces."
+description: "Quickstart: Deploy Azure IoT Operations Preview to a Kubernetes cluster running in GitHub Codespaces."
 author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.date: 05/02/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s
+# Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
