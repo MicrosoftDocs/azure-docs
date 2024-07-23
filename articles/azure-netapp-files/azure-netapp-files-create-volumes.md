@@ -23,6 +23,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
+* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
+
 ## Considerations 
 
 * Deciding which NFS version to use  

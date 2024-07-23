@@ -58,7 +58,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
         However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The Protocol field must match the protocol of the original volume. Otherwise, the restore operation fails with the following error:  
         `Protocol Type value mismatch between input and source volume of backupId <backup-id of the selected backup>. Supported protocol type : <Protocol Type of the source volume>`
 
-    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered (minimum 100 GiB). Once the restore is complete, the volume can be resized depending on the size used. 
+    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered (minimum 50 GiB). Once the restore is complete, the volume can be resized depending on the size used. 
 
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 
