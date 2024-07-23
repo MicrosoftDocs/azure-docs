@@ -16,6 +16,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## July 2024
 
+* [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in all US Gov regions](configure-customer-managed-keys.md#supported-regions)
+
 * [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
 
     Azure NetApp Files large volumes now support increased maximum throughput and size limits. This update brings an increased size limit to **one PiB,** available via Azure Feature Exposure Control (AFEC), allowing for more extensive and robust data management solutions for various workloads, including HPC, EDA, VDI, and more.
