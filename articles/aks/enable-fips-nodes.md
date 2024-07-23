@@ -14,7 +14,7 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 
 ## Prerequisites
 
-* Azure CLI version 2.32.0 or later installed and configured. Run `az --version` to find the version. For more information about installing or upgrading the Azure CLI, see [Install Azure CLI][install-azure-cli].
+* Azure CLI version 2.32.0 or later installed and configured. To find the version, run `az --version`. For more information about installing or upgrading the Azure CLI, see [Install Azure CLI][install-azure-cli].
 
 > [!NOTE]
 >   AKS Monitoring Addon supports FIPS enabled node pools with Ubuntu, Azure Linux, and Windows starting with Agent version 3.1.17 (Linux) and Win-3.1.17 (Windows).
@@ -29,7 +29,7 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 
 
 > [!IMPORTANT]
-> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
+> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools.
 >
 > FIPS-enabled node images may have different version numbers, such as kernel version, than images that aren't FIPS-enabled. The update cycle for FIPS-enabled node pools and node images may differ from node pools and images that aren't FIPS-enabled.
 
@@ -45,7 +45,7 @@ The below table includes the supported OS versions:
 |Windows|Windows Server 2019| Supported|
 |Windows| Windows Server 2022| Supported|
 
-When requesting FIPS enabled Ubuntu, if the default Ubuntu version does not support FIPS, AKS will default to the most recent FIPS-supported version of Ubuntu. For example, Ubuntu 22.04 is default for Linux node pools. Since 22.04 does not currently support FIPS, AKS will default to Ubuntu 20.04 for Linux FIPS-enabled nodepools.
+When requesting FIPS enabled Ubuntu, if the default Ubuntu version does not support FIPS, AKS will default to the most recent FIPS-supported version of Ubuntu. For example, Ubuntu 22.04 is default for Linux node pools. Since 22.04 does not currently support FIPS, AKS defaults to Ubuntu 20.04 for Linux FIPS-enabled nodepools.
 
 > [!NOTE]
  > Previously, you could use the GetOSOptions API to determine whether a given OS supported FIPS. The GetOSOptions API is now deprecated and it will no longer be included in new AKS API versions starting with 2024-05-01. 
@@ -145,6 +145,152 @@ FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* lab
 :::image type="content" source="./media/enable-fips-nodes/enable-fips-nodes-windows.png" alt-text="Screenshot shows a picture of the registry editor to the FIPS Algorithm Policy, and it being enabled.":::
 
 FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* label, which deployments can use to target those node pools.
+
+## Update an existing node pool to enable or disable FIPS (preview)
+
+Existing node pools can be updated to enable or disable FIPS. If you are planning to migrate your node pools from non-FIPS to FIPS, first validate that your application is working properly in a test environment before migrating it to a production environment. Validating your application in a test environment should prevent issues caused by the FIPS kernel blocking some weak cipher or encryption algorithm, such as an MD4 algorithm that is not FIPS compliant.
+
+> [!NOTE]
+>   When updating an existing Linux node pool to enable or disable FIPS, the node pool update will move between the fips and non-fips image. This node pool update will trigger a reimage to complete the update. This may cause the node pool update to take a few minutes to complete.
+
+### Prerequisites
+
+* Azure CLI version 2.56.0 or later, together with the [aks-preview](https://github.com/cli/azure/azure-cli-extensions-list) extension installed and configured. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
+
+### Install the `aks-preview` Azure CLI extension
+
+* Register or update the aks-preview extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
+
+    ```azurecli-interactive
+    # Register the aks-preview extension
+    az extension add --name aks-preview
+
+    # Update the aks-preview extension
+    az extension update --name aks-preview
+    ```
+
+### Register the `MutableFipsPreview` feature flag
+
+1. Register the `MutableFipsPreview` feature flag using the [`az feature register`][az-feature-register] command.
+
+    ```azurecli-interactive
+    az feature register --namespace "Microsoft.ContainerService" --name "MutableFipsPreview"
+    ```
+
+    It takes a few minutes for the status to show *Registered*.
+
+2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+
+    ```azurecli-interactive
+    az feature show --namespace "Microsoft.ContainerService" --name "MutableFipsPreview"
+    ```
+
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
+
+### Enable FIPS on an existing node pool
+Existing node pools can be updated to enable FIPS. When you update an existing node pool, the node image will change from the current image to the recommended FIPS image of the same OS SKU. 
+
+1. Update a node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--enable-fips-image` parameter.
+
+    ```azurecli-interactive
+    az aks nodepool update \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --name np \
+        --enable-fips-image
+    ```
+
+The above command triggers a reimage of the node pool immediately to deploy the FIPS compliant Operating System. This reimage occurs during the node pool update. No additional steps are required.
+
+2. Verify that your node pool is FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
+
+    ```azurecli-interactive
+    az aks show \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" \
+        -o table
+    ```
+
+    The following example output shows that the *np* node pool is FIPS-enabled:
+
+    ```output
+    Name       enableFips
+    ---------  ------------
+    np         True
+    nodepool1  False  
+    ```
+
+3. List the nodes using the `kubectl get nodes` command.
+
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
+
+    The following example output shows a list of the nodes in the cluster. The nodes starting with `aks-np` are part of the FIPS-enabled node pool.
+
+    ```output
+    NAME                                STATUS   ROLES   AGE     VERSION
+    aks-np-12345678-vmss000000          Ready    agent   6m4s    v1.19.9
+    aks-np-12345678-vmss000001          Ready    agent   5m21s   v1.19.9
+    aks-np-12345678-vmss000002          Ready    agent   6m8s    v1.19.9
+    aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
+    ```
+
+4. Run a deployment with an interactive session on one of the nodes in the FIPS-enabled node pool using the `kubectl debug` command.
+
+    ```azurecli-interactive
+    kubectl debug node/aks-np-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    ```
+
+5. From the interactive session output, verify the FIPS cryptographic libraries are enabled. Your output should look similar to the following example output:
+
+    ```output
+    root@aks-np-12345678-vmss000000:/# cat /proc/sys/crypto/fips_enabled
+    1
+    ```
+
+FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* label, which deployments can use to target those node pools.
+
+## Disable FIPS on an existing node pool
+Existing Linux node pools can be updated to disable FIPS. When updating an existing node pool, the node image will change from the current FIPS image to the recommended non-FIPS image of the same OS SKU. The node image change will occur after a reimage.
+
+1. Update a Linux node pool using the [`az aks nodepool update`][az-aks-nodepool-update] command with the `--disable-fips-image` parameter.
+
+    ```azurecli-interactive
+    az aks nodepool update \
+        --resource-group myResourceGroup \
+        --cluster-name myAKSCluster \
+        --name np \
+        --disable-fips-image
+    ```
+
+The above command triggers a reimage of the node pool immediately to deploy the FIPS compliant Operating System. This reimage occurs during the node pool update. No additional steps are required.
+
+2. Verify that your node pool is not FIPS-enabled using the [`az aks show`][az-aks-show] command and query for the *enableFIPS* value in *agentPoolProfiles*.
+
+    ```azurecli-interactive
+    az aks show \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" \
+        -o table
+    ```
+
+    The following example output shows that the *np* node pool is not FIPS-enabled:
+
+    ```output
+    Name       enableFips
+    ---------  ------------
+    np         False
+    nodepool1  False  
+    ```
 
 ## Next steps
 

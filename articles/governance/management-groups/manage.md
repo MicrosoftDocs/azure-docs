@@ -1,11 +1,11 @@
 ---
 title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 12/01/2022
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.author: tomfitz
-author: tfitzmac
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Manage your Azure subscriptions at scale with management groups
 

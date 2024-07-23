@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 04/23/2024
+ms.date: 07/18/2024
 ms.author: madsd
 ---
 
@@ -74,6 +74,10 @@ You can bring your own inbound address to your App Service Environment. If you c
 
 For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports, you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
 
+> [!NOTE]
+> Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the impact to be seen.
+>
+
 It's a good idea to configure the following inbound NSG rule:
 
 |Source / Destination Port(s)|Direction|Source|Destination|Purpose|
@@ -87,6 +91,7 @@ The minimal requirement for App Service Environment to be operational is:
 |* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
 If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+
 The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
 The normal app access ports inbound are as follows:
@@ -100,6 +105,7 @@ The normal app access ports inbound are as follows:
 
 > [!NOTE]
 > For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range on port 21, as this is used for internal health ping traffic for the ftp service specifically.
+>
 
 ## Network routing
 
