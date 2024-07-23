@@ -1329,7 +1329,7 @@ When a feature flag change is deployed, it's often important to analyze its effe
 * Which variant is a particular user seeing?
 
 
-These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses [`System.Diagnostics.Activity`](https://learn.microsoft.com/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
+These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
 
 ### Enabling Telemetry
 
@@ -1366,7 +1366,7 @@ The `telemetry` section of a feature flag has the following properties:
 
 The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation.
 
-To enable custom telemetry publishing, you should create an [`ActivityListener`](https://learn.microsoft.com/dotnet/api/system.diagnostics.activitylistener) and listen to `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when feature evaluation is done.
+To enable custom telemetry publishing, you should create an [`ActivityListener`](dotnet/api/system.diagnostics.activitylistener) and listen to `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when feature evaluation is done.
 
 ``` C#
 ActivitySource.AddActivityListener(new ActivityListener()
@@ -1385,7 +1385,7 @@ ActivitySource.AddActivityListener(new ActivityListener()
 });
 ```
 
-For more information, please go to [Collect a distributed trace](https://learn.microsoft.com/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
+For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
 ### Application Insights Telemetry Publisher
 
@@ -1397,7 +1397,7 @@ builder.services
     .AddApplicationInsightsTelemetryPublisher();
 ```
 
-The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides the [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs) which implements the [ITelemetryInitializer](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer). The `TargetingTelemetryInitializer` will extract targeting information from current activity's baggage and add it to Application Insights telemetry properties. 
+The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides the [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs) which implements the [ITelemetryInitializer](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer). The `TargetingTelemetryInitializer` will extract targeting information from current activity's baggage and add it to Application Insights telemetry properties. 
 
 ``` C#
 builder.Services.AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
