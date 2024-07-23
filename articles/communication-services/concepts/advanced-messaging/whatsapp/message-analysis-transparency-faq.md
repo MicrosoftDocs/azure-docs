@@ -62,7 +62,7 @@ This combination of features enables businesses to tailor their responses and be
 
 * False positives:  
 
-   * It's possible for the system to produce false positive analysis. For example, Intent of confusing/conflicting/ sarcastic content from customer messages can't be analyzed correctly. 
+   * The system may occasionally generate false positive analyses, particularly when dealing with ambiguous, conflicting, or sarcastic content, as well as culturally specific phrases and idioms from customer messages that it cannot accurately interpret. 
 
 * Unsupported languages/ Translation Issues: 
 
