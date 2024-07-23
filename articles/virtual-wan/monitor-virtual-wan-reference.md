@@ -16,7 +16,7 @@ See [Monitor Azure Virtual WAN](monitor-virtual-wan.md) for details on the data 
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-### Supported metrics for Microsoft.Network/virtualhubs
+### <a name="hub-router-metrics"></a>Supported metrics for Microsoft.Network/virtualhubs
 
 The following table lists the metrics available for the Microsoft.Network/virtualhubs resource type.
 
@@ -24,7 +24,14 @@ The following table lists the metrics available for the Microsoft.Network/virtua
 
 [!INCLUDE [Microsoft.Network/virtualhubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-virtualhubs-metrics-include.md)]
 
-### Supported metrics for microsoft.network/vpngateways
+| Metric | Description|
+| --- | --- |
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+| **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more details on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
+| **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric's value will be approximately 50%.  |
+
+
+### <a name="s2s-metrics"></a>Supported metrics for microsoft.network/vpngateways
 
 The following table lists the metrics available for the microsoft.network/vpngateways resource type.
 
@@ -32,7 +39,53 @@ The following table lists the metrics available for the microsoft.network/vpngat
 
 [!INCLUDE [microsoft.network/vpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-vpngateways-metrics-include.md)]
 
-### Supported metrics for microsoft.network/p2svpngateways
+
+#### Tunnel Packet Drop metrics
+
+| Metric | Description|
+| --- | --- |
+| **Tunnel Egress Packet Drop Count** | Count of Outgoing packets dropped by tunnel.|
+| **Tunnel Ingress Packet Drop Count** | Count of Incoming packets dropped by tunnel.|
+| **Tunnel NAT Packet Drops** | Number of NATed packets dropped on a tunnel by drop type and NAT rule.|
+| **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
+| **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
+
+#### IPSec metrics
+
+| Metric | Description|
+| --- | --- |
+| **Tunnel MMSA Count** | Number of MMSAs getting created or deleted.|
+| **Tunnel QMSA Count** | Number of  IPSEC QMSAs getting created or deleted.|
+
+#### Routing metrics
+
+| Metric | Description|
+| --- | --- |
+| **BGP Peer Status** | BGP connectivity status per peer and per instance.|
+| **BGP Routes Advertised** | Number of routes advertised per peer and per instance.|
+| **BGP Routes Learned** | Number of routes learned per peer and per instance.|
+| **VNET Address Prefix Count** | Number of VNet address prefixes that are used/advertised by the gateway.|
+
+You can review per peer and instance metrics by selecting **Apply splitting** and choosing the preferred value.
+
+#### Traffic Flow metrics
+
+| Metric | Description|
+| --- | --- |
+| **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| **Gateway Inbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.|
+| **Gateway Outbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.|
+| **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
+| **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
+| **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
+| **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
+| **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
+| **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
+| **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
+
+
+
+### <a name="p2s-metrics"></a>Supported metrics for microsoft.network/p2svpngateways
 
 The following table lists the metrics available for the microsoft.network/p2svpngateways resource type.
 
@@ -40,13 +93,34 @@ The following table lists the metrics available for the microsoft.network/p2svpn
 
 [!INCLUDE [microsoft.network/p2svpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-p2svpngateways-metrics-include.md)]
 
-### Supported metrics for microsoft.network/expressroutegateways
+| Metric | Description|
+| --- | --- |
+| **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. To ensure you're viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You can also select **Max** if you split By **Instance**. |
+| **User VPN Routes Count** | Number of User VPN Routes configured on the VPN gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
+
+### <a name="er-metrics"></a>Supported metrics for microsoft.network/expressroutegateways
 
 The following table lists the metrics available for the microsoft.network/expressroutegateways resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
 [!INCLUDE [microsoft.network/expressroutegateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutegateways-metrics-include.md)]
+
+| Metric | Description|
+| --- | --- |
+| **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute that can be further split for specific connections. |
+| **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute that can be further split for specific connections.  |
+| **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
+| **CPU Utilization** | CPU Utilization of the ExpressRoute gateway.|
+| **Packets per second** | Total Packets received on ExpressRoute gateway per second.|
+| **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute gateway. |
+| **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute gateway.|
+| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute gateway.|
+
+### ExpressRoute gateway diagnostics
+
+In Azure Virtual WAN, ExpressRoute gateway metrics can be exported as logs via a diagnostic setting.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -81,19 +155,32 @@ microsoft.network/expressroutegateways
 - direction
 - roleInstance
 
+<a name="diagnostic"></a>
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-<!-- Repeat the following section for each resource type/namespace in your service. 
-<!-- Find the table(s) for the resource type in the Log Categories column at https://review.learn.microsoft.com/en-us/azure/azure-monitor/reference/supported-metrics/metrics-index?branch=main#supported-metrics-and-log-categories-by-resource-type.
--->
-
-### Supported resource logs for microsoft.network/p2svpngateways
+### <a name="p2s-diagnostic"></a>Supported resource logs for microsoft.network/p2svpngateways
 
 [!INCLUDE [microsoft.network/p2svpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-p2svpngateways-logs-include.md)]
 
-### Supported resource logs for microsoft.network/vpngateways
+The following diagnostics are available for Virtual WAN point-to-site VPN gateways:
+
+| Metric | Description|
+| --- | --- |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
+| **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
+| **P2S Diagnostic Logs** | These are User VPN P2S (Point-to-site) configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
+
+### <a name="s2s-diagnostic"></a>Supported resource logs for microsoft.network/vpngateways
 
 [!INCLUDE [microsoft.network/vpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-vpngateways-logs-include.md)]
+
+| Metric | Description|
+| --- | --- |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device.|
+| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
+| **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
+
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
@@ -103,6 +190,7 @@ microsoft.network/expressroutegateways
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
 - [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
 
+<a name="activity-logs"></a>
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
 - [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)

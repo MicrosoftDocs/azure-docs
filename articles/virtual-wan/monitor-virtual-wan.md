@@ -74,6 +74,28 @@ $MetricInformation.Data
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Virtual WAN, see [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#resource-logs).
 
+### Log Analytics sample query
+
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries, such as the following example, to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
+
+The following example contains a query to obtain site-to-site route diagnostics.
+
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+Replace the following values, after the **= =**, as needed based on the tables reported in the previous section of this article.
+
+- "GatewayDiagnosticLog"
+- "IKEDiagnosticLog"
+- "P2SDiagnosticLog”
+- "TunnelDiagnosticLog"
+- "RouteDiagnosticLog"
+
+In order to execute the query, you have to open the Log Analytics resource you configured to receive the diagnostic logs, and then select **Logs** under the **General** tab on the left side of the pane:
+
+:::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
+
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
+
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
