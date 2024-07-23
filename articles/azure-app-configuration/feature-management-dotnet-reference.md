@@ -1366,7 +1366,7 @@ The `telemetry` section of a feature flag has the following properties:
 
 The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation.
 
-To enable custom telemetry publishing, you should create an [`ActivityListener`](dotnet/api/system.diagnostics.activitylistener) and listen to `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when feature evaluation is done.
+To enable custom telemetry publishing, you should create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when feature evaluation is done.
 
 ``` C#
 ActivitySource.AddActivityListener(new ActivityListener()
