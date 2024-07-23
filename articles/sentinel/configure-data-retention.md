@@ -80,4 +80,4 @@ No resources were created but you might want to restore the data retention setti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md?tabs=portal-1%2cportal-2)
+> [Configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md)

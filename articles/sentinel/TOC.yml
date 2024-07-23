@@ -870,7 +870,7 @@
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
-    - name: Azure Active Directory
+    - name: Microsoft Entra
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
       href: connect-azure-stack.md

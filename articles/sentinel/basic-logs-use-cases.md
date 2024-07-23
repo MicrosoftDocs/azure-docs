@@ -17,8 +17,8 @@ This article highlights log sources to consider configuring as Auxiliary Logs (o
 > [!IMPORTANT]
 >
 > The **Auxiliary Logs** log type is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+>
+> [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
 
 ## Storage access logs for cloud providers
 

@@ -210,8 +210,8 @@ Any other services you use might have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
-- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention layer for data preservation for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). 
+- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-configure.md#configure-table-level-retention). 
+- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md). 
 - Enroll tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 ## Other CEF ingestion costs
@@ -247,21 +247,21 @@ Although alerts are free, the raw logs for some Microsoft Defender XDR, Defender
 
 The following table lists the data sources in Microsoft Sentinel and Log Analytics that aren't charged. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
 
-| Microsoft Sentinel data connector   | Free data type | 
-|-------------------------------------|--------------------------------|
-| **Azure Activity Logs**         | AzureActivity                  |
-| **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>  | SentinelHealth |
-| **Microsoft Entra ID Protection**         | SecurityAlert (IPC)                  | 
-| **Office 365**                     | OfficeActivity (SharePoint)    | 
-|| OfficeActivity (Exchange)|
-|| OfficeActivity (Teams)          | 
-| **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | 
-| **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | 
-| **Microsoft Defender XDR**          | SecurityIncident | 
-||SecurityAlert|
-| **Microsoft Defender for Endpoint** | SecurityAlert (MDATP)          | 
-| **Microsoft Defender for Identity** | SecurityAlert (AATP)           | 
-| **Microsoft Defender for Cloud Apps**   | SecurityAlert (Defender for Cloud Apps)           | 
+| Microsoft Sentinel data connector     | Free data type                          |
+| ------------------------------------- | --------------------------------------- |
+| **Azure Activity Logs**               | AzureActivity                           |
+| **Health monitoring for Microsoft Sentinel** <sup>[1](#audithealthnote)</sup>   | SentinelHealth |
+| **Microsoft Entra ID Protection**     | SecurityAlert (IPC)                     |
+| **Office 365**                        | OfficeActivity (SharePoint)             |
+|                                       | OfficeActivity (Exchange)               |
+|                                       | OfficeActivity (Teams)                  |
+| **Microsoft Defender for Cloud**      | SecurityAlert (Defender for Cloud)      |
+| **Microsoft Defender for IoT**        | SecurityAlert (Defender for IoT)        |
+| **Microsoft Defender XDR**            | SecurityIncident                        |
+|                                       | SecurityAlert                           |
+| **Microsoft Defender for Endpoint**   | SecurityAlert (MDATP)                   |
+| **Microsoft Defender for Identity**   | SecurityAlert (AATP)                    |
+| **Microsoft Defender for Cloud Apps** | SecurityAlert (Defender for Cloud Apps) |
 
 <a id="audithealthnote">*<sup>1</sup>*</a> *For more information, see [Auditing and health monitoring for Microsoft Sentinel](health-audit.md).*
 
