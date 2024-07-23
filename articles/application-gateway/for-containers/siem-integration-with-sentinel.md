@@ -41,7 +41,9 @@ In this QuickStart guide, you set up:
       
         ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logsset.png)
 
-     > [!NOTE] It takes a few minutes for AccessLogs to populate into your log analytics workspace.
+     > [!NOTE]
+     > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
+    
 3. View data ingested to Microsoft Sentinel:
     - a In **Search resources, service, and docs**, type **Azure Sentinel**.
     - b. Go to your selected Sentinel Resource.
@@ -88,7 +90,9 @@ In this QuickStart guide, you set up:
       
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/investgate-button.png" alt="A screenshot of investigate." width="40%">
     
-    > [!Note] **"Investigate"** option only appear if there are entities associated with that incident.
+    > [!Note]
+    > **"Investigate"** option only appear if there are entities associated with that incident.
+   
     - e. In Investigate, you can visualize the entities associated and similar alerts.
     [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/inves-mapping.png) ](./media/siem-integration-with-sentinel/inves-mapping.png#lightbox)
 
