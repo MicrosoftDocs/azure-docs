@@ -90,20 +90,25 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models model
 
-Phi-3 chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
 
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -125,9 +130,13 @@ pip install azure-ai-inference
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -201,7 +210,7 @@ response = model.complete(
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -262,7 +271,7 @@ We can visualize how streaming generates content:
 print_stream(result)
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -286,7 +295,7 @@ response = model.complete(
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -318,9 +327,9 @@ response = model.complete(
 )
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -433,20 +442,25 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models model
 
-Phi-3 chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
 
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -458,7 +472,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+OOnce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -468,9 +482,13 @@ npm install @azure-rest/ai-inference
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -546,7 +564,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -615,7 +633,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -641,7 +659,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -678,9 +696,9 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -798,20 +816,25 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models model
 
-Phi-3 chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
 
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -838,9 +861,13 @@ dotnet add package Azure.Identity
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -910,7 +937,7 @@ response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -986,7 +1013,7 @@ We can visualize how streaming generates content:
 AsyncContext.Run(() => RunAsync(client));
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1012,7 +1039,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -1046,9 +1073,9 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1164,20 +1191,25 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models model
 
-Phi-3 chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Phi-3 chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
 
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -1185,16 +1217,20 @@ Phi-3 chat models can be deployed to our self-hosted managed inference solution,
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -1246,7 +1282,7 @@ Create a chat completion request to see the output of the model.
 ```
 
 > [!NOTE]
-> Notice that Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -1331,7 +1367,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
+The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 
@@ -1359,7 +1395,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1413,7 +1449,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -1449,9 +1485,9 @@ extra-parameters: pass-through
 }
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1500,21 +1536,20 @@ The following example shows how to handle events when the model detects harmful 
 
 ## Cost and quotas
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
 
 
 ### Cost and quota considerations for Phi-3 family of models deployed to managed compute
 
-Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the duration it is running.
+Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 
-We recommend starting with a low number of instances and scaling up as needed. You can monitor the cost of the compute instance in the Azure portal.
+It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
 
 
 
-## Additional resources
+## Related content
 
-Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
 * [Deploy models as serverless APIs](deploy-models-serverless.md)

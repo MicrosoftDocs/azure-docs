@@ -78,7 +78,11 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### A deployed Mistral premium chat models model
 
-Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
@@ -102,15 +106,19 @@ pip install azure-ai-inference
 
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -220,7 +228,7 @@ We can visualize how streaming generates content:
 print_stream(result)
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -245,7 +253,7 @@ response = model.complete(
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 
@@ -294,7 +302,7 @@ response = model.complete(
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
-In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+The following code example creates a tool definition that is able to look from flight information from two different cities.
 
 
 
@@ -325,7 +333,7 @@ flight_info = ChatCompletionsFunctionToolDefinition(
 tools = [flight_info]
 ```
 
-In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
 
 
 
@@ -336,7 +344,7 @@ def get_flight_info(loc_origin: str, loc_destination: str):
     }
 ```
 
-Let's prompt the model to help us booking flights with the help of this function:
+Prompt the model to book flights with the help of this function:
 
 
 
@@ -357,7 +365,7 @@ response = model.complete(
 )
 ```
 
-You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
 
 
 
@@ -369,7 +377,7 @@ print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
 ```
 
-Let's append this message to the chat history:
+Append this message to the chat history:
 
 
 
@@ -379,7 +387,7 @@ messages.append(
 )
 ```
 
-Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
 
 
 
@@ -418,7 +426,7 @@ for tool_call in tool_calls:
     )
 ```
 
-Let's see the response from the model now:
+View the response from the model:
 
 
 
@@ -429,9 +437,9 @@ response = model.complete(
 )
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -528,7 +536,11 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### A deployed Mistral premium chat models model
 
-Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
@@ -543,7 +555,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+OOnce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -552,15 +564,19 @@ npm install @azure-rest/ai-inference
 
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -680,7 +696,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -707,7 +723,7 @@ var response = await client.path("/chat/completions").post({
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 
@@ -765,7 +781,7 @@ var response = await client.path("/chat/completions").post({
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
-In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+The following code example creates a tool definition that is able to look from flight information from two different cities.
 
 
 
@@ -797,7 +813,7 @@ const tools = [
 ];
 ```
 
-In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
 
 
 
@@ -809,7 +825,7 @@ function get_flight_info(loc_origin, loc_destination) {
 }
 ```
 
-Let's prompt the model to help us booking flights with the help of this function:
+Prompt the model to book flights with the help of this function:
 
 
 
@@ -823,7 +839,7 @@ var result = await client.path("/chat/completions").post({
 });
 ```
 
-You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
 
 
 
@@ -835,7 +851,7 @@ console.log("Finish reason: " + response.body.choices[0].finish_reason)
 console.log("Tool call: " + tool_calls)
 ```
 
-Let's append this message to the chat history:
+Append this message to the chat history:
 
 
 
@@ -843,7 +859,7 @@ Let's append this message to the chat history:
 messages.push(response_message);
 ```
 
-Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
 
 
 
@@ -876,7 +892,7 @@ for (const tool_call of tool_calls) {
 }
 ```
 
-Let's see the response from the model now:
+View the response from the model:
 
 
 
@@ -889,9 +905,9 @@ var result = await client.path("/chat/completions").post({
 });
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -993,7 +1009,11 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### A deployed Mistral premium chat models model
 
-Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
@@ -1022,15 +1042,19 @@ dotnet add package Azure.Identity
 
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -1155,7 +1179,7 @@ We can visualize how streaming generates content:
 AsyncContext.Run(() => RunAsync(client));
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1182,7 +1206,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 
@@ -1222,7 +1246,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
-In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+The following code example creates a tool definition that is able to look from flight information from two different cities.
 
 
 
@@ -1254,7 +1278,7 @@ FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
 ChatCompletionsFunctionToolDefinition getFlightTool = new ChatCompletionsFunctionToolDefinition(flightInfoFunction);
 ```
 
-In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
 
 
 
@@ -1265,7 +1289,7 @@ static string getFlightInfo(string loc_origin, string loc_destination)
 }
 ```
 
-Let's prompt the model to help us booking flights with the help of this function:
+Prompt the model to book flights with the help of this function:
 
 
 
@@ -1282,7 +1306,7 @@ requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 response = client.Complete(requestOptions);
 ```
 
-You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
 
 
 
@@ -1294,7 +1318,7 @@ Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
 Console.WriteLine($"Tool call: {toolsCall[0].Id}");
 ```
 
-Let's append this message to the chat history:
+Append this message to the chat history:
 
 
 
@@ -1302,7 +1326,7 @@ Let's append this message to the chat history:
 requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
 ```
 
-Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
 
 
 
@@ -1328,7 +1352,7 @@ foreach (ChatCompletionsToolCall tool in toolsCall )
 }
 ```
 
-Let's see the response from the model now:
+View the response from the model:
 
 
 
@@ -1336,9 +1360,9 @@ Let's see the response from the model now:
 response = client.Complete(requestOptions);
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -1438,7 +1462,11 @@ To use Mistral models with Azure AI studio, you need the following prerequisites
 
 ### A deployed Mistral premium chat models model
 
-Mistral premium chat models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
+
+Mistral premium chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
@@ -1449,21 +1477,25 @@ Mistral premium chat models can be deployed to Servereless API endpoints. This k
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -1586,7 +1618,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
+The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 
@@ -1614,7 +1646,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1669,7 +1701,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also note that the message content may be partially cut off if `finish_reason="length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 
@@ -1753,7 +1785,7 @@ extra-parameters: pass-through
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
-In this example, we are creating a tool definition that is able to look from flight information from two different cities.
+The following code example creates a tool definition that is able to look from flight information from two different cities.
 
 
 
@@ -1784,11 +1816,11 @@ In this example, we are creating a tool definition that is able to look from fli
 }
 ```
 
-In this simple example, we will implement this function in a simple way by just returning that there is no flights available for the selected route, but the user should consider taking a train.
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
 
 
 
-Let's prompt the model to help us booking flights with the help of this function:
+Prompt the model to book flights with the help of this function:
 
 
 
@@ -1834,7 +1866,7 @@ Let's prompt the model to help us booking flights with the help of this function
 }
 ```
 
-You can find out if a tool needs to be called by inspecting the response. When a tool needs to be called, you will see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
 
 
 
@@ -1874,15 +1906,15 @@ You can find out if a tool needs to be called by inspecting the response. When a
 }
 ```
 
-Let's append this message to the chat history:
+Append this message to the chat history:
 
 
 
-Now, it's time to call the appropiate function to handle the tool call. In the following code snippet we iterate over all the tool calls indicated in the response and call the corresponding function with the approapriate parameters. Notice also how we append the response to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
 
 
 
-Let's see the response from the model now:
+View the response from the model:
 
 
 
@@ -1945,9 +1977,9 @@ Let's see the response from the model now:
 }
 ```
 
-### Content safety
+### Apply content safety
 
-The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). Inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content when you use deployments with Azure AI content safety turned on. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
+The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
 
 
@@ -2004,23 +2036,22 @@ The following example shows how to handle events when the model detects harmful 
 
 ## Cost and quotas
 
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
+
+
+
 ### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
 
 Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see monitor costs for models offered throughout the Azure Marketplace.
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
+## Related content
 
-
-
-## Additional resources
-
-Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
 * [Deploy models as serverless APIs](deploy-models-serverless.md)

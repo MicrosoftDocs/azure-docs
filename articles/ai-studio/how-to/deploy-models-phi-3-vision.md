@@ -32,13 +32,14 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -60,9 +61,13 @@ pip install azure-ai-inference
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -131,7 +136,7 @@ response = model.complete(
 ```
 
 > [!NOTE]
-> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -192,7 +197,7 @@ We can visualize how streaming generates content:
 print_stream(result)
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -216,7 +221,7 @@ response = model.complete(
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -248,18 +253,18 @@ response = model.complete(
 )
 ```
 
-## Chat completions with images
+## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
 
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images results in an error.
 
 
 
-To see this capability, let's download an image and encode the information as base64 string:
+To see this capability, download an image and encode the information as base64 string:
 
 
 
@@ -275,7 +280,7 @@ image_data = base64.b64encode(urlopen(request).read()).decode("utf-8")
 data_url = f"data:image/{image_format};base64,{image_data}"
 ```
 
-You can visualize the image:
+Visualize the image:
 
 
 
@@ -286,7 +291,7 @@ import IPython.display as Disp
 Disp.Image(requests.get(image_url).content)
 ```
 
-Now, let's create a chat completion request with the image:
+Now, create a chat completion request with the image:
 
 
 
@@ -306,7 +311,7 @@ response = model.complete(
 )
 ```
 
-The response looks as follows, where you can see the model's usage statistics:
+The response is as follows, where you can see the model's usage statistics:
 
 
 
@@ -330,13 +335,14 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -348,7 +354,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+OOnce you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -358,9 +364,13 @@ npm install @azure-rest/ai-inference
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -431,7 +441,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!NOTE]
-> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -500,7 +510,7 @@ for await (const event of sses) {
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -526,7 +536,7 @@ var response = await client.path("/chat/completions").post({
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -563,18 +573,18 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-## Chat completions with images
+## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
 
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images results in an error.
 
 
 
-To see this capability, let's download an image and encode the information as base64 string:
+To see this capability, download an image and encode the information as base64 string:
 
 
 
@@ -588,7 +598,7 @@ const image_data_base64 = Buffer.from(image_data).toString("base64");
 const data_url = `data:image/${image_format};base64,${image_data_base64}`;
 ```
 
-You can visualize the image:
+Visualize the image:
 
 
 
@@ -598,7 +608,7 @@ img.src = data_url;
 document.body.appendChild(img);
 ```
 
-Now, let's create a chat completion request with the image:
+Now, create a chat completion request with the image:
 
 
 
@@ -627,7 +637,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The response looks as follows, where you can see the model's usage statistics:
+The response is as follows, where you can see the model's usage statistics:
 
 
 
@@ -651,13 +661,14 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -684,9 +695,13 @@ dotnet add package Azure.Identity
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -751,7 +766,7 @@ response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
-> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -827,7 +842,7 @@ We can visualize how streaming generates content:
 AsyncContext.Run(() => RunAsync(client));
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -853,7 +868,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -887,30 +902,30 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-## Chat completions with images
+## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
 
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images results in an error.
 
 
 
-To see this capability, let's download an image and encode the information as base64 string:
+To see this capability, download an image and encode the information as base64 string:
 
 
 
-You can visualize the image:
+Visualize the image:
 
 
 
-Now, let's create a chat completion request with the image:
+Now, create a chat completion request with the image:
 
 
 
-The response looks as follows, where you can see the model's usage statistics:
+The response is as follows, where you can see the model's usage statistics:
 
 
 
@@ -927,13 +942,14 @@ To use Phi-3 models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
+**Deployment to a self-hosted managed compute**
+
 Phi-3 chat models with vision can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+
+For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-> [!TIP]
-> Notice when deploying Phi-3 chat models with vision to self-hosted managed compute you need to ensure you must have enough quota in your subscription. If you don't have enough quota available in the selected project, you can use the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours**
 
 
 
@@ -941,16 +957,20 @@ Phi-3 chat models with vision can be deployed to our self-hosted managed inferen
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 
 
 ## Work with chat completions
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a chat-completions model for chat.
+In this section, you use the Azure AI model inference API with a chat-completions model for chat.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+
+
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 
@@ -997,7 +1017,7 @@ Create a chat completion request to see the output of the model.
 ```
 
 > [!NOTE]
-> Notice that Phi-3-vision-128k-Instruct doesn't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
+> Phi-3-vision-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
 
 
@@ -1082,7 +1102,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set indicating the reason for the generation process to stop.
+The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 
@@ -1110,7 +1130,7 @@ The last message in the stream will have `finish_reason` set indicating the reas
 }
 ```
 
-#### Explore more parameters
+#### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
@@ -1164,7 +1184,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```
 
 > [!WARNING]
-> Notice that Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
+> Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
 
 
@@ -1200,26 +1220,26 @@ extra-parameters: pass-through
 }
 ```
 
-## Chat completions with images
+## Use chat completions with images
 
-Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, we will explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
+Phi-3-vision-128k-Instruct can reason across text and images and generate text completions based on both inputs. In this section, you explore the capabilities of Phi-3-vision-128k-Instruct for vision in a chat fashion:
 
 
 
 > [!IMPORTANT]
-> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images will result in an error.
+> Phi-3-vision-128k-Instruct supports only one image for each turn in the chat conversation and only the last image is retained in context. Adding multiple images results in an error.
 
 
 
-To see this capability, let's download an image and encode the information as base64 string:
+To see this capability, download an image and encode the information as base64 string:
 
 
 
-You can visualize the image:
+Visualize the image:
 
 
 
-Now, let's create a chat completion request with the image:
+Now, create a chat completion request with the image:
 
 
 
@@ -1248,7 +1268,7 @@ Now, let's create a chat completion request with the image:
 }
 ```
 
-The response looks as follows, where you can see the model's usage statistics:
+The response is as follows, where you can see the model's usage statistics:
 
 
 
@@ -1282,21 +1302,20 @@ The response looks as follows, where you can see the model's usage statistics:
 
 ## Cost and quotas
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
 
 
 ### Cost and quota considerations for Phi-3 family of models deployed to managed compute
 
-Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the duration it is running.
+Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 
-We recommend starting with a low number of instances and scaling up as needed. You can monitor the cost of the compute instance in the Azure portal.
+It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
 
 
 
-## Additional resources
+## Related content
 
-Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
 * [Deploy models as serverless APIs](deploy-models-serverless.md)
