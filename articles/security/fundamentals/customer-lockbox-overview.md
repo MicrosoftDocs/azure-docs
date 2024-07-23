@@ -117,7 +117,7 @@ The following steps outline a typical workflow for a Customer Lockbox for Micros
 
 The auditing logs for Customer Lockbox for Azure are written to the activity logs for subscription-scoped requests and to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
-### Subscription-Scoped Requests - Activity Logs
+### Subscription-scoped requests - Activity Logs
 
 In the Azure portal, Customer Lockbox for Microsoft Azure blade, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can also view the **Activity Logs** in the subscription details blade for the subscription in question. In both cases, you can filter for specific operations, such as:
 
@@ -130,7 +130,7 @@ As an example:
 
 :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="A screenshot of the activity logs.":::
 
-### Tenant-Scoped Requests - Audit Log
+### Tenant-Scoped requests - Audit Log
 
 For tenant-scoped Customer Lockbox requests, log entries are wrriten to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
 
@@ -142,7 +142,7 @@ You can fiiter for ```Service = Access Reviews``` and ```Activity = one of the a
 
 As an example:
 
-:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entraauditlogs.png" alt-text="A screenshot of the audit log.":::
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" alt-text="A screenshot of the audit log.":::
 
 > [!NOTE]
 > The History tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
