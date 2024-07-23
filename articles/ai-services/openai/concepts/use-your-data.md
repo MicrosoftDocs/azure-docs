@@ -320,7 +320,7 @@ A Teams app lets you bring conversational experience to your users in Teams to i
 **Prerequisites**
 
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) installed.
-- The latest version of [Teams toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VSCode extension that creates a project scaffolding for your app.
+- The latest version of [Teams toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VS Code extension that creates a project scaffolding for your app.
 - [Node.js](https://nodejs.org/en/download/) (version 16 or 17) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
 - [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app) installed.
 - Sign in to your [Microsoft 365 developer account](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant) (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program)).
