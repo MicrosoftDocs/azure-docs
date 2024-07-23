@@ -24,9 +24,11 @@ The following table lists the metrics available for the Microsoft.Network/virtua
 
 [!INCLUDE [Microsoft.Network/virtualhubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-virtualhubs-metrics-include.md)]
 
-| Metric | Description|
-| --- | --- |
-| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+This table contains more information about some of the metrics in the preceding table.
+
+| Metric | Description |
+|:-------|:------------|
+| **Data Processed by the Virtual Hub Router** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
 | **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more information on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
 | **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2, which supports 2,000 spoke VMs, and 1,000 VMs are deployed across spoke virtual networks, this metric's value is approximately 50%.  |
 
@@ -38,6 +40,7 @@ The following table lists the metrics available for the microsoft.network/vpngat
 
 [!INCLUDE [microsoft.network/vpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-vpngateways-metrics-include.md)]
 
+These tables contain more information about some of the metrics in the preceding table.
 
 #### Tunnel Packet Drop metrics
 
@@ -51,15 +54,15 @@ The following table lists the metrics available for the microsoft.network/vpngat
 
 #### IPSec metrics
 
-| Metric | Description|
-| --- | --- |
+| Metric | Description |
+|:-------|:------------|
 | **Tunnel MMSA Count** | Number of MMSAs getting created or deleted.|
 | **Tunnel QMSA Count** | Number of  IPSEC QMSAs getting created or deleted.|
 
 #### Routing metrics
 
-| Metric | Description|
-| --- | --- |
+| Metric | Description |
+|:-------|:------------|
 | **BGP Peer Status** | BGP connectivity status per peer and per instance.|
 | **BGP Routes Advertised** | Number of routes advertised per peer and per instance.|
 | **BGP Routes Learned** | Number of routes learned per peer and per instance.|
@@ -69,20 +72,18 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 
 #### Traffic Flow metrics
 
-| Metric | Description|
-| --- | --- |
-| **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| Metric | Description |
+|:-------|:------------|
+| **Gateway S2S Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
 | **Gateway Inbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.|
 | **Gateway Outbound Flows** | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.|
 | **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
 | **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
 | **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
-| **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
+| **Tunnel Ingress Packets** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
 | **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
-
-
 
 ### <a name="p2s-metrics"></a>Supported metrics for microsoft.network/p2svpngateways
 
@@ -92,8 +93,8 @@ The following table lists the metrics available for the microsoft.network/p2svpn
 
 [!INCLUDE [microsoft.network/p2svpngateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-p2svpngateways-metrics-include.md)]
 
-| Metric | Description|
-| --- | --- |
+| Metric | Description |
+|:-------|:------------|
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
 | **P2S Connection Count** |Point-to-site connection count of a gateway. To ensure you're viewing accurate Metrics in Azure Monitor, select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You can also select **Max** if you split By **Instance**. |
 | **User VPN Routes Count** | Number of User VPN Routes configured on the VPN gateway. This metric can be broken down into **Static** and **Dynamic** Routes.
@@ -106,8 +107,8 @@ The following table lists the metrics available for the microsoft.network/expres
 
 [!INCLUDE [microsoft.network/expressroutegateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutegateways-metrics-include.md)]
 
-| Metric | Description|
-| --- | --- |
+| Metric | Description |
+|:-------|:------------|
 | **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute that can be further split for specific connections. |
 | **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute that can be further split for specific connections.  |
 | **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
