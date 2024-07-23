@@ -24,56 +24,28 @@ A single Azure Monitor workspace can be sufficient for many use cases. Some orga
 
 The following are scenarios that require splitting an Azure Monitor workspace into multiple workspaces:
 
-- Sovereign clouds.  
-    When working with more than one sovereign cloud, create an Azure Monitor workspace in each cloud.
-
-- Compliance or regulatory requirements.   
-    If you're subject to regulations that mandate the storage of data in specific regions. Create an Azure Monitor workspace per region as per your requirements. 
-
-- Regional scaling.  
-    When you're managing metrics for regionally diverse organizations such as large services or financial institutions with regional accounts, create an Azure Monitor workspace per region.
-
-- Azure tenants.
-    For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Querying data across tenants isn't supported.
-
-- Deployment environments  
-    Create a separate workspace for each of your deployment environments to maintain discrete metrics for development, test, preproduction, and production environments.
-
-- Service limits and quotas   
-  **Azure Monitor workspaces are built for hyperscale. There's no reduction in performance in terms of availability and efficiency due to the amount of data in your Azure Monitor workspace. Multiple services, apps, and clusters can send data to the same workspace simultaneously. Azure Monitor workspaces start with default limits and quotas, but these limits can be increased via support tickets to support your scale needs as you grow. For customers operating at large scale, such as 100Mn+ events/min or time series, we recommend you contact your Azure representative.  
-.  
-  Duplicated below - rework**
+| Scenario | Best practice |
+|---|---|
+|Sovereign clouds |    When working with more than one sovereign cloud, create an Azure Monitor workspace in each cloud.|
+| Compliance or regulatory requirements.   |   If you're subject to regulations that mandate the storage of data in specific regions. Create an Azure Monitor workspace per region as per your requirements. 
+| Regional scaling  |   When you're managing metrics for regionally diverse organizations such as large services or financial institutions with regional accounts, create an Azure Monitor workspace per region.
+| Azure tenants|   For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Querying data across tenants isn't supported.
+| Deployment environments  |   Create a separate workspace for each of your deployment environments to maintain discrete metrics for development, test, preproduction, and production environments.
+| Service limits and quotas  |  **Azure Monitor workspaces are built for hyperscale. There's no reduction in performance in terms of availability and efficiency due to the amount of data in your Azure Monitor workspace. Multiple services, apps, and clusters can send data to the same workspace simultaneously. Azure Monitor workspaces start with default limits and quotas, but these limits can be increased via support tickets to support your scale needs as you grow. For customers operating at large scale, such as 100Mn+ events/min or time series, we recommend you contact your Azure representative.    Duplicated below - rework**
 
 ## Service limits and quotas
 
 Azure Monitor workspaces have default quotas and limitations for metrics. As your product grows and you need more metrics, you can request an increase to 50 million events or active time series. If your capacity requirements are exceptionally large and your data ingestion needs are not met by a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. Use the Azure monitor workspace platform metrics to monitor utilization and limits. For more information on limits and quotas, see [Azure Monitor service limits and quotas](/azure/azure-monitor/service-limits#prometheus-metrics).
 
-Consider the following best practices for managing Azure Monitor workspace limits ????:
+Consider the following best practices for managing Azure Monitor workspace limits and quotas:
 
-### Monitor and create an alert on Azure Monitor workspace ingestion limits and utilization
-
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to Metrics and verify that the metrics Active Time Series % Utilization and Events Per Minute Ingested % Utilization are below 100%. Set an Azure Monitor Alert to monitor the utilization and fire when the utilization is greater than 80% of the limit. For more information on monitoring utilization and limits, see [How can I monitor the service limits and quotas](/azure/azure-monitor/essentials/prometheus-metrics-overview#how-can-i-monitor-the-service-limits-and-quota)
-
-### Request for a limit increase when the utilization is more than 80% of the current limit
-
-As your Azure usage grows, the volume of data ingested is likely to increase. We recommend that you request an increase in limits if your data ingestion is exceeding or close to 80% of the ingestion limit. To request a limit increase, open a support ticket.  To open a support ticket, see [Create an Azure support request](/azure/azure-supportability/how-to-create-azure-support-request).
-
-
-### Estimate your projected scale
-
-As your usage grows and you ingest more metrics into your workspace, make an estimate of the projected scale and rate of growth. Based on your projections, request an increase in the limit.
-
-### Ingestion with Remote-write 
-
-If you're using the Azure monitor side-car container and remote-write to ingest metrics into an Azure Monitor workspace, consider the following:
-
-- The side-car container can process up to 150,000 unique time series. 
-
-- The container might throw errors serving requests over 150,000 due to the high number of concurrent connections. Mitigate this issue by increasing the remote batch size from the 500 default, to 1,000. Changing the remote batch size reduces the number of open connections.
- 
-### DCR/DCE limits
-
-Limits apply to the data collection rules (DCR) and data collection endpoints (DCE) sending Prometheus metrics to your Azure Monitor workspace. For information on these limits, see  [Prometheus Service limits](/azure/azure-monitor/service-limits#prometheus-metrics).  These limits can't be increased. Consider creating additional DCRs and DCEs to distribute the ingestion load across multiple endpoints. This approach helps optimize performance and ensures efficient data handling. For more information about creating DCRs and DCEs, see [How to create custom Data collection endpoint(DCE) and custom Data collection rule(DCR) for an existing Azure monitor workspace to ingest Prometheus metrics](https://github.com/Azure/prometheus-collector/tree/main/Azure-ARM-templates/Prometheus-RemoteWrite-DCR-artifacts)
+| Best practice | Description |
+|---|---|
+| Monitor and create an alert on ingestion limits and utilization| In the Azure portal, navigate to your Azure Monitor Workspace. Go to Metrics and verify that the metrics Active Time Series % Utilization and Events Per Minute Ingested % Utilization are below 100%. Set an Azure Monitor Alert to monitor the utilization and fire when the utilization is greater than 80% of the limit. For more information on monitoring utilization and limits, see [How can I monitor the service limits and quotas](/azure/azure-monitor/essentials/prometheus-metrics-overview#how-can-i-monitor-the-service-limits-and-quota)
+|Request for a limit increase when the utilization exceeds 80% of the current limit|As your Azure usage grows, the volume of data ingested is likely to increase. We recommend that you request an increase in limits if your data ingestion is exceeding or close to 80% of the ingestion limit. To request a limit increase, open a support ticket.  To open a support ticket, see [Create an Azure support request](/azure/azure-supportability/how-to-create-azure-support-request).
+|Estimate your projected scale|As your usage grows and you ingest more metrics into your workspace, make an estimate of the projected scale and rate of growth. Based on your projections, request an increase in the limit.
+|Ingestion with Remote-write |If you're using the Azure monitor side-car container and remote-write to ingest metrics into an Azure Monitor workspace, consider the following:<p> - The side-car container can process up to 150,000 unique time series. <p> - The container might throw errors serving requests over 150,000 due to the high number of concurrent connections. Mitigate this issue by increasing the remote batch size from the 500 default, to 1,000. Changing the remote batch size reduces the number of open connections.
+|DCR/DCE limits|Limits apply to the data collection rules (DCR) and data collection endpoints (DCE) sending Prometheus metrics to your Azure Monitor workspace. For information on these limits, see  [Prometheus Service limits](/azure/azure-monitor/service-limits#prometheus-metrics).  These limits can't be increased. Consider creating additional DCRs and DCEs to distribute the ingestion load across multiple endpoints. This approach helps optimize performance and ensures efficient data handling. For more information about creating DCRs and DCEs, see [How to create custom Data collection endpoint(DCE) and custom Data collection rule(DCR) for an existing Azure monitor workspace to ingest Prometheus metrics](https://github.com/Azure/prometheus-collector/tree/main/Azure-ARM-templates/Prometheus-RemoteWrite-DCR-artifacts)
 
 
 ## Optimizing performance for high volume data
@@ -82,14 +54,10 @@ Limits apply to the data collection rules (DCR) and data collection endpoints (D
 
 To optimize ingestion, consider the following best practices:
 
-- Identify High cardinality Metrics.  
-  Identify metrics that have a high cardinality, or are generating many time series. Once you identify high-cardinality metrics, you can then optimize them to reduce the number of time series by dropping unnecessary labels.
-
-- Use Prometheus config to optimize ingestion.  
-  Azure Managed Prometheus provides Configmaps, which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) These configurations follow the same format as the Prometheus configuration file.  
-For information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration). For example, consider the following:
-    -  **Tune Scrape Intervals**. The default scrape frequency is 30 seconds, which can be changed per default target using the configmap. Adjust the `scrape_interval` and `scrape_timeout` based on the criticality of metrics to balance the trade-off between data granularity and resource usage. 
-    - **Drop unnecessary labels for high cardinality metrics**. For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of time series. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).
+| Best practice | Description |
+|---|---|
+| Identify High cardinality Metrics.  |  Identify metrics that have a high cardinality, or are generating many time series. Once you identify high-cardinality metrics, you can then optimize them to reduce the number of time series by dropping unnecessary labels.
+| Use Prometheus config to optimize ingestion.  |  Azure Managed Prometheus provides Configmaps, which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) These configurations follow the same format as the Prometheus configuration file.<br> For information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).<p> For example, consider the following:<p>    **Tune Scrape Intervals**. The default scrape frequency is 30 seconds, which can be changed per default target using the configmap. Adjust the `scrape_interval` and `scrape_timeout` based on the criticality of metrics to balance the trade-off between data granularity and resource usage. <p> **Drop unnecessary labels for high cardinality metrics**. For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of time series. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).
 
 Use the configmap, changing the settings as required, and apply the configmap to kube-system namespace for your cluster. If you're using remote-writing into and Azure Monitor workspace, apply the customizations during ingestion directly in your Prometheus configuration
 
@@ -138,10 +106,12 @@ For more complex metrics, you can create recording rules that aggregate multiple
 ```
 
 #### Recording rule best practices
+| Best practice | Description |
+|---|---|
+| Identify High Volume Metrics.  |  Focus on metrics that are queried frequently and have a high cardinality. |
+| Optimize Rule Evaluation Interval.  |  Adjust the evaluation interval of your recording rules to balance between data freshness and computational load. |
+| Monitor Performance.  |  Monitor query performance and adjust recording rules as necessary. |
 
-- **Identify High Volume Metrics**. Focus on metrics that are queried frequently and have a high cardinality
-- **Optimize Rule Evaluation Interval**. Adjust the evaluation interval of your recording rules to balance between data freshness and computational load.
-- **Monitor Performance**. Monitor query performance and adjust recording rules as necessary.
 
 
 #### Create Recording rules with Azure Managed Prometheus
@@ -159,45 +129,24 @@ Once the recording rules have been created, you can query them from the Azure Mo
 
 Optimizing Prometheus queries using filters involves refining the queries to return only the necessary data, reducing the amount of data processed and improving performance. The following are some common techniques to refine Prometheus queries.
 
-- Use label filters. Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit time series is to use the `cluster` filter.  
-
-  For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`
-
-- Apply time range selectors.
-Using specific time ranges can significantly reduce the amount of data queried.
-
-    For example, instead of querying all data points for the last seven days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`
-
-- Use aggregation and grouping. Aggregation functions can be used to summarize data, which can be more efficient than processing raw data points. When aggregating data, use `by` to group by specific labels, or `without` to exclude specific labels.
-
-  For example, sum requests grouped by job: `sum(rate(http_requests_total[5m])) by (job)`
-
-- Filter early in the query. Apply filters as early as possible in your query to limit the dataset from the start.
-
-   For example, instead of `sum(rate(http_requests_total[5m])) by (job)`, filter first, then aggregate as follows: `sum(rate(http_requests_total{job="myapp"}[5m])) by (job)`
-
-- Avoid Regex if Possible. Regex filters can be powerful but are also computationally expensive. Use exact matches whenever possible.
-
-    For example, instead of `http_requests_total{job=~"myapp.*"}`, use `http_requests_total{job="myapp"}`
-
-- Use offset for historical data. If you're comparing current data with historical data, use the offset modifier.
-    
-    For example, for current requests verses requests from 24 hours ago use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`
-
-- Limit data points in charts. When creating charts, limit the number of data points to improve rendering performance. Use the step parameter to control the resolution.
-
-    For example, in Grafana: Set a higher step value to reduce data points:`http_requests_total{job="myapp"}[1h:10s]`
+| Best practice | Description |
+|---|---|
+| Use label filters|Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit time series is to use the `cluster` filter.  <p> For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`|
+| Apply time range selectors|Using specific time ranges can significantly reduce the amount of data queried.<p>  For example, instead of querying all data points for the last seven days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`|
+| Use aggregation and grouping| Aggregation functions can be used to summarize data, which can be more efficient than processing raw data points. When aggregating data, use `by` to group by specific labels, or `without` to exclude specific labels.<p>  For example, sum requests grouped by job: `sum(rate(http_requests_total[5m])) by (job)`|
+|Filter early in the query| Apply filters as early as possible in your query to limit the dataset from the start.<p>  For example, instead of `sum(rate(http_requests_total[5m])) by (job)`, filter first, then aggregate as follows: `sum(rate(http_requests_total{job="myapp"}[5m])) by (job)`|
+| Avoid regex where possible| Regex filters can be powerful but are also computationally expensive. Use exact matches whenever possible.<p> For example, instead of `http_requests_total{job=~"myapp.*"}`, use `http_requests_total{job="myapp"}`|
+| Use offset for historical data| If you're comparing current data with historical data, use the offset modifier.<p> For example, for current requests verses requests from 24 hours ago use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`|
+| Limit data points in charts| When creating charts, limit the number of data points to improve rendering performance. Use the step parameter to control the resolution.<p>    For example, in Grafana: Set a higher step value to reduce data points:`http_requests_total{job="myapp"}[1h:10s]`|
 
 
 #### Parallel queries
 
 Running a high number of parallel queries in Prometheus can lead to performance bottlenecks and can affect the stability of your Prometheus server. To handle a large volume of parallel queries efficiently, you can follow the best practices below:
-
--	Query Load Distribution
-    Distribute the query load by spreading the queries across different time intervals or Prometheus instances.
-
--	Staggered Queries 
-     Schedule queries to run at different intervals to avoid peaks of simultaneous query executions.
+| Best practice | Description |
+|---|---|
+|	Query Load Distribution|   Distribute the query load by spreading the queries across different time intervals or Prometheus instances.|
+|Staggered Queries |  Schedule queries to run at different intervals to avoid peaks of simultaneous query executions.|
 
 If you're still seeing issues with running many parallel queries, create a support ticket to request an increase in the query limits.
 
