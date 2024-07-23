@@ -39,9 +39,9 @@ The following models are available in Azure Marketplace for Llama 3.1 when fine-
 
 The following models are available in Azure Marketplace for Llama 2 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Llama-2-70b` (preview)
-- `Llama-2-13b` (preview)
-- `Llama-2-7b` (preview)
+- `Meta Llama-2-70b` (preview)
+- `Meta Llama-2-13b` (preview)
+- `Meta Llama-2-7b` (preview)
 
 Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
 
