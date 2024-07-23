@@ -16,6 +16,8 @@ ms.author: danlep
 
 This article shows how to import a Logic App as an API and test the imported API.
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
