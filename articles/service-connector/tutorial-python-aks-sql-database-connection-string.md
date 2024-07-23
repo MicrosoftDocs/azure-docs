@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 23/04/2024
+ms.date: 07/23/2024
 ---
 
 # Tutorial: Connect an AKS app to Azure SQL Database (preview)
@@ -85,20 +85,20 @@ Create a service connection between your AKS cluster and your SQL database in th
 
 Create a service connection to the SQL database using the [`az aks connection create sql`](/cli/azure/aks/connection/create#az-aks-connection-create-sql) command. You can run this command in two different ways.
     
-    * Generate the new connection step by step.
+   * Generate the new connection step by step.
+     
+   ```azurecli-interactive
+   az aks connection create sql
+   ```
+ 
+   * Generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
     
-    ```azurecli-interactive
-    az aks connection create sql
-    ```
-    
-    * Generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
-    
-    ```azurecli-interactive
-    az aks connection create sql \
-        --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
-        --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
-        --secret name=<secret-name> secret=<secret>
-    ```
+   ```azurecli-interactive
+   az aks connection create sql \
+      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
+      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
+      --secret name=<secret-name> secret=<secret>
+   ```
 
 ---
 
