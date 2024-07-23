@@ -137,7 +137,7 @@ Most container apps have a single container. In advanced scenarios, an app may a
 | `env` | An array of name/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
 | `resources.cpu` | The number of CPUs allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
 | `resources.memory` | The amount of RAM allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
-| `volumeMounts` | An array of volume mount definitions. | You can define a temporary or permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
+| `volumeMounts` | An array of volume mount definitions. | You can define a temporary or permanent storage volumes for your container. For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
 | `probes`| An array of health probes enabled in the container. | For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
 ### <a name="allocations"></a>vCPU and memory allocation requirements
