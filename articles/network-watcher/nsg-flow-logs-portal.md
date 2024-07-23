@@ -73,15 +73,32 @@ Create a flow log for your network security group. This NSG flow log is saved in
     :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
     > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+
+1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Flow logs version | Select the version of the network security group flow log, available options are: **Version 1** and **Version 2**.  The default version is version 2. For more information, see [Flow logging for network security groups](nsg-flow-logs-overview.md). |
+    | Enable traffic analytics | Select the checkbox to enable traffic analytics for your flow log. |
+    | Traffic analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
+    | Subscription | Select the Azure subscription of your Log Analytics workspace. |
+    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
+
+    > [!NOTE]
+    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json)
 
 1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**.
 
-## Create a flow log and traffic analytics workspace
+## Enable or disable traffic analytics
 
-Create a flow log for your network security group and enable traffic analytics. The NSG flow log is saved in an Azure storage account.
+Enable traffic analytics for a flow log to analyze the flow log data. Traffic analytics provides insights into your traffic patterns. You can enable or disable traffic analytics for a flow log at any time.
+
+To enable traffic analytics for a flow log, follow these steps:
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
