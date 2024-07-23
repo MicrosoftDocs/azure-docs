@@ -205,8 +205,8 @@ One of the benefits of the v4 programming model is the flexibility of where you 
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a Durable Functions orchestration, an activity function, and a durable client starter function. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a Durable Functions app orchestration, an activity function, and a durable client starter function. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your Durable Function. |
     | **Provide a function name** | Enter **Hello**. | A name for your durable function. |
 
 Open *src/functions/hello.ts* to view the functions you created.

@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure a storage provider by using MSSQL"
-description: Configure a durable function app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
+description: Configure a Durable Functions app to use the Microsoft SQL Server (MSSQL) storage provider in Azure Functions.
 author: davidmrdavid
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
@@ -8,9 +8,9 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Quickstart: Set a durable function to use the MSSQL storage provider
+# Quickstart: Set a Durable Functions app to use the MSSQL storage provider
 
-Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a durable function app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
+Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
 
 > [!NOTE]
 >
@@ -25,16 +25,16 @@ The following steps assume that you have an existing Durable Functions app and t
 Specifically, this quickstart assumes that you have already:
 
 - Created an Azure Functions project on your local computer.
-- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers the durable function.
+- Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
 - Configured the project for local debugging.
 
 If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts:
 
-- [Create your first durable function - C#](durable-functions-create-first-csharp.md)
-- [Create your first durable function - JavaScript](quickstart-js-vscode.md)
-- [Create your first durable function - Python](quickstart-python-vscode.md)
-- [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
-- [Create your first durable function - Java](quickstart-java.md)
+- [Create your first Durable Functions app - C#](durable-functions-create-first-csharp.md)
+- [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
+- [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
+- [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+- [Create your first Durable Functions app - Java](quickstart-java.md)
 
 ## Add the Durable Task MSSQL extension (.NET only)
 
@@ -244,4 +244,4 @@ After you run a simple orchestrator, you should see at least one result, as show
 
 ## Related content
 
-- For more information about the durable function task MSSQL back-end architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
+- For more information about the Durable Functions app task MSSQL back-end architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).

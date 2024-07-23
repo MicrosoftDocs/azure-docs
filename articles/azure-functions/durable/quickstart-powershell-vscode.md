@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a PowerShell durable function"
-description: Create and publish a PowerShell durable function in Azure Functions by using Visual Studio Code.
+title: "Quickstart: Create a PowerShell Durable Functions app"
+description: Create and publish a PowerShell Durable Functions app in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 06/22/2022
@@ -9,13 +9,13 @@ ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
-# Quickstart: Create a PowerShell durable function
+# Quickstart: Create a PowerShell Durable Functions app
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
-![Running a durable function in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Running a Durable Functions app in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_
 
 ## Create your functions
 
-The most basic durable function app has three functions:
+The most basic Durable Functions app has three functions:
 
 * **Orchestrator function**: A workflow that orchestrates other functions.
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
@@ -79,7 +79,7 @@ The most basic durable function app has three functions:
 
 ### Orchestrator function
 
-Use a template to create the durable function code in your project.
+Use a template to create the Durable Functions app code in your project.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
@@ -87,8 +87,8 @@ Use a template to create the durable function code in your project.
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Enter **Durable Functions orchestrator**. | Creates a durable function orchestration. |
-    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your durable function. |
+    | **Select a template for your function** | Enter **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the Invoke-ActivityFunction cmdlet invokes an activity function named `Hello`.
 
@@ -123,10 +123,10 @@ Finally, you add an HTTP-triggered function that starts the orchestration.
 
 You added an HTTP-triggered function that starts an orchestration. Open *HttpStart/run.ps1* to check that it uses the Start-NewOrchestration cmdlet to start a new orchestration. Then it uses the New-OrchestrationCheckStatusResponse cmdlet to return an HTTP response that contains URLs that can be used to monitor and manage the new orchestration.
 
-You now have a durable function app that you can run locally and deploy to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 > [!NOTE]
-> The next version of the durable function PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
+> The next version of the Durable Functions PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
 
 ## Test the function locally
 
@@ -196,7 +196,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 1. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-The PowerShell durable function app that you created and published by using Visual Studio Code is ready to use.
+The PowerShell Durable Functions app that you created and published by using Visual Studio Code is ready to use.
 
 ## Clean up resources
 
@@ -204,4 +204,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).

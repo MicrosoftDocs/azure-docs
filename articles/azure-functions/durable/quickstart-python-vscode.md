@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Python durable function"
-description: Create and publish a Python durable function in Azure Functions by using Visual Studio Code.
+title: "Quickstart: Create a Python Durable Functions app"
+description: Create and publish a Python Durable Functions app in Azure Functions by using Visual Studio Code.
 author: davidmrdavid
 ms.topic: quickstart
 ms.date: 06/15/2022
@@ -10,13 +10,13 @@ ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx
 zone_pivot_groups: python-mode-functions
 ---
 
-# Quickstart: Create a Python durable function
+# Quickstart: Create a Python Durable Functions app
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
-:::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running durable function in Azure.":::
+:::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running Durable Functions app in Azure.":::
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ python -m pip install -r requirements.txt
 
 ## Create your functions
 
-The most basic durable function app has three functions:
+The most basic Durable Functions app has three functions:
 
 * **Orchestrator function**: A workflow that orchestrates other functions.
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
@@ -128,7 +128,7 @@ The most basic durable function app has three functions:
 
 ### Orchestrator function
 
-You use a template to create the durable function code in your project.
+You use a template to create the Durable Functions app code in your project.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
@@ -136,8 +136,8 @@ You use a template to create the durable function code in your project.
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a durable function orchestration. |
-    | **Provide a function name** | Select **HelloOrchestrator**. | The name of your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
+    | **Provide a function name** | Select **HelloOrchestrator**. | A name for your durable function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/\_\_init__.py* to see the orchestrator function. Each call to `context.call_activity` invokes an activity function named `Hello`.
 
@@ -221,7 +221,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ---
 
-To create a basic durable function app by using these three function types, replace the contents of *function_app.py* with the following Python code:
+To create a basic Durable Functions app by using these three function types, replace the contents of *function_app.py* with the following Python code:
 
 ```python
 import azure.functions as func
@@ -393,7 +393,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-The Python durable function app that you created and published by using Visual Studio Code is ready to use.
+The Python Durable Functions app that you created and published by using Visual Studio Code is ready to use.
 
 ## Clean up resources
 
@@ -401,4 +401,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).

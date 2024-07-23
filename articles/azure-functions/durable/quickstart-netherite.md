@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Configure a storage provider by using Netherite"
-description: Configure a durable function app to use the Netherite storage provider in Azure Functions.
+description: Configure a Durable Functions app to use the Netherite storage provider in Azure Functions.
 author: sebastianburckhardt
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
@@ -8,9 +8,9 @@ ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
 
-# Quickstart: Set a durable function to use the Netherite storage provider
+# Quickstart: Set a Durable Functions app to use the Netherite storage provider
 
-Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a durable function app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
+Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
 >
@@ -31,11 +31,11 @@ Specifically, this quickstart assumes that you have already:
 
 If you don't meet these prerequisites, we recommend that you start with one of the following quickstarts:
 
-- [Create your first durable function - C#](durable-functions-create-first-csharp.md)
-- [Create your first durable function - JavaScript](quickstart-js-vscode.md)
-- [Create your first durable function - Python](quickstart-python-vscode.md)
-- [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
-- [Create your first durable function - Java](quickstart-java.md)
+- [Create your first Durable Functions app - C#](durable-functions-create-first-csharp.md)
+- [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
+- [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
+- [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+- [Create your first Durable Functions app - Java](quickstart-java.md)
 
 ## Add the Netherite extension (.NET only)
 

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a JavaScript durable function"
-description: Create and publish a JavaScript durable function in Azure Functions by using Visual Studio Code.
+title: "Quickstart: Create a JavaScript Durable Functions app"
+description: Create and publish a JavaScript Durable Functions app in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 02/13/2023
@@ -10,15 +10,15 @@ ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete
 zone_pivot_groups: functions-nodejs-model
 ---
 
-# Quickstart: Create a JavaScript durable function
+# Quickstart: Create a JavaScript Durable Functions app
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" durable function in Azure Functions. The durable function orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
-:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot that shows a durable function in Visual Studio Code.":::
+:::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot that shows a Durable Functions app in Visual Studio Code.":::
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ To use the v4 programming model, you install the preview v3.x version of the dur
 
 ## Create your functions
 
-The most basic durable function app has three functions:
+The most basic Durable Functions app has three functions:
 
 * **Orchestrator function**: A workflow that orchestrates other functions.
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
@@ -144,7 +144,7 @@ The most basic durable function app has three functions:
 
 ### Orchestrator function
 
-You use a template to create the durable function code in your project.
+You use a template to create the Durable Functions app code in your project.
 
 1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
@@ -152,9 +152,9 @@ You use a template to create the durable function code in your project.
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a durable function orchestration. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Selects the storage back end that's used for your durable function. |
-    | **Provide a function name** | Enter **HelloOrchestrator**. | The name of your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a Durable Functions app orchestration. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Selects the storage back end that's used for your Durable Functions app. |
+    | **Provide a function name** | Enter **HelloOrchestrator**. | A name for your durable function. |
 
 You added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
 
@@ -169,7 +169,7 @@ Next, add the referenced `Hello` activity function.
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
     | **Select a template for your function** | Select **Durable Functions activity**. | Creates an activity function. |
-    | **Provide a function name** | Enter **Hello**. | The name of your durable function. |
+    | **Provide a function name** | Enter **Hello**. | A name for your durable function. |
 
 You added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you perform "the real work" in your workflow, such as making a database call or performing some nondeterministic computation.
 
@@ -189,7 +189,7 @@ Finally, add an HTTP-triggered function that starts the orchestration.
 
 You added an HTTP-triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/index.js* to see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
 
-You now have a durable function app that you can run locally and deploy to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 ::: zone-end
 
@@ -203,8 +203,8 @@ One of the benefits of the v4 programming model is the flexibility of where you 
 
     | Prompt | Action | Description |
     | ------ | ----- | ----------- |
-    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a durable function orchestration, an activity function, and a durable client starter function. |
-    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your durable function. |
+    | **Select a template for your function** | Select **Durable Functions orchestrator**. | Creates a file that has a Durable Functions app orchestration, an activity function, and a durable client starter function. |
+    | **Choose a durable storage type** | Select **Azure Storage (Default)**. | Sets the storage back end to use for your Durable Functions app. |
     | **Provide a function name** | Enter **hello**. | The name of your durable function. |
 
 Open *src/functions/hello.js* to view the functions you created.
@@ -215,7 +215,7 @@ You also added the `hello` activity function that is invoked by the orchestrator
 
 Finally, also added an HTTP-triggered function that starts an orchestration. In the same file, you can see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response that contains URLs that you can use to monitor and manage the new orchestration.
 
-You now have a durable function app that you can run locally and deploy to Azure.
+You now have a Durable Functions app that you can run locally and deploy to Azure.
 
 ::: zone-end
 
@@ -279,7 +279,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function like in this example:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app , like in this example:
 
     ```json
     {
@@ -304,7 +304,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function like in this example:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app , like in this example:
 
     ```json
     {
@@ -361,7 +361,7 @@ After you verify that the function runs correctly on your local computer, it's t
 
 2. Paste the new URL for the HTTP request in your browser's address bar. When you use the published app, you can expect to get the same status response that you got when you tested locally.
 
-The JavaScript durable function app that you created and published in Visual Studio Code is ready to use.
+The JavaScript Durable Functions app that you created and published in Visual Studio Code is ready to use.
 
 ## Clean up resources
 
@@ -369,4 +369,4 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Related content
 
-* Learn about [common durable function patterns](durable-functions-overview.md#application-patterns).
+* Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).

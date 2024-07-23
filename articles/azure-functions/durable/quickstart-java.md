@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Java durable function"
-description: Create and publish a Java durable function in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
+title: "Quickstart: Create a Java Durable Functions app"
+description: Create and publish a Java Durable Functions app in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
 ms.date: 12/12/2022
@@ -10,13 +10,13 @@ ms.custom: mode-api, devx-track-extended-java
 zone_pivot_groups: create-java-durable-options
 ---
 
-# Quickstart: Create a Java durable function
+# Quickstart: Create a Java Durable Functions app
 
 Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts for you.
 
-In this quickstart, you create and test a "hello world" durable function app in Java.
+In this quickstart, you create and test a "hello world" Durable Functions app in Java.
 
-The most basic durable function app has three functions:
+The most basic Durable Functions app has three functions:
 
 * **Orchestrator function**: A workflow that orchestrates other functions.
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
@@ -216,7 +216,7 @@ public class DurableFunctionsSample {
 
 ## Create a local project by using the Maven command
 
-Run the following command to generate a project that contains the basic functions of a durable function app:
+Run the following command to generate a project that contains the basic functions of a Durable Functions app:
 
 # [Bash](#tab/bash)
 
@@ -248,7 +248,7 @@ At the prompts, provide the following information:
   | **package** | Enter **com.function**. |
   | **Y** | Enter **Y** and select Enter to confirm. |
 
-Now you have a local project that has the three functions that are in a basic durable function app.
+Now you have a local project that has the three functions that are in a basic Durable Functions app.
 
 Check to ensure that `com.microsoft:durabletask-azure-functions` is set as a dependency in your _pom.xml_ file.  
 
@@ -292,7 +292,7 @@ Durable Functions needs a storage provider to store runtime state. You can set A
     | **Select the build tool for Java project** | Select **Maven**. |
     | **Select how you would like to open your project** | Select **Open in new window**. |
 
-You now have a project that has an example HTTP function. You can remove this function if you'd like to, because you add the basic functions of a durable function app in the next step.  
+You now have a project that has an example HTTP function. You can remove this function if you'd like to, because you add the basic functions of a Durable Functions app in the next step.  
 
 ## Add functions to the project
 
@@ -310,7 +310,7 @@ You now have a project that has an example HTTP function. You can remove this fu
   
 1. In the dialog, choose **Select storage account** to set up a storage account, and then follow the prompts.
 
-You should now have the three basic functions generated for a durable function app.
+You should now have the three basic functions generated for a Durable Functions app.
 
 ## Configure pom.xml and host.json
 
@@ -371,7 +371,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use Postman to issue the GET request.
 
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function like in this example:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function, like in this example:
 
     ```json
     {
