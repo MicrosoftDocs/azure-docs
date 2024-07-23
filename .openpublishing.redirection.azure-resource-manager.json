@@ -1981,6 +1981,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp073.md",
+      "redirect_url": "diagnostics/bcp073",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp327.md",
       "redirect_url": "diagnostics/bcp327",
       "redirect_document_id": false
@@ -1996,7 +2001,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp.md333",
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp333.md",
       "redirect_url": "diagnostics/bcp333",
       "redirect_document_id": false
     }
