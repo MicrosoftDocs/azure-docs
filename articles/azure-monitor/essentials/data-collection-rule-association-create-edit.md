@@ -10,24 +10,23 @@ ms.custom: references_regions
 ---
 
 # Create and edit data collection rule associations (DCRAs) in Azure Monitor
-[Data collection rule associations (DCRAs)](./data-collection-rule-overview.md#data-collection-rule-associations-dcra) connect [data collection rules (DCRs)](./data-collection-rule-overview.md) to resources with monitoring data to collect. This article describes how to create and edit DCRAs in Azure Monitor.
+[Data collection rule associations (DCRAs)](./data-collection-rule-overview.md#data-collection-rule-associations-dcra) connect [data collection rules (DCRs)](./data-collection-rule-overview.md) to resources with monitoring data to collect. This is a many-to-many relationship, where a single DCR can be associated with multiple resources, and a single resource can be associated with multiple DCRs. This article describes how to create and edit associations in Azure Monitor.
 
+:::image type="content" source="media/data-collection-rule-overview/data-collection-rule-associations.png" lightbox="media/data-collection-rule-overview/data-collection-rule-associations.png" alt-text="Diagram that shows DCRAs connected to a DCR." border="false":::
 
 ## Automatic creation
-There are several scenarios where DCRAs are automatically created for you when you create and configure a DCR. In these cases, you don't need to understand the details of DCRAs, and can just think of the resource as being associated with the DCR.
-
+There are several scenarios where associations are automatically created for you when you create and configure a DCR.
 | Scenario | Description |
 |:---|:---|
-| [Enable VM insights on a VM or VMSS](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, a DCR is created along with a DCRA associating that DCR with the VM. |
-| [Enable Container insights on a Kubernetes cluster](../containers/kubernetes-monitoring-enable.md) | When you enable Container insights on a cluster, a DCR is created along with a DCRA associating that DCR with the cluster. |
-| [Create a DCR for a VM in the Azure portal](../agents/azure-monitor-agent-data-collection.md) | When you create a DCR in the Azure portal, a DCRA is created for each machine that you add to **Resources**. |
+| [Enable VM insights on a VM or VMSS](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, a DCR is created along with an association between the VM and the DCR. |
+| [Enable Container insights on a Kubernetes cluster](../containers/kubernetes-monitoring-enable.md) | When you enable Container insights on a cluster, a DCR is created along with an association between the cluster and the DCR. |
+| [Create a DCR for a VM in the Azure portal](../agents/azure-monitor-agent-data-collection.md) | When you create a DCR in the Azure portal, an association is created for each machine that you add to **Resources**. |
 
-## View and create DCRAs
+## View associations
+There are multiple methods to view the associations for a particular DCR or resource.
 
 ### [Portal](#tab/portal)
-You can use the preview DCR experience in the Azure portal to view DCRAs by DCR or by resource.
-
-From the **Monitor** menu in the Azure portal, select **Data Collection Rules**. Click the banner at the top of the screen to use the preview experience.
+Use the preview DCR experience in the Azure portal to view associations by DCR or by resource. From the **Monitor** menu in the Azure portal, select **Data Collection Rules**. Click the banner at the top of the screen to use the preview experience.
 
 ### By DCR
 
@@ -56,6 +55,8 @@ Click **Review & Associate** to create the association.
 ```powershell
  new-azdatacollectionruleassociation -TargetResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm -DataCollectionRuleId /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr -AssociationName my-vm-my-dcr
 ```
+
+## Create associations
 
 
 ### [ARM](#tab/arm)
@@ -250,7 +251,7 @@ Azure Monitor provides a simplified experience in the portal to quickly create a
 
 Click either **Assign Policy** or **Assign Initiative** depending on the type of definition you want to assign. This opens up the policy assignment blade where you can specify the scope and other parameters.
 
-:::image type="content" source="media/data-collection-rule-association-create-edit/assign-policy-page.png" alt-text="Screenshot of policies page for a data collection rule." lightbox="media/data-collection-rule-association-create-edit/assign-policy-page.png":::
+:::image type="content" source="media/data-collection-rule-association-create-edit/assign-policy-page.png" alt-text="Screenshot of new policy association page for a data collection rule." lightbox="media/data-collection-rule-association-create-edit/assign-policy-page.png":::
 
 | Setting | Description |
 |:---|:---|

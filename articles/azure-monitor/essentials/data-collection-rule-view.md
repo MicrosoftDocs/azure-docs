@@ -8,8 +8,11 @@ ms.date: 03/18/2024
 ms.reviewer: nikeist
 ---
 
-# View data collection rules in Azure Monitor
-There are multiple ways to view the DCRs in your subscription and the resources that they are associated with. 
+# Manage data collection rules (DCRs) and associations in Azure Monitor
+There are multiple ways to view the data collection rules (DCRs) in your subscription and the resources that they are associated with. 
+
+> [!NOTE]
+> This article describes how to view DCRs and their associations and to create new associations. It's more complex to create the DCR itself, so that process is described in [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
 
 ### [Portal](#tab/portal)
 To view your DCRs in the Azure portal, select **Data Collection Rules** under **Settings** on the **Monitor** menu.
