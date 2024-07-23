@@ -109,7 +109,7 @@ HTTP/1.1 200 OK
 Optional: ``key`` (If not specified, it implies any key.)
 Optional: ``label`` (If not specified, it implies any label.)
 
-:::zone target="docs" pivot="V23_11"
+:::zone target="docs" pivot="v23-11"
 Optional: ``tags`` (If not specified, it implies any tags.)
 
 ```http
@@ -139,8 +139,7 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 For additional options, see the "Filtering" section later in this article.
 
 
-:::zone target="docs" pivot="V23_10"
-:::zone target="docs" pivot="V23_11"
+:::zone target="docs" pivot="v23-10","v23-11"
 
 
 ## List key-values (conditionally)
@@ -187,7 +186,6 @@ HTTP/1.1 200 OK
 ```
 
 :::zone-end
-:::zone-end
 
 
 ## Pagination
@@ -221,7 +219,7 @@ Link: <{relative uri}>; rel="next"
 A combination of `key` and `label` filtering is supported.
 Use the optional `key` and `label` query string parameters.
 
-:::zone target="docs" pivot="V23_11"
+:::zone target="docs" pivot="v23-11"
 
 For API Versions greater than `2023-11-01`, filtering by`tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
 
@@ -252,7 +250,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Matches labels that start with **prod**|
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
 
-:::zone target="docs" pivot="V23_11"
+:::zone target="docs" pivot="v23-11"
 
 |Tags filter|Effect|
 |--|--|

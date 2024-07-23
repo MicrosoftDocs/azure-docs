@@ -2921,13 +2921,13 @@ groups:
   pivots:
   - id: v1
     title: "1.0"
-  - id: V22_11_preview
+  - id: v22-11-preview
     title: "2022-11-01-preview"
-  - id: V23_05_preview
+  - id: v23-05-preview
     title: "2023-05-01-preview"
-  - id: V23_10
+  - id: v23-10
     title: "2023-10-01"  
-  - id: V23_11
+  - id: v23-11
     title: "2023-11-01"
 # Owner: nicktrog
 - id: load-testing-config
