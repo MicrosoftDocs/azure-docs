@@ -18,7 +18,7 @@ ms.date: 07/26/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sometimes you have to convert content into token form, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
+Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
 For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens or characters. You can then reference and use these outputs with subsequent actions in your workflow.
 
