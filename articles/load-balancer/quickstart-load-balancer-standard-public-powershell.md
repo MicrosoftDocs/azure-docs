@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines. Also, you deploy other resources including Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 ## Prerequisites
