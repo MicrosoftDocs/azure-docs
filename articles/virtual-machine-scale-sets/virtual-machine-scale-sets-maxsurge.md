@@ -139,5 +139,5 @@ During a MaxSurge upgrade, new virtual machines are created to replace virtual m
 
 
 ## Next steps
-To learn more about upgrades for Virtual Machine Scale Sets, see [configure rolling upgrade policy](virtual-machine-scale-sets-set-configure-rolling-upgrades.md).
+To learn more about upgrades for Virtual Machine Scale Sets, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md).
 
