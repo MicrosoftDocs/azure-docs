@@ -116,8 +116,8 @@ indexing_policy = {
     "excludedPaths": [ 
         { 
             "path": "/\"_etag\"/?",
-            "path": "/coverImageVector",
-            "path": "/contentVector"
+            "path": "/coverImageVector/*",
+            "path": "/contentVector/*"
             
         } 
     ], 
