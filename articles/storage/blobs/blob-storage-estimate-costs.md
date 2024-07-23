@@ -47,7 +47,7 @@ To calculate the amount of TB of storage where reserved capacity begins to make 
 > [!NOTE]
 > Reserved capacity is tied to an access tier. Data that you move out of that tier is billed at the rate of the destination tier.
 
-## The cost to upload, download, and copy data
+## The cost to transfer data
 
 When you transfer data, you're billed for _write_ and _read_ operations. Your client utility might also use operations to list container contents or get blob properties. The AzCopy utility is optimized to upload blobs reliably and efficiently and can serve as a canonical example on which to base your cost estimates. See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md) for example calculations. 
 
