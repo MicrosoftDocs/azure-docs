@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 7/3/2024
+ms.date: 7/18/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---

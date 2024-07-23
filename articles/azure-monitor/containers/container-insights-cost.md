@@ -69,7 +69,7 @@ See [Data transformations in Container insights](./container-insights-transforma
 
 ## Configure pricing tiers
 
-[Basic Logs in Azure Monitor](../logs/basic-logs-configure.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you occasionally use for debugging and troubleshooting. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries meaning that they're ideal for data that you require but that you access infrequently. 
+[Basic Logs in Azure Monitor](../logs/logs-table-plans.md) offer a significant cost discount for ingestion of data in your Log Analytics workspace for data that that you occasionally use for debugging and troubleshooting. Tables configured for basic logs offer a significant cost discount for data ingestion in exchange for a cost for log queries meaning that they're ideal for data that you require but that you access infrequently. 
 
 [ContainerLogV2](container-insights-logs-schema.md) can be configured for basic logs which can give you significant cost savings if you query the data infrequently. Using [transformations](#transformations), you can specify data that should be sent to alternate tables configured for basic logs. See [Data transformations in Container insights](./container-insights-transformations.md) for an example of this strategy.
 
