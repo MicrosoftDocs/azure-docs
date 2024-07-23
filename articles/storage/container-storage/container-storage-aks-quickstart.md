@@ -13,6 +13,9 @@ ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-con
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 
+> [!IMPORTANT]
+> Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads.
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
