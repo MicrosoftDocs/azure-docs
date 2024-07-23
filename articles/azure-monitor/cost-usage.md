@@ -78,7 +78,7 @@ Rather than manually analyzing your costs in the Azure portal, you can automate 
 
 ### Export usage details
 
-To gain deeper understanding of your usage and costs, create exports using **Cost Analysis**. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-export-acm-data.md) to learn how to automatically create a daily export you can use for regular analysis.
+To gain deeper understanding of your usage and costs, create exports using **Cost Analysis**. See [Tutorial: Create and manage exported data](../cost-management-billing/costs/tutorial-improved-exports.md) to learn how to automatically create a daily export you can use for regular analysis.
 
 These exports are in CSV format and contain a list of daily usage (billed quantity and cost) by resource, [billing meter](cost-meters.md), and several other fields such as [AdditionalInfo](../cost-management-billing/automate/understand-usage-details-fields.md#list-of-fields-and-descriptions). You can use Microsoft Excel to do rich analyses of your usage not possible in the **Cost Analytics** experiences in the portal.
 

@@ -133,7 +133,6 @@ If you need to export to a storage account behind the firewall for security and 
 
 Enable **Allow trusted Azure services access** on the storage account. You can turn that on while configuring the firewall of the storage account, from the Networking page. Here's a screenshot showing the page.
 
-UPDATE
 :::image type="content" source="./media/tutorial-improved-exports/allow-trusted-access.png" alt-text="Screenshot showing Allow Azure services on the trusted services list exception option." lightbox="./media/tutorial-improved-exports/allow-trusted-access.png" :::
 
 If you missed enabling that setting, you can easily do so from the **Exports** page when creating a new export.
