@@ -12,7 +12,9 @@ ms.date: 07/05/2024
 
 # Quickstart: Enable Message Analysis with Azure OpenAI
 
-Azure Communication Services now enables you to ...
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-document.md)]
+
+Azure Communication Services now enables you to receive Message Analysis results using your own Azure OpenAI resource.
 
 ## Prerequisites
 
