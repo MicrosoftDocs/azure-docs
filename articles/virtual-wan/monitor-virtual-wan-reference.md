@@ -26,10 +26,9 @@ The following table lists the metrics available for the Microsoft.Network/virtua
 
 | Metric | Description|
 | --- | --- |
-| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: VNet to VNet (same hub and interhub) and VPN/ExpressRoute branch to VNet (interhub). If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
-| **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more details on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
-| **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2 (which supports 2000 spoke VMs), and 1000 VMs are deployed across spoke VNets, then this metric's value will be approximately 50%.  |
-
+| **Virtual Hub Data Processed** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. |
+| **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more information on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
+| **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2, which supports 2,000 spoke VMs, and 1,000 VMs are deployed across spoke virtual networks, this metric's value is approximately 50%.  |
 
 ### <a name="s2s-metrics"></a>Supported metrics for microsoft.network/vpngateways
 
@@ -64,7 +63,7 @@ The following table lists the metrics available for the microsoft.network/vpngat
 | **BGP Peer Status** | BGP connectivity status per peer and per instance.|
 | **BGP Routes Advertised** | Number of routes advertised per peer and per instance.|
 | **BGP Routes Learned** | Number of routes learned per peer and per instance.|
-| **VNET Address Prefix Count** | Number of VNet address prefixes that are used/advertised by the gateway.|
+| **VNET Address Prefix Count** | Number of virtual network address prefixes that the gateway uses and advertises.|
 
 You can review per peer and instance metrics by selecting **Apply splitting** and choosing the preferred value.
 
@@ -120,7 +119,7 @@ The following table lists the metrics available for the microsoft.network/expres
 
 ### ExpressRoute gateway diagnostics
 
-In Azure Virtual WAN, ExpressRoute gateway metrics can be exported as logs via a diagnostic setting.
+In Azure Virtual WAN, ExpressRoute gateway metrics can be exported as logs by using a diagnostic setting.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -168,7 +167,7 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 | --- | --- |
 | **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
-| **P2S Diagnostic Logs** | These are User VPN P2S (Point-to-site) configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
+| **P2S Diagnostic Logs** | These events are User VPN P2S (Point-to-site) configuration and client events. They include client connect/disconnect, VPN client address allocation, and other diagnostics.|
 
 ### <a name="s2s-diagnostic"></a>Supported resource logs for microsoft.network/vpngateways
 
@@ -176,10 +175,11 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 
 | Metric | Description|
 | --- | --- |
-| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and additional diagnostics.|
-| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and additional diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device.|
-| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, and additional diagnostics. |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, and other diagnostics.|
+| **Tunnel Diagnostic Logs** | IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, and other diagnostics. For connect and disconnect events, these logs also display the remote IP address of the corresponding on-premises VPN device.|
+| **Route Diagnostic Logs** | Logs related to events for static routes, BGP, route updates, and other diagnostics. |
 | **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
+
 
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]

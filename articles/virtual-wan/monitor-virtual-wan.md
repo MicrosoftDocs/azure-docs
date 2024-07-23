@@ -59,7 +59,6 @@ You can view metrics for Virtual WAN by using PowerShell. To query, use the foll
 $MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Sum
 ```
 
-
 ```azurepowershell-interactive
 $MetricInformation.Data
 ```
@@ -68,11 +67,28 @@ $MetricInformation.Data
 - **Metric Name**. Refers to the name of the metric you're querying, which in this case is called `VirtualHubDataProcessed`. This metric shows all the data that the virtual hub router processed in the selected time period of the hub.  
 - **Time Grain**. Refers to the frequency at which you want to see the aggregation. In the current command, you see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
 - **Start Time and End Time**. This time is based on UTC. Ensure that you're entering UTC values when inputting these parameters. If these parameters aren't used, the past one hour's worth of data is shown by default.  
-- **Sum Aggregation Type**. The **sum** aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. For example, if you set the Time granularity to 5 minutes, each data point corresponds to the number of bytes sent in that five minute interval. To convert this value to Gbps, you can divide this number by 37500000000. Based on the virtual hub's [capacity](hub-settings.md#capacity), the hub router can support between 3 Gbps and 50 Gbps. The **Max** and **Min** aggregation types aren't meaningful at this time. 
+- **Sum Aggregation Type**. The **sum** aggregation type shows you the total number of bytes that traversed the virtual hub router during a selected time period. For example, if you set the Time granularity to 5 minutes, each data point corresponds to the number of bytes sent in that five-minute interval. To convert this value to Gbps, you can divide this number by 37500000000. Based on the virtual hub's [capacity](hub-settings.md#capacity), the hub router can support between 3 Gbps and 50 Gbps. The **Max** and **Min** aggregation types aren't meaningful at this time. 
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Virtual WAN, see [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md#resource-logs).
+
+### <a name="schemas"></a>Schemas
+
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
+
+When you review any metrics through Log Analytics, the output contains the following columns:
+
+|**Column**|**Type**|**Description**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (metric values are pushed every minute)|
+|Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
+|Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
+|Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
+|Average|real|Equal to (Minimum + Maximum)/2|
+|Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
+
+
 
 ### Log Analytics sample query
 
@@ -95,6 +111,41 @@ In order to execute the query, you have to open the Log Analytics resource you c
 :::image type="content" source="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png" alt-text="Screenshot of Log Analytics Query samples." lightbox="./media/monitor-virtual-wan-reference/log-analytics-query-samples.png":::
 
 For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, you can investigate the diagnostic data without manually writing any Log Analytics query.
+
+### <a name="create-diagnostic"></a>Create diagnostic setting to view logs
+
+The following steps help you create, edit, and view diagnostic settings:
+
+1. In the portal, navigate to your Virtual WAN resource, then select **Hubs** in the **Connectivity** group.
+
+   :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub.png" alt-text="Screenshot that shows the Hub selection in the vWAN Portal." lightbox="./media/monitor-virtual-wan-reference/select-hub.png":::
+
+1. Under the **Connectivity** group on the left, select the gateway for which you want to examine diagnostics:
+
+   :::image type="content" source="./media/monitor-virtual-wan-reference/select-hub-gateway.png" alt-text="Screenshot that shows the Connectivity section for the hub." lightbox="./media/monitor-virtual-wan-reference/select-hub-gateway.png":::
+
+1. On the right part of the page, select **Monitor Gateway** and then **Logs**.
+
+   :::image type="content" source="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png" alt-text="Screenshot for Select View in Azure Monitor for Logs." lightbox="./media/monitor-virtual-wan-reference/view-hub-gateway-logs.png":::
+
+1. In this page, you can create a new diagnostic setting (**+Add diagnostic setting**) or edit an existing one (**Edit setting**). You can choose to send the diagnostic logs to Log Analytics (as shown in the following example), stream to an event hub, send to a 3rd-party solution, or archive to a storage account.
+
+    :::image type="content" source="./media/monitor-virtual-wan-reference/select-gateway-settings.png" alt-text="Screenshot for Select Diagnostic Log settings." lightbox="./media/monitor-virtual-wan-reference/select-gateway-settings.png":::
+1. After clicking **Save**, you should start seeing logs appear in this log analytics workspace within a few hours. 
+1. To monitor a **secured hub (with Azure Firewall)**, then diagnostics and logging configuration must be done from accessing the **Diagnostic Setting** tab:
+
+      :::image type="content" source="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings." lightbox="./media/monitor-virtual-wan-reference/firewall-diagnostic-settings.png" :::
+
+> [!IMPORTANT]
+> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+
+## <a name="azure-firewall"></a>Monitoring secured hub (Azure Firewall)
+
+If you chose to secure your virtual hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources.
+For every Azure Virtual WAN you secure and convert to a Secured Hub, Azure Firewall creates an explicit firewall resource object. The object is in the resource group where the hub is located.
+
+:::image type="content" source="./media/monitor-virtual-wan-reference/firewall-resources-portal.png" alt-text="Screenshot shows a Firewall resource in the vWAN hub resource group." lightbox="./media/monitor-virtual-wan-reference/firewall-resources-portal.png":::
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
