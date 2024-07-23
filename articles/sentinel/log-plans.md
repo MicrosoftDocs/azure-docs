@@ -64,7 +64,9 @@ This category encompasses logs whose individual security value is limited but ar
 
 Some examples of secondary data log sources are cloud storage access logs, NetFlow logs, TLS/SSL certificate logs, firewall logs, proxy logs, and IoT logs. To learn more about how each of these sources brings value to security detections without being needed all the time, see [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
-Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan described later in this article. 
+Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan (now in Preview) described later in this article.
+
+For a non-preview option, you can use [**Basic logs**](#basic-logs-plan) instead.
 
 ## Log management plans
 
