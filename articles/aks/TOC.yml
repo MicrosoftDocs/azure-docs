@@ -372,8 +372,10 @@
               href: gpu-multi-instance.md
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
@@ -769,8 +771,10 @@
       items:
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
