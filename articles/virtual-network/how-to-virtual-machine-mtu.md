@@ -182,11 +182,27 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Verify the MTU size on the network interface using `PING`. For Linux, use the -M, -s, and -c flags. The -M option instructs ping to NOT fragment, -s sets the packet size, and -c sets the number of pings to send. To determine the packet size, subtract 28 from the MTU setting of 3900.
     
-```bash
+    ```bash
     ping 10.0.0.5 -c 10 -M do -s 3872
     ```
     
     ```output
+    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
+    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
+    3880 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=3.70 ms
+    3880 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=1.08 ms
+    3880 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=1.51 ms
+    3880 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=1.25 ms
+    3880 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=1.29 ms
+    3880 bytes from 10.0.0.5: icmp_seq=6 ttl=64 time=1.05 ms
+    3880 bytes from 10.0.0.5: icmp_seq=7 ttl=64 time=5.67 ms
+    3880 bytes from 10.0.0.5: icmp_seq=8 ttl=64 time=1.92 ms
+    3880 bytes from 10.0.0.5: icmp_seq=9 ttl=64 time=2.72 ms
+    3880 bytes from 10.0.0.5: icmp_seq=10 ttl=64 time=1.20 ms
+
+    --- 10.0.0.5 ping statistics ---
+    10 packets transmitted, 10 received, 0% packet loss, time 9014ms
+    rtt min/avg/max/mdev = 1.051/2.138/5.666/1.426 ms
     ```
 
 1. Sign-in to **vm-2**.
@@ -206,6 +222,51 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     interfaceName: Default interface
     Test started ....................................................................................................................................................................................................
     3900
+    ```
+
+1. Verify the MTU size on the network interface using `PING`. For Linux, use the -M, -s, and -c flags. The -M option instructs ping to NOT fragment, -s sets the packet size, and -c sets the number of pings to send. To determine the packet size, subtract 28 from the MTU setting of 3900.
+    
+    ```bash
+    ping 10.0.0.5 -c 10 -M do -s 3872
+    ```
+    
+    ```output
+    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
+    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
+    3880 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=3.70 ms
+    3880 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=1.08 ms
+    3880 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=1.51 ms
+    3880 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=1.25 ms
+    3880 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=1.29 ms
+    3880 bytes from 10.0.0.5: icmp_seq=6 ttl=64 time=1.05 ms
+    3880 bytes from 10.0.0.5: icmp_seq=7 ttl=64 time=5.67 ms
+    3880 bytes from 10.0.0.5: icmp_seq=8 ttl=64 time=1.92 ms
+    3880 bytes from 10.0.0.5: icmp_seq=9 ttl=64 time=2.72 ms
+    3880 bytes from 10.0.0.5: icmp_seq=10 ttl=64 time=1.20 ms
+
+    --- 10.0.0.5 ping statistics ---
+    10 packets transmitted, 10 received, 0% packet loss, time 9014ms
+    rtt min/avg/max/mdev = 1.051/2.138/5.666/1.426 ms
+    ```
+
+    An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+
+    ```output
+    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
+    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+
+    --- 10.0.0.5 ping statistics ---
+    10 packets transmitted, 0 received, +10 errors, 100% packet loss, time 9248ms
     ```
 
 # [Windows](#tab/windows)
