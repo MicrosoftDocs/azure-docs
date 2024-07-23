@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## July 2024
 
-* [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in all US Gov regions](configure-customer-managed-keys.md#supported-regions)
+* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md#supported-regions) is now available in all US Gov regions
 
 * [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
 
