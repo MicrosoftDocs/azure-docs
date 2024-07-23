@@ -15,15 +15,17 @@ We generally recommend using the most recent versions of the agents. The [versio
 
 ## Version 1.18.x (July 2024)
 
-- Various enhancements and bug fixes
+- Fixed `logCollector` pod restarts
+- Updated to Microsoft Go v1.22.5
+- Other bug fixes
 
 ## Version 1.17.x (June 2024)
 
-- Migrated auto-upgrade to use latest Helm release
+- Upgraded to use [Microsoft Go 1.22 to be FIPS compliant](https://github.com/microsoft/go/blob/microsoft/main/eng/doc/fips/README.md#tls-with-fips-compliant-settings)
 
 ## Version 1.16.x (May 2024)
 
-- Various enhancements and bug fixes
+- Migrated to use Microsoft Go w/ OpenSSL and fixed some vulnerabilities
 
 ## Version 1.15.3 (March 2024)
 
