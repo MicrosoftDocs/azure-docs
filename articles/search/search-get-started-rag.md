@@ -41,7 +41,7 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
     1. On the System assigned tab, set status to **On**.
 
-1. Configure Azure AI Search for role-based access and assign roles:
+1. Configure Azure AI Search for role-based access:
 
     1. In the Azure portal, find your Azure AI Search service.
 
@@ -49,9 +49,16 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
     1. On the left menu, select **Access control (IAM)**.
 
-    1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**, **Search Service Contributor**.
+1. Assign roles:
 
-1. Assign yourself to the **Cognitive Services OpenAI User** role on Azure OpenAI. This is the only role you need for query workloads.
+    1. Add the following role assignments for the Azure OpenAI managed identity: 
+
+       - **Search Index Data Reader**
+       - **Search Service Contributor**
+
+    1. Assign yourself to a role on Azure OpenAI. In this quickstart, the requests to Azure OpenAI are sent on your behalf: 
+
+       - **Cognitive Services OpenAI User**
 
 It can take several minutes for permissions to take effect.
 
@@ -140,11 +147,10 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     AZURE_DEPLOYMENT_MODEL: str = "gpt-35-turbo"
    ```
 
-1. Specify query parameters. The query is a keyword search using semantic ranking. The search engine returns up to 50 matches, but the model returns just the top 5 in the response. If you can't enable semantic ranking on your search service, set the value to false.
+1. Run the following code to set query parameters. The query is a keyword search using semantic ranking. In a keyword search, the search engine returns up to 50 matches, but only the top 5 are provided to the model. If you can't enable semantic ranking on your search service, set the value to false.
 
    ```python
    # Set query parameters for grounding the conversation on your search index
-    k=50
     search_type="text"
     use_semantic_reranker=True
     sources_to_include=5
@@ -157,7 +163,6 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     from azure.core.credentials_async import AsyncTokenCredential
     from azure.identity.aio import get_bearer_token_provider
     from azure.search.documents.aio import SearchClient
-    from azure.search.documents.models import VectorizableTextQuery, HybridSearch
     from openai import AsyncAzureOpenAI
     from enum import Enum
     from typing import List, Optional
@@ -184,7 +189,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
         HYBRID = "hybrid"
     
     # This function retrieves the selected fields from the search index
-    async def get_sources(search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5, k: int = 50) -> List[str]:
+    async def get_sources(search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5) -> List[str]:
         search_type == SearchType.TEXT,
         response = await search_client.search(
             search_text=query,
@@ -218,8 +223,8 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
                 "content": message
             })
     
-        async def append_grounded_message(self, search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5, k: int = 50):
-            sources = await get_sources(search_client, query, search_type, use_semantic_reranker, sources_to_include, k)
+        async def append_grounded_message(self, search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5):
+            sources = await get_sources(search_client, query, search_type, use_semantic_reranker, sources_to_include)
             sources_formatted = "\n".join([f'{document["HotelName"]}:{document["Description"]}:{document["Tags"]}' for document in sources])
             self.append_message(role="user", message=GROUNDED_PROMPT.format(query=query, sources=sources_formatted))
             self.search_results.append(
@@ -258,8 +263,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
             query="Can you recommend a few hotels near the ocean with beach access and good views",
             search_type=SearchType(search_type),
             use_semantic_reranker=use_semantic_reranker,
-            sources_to_include=sources_to_include,
-            k=k)
+            sources_to_include=sources_to_include)
         await chat_thread.get_openai_response(openai_client=openai_client, model=chat_deployment)
     
     print(chat_thread.get_last_message()["content"])
