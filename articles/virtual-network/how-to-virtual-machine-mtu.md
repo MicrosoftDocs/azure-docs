@@ -205,6 +205,26 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     rtt min/avg/max/mdev = 1.051/2.138/5.666/1.426 ms
     ```
 
+    An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+
+    ```output
+    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
+    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+    ping: local error: message too long, mtu=1500
+
+    --- 10.0.0.5 ping statistics ---
+    10 packets transmitted, 0 received, +10 errors, 100% packet loss, time 9248ms
+    ```
+
 1. Sign-in to **vm-2**.
 
 1. Use the following example to run the Linux shell script to test the largest MTU size that can be used for a specific network path:
@@ -227,24 +247,24 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 1. Verify the MTU size on the network interface using `PING`. For Linux, use the -M, -s, and -c flags. The -M option instructs ping to NOT fragment, -s sets the packet size, and -c sets the number of pings to send. To determine the packet size, subtract 28 from the MTU setting of 3900.
     
     ```bash
-    ping 10.0.0.5 -c 10 -M do -s 3872
+    ping 10.0.0.4 -c 10 -M do -s 3872
     ```
     
     ```output
-    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
-    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
-    3880 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=3.70 ms
-    3880 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=1.08 ms
-    3880 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=1.51 ms
-    3880 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=1.25 ms
-    3880 bytes from 10.0.0.5: icmp_seq=5 ttl=64 time=1.29 ms
-    3880 bytes from 10.0.0.5: icmp_seq=6 ttl=64 time=1.05 ms
-    3880 bytes from 10.0.0.5: icmp_seq=7 ttl=64 time=5.67 ms
-    3880 bytes from 10.0.0.5: icmp_seq=8 ttl=64 time=1.92 ms
-    3880 bytes from 10.0.0.5: icmp_seq=9 ttl=64 time=2.72 ms
-    3880 bytes from 10.0.0.5: icmp_seq=10 ttl=64 time=1.20 ms
+    azureuser@vm-2:~/GetPathMTU$ ping 10.0.0.4 -c 10 -M do -s 3872
+    PING 10.0.0.4 (10.0.0.4) 3872(3900) bytes of data.
+    3880 bytes from 10.0.0.4: icmp_seq=1 ttl=64 time=3.70 ms
+    3880 bytes from 10.0.0.4: icmp_seq=2 ttl=64 time=1.08 ms
+    3880 bytes from 10.0.0.4: icmp_seq=3 ttl=64 time=1.51 ms
+    3880 bytes from 10.0.0.4: icmp_seq=4 ttl=64 time=1.25 ms
+    3880 bytes from 10.0.0.4: icmp_seq=5 ttl=64 time=1.29 ms
+    3880 bytes from 10.0.0.4: icmp_seq=6 ttl=64 time=1.05 ms
+    3880 bytes from 10.0.0.4: icmp_seq=7 ttl=64 time=5.67 ms
+    3880 bytes from 10.0.0.4: icmp_seq=8 ttl=64 time=1.92 ms
+    3880 bytes from 10.0.0.4: icmp_seq=9 ttl=64 time=2.72 ms
+    3880 bytes from 10.0.0.4: icmp_seq=10 ttl=64 time=1.20 ms
 
-    --- 10.0.0.5 ping statistics ---
+    --- 10.0.0.4 ping statistics ---
     10 packets transmitted, 10 received, 0% packet loss, time 9014ms
     rtt min/avg/max/mdev = 1.051/2.138/5.666/1.426 ms
     ```
@@ -252,8 +272,8 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
-    PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
+    azureuser@vm-2:~/GetPathMTU$ ping 10.0.0.4 -c 10 -M do -s 3872
+    PING 10.0.0.4 (10.0.0.4) 3872(3900) bytes of data.
     ping: local error: message too long, mtu=1500
     ping: local error: message too long, mtu=1500
     ping: local error: message too long, mtu=1500
@@ -265,7 +285,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ping: local error: message too long, mtu=1500
     ping: local error: message too long, mtu=1500
 
-    --- 10.0.0.5 ping statistics ---
+    --- 10.0.0.4 ping statistics ---
     10 packets transmitted, 0 received, +10 errors, 100% packet loss, time 9248ms
     ```
 
@@ -415,6 +435,33 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     ```
     
     ```output
+    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3872
+
+    Pinging 10.0.0.5 with 3872 bytes of data:
+    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
+    Reply from 10.0.0.5: bytes=3872 time<1ms TTL=128
+    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
+    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
+
+    Ping statistics for 10.0.0.5:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+    ```
+
+An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+
+    ```output
+    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3872
+
+    Pinging 10.0.0.5 with 3872 bytes of data:
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+
+    Ping statistics for 10.0.0.5:
+        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
 1. Use `netsh` to determine the subinterface name for the subsequent commands.
@@ -467,6 +514,42 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
                                               (ms)                      (B)
     ------           -------                   ------- ------           -------
     vm-2             10.0.0.4                        1 Success             3892
+    ```
+
+1. Verify the MTU size on the network interface using `PING`. For Windows, use -f and -l. The -f option instructs ping to NOT fragment and -l sets the packet size. To determine the packet size, subtract 28 from the MTU setting of 3900.
+
+    ```powershell
+    ping 10.0.0.4 -f -l 3872
+    ```
+    
+    ```output
+    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3872
+
+    Pinging 10.0.0.4 with 3872 bytes of data:
+    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
+    Reply from 10.0.0.4: bytes=3872 time<1ms TTL=128
+    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
+    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
+
+    Ping statistics for 10.0.0.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+    ```
+
+An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
+
+    ```output
+    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3872
+
+    Pinging 10.0.0.4 with 3872 bytes of data:
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+    Packet needs to be fragmented but DF set.
+
+    Ping statistics for 10.0.0.4:
+        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
 1. Use `netsh` to determine the subinterface name for the subsequent commands.
