@@ -54,7 +54,7 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
     ```
 
     > [!TIP]
-    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
+    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.KubernetesConfiguration" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
 
 
 ### Create a new connection
