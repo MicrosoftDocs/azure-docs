@@ -98,7 +98,8 @@ This section contains an example of what that data would look like for each even
 > Possible values for `Status` are `Sent`, `Delivered`, `Read` and `Failed`.
 
 
-### Microsoft.Communication.AdvancedMessageAnalysisCompleted  event
+### Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview) event
+
 
 ```json
 [{
