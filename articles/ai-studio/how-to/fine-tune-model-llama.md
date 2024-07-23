@@ -33,7 +33,7 @@ The following models are available in Azure Marketplace for Llama 3.1 when fine-
 - `Llama-3.1-80B-Instruct` (preview)
 - `LLama-3.1-8b-Instruct` (preview)
 ![IMPORTANT]
-> At this time we can not do fine-tuning for Llama 3.1 with context length of 128K. The current context length is limited to 65k.
+> At this time we are not able to do fine-tuning for Llama 3.1 with sequence length of 128K. 
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -192,7 +192,7 @@ To fine-tune a LLama 3.1 model:
 1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.
 
     > [!NOTE]
-    > If the you has their training/validation files in a credential less datastore, they will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. That would be this setting on the "Datastore" page, after clicking "Update authentication" > Select the following option: 
+    > If you have your training/validation files in a credential less datastore, you will need to allow workspace managed identity access to their datastore in order to proceed with MaaS finetuning with a credential less storage. On the "Datastore" page, after clicking "Update authentication" > Select the following option: 
 	
 	![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](../media/how-to/fine-tune/llama/credentials.png)
 
