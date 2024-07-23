@@ -139,9 +139,7 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 For additional options, see the "Filtering" section later in this article.
 
 
-:::zone target="docs" pivot="v23-10"
-:::zone target="docs" pivot="v23-11"
-
+:::zone target="docs" pivot="v23-10,v23-11"
 
 ## List key-values (conditionally)
 
@@ -186,7 +184,6 @@ or
 HTTP/1.1 200 OK
 ```
 
-:::zone-end
 :::zone-end
 
 ## Pagination
