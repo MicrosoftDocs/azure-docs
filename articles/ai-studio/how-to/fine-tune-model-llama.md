@@ -30,8 +30,8 @@ The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md
 
 The following models are available in Azure Marketplace for Llama 3.1 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Llama-3.1-80B-Instruct` (preview)
-- `LLama-3.1-8b-Instruct` (preview)
+- `Meta-Llama-3.1-80B-Instruct` (preview)
+- `Meta-LLama-3.1-8b-Instruct` (preview)
 ![IMPORTANT]
 > At this time we are not able to do fine-tuning for Llama 3.1 with sequence length of 128K. 
 
