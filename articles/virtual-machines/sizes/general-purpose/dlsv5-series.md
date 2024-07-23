@@ -1,40 +1,32 @@
 ---
-title: Dplsv6 size series
-description: Information on and specifications of the Dplsv6-series sizes
-author: tomvcassidy
+title: Dlsv5 size series
+description: Information on and specifications of the Dlsv5-series sizes
+author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.custom:
-  - build-2024
 ms.topic: conceptual
-ms.date: 07/22/2024
-ms.author: tomcassidy
+ms.date: 07/18/2024
+ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
 
-# Dplsv6 sizes series
+# Dlsv5 sizes series
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Client VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
-
-> [!IMPORTANT]
-> Azure Virtual Machine series Dplsv6 is currently in **preview**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> For more information and to sign up for the preview, please [visit our announcement and follow the link to signup](https://aka.ms/Cobalt100-VM-Preview-Signup).
-
-[!INCLUDE [dplsv6-summary](./includes/dplsv6-series-summary.md)]
+[!INCLUDE [dlsv5-summary](./includes/dlsv5-series-summary.md)]
 
 ## Host specifications
-[!INCLUDE [dplsv6-series-specs](./includes/dplsv6-series-specs.md)]
+[!INCLUDE [dlsv5-series-specs](./includes/dlsv5-series-specs.md)]
 
-## Feature Support
-- [Premium Storage](../../premium-storage-performance.md): Supported 
-- [Premium Storage caching](../../premium-storage-performance.md): Supported 
-- [Live Migration](../../maintenance-and-updates.md): Supported 
-- [Memory Preserving Updates](../../maintenance-and-updates.md): Supported 
-- [VM Generation Support](../../generation-2.md): Generation 2 
-- [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported 
-- [Ephemeral OS Disks](../../ephemeral-os-disks.md): Not supported
-- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
+## Feature support
+Premium Storage: Supported<br>
+Premium Storage caching: Supported<br>
+Live Migration: Supported<br>
+Memory Preserving Updates: Supported<br>
+VM Generation Support: Generation 1 and 2<br>
+Accelerated Networking: Required <br>
+Ephemeral OS Disks: Not Supported <br>
+Nested Virtualization: Supported <br>
+<br> 
 
 ## Sizes in series
 
@@ -42,16 +34,16 @@ ms.reviewer: mattmcinnes
 
 vCPUs (Qty.) and Memory for each size
 
-| Size Name | vCPUs (Qty.) | Memory (GiB) |
+| Size Name | vCPUs (Qty.) | Memory (GB) |
 | --- | --- | --- |
-| Standard_D2pls_v6 | 2 | 4 |
-| Standard_D4pls_v6 | 4 | 8 |
-| Standard_D8pls_v6 | 8 | 16 |
-| Standard_D16pls_v6 | 16 | 32 |
-| Standard_D32pls_v6 | 32 | 64 |
-| Standard_D48pls_v6 | 48 | 96 |
-| Standard_D64pls_v6 | 64 | 128 |
-| Standard_D96pls_v6 | 96 | 192 |
+| Standard_D2ls_v5 | 2 | 4 |
+| Standard_D4ls_v5 | 4 | 8 |
+| Standard_D8ls_v5 | 8 | 16 |
+| Standard_D16ls_v5 | 16 | 32 |
+| Standard_D32ls_v5 | 32 | 64 |
+| Standard_D48ls_v5 | 48 | 96 |
+| Standard_D64ls_v5 | 64 | 128 |
+| Standard_D96ls_v5 | 96 | 192 |
 
 #### VM Basics resources
 - [What are vCPUs (Qty.)](../../../virtual-machines/managed-disks-overview.md)
@@ -62,24 +54,26 @@ vCPUs (Qty.) and Memory for each size
 Local (temp) storage info for each size
 
 > [!NOTE]
-> No local storage present in this series. For similar sizes with local storage, see the [Dpldsv6-series](./dpldsv6-series.md).
+> No local storage present in this series. For similar sizes with local storage, see the [Dldsv5-series](./dldsv5-series.md).
 >
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](../../azure-vms-no-temp-disk.yml).
+
+
 
 ### [Remote Storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 
-| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Storage IOPS | Uncached Special<sup>2</sup> Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
+| Size Name | Max Remote Storage (Qty.) | Uncached Storage IOPS | Uncached Storage Speed (MBps) | Uncached Storage Burst<sup>1</sup> IOPS | Uncached Storage Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Storage IOPS | Uncached Special<sup>2</sup> Storage Speed (MBps) | Uncached Burst<sup>1</sup> Special2 Storage IOPS | Uncached Burst<sup>1</sup> Special Storage Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2pls_v6 | 8 | 3750 | 106 | 10000 | 1250 | 4163 | 124 | 11100 | 1463 |
-| Standard_D4pls_v6 | 12 | 6400 | 212 | 20000 | 1250 | 8333 | 248 | 26040 | 1463 |
-| Standard_D8pls_v6 | 24 | 12800 | 424 | 20000 | 1250 | 16666 | 496 | 26040 | 1463 |
-| Standard_D16pls_v6 | 48 | 25600 | 848 | 40000 | 1250 | 33331 | 992 | 52080 | 1463 |
-| Standard_D32pls_v6 | 64 | 51200 | 1696 | 80000 | 2000 | 66662 | 1984 | 104160 | 2340 |
-| Standard_D48pls_v6 | 64 | 76800 | 2544 | 80000 | 3000 | 99994 | 2976 | 104160 | 3510 |
-| Standard_D64pls_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133325 | 3969 | 133325 | 4680 |
-| Standard_D96pls_v6 | 64 | 153600 | 5000 | 153600 | 5000 | 199987 | 5850 | 199987 | 5953 |
+| Standard_D2ls_v5 | 4 | 3750 | 85 | 10000 | 1200 |  |  |  |  |
+| Standard_D4ls_v5 | 8 | 6400 | 145 | 20000 | 1200 |  |  |  |  |
+| Standard_D8ls_v5 | 16 | 12800 | 290 | 20000 | 1200 |  |  |  |  |
+| Standard_D16ls_v5 | 32 | 25600 | 600 | 40000 | 1200 |  |  |  |  |
+| Standard_D32ls_v5 | 32 | 51200 | 865 | 80000 | 2000 |  |  |  |  |
+| Standard_D48ls_v5 | 32 | 76800 | 1315 | 80000 | 3000 |  |  |  |  |
+| Standard_D64ls_v5 | 32 | 80000 | 1735 | 80000 | 3000 |  |  |  |  |
+| Standard_D96ls_v5 | 32 | 80000 | 2600 | 80000 | 4000 |  |  |  |  |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -94,27 +88,25 @@ Remote (uncached) storage info for each size
 - Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
 - To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
+
 ### [Network](#tab/sizenetwork)
 
 Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_D2pls_v6 | 2 | 12500 |
-| Standard_D4pls_v6 | 2 | 12500 |
-| Standard_D8pls_v6 | 4 | 15000 |
-| Standard_D16pls_v6 | 8 | 15000 |
-| Standard_D32pls_v6 | 8 | 20000 |
-| Standard_D48pls_v6 | 8 | 30000 |
-| Standard_D64pls_v6 | 8 | 40000 |
-| Standard_D96pls_v6 | 8 | 60000 |
+| Standard_D2ls_v5 | 2 | 12500 |
+| Standard_D4ls_v5 | 2 | 12500 |
+| Standard_D8ls_v5 | 4 | 12500 |
+| Standard_D16ls_v5 | 8 | 12500 |
+| Standard_D32ls_v5 | 8 | 16000 |
+| Standard_D48ls_v5 | 8 | 24000 |
+| Standard_D64ls_v5 | 8 | 30000 |
+| Standard_D96ls_v5 | 8 | 35000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)
 - [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
-
-> [!NOTE]
-> Accelerated networking is required and turned on by default on all Dplsv6 machines.
 
 #### Table definitions
 - Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see [Virtual machine network bandwidth](../../../virtual-network/virtual-machine-network-throughput.md)
