@@ -10,7 +10,7 @@ ms.date: 07/07/2024
 
 # Install the Microsoft Sentinel solution for SAP applications
 
-This article shows you how to deploy the Microsoft Sentinel solution for SAP applications. The solution includes the SAP data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats.
+This article shows you how to deploy the Microsoft Sentinel solution for SAP applications in your Microsoft Sentinel workspace. The solution includes the SAP data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats.
 
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
 
@@ -25,6 +25,8 @@ To deploy the Microsoft Sentinel solution for SAP applications from the content 
 - A Microsoft Sentinel instance.
 - A defined Microsoft Sentinel workspace, and read and write permissions to the workspace.
 - [A Microsoft Sentinel for SAP data connector agent set up.](deploy-data-connector-agent-container.md)
+
+Make sure that you've also reviewed the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
 ## Deploy the solution from the content hub
 
