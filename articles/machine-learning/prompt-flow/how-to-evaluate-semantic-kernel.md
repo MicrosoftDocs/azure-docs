@@ -179,7 +179,7 @@ This will present you with a detailed table, line-by-line comparison of the resu
 > Follow along with our documentations to get started!
 > And keep an eye out for more integrations.
 
-If you’re interested in learning more about how you can use Planners in Semantic Kernel, we recommend the article below we created.
+If you're interested in learning more about how you can use Planners in Semantic Kernel, we recommend that you read the following article:
 
 * [Learn more about planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
 
