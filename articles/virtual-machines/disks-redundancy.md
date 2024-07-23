@@ -57,4 +57,4 @@ Except for more write latency, disks using ZRS are identical to disks using LRS,
 
 - To learn how to create a ZRS disk, see [Deploy a ZRS managed disk](disks-deploy-zrs.md).
 - To convert an LRS disk to ZRS, see [Convert a disk from LRS to ZRS](disks-migrate-lrs-zrs.md).
-- More about [force detach](https://learn.microsoft.com/en-us/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes)
+- More about [force detach](https://learn.microsoft.com/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true)
