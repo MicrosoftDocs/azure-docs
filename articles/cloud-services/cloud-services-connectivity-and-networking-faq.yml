@@ -4,7 +4,7 @@ metadata:
   description: This article lists the frequently asked questions about connectivity and networking for Microsoft Azure Cloud Services.
   ms.topic: faq
   ms.service: cloud-services
-  ms.date: 02/21/2023
+  ms.date: 07/23/2024
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
@@ -13,7 +13,7 @@ title: 'Connectivity and networking issues for Azure Cloud Services (classic): F
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
   
-  This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services VM size page](cloud-services-sizes-specs.md).
+  This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services Virtual Machine (VM) size page](cloud-services-sizes-specs.md).
   
   [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
   
@@ -24,19 +24,19 @@ sections:
       - question: |
           I can't reserve an IP in a multi-VIP cloud service.
         answer: |
-          First, make sure that the virtual machine instance that you try to reserve the IP for is turned on. Second, make sure that you use reserved IPs for both the staging and production deployments. *Do not* change the settings while the deployment is upgrading.
+          First, make sure that the virtual machine instance that you try to reserve the IP for is turned on. Second, make sure that you use reserved IPs for both the staging and production deployments. *Don't* change the settings while the deployment is upgrading.
 
       - question: |
-          How do I use Remote Desktop when I have an NSG?
+          How do I use Remote Desktop when I have a Network Security Group (NSG)?
         answer: |
           Add rules to the NSG that allow traffic on ports **3389** and **20000**. Remote Desktop uses port **3389**. Cloud service instances are load balanced, so you can't directly control which instance to connect to. The *RemoteForwarder* and *RemoteAccess* agents manage Remote Desktop Protocol (RDP) traffic and allow the client to send an RDP cookie and specify an individual instance to connect to. The *RemoteForwarder* and *RemoteAccess* agents require port **20000** to be open, which might be blocked if you have an NSG.
 
       - question: |
           Can I ping a cloud service?
         answer: |
-          No, not by using the normal "ping"/ICMP protocol. The ICMP protocol is not permitted through the Azure load balancer.
+          No, not by using the normal "ping"/ICMP protocol. The Internet Control Message Protocol (ICMP) isn't permitted through the Azure load balancer.
           
-          To test connectivity, we recommend that you do a port ping. While Ping.exe uses ICMP, you can use other tools, such as PSPing, Nmap, and telnet, to test connectivity to a specific TCP port.
+          To test connectivity, we recommend that you do a port ping. While Ping.exe uses ICMP, you can use other tools, such as PSPing, Nmap, and telnet, to test connectivity to a specific Transmission Control Protocol (TCP) port.
           
           For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
           
@@ -65,12 +65,12 @@ sections:
         answer: |
           For information about how an internal load balancer works, see [Azure Load Balancer new distribution mode](https://azure.microsoft.com/blog/azure-load-balancer-new-distribution-mode/).
           
-          The distribution algorithm used is a 5-tuple (source IP, source port, destination IP, destination port, and protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or UDP session are directed to the same datacenter IP (DIP) instance behind the load-balanced endpoint. When the client closes and reopens the connection or starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
+          The distribution algorithm used is a 5-tuple (source IP, source port, destination IP, destination port, and protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or User Datagram Protocol (UDP) session are directed to the same datacenter IP (DIP) instance behind the load-balanced endpoint. When the client closes and reopens the connection or starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
           
       - question: |
           How can I redirect incoming traffic to the default URL of my cloud service to a custom URL?
         answer: |
-          The URL Rewrite module of IIS can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL Rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages.For more information, see:
+          The URL Rewrite module of Internet Information Services (IIS) can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL Rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages.For more information, see:
           
           - [Create rewrite rules for the URL Rewrite module](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
           - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
@@ -78,7 +78,7 @@ sections:
       - question: |
           How can I block/disable incoming traffic to the default URL of my cloud service?
         answer: |
-          You can prevent incoming traffic to the default URL/name of your cloud service (for example, \*.cloudapp.net). Set the host header to a custom DNS name (for example, www\.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file, as indicated:
+          You can prevent incoming traffic to the default URL/name of your cloud service (for example, \*.cloudapp.net). Set the host header to a custom Domain Name System (DNS) name (for example, www\.MyCloudService.com) under site binding configuration in the cloud service definition (*.csdef) file, as indicated:
           
           ```xml
           <?xml version="1.0" encoding="utf-8"?>
@@ -101,19 +101,19 @@ sections:
           </ServiceDefinition>
           ```
           
-          Because this host header binding is enforced through the csdef file, the service is accessible only via the custom name "www.MyCloudService.com." All incoming requests to the "*.cloudapp.net" domain always fail. If you use a custom SLB probe or an internal load balancer in the service, blocking the default URL/name of the service might interfere with the probing behavior.
+          Because this host header binding is enforced through the csdef file, the service is accessible only via the custom name "www.MyCloudService.com." All incoming requests to the "*.cloudapp.net" domain always fail. If you use a custom software load balancer (SLB) probe or an internal load balancer in the service, blocking the default URL/name of the service might interfere with the probing behavior.
           
       - question: |
           How can I make sure the public-facing IP address of a cloud service never changes?
         answer: |
-          To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily approved by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
+          To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes and that a few specific clients can customarily approve it, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
           
           - [Reserve the IP address of an existing cloud service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
           - [Associate a reserved IP to a cloud service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
           
-          If you have more than one instance for your roles, associating RIP with your cloud service shouldn't cause any downtime. Alternatively, you can add the IP range of your Azure datacenter to an allow list. You can find all Azure IP ranges at the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+          If you have more than one instance for your roles, associating RIP with your cloud service shouldn't cause any downtime. Alternatively, you can add the IP range of your Azure datacenter to an allowlist. You can find all Azure IP ranges at the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
           
-          This file contains the IP address ranges (including compute, SQL, and storage ranges) used in Azure datacenters. An updated file is posted weekly that reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week. Download the new .xml file every week, and perform the necessary changes on your site to correctly identify services running in Azure. Azure ExpressRoute users might note that this file used to update the BGP advertisement of Azure space in the first week of each month.
+          This file contains the IP address ranges (including compute, SQL, and storage ranges) used in Azure datacenters. An updated file is posted weekly that reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week. Download the new .xml file every week, and perform the necessary changes on your site to correctly identify services running in Azure. Azure ExpressRoute users might note that this file used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
           
       - question: |
           How can I use Azure Resource Manager virtual networks with cloud services?
@@ -124,9 +124,9 @@ sections:
       - question: |
           How can I get the list of public IPs used by my Cloud Services?
         answer: |
-          You can use following PS script to get the list of public IPs for Cloud Services under your subscription
+          You can use following PowerShell script to get the list of public IPs for Cloud Services under your subscription
           
-          ```powershell
+          ```PowerShell
           $services = Get-AzureService  | Group-Object -Property ServiceName
           
           foreach ($service in $services)
