@@ -24,18 +24,18 @@ In this article, you learn how to deploy a Spoke-to-Spoke topology with two hubs
 - Virtual machines deployed in the spoke virtual networks in each region to confirm network connectivity across regions.
 
 > [!NOTE]
-> For this scenario, you have hub-and-spoke topologies deployed in two different Azure regions. Examples in this scenario will use **West US 2** as **Region 1** and **West US 3** as **Region 2**. You may use any other Azure regions as needed.
+> For this scenario, you have hub-and-spoke topologies deployed in two different Azure regions. Examples in this scenario will use **West US 2** as the *region1* placeholder and **West US 3** as the *region2* placeholder. You may use any other Azure regions as needed.
 
 ## Create network groups
 
 In this step, you deploy four network groups to represent the spoke virtual networks in each hub and spoke topology. You also create network groups for the subnet of the Azure firewall instances in each region.
 
 | **Network group name**| **Description** | **Member type** | **Members** |
-|--------------------|-------------|
-| ng-spoke-<region1> | Network group for spoke virtual networks in region 1. | Virtual network | Spoke virtual networks in region 1. |
-| ng-spoke-<region2> | Network group for spoke virtual networks in region 2. | Virtual network | Spoke virtual networks in region 2. |
-| ng-azfw-<region1>   | Network group for Azure Firewall subnet in region 1. | Subnet | Azure Firewall subnet in region 1. |
-| ng-azfw-<region2>   | Network group for Azure Firewall subnet in region 2. | Subnet | Azure Firewall subnet in region 2. |
+|--------------------|-------------|-----------|
+| ng-spoke-*\<region1\>* | Network group for spoke virtual networks in region 1. | Virtual network | Spoke virtual networks in region 1. |
+| ng-spoke-*\<region2\>* | Network group for spoke virtual networks in region 2. | Virtual network | Spoke virtual networks in region 2. |
+| ng-azfw-*\<region1\>*   | Network group for Azure Firewall subnet in region 1. | Subnet | Azure Firewall subnet in region 1. |
+| ng-azfw-*\<region2\>*   | Network group for Azure Firewall subnet in region 2. | Subnet | Azure Firewall subnet in region 2. |
 
 1. In the Azure portal, navigate to your network manager instance.
 2. In the left pane, select **Network groups** under **Settings**.
@@ -43,7 +43,7 @@ In this step, you deploy four network groups to represent the spoke virtual netw
 4. In the **Create a network group** window, enter the following details then select **Create**:
     | **Field** | **Value** |
     |-------|-------|
-    | **Name** | Enter **ng-spoke-<region1>** or the name of the network of the first hub virtual network in region one. |
+    | **Name** | Enter **ng-spoke-*\<region1\>*** or the name of the network of the first hub virtual network in region one. |
     | **Description** | Enter a description for the network group. |
     | **Member type** | Select **Virtual network** from the dropdown menu. |
 1. Repeat the steps create the remaining network groups for the spoke virtual networks in region 2 and the Azure Firewall subnets in each region based on the table above.
@@ -53,7 +53,7 @@ In this step, you deploy four network groups to represent the spoke virtual netw
 In this step, you add the spoke virtual networks and Azure Firewall subnets to the network groups you created.
 
 1. In the network manager instance, navigate to **Network groups** under **Settings**.
-2. Select the network group for the spoke virtual networks in region 1 - **ng-spoke-<region1>**.
+2. Select the network group for the spoke virtual networks in region 1 - **ng-spoke-*\<region1\>***.
 3. Under **Manage memberships of your network group**, select **Add virtual networks**.
 4. In the **Manually add members** window, select the spoke virtual networks in region 1, then select **Add**.
 
@@ -71,7 +71,7 @@ In this step, you create two connectivity configurations in your network manager
   |-------|-------|
   | **Topology** | Select **Hub and spoke**. |
   | **Hub** | Choose **Select a hub** and select the hub virtual network in region 1. |
-  | **Spoke network groups** | Select **Add*.</br> In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-<region1>**,**ng-spoke-<region2>** |
+  | **Spoke network groups** | Select **Add*.</br> In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-*\<region1\>***,**ng-spoke-*\<region2\>*** |
 
 6. Select the **Visualization** tab or **Next: Visualization** to review the topology.
 7. Select **Review + create** then **Create and start deployment** to deploy the connectivity configuration.
@@ -86,10 +86,10 @@ In this step, you create a routing configuration containing four rule collection
 
 | **Rule collection name** | **Description** | **Target network group** |
 |-----------------------|-------------|----------------------|
-| rc-spoke-<region1> | Rule collection for spoke virtual networks in region 1. | ng-spoke-<region1> |
-| rc-spoke-<region2> | Rule collection for spoke virtual networks in region 2. | ng-spoke-<region2> |
-| rc-azfw-<region1> | Rule collection for Azure Firewall subnet in region 1. | ng-azfw-<region1> |
-| rc-azfw-<region2> | Rule collection for Azure Firewall subnet in region 2. | ng-azfw-<region2> |
+| rc-spoke-*\<region1\>* | Rule collection for spoke virtual networks in region 1. | ng-spoke-*\<region1\>* |
+| rc-spoke-*\<region2\>* | Rule collection for spoke virtual networks in region 2. | ng-spoke-*\<region2\>* |
+| rc-azfw-*\<region1\>* | Rule collection for Azure Firewall subnet in region 1. | ng-azfw-*\<region1\>* |
+| rc-azfw-*\<region2\>* | Rule collection for Azure Firewall subnet in region 2. | ng-azfw-*\<region2\>* |
 
 1. In your network manager instance, navigate to **Configurations** under **Settings**.
 2. Select **+ Create**>**Routing configuration - Preview**.
@@ -100,12 +100,12 @@ In this step, you create a routing configuration containing four rule collection
    
     | **Field** | **Value** |
     |------|-------|
-    | **Name** | Enter a name for the rule collection for **ng-spoke-<region1>**. |
+    | **Name** | Enter a name for the rule collection for **ng-spoke-*\<region1\>***. |
     | **Description** | Enter a description for the rule collection. |
     | **Local route setting** | Select **Not specified**. |
     | **Target network group** | Select the network group for the spoke virtual networks in region 1. |
 
-7. Repeat the steps to create rule collections for the remaining network groups: **ng-spoke-<region2>**, **ng-azfw-<region1>**, and **ng-azfw-<region2>**.
+7. Repeat the steps to create rule collections for the remaining network groups: **ng-spoke-*\<region2\>***, **ng-azfw-*\<region1\>***, and **ng-azfw-*\<region2\>***.
 8. Select **Add** to add the rule collections to the routing configuration.
 9. select **Next: Review + create** or **Review + create** to review the routing configuration.
 10. Select **Create** to create the routing configuration.
@@ -120,7 +120,7 @@ In this step, you create a routing rule for the spoke virtual networks in region
 
 1. In your network manager instance, navigate to **Configurations** under **Settings**.
 2. Select the routing configuration you created for the spoke virtual networks in region 1.
-3. In the left pane, select **Rule collections** and select your first rule collection - **rc-spoke-<region1>**.
+3. In the left pane, select **Rule collections** and select your first rule collection - **rc-spoke-*\<region1\>***.
 4. In the **Edit a rule collection** window, select **+ Add**.
 5. In the **Add a routing rule** window, enter or select the following information:
 
@@ -140,7 +140,7 @@ In these steps, you create a routing rule for the Azure Firewall subnet in regio
 
 For this example, the remote regions address prefixes are summarized. Summarizing address prefixes offers the benefit of not needing to change the routing rules for the Azure firewall subnet even if new spokes are added to each region. However, it's important to predefine the address prefixes used in each region, including for future use. 
 
-1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 1 - **rc-azfw-<region1>**.
+1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 1 - **rc-azfw-*\<region1\>***.
 2. In the **Edit a rule collection** window, select **+ Add**.
 3. In the **Add a routing rule** window, enter or select the following information:
 
@@ -173,7 +173,7 @@ In the **Add a routing rule** window, enter or select the following information:
 
 In this step, you create a routing rule for the spoke virtual networks in region 2 allowing communication with the Azure Firewall subnet in region 2.
 
-1. In the **Rule collections** window, select the rule collection for the spoke virtual networks in region 2 - **rc-spoke-<region2>**.
+1. In the **Rule collections** window, select the rule collection for the spoke virtual networks in region 2 - **rc-spoke-*\<region2\>***.
 2. In the **Edit a rule collection** window, select **+ Add**.
 3. In the **Add a routing rule** window, enter or select the following information:
 
@@ -202,7 +202,7 @@ In the **Add a routing rule** window, enter or select the following information:
 
 In these steps, you create a routing rule for the Azure Firewall subnet in region 2 allowing communication with the spoke virtual networks in region 1.
 
-1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 2 - **rc-azfw-<region2>**.
+1. In the **Rule collections** window, select the rule collection for the Azure Firewall subnet in region 2 - **rc-azfw-*\<region2\>***.
 2. In the **Edit a rule collection** window, select **+ Add**.
 3. In the **Add a routing rule** window, enter or select the following information:
 
@@ -236,7 +236,7 @@ In this step, you confirm the routing configuration by reviewing the route table
 2. In the **Virtual networks** window, select the one of the spoke virtual networks in region 1.
 3. From the left menu, select **Subnets** and review settings for the subnets in the spoke virtual network.
 
-    :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration." lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet.png":::
+    :::image type="content" source="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet-thumb.png" alt-text="Screenshot of subnets showing applied route table from deployment of routing configuration."lightbox="media/how-to-deploy-spoke-to-spoke-topology-two-hubs/View-route-table-on-subnet.png":::
 
 4. Under **Route table**, select the link staring with **NM_** to view the route table applied to the subnet.
 
@@ -247,7 +247,7 @@ In this step, you confirm the routing configuration by reviewing the route table
     
 ## Adding spoke virtual network to the existing Multi Hub-Spoke topologies
 
-
+                                                                                 
 
 ## Next steps
 
