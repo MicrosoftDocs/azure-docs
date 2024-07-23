@@ -6,7 +6,7 @@ ms.service: api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
