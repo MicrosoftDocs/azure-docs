@@ -613,7 +613,7 @@ console.log("usage:", response.body.usage)
 ::: zone-end
 
 
-::: zone pivot="programming-language-dotnet"
+::: zone pivot="programming-language-csharp"
 
 ## Prerequisites
 

@@ -510,7 +510,7 @@ catch (error) {
 ::: zone-end
 
 
-::: zone pivot="programming-language-dotnet"
+::: zone pivot="programming-language-csharp"
 
 ## Prerequisites
 

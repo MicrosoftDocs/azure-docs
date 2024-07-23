@@ -592,7 +592,7 @@ var response = await client.path("/chat/completions").post({
 ::: zone-end
 
 
-::: zone pivot="programming-language-dotnet"
+::: zone pivot="programming-language-csharp"
 
 ## Mistral family of models
 
