@@ -24,7 +24,7 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* An application deployed to Azure Kubernetes Service.
+* An application deployed to AKS.
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an Azure SQL Database
@@ -54,7 +54,7 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
     ```
 
     > [!TIP]
-    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
+    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.KubernetesConfiguration" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
 
 
 ### Create a new connection
