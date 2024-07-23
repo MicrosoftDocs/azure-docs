@@ -3,7 +3,7 @@ title: Secure Azure IoT MQ communication using BrokerListener
 description: Understand how to use the BrokerListener resource to secure Azure IoT MQ communications including authorization, authentication, and TLS.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023

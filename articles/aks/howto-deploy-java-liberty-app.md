@@ -5,13 +5,13 @@ description: Deploy a Java application with Open Liberty or WebSphere Liberty on
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/29/2024
 ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java
 ---
 
-# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
 This article demonstrates how to:
 
@@ -33,15 +33,16 @@ If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manu
 
 This article is intended to help you quickly get to deployment. Before you go to production, you should explore the [IBM documentation about tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
+* An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
-* Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure [Git](https://git-scm.com) is installed.
@@ -145,13 +146,13 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 
     ---
 
-You'll use these values later in this article. Note that the outputs list several other useful commands.
+You use these values later in this article. The outputs list several other useful commands.
 
 ## Create an Azure SQL Database instance
 
 [!INCLUDE [create-azure-sql-database](includes/jakartaee/create-azure-sql-database.md)]
 
-Create an environment variable in your shell for the resource group name for the database:
+Then, use the following command to create an environment variable in your shell for the resource group name for the database:
 
 ### [Bash](#tab/in-bash)
 
@@ -167,7 +168,7 @@ $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 
 ---
 
-Now that you've created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
+Now that you created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 
@@ -526,3 +527,5 @@ You can learn more from the following references:
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
 * [Open Liberty server configuration](https://openliberty.io/docs/ref/config/)
+
+For more information about deploying the IBM WebSphere family on Azure, see [What are solutions to run the WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family)

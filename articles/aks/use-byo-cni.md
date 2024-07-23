@@ -48,7 +48,12 @@ Support is still provided for non-CNI-related issues.
 2. Create an AKS cluster using the [`az aks create`][az-aks-create] command. Pass the `--network-plugin` parameter with the parameter value of `none`.
 
     ```azurecli-interactive
-    az aks create --location eastus --resource-group myResourceGroup --name myAKSCluster --network-plugin none
+    az aks create \
+        --location eastus \
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --network-plugin none \
+        --generate-ssh-keys
     ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)

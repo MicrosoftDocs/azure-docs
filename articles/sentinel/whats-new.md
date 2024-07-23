@@ -3,8 +3,8 @@ title: What's new in Microsoft Sentinel
 description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: concept
-ms.date: 04/30/2024
+ms.topic: concept-article
+ms.date: 07/10/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -18,9 +18,48 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## July 2024
+
+- [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+
+### Microsoft unified security platform now generally available
+
+Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
+
+- Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+
+## June 2024
+
+- [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
+- [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
+
+### Codeless Connector Platform now generally available
+
+The Codeless Connector Platform (CCP), is now generally available (GA). Check out the [announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-create-your-own-codeless-data-connector/ba-p/4174439).
+
+For more information on the CCP enhancements and capabilities, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
+
+### Advanced threat indicator search capability available
+
+Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 subclauses.
+
+For more information, see the updated screenshot in [View and manage your threat indicators](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
+
 ## May 2024
 
+- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
 - [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+
+### Incident and entity triggers in playbooks are now Generally Available (GA)
+
+The ability to use incident and entity triggers is playbooks is now supported as GA.
+
+:::image type="content" source="media/whats-new/sentinel-triggers-ga.png" alt-text="Screenshot of the Microsoft Sentinel incident and entity options with no preview notice.":::
+
+For more information, see [Create a playbook](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Optimize your security operations with SOC optimizations (preview)
 

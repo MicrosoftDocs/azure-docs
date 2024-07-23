@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 05/29/2024
 ms.author: allensu
 ms.custom: mode-arm, FY23 content-maintenance, devx-track-arm-template
 ---
@@ -15,9 +15,9 @@ ms.custom: mode-arm, FY23 content-maintenance, devx-track-arm-template
 
 In this quickstart, you learn how to create a virtual network with two subnets by using an Azure Resource Manager template. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like virtual machines (VMs), to securely communicate with each other and with the internet.
 
-:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart by using the [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), or the [Azure CLI](quick-create-cli.md).
 

@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/24/2024
+ms.date: 5/21/2024
 ms.reviewer: eur
 ms.author: lagayhar
 author: lgayhardt
@@ -15,7 +16,7 @@ author: lgayhardt
 
 # Develop an evaluation flow in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Evaluation flows are special types of flows that assess how well the outputs of a run align with specific criteria and goals.
 
@@ -28,9 +29,15 @@ In prompt flow, you can customize or create your own evaluation flow tailored to
 
 There are two ways to develop your own evaluation methods:
 
-- **Customize a Built-in Evaluation Flow:** Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization.  
+- **Customize a Built-in Evaluation Flow:** Modify a built-in evaluation flow. 
+  1. Under *Tools* select **Prompt flow**.
+  2. Select **Create** to open the flow creation wizard.
+  3. In the flow gallery under *Explore gallery* select **Evaluation flow** to filter by that type. Pick a sample and select **Clone** to do customization.
 
-- **Create a New Evaluation Flow from Scratch:** Develop a brand-new evaluation method from the ground up. In flow creation wizard, select “Create” Evaluation flow then you can see a template of evaluation flow. 
+- **Create a New Evaluation Flow from Scratch:** Develop a brand-new evaluation method from the ground up. 
+  1. Under *Tools* select **Prompt flow**.
+  2. Select **Create** to open the flow creation wizard.
+  3. In the flow gallery under *Create by type* in the "Evaluation flow" box select **Create** then you can see a template of evaluation flow.
 
 ## Understand evaluation in Prompt flow
 

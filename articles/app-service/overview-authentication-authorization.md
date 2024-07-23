@@ -11,6 +11,8 @@ ms.author: cephalin
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Azure App Service provides built-in authentication and authorization capabilities (sometimes referred to as "Easy Auth"), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
 ## Why use the built-in authentication?
@@ -31,7 +33,7 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 | Provider | Sign-in endpoint | How-To guidance |
 | - | - | - |
-| [Microsoft identity platform](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Microsoft identity platform login](configure-authentication-provider-aad.md) |
+| [Microsoft Entra](/entra/index) | `/.auth/login/aad` | [App Service Microsoft Entra platform login](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |

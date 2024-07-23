@@ -1,10 +1,10 @@
 ---
-title: Create test certificates - Azure IoT Edge | Microsoft Docs
+title: Create test certificates - Azure IoT Edge
 description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/05/2022
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

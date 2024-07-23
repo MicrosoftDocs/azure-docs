@@ -84,7 +84,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Ensuring memory and CPU requirements for `microsoft.flux` extension installation are met
 
-The controllers installed in your Kubernetes cluster with the `microsoft.flux `extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested. Note also the maximum limits for potential CPU and memory resource requirements shown here.
+The controllers installed in your Kubernetes cluster with the `microsoft.flux` extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested. Note also the maximum limits for potential CPU and memory resource requirements shown here.
 
 | Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |

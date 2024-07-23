@@ -23,7 +23,7 @@ Use the _Fabric Lakehouse_ destination to write data to a lakehouse in Microsoft
 To configure and use a Microsoft Fabric destination pipeline stage, you need:
 
 - A deployed instance of Data Processor.
-- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial).
+- A Microsoft Fabric subscription. Or, sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial).
 - A [lakehouse in Microsoft Fabric](/fabric/data-engineering/create-lakehouse).
 
 ## Set up Microsoft Fabric
@@ -250,7 +250,6 @@ The following example shows a sample input message to the Microsoft Fabric lakeh
 ## Related content
 
 - [Send data to Azure Data Explorer](howto-configure-destination-data-explorer.md)
-- [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
 - [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)

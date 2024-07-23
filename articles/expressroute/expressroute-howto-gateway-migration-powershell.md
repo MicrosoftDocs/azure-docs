@@ -5,7 +5,7 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
+ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 04/26/2024
 ms.author: duau

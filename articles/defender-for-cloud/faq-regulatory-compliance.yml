@@ -3,7 +3,7 @@ metadata:
   title: Common questions -  regulatory compliance questions
   description: Frequently asked general questions about regulatory compliance
   services: defender-for-cloud
-  author: elkrieger
+  author: ElazarK
   ms.author: elkrieger
   manager: raynew
   ms.topic: faq
@@ -17,7 +17,7 @@ sections:
       - question: |
           How do I know which benchmark or standard to use?
         answer: |
-          [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Control Framework](https://www.cisecurity.org/benchmark/azure/), [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) and PCI-DSS. MCSB is a comprehensive cloud agnostic set of security principles designed to recommend the most up-to-date technical guidelines for Azure along with other clouds such as AWS and GCP. We recommend MCSB to customers who want to maximize their security posture and align their compliance status with industry standards.
+          [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introduction) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Control Framework](https://www.cisecurity.org/benchmark/azure/), [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) and PCI-DSS. MCSB is a comprehensive cloud agnostic set of security principles designed to recommend the most up-to-date technical guidelines for Azure along with other clouds such as AWS and GCP. We recommend MCSB to customers who want to maximize their security posture and align their compliance status with industry standards.
 
           The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity - Center for Internet Security (CIS) - and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they're sometimes delayed and can become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
 
@@ -124,7 +124,7 @@ sections:
       - question: |
           What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
         answer: |
-          If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+          If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data and features.
 
           > [!NOTE]
           > For Defender for Servers you'll get regulatory compliance only for plan 2. Plan 1 doesn't include regulatory compliance.

@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 04/05/2024
+ms.date: 06/06/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -53,7 +53,7 @@ A cluster host:
 
 * An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
 
-  If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update a deployment](#update-a-deployment).
+  If you've already deployed Azure IoT Operations to your cluster, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](#update-azure-iot-operations).
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows. Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
 
@@ -89,8 +89,11 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
      * Deploy the Azure IoT Operations resources.
 
    ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_ID>
+   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
+
+   > [!IMPORTANT]
+   > By default, the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command doesn't deploy the Data Processor component. To deploy Data Processor, add the `--include-dp` argument.
 
    If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
 
@@ -103,28 +106,6 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
    ```
 
    You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
-
-### Configure cluster network (AKS EE)
-
-On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
-
-1. Enable a firewall rule for port 8883:
-
-    ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
-    ```
-
-1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
-
-    ```cmd
-    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-    ```
-
-1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
-
-    ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
-    ```
 
 ## View resources in your cluster
 
@@ -153,11 +134,41 @@ To view your cluster on the Azure portal, use the following steps:
 > [!TIP]
 > You can run `az iot ops check` to assess health and configurations of deployed AIO workloads. By default, MQ including cloud connectors are assessed and you can [specifiy the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service --svc`.
 
-## Update a deployment
+## Uninstall Azure IoT Operations
 
-Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, start with a clean cluster for a new deployment.
+Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete or uninstall Azure IoT Operations from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online prior to running.
 
-If you want to delete the Azure IoT Operations deployment on your cluster so that you can redeploy to it, navigate to your cluster on the Azure portal. Select the extensions of the type **microsoft.iotoperations.x** and **microsoft.deviceregistry.assets**, then select **Uninstall**. Keep the secrets provider on your cluster, as that is a prerequisite for deployment and not included in a fresh deployment. 
+The `delete` command removes:
+
+* Azure IoT Operations extensions
+* Azure IoT Operations resource sync rules
+* Azure IoT Operations resources
+* Associated custom location
+
+```azurecli
+az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+## Update Azure IoT Operations
+
+Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, uninstall and redeploy a new version of Azure IoT Operations.
+
+1. Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the Azure IoT Operations deployment on your cluster.
+
+   ```azurecli
+   az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   ```
+
+1. Update the CLI extension to get the latest Azure IoT Operations version.
+
+   ```azurecli
+   az extension update --name azure-iot-ops
+   ```
+
+1. Follow the steps in this article to deploy the newest version of Azure IoT Operations to your cluster.
+
+   >[!TIP]
+   >Add the `--ensure-latest` flag to the `az iot ops init` command to check that the latest Azure IoT Operations CLI version is installed and raise an error if an upgrade is available.
 
 ## Next steps
 

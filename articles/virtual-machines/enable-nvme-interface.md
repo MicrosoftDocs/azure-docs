@@ -1,26 +1,25 @@
 ---
-title: OS Images Supported
-description: OS Image Support List for Remote NVMe
+title: Supported OS Images
+description: Get a list of supported operating system images for remote NVMe.
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.date: 06/25/2024
+ms.topic: how-to
 ms.custom: template-how-to-pattern
 ---
 
-# OS Images Supported with Remote NVMe
+# Supported OS images for remote NVMe
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> [!NOTE]
+> This article references CentOS, a Linux distribution that reached the end of support. Consider your use and plan accordingly. For more information, see the [guidance for CentOS end of support](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-The following lists provide up-to-date information on which OS images are tagged as NVMe supported. These lists will be updated when new OS images are made available with remote NVMe support.
+The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
-Always check the [detailed product pages for specifics](/azure/virtual-machines/sizes) about which VM generations support which storage types. 
+For specifics about which virtual machine (VM) generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 
-For more information about enabling the NVMe interface on virtual machines created in Azure, be sure to review the [Remote NVMe Disks FAQ](/azure/virtual-machines/enable-nvme-remote-faqs).
+For more information about enabling the NVMe interface on virtual machines created in Azure, review the [FAQ for remote NVMe disks](/azure/virtual-machines/enable-nvme-remote-faqs).
 
-## OS Images supported
-
-### Linux
+## Supported Linux OS images
 
 | Distribution                         | Image                                                            |
 |--------------------------------------|------------------------------------------------------------------|
@@ -47,8 +46,7 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     SLES 15.4                        |   SUSE:sles-15-sp4:gen2:latest                                   |
 |     SLES 15.5                        |   SUSE:sles-15-sp5:gen2:latest                                   |
 
-
-### Windows
+## Supported Windows OS images
 
 - [Azure portal - Plan ID: 2019-datacenter-core-smalldisk](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore)
 - [Azure portal - Plan ID: 2019-datacenter-core-smalldisk-g2](https://portal.azure.com/#create/Microsoft.smalldiskWindowsServer2019DatacenterServerCore2019-datacenter-core-smalldisk-g2)
@@ -78,4 +76,7 @@ For more information about enabling the NVMe interface on virtual machines creat
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-smalldisk)
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition)
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
-- [Azure portal - Plan 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
+- [Azure portal - Plan ID: 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
+- [Azure portal - Plan ID: 2022-datacenter-azure-edition-hotpatch](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-hotpatch)
+- [Azure portal - Plan ID: 2022-datacenter-azure-edition-hotpatch-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-hotpatch-smalldisk)
+

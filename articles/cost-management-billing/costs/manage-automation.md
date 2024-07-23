@@ -62,7 +62,7 @@ Use the API to get all the data you need at the highest-level scope available. W
 
 ### Notes about pricing
 
-If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
+If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ### A single resource might have multiple records for a single day
 

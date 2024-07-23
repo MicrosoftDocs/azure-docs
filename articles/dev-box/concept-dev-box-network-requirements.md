@@ -5,32 +5,35 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: concept
-ms.date: 02/16/2023
+ms.topic: concept-article
+ms.date: 05/29/2024
 ms.custom: template-concept
+
 #Customer intent: As a platform engineer, I want to understand Dev Box networking requirements so that developers can access the resources they need.
 ---
 
 # Microsoft Dev Box networking requirements
 
-Microsoft Dev Box is a service that lets users connect to a cloud-based workstation running in Azure through the internet, from any device anywhere. To support these internet connections, you must follow the networking requirements listed in this article. You should work with your organization’s networking team and security team to plan and implement network access for dev boxes.
+Microsoft Dev Box is a service that lets users connect to a cloud-based workstation running in Azure through the internet, from any device anywhere. To support these internet connections, you must follow the networking requirements listed in this article. You should work with your organization's networking team and security team to plan and implement network access for dev boxes.
+
 Microsoft Dev box is closely related to the Windows 365 and Azure Virtual Desktop services, and in many cases network requirements are the same. 
 
 ## General network requirements
+
 Dev boxes require a network connection to access resources. You can choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription. Choosing a method for allowing access to your network resources depends on where your resources are based. 
 
 When using a Microsoft-hosted connection:
--	Microsoft provides and fully manages the infrastructure.
--	You can manage dev box security from Microsoft Intune.
+-    Microsoft provides and fully manages the infrastructure.
+-    You can manage dev box security from Microsoft Intune.
 
 To use your own network and provision [Microsoft Entra joined](/azure/dev-box/how-to-configure-network-connections?branch=main&tabs=AzureADJoin#review-types-of-active-directory-join) dev boxes, you must meet the following requirements:
--	Azure virtual network: You must have a virtual network in your Azure subscription. The region you select for the virtual network is where Azure deploys the dev boxes. 
--	A subnet within the virtual network and available IP address space.
--	Network bandwidth: See [Azure’s Network guidelines](/windows-server/remote/remote-desktop-services/network-guidance).
+-    Azure virtual network: You must have a virtual network in your Azure subscription. The region you select for the virtual network is where Azure deploys the dev boxes. 
+-    A subnet within the virtual network and available IP address space.
+-    Network bandwidth: See [Azure's Network guidelines](/windows-server/remote/remote-desktop-services/network-guidance).
 
 To use your own network and provision [Microsoft Entra hybrid joined](/azure/dev-box/how-to-configure-network-connections?branch=main&tabs=AzureADJoin#review-types-of-active-directory-join) dev boxes, you must meet the above requirements, and the following requirements:
--	The Azure virtual network must be able to resolve Domain name Services (DNS) entries for your Active Directory Domain Services (AD DS) environment. To support this resolution, define your AD DS DNS servers as the DNS servers for the virtual network.
--	The Azure virtual network must have network access to an enterprise domain controller, either in Azure or on-premises.
+-    The Azure virtual network must be able to resolve Domain Name Services (DNS) entries for your Active Directory Domain Services (AD DS) environment. To support this resolution, define your AD DS DNS servers as the DNS servers for the virtual network.
+-    The Azure virtual network must have network access to an enterprise domain controller, either in Azure or on-premises.
 
 When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security. 
 
@@ -52,12 +55,12 @@ You can check that your dev boxes can connect to these FQDNs and endpoints by fo
 
 Although most of the configuration is for the cloud-based dev box network, end user connectivity occurs from a physical device. Therefore, you must also follow the connectivity guidelines on the physical device network.
 
-|Device or service	|Network connectivity required URLs and ports	|Description |
+|Device or service    |Network connectivity required URLs and ports    |Description |
 |---|---|---|
-|Physical device	|[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#remote-desktop-clients) |Remote Desktop client connectivity and updates.|
-|Microsoft Intune service	|[Link](/mem/intune/fundamentals/intune-endpoints) |Intune cloud services like device management, application delivery, and endpoint analytics.|
-|Azure Virtual Desktop session host virtual machine	|[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#session-host-virtual-machines) |Remote connectivity between dev boxes and the backend Azure Virtual Desktop service.|
-|Windows 365 service	|[Link](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service) |Provisioning and health checks.|
+|Physical device    |[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#remote-desktop-clients) |Remote Desktop client connectivity and updates.|
+|Microsoft Intune service    |[Link](/mem/intune/fundamentals/intune-endpoints) |Intune cloud services like device management, application delivery, and endpoint analytics.|
+|Azure Virtual Desktop session host virtual machine    |[Link](/azure/virtual-desktop/safe-url-list?tabs=azure#session-host-virtual-machines) |Remote connectivity between dev boxes and the backend Azure Virtual Desktop service.|
+|Windows 365 service    |[Link](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#windows-365-service) |Provisioning and health checks.|
 
 ## Required endpoints
 
@@ -91,6 +94,8 @@ The following URLs and ports are required for the provisioning of dev boxes and 
 - prau01.prod.cpcgateway.trafficmanager.net
 
 # [Dev box communication endpoints](#tab/DevBox)
+- *.agentmanagement.dc.azure.com
+
 - endpointdiscovery.cmdagent.trafficmanager.net
 - registration.prna01.cmdagent.trafficmanager.net
 - registration.preu01.cmdagent.trafficmanager.net
@@ -137,48 +142,48 @@ For more information, see [Use Azure Firewall to manage and secure Windows 365 e
 
 The following table is the list of FQDNs and endpoints your dev boxes need to access. All entries are outbound; you don't need to open inbound ports for dev boxes. 
 
-|Address	|Protocol	|Outbound port	|Purpose	|Service tag|
+|Address    |Protocol    |Outbound port    |Purpose    |Service tag|
 |---|---|---|---|---|
-|login.microsoftonline.com	|TCP	|443	|Authentication to Microsoft Online Services |	
-|*.wvd.microsoft.com	|TCP	|443	|Service traffic	|WindowsVirtualDesktop |
-|*.prod.warm.ingest.monitor.core.windows.net	|TCP	|443	|Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor |
-|catalogartifact.azureedge.net	|TCP	|443	|Azure Marketplace	|AzureFrontDoor.Frontend|
-|gcs.prod.monitoring.core.windows.net	|TCP	|443	|Agent traffic	|AzureCloud|
-|kms.core.windows.net	|TCP	|1688	|Windows activation	|Internet|
-|azkms.core.windows.net	|TCP	|1688	|Windows activation	|Internet|
-|mrsglobalsteus2prod.blob.core.windows.net	|TCP	|443	|Agent and side-by-side (SXS) stack updates	|AzureCloud|
-|wvdportalstorageblob.blob.core.windows.net	|TCP	|443	|Azure portal support	|AzureCloud|
-|169.254.169.254	|TCP	|80	|[Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service)|N/A|
-|168.63.129.16	|TCP	|80	|[Session host health monitoring](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)|N/A|
-|oneocsp.microsoft.com	|TCP	|80	|Certificates	|N/A|
-|www.microsoft.com	|TCP	|80	|Certificates	|N/A|
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services |    
+|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |WindowsVirtualDesktop |
+|*.prod.warm.ingest.monitor.core.windows.net    |TCP    |443    |Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor |
+|catalogartifact.azureedge.net    |TCP    |443    |Azure Marketplace    |AzureFrontDoor.Frontend|
+|gcs.prod.monitoring.core.windows.net    |TCP    |443    |Agent traffic    |AzureCloud|
+|kms.core.windows.net    |TCP    |1688    |Windows activation    |Internet|
+|azkms.core.windows.net    |TCP    |1688    |Windows activation    |Internet|
+|mrsglobalsteus2prod.blob.core.windows.net    |TCP    |443    |Agent and side-by-side (SXS) stack updates    |AzureCloud|
+|wvdportalstorageblob.blob.core.windows.net    |TCP    |443    |Azure portal support    |AzureCloud|
+|169.254.169.254    |TCP    |80    |[Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service)|N/A|
+|168.63.129.16    |TCP    |80    |[Session host health monitoring](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)|N/A|
+|oneocsp.microsoft.com    |TCP    |80    |Certificates    |N/A|
+|www.microsoft.com    |TCP    |80    |Certificates    |N/A|
 
 The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:
 
-|Address	|Protocol	|Outbound port	|Purpose|
+|Address    |Protocol    |Outbound port    |Purpose|
 |---|---|---|---|
-|login.windows.net	|TCP	|443	|Sign in to Microsoft Online Services and Microsoft 365|
-|*.events.data.microsoft.com	|TCP	|443	|Telemetry Service|
-|www.msftconnecttest.com	|TCP	|80	|Detects if the session host is connected to the internet|
-|*.prod.do.dsp.mp.microsoft.com	|TCP	|443	|Windows Update|
-|*.sfx.ms	|TCP	|443	|Updates for OneDrive client software|
-|*.digicert.com	|TCP	|80	|Certificate revocation check|
-|*.azure-dns.com	|TCP	|443	|Azure DNS resolution|
-|*.azure-dns.net	|TCP	|443	|Azure DNS resolution|
+|login.windows.net    |TCP    |443    |Sign in to Microsoft Online Services and Microsoft 365|
+|*.events.data.microsoft.com    |TCP    |443    |Telemetry Service|
+|www.msftconnecttest.com    |TCP    |80    |Detects if the session host is connected to the internet|
+|*.prod.do.dsp.mp.microsoft.com    |TCP    |443    |Windows Update|
+|*.sfx.ms    |TCP    |443    |Updates for OneDrive client software|
+|*.digicert.com    |TCP    |80    |Certificate revocation check|
+|*.azure-dns.com    |TCP    |443    |Azure DNS resolution|
+|*.azure-dns.net    |TCP    |443    |Azure DNS resolution|
 
 This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID, Office 365, custom DNS providers, or time services. Microsoft Entra FQDNs and endpoints can be found under ID 56, 59 and 125 in [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
 
 > [!TIP]
 > You must use the wildcard character (*) for FQDNs involving service traffic. For agent traffic, if you prefer not to use a wildcard, here's how to find specific FQDNs to allow:
-> 1.	Ensure your session host virtual machines are registered to a host pool.
-> 2.	On a session host, open **Event viewer**, then go to **Windows logs** > **Application** > **WVD-Agent** and look for event ID **3701**.
-> 3.	Unblock the FQDNs that you find under event ID 3701. The FQDNs under event ID 3701 are region-specific. You'll need to repeat this process with the relevant FQDNs for each Azure region you want to deploy your session host virtual machines in.
+> 1.    Ensure your session host virtual machines are registered to a host pool.
+> 2.    On a session host, open **Event viewer**, then go to **Windows logs** > **Application** > **WVD-Agent** and look for event ID **3701**.
+> 3.    Unblock the FQDNs that you find under event ID 3701. The FQDNs under event ID 3701 are region-specific. You'll need to repeat this process with the relevant FQDNs for each Azure region you want to deploy your session host virtual machines in.
 
 ## Remote Desktop Protocol (RDP) broker service endpoints
 
 Direct connectivity to Azure Virtual Desktop RDP broker service endpoints is critical for remote performance to a dev box. These endpoints affect both connectivity and latency. To align with the Microsoft 365 network connectivity principles, you should categorize these endpoints as *Optimize* endpoints, and use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) from your Azure virtual network to those endpoints. RDP Shortpath  can provide another connection path for improved dev box connectivity, especially in suboptimal network conditions.
 
-To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identity those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
+To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identify those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
 Changing the network routes of a dev box (at the network layer or at the dev box layer like VPN) might break the connection between the dev box and the Azure Virtual Desktop RDP broker. If so, the end user is disconnected from their dev box until a connection is re-established.
 
 ## DNS requirements
@@ -186,9 +191,9 @@ Changing the network routes of a dev box (at the network layer or at the dev box
 As part of the Microsoft Entra hybrid join requirements, your dev boxes must be able to join on-premises Active Directory. Dev boxes must be able to resolve DNS records for your on-premises AD environment to join.
 
 Configure your Azure Virtual Network where the dev boxes are provisioned as follows:
-1.	Make sure that your Azure Virtual Network has network connectivity to DNS servers that can resolve your Active Directory domain.
-2.	From the Azure Virtual Network's Settings, select **DNS Servers** > **Custom**.
-3.	Enter the IP address of DNS servers that environment that can resolve your AD DS domain.
+1.    Make sure that your Azure Virtual Network has network connectivity to DNS servers that can resolve your Active Directory domain.
+2.    From the Azure Virtual Network's Settings, select **DNS Servers** > **Custom**.
+3.    Enter the IP address of DNS servers that environment that can resolve your AD DS domain.
 
 > [!TIP]
 > Adding at least two DNS servers, as you would with a physical PC, helps mitigate the risk of a single point of failure in name resolution.
@@ -209,22 +214,24 @@ Traffic interception technologies can exacerbate latency issues. You can use a [
 
 Any device on which you use one of the Remote Desktop clients to connect to Azure Virtual Desktop must have access to the following FQDNs and endpoints. Allowing these FQDNs and endpoints is essential for a reliable client experience. Blocking access to these FQDNs and endpoints is unsupported and affects service functionality.
 
-|Address	|Protocol	|Outbound port	|Purpose	|Clients |
+|Address    |Protocol    |Outbound port    |Purpose    |Clients |
 |---|---|---|---|---|
-|login.microsoftonline.com	|TCP	|443	|Authentication to Microsoft Online Services	|All |
-|*.wvd.microsoft.com	|TCP	|443	|Service traffic	|All |
-|*.servicebus.windows.net	|TCP	|443	|Troubleshooting data	|All |
-|go.microsoft.com	|TCP	|443	|Microsoft FWLinks	|All |
-|aka.ms	|TCP	|443	|Microsoft URL shortener	|All |
-|learn.microsoft.com	|TCP	|443	|Documentation	|All |
-|privacy.microsoft.com	|TCP	|443	|Privacy statement	|All |
-|query.prod.cms.rt.microsoft.com	|TCP	|443	|Download an MSI to update the client. Required for automatic updates.	|Windows Desktop |
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services    |All |
+|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |All |
+|*.servicebus.windows.net    |TCP    |443    |Troubleshooting data    |All |
+|go.microsoft.com    |TCP    |443    |Microsoft FWLinks    |All |
+|aka.ms    |TCP    |443    |Microsoft URL shortener    |All |
+|learn.microsoft.com    |TCP    |443    |Documentation    |All |
+|privacy.microsoft.com    |TCP    |443    |Privacy statement    |All |
+|query.prod.cms.rt.microsoft.com    |TCP    |443    |Download an MSI to update the client. Required for automatic updates.    |Windows Desktop |
 
 These FQDNs and endpoints only correspond to client sites and resources. This list doesn't include FQDNs and endpoints for other services such as Microsoft Entra ID or Office 365. Microsoft Entra FQDNs and endpoints can be found under ID 56, 59 and 125 in Office 365 URLs and IP address ranges.
 
 ## Troubleshooting 
 
-### Logon issues
+This section covers some common connection and network issues.
+
+### Connection issues
 
 - **Logon attempt failed**
 
@@ -238,13 +245,17 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
   For more information about troubleshooting group policy issues, see [Applying Group Policy troubleshooting guidance](/troubleshoot/windows-server/group-policy/applying-group-policy-troubleshooting-guidance).
 
-
 ### IPv6 addressing issues
 
 If you're experiencing IPv6 issues, check that the *Microsoft.AzureActiveDirectory* service endpoint is not enabled on the virtual network or subnet. This service endpoint converts the IPv4 to IPv6.
 
 For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
+### Updating dev box definition image issues
+
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. Additional free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition will not update. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
+
+For more information about updating dev box definition images, see [Update a dev box definition](how-to-manage-dev-box-definitions.md#update-a-dev-box-definition).
 
 ## Related content
 

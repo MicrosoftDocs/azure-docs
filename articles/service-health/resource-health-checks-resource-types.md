@@ -155,6 +155,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 | - Is the IoT Central Application available?|
 
+## Microsoft.Insights/scheduledQueryRules
+|Executed Checks|
+|---|
+|- Is this log search alert rule currently disabled?<br> - Does this rule runs less frequently than every 15 minutes?<br> - Is there a semantic, syntax, or validation error in the query?<br> - Is  the response size is too large?<br> - Is the query consuming too many resources?<br> - Can the target Log Analytics/Application Insights workspace for this alert rule be found?<br> - Is the alert rule query failing because of throttling (Error 429)?<br> - Does the query have the correct permissions?<br> - Are there NSP validations issues for the query?<br> - Does the query evaluation fail due to exceeding the limit of fired (non- resolved) alerts per day?<br> - Did the alert evaluation fail due to exceeding the allowed limit of dimension combinations values that meet the threshold?|
+
 ## Microsoft.KeyVault/vaults
 |Executed Checks|
 |---|

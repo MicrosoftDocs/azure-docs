@@ -41,7 +41,7 @@ For a code sample in C#, see [Index Data Lake Gen2 using Microsoft Entra ID](htt
 
 The ADLS Gen2 indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Determine which blobs to index
 

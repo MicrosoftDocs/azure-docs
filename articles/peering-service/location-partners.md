@@ -47,6 +47,7 @@ The following table provides information on the Peering Service connectivity par
 | [PIT Chile](https://www.pitchile.cl/wp/maps/) |LATAM|
 | [Sejong Telecom](https://www.sejongtelecom.net/) | Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |
+| [Sunrise](https://www.sunrise.ch/business/en/home). | Europe |
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) | Europe |
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) | Asia, Europe |
 | [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) | Oceania |
@@ -68,7 +69,7 @@ The following table provides information on the Peering Service connectivity par
 | Cape Town | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
 | Dublin | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
-| Geneva | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
+| Geneva | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
 | Hong Kong SAR | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Jakarta | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
 | Johannesburg | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidc2.com/connect/#maps) |
@@ -90,7 +91,7 @@ The following table provides information on the Peering Service connectivity par
 | Tokyo | [IIJ](https://www.iij.ad.jp/en/), [Colt](https://www.colt.net/product/cloud-prioritisation/), [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
 | Vienna | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Warsaw | [Atman](https://www.atman.pl/en/atman-internet-maps/) |
-| Zurich | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
+| Zurich | [Intercloud](https://www.intercloud.com/partners/microsoft-azure), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html), [Sunrise](https://www.sunrise.ch/business/en/home) |
 
 # [**IXPs by Metro**](#tab/ixp)
 

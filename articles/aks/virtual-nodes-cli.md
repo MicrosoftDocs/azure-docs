@@ -103,7 +103,8 @@ An Azure resource group is a logical group in which Azure resources are deployed
         --name myAKSCluster \
         --node-count 5 \
         --network-plugin azure \
-        --vnet-subnet-id <subnetId>
+        --vnet-subnet-id <subnetId> \
+        --generate-ssh-keys
     ```
 
     After several minutes, the command completes and returns JSON-formatted information about the cluster.

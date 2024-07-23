@@ -30,16 +30,12 @@ This guide demonstrates the migration process. It assumes a basic familiarity wi
 
 **LargePersonGroup** and **LargeFaceList** are collectively referred to as large-scale operations. **LargePersonGroup** can contain up to 1 million persons, each with a maximum of 248 faces. **LargeFaceList** can contain up to 1 million faces. The large-scale operations are similar to the conventional **PersonGroup** and **FaceList** but have some differences because of the new architecture. 
 
-The samples are written in C# by using the Azure AI Face client library.
+The samples are written in C#.
 
 > [!NOTE]
 > To enable Face search performance for **Identification** and **FindSimilar** in large-scale, introduce a **Train** operation to preprocess the **LargeFaceList** and **LargePersonGroup**. The training time varies from seconds to about half an hour based on the actual capacity. During the training period, it's possible to perform **Identification** and **FindSimilar** if a successful training operating was done before. The drawback is that the new added persons and faces don't appear in the result until a new post migration to large-scale training is completed.
 
-## Step 1: Initialize the client object
-
-When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. See the [quickstart](../quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp&tabs=visual-studio) for instructions on creating a Face client object.
-
-## Step 2: Code migration
+## Step 1: Code migration
 
 This section focuses on how to migrate **PersonGroup** or **FaceList** implementation to **LargePersonGroup** or **LargeFaceList**. Although **LargePersonGroup** or **LargeFaceList** differs from **PersonGroup** or **FaceList** in design and internal implementation, the API interfaces are similar for backward compatibility.
 
@@ -91,20 +87,28 @@ private static async Task TrainLargeFaceList(
     string largeFaceListId,
     int timeIntervalInMilliseconds = 1000)
 {
+    HttpClient httpClient = new HttpClient();
+    httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SUBSCRIPTION_KEY);
+
     // Trigger a train call.
-    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
+    await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/largefacelists/{largeFaceListId}/train", null);
 
     // Wait for training finish.
     while (true)
     {
-        Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
+        await Task.Delay(timeIntervalInMilliseconds);
+        string? trainingStatus = null;
+        using (var response = await httpClient.GetAsync($"{ENDPOINT}/face/v1.0/largefacelists/{largeFaceListId}/training"))
+        {
+            string contentString = await response.Content.ReadAsStringAsync();
+            trainingStatus = (string?)(JsonConvert.DeserializeObject<Dictionary<string, object>>(contentString)?["status"]);
+        }
 
-        if (status.Status == Status.Running)
+        if ("running".Equals(trainingStatus))
         {
             continue;
         }
-        else if (status.Status == Status.Succeeded)
+        else if ("succeeded".Equals(trainingStatus))
         {
             break;
         }
@@ -123,28 +127,41 @@ Previously, a typical use of **FaceList** with added faces and **FindSimilar** l
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = FaceListName, ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/facelists/{FaceListId}", content);
+}
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
     Directory.GetFiles(ImageDir, "*.jpg"),
     async imagePath =>
+    {
+        using (Stream stream = File.OpenRead(imagePath))
         {
-            using (Stream stream = File.OpenRead(imagePath))
+            using (var content = new StreamContent(stream))
             {
-                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/facelists/{FaceListId}/persistedfaces?detectionModel=detection_03", content);
             }
-        });
+        }
+    });
 
 // Perform FindSimilar.
 const string QueryImagePath = @"/path/to/query/image";
-var results = new List<SimilarPersistedFace[]>();
+var results = new List<HttpResponseMessage>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
+    var response = await faceClient.DetectAsync(BinaryData.FromStream(stream), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true);
+    var faces = response.Value;
     foreach (var face in faces)
     {
-        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["faceId"] = face.FaceId, ["faceListId"] = FaceListId }))))
+        {
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            results.Add(await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/findsimilars", content));
+        }
     }
 }
 ```
@@ -156,39 +173,52 @@ When migrating it to **LargeFaceList**, it becomes the following:
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
+using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["name"] = LargeFaceListName, ["recognitionModel"] = "recognition_04" }))))
+{
+    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+    await httpClient.PutAsync($"{ENDPOINT}/face/v1.0/largefacelists/{LargeFaceListId}", content);
+}
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
     Directory.GetFiles(ImageDir, "*.jpg"),
     async imagePath =>
+    {
+        using (Stream stream = File.OpenRead(imagePath))
         {
-            using (Stream stream = File.OpenRead(imagePath))
+            using (var content = new StreamContent(stream))
             {
-                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/largefacelists/{LargeFaceListId}/persistedfaces?detectionModel=detection_03", content);
             }
-        });
+        }
+    });
 
 // Train() is newly added operation for LargeFaceList.
-// Must call it before FindSimilarAsync() to ensure the newly added faces searchable.
+// Must call it before FindSimilar to ensure the newly added faces searchable.
 await TrainLargeFaceList(LargeFaceListId);
 
 // Perform FindSimilar.
 const string QueryImagePath = @"/path/to/query/image";
-var results = new List<SimilarPersistedFace[]>();
+var results = new List<HttpResponseMessage>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
+    var response = await faceClient.DetectAsync(BinaryData.FromStream(stream), FaceDetectionModel.Detection03, FaceRecognitionModel.Recognition04, returnFaceId: true);
+    var faces = response.Value;
     foreach (var face in faces)
     {
-        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        using (var content = new ByteArrayContent(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Dictionary<string, object> { ["faceId"] = face.FaceId, ["largeFaceListId"] = LargeFaceListId }))))
+        {
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            results.Add(await httpClient.PostAsync($"{ENDPOINT}/face/v1.0/findsimilars", content));
+        }
     }
 }
 ```
 
 As previously shown, the data management and the **FindSimilar** part are almost the same. The only exception is that a fresh preprocessing **Train** operation must complete in the **LargeFaceList** before **FindSimilar** works.
 
-## Step 3: Train suggestions
+## Step 2: Train suggestions
 
 Although the **Train** operation speeds up [FindSimilar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list)
 and [Identification](/rest/api/face/face-recognition-operations/identify-from-large-person-group), the training time suffers, especially when coming to large scale. The estimated training time in different scales is listed in the following table.
@@ -202,13 +232,13 @@ and [Identification](/rest/api/face/face-recognition-operations/identify-from-la
 
 To better utilize the large-scale feature, we recommend the following strategies.
 
-### Step 3a: Customize time interval
+### Step 2a: Customize time interval
 
 As is shown in `TrainLargeFaceList()`, there's a time interval in milliseconds to delay the infinite training status checking process. For **LargeFaceList** with more faces, using a larger interval reduces the call counts and cost. Customize the time interval according to the expected capacity of the **LargeFaceList**.
 
 The same strategy also applies to **LargePersonGroup**. For example, when you train a **LargePersonGroup** with 1 million persons, `timeIntervalInMilliseconds` might be 60,000, which is a 1-minute interval.
 
-### Step 3b: Small-scale buffer
+### Step 2b: Small-scale buffer
 
 Persons or faces in a **LargePersonGroup** or a **LargeFaceList** are searchable only after being trained. In a dynamic scenario, new persons or faces are constantly added and must be immediately searchable, yet training might take longer than desired. 
 
@@ -223,7 +253,7 @@ An example workflow:
 1. When the buffer collection size increases to a threshold or at a system idle time, create a new buffer collection. Trigger the **Train** operation on the master collection.
 1. Delete the old buffer collection after the **Train** operation finishes on the master collection.
 
-### Step 3c: Standalone training
+### Step 2c: Standalone training
 
 If a relatively long latency is acceptable, it isn't necessary to trigger the **Train** operation right after you add new data. Instead, the **Train** operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency. It can be applied to static scenarios to further reduce the **Train** frequency.
 
@@ -232,16 +262,11 @@ Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceLis
 ```csharp
 private static void Main()
 {
-    // Create a LargePersonGroup.
-    const string LargePersonGroupId = "mylargepersongroupid_001";
-    const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
-
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
     const double TimeIntervalForTrain = 1000 * 60 * 60; // 1-hour interval for training.
     var trainTimer = new Timer(TimeIntervalForTrain);
-    trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed(LargePersonGroupId, TimeIntervalForStatus);
+    trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed("mylargepersongroupid_001", TimeIntervalForStatus);
     trainTimer.AutoReset = true;
     trainTimer.Enabled = true;
 

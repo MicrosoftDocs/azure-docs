@@ -12,6 +12,8 @@ ms.date: 05/17/2023
 
 # Prepare a Windows template machine in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes best practices and tips for preparing a Windows-based lab template virtual machine in Azure Lab Services. Learn how to configure commonly used software and operating system settings, such as Windows Update, OneDrive, and Microsoft 365.
 
 >[!IMPORTANT]

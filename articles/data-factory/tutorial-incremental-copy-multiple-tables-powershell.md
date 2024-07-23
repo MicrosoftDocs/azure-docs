@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell

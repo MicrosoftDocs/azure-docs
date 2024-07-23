@@ -54,7 +54,8 @@ The available GPU instance profiles available for this instance size include `MI
     az aks create \
         --resource-group myResourceGroup \
         --name myAKSCluster\
-        --node-count 1
+        --node-count 1 \
+        --generate-ssh-keys
     ```
 
 ## Create a multi-instance GPU node pool

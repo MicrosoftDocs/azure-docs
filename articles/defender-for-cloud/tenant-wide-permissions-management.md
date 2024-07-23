@@ -1,8 +1,9 @@
 ---
 title: Grant and request tenant-wide permissions
-description: Learn how to manage tenant-wide permissions in Microsoft Defender for Cloud
+description: Learn how to manage tenant-wide permissions in Microsoft Defender for Cloud effectively to enhance your organization's security.
 ms.topic: how-to
-ms.date: 01/08/2023
+ms.date: 05/16/2024
+# customer intent: As a user, I want to learn how to manage tenant-wide permissions in Microsoft Defender for Cloud so that I can effectively manage my organization's security.
 ---
 
 # Grant and request tenant-wide visibility
@@ -72,6 +73,18 @@ To request elevated permissions from your global administrator:
     :::image type="content" source="media/management-groups-roles/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions.":::
 
     After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user.
+
+## Removing permissions
+
+To remove permissions from the root tenant group, follow these steps:
+
+1. Go to the Azure portal.
+1. In the Azure portal, search for **Management Groups** in the search bar at the top.
+1. In the **Management Groups** pane, find and select the **Tenant Root Group** from the list of management groups.
+1. Once inside the **Tenant Root Group**, select **Access Control (IAM)** in the left-hand menu.
+1. In the **Access Control (IAM)** pane, select the **Role assignments** tab. This shows a list of all role assignments for the **Tenant Root Group**.
+1. Review the list of role assignments to identify which one you need to remove.
+1. Select the role assignment you want to remove (**Security admin** or **Security reader**) and select **Remove**. Ensure you have the necessary permissions to make changes to role assignments in the **Tenant Root Group**.
 
 ## Next steps
 

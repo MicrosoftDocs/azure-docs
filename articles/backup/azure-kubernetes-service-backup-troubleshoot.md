@@ -165,6 +165,24 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 **Recommended action**: The health of the extension is required to be verified via running the command `kubectl get pods -n dataprotection.microsoft`. If the pods aren't in running state, then increase the number of nodes in the cluster by *1* or increase the compute limits. Then wait for a few minutes and run the command again, which should change the state of the pods to *running*. If the issue persists, delete and reinstall the extension.
 
+### BackupPluginPodRestartedDuringBackupError
+
+**Cause**: Backup Extension Pod (dataprotection-microsoft-kubernetes-agent) in your AKS cluster experiencing instability due to insufficient CPU/Memory resources on its current node, leading to OOM (Out of Memory) kill incidents. This could be because of lower compute requested by the backup extension pod.
+
+**Recommended action**: To address this, we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
+
+The current value of compute for this pod is:
+
+resources.requests.cpu is 500m
+resources.requests.memory is 128Mi
+Kindly modify the memory allocation to 512Mi by updating the 'resources.requests.memory' parameter. If the issue persists, it is advisable to increase the 'resources.requests.cpu' parameter to 900m, post the memory allocation. You can increase the values for the parameters by following below steps:
+
+1. Navigate to the AKS cluster blade in the Azure portal.
+2. Click on "Extensions+Applications" and select "azure-aks-backup" extension.
+3. Update the configuration settings in the portal by adding the following key-value pair.
+    resources.requests.cpu 900m
+    resources.requests.memory 512Mi
+
 ### BackupPluginDeleteBackupOperationFailed
 
 **Cause**: The Backup extension should be running to delete the backups. 
@@ -217,9 +235,15 @@ These error codes appear due to issues based on the Backup extension installed i
 
 **Recommended action**: The error appears if the Extension Identity doesn't have right permissions to access the storage account. This error appears if AKS backup extension is installed the first time when configuring protection operation. This happens for the time taken for the granted permissions to propagate to the AKS backup extension. As a workaround, wait an hour and retry the protection configuration. Otherwise, use Azure portal or CLI to reassign this missing permission on the storage account.
 
+### UserErrorSnapshotResourceGroupHasLocks
+
+**Cause**: This error code appears when a Delete or Read Lock has been applied on the Snapshot Resource Group provided as input for Backup Extension.
+
+**Recommended action**: In case if you are configuring a new backup instance, use a resource group without a delete or read lock. If the backup instance already configured then remove the lock from the snapshot resource group. 
+
 ## Vaulted backup based errors
 
-This error code can appear while you enable AKS backup to store backups in a vault standard datastore.
+These error codes can appear while you enable AKS backup to store backups in a vault standard datastore.
 
 ### DppUserErrorVaultTierPolicyNotSupported
 

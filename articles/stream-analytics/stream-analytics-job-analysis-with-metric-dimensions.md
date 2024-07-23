@@ -90,6 +90,6 @@ You can also debug this issue with physical job diagram, see [Physical job diagr
 ## Next steps
 
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Dimensions for Azure Stream Analytics metrics](./stream-analytics-job-metrics-dimensions.md)
+* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
+* [Dimensions for Azure Stream Analytics metrics](monitor-azure-stream-analytics-reference.md#metric-dimensions)
 * [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)

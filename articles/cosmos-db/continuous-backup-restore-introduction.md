@@ -148,13 +148,11 @@ Currently the point in time restore functionality has the following limitations:
 
 * Azure Cosmos DB for MongoDB accounts with continuous backup don't support creating a unique index for an existing collection. For such an account, unique indexes must be created along with their collection; it can be done using the create collection [extension commands](mongodb/custom-commands.md).
 
-* The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
-
 * After restoring, it's possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 
 * The restore process restores all the properties of a container including its TTL configuration by default, you can pass parameter to disable TTL while doing the restore. As a result, it's possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
-* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
+* Unique indexes in API for MongoDB can't be added, updated, or dropped when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
 
 * Continuous mode restore may not restore throughput setting valid as of restore point.
 
