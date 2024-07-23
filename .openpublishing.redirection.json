@@ -1190,6 +1190,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/about-creator.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
@@ -3703,6 +3713,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
             "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
             "redirect_document_id": false
@@ -4140,6 +4160,21 @@
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
             "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
             "redirect_document_id": false
         },
         {
@@ -4785,6 +4820,11 @@
         {
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
+            "redirect_url": "/azure/openshift/howto-byok",
             "redirect_document_id": false
         },
         {

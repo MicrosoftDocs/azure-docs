@@ -358,7 +358,7 @@ __Response__
 ---
 
 > [!TIP]
-> You can inspect the property `details.loc` to understand the location of the offending parameter and `details.input` to see the value that was passed in the request.
+> You can inspect the property `detail.loc` to understand the location of the offending parameter and `detail.input` to see the value that was passed in the request.
 
 ## Content safety
 

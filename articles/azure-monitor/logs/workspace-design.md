@@ -7,7 +7,7 @@ ms.date: 05/30/2024
 
 # Design a Log Analytics workspace architecture
 
-A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be sufficient for many environments that use Azure Monitor and Microsoft Sentinel. But many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces. It also discusses the configuration and placement of those workspaces to meet your requirements while optimizing your costs.
+A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be sufficient for many environments that use Azure Monitor and Microsoft Sentinel. But many organizations create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces. It also discusses the configuration and placement of those workspaces to meet your requirements while optimizing your costs.
 
 > [!NOTE]
 > This article discusses Azure Monitor and Microsoft Sentinel because many customers need to consider both in their design. Most of the decision criteria apply to both services. If you use only one of these services, you can ignore the other in your evaluation.
@@ -17,9 +17,9 @@ Here's a video about the fundamentals of Azure Monitor Logs and best practices a
 > [!VIDEO https://www.youtube.com/embed/7RBp9j0P_Ao?cc_load_policy=1&cc_lang_pref=auto]
 
 ## Design strategy
-Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number that will match your requirements.
+Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number of workspace to meet your requirements.
 
-Designing a workspace configuration includes evaluation of multiple criteria. But some of the criteria might be in conflict. For example, you might be able to reduce egress charges by creating a separate workspace in each Azure region. Consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria independently. Consider your requirements and priorities to determine which design will be most effective for your environment.
+Designing a workspace configuration includes evaluation of multiple criteria. But some of the criteria might be in conflict. For example, you might be able to reduce egress charges by creating a separate workspace in each Azure region. Consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria independently. Consider your requirements and priorities to determine which design is most effective for your environment.
 
 ## Design criteria
 The following table presents criteria to consider when you design your workspace architecture. The sections that follow describe the criteria.
@@ -31,7 +31,7 @@ The following table presents criteria to consider when you design your workspace
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region. You might have regulatory or compliance requirements to store data in specific locations. |
 | [Data ownership](#data-ownership) | You might choose to create separate workspaces to define data ownership. For example, you might create workspaces by subsidiaries or affiliated companies. | 
 | [Split billing](#split-billing) | By placing workspaces in separate subscriptions, they can be billed to different parties. |
-| [Data retention and archive](#data-retention-and-archive) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
+| [Data retention](#data-retention) | You can set different retention settings for each workspace and each table in a workspace. You need a separate workspace if you require different retention settings for different resources that send data to the same tables. |
 | [Commitment tiers](#commitment-tiers) | Commitment tiers allow you to reduce your ingestion cost by committing to a minimum amount of daily data in a single workspace. |
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
@@ -87,11 +87,11 @@ You might need to split billing between different parties or perform charge back
 - **If you don't need to split billing or perform charge back:** Use a single workspace for all cost owners.
 - **If you need to split billing or perform charge back:** Consider whether [Azure Cost Management + Billing](../cost-usage.md#azure-cost-management--billing) or a log query provides cost reporting that's granular enough for your requirements. If not, use a separate workspace for each cost owner.
 
-### Data retention and archive
-You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#configure-retention-and-archive-at-the-table-level). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
+### Data retention
+You can configure default [data retention settings](data-retention-configure.md) for a workspace or [configure different settings for each table](data-retention-configure.md#configure-table-level-retention). You might require different settings for different sets of data in a particular table. If so, you need to separate that data into different workspaces, each with unique retention settings.
 
-- **If you can use the same retention and archive settings for all data in each table:** Use a single workspace for all resources.
-- **If you require different retention and archive settings for different resources in the same table:** Use a separate workspace for different resources.
+- **If you can use the same retention settings for all data in each table:** Use a single workspace for all resources.
+- **If you require different retention settings for different resources in the same table:** Use a separate workspace for different resources.
 
 ### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a specific amount of daily data. You might choose to consolidate data in a single workspace to reach the level of a particular tier. This same volume of data spread across multiple workspaces wouldn't be eligible for the same tier, unless you have a dedicated cluster.
@@ -130,7 +130,7 @@ To ensure that critical data in your workspace is available in the event of a re
 This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
 
 ## Work with multiple workspaces
-Many designs will include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
+Many designs include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
 
 - [Create a log query across multiple workspaces and apps in Azure Monitor](cross-workspace-query.md)
 - [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md)
