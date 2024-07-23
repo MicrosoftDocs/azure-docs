@@ -2,7 +2,7 @@
 title: Allow key management operations through Azure Resource Manager
 description: Learn how to allow key management operations through ARM
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 ms.custom: devx-track-arm-template
 
 ms.service: key-vault
