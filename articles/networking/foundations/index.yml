@@ -39,16 +39,16 @@ productDirectory:
   title: Get started
   items:
     - title: Azure Virtual Network
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/virtual-networks.svg
+      imageSrc: ./media/virtual-networks.svg
       summary: Azure Virtual Network is the fundamental building block for your private network in Azure.
       url: ../../virtual-network/index.yml
     - title: Azure Private Link
       summary: Azure Private Link enables you to access Azure services over a private endpoint in your virtual network.
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/private-link.svg
+      imageSrc: ./media/private-link.svg
       url: ../../private-link/index.yml
     - title: Azure DNS
       summary: Azure DNS provides reliable and secure name resolution for your Azure services using Azure infrastructure.
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/dns.svg
+      imageSrc: ./media/dns.svg
       url: ../../dns/index.yml
     - title: Azure Virtual Network Manager (AVNM)
       summary: AVNM is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions.
@@ -68,7 +68,7 @@ productDirectory:
       url: ../../nat-gateway/index.yml
     - title: Traffic Manager
       summary: Azure Traffic Manager is a DNS-based traffic load balancer.
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/traffic-manager.svg
+      imageSrc: ./media/traffic-manager.svg
       url: ../../traffic-manager/index.yml
 
           
