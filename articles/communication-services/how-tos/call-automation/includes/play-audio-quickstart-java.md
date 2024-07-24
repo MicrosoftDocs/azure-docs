@@ -297,6 +297,15 @@ if (acsEvent instanceof PlayCompleted) {
 } 
 ```
 
+### Example of how you can deserialize the *PlayStarted* event:
+
+``` java
+if (acsEvent instanceof PlayStarted) { 
+    PlayStarted event = (PlayStarted) acsEvent; 
+    log.info("Play started, context=" + event.getOperationContext()); 
+} 
+```
+
 ### Example of how you can deserialize the *PlayFailed* event:
 
 ``` java
