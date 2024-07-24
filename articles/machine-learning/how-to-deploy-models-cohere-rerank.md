@@ -28,7 +28,7 @@ Cohere offers two Rerank models in Azure Machine Learning studio. These models a
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](includes/machine-learning-preview-generic-disclaimer.md)]
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
+You can browse the Cohere family of models in the [Model Catalog](concept-model-catalog.md) by filtering on the Cohere collection.
 
 ### Cohere Rerank 3 - English
 
