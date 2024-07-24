@@ -72,7 +72,7 @@ The new Azure RBAC permission model for key vault provides alternative to the va
 
 You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator),or [Owner](../../role-based-access-control/built-in-roles.md#owner).
+To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator), or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
 ### Enable Azure RBAC permissions on Key Vault
 
