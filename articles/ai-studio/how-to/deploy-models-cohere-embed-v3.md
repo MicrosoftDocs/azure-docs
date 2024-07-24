@@ -48,11 +48,18 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
-### Deploy the model
+### A deployed Cohere Embed V3 models model
 
-Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
 
-### Install the inference package
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+### The inference package installed
 
 You can consume predictions from this model by using the `azure-ai-inference` package with Python. To install this package, you need the following prerequisites:
 
@@ -66,14 +73,18 @@ Once you have these prerequisites, install the Azure AI inference package with t
 pip install azure-ai-inference
 ```
 
+Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
+
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
 
 ## Working with embeddings
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 ```python
@@ -93,18 +104,22 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```python
-model.get_model_info()
+model_info = model.get_model_info()
 ```
 
 The response is as follows:
 
 
+```python
+print("Model name:", model_info.model_name)
+print("Model type:", model_info.model_type)
+print("Model provider name:", model_info.model_provider)
+```
+
 ```console
-{
-    "model_name": "Cohere-embed-v3-english",
-    "model_type": "embeddings",
-    "model_provider_name": "Cohere"
-}
+Model name: Cohere-embed-v3-english
+Model type": embeddings
+Model provider name": Cohere
 ```
 
 ### Create embeddings
@@ -173,7 +188,7 @@ from azure.ai.inference.models import EmbeddingInputType
 
 response = model.embed(
     input=["The answer to the ultimate question of life, the universe, and everything is 42"],
-    input_type=EmbeddingInputType.DCOUMENT,
+    input_type=EmbeddingInputType.DOCUMENT,
 )
 ```
 
@@ -222,11 +237,18 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
-### Deploy the model
+### A deployed Cohere Embed V3 models model
 
-Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
 
-### Install the inference package
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+### The inference package installed
 
 You can consume predictions from this model by using the `@azure-rest/ai-inference` package from `npm`. To install this package, you need the following prerequisites:
 
@@ -234,20 +256,22 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-nce you have these prerequisites, install the Azure ModelClient REST client library for JavaScript with the following command:
+Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
 
 ## Working with embeddings
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 
 ```javascript
@@ -273,12 +297,18 @@ await client.path("info").get()
 The response is as follows:
 
 
-```console
+```javascript
 {
     "model_name": "{$model_name}",
     "model_type": "{$model_type}",
     "model_provider_name": "{$model_provider}"
 }
+```
+
+```console
+Model name: Cohere-embed-v3-english
+Model type": embeddings
+Model provider name": Cohere
 ```
 
 ### Create embeddings
@@ -400,25 +430,34 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere Command models with Azure AI studio, you need the following prerequisites:
 
-### Deploy the model
+### A deployed Cohere Embed V3 models model
 
-Cohere Embed V3 models can be deployed to Servereless API endpoints. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+**Deployment to serverless APIs**
 
-### Use the Azure AI model inference API
+Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+
+Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
+
+> [!div class="nextstepaction"]
+> [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
+
+### A REST client
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you will need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where your-host-name is your unique model deployment host name and your-azure-region is the Azure region where the model is deployed (e.g. eastus2).
-* Depending on your model deployment and authentication preference, you either need a key to authenticate against the service, or Entra ID credentials. The key is a 32-character string.
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API that can be used to exploit specific features from the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
 
 ## Working with embeddings
 
-The following example shows how to make basic usage of the Azure AI Model Inference API with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
-First, let's create a client to consume the model. In this example, we assume the endpoint URL and key are stored in environment variables.
+### Create a client to consume the model
+
+First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
 ### Get the model's capabilities
 
@@ -434,7 +473,7 @@ Content-Type: application/json
 The response is as follows:
 
 
-```console
+```json
 {
     "model_name": "Cohere-embed-v3-english",
     "model_type": "embeddings",
