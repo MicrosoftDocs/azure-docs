@@ -289,7 +289,7 @@ sections:
           </configuration>
           ```
           
-          You can also add this as a setting in IIS. Use the following command with the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
+          You can also add this as a setting in IIS. Use the following command with the [common startup tasks](cloud-services-startup-tasks-common.md#configure-internet-information-services--iis--startup-with-appcmdexe) article.
           
           ```cmd
           %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
@@ -298,7 +298,7 @@ sections:
       - question: |
           How do I customize IIS for a web role?
         answer: |
-          Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
+          Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-internet-information-services--iis--startup-with-appcmdexe) article.
           
       - question: |
           What is the quota limit for my Cloud Service?
