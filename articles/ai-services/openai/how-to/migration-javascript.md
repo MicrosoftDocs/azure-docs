@@ -1,5 +1,5 @@
 ---
-title: How to migrate to OpenAI Javascript v4.x
+title: How to migrate to OpenAI JavaScript v4.x
 titleSuffix: Azure OpenAI Service
 description: Learn about migrating to the latest release of the OpenAI JavaScript library with Azure OpenAI.
 author: mrbullwinkle 
@@ -13,15 +13,15 @@ manager: nitinme
 
 # Migrating to the OpenAI JavaScript API library 4.x
 
-As of June 2024, we recommend migrating to the OpenAI JavaScript API library 4.x, the latest version of the official OpenAI JavaScript client library that supports the Azure OpenAI Service API version `2022-12-01` and later. This article will help you bring you up to speed on the changes specific to Azure OpenAI.
+As of June 2024, we recommend migrating to the OpenAI JavaScript API library 4.x, the latest version of the official OpenAI JavaScript client library that supports the Azure OpenAI Service API version `2022-12-01` and later. This article helps you bring you up to speed on the changes specific to Azure OpenAI.
 
 ## Authenticating the client
 
 There are several ways to authenticate API requests to Azure OpenAI. We highly recommend using Microsoft Entra ID tokens. See the [Azure Identity documentation](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) for more information.
 
-### Microsoft Entra ID (previously Azure Active Directory)
+### Microsoft Entra ID
 
-There are several ways to authenticate with the Azure OpenAI service using Microsoft Entra ID tokens. The default way is to use the `DefaultAzureCredential` class from the `@azure/identity` package, but your application may be using a different credential class. For the purposes of this guide, we will assume that you are using the `DefaultAzureCredential` class. A credential can be created as follows:
+There are several ways to authenticate with the Azure OpenAI service using Microsoft Entra ID tokens. The default way is to use the `DefaultAzureCredential` class from the `@azure/identity` package, but your application might be using a different credential class. For the purposes of this guide, we assume that you are using the `DefaultAzureCredential` class. A credential can be created as follows:
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
@@ -66,7 +66,7 @@ const client = new AzureOpenAI(options);
 
 The endpoint of the Azure OpenAI resource can be specified by setting the `endpoint` option but it can also be loaded by the client from the environment variable `AZURE_OPENAI_ENDPOINT`. This is the recommended way to set the endpoint because it allows the client to be used in different environments without changing the code and also to protect the endpoint from being exposed in the code.
 
-Note that the API version is required to be specified, this is necessary to ensure that existing code doesn't break between preview API versions. Refer to [API versioning documentation](../api-version-deprecation.md) to learn more about Azure OpenAI API versions. Additionally, the `deployment` property is not required but it is recommended to be set. Once `deployment` is set, it is used as the default deployment for all operations that require it. If the client is not created with the `deployment` option, the `model` property in the options object should be set with the deployment name. However, audio operations such as `audio.transcriptions.create` require the client to be created with the `deployment` option set to the deployment name.
+The API version is required to be specified, this is necessary to ensure that existing code doesn't break between preview API versions. Refer to [API versioning documentation](../api-version-deprecation.md) to learn more about Azure OpenAI API versions. Additionally, the `deployment` property isn't required but it's recommended to be set. Once `deployment` is set, it's used as the default deployment for all operations that require it. If the client isn't created with the `deployment` option, the `model` property in the options object should be set with the deployment name. However, audio operations such as `audio.transcriptions.create` require the client to be created with the `deployment` option set to the deployment name.
 
 # [Azure OpenAI JavaScript (previous)](#tab/javascript-old)
 
@@ -111,7 +111,7 @@ Note the following:
 - The `getChatCompletions` method has been replaced with the `chat.completions.create` method.
 - The `messages` parameter is now passed in the options object with the `messages` property.
 - The `maxTokens` property has been renamed to `max_tokens` and the `deploymentName` parameter has been removed. Generally, the names of the properties in the `options` object are the same as in the Azure OpenAI service API, following the snake case convention instead of the camel case convention used in the `AssistantsClient`. This is true for all the properties across all requests and responses in the `AzureOpenAI` client.
-- The `deploymentName` parameter is not needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name.
+- The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name.
 
 ### Streaming chat completions
 
@@ -172,7 +172,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { azure
 
 ---
 
-Note that:
+
 - The `azureExtensionOptions` property has been replaced with the inner `data_sources` property.
 - The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI service API.
 - Camel case properties have been replaced with snake case properties.
@@ -202,12 +202,12 @@ const result = await client.getAudioTranscription(deploymentName, audio);
 
 ---
 
-Note that:
+
 
 - The `getAudioTranscription` method has been replaced with the `audio.transcriptions.create` method
 - The `AzureOpenAI` has to be constructed with the `deployment` option set to the deployment name in order to use audio operations such as `audio.transcriptions.create`
-- The `model` property is required to be set in the options object but its value is not used in the operation so feel free to set it to any value
-- The `file` property accepts a variety of types including `Buffer`, `fs.ReadaStream`, and `Blob` but in this example, a file is streamed from disk using `fs.createReadStream`
+- The `model` property is required to be set in the options object but its value isn't used in the operation so feel free to set it to any value
+- The `file` property accepts various types including `Buffer`, `fs.ReadaStream`, and `Blob` but in this example, a file is streamed from disk using `fs.createReadStream`
 
 ### Audio translation
 
@@ -234,7 +234,7 @@ const result = await client.getAudioTranslation(deploymentName, audio);
 
 ---
 
-Note that:
+
 - The `getAudioTranslation` method has been replaced with the `audio.translations.create` method.
 - All other changes are the same as in the audio transcription example.
 
@@ -268,7 +268,7 @@ const assistantResponse = await assistantsClient.createAssistant(options);
 
 ---
 
-Note that:
+
 
 - The `createAssistant` method has been replaced with the `beta.assistants.create` method
 
@@ -290,7 +290,7 @@ const assistantThread = await assistantsClient.createThread();
 
 ---
 
-Note that:
+
 
 - The `createThread` method has been replaced with the `beta.threads.create` method
 
@@ -322,17 +322,17 @@ const threadResponse = await assistantsClient.createMessage(
 
 ---
 
-Note that:
+
 - The `createMessage` method has been replaced with the `beta.threads.messages.create` method
 - The message specification has been moved from a parameter list to an object
 
 #### Runs
 
-To run an assistant on a thread, the `createRun` method is used to create a run and then a loop is used to poll the run status until it is in a terminal state. The following example shows how to migrate the run creation and polling.
+To run an assistant on a thread, the `createRun` method is used to create a run, and then a loop is used to poll the run status until it is in a terminal state. The following example shows how to migrate the run creation and polling.
 
 # [OpenAI JavaScript (new)](#tab/javascript-new)
 
-This code can be migrated and simplified by using the `createAndPoll` method which creates a run and polls it until it is in a terminal state.
+This code can be migrated and simplified by using the `createAndPoll` method, which creates a run and polls it until it is in a terminal state.
 
 ```typescript
 const runResponse = await assistantsClient.beta.threads.runs.createAndPoll(
@@ -365,7 +365,7 @@ do {
 ---
 
 
-Note that:
+
 - The `createRun` method has been replaced with the `beta.threads.runs.create` and `createAndPoll` methods
 - The `createAndPoll` method is used to create a run and poll it until it is in a terminal state
 
@@ -416,10 +416,10 @@ const embeddings = await client.getEmbeddings(deploymentName, input);
 
 ---
 
-Note that:
+
 - The `getEmbeddings` method has been replaced with the `embeddings.create` method
 - The `input` parameter is now passed in the options object with the `input` property
-- The `deploymentName` parameter has been removed. The `deploymentName` parameter is not needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
+- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
 
 ### Image generation
 
@@ -440,10 +440,10 @@ const results = await client.getImages(deploymentName, prompt, { n, size });
 ---
 
 
-Note that:
+
 - The `getImages` method has been replaced with the `images.generate` method
 - The `prompt` parameter is now passed in the options object with the `prompt` property
-- The `deploymentName` parameter has been removed. The `deploymentName` parameter is not needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
+- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
 
 ### Content filter
 
@@ -490,9 +490,9 @@ However `AzureOpenAI` does not have a direct equivalent to the `contentFilterRes
 
 ---
 
-Note that:
+
 - camel case properties have been replaced with snake case properties
-- A cast to `any` is used to access the `content_filter_results` property because it is not part of the `ChatCompletion.Choice` interface, see the [Azure types](#azure-types) section for more information
+- A cast to `any` is used to access the `content_filter_results` property because it isn't part of the `ChatCompletion.Choice` interface, see the [Azure types](#azure-types) section for more information
 
 ## Comparing Types
 
@@ -556,7 +556,7 @@ The following table explores several type names from `@azure/openai` and shows t
 
 ## Azure types
 
-`AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users will be required to cast to a more permissive type such as `Record<string, any>` to access those features. Examples in [the Migration examples](#migration-examples) section show how to do this.
+`AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users are required to cast to a more permissive type such as `Record<string, any>` to access those features. Examples in [the Migration examples](#migration-examples) section show how to do this.
 
 ## Next steps
 
