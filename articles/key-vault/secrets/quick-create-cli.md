@@ -30,7 +30,7 @@ This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
 
 ## Add a secret to Key Vault
 
