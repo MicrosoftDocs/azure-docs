@@ -44,7 +44,7 @@ If you don't want to create your YAML file by hand, select a different method at
 ::: zone-end
 ::: zone pivot="method-manual,method-template"
 
-## Choose deployment credentials
+## <a name="generate-deployment-credentials"></a>Choose deployment credentials
 
 Since GitHub Actions requires credentials to be able to access Azure resources, you first need to get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
 
@@ -378,11 +378,11 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
 
-### [Container](#tab/Container/windows)
+### [Container](#tab/container/windows)
     
 Container deployments aren't supported on Windows. Choose Linux instead.
 
-### [Container](#tab/Container/linux)
+### [Container](#tab/container/linux)
   
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="9-57":::   
 
