@@ -929,6 +929,113 @@ Next, deploy the template by using Azure PowerShell or Azure CLI. The following 
 az deployment group create -g <ResourceGroup> --template-file <RestoreTemplateFilePath> 
 ```
 
+### Restore API for NoSQL account with CMK using ARM template
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "name": "ademo-pitr1",
+      "type": "Microsoft.DocumentDB/databaseAccounts",
+      "apiVersion": "2024-05-15",
+      "location": "West US",
+      "properties": {
+        "locations": [
+          {
+            "locationName": "West US"
+          }
+        ],
+        "databaseAccountOfferType": "Standard",
+        "defaultIdentity": "UserAssignedIdentity=/subscriptions/1296c352-5d33-40d9-bc05-4d56dc2a7521/resourceGroups/cosmosdb-test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-cdb-test",
+        "createMode": "Restore",
+        "restoreParameters": {
+            "restoreSource": "/subscriptions/1296c352-5d33-40d9-bc05-4d56dc2a7521/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4bcb9d82e-ec71-430b-b977-cd6641db85ad",
+            "restoreMode": "PointInTime",
+            "restoreTimestampInUtc": "2024-07-16T22:20:00+00:00",
+            "restoreWithTtlDisabled": "true"
+        }
+      },
+        "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+                "/subscriptions/1296c352-5d33-40d9-bc05-4d56dc2a7521/resourcegroups/cosmosdb-test/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-cdb-test": {
+                }
+            }
+        }
+    }
+  ]
+}
+```
+
+### Restore API for NoSQL account with CMK using Terraform template
+
+```terraform
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.0, < 4.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+data "azurerm_resource_group" "rg" {
+  name     = "cosmosdb-test"
+}
+
+data "azurerm_user_assigned_identity" "umi" {
+  resource_group_name = data.azurerm_resource_group.rg.name
+  name                = "umi-cdb-test"
+}
+
+resource "azurerm_cosmosdb_account" "acc" {
+  name                  = "ademo-pitr1"
+  location              = "westus"
+  resource_group_name   = data.azurerm_resource_group.rg.name
+  default_identity_type = join("=", ["UserAssignedIdentity", data.azurerm_user_assigned_identity.umi.id])
+  offer_type            = "Standard"
+
+  consistency_policy {
+    consistency_level = "Session"
+  }
+
+  geo_location {
+    location          = "westus"
+    failover_priority = 0
+  }
+
+  backup {
+    type = "Continuous"
+    tier = "Continuous30Days"
+  }
+
+  key_vault_key_id = "https://yourkeyvaultname.vault.azure.net/keys/yourkeyname" 
+
+  create_mode = "Restore"
+
+  restore {
+    source_cosmosdb_account_id = "/subscriptions/1296c352-5d33-40d9-bc05-4d56dc2a7521/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/4bcb9d82e-ec71-430b-b977-cd6641db85ad"
+    restore_timestamp_in_utc  = "2024-07-16T22:20:00+00:00"
+  }
+
+  identity {
+    type         = "UserAssigned"
+    identity_ids = [data.azurerm_user_assigned_identity.umi.id]
+  }
+}
+```
+> [!NOTE]
+   > Please note in the above Terraform code block the keyvault while not technically required, if omited the Terraform run will produce an error but the restore process will complete successfully.  Defining the keyvault reference will avoid the error. 
+
+
 ## Next steps
 
 * Provision continuous backup using the [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
