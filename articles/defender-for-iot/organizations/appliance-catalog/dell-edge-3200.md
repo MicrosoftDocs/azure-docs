@@ -78,7 +78,6 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 
 >[!Important]
 >
->If you intend to order hardware from a vendor, check that there are no changes to the bill of materials, as some parts might be updated to optimize the sensor performance.
 >When ordering hardware from a vendor, check that the bill of materials is unchanged from the details listed here, as vendors might update parts to optimize sensor performance.
 
 ## Install Defender for IoT software on the Dell Edge Gateway 3200
