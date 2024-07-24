@@ -19,7 +19,7 @@ This article explains how to restore an Azure PostgreSQL -flex server backed up 
 2. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
 
 ## Restore Azure PostgreSQL-Flexible database
-**
+
 Follow these steps:
 
 1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL-Flex server to be restored and select **Restore**.
