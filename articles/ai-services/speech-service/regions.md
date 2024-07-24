@@ -61,7 +61,7 @@ The following regions are supported for Speech service features such as speech t
 | US            | West US 2            | `westus2` <sup>1,2,4,5,7,10</sup>          |
 | US            | West US 3            | `westus3` <sup>3</sup>                  |
 
-<sup>1</sup> The region has dedicated hardware for custom speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
+<sup>1</sup> The region has dedicated hardware for custom speech training. If you plan to train a custom model with audio data, you must use one of the regions with dedicated hardware. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
 <sup>2</sup> The region is available for custom neural voice training. You can copy a trained neural voice model to other regions for deployment.
 

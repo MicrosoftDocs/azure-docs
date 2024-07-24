@@ -1,7 +1,7 @@
 ---
 title: .NET feature flag management
 titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to use feature flags in .NET apps. The feature management library provides various out-of-the-box solutions for application development, ranging from simple feature toggles to complex feature experimentation.
+description: Learn to implement feature flags in your .NET and ASP.NET Core applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
@@ -1230,7 +1230,7 @@ Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) fe
 
 ### Overriding Enabled State with a Variant
 
-You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with a `Status` of `Disabled` can't be overridden.
+You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
 
 If you're using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
 
