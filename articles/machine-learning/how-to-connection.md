@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: franksolomon
 author: fbsolo-ms1
 ms.reviewer: ambadal
-ms.date: 06/19/2023
+ms.date: 07/24/2024
 ms.custom: data4ml, devx-track-azurecli
 # Customer intent: As an experienced data scientist with Python skills, I have data located in external sources outside of Azure. I need to make that data available to the Azure Machine Learning platform, to train my machine learning models.
 ---
@@ -18,7 +18,8 @@ ms.custom: data4ml, devx-track-azurecli
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to connect to data sources located outside of Azure, to make that data available to Azure Machine Learning services. Azure connections serve as key vault proxies, and interactions with connections are actually direct interactions with an Azure key vault. Azure Machine Learning connections store username and password data resources securely, as secrets, in a key vault. The key vault RBAC controls access to these data resources. For this data availability, Azure supports connections to these external sources:
+In this article, learn how to connect to data sources located outside of Azure, to make that data available to Azure Machine Learning services. Azure connections serve as key vault proxies, and interactions with connections are direct interactions with an Azure key vault. An Azure Machine Learning connection securely stores username and password data resources, as secrets, in a key vault. The key vault RBAC controls access to these data resources. For this data availability, Azure supports connections to these external sources:
+
 - Snowflake DB
 - Amazon S3
 - Azure SQL DB
@@ -34,10 +35,10 @@ In this article, you'll learn how to connect to data sources located outside of 
 - An Azure Machine Learning workspace.
 
 > [!IMPORTANT]
-> An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
+> An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You don't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
 
 > [!NOTE]
-> For a successful data import, please verify that you have installed the latest azure-ai-ml package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
+> For a successful data import, please verify that you installed the latest **azure-ai-ml** package (version 1.5.0 or later) for SDK, and the ml extension (version 2.15.1 or later).
 >
 > If you have an older SDK package or CLI extension, please remove the old one and install the new one with the code shown in the tab section. Follow the instructions for SDK and CLI as shown here:
 
@@ -275,7 +276,6 @@ from azure.ai.ml import MLClient, load_workspace_connection
 
 ml_client = MLClient.from_config()
 
-
 wps_connection = load_workspace_connection(source="./my_s3_connection.yaml")
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
@@ -318,7 +318,13 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ## Non-data connections
 
-The following connection types can be used to connect to Git, Python feed, Azure Container Registry, and a connection that uses an API key. These connections are not data connections, but are used to connect to external services for use in your code.
+You can use these connection types to connect to Git:
+
+- Python feed
+- Azure Container Registry
+- a connection that uses an API key
+
+These connections aren't data connections, but are used to connect to external services for use in your code.
 
 ### Git
 
@@ -357,7 +363,7 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates a Git connection to a GitHub repo. This connection is authenticated with a Personal Access Token (PAT):
+The following example creates a Git connection to a GitHub repo. A Personal Access Token (PAT) authenticates the connection:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
@@ -387,7 +393,7 @@ You can't create a Git connection in studio.
 
 # [Azure CLI](#tab/cli)
 
-Create a connection to a Python feed with one of following YAML file. Be sure to update the appropriate values:
+Create a connection to a Python feed with one of following YAML files. Be sure to update the appropriate values:
 
 * Connect using a personal access token (PAT):
 
@@ -430,7 +436,7 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates a Python feed connection. This connection is authenticated with a personal access token (PAT) or a username and password:
+The following example creates a Python feed connection. A Personal Access Token (PAT), or a user name and password, authenticates the connection:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
@@ -463,7 +469,7 @@ You can't create a Python feed connection in studio.
 
 # [Azure CLI](#tab/cli)
 
-Create a connection to an Azure Container Registry with one of following YAML file. Be sure to update the appropriate values:
+Create a connection to an Azure Container Registry with one of following YAML files. Be sure to update the appropriate values:
 
 * Connect using Microsoft Entra ID authentication:
 
@@ -497,7 +503,7 @@ az ml connection create --file connection.yaml
 
 # [Python SDK](#tab/python)
 
-The following example creates an Azure Container Registry connection. This connection is authenticated using a managed identity:
+The following example creates an Azure Container Registry connection. A managed identity authenticates this connection:
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
@@ -547,7 +553,7 @@ ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ## Related content
 
-If you are using a data connection (Snowflake DB, Amazon S3, or Azure SQL DB), see these articles for more information:
+If you use a data connection (Snowflake DB, Amazon S3, or Azure SQL DB), these articles offer more information:
 
 - [Import data assets](how-to-import-data-assets.md)
 - [Schedule data import jobs](how-to-schedule-data-import.md)
