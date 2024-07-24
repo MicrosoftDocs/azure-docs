@@ -303,16 +303,16 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 6. Stream diagnostic logs
 
-Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
+yThe sample app uses the Python Standard Library logging module to help you diagnose issues with your application. The sample app includes calls to the logger as shown below.
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="33-40" highlight="3":::
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="39-46" highlight="3":::
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
-        1. In the top menu, select **Save**. 
+        1. In the top menu, select **Save**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1.png":::
@@ -420,7 +420,7 @@ The azd template generates the connectivity variables for you as [app settings](
 
 1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure. You need to use it in your code to connect to it. You can find the code that uses this environment variable in *src/fastapi/models.py*:
 
-    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/models.py" range="9-36" highlight="4-16":::
+    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/models.py" range="13-40" highlight="4-16":::
 
 ## 3. Examine the startup command
 
@@ -475,11 +475,11 @@ In this section, you'll run this command manually for demonstration purposes. Wi
 
 ## 6. Stream diagnostic logs
 
-Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+Azure App Service can capture logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
-The sample app includes `print()` statements to demonstrate this capability as shown in the following snippet.
+The sample app uses the Python Standard Library logging module to output logs. The sample app includes calls to the logger as shown below.
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="33-40" highlight="3":::
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="39-46" highlight="3":::
 
 In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
