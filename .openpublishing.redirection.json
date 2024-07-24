@@ -4813,6 +4813,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-wan/monitoring-best-practices.md",
+            "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false

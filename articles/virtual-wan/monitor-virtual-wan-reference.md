@@ -83,7 +83,7 @@ You can review per peer and instance metrics by selecting **Apply splitting** an
 | **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
 | **Tunnel Ingress Packets** | Incoming packet count of a tunnel.|
 | **Tunnel Peak PPS** | Number of packets per second per link connection in the last minute.|
-| **Tunnel Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
+| **Tunnel Total Flow Count** | Number of distinct 3-tuple (protocol, local IP address, remote IP address) flows created per link connection.|
 
 ### <a name="p2s-metrics"></a>Supported metrics for microsoft.network/p2svpngateways
 
@@ -117,10 +117,10 @@ This table contains more information about some of the metrics in the preceding 
 | **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute that can be further split for specific connections.  |
 | **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
 | **CPU Utilization** | CPU Utilization of the ExpressRoute gateway.|
-| **Packets per second** | Total Packets received on ExpressRoute gateway per second.|
+| **Packets received per second** | Total Packets received on ExpressRoute gateway per second.|
 | **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute gateway. |
 | **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute gateway.|
-| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute gateway.|
+| **Frequency of routes change** | Frequency of Route changes in ExpressRoute gateway.|
 
 ### ExpressRoute gateway diagnostics
 
