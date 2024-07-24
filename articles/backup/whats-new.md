@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 07/24/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -18,9 +18,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 - July 2024
+  - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
   - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
 - May 2024
-  - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
   - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
 - March 2024
   - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
