@@ -60,20 +60,28 @@ For the following example, assume that the lost cluster is the same cluster that
 
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
+Replace `account-name` with your storage account name.
+
 ```powershell
-Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+    Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -ManagedIdentityAzureBlobStore -BlobServiceUri "https://<account-name>.blob.core.windows.net" -ContainerName 'backup-container' -ManagedIdentityType "VMSS" -FriendlyName "AzureMI_storagesample" -ManagedIdentityClientId = "<clien-ID of User-Assigned MI>"
+
+    # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 
 ```
 
 #### Rest Call using Powershell
 
-Execute a PowerShell script to use the REST API to return a list of the backups created for all partitions inside the `SampleApp` application. The API requires the backup storage information to list the available backups.
+Execute a PowerShell script to use the REST API to return a list of the backups created for all partitions inside the `SampleApp` application. The API requires the backup storage information to list the available backups. Replace `account-name` with your storage account name.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
-    ContainerName = 'backup-container'
-    StorageKind = 'AzureBlobStore'
+    StorageKind = "ManagedIdentityAzureBlobStore"
+    FriendlyName = "AzureMI_storagesample"
+    BlobServiceUri = "https://<account-name>.blob.core.windows.net"
+    ContainerName = "backup-container"
+    ManagedIdentityType = "VMSS"
+    ManagedIdentityClientId = "<clien-ID of User-Assigned MI>"  # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 }
 
 $BackupEntity = @{
@@ -160,9 +168,13 @@ For _Named Partitioning_, the name value is compared to identify the target part
 
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
+Replace `account-name` with your storage account name.
+
 ```powershell
 
-Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+Restore-SFPartition -PartitionId 1c42c47f-439e-4e09-98b9-88b8f60800c6 -BackupId b0035075-b327-41a5-a58f-3ea94b68faa4 -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -ManagedIdentityAzureBlobStore -BlobServiceUri "https://<account-name>.blob.core.windows.net" -ContainerName "backup-container" -ManagedIdentityType "VMSS" -FriendlyName "AzureMI_storagesample" ManagedIdentityClientId "<clien-ID of User-Assigned MI>" 
+
+# Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 
 ```
 
@@ -170,12 +182,17 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 You request the restore against the backup cluster partition by using the following [Restore API](/rest/api/servicefabric/sfclient-api-restorepartition):
 
+Replace `account-name` with your storage account name.
+
 ```powershell
 
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
-    ContainerName = 'backup-container'
-    StorageKind = 'AzureBlobStore'
+    StorageKind = "ManagedIdentityAzureBlobStore"
+    FriendlyName = "AzureMI_storagesample"
+    BlobServiceUri = "https://<account-name>.blob.core.windows.net"
+    ContainerName = "backup-container"
+    ManagedIdentityType = "VMSS"
+    ManagedIdentityClientId = "<clien-ID of User-Assigned MI>"  # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 }
 
 $RestorePartitionReference = @{

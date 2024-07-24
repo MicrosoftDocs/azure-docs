@@ -50,7 +50,9 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 * Install Microsoft.ServiceFabric.Powershell.Http Module (Preview) for making configuration calls.
 
 ```powershell
+
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+
 ```
 
 > [!NOTE]
@@ -138,27 +140,40 @@ Let's walk through steps to enable periodic backup for Reliable Stateful service
 
 First step is to create backup policy describing backup schedule, target storage for backup data, policy name, maximum incremental backups to be allowed before triggering full backup and retention policy for backup storage.
 
-For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
+For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `BlobServiceUri` with the Azure Storage account url replacing `account-name` with your storage account name, and populate optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource.
+
+follow steps for managed-identity assigment on azure resource:
+
+1. Enable system assigned or User assigned managed identity in the VMSS [Configure managed identities on virtual machine scale set](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets?pivots=identity-mi-methods-azp)
+
+2. Assign role to the VMSS managed identity to storage account [Assign Azure roles using the Azure portal - Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current#step-2-open-the-add-role-assignment-pane)
+    1. Storage Blob Data Contributor Role at minimum 
+
+[For more information on Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
 
 #### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
-Execute following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
+Execute following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name.
 
 ```powershell
 
-New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container' -Basic -RetentionDuration '10.00:00:00'
+    New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $false -MaxIncrementalBackups 20 -FrequencyBased -Interval "<hh:mm>" -ManagedIdentityAzureBlobStore -FriendlyName "AzureMI_storagesample" -BlobServiceUri 'https://<account-name>.blob.core.windows.net' -ContainerName 'backup-container' -ManagedIdentityType "VMSS" -ManagedIdentityClientId "<clien-ID of User-Assigned MI>" -Basic -RetentionDuration '10.00:00:00'
 
+    # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 ```
 
 #### Rest Call using PowerShell
 
-Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
+Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
-    ContainerName = 'backup-container'
-    StorageKind = 'AzureBlobStore'
+    StorageKind = "ManagedIdentityAzureBlobStore"
+    FriendlyName = "AzureMI_storagesample"
+    BlobServiceUri = "https://<account-name>.blob.core.windows.net"
+    ContainerName = "backup-container"
+    ManagedIdentityType = "VMSS"
+    ManagedIdentityClientId = "<clien-ID of User-Assigned MI>" # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 }
 
 $ScheduleInfo = @{
@@ -203,7 +218,7 @@ After defining backup policy to fulfill data protection requirements of the appl
 
 ```powershell
 
-Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+    Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
 #### Rest Call using PowerShell
@@ -326,4 +341,4 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
 [6]: ./media/service-fabric-backuprestoreservice/create-bp.png
-[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp_FileShare.png

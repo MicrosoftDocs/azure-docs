@@ -79,7 +79,32 @@ A backup policy consists of the following configurations:
             ```
 
 * **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
-    1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
+    1. **Azure blob store with managed identity**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires BlobServiceUri and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup. Replace `account-name` with your storage account name.
+
+        ```json
+        {
+            "StorageKind": "ManagedIdentityAzureBlobStore",
+            "FriendlyName": "AzureMI_storagesample",
+            "BlobServiceUri": "https://<account-name>.blob.core.windows.net",
+            "ContainerName": "BackupContainer",
+            "ManagedIdentityType": "VMSS",
+            "ManagedIdentityClientId": "<clien-ID of User-Assigned MI>" 
+        }
+        ```
+        
+        > [NOTE]
+        > Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
+
+        follow steps for managed-identity assigment on azure resource:
+
+        1. Enable system assigned or User assigned managed identity in the VMSS [Configure managed identities on virtual machine scale set](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets?pivots=identity-mi-methods-azp)
+
+        2. Assign role to the VMSS managed identity to storage account [Assign Azure roles using the Azure portal - Azure RBAC](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal?tabs=current#step-2-open-the-add-role-assignment-pane)
+            1. Storage Blob Data Contributor Role at minimum 
+
+        [For more information on Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+    
+    2. **Azure blob store with ConnectionString**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
 
         ```json
         {

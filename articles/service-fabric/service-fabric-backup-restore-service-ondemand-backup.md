@@ -77,8 +77,8 @@ You can request on-demand backup for a partition of a Reliable Stateful service 
 
 ```powershell
 
-Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
-
+  Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -ManagedIdentityAzureBlobStore -FriendlyName "AzureMI_storagesample" -BlobServiceUri 'https://<account-name>.blob.core.windows.net' -ContainerName 'backup-container' -ManagedIdentityType "VMSS" -ManagedIdentityClientId "<clien-ID of User-Assigned MI>"
+  # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 ```
 
 #### Rest Call using Powershell
@@ -87,9 +87,12 @@ Use the [BackupPartition](/rest/api/servicefabric/sfclient-api-backuppartition) 
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
-    ContainerName = 'backup-container'
-    StorageKind = 'AzureBlobStore'
+    StorageKind = "ManagedIdentityAzureBlobStore"
+    FriendlyName = "AzureMI_storagesample"
+    BlobServiceUri = "https://<account-name>.blob.core.windows.net"
+    ContainerName = "backup-container"
+    ManagedIdentityType = "VMSS"
+    ManagedIdentityClientId = "<clien-ID of User-Assigned MI>"  # Use Optional parameter `ManagedIdentityClientId` with clien-ID of User-Assigned Managed Identity in case of multiple User-Assigned managed identities assigned to your resource, else no need of this paramter.
 }
 
 $OnDemandBackupRequest = @{
