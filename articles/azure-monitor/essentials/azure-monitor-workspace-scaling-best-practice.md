@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms-service: azure-monitor
 ms-subservice: containers
 ms.topic: conceptual
-ms.date: 7/20/2024
+ms.date: 07/24/2024
 
 # customer intent: As an azure administrator I want to understand  the best practices for scaling Azure Monitor Workspaces to meet a growing volume of data ingestion
 
@@ -27,7 +27,7 @@ The following are scenarios that require splitting an Azure Monitor workspace in
 | Scenario | Best practice |
 |---|---|
 |Sovereign clouds.|    When working with more than one sovereign cloud, create an Azure Monitor workspace in each cloud.|
-| Compliance or regulatory requirements.|   If you're subject to regulations that mandate the storage of data in specific regions. Create an Azure Monitor workspace per region as per your requirements. |
+| Compliance or regulatory requirements.|   If you're subject to regulations that mandate the storage of data in specific regions, create an Azure Monitor workspace per region as per your requirements. |
 | Regional scaling. |   When you're managing metrics for regionally diverse organizations such as large services or financial institutions with regional accounts, create an Azure Monitor workspace per region.
 | Azure tenants.|   For multiple Azure tenants, create an Azure Monitor workspace in each tenant. Querying data across tenants isn't supported.
 | Deployment environments. |   Create a separate workspace for each of your deployment environments to maintain discrete metrics for development, test, preproduction, and production environments.|
@@ -57,9 +57,9 @@ To optimize ingestion, consider the following best practices:
 | Best practice | Description |
 |---|---|
 | Identify High cardinality Metrics.  |  Identify metrics that have a high cardinality, or metrics that are generating many time series. Once you identify high-cardinality metrics, optimize them to reduce the number of time series by dropping unnecessary labels.|
-| Use Prometheus config to optimize ingestion.  |  Azure Managed Prometheus provides Configmaps, which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) These configurations follow the same format as the Prometheus configuration file.<br> For information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).<p> For example, consider the following: <li> **Tune Scrape Intervals**.</li> The default scrape frequency is 30 seconds, which can be changed per default target using the configmap.  To balance the trade-off between data granularity and resource usage, adjust the `scrape_interval` and `scrape_timeout` based on the criticality of metrics. <li> **Drop unnecessary labels for high cardinality metrics**.</li> For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of time series. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).|
+| Use Prometheus config to optimize ingestion.  |  Azure Managed Prometheus provides Configmaps, which have settings that can be configured and used to optimize ingestion. For more information, see [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) and [ama-metrics-prometheus-config-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml). These configurations follow the same format as the Prometheus configuration file.<br> For information on customizing collection, see [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration).<p> For example, consider the following: <li> **Tune Scrape Intervals**.</li> The default scrape frequency is 30 seconds, which can be changed per default target using the configmap.  To balance the trade-off between data granularity and resource usage, adjust the `scrape_interval` and `scrape_timeout` based on the criticality of metrics. <li> **Drop unnecessary labels for high cardinality metrics**.</li> For high cardinality metrics, identify labels that aren't necessary and drop them to reduce the number of time series. Use the `metric_relabel_configs` to drop specific labels from ingestion. For more information, see [Prometheus Configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config).|
 
-Use the configmap, change the settings as required, and apply the configmap to the kube-system namespace for your cluster. If you're using remote-writing into and Azure Monitor workspace, apply the customizations during ingestion directly in your Prometheus configuration
+Use the configmap, change the settings as required, and apply the configmap to the kube-system namespace for your cluster. If you're using remote-writing into and Azure Monitor workspace, apply the customizations during ingestion directly in your Prometheus configuration.
 
 ### Queries 
 
@@ -74,12 +74,14 @@ Once the rule groups are created, Azure Managed Prometheus automatically loads a
 Recording rules have the following benefits:
 
 
-- **Improve query performance**.  
+- **Improve query performance**  
   Recording rules can be used to precompute complex queries, making them faster to query later. Precomputing complex queries reduces the load on Prometheus when these metrics are queried.
 
-- **Efficiency and Reduced query time**  Recording rules precompute the query results, reducing the time taken to query the data. This is especially useful for dashboards with multiple panels or high cardinality metrics.
+- **Efficiency and Reduced query time**  
+  Recording rules precompute the query results, reducing the time taken to query the data. This is especially useful for dashboards with multiple panels or high cardinality metrics.
 
-- **Simplicity**. Recording rules Simplify queries in Grafana or other visualization tools, as they can reference precomputed metrics.
+- **Simplicity**  
+  Recording rules simplify queries in Grafana or other visualization tools, as they can reference precomputed metrics.
  
 The following example shows a recording rule as defined in Azure Managed Prometheus rule group:
 ``` yaml
@@ -112,18 +114,18 @@ Consider the following best practices for optimizing recording rules:
 | Optimize rules by limiting scope.|To make recording rules faster, limit them in scope to a specific cluster. For more information, see [Limiting rules to a specific cluster](/azure/azure-monitor/essentials/prometheus-rule-groups#limiting-rules-to-a-specific-cluster).|
 
 
-#### Using filters in query
+#### Using filters in queries
 
 Optimizing Prometheus queries using filters involves refining the queries to return only the necessary data, reducing the amount of data processed and improving performance. The following are some common techniques to refine Prometheus queries.
 
 | Best practice | Description |
 |---|---|
-| Use label filters.|Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have large number of metrics across multiple clusters, an easy way to limit time series is to use the `cluster` filter.  <p> For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`.|
+| Use label filters.|Label filters help to narrow down the data to only what you need. Prometheus allows filtering by using `{label_name="label_value"}` syntax. If you have a large number of metrics across multiple clusters, an easy way to limit time series is to use the `cluster` filter.  <p> For example, instead of querying `container_cpu_usage_seconds_total`, filter by cluster  `container_cpu_usage_seconds_total{cluster="cluster1"}`.|
 | Apply time range selectors.|Using specific time ranges can significantly reduce the amount of data queried.<p>  For example, instead of querying all data points for the last seven days `http_requests_total{job="myapp"}`, query for the last hour using `http_requests_total{job="myapp"}[1h]`.|
 | Use aggregation and grouping.| Aggregation functions can be used to summarize data, which can be more efficient than processing raw data points. When aggregating data, use `by` to group by specific labels, or `without` to exclude specific labels.<p>  For example, sum requests grouped by job: `sum(rate(http_requests_total[5m])) by (job)`.|
 |Filter early in the query.| To limit the dataset from the start, apply filters as early as possible in your query.<p>  For example, instead of `sum(rate(http_requests_total[5m])) by (job)`, filter first, then aggregate as follows: `sum(rate(http_requests_total{job="myapp"}[5m])) by (job)`.|
 | Avoid regex where possible.| Regex filters can be powerful but are also computationally expensive. Use exact matches whenever possible.<p> For example, instead of `http_requests_total{job=~"myapp.*"}`, use `http_requests_total{job="myapp"}`.|
-| Use offset for historical data.| If you're comparing current data with historical data, use the offset modifier.<p> For example, to compare current requests against requests from 24 hours ago, use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`.|
+| Use offset for historical data.| If you're comparing current data with historical data, use the `offset` modifier.<p> For example, to compare current requests against requests from 24 hours ago, use `rate(http_requests_total[5m]) - rate(http_requests_total[5m] offset 24h)`.|
 | Limit data points in charts.| When creating charts, limit the number of data points to improve rendering performance. Use the step parameter to control the resolution.<p>    For example, in Grafana: Set a higher step value to reduce data points:`http_requests_total{job="myapp"}[1h:10s]`.|
 
 
