@@ -303,7 +303,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 ## 6. Stream diagnostic logs
 
-yThe sample app uses the Python Standard Library logging module to help you diagnose issues with your application. The sample app includes calls to the logger as shown below.
+The sample app uses the Python Standard Library logging module to help you diagnose issues with your application. The sample app includes calls to the logger as shown below.
 
 :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="39-46" highlight="3":::
 
@@ -315,7 +315,7 @@ yThe sample app uses the Python Standard Library logging module to help you diag
         1. In the top menu, select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1-fastapi.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-1-fastapi.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -323,7 +323,7 @@ yThe sample app uses the Python Standard Library logging module to help you diag
         **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-2-fastapi.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-stream-diagnostic-logs-2-fastapi.png":::
     :::column-end:::
 :::row-end:::
 
