@@ -228,6 +228,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
+
+TBD
+
 ::: zone-end
 
 

@@ -13,8 +13,6 @@ ms.custom: devx-track-js, mode-api, passwordless-js
 
 # Quickstart: Azure Key Vault certificate client library for JavaScript
 
-::: zone pivot="programming-languages-set-functions-nodejs"
-
 Get started with the Azure Key Vault certificate client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library
 
 Key Vault client library resources:
