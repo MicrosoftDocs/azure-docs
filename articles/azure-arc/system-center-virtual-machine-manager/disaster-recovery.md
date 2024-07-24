@@ -26,6 +26,13 @@ To recover from Arc resource bridge VM deletion, you need to deploy a new resour
 >[!Note]
 > DHCP-based Arc Resource Bridge deployment is no longer supported.<br><br>
 If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up your deployment by removing your resources from Azure and do a [fresh onboarding](./quickstart-connect-system-center-virtual-machine-manager-to-arc.md).
+>
+## Prerequisites
+
+1. The disaster recovery script must be run from the same folder where the config (.yaml) files are present. The config files are present on the machine used to run the script to deploy Arc resource bridge. 
+
+1. The machine being used to run the script must have bidirectional connectivity to the Arc resource bridge VM on port 6443 (Kubernetes API server) and 22 (SSH), and outbound connectivity to the Arc resource bridge VM on port 443 (HTTPS).
+
 
 ### Recover Arc resource bridge from a Windows machine
 
