@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 07/22/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -52,7 +52,14 @@ The following requirements and considerations apply to large volumes. For perfor
         <td>50</td>
         <td>1,024</td>
         <td>3,200</td>
-        <td>12</td>
+        <td>12,800</td>
+      </tr>
+      <tr>
+        <td>Ultra (128 MiB/s per TiB)</td>
+        <td>50</td>
+        <td>1,024</td>
+        <td>6,400</td>
+        <td>12,800</td>
       </tr>
     </tbody>
     </table>

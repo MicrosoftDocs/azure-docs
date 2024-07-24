@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
 # Delete backups of a volume 
