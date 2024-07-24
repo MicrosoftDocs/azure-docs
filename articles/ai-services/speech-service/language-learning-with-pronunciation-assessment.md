@@ -1,6 +1,6 @@
 ---
-title: AI-powered language learning with pronunciation assessment
-description: AI-powered language learning with pronunciation assessment gives you instant feedback on pronunciation, fluency, prosody, grammar, and vocabulary through interactive chats.
+title: Interactive language learning with pronunciation assessment
+description: Interacive language learning with pronunciation assessment gives you instant feedback on pronunciation, fluency, prosody, grammar, and vocabulary through interactive chats.
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
@@ -9,12 +9,12 @@ ms.date: 8/1/2024
 ms.author: v-baolianzou
 ---
 
-# AI-powered language learning with pronunciation assessment
+# Interactive language learning with pronunciation assessment
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-Learning a new language is an exciting journey, and the pronunciation assessment feature has made it easier than ever to improve your language skills. Get instant feedback on pronunciation accuracy, fluency, prosody, grammar, and vocabulary from your chatting experience.
-
+Learning a new language is an exciting journey. Interactive language learning can make your learning experience more engaging and effective. By using pronunciation assessment effectively, you get instant feedback on pronunciation accuracy, fluency, prosody, grammar, and vocabulary through your interactive language learning experience.
+ 
 > [!NOTE]
 > The language learning feature currently supports only `en-US`. For available regions, refer to [available regions for pronunciation assessment](regions.md#speech-service). If using a text to speech avatar, refer to the available [regions](regions.md#speech-service) for text to speech avatar.
 >
@@ -30,7 +30,7 @@ Here are some common scenarios where you can make use of the language learning f
 
 ## Getting started
 
-Currently, we provide a Chatting scenario to interact with the voice assistant. To practice speaking skills with a GPT-powered language teacher, you can explore the Chatting scenario.
+In this section, you can learn how to immerse yourself in dynamic conversations with a GPT-powered voice assistant to enhance your speaking skills. 
 
 To get started with language learning through chatting, follow these steps:
 
