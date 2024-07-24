@@ -156,6 +156,8 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Python with Postgres
           href: tutorial-python-postgresql-app.md
+        - name: Python with Postgres (FastAPI)
+          href: tutorial-python-postgresql-app-fastapi.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB

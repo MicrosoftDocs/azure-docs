@@ -975,6 +975,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-fastapi-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-quarkus-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app",
       "branch": "main",
