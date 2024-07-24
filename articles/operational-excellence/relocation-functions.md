@@ -62,28 +62,48 @@ This section is a planning checklist in the following areas:
 
 - **Determine whether your Functions App is stateful or stateless.**  Although its recommended that Functions (With the exception of Durable Functions) be stateless, and the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move.
 
-    If the application uses Durable Functions, and particularly Durable Entities, the migration becomes much more application centric, and depends on the needs of the application itself. You must consider how to migrate entity state and how to reconcile the new entity state with the old service. This is particular the case, if you are doing anything more complex than a straight Active/Active + GRS Failover.
+If the application uses Durable Functions, and particularly Durable Entities, the migration becomes much more application centric, and depends on the needs of the application itself. You must consider how to migrate entity state and how to reconcile the new entity state with the old service. This is particularly the case, if you are doing anything more complex than a straight Active/Active + GRS Failover.
 
 ### Certificates
 
+See [Relocate Azure App Services to another region - Certificates](relocation-app-services.md#certificates)
+
 ### Configuration
+
+See [Relocate Azure App Services to another region - Configuration](relocation-app-services.md#configuration)
 
 ### VNet Connectivity / Custom Names / DNS
 
+See [Relocate Azure App Services to another region - VNet Connectivity](relocation-app-services.md#vnet-connectivity-custom-names-dns)
+
 ### Identities
+
+See [Relocate Azure App Services to another region - Identities](relocation-app-services.md#ideentities)
 
 ## Relocate
 
+To relocate your Functions App resources, you can use either available deployment technologies or Infrastructure as Code (IaC).
+
+
+### Relocate using available deployment technologies
+
 If you have access to the deployment and automation resources that created the function app in the source region, re-run the same deployment steps in the target region to create and redeploy your app. 
 
-If you only have access to the source code but not the deployment and automation resources you can deploy and configure the function app on the target region using any of the available [deployment technologies](functions-deployment-technologies.md) or using one of the [continuous deployment methods](functions-continuous-deployment.md).
+If you only have access to the source code but not the deployment and automation resources you can deploy and configure the function app on the target region using any of the available [deployment technologies](../azure-functions/functions-deployment-technologies.md) or using one of the [continuous deployment methods](../azure-functions/functions-continuous-deployment.md).
+
+
+### Relocate using IaC
+
+As long as you aren't migrating any Durable Entities state, you can relocate using IaC. For instructions, see [Relocate App Service resources using IaC](./relocation-app-services.md#relocate-using-iac).
+
+To migrate Durable Entities, see [Recovery With GRS Enabled Storage for Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md#scenario-3---load-balanced-compute-with-grs-shared-storage)
 
 ### Review configured resources
 
-Review and configure the resources identified in the [Prepare](#prepare) step above in the target region if they weren't configured during the deploy.
+Review and configure the resources identified in the [Prepare](#prepare) step above in the target region if they weren't configured during the deploy. 
 
-### Relocation  considerations
-+ If your deployment resources and automation doesn't create a function app, [create an app of the same type in a new hosting plan](functions-scale.md#overview-of-plans) in the target region
+### Relocation considerations
++ If your deployment resources and automation doesn't create a function app, [create an app of the same type in a new hosting plan](../azure-functions/functions-scale.md#overview-of-plans) in the target region
 + Function app names are globally unique in Azure, so the app in the target region can't have the same name as the one in the source region
 + References and application settings that connect your function app to dependencies need to be reviewed and, when needed, updated. For example, when you move a database that your functions call, you must also update the application settings or configuration to connect to the database in the target region. Some application settings such as the Application Insights instrumentation key or the Azure storage account used by the function app can be already be configured on the target region and do not need to be updated
 + Remember to verify your configuration and test your functions in the target region
