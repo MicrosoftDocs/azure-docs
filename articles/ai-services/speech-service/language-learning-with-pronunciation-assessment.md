@@ -5,7 +5,7 @@ author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 7/17/2024
+ms.date: 8/1/2024
 ms.author: v-baolianzou
 ---
 
