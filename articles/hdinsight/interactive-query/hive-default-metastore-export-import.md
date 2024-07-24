@@ -20,7 +20,7 @@ This article shows how to migrate metadata from a [default metastore DB](../hdin
 
 * For HDInsight 3.6 to 4.0 migration, it's mandatory to migrate metadata to external metastore DB before upgrading the Hive schema version. See [migrating workloads from HDInsight 3.6 to HDInsight 4.0](./apache-hive-migrate-workloads.md).
 
-Because the default metastore DB with limited compute capacity, we recommend low utilization from other jobs on the cluster while migrating metadata.
+The default metastore DB with limited compute capacity, hence we recommend low utilization from other jobs on the cluster while migrating metadata.
 
 Source and target DBs must use the same HDInsight version and the same Storage Accounts. If upgrading HDInsight versions from 3.6 to 4.0, complete the steps in this article first. Then, follow the official upgrade steps [here](./apache-hive-migrate-workloads.md).
 
