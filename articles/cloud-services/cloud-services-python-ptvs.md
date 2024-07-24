@@ -3,7 +3,7 @@ title: Get started with Python and Azure Cloud Services (classic)| Microsoft Doc
 description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -19,7 +19,7 @@ This article provides an overview of using Python web and worker roles using [Py
 ## Prerequisites
 * [Visual Studio 2013, 2015, or 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or  
+* [Azure SDK Tools for Visual Studio (VS) 2013][Azure SDK Tools for VS 2013] or  
 [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
 [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.8 32-bit][Python 3.8 32-bit]
@@ -27,7 +27,7 @@ This article provides an overview of using Python web and worker roles using [Py
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## What are Python web and worker roles?
-Azure provides three compute models for running applications: [Web Apps feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front end web applications, while a worker role can run asynchronous, long-running, or perpetual tasks independent of user interaction or input.
+Azure provides three compute models for running applications: [Web Apps feature in Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms], and [Azure Cloud Services][execution model-cloud services]. All three models support Python. Cloud Services, which include web and worker roles, provide *Platform as a Service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front end web applications. A worker role can run asynchronous, long-running, or perpetual tasks independent of user interaction or input.
 
 For more information, see [What is a Cloud Service?].
 
@@ -51,11 +51,11 @@ The worker role template comes with boilerplate code to connect to an Azure stor
 
 ![Cloud Service Solution](./media/cloud-services-python-ptvs/worker.png)
 
-You can add web or worker roles to an existing cloud service at any time.  You can choose to add existing projects in your solution, or create new ones.
+You can add web or worker roles to an existing cloud service at any time. You can choose to add existing projects in your solution, or create new ones.
 
 ![Add Role Command](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-Your cloud service can contain roles implemented in different languages.  For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles.  You can easily communicate between your roles using Service Bus queues or storage queues.
+Your cloud service can contain roles implemented in different languages. For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles. You can easily communicate between your roles using Service Bus queues or storage queues.
 
 ## Install Python on the cloud service
 > [!WARNING]
@@ -63,7 +63,7 @@ Your cloud service can contain roles implemented in different languages.  For ex
 > 
 > 
 
-The main problem with the setup scripts is that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
+The main problem with the setup scripts is that they don't install Python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
 The following scripts were written targeting Python 3.8. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 > 
 > 
 
-The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
+The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work, but it doesn't really work. Replace the contents in that file with the following script.
 
 This script calls the **worker.py** file from your Python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
@@ -281,7 +281,7 @@ else
 ```
 
 #### ps.cmd
-The Visual Studio templates should have created a **ps.cmd** file in the **./bin** folder. This shell script calls out the PowerShell wrapper scripts above and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, here is what should be in it. 
+The Visual Studio templates probably created a **ps.cmd** file in the **./bin** folder. This shell script calls out the preceding PowerShell wrapper scripts and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, the following script would be in it:
 
 ```cmd
 @echo off
@@ -292,14 +292,12 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File %* >> "%DiagnosticStore%\LogFiles\%~n1.txt" 2>> "%DiagnosticStore%\LogFiles\%~n1.err.txt"
 ```
 
-
-
 ## Run locally
 If you set your cloud service project as the startup project and press F5, the cloud service runs in the local Azure emulator.
 
-Although PTVS supports launching in the emulator, debugging (for example, breakpoints) does not work.
+Although PTVS supports launching in the emulator, debugging (for example, breakpoints) doesn't work.
 
-To debug your web and worker roles, you can set the role project as the startup project and debug that instead.  You can also set multiple startup projects.  Right-click the solution and then select **Set StartUp Projects**.
+To debug your web and worker roles, you can set the role project as the startup project and debug that instead. You can also set multiple startup projects. Right-click the solution and then select **Set StartUp Projects**.
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
@@ -310,9 +308,9 @@ To publish, right-click the cloud service project in the solution and then selec
 
 Follow the wizard. If you need to, enable remote desktop. Remote desktop is helpful when you need to debug something.
 
-When you are done configuring settings, click **Publish**.
+When you finish configuring settings, choose **Publish**.
 
-Some progress appears in the output window, then you'll see the Microsoft Azure Activity Log window.
+Some progress appears in the output window, then you see the Microsoft Azure Activity Log window.
 
 ![Microsoft Azure Activity Log Window](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
