@@ -1,5 +1,5 @@
 ---
-author: SnehaGunda
+author: whhender
 ms.author: whhender
 ms.reviewer: whhender
 ms.service: synapse-analytics
