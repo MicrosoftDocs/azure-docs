@@ -25,11 +25,15 @@ Consider the pros and cons for each approach when deciding which one to use.
 
 ### Short-term approach
 
+The following table describes the pros and cons of using a side-by-side architecture for a relatively short period of time. 
+
 |**Pros**  |**Cons**  |
 |---------|---------|
 |• Gives SOC staff time to adapt to new processes as you deploy workloads and analytics.<br><br>• Gains deep correlation across all data sources for hunting scenarios.<br><br>• Eliminates having to do analytics between SIEMs, create forwarding rules, and close investigations in two places.<br><br>• Enables your SOC team to quickly downgrade legacy SIEM solutions, eliminating infrastructure and licensing costs.     |• Can require a steep learning curve for SOC staff.         |
 
 ### Medium- to long-term approach
+
+The following table describes the pros and cons of using a side-by-side architecture for a relatively medium or longer period of time.
 
 |**Pros**  |**Cons**  |
 |---------|---------|
@@ -39,7 +43,7 @@ Consider the pros and cons for each approach when deciding which one to use.
 
 Determine how you'll configure and use Microsoft Sentinel side-by-side with your legacy SIEM.
 
-### Send alerts from a legacy SIEM to Microsoft Sentinel (Recommended)
+### Method 1: Send alerts from a legacy SIEM to Microsoft Sentinel (Recommended)
 
 Send alerts, or indicators of anomalous activity, from your legacy SIEM to Microsoft Sentinel.
 
@@ -60,7 +64,7 @@ For more information, see:
 
 If you want to fully migrate to Microsoft Sentinel, review the full [migration guide](migration.md).
 
-### Send alerts and enriched incidents from Microsoft Sentinel to a legacy SIEM
+### Method 2: Send alerts and enriched incidents from Microsoft Sentinel to a legacy SIEM
 
 Analyze some data in Microsoft Sentinel, such as cloud data, and then send the generated alerts to a legacy SIEM. Use the *legacy* SIEM as your single interface to do cross-correlation with the alerts that Microsoft Sentinel generated. You can still use Microsoft Sentinel for deeper investigation of the Microsoft Sentinel-generated alerts.
 
@@ -82,7 +86,7 @@ The following table describes side-by-side configurations that are *not* recomme
 |**Send logs from a legacy SIEM to Microsoft Sentinel**     |   While this method provides you with the full functionality of Microsoft Sentinel, your organization still pays for two different data ingestion sources. Besides adding architectural complexity, this model can result in higher costs.     |
 |**Use Microsoft Sentinel and your legacy SIEM as two fully separate solutions**     |  You could use Microsoft Sentinel to analyze some data sources, like your cloud data, and continue to use your on-premises SIEM for other sources. This setup allows for clear boundaries for when to use each solution, and avoids duplication of costs. <br><br>However, cross-correlation becomes difficult, and you can't fully diagnose attacks that cross both sets of data sources. In today's landscape, where threats often move laterally across an organization, such visibility gaps can pose significant security risks.       |
 
-## Automation to streamline processes
+## Streamline processes by using automation
 
 Use automated workflows to group and prioritize alerts into a common incident, and modify its priority.
 
