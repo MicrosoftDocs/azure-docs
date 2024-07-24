@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
 
-If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](#create-and-assign-a-managed-identity) and [modify web application code](#modify-the-app-to-access-your-key-vault) sections.
+If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](#configure-the-web-app-to-connect-to-key-vault) and [modify web application code](#modify-the-app-to-access-your-key-vault) sections.
 
 ## Create a .NET Core app
 In this step, you'll set up the local .NET Core project.
@@ -230,12 +230,12 @@ http://<your-webapp-name>.azurewebsites.net
 You'll see the "Hello World!" message you saw earlier when you visited `http://localhost:5000`.
 
 For more information about deploying web application using Git, see [Local Git deployment to Azure App Service](../../app-service/deploy-local-git.md)
- 
+
 ## Configure the web app to connect to Key Vault
 
 In this section, you'll configure web access to Key Vault and update your application code to retrieve a secret from Key Vault.
 
-### Create and assign a managed identity
+### Create and assign access to a managed identity
 
 In this tutorial, we'll use [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to authenticate to Key Vault. Managed identity automatically manages application credentials.
 
@@ -255,13 +255,7 @@ The command will return this JSON snippet:
 }
 ```
 
-To give your web app permission to do **get** and **list** operations on your key vault, pass the `principalId` to the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) command:
-
-```azurecli-interactive
-az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
-```
-
-You can also assign access policies by using the [Azure portal](./assign-access-policy-portal.md) or [PowerShell](./assign-access-policy-powershell.md).
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ### Modify the app to access your key vault
 
