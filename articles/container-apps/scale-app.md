@@ -335,7 +335,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 1. In the ARM template, for each secret:
 
-	1. Add a [secret](./manage-secrets.md) to the container app's `secrets` array containing the secret name and value.
+    1. Add a [secret](./manage-secrets.md) to the container app's `secrets` array containing the secret name and value.
 
     1. Add an entry to the `auth` array of the scale rule.
 
