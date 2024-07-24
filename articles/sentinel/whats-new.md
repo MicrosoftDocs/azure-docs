@@ -20,6 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## July 2024
 
+- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
 
 ### SOC optimizations now generally available
