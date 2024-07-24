@@ -10,26 +10,30 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2024
 ms.topic: quickstart
 ms.date: 8/1/2024
 ms.author: eur
+zone_pivot_groups: programming-languages-portal-cli-ps
 ---
 
 # Quickstart: Create an Azure AI services resource
 
-Learn how to create and manage an Azure AI services resource. An Azure AI services resource allows you to access multiple Azure AI services with a single key and endpoint. It also consolidates billing from the services you use.
+Learn how to create and manage an Azure AI services resource. An Azure AI services resource allows you to access multiple Azure AI services with a single set of credentials. 
 
-You can access Azure AI services through two different resources: An **Azure AI services** resource to access multiple services, or a single-service resource like Speech.
+You can access Azure AI services through two different resources: 
 
-* Azure AI services resource:
+* Azure AI services multi-service resource:
     * Access multiple Azure AI services with a single set of credentials.
     * Consolidates billing from the services you use.
-* Single-service resource:
+* Single-service resource such as Face and Vision:
     * Access a single Azure AI service with a unique set of credentials for each service created. 
     * Most Azure AI services offer a free tier to try it out.
 
 Azure AI services are Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
 
-## Supported services with an Azure AI services resource
+## Supported services with a multi-service resource
 
-The multi-service resource enables access to the following Azure AI services with a single key and endpoint. Use these links to find quickstart articles, samples, and more to start using your resource.
+The multi-service resource enables access to the following Azure AI services with a single set of credentials. Some services are available via the multi-service resource and single-service resource.
+
+> [!TIP]
+> We recommend whenever possible to use the multi-service resource to access multiple Azure AI services with a single set of credentials. For services not available in the multi-service resource (such as Face and Vision), you can create a single-service resource.
 
 | Service | Description | Kind (via API) |
 | --- | --- | --- |

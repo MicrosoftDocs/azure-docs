@@ -37,8 +37,6 @@ Connect-AzAccount
 
 Before you create an Azure AI services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you can either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
-### Choose your resource group location
-
 To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. Most Azure AI services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
 
 > [!IMPORTANT]
@@ -55,26 +53,17 @@ After you have your Azure location, create a new resource group in Azure PowerSh
 New-AzResourceGroup -Name ai-services-resource-group -Location westus2
 ```
 
-## Create an Azure AI services resource
-
-### Choose a service and pricing tier
-
-When you create a new resource, you'll need to know the kind of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when you create the resource.
-
-You can find a list of available Azure AI services "kinds" with the [Get-AzCognitiveServicesAccountType](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccounttype) command:
-
-```azurepowershell-interactive
-Get-AzCognitiveServicesAccountType
-```
-
-### Add a new resource to your resource group
+## Create an Azure AI services multi-service resource
 
 To create and subscribe to a new Azure AI services resource, use the [New-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
+
+> [!IMPORTANT]
+> Azure provides a few resources for Azure AI services. Be sure to create one with the `Type` (kind) of `AIServices`.
 
 You can create a Standard S0 multi-service resource named `multi-service-resource` with the command below.
 
 ```azurepowershell-interactive
-New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -Name multi-service-resource -Type CognitiveServices -SkuName F0 -Location westus2
+New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -Name multi-service-resource -Type AIServices -SkuName F0 -Location westus2
 ```
 
 > [!TIP]
