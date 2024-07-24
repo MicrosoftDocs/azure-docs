@@ -303,6 +303,14 @@ response = client.complete(
 )
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
+
 ### Safe mode
 
 Mistral premium chat models supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
@@ -794,6 +802,14 @@ var response = await client.path("/chat/completions").post({
     }
 });
 ```
+
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
 
 ### Safe mode
 
@@ -1295,6 +1311,14 @@ requestOptions = new ChatCompletionsOptions()
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
+
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
 
 ### Safe mode
 
@@ -1866,6 +1890,14 @@ extra-parameters: pass-through
     "logprobs": true
 }
 ```
+
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
 
 ### Safe mode
 

@@ -287,6 +287,19 @@ response = client.complete(
 )
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
@@ -607,6 +620,19 @@ var response = await client.path("/chat/completions").post({
     }
 });
 ```
+
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
 
 ### Apply content safety
 
@@ -937,6 +963,19 @@ requestOptions = new ChatCompletionsOptions()
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
+
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
 
 ### Apply content safety
 
@@ -1302,6 +1341,19 @@ extra-parameters: pass-through
 }
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `n` | How many completions to generate for each prompt. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `best_of` | Generates best_of completions server-side and returns the *best* (the one with the lowest log probability per token). Results can't be streamed. When used with `n`, best_of controls the number of candidate completions and n specifies how many to return—best_of must be greater than `n`. Note: Because this parameter generates many completions, it can quickly consume your token quota. | `integer` |
+| `logprobs` | A number indicating to include the log probabilities on the logprobs most likely tokens and the chosen tokens. For example, if logprobs is 10, the API returns a list of the 10 most likely tokens. the API will always return the logprob of the sampled token, so there might be up to logprobs+1 elements in the response. | `integer` |
+| `ignore_eos` | Whether to ignore the `EOS` token and continue generating tokens after the `EOS` token is generated. | `boolean` |
+| `use_beam_search` | Whether to use beam search instead of sampling. In such case, `best_of` must be greater than 1 and temperature must be 0. | `boolean` |
+| `stop_token_ids` | List of IDs for tokens that, when generated, stop further token generation. The returned output contains the stop tokens unless the stop tokens are special tokens. | `array` |
+| `skip_special_tokens` | Whether to skip special tokens in the output. | `boolean` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
@@ -1349,10 +1401,26 @@ The following example shows how to handle events when the model detects harmful 
 
 For more examples of how to use Meta Llama, see the following examples and tutorials:
 
-| Description                               | Language          | Sample                                                          |
-|-------------------------------------------|-------------------|-----------------------------------------------------------------|
-| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
-| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)  |
+| Description                               | Language          | Sample                                                             |
+|-------------------------------------------|-------------------|------------------------------------------------------------------- |
+| CURL request                              | Bash              | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples) |
+| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)     |
+| Python web requests                       | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)    |
+| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-openai)         |
+| LangChain                                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-langchain)      |
+| LiteLLM                                   | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-litellm)        | 
+
+#### Retrieval Augmented Generation (RAG) and tool use samples
+
+| Description | Package | Sample          |
+|-------------|---------=-|---------------|
+| Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb) |
+| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb) |
+| Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb) |
+
 
 ## Cost and quotas
 
