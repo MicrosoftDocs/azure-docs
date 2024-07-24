@@ -15,6 +15,12 @@ manager: jsuri
 
 In this article, you learn how to recover the Azure Arc resource bridge connection into a working state in disaster scenarios such as accidental deletion. In such cases, the connection between on-premises infrastructure and Azure is lost and any operations performed through Arc fail.
 
+# Prerequisites
+
+1. The disaster recovery script must be run from the same folder where the config (.yaml) files are present. The config files are present on the machine used to run the script to [deploy Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script#inputs-for-the-script). 
+
+1. The machine being used to run the script must have bidirectional connectivity to the Arc resource bridge VM on port 6443 (Kubernetes API server) and 22 (SSH), and outbound connectivity to the Arc resource bridge VM on port 443 (HTTPS).
+
 ## Recovering the Arc resource bridge if there is VM deletion
 
 To recover from Arc resource bridge VM deletion, you need to deploy a new resource bridge with the same resource ID as the current resource bridge using the following steps.
