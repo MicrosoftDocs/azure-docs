@@ -49,7 +49,7 @@ Azure Advisor populates an **Enable Trusted Launch Compatible Images and VM Size
 
 For a Generation 2 VM, that has not met the prerequistes to upgrade to Trusted Launch, look how to fulfill the prerequistes. 
 1. If using an OS image not supported, upgrade to Trusted Launch|Gen2 image, most Windows OS support Trusted Launch except Windows 2012 Datacenter offerings. In the case of Linux OS, upgrade to the newest SKU offered by the image distribution. 
-2. If using a virtual machine size not supported, please look for an [equivalant Generation 2 size](../sizes/overview.md) that supports Trusted Launch.
+2. If using a virtual machine size not supported, please look for an [equivalant Generation 2 size](../sizes/resize-vm.md) that supports Trusted Launch.
 
 > [!NOTE]
 > 
