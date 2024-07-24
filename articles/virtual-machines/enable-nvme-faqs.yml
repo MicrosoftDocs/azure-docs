@@ -23,7 +23,8 @@ sections:
       - question: |
           Which types of storage interfaces are supported in Azure VM families?
         answer: |
-          Azure VMs support two types of storage interfaces: Small Computer System Interface (SCSI) and NVMe. The SCSI interface is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. NVMe is similar to SCSI in that it provides connectivity and data transfer, but NVMe is a faster and more efficient interface for data transfer between servers and storage systems.
+          Azure VMs support two types of storage interfaces: Small Computer System Interface (SCSI) and NVMe. The SCSI interface is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. NVMe is similar to SCSI in that it provides connectivity and data transfer, but NVMe is a faster and more efficient interface for data transfer between servers and storage systems. For more information, read about [converting VMs from SCSI to NVMe](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/converting-virtual-machines-running-linux-from-scsi-to-nvme/ba-p/4162497).
+ 
       - question: |
           How do Azure Boost and NVMe improve the performance of the VMs that Azure offers?
         answer: |

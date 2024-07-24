@@ -135,7 +135,7 @@ To opt in for this preview, set the `enableServiceSideCMKEncryption` on a REST A
 :::image type="content" source="./media/concept-customer-managed-keys/cmk-service-side-encryption.png" alt-text="Screenshot of the encryption tab with the option for server side encryption selected." lightbox="./media/concept-customer-managed-keys/cmk-service-side-encryption.png":::
 
 > [!NOTE]
-> During this preview key rotation and data labeling capabilities are not supported.
+> During this preview key rotation and data labeling capabilities are not supported. Server-side encryption is currently not supported in reference to an Azure Key Vault for storing your encryption key that has public network access disabled.
 
 For a template that creates a workspace with service-side encryption of metadata, see [https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-cmk-service-side-encryption).
   
