@@ -93,9 +93,9 @@ You can use the identity of a service principal in Azure when connecting to your
  
 ### [Docker credentials](#tab/docker-credentials)
 
-You need to use registry-specific credentials when deploying a container from a private container registry. For Azure Container Registry (ACR), you can also use the service principal credential. 
+You need to use registry-specific credentials when deploying a container from a private container registry. The way that you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
 
-The way that you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
+For Azure Container Registry (ACR), you can instead use the same service principal credentials you use to deploy to Azure.
 
 ---
 
@@ -205,21 +205,28 @@ The best way to manually create a workflow configuration is to start from the of
     Remember to do the following before you use this YAML file:
     
     + Update the values of `REGISTRY`, `NAMESPACE`, `IMAGE`, and `TAG` based on your container registry. 
-    + To use service principal credentials with Azure Container Registry, replace the existing `azure/docker-Login` action with this `docker/login-action`:
+    + Update the container respository credentials in the `docker/login-action` action. To use service principal credentials with Azure Container Registry, add an environment variable for the credentials object to your file:
+    
+        ```yml
+        - env: 
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        ```
+    
+        Then replace the existing `azure/docker-Login` action with this `docker/login-action`:
 
-    ```yml
-    - name: Login to ACR
-      uses: docker/login-action@v3
-      with:
-        registry: <registry-name>.azurecr.io
-        username: ${{ secrets.AZURE_CREDENTIALS.clientId }}
-        password: ${{ secrets.AZURE_CREDENTIALS.clientSecret }}
-    ```
+        ```yml
+        - name: Login to ACR
+          uses: docker/login-action@v3
+          with:
+            registry: <registry-name>.azurecr.io
+            username: ${{ fromJson(creds.clientId) }}
+            password: ${{ fromJson(creds.clientSecret) }}
+        ```
     --- 
 
 1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#. 
  
-1. To use a service principal credential instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
+1. To connect to your app using service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
 
     ```yml
     - name: 'Login w/ service principal'
@@ -309,7 +316,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. To use a service principal credential instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
+1. To use service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
 
     ```yml
     - name: 'Login w/ service principal'
@@ -400,7 +407,7 @@ The following parameters are most commonly used with this action:
 |---------|---------|
 |_**app-name**_ | (Mandatory) The name of your function app. |
 |_**slot-name**_ | (Optional) The name of a specific [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already exist in your function app. When not specified, the code is deployed to the active slot. |
-|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. Don't include this if you are instead using a service principal credential with `azure/login`.|
+|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. Don't include this if you are instead using service principal credentials with `azure/login`.|
 
 The following parameters are also supported, but are used only in specific cases:
 
