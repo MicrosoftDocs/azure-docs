@@ -1605,6 +1605,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -4795,6 +4800,11 @@
         {
             "source_path_from_root": "/articles/openshift/quickstart-portal.md",
             "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
+            "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
             "redirect_document_id": false
         },
         {

@@ -31,9 +31,9 @@ directory. You receive a notification when the process is complete. For more inf
 
 - Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting---require-authorization)
+  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
   isn't enabled. This new management group becomes a child of the Root Management Group or the
-  [default management group](./how-to/protect-resource-hierarchy.md#setting---default-management-group)
+  [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
   and the creator is given an "Owner" role assignment. Management group service allows this ability
   so that role assignments aren't needed at the root level. No users have access to the Root
   Management Group when it's created. To avoid the hurdle of finding the Microsoft Entra ID Global Admins to
@@ -85,39 +85,39 @@ that can create a management group.
    package main
 
    import (
-   	"context"
-   	"fmt"
-   	"os"
+     "context"
+     "fmt"
+     "os"
 
-   	mg "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups"
-   	"github.com/Azure/go-autorest/autorest/azure/auth"
+     mg "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups"
+     "github.com/Azure/go-autorest/autorest/azure/auth"
    )
 
    func main() {
-   	// Get variables from command line arguments
-   	var mgName = os.Args[1]
+     // Get variables from command line arguments
+     var mgName = os.Args[1]
 
-   	// Create and authorize a client
-   	mgClient := mg.NewClient()
-   	authorizer, err := auth.NewAuthorizerFromCLI()
-   	if err == nil {
-   		mgClient.Authorizer = authorizer
-   	} else {
-   		fmt.Printf(err.Error())
-   	}
+     // Create and authorize a client
+     mgClient := mg.NewClient()
+     authorizer, err := auth.NewAuthorizerFromCLI()
+     if err == nil {
+       mgClient.Authorizer = authorizer
+     } else {
+       fmt.Printf(err.Error())
+     }
 
-   	// Create the request
-   	Request := mg.CreateManagementGroupRequest{
-   		Name: &mgName,
-   	}
+     // Create the request
+     Request := mg.CreateManagementGroupRequest{
+       Name: &mgName,
+     }
 
-   	// Run the query and get the results
-   	var results, queryErr = mgClient.CreateOrUpdate(context.Background(), mgName, Request, "no-cache")
-   	if queryErr == nil {
-   		fmt.Printf("Results: " + fmt.Sprint(results) + "\n")
-   	} else {
-   		fmt.Printf(queryErr.Error())
-   	}
+     // Run the query and get the results
+     var results, queryErr = mgClient.CreateOrUpdate(context.Background(), mgName, Request, "no-cache")
+     if queryErr == nil {
+       fmt.Printf("Results: " + fmt.Sprint(results) + "\n")
+     } else {
+       fmt.Printf(queryErr.Error())
+     }
    }
    ```
 
