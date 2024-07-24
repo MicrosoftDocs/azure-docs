@@ -17,7 +17,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 Azure Virtual Machines supports enabling Azure Trusted Launch on existing [Azure Generation 2](generation-2.md) virtual machines (VMs) by upgrading to the [Trusted Launch](trusted-launch.md) security type.
 
-[Trusted Launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md) VMs and protects against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, virtual Trusted Platform Module (vTPM), and boot integrity monitoring on your VM.
+[Trusted Launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md) and protects against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, virtual Trusted Platform Module (vTPM), and boot integrity monitoring on your VM.
 
 > [!IMPORTANT]
 > Support for *enabling Trusted Launch on existing Azure Generation 1 VMs* is currently in private preview. You can gain access to preview by using the [registration form](https://aka.ms/Gen1ToTLUpgrade).
@@ -297,7 +297,7 @@ Follow the steps to enable Trusted Launch on an existing Azure Generation 2 VM b
 
 ## Azure Advisor Recommendation
 
-Azure Advisor populates an **Enable Trusted Launch Compatible Images and VM Sizes for Existing Generation 2 VMs** operational excellence recommendation for existing Generation 2 VMs to adopt [Trusted Launch](trusted-launch.md), a higher security posture for Azure VMs at no additional cost to you. Ensure Generation 2 VM has all prerequisites to migrate to Trusted Launch, follow all the best practices including validation of OS image, VM Size, and creating restore points. For the Advisor recommendation to be considered complete, follow the steps outlined in the [**Enable Trusted Launch on an existing VM**](trusted-launch-existing-vm.md) to upgrade the virtual machines security type and enable Trusted Launch. 
+Azure Advisor populates an **Enable Trusted Launch foundational excellence, and modern security for Existing Generation 2 VM(s)** operational excellence recommendation for existing Generation 2 VMs to adopt [Trusted Launch](trusted-launch.md), a higher security posture for Azure VMs at no additional cost to you. Ensure Generation 2 VM has all prerequisites to migrate to Trusted Launch, follow all the best practices including validation of OS image, VM Size, and creating restore points. For the Advisor recommendation to be considered complete, follow the steps outlined in the [**Enable Trusted Launch on an existing VM**](trusted-launch-existing-vm.md) to upgrade the virtual machines security type and enable Trusted Launch. 
 
 ### What if there is Generation 2 VMs, that doesn't fit the prerequistes for Trusted Launch ? 
 
