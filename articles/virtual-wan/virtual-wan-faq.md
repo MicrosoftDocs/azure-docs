@@ -470,7 +470,13 @@ Virtual WAN is a networking-as-a-service platform that has a 99.95% SLA. However
 The SLA for each component is calculated individually. For example, if ExpressRoute has a 10 minute downtime, the availability of ExpressRoute would be calculated as (Maximum Available Minutes - downtime) / Maximum Available Minutes * 100.
 ### Can you change the VNet address space in a spoke VNet connected to the hub? 
 
-Yes, this can be done automatically with no update or reset required on the peering connection. You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
+Yes, this can be done automatically with no update or reset required on the peering connection. Please note the following: 
+* You do not need to click the ["Sync" button](../virtual-network/update-virtual-network-peering-address-space.yml#modify-the-address-range-prefix-of-an-existing-address-range) under the Peering blade. Once the VNet's address space is changed, the VNet peering will automatically sync with the virtual hub's VNet. 
+* Please ensure the updated address space does not overlap with the address space for any existing spoke VNets in your Virtual WAN. 
+
+You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
+
+
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 

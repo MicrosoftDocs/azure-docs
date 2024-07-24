@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 7/11/2024
+ms.date: 7/23/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -216,7 +216,7 @@ Once you're ready to redirect traffic, you can complete the final step of the mi
 >
 
 > [!NOTE]
-> You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+> It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
 >
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
@@ -451,7 +451,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 This step is your opportunity to test and validate your new App Service Environment v3.
 
-Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment. You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to discuss your options. Don't run the DNS change command since that command completes the migration.
 

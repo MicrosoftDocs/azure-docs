@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Detect internet exposed IP addresses
 
-Microsoft Defender for Cloud's provides organizations the capability to perform External Attack Surface Management (EASM) (outside-in) scans to improve their security posture through its integration with Defender EASM. Defender for Cloud's EASM scans uses the information provided by the Defender EASM integration to provide actionable recommendations and visualizations of attack paths to reduce the risk of bad actors exploiting internet exposed IP addresses. 
+Microsoft Defender for Cloud's provides organizations the capability to perform external attack surface management  (outside-in) scans to improve their security posture through its integration with Defender External Attack Surface Management. Defender for Cloud's external attack surface management scans uses the information provided by the Defender External Attack Surface Management integration to provide actionable recommendations and visualizations of attack paths to reduce the risk of bad actors exploiting internet exposed IP addresses. 
 
 Through the use Defender for Cloud's cloud security explorer, security teams can build queries and proactively hunt for security risks. Security teams can also use the attack path analysis to visualize the potential attack paths that an attacker could use to reach their critical assets. 
 

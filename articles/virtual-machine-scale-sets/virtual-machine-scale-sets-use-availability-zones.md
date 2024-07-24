@@ -253,13 +253,6 @@ You can update the zones parameter and the scale set capacity in the same ARM te
 
 When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
 
-#### Automate with Rolling upgrades + MaxSurge
-
-With [Rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
-
-> [!IMPORTANT]
-> Rolling upgrades with MaxSurge is currently under Public Preview. It is only available for VMSS Uniform Orchestration Mode.
-
 ### Known issues and limitations
 
 * The feature is targeted to stateless workloads on Virtual Machine Scale Sets.

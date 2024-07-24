@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 02/17/2023
 ms.author: fipopovi
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # CETAS with Synapse SQL
