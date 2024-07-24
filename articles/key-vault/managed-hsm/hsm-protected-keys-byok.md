@@ -2,7 +2,7 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault Managed HSM - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM. Also known as bring your own key (BYOK).
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -80,14 +80,9 @@ For more information on login options via the CLI, take a look at [sign in with 
 ||EC-HSM|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Managed HSM|
 ||Symmetric key (oct-hsm)|128-bit<br />192-bit<br />256-bit|Vendor HSM|The key to be transferred to the Managed HSM|
 ||||
+
 ## Generate and transfer your key to the Managed HSM
 
-To generate and transfer your key to a Managed HSM:
-
-  - [Step 1: Generate a KEK](#step-1-generate-a-kek)
-  - [Step 2: Download the KEK public key](#step-2-download-the-kek-public-key)
-  - [Step 3: Generate and prepare your key for transfer](#step-3-generate-and-prepare-your-key-for-transfer)
-  - [Step 4: Transfer your key to Managed HSM](#step-4-transfer-your-key-to-managed-hsm) 
    
 ### Step 1: Generate a KEK
 

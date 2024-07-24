@@ -51,16 +51,19 @@ Adhere to the following recommendations to ensure that you don't experience data
 ## Incoming stream
 The incoming stream of data includes the columns in the following table. 
 
- | Column | Type | Description |
+| Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace. You can override this value using a transformation to set `TimeGenerated` to another value. |
 | `RawData` | string | The entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns before sending to the table. |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 
 ## Custom table
 Before you can collect log data from a text file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting, or you must add a transformation to ensure that the output schema matches the table. 
+
+> [!Warning]
+> You shouldn’t use an existing custom log table used by MMA agents. Your MMA agents won't be able to write to the table once the first AMA agent writes to the table. You should create a new table for AMA to use to prevent MMA data loss.
+
 
 For example, you can use the following PowerShell script to create a custom table with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
 
@@ -82,10 +85,6 @@ $tableParams = @'
                     },
                     {
                         "name": "FilePath",
-                        "type": "String"
-                    },
-                    {
-                        "name": "Computer",
                         "type": "String"
                     }
               ]
@@ -183,10 +182,6 @@ Use the following ARM template to create or modify a DCR for collecting text log
                             },
                             {
                                 "name": "FilePath",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Computer",
                                 "type": "string"
                             }
                         ]

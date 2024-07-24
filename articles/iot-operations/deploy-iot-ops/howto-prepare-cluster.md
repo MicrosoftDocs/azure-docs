@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/02/2024
+ms.date: 07/22/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -258,8 +258,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.Kubernetes"
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-   az provider register -n "Microsoft.IoTOperationsMQ"
-   az provider register -n "Microsoft.IoTOperationsDataProcessor"
+   az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
    ```
 

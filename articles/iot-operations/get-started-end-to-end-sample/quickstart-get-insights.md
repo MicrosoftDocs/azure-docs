@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: get insights from your processed data"
-description: "Quickstart: Use a Power BI report to capture insights from your OPC UA data you sent to the Microsoft Fabric OneLake lakehouse."
+title: "Quickstart: Get insights from your processed data"
+description: "Quickstart: Use a Real-Time Dashboard to capture insights from the OPC UA data you sent to Event Hubs."
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 04/25/2024
+ms.date: 07/23/2024
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -15,110 +15,269 @@ ms.date: 04/25/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this quickstart, you populate a Power BI report to capture insights from your OPC UA data that you sent to a Microsoft Fabric lakehouse in the previous quickstart. You'll prepare your data to be a source for Power BI, import a report template into Power BI, and connect your data sources to Power BI so that the report displays visual graphs of your data over time.
+In this quickstart, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
 
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data. 
+These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations Preview at the edge through getting insights from that device data in the cloud.
 
 ## Prerequisites
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md)
+- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](quickstart-upload-telemetry-to-cloud.md)
 
-You'll also need either a **Power BI Pro** or **Power BI Premium Per User** license. If you don't have one of these licenses, you can try Power BI Pro for free at [Power BI Pro](https://powerbi.microsoft.com/power-bi-pro/).
+You also need a Microsoft Fabric subscription. In your subscription, you need access to a **premium workspace** with **Contributor** or above permissions.
 
-Using this license, download and sign into [Power BI Desktop](/power-bi/fundamentals/desktop-what-is-desktop), a free version of Power BI that runs on your local computer. You can download it from here: [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=58494).
+Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant administrator. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
 ## What problem will we solve?
 
-Once your OPC UA data has been processed and enriched in the cloud, you'll have a lot of information available to analyze. You might want to create reports containing graphs and visualizations to help you organize and derive insights from this data. The template and steps in this quickstart illustrate how you can connect that data to Power BI to build such reports.
+Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
 
-## Update lakehouse semantic model
+## Ingest data into Real-Time Intelligence
 
-This section prepares your lakehouse data to be a source for Power BI. You'll update the default semantic model for your lakehouse to include the telemetry from the *OPCUA* table you created in the [previous quickstart](quickstart-upload-telemetry-to-cloud.md).
+In this section, you set up a Microsoft Fabric *eventstream* to connect your event hub to a KQL database in Real-Time Intelligence. This process includes setting up a data mapping to transform the payload data from its JSON format to columns in KQL.
 
-1. Select **Lakehouse** in the top right corner and change it to **SQL analytics endpoint**.
+### Create an eventstream
 
-    :::image type="content" source="media/quickstart-get-insights/sql-analytics-endpoint.png" alt-text="Screenshot of a Fabric lakehouse showing the SQL analytics endpoint option.":::
+In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-1. Switch to the **Reporting** tab. Verify that the *OPCUA* table is open, and select **Automatically update semantic model**.
+Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) to create a new eventstream from the Real-Time Intelligence capabilities.
 
-    :::image type="content" source="media/quickstart-get-insights/automatically-update-semantic-model.png" alt-text="Screenshot of a Fabric lakehouse showing the Add to default semantic model option.":::
+After the eventstream is created, you'll see the main editor where you can start adding sources to the eventstream.
 
-    After a short wait, you'll see a notification confirming that Fabric has successfully updated the semantic model. The default semantic model's name is *aiomqdestination*, named after the lakehouse.
+:::image type="content" source="media/quickstart-get-insights/eventstream-editor.png" alt-text="Screenshot of the Eventstream editor in Microsoft Fabric.":::
 
-## Configure Power BI report
+### Add event hub as a source
 
-In this section, you'll import a Power BI report template and configure it to pull data from your data sources.
+Next, add your event hub from the previous quickstart as a data source for the eventstream.
 
-These steps are for Power BI Desktop, so open that application now.
+Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=enhanced-capabilities) to add the event source. Keep the following notes in mind:
+* When it's time to select a **Data format**, choose *Json*.
+* Make sure to complete all the steps in the article through selecting **Publish** on the ribbon.
 
-### Import template and load Asset Registry data
+After completing this flow, the Azure event hub is visible in the eventstream live view as a source.
 
-1. Download the following Power BI template: [quickstartInsightsTemplate.pbit](https://github.com/Azure-Samples/explore-iot-operations/raw/main/samples/dashboard/quickstartInsightsTemplate.pbit).
-1. Open a new instance of Power BI Desktop. Close any startup screens and open a new blank report.
-1. Select **File** > **Import** > **Power BI template**. Select the file you downloaded to import it.
-1. A dialog box pops up asking you to input an Azure subscription and resource group. Enter the Azure subscription ID and resource group where you created your assets and select **Load**. This imports a template that uses a custom [Power Query M](/powerquery-m/) script to display visuals of the sample asset data. You may be prompted to sign in to your Azure account to access the data.
+:::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-    >[!NOTE]
-    >As the file imports, you see an error for **DirectQuery to AS**. This is normal, and will be resolved later by configuring the data source. Close the error.
-    >:::image type="content" source="media/quickstart-get-insights/power-bi-import-error.png" alt-text="Screenshot of Power BI showing an error labeled DirectQuery to AS - quickStartDataset.":::
+#### Verify data flow
 
-1. The template has now been imported, although the visuals are missing, because it still needs some configuration to connect to your data. If you see an option to **Apply changes** that are pending for your queries, select it and let the dashboard reload.
+Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-initial-report.png" alt-text="Screenshot of Power BI Desktop showing a blank report." lightbox="media/quickstart-get-insights/power-bi-initial-report.png":::
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data to the MQTT broker. You can verify this part of the flow using mqttui as described in [Verify data is flowing](quickstart-add-assets.md#verify-data-is-flowing).
 
-1. Optional: To view the script that imports the asset data from the Azure Device Registry, right-select **Asset** from the Data panel on the right side of the screen, and choose **Edit query**.
+1. Wait a few minutes for data to propagate. Then, in the eventstream live view, refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-edit-query.png" alt-text="Screenshot of Power BI showing the Edit query button." lightbox="media/quickstart-get-insights/power-bi-edit-query.png":::
+    :::image type="content" source="media/quickstart-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
+
+>[!TIP]
+>If data has not arrived in your eventstream, you may want to check your event hub activity to verify that it's receiving messages. This will help you isolate which section of the flow to debug.
+
+### Prepare KQL resources
+
+In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
+
+1. Follow the steps in [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an eventhouse**.
+
+1. Next, create a KQL table in your database. Call it *OPCUA* and use the following columns.
+
+    | Column name | Data type |
+    | --- | --- |
+    | SequenceNumber | int |
+    | assetName | string |
+    | Temperature | decimal | 
+    | Pressure | decimal | 
+    | Timestamp | datetime |
+
+1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
+
+    :::image type="content" source="media/quickstart-get-insights/explore-your-data.png" alt-text="Screenshot showing the Explore your data button.":::
+
+1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
+
+    ```kql
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"SequenceNumber", "Properties":{"Path":"$[\'SequenceNumber\']"}},{"column":"assetName", "Properties":{"Path":"$[\'DataSetWriterName\']"}},{"column":"Temperature", "Properties":{"Path":"$.Payload.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.Payload.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'Timestamp\']"}}]'
+    ``` 
+
+### Add data table as a destination
+
+Next, return to your eventstream view, where you can add your new KQL table as an eventstream destination.
+
+Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities#direct-ingestion-mode) to add the destination. Keep the following notes in mind:
+* Use direct ingestion mode.
+* On the **Configure** step, select the *OPCUA* table that you created earlier.
+* On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+
+    :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
     
-    You'll see a few queries in the Power Query Editor window that comes up. Go through each of them and select **Advanced Editor** in the top menu to view the details of the queries. The most important query is **GetAssetData**. These queries retrieve the custom property values from the thermostat asset that you created in a previous quickstart. These custom property values provide contextual information such as the batch number and asset location.
+    >[!TIP]
+    >If no existing mappings are found, try refreshing the event stream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
+
+After completing this flow, the KQL table is visible in the eventstream live view as a destination.
+
+Wait a few minutes for data to propagate. Then, select the KQL destination and refresh the **Data preview** to see the processed JSON data from the eventstream appearing in the table.
+
+:::image type="content" source="media/quickstart-get-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
+
+If you want, you can also view and query this data in your KQL database directly.
+
+:::image type="content" source="media/quickstart-get-insights/query-kql.png" alt-text="Screenshot of the same data being queried from the KQL database.":::
+
+## Create a Real-Time Dashboard
+
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset name and timestamp, and will display visual summaries of temperature and pressure data.
+
+>[!NOTE]
+>You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+
+### Create dashboard and connect data source
+
+Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
+
+Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following notes in mind:
+* In the **Data sources** pane, your database will be under **OneLake data hub**.
+
+### Configure parameters
+
+Next, configure some parameters for your dashboard so that the visuals can be filtered by asset name and timestamp. The dashboard comes with a default parameter to filter by time range, so you only need to create one that can filter by asset name.
+
+1. Switch to the **Manage** tab, and select **Parameters**. Select **+ Add** to add a new parameter.
+
+    :::image type="content" source="media/quickstart-get-insights/add-parameter.png" alt-text="Screenshot of adding a parameter to a dashboard.":::
+
+1. Create a new parameter with the following characteristics:
+    * **Label**: *Asset*
+    * **Parameter type**: *Single selection* (already selected by default)
+    * **Variable name**: *_asset*
+    * **Data type**: *string* (already selected by default)
+    * **Source**: *Query*
+        * **Data source**: Select your database.
+        * Select **Edit query** and add the following KQL query.
     
-    :::image type="content" source="media/quickstart-get-insights/power-bi-advanced-editor.png" alt-text="Screenshot of Power BI showing the advanced editor.":::
+            ```kql
+            OPCUA2
+            | summarize by assetName
+            ```
+    * **Value column**: *assetName*
+    * **Default value**: *Select first value of query*
+
+1. Select **Done** to save your parameter.
+
+### Create line chart tile
+
+Next, add a tile to your dashboard to show a line chart of temperature and pressure over time for the selected asset and time range.
+
+1. Select either **+ Add tile** or **New tile** to add a new tile.
+
+    :::image type="content" source="media/quickstart-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
+
+1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the resulting records with their timestamp, temperature, and pressure.
+
+    ```kql
+    OPCUA 
+    | where Timestamp between (_startTime.._endTime)
+    | where assetName == _asset
+    | project Timestamp, Temperature, Pressure
+    ```
+
+    **Run** the query to verify that data can be found.
+
+    :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
+
+1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
+    * **Tile name**: *Temperature and pressure over time*
+    * **Visual type**: *Line chart*
+    * **Data**:
+        * **Y columns**: *Temperature (decimal)* and *Pressure (decimal)* (already inferred by default)
+        * **X columns**: *Timestamp (datetime)* (already inferred by default)
+    * **Y Axis**:
+        * **Label**: *Units*
+    * **X Axis**:
+        * **Label**: *Timestamp*
+
+    Select **Apply changes** to create the tile.
+
+    :::image type="content" source="media/quickstart-get-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
+
+View the finished tile on your dashboard.
+
+:::image type="content" source="media/quickstart-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with one tile.":::
+
+### Create max value tiles
+
+Next, create some tiles to display the maximum values of temperature and pressure.
+
+1. Select **New tile** to create a new tile.
+
+1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and takes the highest temperature value from the resulting records.
     
-    When you're finished, exit the Power Query Editor window.
+    ```kql
+    OPCUA
+    | where Timestamp between (_startTime.._endTime)
+    | where assetName == _asset
+    | top 1 by Temperature desc
+    | summarize by Temperature
+    ```
 
-### Connect data source
+1. **Run** the query to verify that data can be found.
 
-At this point, the visuals in the Power BI report display errors. That's because you need to connect your telemetry data source.
+1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
+    * **Tile name**: *Max temperature*
+    * **Visual type**: *Stat*
+    * **Data**:
+        * **Value column**: *Temperature (decimal)* (already inferred by default)
+    
+    Select **Apply changes** to create the tile.
+    
+    :::image type="content" source="media/quickstart-get-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::
 
-1. Select **File** > **Options and Settings** > **Data source settings**.  
-1. Select **Change Source**. 
+1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible).
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-change-data-source.png" alt-text="Screenshot of Power BI showing the Data source settings.":::
+    :::image type="content" source="media/quickstart-get-insights/dashboard-2.png" alt-text="Screenshot of the dashboard with two tiles.":::
 
-    This displays a list of data source options. Select *aiomqdestination* (the default dataset you updated in the previous section) and select **Create**.
+1. Open the options for the tile, and select **Duplicate tile**.
 
-1. In the **Connect to your data** box that opens, expand your dataset and select the *OPCUA* telemetry table. Select **Submit**.
+    :::image type="content" source="media/quickstart-get-insights/duplicate-tile.png" alt-text="Screenshot of duplicating a tile from the dashboard.":::
 
-    :::image type="content" source="media/quickstart-get-insights/power-bi-connect-to-your-data.png" alt-text="Screenshot of Power BI showing the Connect to your data options.":::
+    This creates a duplicate tile on the dashboard.
 
-    Close the data source settings.
+1. On the new tile, select the pencil icon to edit it.
+1. Replace *Temperature* in the KQL query with *Pressure*, so that it matches the query below.
 
-The dashboard now loads visual data.
+    ```kql
+    OPCUA
+    | where Timestamp between (_startTime.._endTime)
+    | where assetName == _asset
+    | top 1 by Pressure desc
+    | summarize by Pressure
+    ```
 
-:::image type="content" source="media/quickstart-get-insights/power-bi-complete.png" alt-text="Screenshot of Power BI showing the report view." lightbox="media/quickstart-get-insights/power-bi-complete.png":::
+    **Run** the query.
 
-## View insights
+1. In the **Visual formatting** pane, update the following characteristics:
+    * **Tile name**: *Max pressure*
+    * **Data**:
+        * **Value column**: *Pressure (decimal)* (already inferred by default)
 
-In this section, you'll review the report that was created and consider how such reports can be used in your business.
+    Select **Apply changes**.
 
-This report offers a view of your asset and telemetry data. You can use the asset checkboxes to view multiple assets and their associated telemetry simultaneously, to compare data points at a specified time period.
+1. View the finished tile on your dashboard.
 
-Take some time to explore the filters for each visual to explore and do more with your data.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-3.png" alt-text="Screenshot of the dashboard with three tiles.":::
 
-By relating edge data from various sources together in Power BI, this report uses visualizations and interactive features to offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+1. **Save** your completed dashboard.
+
+Now you have a dashboard that displays different types of visuals for the asset data in these quickstarts. From here, you can experiment with the filters and adding other tile types to see how a dashboard can enable you to do more with your data.
 
 ## How did we solve the problem?
 
-In this quickstart, you prepared your lakehouse data to be a source for Power BI, imported a report template into Power BI, and configured the report to display your lakehouse data in report graphs that visually track their changing values over time. This represents the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
+In this quickstart, you used an eventstream to ingest your Event Hubs data into a KQL database in Microsoft Fabric Real-Time Intelligence. Then, you created a Real-Time Dashboard powered by that data, which visually tracks changing values over time. By relating edge data from various sources together in Microsoft Fabric, you can create reports with visualizations and interactive features that offer deeper insights into asset health, utilization, and operational trends. This can empower you to enhance productivity, improve asset performance, and drive informed decision-making for better business outcomes.
+
+This completes the final step in the quickstart flow for using Azure IoT Operations to manage device data from deployment through analysis in the cloud.
 
 ## Clean up resources
 
-If you're not going to continue to use this deployment, delete the Kubernetes cluster where you deployed Azure IoT Operations and remove the Azure resource group that contains the cluster.
+If you're not going to continue to use this deployment, delete the Kubernetes cluster where you deployed Azure IoT Operations. In Azure, remove the Azure resource group that contains the cluster and your event hub.
 
-You can delete your Microsoft Fabric workspace and your Power BI report.
-
-You might also want to remove Power BI Desktop from your local machine.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard.

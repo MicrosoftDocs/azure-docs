@@ -1,8 +1,13 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference.md",
+            "source_path_from_root": "/articles/defender-for-cloud/multicloud.yml",
             "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/plan-multicloud-security-get-started",
             "redirect_document_id": false
         },
         {

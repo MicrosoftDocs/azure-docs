@@ -139,7 +139,7 @@ TRANSCRIBED: Text=Good morning, Steve. Speaker ID=Unknown
 TRANSCRIBED: Text=Good morning. Katie. Speaker ID=Unknown
 TRANSCRIBED: Text=Have you tried the latest real time diarization in Microsoft Speech Service which can tell you who said what in real time? Speaker ID=Guest-1
 TRANSCRIBED: Text=Not yet. I've been using the batch transcription with diarization functionality, but it produces diarization result until whole audio get processed. Speaker ID=Guest-2
-TRANSRIBED: Text=Is the new feature can diarize in real time? Speaker ID=Guest-2
+TRANSCRIBED: Text=Is the new feature can diarize in real time? Speaker ID=Guest-2
 TRANSCRIBED: Text=Absolutely. Speaker ID=GUEST-1
 TRANSCRIBED: Text=That's exciting. Let me try it right now. Speaker ID=GUEST-2
 CANCELED: Reason=EndOfStream

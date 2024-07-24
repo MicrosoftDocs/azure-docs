@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/01/2024
+ms.date: 07/16/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -150,15 +150,40 @@ BinaryData
 ====
 ```
 
-### Import certificate-to-attribute mapping
+### Certificate attributes
 
-To use authorization policies for clients using properties on the X.509 certificates, create a certificate-to-attribute mapping TOML file and import it as a Kubernetes secret under the key `x509Attributes.toml`. This file maps the subject name of the client certificate to the attributes that can be used in authorization policies. It's required even if you don't use authorization policies.
+X509 attributes can be specified in the *BrokerAuthentication* resource. For example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed.
 
-```bash
-kubectl create secret generic x509-attributes --from-file=x509Attributes.toml -n azure-iot-operations
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: BrokerAuthentication
+metadata: 
+  name: authn
+  namespace: azure-iot-operations
+spec:
+  authenticationMethods:
+    - x509Credentials:
+        authorizationAttributes:
+          root:
+            subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
+            attributes:
+              organization = contoso
+          intermediate:
+            subject = "CN = Contoso Intermediate CA"
+            attributes:
+              city = seattle
+              foo = bar
+          smart-fan:
+            subject = "CN = smart-fan"
+            attributes:
+              building = 17
 ```
 
-To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
+In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
+
+The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
+
+Authorization rules can be applied to clients using X.509 certificates with these attributes.
 
 ### Enable X.509 client authentication
 

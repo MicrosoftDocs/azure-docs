@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 07/23/2024
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -75,7 +75,7 @@ az login
 
 ## Create an asset endpoint
 
-By default, an Azure IoT Operations deployment includes a built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
+An Azure IoT Operations deployment can include an optional built-in OPC PLC simulator. To create an asset endpoint that uses the built-in OPC PLC simulator:
 
 # [Operations experience](#tab/portal)
 
@@ -93,7 +93,6 @@ By default, an Azure IoT Operations deployment includes a built-in OPC PLC simul
     | Name | `opc-ua-connector-0` |
     | Connector for OPC UA URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication | `Anonymous` |
-    | Transport authentication | `Do not use transport authentication certificate` |
 
 1. To save the definition, select **Create**.
 
@@ -120,12 +119,12 @@ When the OPC PLC simulator is running, data flows from the simulator, to the con
 
 The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
 
-# [Operations experience](#tab/portal)
-
 To use the `UsernamePassword` authentication mode, complete the following steps:
 
+# [Operations experience](#tab/portal)
+
 1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
-2. In the operations experience, select **Username & password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
+2. In the operations experience, select **Username password** for the **User authentication** field to configure the asset endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
 
 | Field | Value |
 | --- | --- |
@@ -134,8 +133,6 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 # [Azure CLI](#tab/cli)
 
-To use the `UsernamePassword` authentication mode, complete the following steps:
-
 1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opcua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
 
 1. Use a command like the following example to create your asset endpoint:
@@ -143,29 +140,6 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
     ```azurecli
     az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
     ```
-
----
-
-### Configure an asset endpoint to use a transport authentication certificate
-
-To configure the asset endpoint to use a transport authentication certificate, complete the following steps:
-
-# [Operations experience](#tab/portal)
-
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
-2. In the operations experience, select **Use transport authentication certificate** for the **Transport authentication** field and enter the certificate thumbprint.
-
-# [Azure CLI](#tab/cli)
-
-1. Follow the steps in [configure mutual trust](howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list) to add a transport certificate and private key to Azure Key Vault, and project them into Kubernetes cluster.
-
-1. Use a command like the following example to create your asset endpoint:
-
-    ```azurecli
-    az iot ops asset endpoint create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --cluster {your cluster name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
-    ```
-
-To learn more, see [az iot ops asset](/cli/azure/iot/ops/asset).
 
 ---
 
@@ -182,14 +156,13 @@ To add an asset in the operations experience:
     > [!TIP]
     > You can use the filter box to search for assets.
 
-    Select **Create asset**.
+1. Select **Create asset**.
 
 1. On the asset details screen, enter the following asset information:
 
-    - Asset name
     - Asset endpoint. Select your asset endpoint from the list.
+    - Asset name
     - Description
-
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
@@ -203,6 +176,7 @@ To add an asset in the operations experience:
     - Documentation URI
 
     :::image type="content" source="media/howto-manage-assets-remotely/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the operations experience.":::
+
 1. Select **Next** to go to the **Add tags** page.
 
 ### Add individual tags to an asset
@@ -312,9 +286,6 @@ Now you can define the events associated with the asset. To add OPC UA events:
       - Event name (Optional). This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
       - Observability mode (Optional) with following choices:
         - None
-        - Gauge
-        - Counter
-        - Histogram
         - Log
       - Queue size. You can override the default value for this tag.
 
@@ -451,6 +422,16 @@ az iot ops asset delete --name thermostat -g {your resource group name}
 Whenever you make a change to asset in the operations experience, you see a notification that reports the status of the operation:
 
 :::image type="content" source="media/howto-manage-assets-remotely/portal-notifications.png" alt-text="A screenshot that shows the notifications in the operations experience.":::
+
+## View activity logs
+
+In the operations experience, you can view activity logs for each instance or each resource in an instance.
+
+To view activity logs at the instance level, select the **Activity logs** tab. You can use the **Timespan** and **Resource type** filters to customize the view.
+
+:::image type="content" source="./media/howto-manage-assets-remotely/view-instance-activity-logs.png" alt-text="A screenshot that shows the activity logs for an instance in the operations experience.":::
+
+To view activity logs as the resource level, select the resource that you want to inspect. This resource can be an asset, asset endpoint, or data pipeline. In the resource overview, select **View activity logs**. You can use the **Timespan** filter to customize the view.
 
 ## Related content
 
