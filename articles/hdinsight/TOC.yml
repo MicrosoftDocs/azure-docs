@@ -479,8 +479,6 @@ items:
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
         items: 
-        - name: Use with Data Lake Storage
-          href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Run Azure ML workloads with AutoML
