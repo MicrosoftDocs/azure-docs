@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/10/2024
+ms.date: 07/24/2024
 ---
 
 # Test workflows with mock outputs in Azure Logic Apps
@@ -16,7 +16,7 @@ To test your workflow without affecting your production environments, you can se
 
 For example, if you set up mock outputs for the Outlook 365 send mail action, Azure Logic Apps just returns the mock outputs that you provided, rather than call Outlook and send an email.
 
-This guide shows how to set up mock outputs for an action in a Consumption or Standard logic app workflow. You can find workflows that ran with these mock outputs and reuse existing action outputs as mock outputs.
+This guide shows how to set up mock outputs for an action in a Consumption or Standard logic app workflow.
 
 ## Prerequisites
 
@@ -178,70 +178,6 @@ To find earlier or other workflow runs where the actions use mock outputs, revie
    On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
-
----
-
-<a name="reuse-sample-outputs"></a>
-
-## Reuse previous outputs as mock outputs
-
-If you have a previous workflow run with outputs, you can reuse these outputs as mock outputs by copying and pasting the outputs from that run.
-
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
-
-1. On your logic app resource menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Runs history**, if not selected.
-
-1. From the **Runs history** list, select the run that has the outputs that you want to reuse.
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run.png" alt-text="Screenshot shows Consumption workflow run history." lightbox="media/test-logic-apps-mock-data-static-results/select-run.png":::
-
-1. After the run details pane opens, select the action with the outputs that you want.
-
-1. In the **Outputs** section, select **Show raw outputs**.
-
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection that you want to use, for example, the entire outputs section, or just the headers section.
-
-1. Review the earlier section about how to [set up mock outputs for an action](#set-up-mock-outputs), and follow the steps to open the action's **Testing** tab.
-
-1. After the **Testing** tab opens, under **Testing**, open the **Select Fields** list, and select **Code**:
-
-1. In the **Code** box that appears, paste your previously copied JSON, for example:
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/code-box.png" alt-text="Screenshot shows Code box with pasted JSON." lightbox="media/test-logic-apps-mock-data-static-results/code-box.png":::
-
-1. When you're finished, select **Save**.
-
-### [Standard](#tab/standard)
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
-
-1. On the workflow menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Run History**, if not selected.
-
-1. In the **Run History** table, select the run that has the outputs that you want to reuse.
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
-
-1. After the run details pane opens, select the action with the outputs that you want.
-
-1. In the **Outputs** section, select **Show raw outputs**.
-
-1. On the **Outputs** pane, copy either the complete JavaScript Object Notation (JSON) object or the specific subsection that you want to use, for example, the entire outputs section, or just the headers section.
-
-1. Review the earlier section about how to [set up mock outputs](#set-up-mock-outputs) for an action, and follow the steps to open the action's **Testing** tab.
-
-1. After the **Testing** tab opens, under **Testing**, open the **Select Fields** list, and select **Code**:
-
-1. In the **Code** box that appears, paste your previously copied JSON, for example:
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/code-box.png" alt-text="Screenshot shows Code box with pasted JSON." lightbox="media/test-logic-apps-mock-data-static-results/code-box.png":::
-
-1. When you're finished, select **Save**.
 
 ---
 
