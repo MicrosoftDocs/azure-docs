@@ -112,5 +112,3 @@ If you're sending a high log volume through rsyslog and your system is set up to
 ### Azure Monitor Agent for Linux event buffer is filling a disk
 
 If you observe the `/var/opt/microsoft/azuremonitor/events` directory growing unbounded (10 GB or higher) and not reducing in size, [file a ticket](#file-a-ticket). For **Summary**, enter **Azure Monitor Agent Event Buffer is filling disk**. For **Problem type**, enter **I need help configuring data collection from a VM**.
-
-[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
