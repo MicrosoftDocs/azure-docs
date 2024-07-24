@@ -34,7 +34,7 @@ Azure Monitor currently doesn't support analyzing *Azure virtual network* metric
 
 [!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
 
-For more information, see [Monitor and visualize network configurations with Azure NPM](kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+For more information, see [Monitor and visualize network configurations with Azure Network Policy Manager](kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
