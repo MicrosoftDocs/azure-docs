@@ -299,7 +299,7 @@ Along with using Elasticsearch databases in Azure OpenAI Studio, you can also us
 
 ## Deploy to a copilot (preview), Teams app (preview), or web app 
 
-After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
+After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI Studio.
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
@@ -307,7 +307,7 @@ This gives you multiple options for deploying your solution.
 
 #### [Copilot (preview)](#tab/copilot)
 
-You can deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
+You can deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI Studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
 > [!NOTE]
 > Deploying to a copilot in Copilot Studio (preview) is only available in US regions.
@@ -320,8 +320,8 @@ A Teams app lets you bring conversational experience to your users in Teams to i
 **Prerequisites**
 
 - The latest version of [Visual Studio Code](https://code.visualstudio.com/) installed.
-- The latest version of [Teams toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VS Code extension that creates a project scaffolding for your app.
-- [Node.js](https://nodejs.org/en/download/) (version 16 or 17) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
+- The latest version of [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VS Code extension that creates a project scaffolding for your app.
+- [Node.js](https://nodejs.org/en/download/) (version 16 or 18) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
 - [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app) installed.
 - Sign in to your [Microsoft 365 developer account](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant) (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program)).
     - Enable **custom Teams apps** and turn on **custom app uploading** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
@@ -614,7 +614,7 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
-To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI Studio. Here are some of the common errors and warnings: 
 
 ### Failed ingestion jobs
 
