@@ -8,9 +8,9 @@ ms.date: 05/22/2024
 
 # Use Azure storage with Azure HDInsight clusters
 
-You can store data in [Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). Or a combination of these options. These storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+You can store data in [Azure Blob storage](../storage/common/storage-introduction.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). Or a combination of these options. These storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system. Or with HDInsight 3.6, you can select either Azure Blob storage or Azure Data Lake Storage Gen1/ Azure Data Lake Storage Gen2 as the default files system with a few exceptions. 
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system. Or with HDInsight 3.6, you can select either Azure Blob storage or Azure Data Lake Storage Azure Data Lake Storage Gen2 as the default files system with a few exceptions. 
 
 In this article, you learn how Azure Storage works with HDInsight clusters. 
 * To learn how Data Lake Storage Gen2 works with HDInsight clusters, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](./hdinsight-hadoop-use-data-lake-storage-gen2.md).
