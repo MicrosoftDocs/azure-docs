@@ -45,13 +45,13 @@ highlightedContent:
 # productDirectory section (Optional; Remove if not applicable.)
 productDirectory:
   title: Azure networking scenarios # Optional but good for SEO. Remove if not applicable.
-  summary: Choose an Azure networking scenario to learn how Azure can provide connectivity to your resources, deliver and protect applications, and help secure your environment. # Optional but good for SEO. Remove if not applicable.
+  summary: Select an Azure networking scenario to learn how Azure can enhance connectivity to your resources, deliver and protect applications, and help secure your environment. # Optional but good for SEO. Remove if not applicable.
   items:
     # Card
     - title: Networking foundations
       # imageSrc should be square in ratio with no white space
       imageSrc: ./media/index/networking-foundations.svg
-      summary: Manage and diagnose a network with Azure network foundation services.
+      summary: Manage and diagnose your network with Azure network foundation services.
       url: ./foundations/index.yml
     # Card
     - title: Load balancing and content delivery
@@ -61,7 +61,7 @@ productDirectory:
     # Card
     - title: Hybrid connectivity
       imageSrc: ./media/index/hybrid-connectivity.svg
-      summary: Connect your on-premises and Azure networks together with Azure hybrid connectivity services.
+      summary: Integrate your on-premises and Azure networks with Azure hybrid connectivity services.
       url: ./hybrid-connectivity/index.yml
     # Card
     - title: Network security
