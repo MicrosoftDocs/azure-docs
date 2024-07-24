@@ -1,7 +1,7 @@
 ---
 title: LLMOps with prompt flow and GitHub in Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to set up a LLMOps environment and pipeline on Github for prompt flow project using Azure AI Studio.
+description: Learn how to set up a LLMOps environment and workflows in Github for prompt flow project using Azure AI Studio.
 services: azure-ai-studio
 author: ritesh-modi
 ms.author: rimod
@@ -46,7 +46,7 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 - **Centralized Code Hosting**: This repo supports hosting code for multiple flows based on prompt flow, providing a single repository for all your flows. Think of this platform as a single repository where all your prompt flow code resides. It's like a library for your flows, making it easy to find, access, and collaborate on different projects.
 
 - **Lifecycle Management**: Each flow enjoys its own lifecycle, allowing for smooth transitions from local experimentation to production deployment.
-    :::image type="content" source="../media/prompt-flow/llmops/pipeline.png" alt-text="Screenshot of pipeline." lightbox = "../media/prompt-flow/llmops/pipeline.png":::
+    :::image type="content" source="../media/prompt-flow/llmops/workflow.png" alt-text="Screenshot of workflow." lightbox = "../media/prompt-flow/llmops/workflow.png":::
 
 - **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
 
@@ -71,7 +71,7 @@ Other features for customization:
 
 - Provides execution of both **prompt experimentation and evaluation** locally as well on cloud.
 
-- Endpoint testing within pipeline after deployment to check its availability and readiness.
+- Endpoint testing within workflow after deployment to check its availability and readiness.
 
 - Provides optional Human-in-loop to validate prompt metrics before deployment.
 
@@ -101,22 +101,22 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 
 1. The prompt engineer/data scientist opens a feature branch where they work on the specific task or feature. The prompt engineer/data scientist iterates on the flow using prompt flow for Microsoft Visual Studio Code, periodically committing changes and pushing those changes to the feature branch.
 
-2. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR pipeline. This pipeline runs fast quality checks that should include:
+2. Once local development and experimentation are completed, the prompt engineer/data scientist opens a pull request from the Feature branch to the Main branch. The pull request (PR) triggers a PR workflow. This workflow runs fast quality checks that should include:
 
     - Execution of experimentation flows
     - Execution of configured unit tests
     - Compilation of the codebase
     - Static code analysis
 
-3. The pipeline can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
+3. The workflow can contain a step that requires at least one team member to manually approve the PR before merging. The approver can't be the committer and they mush have prompt flow expertise and familiarity with the project requirements. If the PR isn't approved, the merge is blocked. If the PR is approved, or there's no approval step, the feature branch is merged into the Main branch.
 
 4. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
-    a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
+    a. The CI workflow is triggered from the merge to Main. The CI workflow performs all the steps done in the PR workflow, and the following steps:
         - Experimentation flow
         - Evaluation flow
         - Registers the flows in the AI Studio Registry when changes are detected
-    b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
+    b. The CD workflow is triggered after the completion of the CI workflow. This flow performs the following steps:
         - Deploys the flow from the Machine Learning registry to a AI Studio Deployment
         - Runs integration tests that target the online endpoint
         - Runs smoke tests that target the online endpoint
@@ -174,7 +174,7 @@ There are multiple steps that should be undertaken for setting up LLMOps process
 
 ### Fork and configure the repo
 
-Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-github-repo) to create a forked repo in your GitHub organization. This repo uses two branches - `main` and `development` for code promotions and execution of pipelines in lieu of changes to code in them.
+Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#set-up-github-repo) to create a forked repo in your GitHub organization. This repo uses two branches - `main` and `development` for code promotions and execution of workflows in lieu of changes to code in them.
 
 ### Set up authentication between GitHub and Azure
 
@@ -190,14 +190,14 @@ Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/
 This helps us create a new feature branch from development branch and incorporate changes.
 
 
-## Test the pipelines
+## Test the workflows
 
-Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repos) to test the pipelines. The steps are
+Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#cloning-the-repos) to test the workflows. The steps are
 
 1. Raise a PR(Pull Request) from a feature branch to development branch.
-2. The PR pipeline should execute automatically as result of branch policy configuration.
+2. The PR workflow should execute automatically as result of branch policy configuration.
 3. The PR is then merged to the development branch.
-4. The associated 'dev' pipeline is executed. This results in full CI and CD execution and result in provisioning or updating of existing Azure AI Studio Deployment. 
+4. The associated 'dev' workflow is executed. This results in full CI and CD execution and result in provisioning or updating of existing Azure AI Studio Deployment. 
 
 The test outputs should be similar to ones shown at [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/github_workflows_how_to_setup.md#example-prompt-run-evaluation-and-deployment-scenario).
 
