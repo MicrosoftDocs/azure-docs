@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 07/18/2024
+  ms.date: 07/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -28,8 +28,6 @@ landingContent:
         links:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
-          - text: Workspaces
-            url: workspaces-overview.md       
           - text: Hybrid and multicloud management
             url: self-hosted-gateway-overview.md   
       - linkListType: architecture
@@ -114,8 +112,8 @@ landingContent:
             url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
-          - text: New v2 service tiers
-            url: v2-service-tiers-overview.md
+          - text: Workspaces
+            url: workspaces-overview.md       
 # Card
   - title: Related services
     linkLists:
