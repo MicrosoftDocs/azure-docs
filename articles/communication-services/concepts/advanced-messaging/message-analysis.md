@@ -18,13 +18,13 @@ Azure Communication Services Advanced Messaging empowers developers to create es
 In addition, there's no need for developers and businesses to handle credentials themselves. When linking your Azure AI services, managed identities are utilized to access resources owned by you. 
 
 Developers can also use managed identities to authenticate with any service that accepts Microsoft Entra authentication.
-Integrating Azure OpenAI endpoints into your application's messaging framework can be accomplished effortlessly by enabling the Message Analysis functionality in Azure portal in your communication service resources. When enabling the feature, you're going to configure a Azure OpenAI endpoint, and selecting the preferred model. This efficient method empower developers to meet their needs and scale effectively for meeting analytical objectives without the need to invest considerable time and effort into developing and maintaining a custom AI solution for interpreting message content.
+You can incorporate Azure OpenAI capabilities into your app's messaging system by activating the Message Analysis feature within your Communication Service resources on the Azure portal. When enabling the feature, you're going to configure an Azure OpenAI endpoint, and selecting the preferred model. This efficient method empowers developers to meet their needs and scale effectively for meeting analytical objectives without the need to invest considerable time and effort into developing and maintaining a custom AI solution for interpreting message content.
 
 > [!NOTE]
 > This integration is supported in limited regions for Azure AI services, for more information about which regions are supported please view the limitations section at the bottom of this document. This integration only supports Multi-service Cognitive Service resource, we recommend if you're creating a new Azure AI Service resource you create a Multi-service Cognitive Service resource or when you're connecting an existing resource confirm that it is a Multi-service Cognitive Service resource.
 
 ## Common Scenarios for Message Analysis 
-Developers are now able to deliver differentiated customer experiences and modernize the internal processes by easily integrating the Azure OpenAI to the message flow. Some of the key usecases that you can incorporate in your applications are listed below.
+Developers are now able to deliver differentiated customer experiences and modernize the internal processes by easily integrating the Azure OpenAI to the message flow. Some of the key use cases that you can incorporate in your applications are listed below.
 
 ### Language Detection
 
