@@ -653,7 +653,7 @@ To revert the changes made in this article, use the following steps:
     MtuSize : 1500
     ```
 
-1. Use the following steps on **vm-1** to set the MTU value for **vm-2** to persist reboots.
+1. Use the following steps on **vm-1** to set the MTU value for **vm-1** to persist reboots.
 
     ```powershell
     netsh interface ipv4 set subinterface "Ethernet 2" mtu=1500 store=persistent
