@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So, the value of `1 CU` = `$1 USD`. 
 
-Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased CUs automatically over the course of its one year term. Your prepurchase plan CUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
+Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased Microsoft Sentinel CUs (or SCUs) automatically over the course of its one year term. Your prepurchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The Microsoft Sentinel prepurchase CUs apply to Microsoft Sentinel simplified an
 
 For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand your Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
 
-Keep in mind, Microsoft Sentinel integrates with many other Azure services that have separate costs not eligible to use with the prepurchase CUs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
+Keep in mind, Microsoft Sentinel integrates with many other Azure services that have separate costs not eligible to use with the prepurchase SCUs. For more information, see [Costs and pricing for other services](billing.md#costs-and-pricing-for-other-services).
 
 ## Purchase Microsoft Sentinel commit units
 
