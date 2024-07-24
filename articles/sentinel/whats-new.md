@@ -22,6 +22,21 @@ The listed features were released in the last three months. For information abou
 
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
 
+### SOC optimizations now generally available
+
+The SOC optimization experience, in both the Azure and Defender portals, is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
+
+Use data value recommendations to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
+
+Use threat-based recommendations to help identify gaps in coverage against specific attacks based on Microsoft research, and mitigate them by ingesting the recommended logs and adding recommended detections.
+
+The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
 ### Microsoft unified security platform now generally available
 
 Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
