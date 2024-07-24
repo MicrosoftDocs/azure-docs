@@ -136,9 +136,11 @@ const stream = await client.streamChatCompletions(deploymentName, messages, { ma
 # [OpenAI JavaScript (new)](#tab/javascript-new)
 
 ```typescript
+import "@azure/openai/types";
+
 const azureSearchEndpoint = "Your Azure Search resource endpoint";
 const azureSearchIndexName = "Your Azure Search index name";
-const result = await client.chat.completions.create({ model: '', messages, ... { data_sources: [{
+const result = await client.chat.completions.create({ model: '', messages, data_sources: [{
       type: "azure_search",
       parameters: {
         endpoint: azureSearchEndpoint,
@@ -148,7 +150,6 @@ const result = await client.chat.completions.create({ model: '', messages, ... {
         }
       }
     }]
-  } as Record<string, any>
 });
 ```
 
@@ -172,7 +173,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { azure
 
 ---
 
-
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (e.g. `data_sources`) to the client types
 - The `azureExtensionOptions` property has been replaced with the inner `data_sources` property.
 - The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI service API.
 - Camel case properties have been replaced with snake case properties.
@@ -447,14 +448,16 @@ const results = await client.getImages(deploymentName, prompt, { n, size });
 
 ### Content filter
 
-Content filter results are part of the chat completions response types in `OpenAIClient`. The following example shows how to access the content filter results.
+Content filter results are part of the chat completions response types in `OpenAIClient`. However, `AzureOpenAI` does not have a direct equivalent to the `contentFilterResults` property in the `ChatCompletion.Choice` interface. The content filter results can be accessed by importing `"@azure/openai/types"` and accessing the `content_filter_results` property. The following example shows how to access the content filter results.
 
 # [OpenAI JavaScript (new)](#tab/javascript-new)
 
 ```typescript
+import "@azure/openai/types";
+
 const result = await client.chat.completions.create({ model: '', messages });
 for (const choice of results.choices) {
-  const filterResults = (choice as any).content_filter_results;
+  const filterResults = choice.content_filter_results;
   if (!filterResults) {
     console.log("No content filter is found");
     return;
@@ -486,13 +489,11 @@ for (const choice of results.choices) {
 }
 ```
 
-However `AzureOpenAI` does not have a direct equivalent to the `contentFilterResults` property in the `ChatCompletion.Choice` interface. The content filter results can be accessed by casting the `results` object to `any` and accessing the `content_filter_results` property.
-
 ---
 
 
 - camel case properties have been replaced with snake case properties
-- A cast to `any` is used to access the `content_filter_results` property because it isn't part of the `ChatCompletion.Choice` interface, see the [Azure types](#azure-types) section for more information
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (e.g. content_filter_results) to the client types, see the [Azure types](#azure-types) section for more information
 
 ## Comparing Types
 
@@ -556,7 +557,7 @@ The following table explores several type names from `@azure/openai` and shows t
 
 ## Azure types
 
-`AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users are required to cast to a more permissive type such as `Record<string, any>` to access those features. Examples in [the Migration examples](#migration-examples) section show how to do this.
+`AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users will need to import `"@azure/openai/types"` from `@azure/openai@2.0.0-beta.1` which will merge Azure-specific definitions into existing types. Examples in [the Migration examples](#migration-examples) section show how to do this.
 
 ## Next steps
 
