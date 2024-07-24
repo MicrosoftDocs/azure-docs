@@ -54,7 +54,7 @@ Note down the following, which you'll use in the code below:
 ---
 
 > [!NOTE]
-> This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> This tutorial works with samples that you can copy and run using [Node.js](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
@@ -65,7 +65,7 @@ Note down the following, which you'll use in the code below:
 [!INCLUDE [service-bus-typescript-configure-project](./includes/service-bus-typescript-how-to-configure-project.md)]
 
 
-## Use Node Package Manager (NPM) to install the package
+## Use Node Package Manager (npm) to install the package
 
 ### [Passwordless](#tab/passwordless)
 
@@ -187,7 +187,7 @@ You should see the following output.
 Received message: Albert Einstein
 Received message: Werner Heisenberg
 Received message: Marie Curie
-Received message: Steven Hawking
+Received message: Stephen Hawking
 Received message: Isaac Newton
 Received message: Niels Bohr
 Received message: Michael Faraday
@@ -198,11 +198,11 @@ Received message: Nikolaus Kopernikus
 
 On the **Overview** page for the Service Bus namespace in the Azure portal, you can see **incoming** and **outgoing** message count. You may need to wait for a minute or so and then refresh the page to see the latest values.
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Screenshot of Azure portal showing incoming and outgoing message count.":::
 
 Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You see the **incoming** and **outgoing** message count on this page too. You also see other information such as the **current size** of the queue, **maximum size**, **active message count**, and so on.
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Queue details":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="Screenshot of Azure portal showing queue details.":::
 
 ## Troubleshooting
 

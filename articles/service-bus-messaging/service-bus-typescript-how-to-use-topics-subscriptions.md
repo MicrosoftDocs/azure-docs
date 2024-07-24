@@ -56,7 +56,7 @@ Note down the following, which you'll use in the code below:
 ---
 
 > [!NOTE]
-> - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> This tutorial works with samples that you can copy and run using [Node.js](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
@@ -68,7 +68,7 @@ Note down the following, which you'll use in the code below:
 [!INCLUDE [service-bus-typescript-configure-project](./includes/service-bus-typescript-how-to-configure-project.md)]
 
     
-## Use Node Package Manager (NPM) to install the package
+## Use Node Package Manager (npm) to install the package
 
 ### [Passwordless](#tab/passwordless)
 
@@ -190,7 +190,7 @@ You should see the following output.
 Received message: Albert Einstein
 Received message: Werner Heisenberg
 Received message: Marie Curie
-Received message: Steven Hawking
+Received message: Stephen Hawking
 Received message: Isaac Newton
 Received message: Niels Bohr
 Received message: Michael Faraday
@@ -201,15 +201,15 @@ Received message: Nikolaus Kopernikus
 
 In the Azure portal, navigate to your Service Bus namespace, switch to **Topics** in the bottom pane, and select your topic to see the **Service Bus Topic** page for your topic. On this page, you should see 10 incoming and 10 outgoing messages in the **Messages** chart.
 
-:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Screenshot of Azure portal  showing incoming and outgoing messages.":::
 
 If you run only the send app next time, on the **Service Bus Topic** page, you see 20 incoming messages (10 new) but 10 outgoing messages.
 
-:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Screenshot of Azure portal showing updated topic page.":::
 
 On this page, if you select a subscription in the bottom pane, you get to the **Service Bus Subscription** page. You can see the active message count, dead-letter message count, and more on this page. In this example, there are 10 active messages that haven't been received by a receiver yet.
 
-:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Active message count":::
+:::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/active-message-count.png" alt-text="Screenshot of Azure portal showing active message count.":::
 
 ## Troubleshooting
 
