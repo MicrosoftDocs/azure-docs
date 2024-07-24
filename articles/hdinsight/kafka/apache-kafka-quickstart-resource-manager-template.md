@@ -146,7 +146,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
 
-        Kafka isn't aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
+        Kafka isn't aware of Azure fault domains. When you create partition replicas for topics, it may not distribute replicas properly for high availability.
 
         To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
 
