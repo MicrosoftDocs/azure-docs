@@ -303,7 +303,7 @@ For a Generation 2 VM, that has not met the [prerequisites](#prerequisites) to u
 
 > [!NOTE]
 >
-> Please dismiss the recommendation if Gen2 virtual machine is configured with M-Series or ARM64 VM size family as these families currently do not support Trusted launch security type.
+> Please dismiss the recommendation if Gen2 virtual machine is configured with VM size families which are currently not supported with Trusted launch like MSv2-series.
 
 ## Related content
 
