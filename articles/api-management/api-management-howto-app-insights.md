@@ -94,7 +94,7 @@ The Application Insights connection string appears in the **Overview** section o
 
 Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
-If you are configuring the logger for a workspace, use the [Workspace Logger - Create or Update](/rest/api/apimanagement/workspace-logger/create-or-update?view=rest-apimanagement-2023-09-01-preview) REST API.
+If you are configuring the logger for a workspace, use the [Workspace Logger - Create or Update](/rest/api/apimanagement/workspace-logger/create-or-update?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) REST API.
 
 ```JSON
 {
