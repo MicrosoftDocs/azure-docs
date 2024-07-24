@@ -66,7 +66,3 @@ In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You c
           endpointRef: eventgrid
           dataDestination: factory/$topic.2
     ```
-
-## Next steps
-
-Learn how to [create a bi-directional MQTT bridge to Azure Event Grid using dataflows](tutorial-dataflow-asset-event-grid.md).

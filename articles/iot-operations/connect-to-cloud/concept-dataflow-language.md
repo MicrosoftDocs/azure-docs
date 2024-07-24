@@ -858,4 +858,3 @@ enrich:
 ```
 
 Which configuration renames the dataset with key `datasets.parag10.rule42` to `position`
-

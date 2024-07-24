@@ -10,7 +10,7 @@ ms.date: 07/22/2024
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
 
-# Create dataflow
+# Create a dataflow
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
@@ -307,7 +307,7 @@ To configure a destination for the dataflow, you need to specify the endpoint an
 | destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
 | destinationSettings.dataDestination | Destination for the data                                           |
 
-### Use Asset as destination (portal only)
+### Use Asset as destination
 
 You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the destination for the dataflow. Managing assets is only available in the Azure portal.
 
@@ -384,7 +384,7 @@ You can also use user properties.
 
 If the user property isn't present in the source data, the part of the path referencing the user property is empty. For example, if the user property `customer` isn't present in the source data, the output path is `factory/` .
 
-If you specified a `enrich` stage during transformation, you can use the enriched data in the output path.
+If you specified a *enrich* stage during transformation, you can use the enriched data in the output path.
 
 ```yaml
 spec:
@@ -417,7 +417,7 @@ The full list of parameters that can be used in the path includes:
 | `$systemProperties.<property>` | A system property of the message. |
 | `$userProperties.<property>` | A user property of the message. |
 | `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
-| `$context(<dataset>).<property>` | A property from the contextualization dataset specified in `enrich` stage. |
+| `$context(<dataset>).<property>` | A property from the contextualization dataset specified in *enrich* stage. |
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |
 
 
@@ -452,9 +452,3 @@ And the outcome can be viewed as a response:
   }
 }
 ```
-
-## Next steps
-
-- Learn how to [Manage dataflows](howto-manage-dataflow.md) to change the default dataflow profile settings.
-- Create a dataflow from an [asset to Azure Event Grid tutorial](tutorial-dataflow-asset-event-grid.md).
-- Create a dataflow from an [MQTT endpoint to Azure Event Grid tutorial](tutorial-dataflow-mqtt-event-grid.md).

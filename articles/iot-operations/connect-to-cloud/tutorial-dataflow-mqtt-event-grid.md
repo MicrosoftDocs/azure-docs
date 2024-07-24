@@ -100,7 +100,3 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an MQTT b
 1. View messages in Azure Event Grid.
 1. Send test data to Azure Event Grid.
 1. View messages in MQTT broker.
-
-## Next steps
-
-Learn how to [create a dataflow from an asset to Azure Event Grid](tutorial-dataflow-asset-event-grid.md).
