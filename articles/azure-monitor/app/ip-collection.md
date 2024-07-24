@@ -23,14 +23,14 @@ The telemetry types are:
 
 This behavior is by design to help avoid unnecessary collection of personal data and IP address location information.
 
-> [!NOTE]
-> The default and our recommendation is to not collect IP addresses. If you override this behavior, verify that the collection doesn't break any compliance requirements or local regulations.
->
-> To learn more about handling personal data, see [Guidance for personal data](../logs/personal-data-mgmt.md).
-
 When IP addresses aren't collected, city and other geolocation attributes also aren't collected.
 
 ## Storage of IP address data
+
+> [!WARNING]
+> The default and our recommendation is to not collect IP addresses. If you override this behavior, verify the collection doesn't break any compliance requirements or local regulations.
+>
+> To learn more about handling personal data, see [Guidance for personal data](../logs/personal-data-mgmt.md).
 
 To enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`. You can set this property through Azure Resource Manager templates (ARM templates) or by calling the REST API.
 
@@ -119,24 +119,13 @@ Content-Length: 54
 
 ### PowerShell
 
-The PowerShell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+The PowerShell `Update-AzApplicationInsights` cmdlet can disable IP masking with the `DisableIPMasking` parameter.
 
 ```powershell
 Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
 ```
 
-For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
-
-## Frequently asked questions
-
-This section provides answers to common questions.
-
-### How is city, country/region, and other geolocation data calculated?
-
-We look up the IP address (IPv4 or IPv6) of the web client:
-
-* Browser telemetry: We collect the sender's IP address.
-* Server telemetry: The Application Insights module collects the client IP address if `X-Forwarded-For` isn't set.
+For more information on the `Update-AzApplicationInsights` cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Next steps
 
