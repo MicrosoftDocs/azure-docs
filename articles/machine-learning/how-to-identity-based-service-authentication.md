@@ -444,9 +444,10 @@ When you disable the admin user for ACR, Azure Machine Learning uses a managed i
     [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
     ```azurecli-interactive
-    az ml workspace show -w <my workspace> \
-    -g <my resource group>
-    --query containerRegistry
+    az ml workspace show --name <my workspace name> \
+    --resource-group <my resource group> \
+    --subscription <my subscription id> \
+    --query container_registry
     ```
 
     This command returns a value similar to the following text. You only want the last portion of the text, which is the ACR instance name:
@@ -469,7 +470,7 @@ If ACR admin user is disallowed by subscription policy, you should first create 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
-az ml workspace create -w <workspace name> \
+az ml workspace create -n <workspace name> \
 -g <workspace resource group> \
 -l <region> \
 --container-registry /subscriptions/<subscription id>/resourceGroups/<acr resource group>/providers/Microsoft.ContainerRegistry/registries/<acr name>
@@ -561,7 +562,7 @@ Create machine learning compute cluster with system-assigned managed identity en
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```azurecli-interactive
-az ml compute show --name <cluster name> -w <workspace> -g <resource group>
+az ml compute show --name <cluster name> -n <workspace> -g <resource group>
 ```
 
 Optionally, you can update the compute cluster to assign a user-assigned managed identity:
@@ -608,7 +609,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
         [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
         ```azurecli-interactive
-        az ml workspace show -w <workspace name> -g <resource group> --query identityPrincipalId
+        az ml workspace show -n <workspace name> -g <resource group> --query identityPrincipalId
         ```
 
     1. Grant the Managed Identity Operator role:
@@ -628,7 +629,7 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
     The following command demonstrates how to use the YAML file to create a connection with your workspace. Replace `<yaml file>`, `<workspace name>`, and `<resource group>` with the values for your configuration:
 
     ```azurecli-interactive
-    az ml connection create --file <yml file> --resource-group <resource group> --workspace-name <workspace>
+    az ml connection create --file <yml file> --resource-group <resource group> --name <workspace>
     ```
 
 1. Once the configuration is complete, you can use the base images from private ACR when building environments for training or inference. The following code snippet demonstrates how to specify the base image ACR and image name in an environment definition:
