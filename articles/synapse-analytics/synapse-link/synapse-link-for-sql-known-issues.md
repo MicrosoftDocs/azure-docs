@@ -70,7 +70,6 @@ The following sections list limitations for Azure Synapse Link for SQL.
         *    **Thai100CaseSensitiveAccentSensitiveKanaSensitive**
         *    **Thai100CaseSensitiveAccentSensitiveSupplementaryCharacters**
         *    **ThaiCaseSensitiveAccentInsensitiveWidthSensitive**
-    * Currently, the collation **Latin1_General_BIN2** isn't supported as there's a known issue where the link can't be stopped nor underlying tables could be removed from replication.
 - Single row updates (including off-page storage) of > 370 MB are not supported.
 - When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
 
