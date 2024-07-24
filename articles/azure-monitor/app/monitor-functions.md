@@ -39,7 +39,9 @@ On the function app **Overview** pane, go to **Application Insights**. Under **C
 
 ### Configuration
 
-If you are using an Azure Function App that is not on a consumption plan you can configure this feature by adding environment variables in App settings. The available configurations are documented [here](../app/java-standalone-config.md). For Azure Functions on a consumption plan, the available configuration options are limited to WEBSITE_SITE_NAME, APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL, and APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL. For any other configurations, please follow the steps outlined [here](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent) to deploy your own agent. Keep in mind, that deploying your own agent will have an 8 to 9 second cold start implication on your Function.
+To configure this feature for an Azure Function App not on a consumption plan, add environment variables in App settings. To review available configurations, see [Configuration options: Azure Monitor Application Insights for Java](../app/java-standalone-config.md). 
+
+For Azure Functions on a consumption plan, the available configuration options are limited to WEBSITE_SITE_NAME, APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL, and APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL. To make additional configurations for a consumption plan Function, deploy your own agent, see [Distributed Tracing for Java Functions](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent). Deploying your own agent will result in an 8 to 9 second cold start implication on your Function.
 
 ### Troubleshooting
 
