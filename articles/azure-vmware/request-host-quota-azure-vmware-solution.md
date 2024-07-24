@@ -34,8 +34,8 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
    - **Summary:** Need capacity
    - **Problem type:** AVS Quota request
 
-   >[!NOTE]
-   > - If the *Problem Type* is not is not visible from the short-list offered, select *None of the Above". *AVS Quota requests* will be in offered list of *Problem Types*  
+   > [!NOTE]
+   > If the *Problem Type* is not is not visible from the short-list offered, select **None of the Above**. *AVS Quota requests* will be in the offered list of *Problem Types*.
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
  
