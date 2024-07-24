@@ -1,10 +1,8 @@
 ---
 title:  Managing the Azure Connected Machine agent
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 05/04/2023
+description: This article describes the different management tasks that you'll typically perform during the lifecycle of the Azure Connected Machine agent.
+ms.date: 07/24/2024
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
 ---
 
 # Managing and maintaining the Connected Machine agent
@@ -20,7 +18,7 @@ Microsoft recommends using the most recent version of the Azure Connected Machin
 
 ### [Windows](#tab/windows)
 
-Links to the current and previous releases of the Windows agents are available below the heading of each [release note](agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](agent-release-notes-archive.md).
+Links to the current and previous releases of the Windows agents are available below the heading of each [release note](agent-release-notes.md). If you're looking for an agent version that's more than six months old, check out the [release notes archive](agent-release-notes-archive.md).
 
 ### [Linux - apt](#tab/linux-apt)
 
@@ -90,9 +88,9 @@ Links to the current and previous releases of the Windows agents are available b
 
 ## Upgrade the agent
 
-The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of the machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that aren't using the latest version of the machine agent and recommends that you upgrade to the latest version. It notifies you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent will not require you to restart your server.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent doesn't require you to restart your server.
 
 The following table describes the methods supported to perform the agent upgrade:
 
@@ -150,7 +148,7 @@ For Windows Servers that belong to a domain and connect to the Internet to check
 
 1. Select **OK**.
 
-The next time computers in your selected scope refresh their policy, they will start to check for updates in both Windows Update and Microsoft Update.
+The next time computers in your selected scope refresh their policy, they'll start to check for updates in both Windows Update and Microsoft Update.
 
 For organizations that use Microsoft Configuration Manager (MECM) or Windows Server Update Services (WSUS) to deliver updates to their servers, you need to configure WSUS to synchronize the Azure Connected Machine Agent packages and approve them for installation on your servers. Follow the guidance for [Windows Server Update Services](/windows-server/administration/windows-server-update-services/manage/setting-up-update-synchronizations#to-specify-update-products-and-classifications-for-synchronization) or [MECM](/mem/configmgr/sum/get-started/configure-classifications-and-products#to-configure-classifications-and-products-to-synchronize) to add the following products and classifications to your configuration:
 
@@ -167,7 +165,7 @@ Once the updates are being synchronized, you can optionally add the Azure Connec
 
 1. Run **AzureConnectedMachineAgent.msi** to start the Setup Wizard.
 
-If the Setup Wizard discovers a previous version of the agent, it will upgrade it automatically. When the upgrade completes, the Setup Wizard closes automatically.
+If the Setup Wizard discovers a previous version of the agent, it upgrades it automatically. When the upgrade completes, the Setup Wizard closes automatically.
 
 #### To upgrade from the command line
 
@@ -246,7 +244,7 @@ The Azure Connected Machine agent doesn't automatically upgrade itself when a ne
 
 ## Renaming an Azure Arc-enabled server resource
 
-When you change the name of a Linux or Windows machine connected to Azure Arc-enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you must delete the resource and re-create it in order to use the new name.
+When you change the name of a Linux or Windows machine connected to Azure Arc-enabled servers, the new name isn't recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you must delete the resource and re-create it in order to use the new name.
 
 For Azure Arc-enabled servers, before you rename the machine, it's necessary to remove the VM extensions before proceeding:
 
@@ -256,7 +254,7 @@ For Azure Arc-enabled servers, before you rename the machine, it's necessary to 
 
 3. Use the **azcmagent** tool with the [Disconnect](azcmagent-disconnect.md) parameter to disconnect the machine from Azure Arc and delete the machine resource from Azure. You can run this manually while logged on interactively, with a Microsoft identity [access token](../../active-directory/develop/access-tokens.md), or with the service principal you used for onboarding (or with a [new service principal that you create](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
-    Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you do not need to remove the agent as part of this process.
+    Disconnecting the machine from Azure Arc-enabled servers doesn't remove the Connected Machine agent, and you don't need to remove the agent as part of this process.
 
 4. Re-register the Connected Machine agent with Azure Arc-enabled servers. Run the `azcmagent` tool with the [Connect](azcmagent-connect.md) parameter to complete this step. The agent will default to using the computer's current hostname, but you can choose your own resource name by passing the `--resource-name` parameter to the connect command.
 
@@ -278,11 +276,11 @@ For guidance on how to identify and remove any extensions on your Azure Arc-enab
 
 ### Step 2: Disconnect the server from Azure Arc
 
-Disconnecting the agent deletes the corresponding Azure resource for the server and clears the local state of the agent. To disconnect the agent, run the `azcmagent disconnect` command as an administrator on the server. You'll be prompted to log in with an Azure account that has permission to delete the resource in your subscription. If the resource has already been deleted in Azure, you'll need to pass an additional flag to clean up the local state: `azcmagent disconnect --force-local-only`.
+Disconnecting the agent deletes the corresponding Azure resource for the server and clears the local state of the agent. To disconnect the agent, run the `azcmagent disconnect` command as an administrator on the server. You'll be prompted to sign in with an Azure account that has permission to delete the resource in your subscription. If the resource has already been deleted in Azure, pass an additional flag to clean up the local state: `azcmagent disconnect --force-local-only`.
 
 ### Step 3a: Uninstall the Windows agent
 
-Both of the following methods remove the agent, but they do not remove the *C:\Program Files\AzureConnectedMachineAgent* folder on the machine.
+Both of the following methods remove the agent, but they don't remove the *C:\Program Files\AzureConnectedMachineAgent* folder on the machine.
 
 #### Uninstall from Control Panel
 
@@ -389,7 +387,7 @@ You do not need to restart any services when reconfiguring the proxy settings wi
 
 Starting with agent version 1.15, you can also specify services which should **not** use the specified proxy server. This can help with split-network designs and private endpoint scenarios where you want Microsoft Entra ID and Azure Resource Manager traffic to go through your proxy server to public endpoints but want Azure Arc traffic to skip the proxy and communicate with a private IP address on your network.
 
-The proxy bypass feature does not require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that should not use the proxy server. The location parameter refers to the Azure region of the Arc Server(s).
+The proxy bypass feature doesn't require you to enter specific URLs to bypass. Instead, you provide the name of the service(s) that shouldn't use the proxy server. The location parameter refers to the Azure region of the Arc Server(s).
 
 Proxy bypass value when set to `ArcData` only bypasses the traffic of the Azure extension for SQL Server and not the Arc agent.
 
@@ -473,6 +471,11 @@ If you're already using environment variables to configure the proxy server for 
 1. Configure the agent with your proxy server information by running `azcmagent config set proxy.url "http://ProxyServerFQDN:port"`.
 
 1. Remove the unused environment variables by following the steps for [Windows](#windows-environment-variables) or [Linux](#linux-environment-variables).
+
+## Alerting for Azure Arc-enabled server disconnection
+
+The Connected Machine agent [sends a regular heartbeat message](overview.md#agent-status) to the service every five minutes. If an Arc-enabled server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it's offline, the network connection has been blocked, or the agent isn't running. Develop a plan for how you’ll respond and investigate these incidents, including setting  up [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when such incidents occur.
+
 
 ## Next steps
 
