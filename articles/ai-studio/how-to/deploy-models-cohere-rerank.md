@@ -1,11 +1,11 @@
 ---
-title: How to deploy Cohere Rerank models with Azure AI Studio
+title: How to deploy Cohere Rerank models as serverless APIs
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Cohere Rerank models with Azure AI Studio.
+description: Learn to deploy and use Cohere Rerank models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 07/24/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
@@ -165,8 +165,8 @@ The `results` object is a dictionary with the following fields:
 | Key | Type | Description |
 | --- | --- | --- |
 | `document` | `object` |The document objects or strings that were reranked. |
-| `index` | `ingeter` |The `index` in the original list of documents to which the ranked document belongs. For example, if the first value in the `results` object has an index value of 3, it means in the list of documents passed in, the document at `index=3` had the highest relevance.|
-| `relevance_score` | `float` |Relevance scores are normalized to be in the range `[0, 1]`. Scores close to one indicate a high relevance to the query, and scores close to zero indicate low relevance. A score of `0.9` _doesn't_ necessarily mean that a document is twice as relevant as another with a score of `0.45` |
+| `index` | `integer` |The `index` in the original list of documents to which the ranked document belongs. For example, if the first value in the `results` object has an index value of 3, it means in the list of documents passed in, the document at `index=3` had the highest relevance.|
+| `relevance_score` | `float` |Relevance scores are normalized to be in the range `[0, 1]`. Scores close to one indicate a high relevance to the query, and scores close to zero indicate low relevance. A score of `0.9` _doesn't_ necessarily mean that a document is twice as relevant as another with a score of `0.45`. |
 
 
 ## Examples
@@ -236,9 +236,7 @@ The `results` object is a dictionary with the following fields:
 |LangChain|[langchain.ipynb](https://aka.ms/samples/cohere-rerank/langchain)|
 |Cohere SDK|[cohere-sdk.ipynb](https://aka.ms/samples/cohere-rerank/cohere-python-sdk)|
 
-## Cost and quotas
-
-### Cost and quota considerations for models deployed as a service
+## Cost and quota considerations for models deployed as a service
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
