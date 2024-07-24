@@ -23,7 +23,7 @@ For this tutorial, you create three virtual networks:
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected using either a VPN or ExpressRoute connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
-:::image type="content" source="media/tutorial-hybrid-portal/hybrid-network-firewall.png" alt-text="Diagram of a Azure Firewall Manager hub hybrid network." lightbox="media/tutorial-hybrid-portal/hybrid-network-firewall.png":::
+:::image type="content" source="media/tutorial-hybrid-portal/hybrid-network-firewall.png" alt-text="Diagram of an Azure Firewall Manager hub hybrid network." lightbox="media/tutorial-hybrid-portal/hybrid-network-firewall.png":::
 
 In this tutorial, you learn how to:
 
@@ -119,7 +119,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select **Review + create**.
 1. Select **Create**.
 
-Add another subnet with a subnet purpose set to **Virtual Network Gateway** with an starting address of **10.5.1.0/27**. This subnet is used for the VPN gateway. 
+Add another subnet with a subnet purpose set to **Virtual Network Gateway** with a starting address of **10.5.1.0/27**. This subnet is used for the VPN gateway. 
 
 ## Create the spoke virtual network
 
@@ -450,7 +450,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 
    Your connection should succeed, and you should be able to sign in.
 
-So now you've verified that the firewall rules are working:
+So now you verified that the firewall rules are working:
 
 <!---- You can ping the server on the spoke VNet.--->
 - You can browse web server on the spoke virtual network.
