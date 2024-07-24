@@ -4,6 +4,7 @@ description: Learn how to relocate Azure Functions to another region.
 ms.topic: how-to
 ms.service: azure-functions
 author: anaharris
+ms.author: anaharris-ms
 ms.date: 07/15/2024
 ms.custom: subject-relocation
 #Customer intent: As an Azure service administrator, I want to move my Azure Functions resources to another Azure region.
