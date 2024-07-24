@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb 
   # Card (optional)
-  - title: About Azure Kubernetes Service (AKS)
+  - title: About AKS
     linkLists:
       - linkListType: overview
         links:
@@ -27,155 +27,51 @@ landingContent:
             url: what-is-aks.md
           - text: What is AKS Automatic?
             url: intro-aks-automatic.md
-          - text: Get started with AKS
-            url: /azure/architecture/reference-architectures/containers/aks-start-here
-      - linkListType: whats-new
+          - text: Supported Kubernetes versions
+            url: supported-kubernetes-versions.md
+      - linkListType: concept
         links:
-          - text: Trusted Launch (preview)
-            url: use-trusted-launch.md
-          - text: Azure Container Storage (preview)
-            url: /azure/storage/container-storage/container-storage-introduction
-          - text: Deploy an AI model on AKS with the AI toolchain operator (Preview)
-            url: ai-toolchain-operator.md
-          - text: Upgrade multiple AKS clusters using Azure Kubernetes Fleet Manager
-            url: /azure/kubernetes-fleet/update-orchestration
-          - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
-            url: artifact-streaming.md
-          - text: Secure your cluster using pod security policies (Deprecated)
-            url: use-pod-security-policies.md
-          - text: Automatically upgrade node images
-            url: auto-upgrade-node-image.md
-          - text: Azure Linux Container Host for AKS
-            url: use-azure-linux.md
-          - text: Vertical Pod Autoscaler
-            url: vertical-pod-autoscaler.md
-          - text: Use Confidential Virtual Machines
-            url: use-cvm.md
+          - text: Core concepts
+            url: core-aks-concepts.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/aks
+          - text: Azure PowerShell
+            url: /powershell/module/az.aks
+          - text: REST
+            url: /rest/api/aks/
 
   # Card (optional)
-  - title: Evaluate Linux-based AKS cluster
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: AKS Automatic
-            url: ./learn/quick-kubernetes-automatic-deploy.md
-          - text: Azure CLI
+          - text: Create a Linux cluster
             url: ./learn/quick-kubernetes-deploy-cli.md
-          - text: Azure PowerShell
-            url: ./learn/quick-kubernetes-deploy-powershell.md
-          - text: Azure portal
-            url: ./learn/quick-kubernetes-deploy-portal.md
-          - text: Resource Manager template
-            url: ./learn/quick-kubernetes-deploy-rm-template.md
-          - text: Terraform
-            url: ./learn/quick-kubernetes-deploy-terraform.md
+          - text: Create a Windows cluster
+            url: ./learn/quick-windows-container-deploy-cli.md
+      - linkListType: tutorial
+        links:
+          - text: Prepare an application for AKS
+            url: tutorial-kubernetes-prepare-app.md
+      - linkListType: training
+        links:
+          - text: AKS training modules
+            url: /training/browse/?products=azure-kubernetes-service
   
   # Card (optional)
-  - title: Evaluate application deployment on AKS
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: 1. Prepare an application for AKS
-            url: tutorial-kubernetes-prepare-app.md
-          - text: 2. Deploy and use Azure Container Registry
-            url: tutorial-kubernetes-prepare-acr.md
-          - text: 3. Deploy an AKS cluster
-            url: tutorial-kubernetes-deploy-cluster.md
-          - text: 4. Run your application
-            url: tutorial-kubernetes-deploy-application.md
-          - text: 5. Scale applications
-            url: tutorial-kubernetes-scale.md
-          - text: 6. Update an application
-            url: tutorial-kubernetes-app-update.md
-          - text: 7. Upgrade Kubernetes in AKS
-            url: tutorial-kubernetes-upgrade-cluster.md
-
- # Card
-  - title: Evaluate Windows-based AKS cluster
-    linkLists:
-       - linkListType: concept
-         links:
-            - text: Windows Server containers FAQ
-              url: windows-faq.md
-       - linkListType: quickstart
-         links:
-            - text: Create a Windows Server container using the Azure CLI
-              url: learn/quick-windows-container-deploy-cli.md
-            - text: Create a Windows Server container using the Azure PowerShell
-              url: learn/quick-windows-container-deploy-powershell.md
- # Card
-  - title: Evaluate application deployment methods
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Develop with Helm
-            url: quickstart-helm.md
-          - text: Develop with Dapr
-            url: quickstart-dapr.md
-          - text: Use Draft and the DevX extension for Visual Studio Code
-            url: draft-devx-extension-aks.md
-          - text: Use Automated Deployments
-            url: automated-deployments.md
- 
-  # Card
-  - title: Architecture guidance
+  - title: Plan and design
     linkLists:
       - linkListType: architecture
         links:
-          - text: Baseline architecture
-            url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
-          - text: Baseline for microservices
-            url: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced?WT.mc_id=AKSDOCSPAGE            
-          - text: Baseline for PCI-DSS 3.2.1
-            url: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro?WT.mc_id=AKSDOCSPAGE
-          - text: Baseline for multiregion
-            url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE
-
-  # Card
-  - title: Production deployment guidance
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: AKS Landing Zone accelerator
-            url: /azure/cloud-adoption-framework/scenarios/app-platform/aks/landing-zone-accelerator
-          - text: AKS baseline cluster reference implementation (GitHub)
-            url: https://github.com/mspnp/aks-baseline
-  
-  # Card
-  - title: Extend the capabilities of your cluster
-    linkLists:
+          - text: Architectural best practices
+            url: /azure/well-architected/service-guides/azure-kubernetes-service
+          - text: Baseline infrastructure architecture
+            url: /azure/architecture/reference-architectures/containers/aks/baseline-aks
       - linkListType: concept
         links:
-          - text: Istio add-on
-            url: istio-about.md
-          - text: Dapr cluster extension
-            url: dapr.md
-          - text: Cluster extensions
-            url: cluster-extensions.md
-          - text: GitHub Actions for AKS
-            url: integrations.md#github-actions
-  
-  # Card
-  - title: Operations guidance
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Day-2 operations guide
-            url: /azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE
-          - text: Best practices for cluster operators and developers
-            url: best-practices.md
-          - text: Plan how to monitor AKS
-            url: monitor-aks.md
-          - text: Plan how to monitor AKS cluster networks
-            url: network-observability-overview.md 
-  # Card
-  - title: Troubleshooting
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-         - text: Troubleshooting Guides
-           url: /troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes
-         - text: Troubleshoot create operations
-           url: /troubleshoot/azure/azure-kubernetes//troubleshoot-aks-cluster-creation-issues
-         - text: Troubleshoot common issues 
-           url: /troubleshoot/azure/azure-kubernetes/aks-common-issues-faq
+          - text: Optimize costs
+            url: best-practices-cost.md
+          - text: Windows container considerations
+            url: windows-vs-linux-containers.md

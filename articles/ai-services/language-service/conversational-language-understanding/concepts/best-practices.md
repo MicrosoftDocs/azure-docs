@@ -75,7 +75,13 @@ If you require the learned component, make sure that *ticket quantity* is only r
 
 ## Addressing model inconsistencies
 
-If your model is overly sensitive to small grammatical changes, like casing or diacritics, you can systematically manipulate your dataset directly in the Language Studio. To use these features, click on the Settings tab on the left toolbar and locate the **Advanced project settings** section. First, you can ***Enable data transformation for casing***, which normalizes the casing of utterances when training, testing, and implementing your model. If you've migrated from LUIS, you might recognize that LUIS did this normalization by default. To access this feature via the API, set the `"normalizeCasing"` parameter to `true`. See an example below:
+If your model is overly sensitive to small grammatical changes, like casing or diacritics, you can systematically manipulate your dataset directly in the Language Studio. To use these features, click on the Settings tab on the left toolbar and locate the **Advanced project settings** section. 
+
+:::image type="content" source="../media/advanced-project-settings.png" alt-text="A screenshot showing an example of the advanced project settings." lightbox="../media/advanced-project-settings.png":::
+
+First, you can ***Enable data transformation for casing***, which normalizes the casing of utterances when training, testing, and implementing your model. If you've migrated from LUIS, you might recognize that LUIS did this normalization by default. To access this feature via the API, set the `"normalizeCasing"` parameter to `true`. See an example below:
+
+
 
 ```json
 {

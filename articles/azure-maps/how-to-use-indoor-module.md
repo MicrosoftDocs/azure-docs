@@ -2,8 +2,8 @@
 title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (preview)
 titleSuffix:  Microsoft Azure Maps Creator
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
-author: brendansco
-ms.author: brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 06/28/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -23,9 +23,6 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 - [Azure Maps Creator resource]
 - [Subscription key]
 - A map configuration alias or ID. For more information, see [map configuration API].
-
-> [!TIP]
-> If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
 
 The map configuration `alias` (or `mapConfigurationId`) is required to render indoor maps with custom styles via the Azure Maps Indoor Maps module.
 
@@ -301,6 +298,5 @@ Learn more about how to add more data to your map:
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps-creator/tileset/list
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [Webpack]: https://webpack.js.org

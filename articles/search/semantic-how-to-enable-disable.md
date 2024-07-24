@@ -31,7 +31,7 @@ Follow these steps to enable [semantic ranker](semantic-search-overview.md) at t
 
 1. Navigate to your search service. On the **Overview** page, make sure the service is a billable tier, Basic or higher.
 
-1. On the left-nav pane, select **Semantic ranking**.
+1. On the left-nav pane, select **Settings** > **Semantic ranking**.
 
 1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 

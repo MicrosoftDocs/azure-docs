@@ -45,7 +45,7 @@ Single VMs using only [Premium SSD disks](disks-types.md#premium-ssds) as the OS
 
 ### Use zone-redundant storage disks
 
-Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones, which are separated groups of data centers in a region that have independent power, cooling, and networking infrastructure. With ZRS disks, your data is accessible even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
+Zone-redundant storage (ZRS) disks synchronously replicate data across three availability zones, which are separated groups of data centers in a region that have independent power, cooling, and networking infrastructure. With ZRS disks, you can [force detach](https://learn.microsoft.com/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true)(in preview) your ZRS data disks even in the event of a zonal outage. ZRS disks have limitations, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks) for details.
 
 ## Recommendations for applications running on multiple VMs
 
