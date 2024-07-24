@@ -158,5 +158,3 @@ additionalContent:
           url: /azure/networking/security/
         - title: Hybrid connectivity
           url: /azure/networking/hybrid-connectivity/
-        - title: Network monitoring and management
-          url: /azure/networking/monitoring-management/
