@@ -416,11 +416,11 @@ The azd template generates the connectivity variables for you as [app settings](
 
 1. In the `infra/resources.bicep` file, find the app settings and find the setting for `AZURE_POSTGRESQL_CONNECTIONSTRING`.
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="180-188" highlight="5":::
+    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="180-188" highlight="5":::
 
 1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure. You need to use it in your code to connect to it. You can find the code that uses this environment variable in *src/fastapi/models.py*:
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/models.py" range="9-36" highlight="4-16":::
+    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/models.py" range="9-36" highlight="4-16":::
 
 ## 3. Examine the startup command
 
@@ -428,17 +428,17 @@ Azure App Service requires a startup command to run your FastAPI app. The azd te
 
 1. In the `infra/resources.bicep` file, find the declaration for your web site and then find the setting for `appCommandLine`. This is the setting for your startup command.
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="160-178" highlight="12":::
+    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="160-178" highlight="12":::
 
 1. The startup command runs the file *src/entrypoint.sh*.  Examine the code in that file to understand the commands that App Service runs to start your app:
 
-:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/entrypoint.sh" range="1-6":::
+    :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/entrypoint.sh" range="1-6":::
 
 To learn more about app configuration and startup in App Service, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
 
 ## 4. Generate database schema
 
-You may have noticed in the previous section that *entrypoint.sh* contains the following line:`python3 src/fastapi_app/seed_data.py`. This command migrates your database. In the sample app, it only ensures that the correct tables are created in your database. It doesn't populate these tables with any data.
+You may have noticed in the previous section that *entrypoint.sh* contains the following line: `python3 src/fastapi_app/seed_data.py`. This command migrates your database. In the sample app, it only ensures that the correct tables are created in your database. It doesn't populate these tables with any data.
 
 In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
