@@ -9,11 +9,10 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
+zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
 # Quickstart: Azure Key Vault secret client library for JavaScript
-
-::: zone pivot="programming-languages-set-functions-nodejs"
 
 Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 
@@ -24,6 +23,8 @@ Key Vault client library resources:
 For more information about Key Vault and secrets, see:
 - [Key Vault Overview](../general/overview.md)
 - [Secrets Overview](about-secrets.md)
+
+::: zone pivot="programming-language-javascript"
 
 ## Prerequisites
 
@@ -223,6 +224,12 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "version": "YOUR-VERSION",
     "name": "secret1637692472606"
     ```
+
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+::: zone-end
+
 
 ## Integrating with App Configuration
 
