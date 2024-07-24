@@ -97,8 +97,8 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 This table lists the tools Azure Monitor provides for collecting data from various resource types.  
 
-| Resource type | Data collection tool |Collected data |
-| --- | --- |--- |
+| Resource type |Collected data |
+| --- |--- |
 | **Azure** | **Azure tenant** - Microsoft Entra audit logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
 | **Application** | Application performance monitoring data. |
 | **Container**| Container performance data. |
