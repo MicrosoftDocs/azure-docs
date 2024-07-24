@@ -74,6 +74,42 @@ catch (Exception ex)
 }
 ```
 
+### Desired property update callback handler
+
+You can create a desired property update callback handler that executes when the desired property is changed in the device.
+
+Pass the callback method to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
+
+For example:
+
+```csharp
+await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChangedAsync, null);
+```
+
+The twin properties are passed to the callback method and can be examined.
+
+```csharp
+private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredProperties, object userContext)
+{
+   var reportedProperties = new TwinCollection();
+
+   Console.WriteLine("\tDesired properties requested:");
+   Console.WriteLine($"\t{desiredProperties.ToJson()}");
+
+   // For the purpose of this sample, we'll blindly accept all twin property write requests.
+   foreach (KeyValuePair<string, object> desiredProperty in desiredProperties)
+   {
+         Console.WriteLine($"Setting {desiredProperty.Key} to {desiredProperty.Value}.");
+         reportedProperties[desiredProperty.Key] = desiredProperty.Value;
+   }
+
+   Console.WriteLine("\tAlso setting current time as reported property");
+   reportedProperties["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.UtcNow;
+
+   await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+}
+```
+
 ### SDK sample
 
 [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample)
@@ -86,11 +122,6 @@ This section describes how to create a backend application that:
 * Queries devices using filters on the tags and properties
 
 The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
-
-This section shows you how to:
-
-* Add metadata to a device twin
-* Query IoT hub for devices
 
 ### Connect to IoT hub
 
