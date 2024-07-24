@@ -264,7 +264,7 @@ For information about service levels, see [Service levels for Azure NetApp Files
 Sizing recommendations are available in the [SAP on Azure NetApp Files TCO Estimator](https://aka.ms/anfsapcalc).
 
 > [!NOTE]
-> The minimum provisioning size is a 1 TiB unit that is called capacity pool. You then create volumes out of this capacity pool. Whereas the smallest volume you can build is 100 GiB. You can expand a capacity pool in 1 TiB see. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/)
+> The minimum provisioning unit in Azure NetApp Files is called a capacity pool. You then create volumes out of this capacity pool.You can expand a capacity pool in 1 TiB increments. For pricing, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/). For sizing information, see  see [Azure NetApp Files resource limits](../../azure-netapp-files/azure-netapp-files-resource-limits.md).
 
 Azure NetApp Files is currently supported for several SAP workload scenarios:
 
