@@ -4841,10 +4841,17 @@
             "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell.md",
+            "redirect_url": "azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": False
+        },
+        {
+            "source_path": "azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli.md",
+            "redirect_url": "azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal.md",
+            "redirect_document_id": False
         }
-
-
-
         
 
     ]
