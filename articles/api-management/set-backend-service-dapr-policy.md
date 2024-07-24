@@ -38,7 +38,7 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 
 ### Usage notes
