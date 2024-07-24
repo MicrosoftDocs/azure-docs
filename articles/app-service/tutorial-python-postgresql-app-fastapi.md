@@ -381,7 +381,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template python-app-service-postgresql-infra
+    azd init --template msdocs-fastapi-postgresql-sample-app
     ```
 
 1. When prompted, give the following answers:
@@ -398,7 +398,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd up
     ```  
 
-    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -410,46 +410,37 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
 
-## 2. Use the database connection string
+## 2. Examine the database connection string
 
-The azd template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
+The azd template generates the connectivity variables for you as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository.
 
-1. In the azd output, find the app settings and find the settings `AZURE_POSTGRESQL_CONNECTIONSTRING` and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the azd output:
+1. In the `infra/resources.bicep` file, find the app settings and find the setting for `AZURE_POSTGRESQL_CONNECTIONSTRING`.
 
-    <pre>
-    App Service app has the following settings:
-    
-            - AZURE_POSTGRESQL_CONNECTIONSTRING
-            - AZURE_REDIS_CONNECTIONSTRING
-            - FLASK_DEBUG
-            - SCM_DO_BUILD_DURING_DEPLOYMENT
-            - SECRET_KEY
-    </pre>
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="180-188" highlight="5":::
 
-1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Redis cache in Azure. You need to use them your code to connect to it. Open *azureproject/production.py*, uncomment the following lines, and save the file:
+1. `AZURE_POSTGRESQL_CONNECTIONSTRING` contains the connection string to the Postgres database in Azure. You need to use it in your code to connect to it. You can find the code that uses this environment variable in *src/fastapi/models.py*:
 
-    ```python
-    conn_str = os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
-    conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
-    DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
-        dbuser=conn_str_params['user'],
-        dbpass=conn_str_params['password'],
-        dbhost=conn_str_params['host'],
-        dbname=conn_str_params['dbname']
-    )
-    ```
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/models.py" range="9-36" highlight="4-16":::
 
-    Your application code is now configured to connect to the PostgreSQL database in Azure. If you want, open `app.py` and see how the `DATABASE_URI` environment variable is used.
+## 3. Examine the startup command
 
-1. In the terminal, run `azd deploy`.
+Azure App Service requires a startup command to run your FastAPI app. The azd template sets this command for you in your App Service instance.
 
-    ```bash
-    azd deploy
-    ```
+1. In the `infra/resources.bicep` file, find the declaration for your web site and then find the setting for `appCommandLine`. This is the setting for your startup command.
+
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/infra/resources.bicep" range="160-178" highlight="12":::
+
+1. The startup command runs the file *src/entrypoint.sh*.  Examine the code in that file to understand the commands that App Service runs to start your app:
+
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/entrypoint.sh" range="1-6":::
+
+To learn more about app configuration and startup in App Service, see [Configure a Linux Python app for Azure App Service](configure-language-python.md).
 
 ## 4. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container.
+You may have noticed in the previous section that *entrypoint.sh* contains the following line:`python3 src/fastapi_app/seed_data.py`. This command migrates your database. In the sample app, it only ensures that the correct tables are created in your database. It doesn't populate these tables with any data.
+
+In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
 1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
