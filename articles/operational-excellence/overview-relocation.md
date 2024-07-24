@@ -68,6 +68,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
 [Azure Event Grid custom topics](relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
 [Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
+[Azure Firewall](./relocation-firewall.md)|❌ | ✅| ❌ |
 [Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |
