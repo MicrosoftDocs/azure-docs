@@ -15,7 +15,7 @@ ms.date: 07/22/2024
 
 # Synonyms in Azure AI Search
 
-On a search service, a synonym map associates equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog". You might create multiple synonym maps for different languages, such as English and French versions, or lexicons if your content includes technical jargon, slang, or obscure terminology. 
+On a search service, a synonym map associates equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" matches on a document containing "dog". You might create multiple synonym maps for different languages, such as English and French versions, or lexicons if your content includes technical jargon, slang, or obscure terminology. 
 
 Some key points about synonym maps:
 
@@ -70,11 +70,11 @@ Mapping rules adhere to the open-source synonym filter specification of Apache S
 
 - equivalency (where terms are equal substitutes in the query)
 
-- explicit mappings (where terms are mapped to one explicit term prior to querying)
+- explicit mappings (where terms are mapped to one explicit term)
 
-Each rule must be delimited by the new line character (`\n`). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in other tiers. Each rule can have up to 20 expansions (or items in a rule). For more information, see [Synonym limits](search-limits-quotas-capacity.md#synonym-limits).
+Each rule is delimited by the new line character (`\n`). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in other tiers. Each rule can have up to 20 expansions (or items in a rule). For more information, see [Synonym limits](search-limits-quotas-capacity.md#synonym-limits).
 
-Query parsers automatically lower-case any upper or mixed case terms, but if you want to preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
+Query parsers automatically lower-case any upper or mixed case terms. To preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
 
 #### Equivalency rules
 
@@ -109,12 +109,12 @@ In the explicit case, a query for `Washington`, `Wash.` or `WA` is rewritten as 
 
 #### Escaping special characters
 
-In full text search, synonyms are analyzed during query processing just like any other query term, which means that rules around reserved and special characters apply to the terms in your synonym map. The list of characters that requires escaping varies between the simple syntax and full syntax:
+Synonyms are analyzed during query processing just like any other query term, which means that rules for reserved and special characters apply to the terms in your synonym map. The list of characters that requires escaping varies between the simple syntax and full syntax:
 
 - [simple syntax](query-simple-syntax.md)  `+ | " ( ) ' \`
 - [full syntax](query-lucene-syntax.md) `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
 
-Recall that if you need to preserve characters that would otherwise be discarded by the default analyzer during indexing, you should substitute an analyzer that preserves them. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
+To preserve characters that would otherwise be discarded by the default analyzer, substitute an analyzer that preserves them. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
 
 The following example shows an example of how to escape a character with a backslash:
 
@@ -125,7 +125,7 @@ The following example shows an example of how to escape a character with a backs
 }
 ```
 
-Since the backslash is itself a special character in other languages like JSON and C#, you'll probably need to double-escape it. For example, the JSON sent to the REST API for the above synonym map would look like this:
+Since the backslash is itself a special character in other languages like JSON and C#, you probably need to double-escape it. Here's an example in JSON:
 
 ```json
 {
