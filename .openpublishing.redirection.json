@@ -1,6 +1,21 @@
 {
     "redirections": [
     {
+      "source_path": "articles/expressroute/about-public-peering.md",
+      "redirect_url": "/previous-versions/azure/expressroute/about-public-peering",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/how-to-npm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/how-to-npm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/how-to-move-peering.md",
+      "redirect_url": "/previous-versions/azure/expressroute/how-to-move-peering",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/networking/connectivity-interoperability-configuration.md",
       "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
       "redirect_document_id": false
@@ -4800,6 +4815,11 @@
         {
             "source_path_from_root": "/articles/openshift/quickstart-portal.md",
             "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
+            "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
             "redirect_document_id": false
         },
         {

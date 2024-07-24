@@ -92,6 +92,10 @@ After you create a session pool, your application can interact with sessions in 
 
 ### Session identifiers
 
+> [!IMPORTANT]
+> The session identifier is sensitive information which requires you to use a secure process to manage its value. Part of this process requires that your application ensures each user or tenant only has access to their own sessions.
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
+
 When you interact with sessions in a pool, you use a session identifier to reference each session A session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
 If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
