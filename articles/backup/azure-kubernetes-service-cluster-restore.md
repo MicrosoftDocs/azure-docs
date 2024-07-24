@@ -72,7 +72,7 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
 
-6. If you seleted a recovery point for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
+6. If you selected a recovery point for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameters.png" alt-text="Screenshot shows the parameters to add for restore from Vault-standard storage.":::
 
