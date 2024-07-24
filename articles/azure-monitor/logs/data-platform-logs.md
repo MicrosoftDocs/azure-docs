@@ -77,8 +77,7 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 | Supported [table types](../logs/manage-logs-tables.md) | All table types                                              | [Azure tables that support Basic logs](basic-logs-azure-tables.md) and DCR-based custom tables | DCR-based custom tables                                      |
 |Ingestion cost |Standard                                                            | Reduced                                                            | Minimal                                                            | 
 |Query price included |✅                                                            | ❌                                                            | ❌                                                            | 
-| Optimized query performance                                      | ✅                                                         | ✅                                                         | ❌ Slower<br>
-Good for auditing. Not optimized for real-time analysis.                                                      |
+| Optimized query performance                                      | ✅                                                         | ✅                                                         | ❌ Slower queries.<br>Good for auditing. Not optimized for real-time analysis.                                                      |
 | Query capabilities                                            | [Full query capabilities](../logs/get-started-queries.md).                                     | [Full Kusto Query Language (KQL) on a single table](basic-logs-query.md), which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). | [Full KQL on a single table](basic-logs-query.md), which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator). |
 | [Alerts](../alerts/alerts-overview.md)                                                 | ✅                                                            | ❌                                                            | ❌                                                            |
 | [Insights](../insights/insights-overview.md)                                             | ✅                                                            |     ❌                                                        |                                             ❌               |
@@ -94,7 +93,7 @@ Good for auditing. Not optimized for real-time analysis.                        
 > [!NOTE]
 > The Auxiliary table plan is in public preview. For current limitations and supported regions, see [Public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).<br> The Basic and Auxiliary table plans aren't available for workspaces in [legacy pricing tiers](cost-logs.md#legacy-pricing-tiers).
 
-## Data collection
+## Data collection and ingestion pipeline
 
 This table lists the tools Azure Monitor provides for collecting data from various resource types.  
 
