@@ -198,7 +198,7 @@ The best way to manually create a workflow configuration is to start from the of
     
     Container deployments aren't supported on Windows. Choose Linux instead.
     
-    ### [Container](#tab/Container/linux)
+    ### [Container](#tab/container/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
 

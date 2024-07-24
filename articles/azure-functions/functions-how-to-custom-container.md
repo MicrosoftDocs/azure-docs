@@ -306,11 +306,24 @@ When you create a containerized function app in an environment that has workload
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
 
+:::zone pivot="container-apps"
+## Enable continuous deployment to Azure
+
+When you host your containerized function app on Azure Container Apps, there are two ways to set up continous deployment from a source code repository:
+
++ [Azure Pipelines](./functions-how-to-azure-devops.md#deploy-a-container)
++ [GitHub Actions](./functions-how-to-github-actions.md?tabs=container)
+
+You aren't currently able to continuously deploy containers based on image changes in a container registry. You must instead use these source-code based continuous deployment pipelines.
+
+::: zone-end
 :::zone pivot="azure-functions"
 ## Enable continuous deployment to Azure
 
 > [!IMPORTANT]
-> Webhook-based deployment isn't currently supported when running your container in an [Elastic Premium plan](functions-premium-plan.md). If you need to use the continuous deployment method described in this section, instead deploy your container in an [App Service plan](dedicated-plan.md). When running in an Elastic Premium plan, you need to manually restart your app whenever you make updates to your container in the repository.
+> Webhook-based deployment isn't currently supported when running your container in an [Elastic Premium plan](functions-premium-plan.md). If you need to use the continuous deployment method described in this section, instead deploy your container in an [App Service plan](dedicated-plan.md). When running in an Elastic Premium plan, you need to manually restart your app whenever you make updates to your container in the repository. 
+>
+> You can also configure continous deployment from a source code repository using either [Azure Pipelines](./functions-how-to-azure-devops.md#deploy-a-container) or [GitHub Actions](./functions-how-to-github-actions.md?tabs=container).
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
