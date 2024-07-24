@@ -33,7 +33,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 > 
 
 ## Understand CNAME and A records
-CNAME (or alias records) and A records both allow you to associate a domain name with a specific server (or service in this case) however they work differently. There are also some specific considerations when using A records with Azure Cloud services that you should consider before deciding which to use.
+CNAME (or alias records) and A records both allow you to associate a domain name with a specific server (or service in this case); however, they work differently. There are also some specific considerations when using A records with Azure Cloud services that you should consider before deciding which to use.
 
 ### CNAME or Alias record
 A CNAME record maps a *specific* domain, such as **contoso.com** or **www\.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **[myapp].cloudapp.net** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **[myapp].cloudapp.net**. The CNAME entry resolves to the IP address of your **[myapp].cloudapp.net** service automatically, so if the IP address of the cloud service changes, you don't have to take any action.
@@ -104,7 +104,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
      Save the IP address, as you need it when creating an A record.
 2. Sign into your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
-3. Now find where you can select or enter A record's. You may have to select the record type from a drop-down, or go to an advanced settings page.
+3. Now find where you can select or enter A records. You may have to select the record type from a drop-down, or go to an advanced settings page.
 4. Select or enter the domain or subdomain that uses this A record. For example, select **www** if you want to create an alias for **www\.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter `*****`. This entry covers all subdomains such as **mail.customdomain.com**, **login.customdomain.com**, and **www\.customdomain.com**.
 
     If you want to create an A record for the root domain, it may be listed as the '**\@**' symbol in your registrar's DNS tools.
