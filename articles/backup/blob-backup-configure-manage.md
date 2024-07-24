@@ -2,7 +2,7 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 07/24/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
