@@ -474,7 +474,7 @@ If you're already using environment variables to configure the proxy server for 
 
 ## Alerting for Azure Arc-enabled server disconnection
 
-The Connected Machine agent [sends a regular heartbeat message](overview.md#agent-status) to the service every five minutes. If an Arc-enabled server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it's offline, the network connection has been blocked, or the agent isn't running. Develop a plan for how you’ll respond and investigate these incidents. Also, use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when such incidents start.
+The Connected Machine agent [sends a regular heartbeat message](overview.md#agent-status) to the service every five minutes. If an Arc-enabled server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it's offline, the network connection has been blocked, or the agent isn't running. Develop a plan for how you’ll respond and investigate these incidents, including setting  up [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when such incidents occur.
 
 
 ## Next steps
