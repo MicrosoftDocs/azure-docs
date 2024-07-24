@@ -173,7 +173,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { azure
 
 ---
 
-- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, `data_sources`) to the client types
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, `data_sources`) to the client types.
 - The `azureExtensionOptions` property has been replaced with the inner `data_sources` property.
 - The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI service API.
 - Camel case properties have been replaced with snake case properties.
@@ -205,10 +205,10 @@ const result = await client.getAudioTranscription(deploymentName, audio);
 
 
 
-- The `getAudioTranscription` method has been replaced with the `audio.transcriptions.create` method
-- The `AzureOpenAI` has to be constructed with the `deployment` option set to the deployment name in order to use audio operations such as `audio.transcriptions.create`
-- The `model` property is required to be set in the options object but its value isn't used in the operation so feel free to set it to any value
-- The `file` property accepts various types including `Buffer`, `fs.ReadaStream`, and `Blob` but in this example, a file is streamed from disk using `fs.createReadStream`
+- The `getAudioTranscription` method has been replaced with the `audio.transcriptions.create` method.
+- The `AzureOpenAI` has to be constructed with the `deployment` option set to the deployment name in order to use audio operations such as `audio.transcriptions.create`.
+- The `model` property is required to be set in the options object but its value isn't used in the operation so feel free to set it to any value.
+- The `file` property accepts various types including `Buffer`, `fs.ReadaStream`, and `Blob` but in this example, a file is streamed from disk using `fs.createReadStream`.
 
 ### Audio translation
 
@@ -324,8 +324,8 @@ const threadResponse = await assistantsClient.createMessage(
 ---
 
 
-- The `createMessage` method has been replaced with the `beta.threads.messages.create` method
-- The message specification has been moved from a parameter list to an object
+- The `createMessage` method has been replaced with the `beta.threads.messages.create` method.
+- The message specification has been moved from a parameter list to an object.
 
 #### Runs
 
@@ -367,8 +367,8 @@ do {
 
 
 
-- The `createRun` method has been replaced with the `beta.threads.runs.create` and `createAndPoll` methods
-- The `createAndPoll` method is used to create a run and poll it until it is in a terminal state
+- The `createRun` method has been replaced with the `beta.threads.runs.create` and `createAndPoll` methods.
+- The `createAndPoll` method is used to create a run and poll it until it is in a terminal state.
 
 #### Processing Run results
 
@@ -418,9 +418,9 @@ const embeddings = await client.getEmbeddings(deploymentName, input);
 ---
 
 
-- The `getEmbeddings` method has been replaced with the `embeddings.create` method
-- The `input` parameter is now passed in the options object with the `input` property
-- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
+- The `getEmbeddings` method has been replaced with the `embeddings.create` method.
+- The `input` parameter is now passed in the options object with the `input` property.
+- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name.
 
 ### Image generation
 
@@ -442,9 +442,9 @@ const results = await client.getImages(deploymentName, prompt, { n, size });
 
 
 
-- The `getImages` method has been replaced with the `images.generate` method
-- The `prompt` parameter is now passed in the options object with the `prompt` property
-- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name
+- The `getImages` method has been replaced with the `images.generate` method.
+- The `prompt` parameter is now passed in the options object with the `prompt` property.
+- The `deploymentName` parameter has been removed. The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name.
 
 ### Content filter
 
@@ -492,8 +492,8 @@ for (const choice of results.choices) {
 ---
 
 
-- camel case properties have been replaced with snake case properties
-- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, content_filter_results) to the client types, see the [Azure types](#azure-types) section for more information
+- Camel case properties have been replaced with snake case properties.
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, content_filter_results) to the client types, see the [Azure types](#azure-types) section for more information.
 
 ## Comparing Types
 
