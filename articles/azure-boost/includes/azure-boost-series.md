@@ -13,8 +13,14 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
-| Dalsv6                                                         | General Purpose                | Preview        |
-| Easv6                                                          | Memory Optimized               | Preview        |
+| Dlsv6                                                          | General Purpose              | Preview    |
+| Dldsv6                                                         | General Purpose              | Preview    |
+| Ddsv6                                                          | General Purpose              | Preview    |
+| Dsv6                                                           | General Purpose              | Preview    |
+| Esv6                                                           | Memory Optimized             | Preview    |
+| Edsv6                                                          | Memory Optimized             | Preview    |
+| Dalsv6                                                         | General Purpose              | Preview        |
+| Easv6                                                          | Memory Optimized             | Preview        |
 | [DCesv5](../../virtual-machines/dcesv5-dcedsv5-series.md)                                                         | General Purpose                | Preview        |
 | [ECesv5](../../virtual-machines/ecesv5-ecedsv5-series.md)                                                          | Memory Optimized               | Preview        |
 | [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized | Production  |
