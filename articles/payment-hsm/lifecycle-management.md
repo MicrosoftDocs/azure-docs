@@ -61,7 +61,7 @@ Customer Data Impact: In either method, customer data should be unaffected by a 
 
 There are two methods to deallocate/delete an HSM:  
 
-- **Normal Delete:** In this process the customer can Release the HSM via the payShield Manager before deleting the HSM in Azure. This process checks/ensures that the HSM is released (and therefore all customer content/secrets are removed) before it is handed back to Microsoft and will block if that check fails. After the customer Releases the HSM they should retry the request. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md?tabs=azure-cli).
+- **Normal Delete:** In this process the customer can Release the HSM via the payShield Manager before deleting the HSM in Azure. This process checks/ensures that the HSM is released (and therefore all customer content/secrets are removed) before it is handed back to Microsoft and will block if that check fails. After the customer releases the HSM they should retry the request. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md?tabs=azure-cli).
 
 - **Force delete:** If the customer is unable to Release the HSM before deletion (due to unresponsive device, etc.) the Engineering group, with a documented request from the customer, can set a flag that bypasses the Release check. In this case, when the HSM is deleted the automated management system performs an OOB "Reclaim" request, which issues a "Release" command on behalf of the previous customer and clears all customer content (data, logs, etc.).  
 
