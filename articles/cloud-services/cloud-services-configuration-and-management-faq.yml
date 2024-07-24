@@ -314,7 +314,7 @@ sections:
           
           It's unsupported to write to the %approot% drive. If you're writing to the Azure VM, you must do so in a temporary LocalStorage resource (or other option, such as Blob storage, Azure Files, etc.). So the amount of free space on the %approot% folder isn't meaningful. If you aren't sure if your application is writing to the %approot% drive, you can always let your service run for a few days and then compare the "before" and "after" sizes. 
           
-          Azure doesn't write anything to the %approot% drive. Once the VHD is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
+          Azure doesn't write anything to the %approot% drive. Once the virtual hard disk (VHD) is created from your `.cspkg` and mounted into the Azure VM, the only thing that might write to this drive is your application. 
           
           The journal settings are nonconfigurable, so you can't turn it off.
           
