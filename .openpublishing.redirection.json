@@ -4851,6 +4851,16 @@
             "source_path": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal.md",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal.md",
+            "redirect_document_id": true
         }
 
     ]

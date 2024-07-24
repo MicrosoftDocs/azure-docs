@@ -127,13 +127,7 @@ items:
       - name: Add dual-stack network to an existing VM
         href: add-dual-stack-ipv6-vm-portal.md
       - name: Create VM - dual-stack network
-        items:
-        - name: Portal
-          href: create-vm-dual-stack-ipv6-portal.md
-        - name: PowerShell
-          href: create-vm-dual-stack-ipv6-powershell.md
-        - name: CLI
-          href: create-vm-dual-stack-ipv6-cli.md
+        href: create-vm-dual-stack-ipv6-portal.md
       - name: Create VM - static public IP
         items:
         - name: Azure portal
