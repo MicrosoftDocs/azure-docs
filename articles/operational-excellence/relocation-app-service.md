@@ -26,9 +26,14 @@ To make copying your app easier, you can [clone an individual App Service app](.
 
 ## Prerequisites
 
+>[!IMPORTANT]
+>Azure App Service Environment (ASE) v1 and v2 will be retired by 31st Aug 2024. It's recommended that you relocate ASE v1 or v2, and then upgrade to V3 in the target region. Upgrading at the target region ensures that the relocation is validated before migrating to V3.
+
 - Make sure that the App Service app is in the Azure region from which you want to move.
 - Make sure that the target region supports App Service and any related service, whose resources you want to move.
-<!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
+- Validate that sufficient permission exist to deploy App Service resources to the target subscription and region. 
+- Validate if any Azure policy is assigned with a region restriction.
+- Consider any operating costs, as Compute resource prices can vary from region to region. To estimate your possible costs, see [Pricing calculator](https://azure.microsoft.com/en-gb/pricing/calculator/).
 
 ## Prepare
 
@@ -49,7 +54,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 ## Plan
 
-This section is planning checklist in the following areas: 
+This section is a planning checklist in the following areas: 
 
 - State, Storage and downstream dependencies
 - Certificates
@@ -57,6 +62,8 @@ This section is planning checklist in the following areas:
 - VNet Connectivity / Custom Names / DNS
 - Identities
 - Service Endpoints
+
+
 
 ### State, Storage and downstream dependencies
 
