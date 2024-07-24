@@ -1,13 +1,13 @@
 ---
-title: Create dataflow
-description: Create a dataflow.
+title: Create dataflow using Azure IoT Operations
+description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
 ms.date: 07/22/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
+#CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
 
 # Create dataflow

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a Dataflow from an asset to Azure Event Grid
+title: Tutorial - Create a dataflow from an asset to Azure Event Grid
 description: Tutorial on how to set up a dataflow from an asset to Azure Event Grid.
 author: PatAltimore
 ms.author: patricka
@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 07/23/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
+#CustomerIntent: As an operator, I want to understand how to set up a dataflow from an asset to Azure Event Grid.
 ---
 
 # Tutorial: Create a dataflow from an asset to Azure Event Grid
@@ -66,3 +66,7 @@ In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You c
           endpointRef: eventgrid
           dataDestination: factory/$topic.2
     ```
+
+## Next steps
+
+Learn how to [create a bi-directional MQTT bridge to Azure Event Grid using dataflows](tutorial-dataflow-asset-event-grid.md).

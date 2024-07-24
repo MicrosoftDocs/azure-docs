@@ -1,19 +1,16 @@
 ---
-title: Tutorial - Create a bi-directional MQTT bridge to Azure Event Grid
-description: Tutorial on how to set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid.
+title: Tutorial - Create a bi-directional MQTT bridge to Azure Event Grid using dataflows
+description: Tutorial on how to set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid using dataflows in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 07/23/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
+#CustomerIntent: As an operator, I want to understand how configure a bridge between an MQTT broker and Azure Event Grid using dataflows.
 ---
 
-
-
-
-# Create bi-directional MQTT bridge to Azure Event Grid using dataflows
+# Tutorial: Create bi-directional MQTT bridge to Azure Event Grid using dataflows
 
 In this tutorial, you will set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid using dataflows. To expedite the process, you will use the default settings for the MQTT broker and Azure Event Grid endpoints, and no transformation will be applied.
 
@@ -104,3 +101,6 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an MQTT b
 1. Send test data to Azure Event Grid.
 1. View messages in MQTT broker.
 
+## Next steps
+
+Learn how to [create a dataflow from an asset to Azure Event Grid](tutorial-dataflow-asset-event-grid.md).
