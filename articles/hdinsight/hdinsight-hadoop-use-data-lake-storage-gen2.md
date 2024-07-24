@@ -32,7 +32,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
-### What kinds of permissions does Data Lake Storage Gen2 support?
+### What kinds of permissions do Data Lake Storage Gen2 support?
 
 Data Lake Storage Gen2 uses an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).
 

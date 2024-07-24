@@ -6,7 +6,7 @@ ms.author: sairamyeturi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 08/21/2023
+ms.date: 07/24/2024
 ---
 
 # Create a cluster with Data Lake Storage Gen2 using Azure CLI

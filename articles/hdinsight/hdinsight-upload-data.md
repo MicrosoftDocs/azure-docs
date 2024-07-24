@@ -55,7 +55,7 @@ Because the default file system for HDInsight is in Azure Storage, /example/data
 
 `wasbs:///example/data/data.txt`
 
-or
+Or
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
