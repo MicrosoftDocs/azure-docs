@@ -330,7 +330,7 @@ An event subscription, powered by Azure Event Grid, raises events based on chang
     | **Name** | *myBlobEventSub* | Name that identifies the event subscription. You can use the name to quickly find the event subscription. |
     | **Event Schema** | **Event Grid Schema** | Use the default schema for events. |
     | **System Topic Name** | *samples-workitems-blobs* | Name for the topic, which represents the container. The topic is created with the first subscription, and you'll use it for future event subscriptions. |
-    | **Filter to Event Types** | *Blob Created*| 
+    | **Filter to Event Types** | *Microsoft.Storage.BlobCreated*| 
     | **Endpoint Type** |  **Web Hook** | The blob storage trigger uses a web hook endpoint. |
     | **Endpoint** | Your Azure-based URL endpoint | Use the URL endpoint that you built, which includes the key value. |
 
