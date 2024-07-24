@@ -30,6 +30,11 @@ To learn more about diagnostic settings, see [Diagnostic settings in Azure Monit
   - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
 - An existing Azure Monitor Log Analytics workspace.
 
+> [!WARNING]
+> If you need to delete a resource, rename, or move a resource, or migrate it across resource groups or subscriptions, first delete its diagnostic settings. Otherwise, if you recreate this resource, the diagnostic settings for the deleted resource could be included with the new resource, depending on the resource configuration for each resource. If the diagnostics settings are included with the new resource, this resumes the collection of resource logs as defined in the diagnostic setting and sends the applicable metric and log data to the previously configured destination. 
+>
+> Also, it's a good practice to delete the diagnostic settings for a resource you're going to delete and don't plan on using again to keep your environment clean.
+
 ## Create diagnostic settings
 
 Here, we walk through the process of creating diagnostic settings for your account.

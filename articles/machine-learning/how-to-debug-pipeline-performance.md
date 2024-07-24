@@ -2,9 +2,9 @@
 title: Debug pipeline performance issues
 titleSuffix: Azure Machine Learning
 description: Learn how to debug pipeline performance issues by using the profile feature in Azure Machine Learning studio.
-ms.reviewer: lagayhar
-author: zhanxia
-ms.author: zhanxia
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

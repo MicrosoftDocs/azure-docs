@@ -123,6 +123,8 @@
     items:
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
+    - name: Application firewall
+      href: signalr-howto-configure-application-firewall.md  
     - name: Use Azure Service Tags
       href: howto-service-tags.md
     - name: Use Azure Private Endpoints

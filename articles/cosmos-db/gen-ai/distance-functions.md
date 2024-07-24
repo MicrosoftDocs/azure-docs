@@ -10,7 +10,7 @@ ms.date: 07/01/2024
 
 # What are distance functions?
 
-Distance functions are mathematical formulas used to measure the similarity or dissimilarity between vectors (see [vector search](vector-search-overview.md)). Common examples include Manhattan distance, Euclidean distance, cosine similarity, and dot product. These measurements are crucial for determining how closely related two pieces of data.
+Distance functions are mathematical formulas used to measure the similarity or dissimilarity between vectors (see [vector search](vector-search-overview.md)). Common examples include Manhattan distance, Euclidean distance, cosine similarity, and dot product. These measurements are crucial for determining how closely related two pieces of data are.
 
 ## Manhattan distance
 
@@ -31,6 +31,7 @@ Two vectors are multiplied to return a single number. It combines the two vector
 ## Related content
 - [VectorDistance system function](../nosql/query/vectordistance.md) in Azure Cosmos DB NoSQL
 - [What is a vector database?](../vector-database.md)
+- [Retrieval Augmented Generation (RAG)](rag.md)
 - [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
 - [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
 - [What is vector search?](vector-search-overview.md)

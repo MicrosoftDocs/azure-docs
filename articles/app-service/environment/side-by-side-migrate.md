@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 6/28/2024
+ms.date: 7/23/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -110,7 +110,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate cannot be called if IP SSL is enabled on any of the sites.    |App Service Environments that have sites with IP SSL enabled can't be migrated using the side-by-side migration feature. |Remove the IP SSL from all of your apps in the App Service Environment to enable the migration feature. |
 |Cannot migrate within the same subnet.  |The error appears if you specify the same subnet that your current environment is in for placement of your App Service Environment v3.     |You must specify a different subnet for your App Service Environment v3. If you need to use the same subnet, migrate using the [in-place migration feature](migrate.md).     |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
-|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
+|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. Upgrades take 8-12 hours or longer depending on the size (number of instances/cores) of the App Service Environment.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
 |Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The Microsoft team must manually change the InternalLoadBalancingMode. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode. |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](#use-the-side-by-side-migration-feature).  |
@@ -197,6 +197,10 @@ Side-by-side migration requires a three to six hour service window for App Servi
 
 When this step completes, your application traffic is still going to your old App Service Environment v2 front ends and the inbound IP that was assigned to it. However, your apps are actually running on workers in your new App Service Environment v3.
 
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug might cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
+
 ### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
 The new inbound IP address is given so that you can set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md) and update any of your private DNS zones. Don't move on to the next step until you make these changes. There's downtime if you don't update dependent resources with the new inbound IP. **It's your responsibility to update any and all resources that are impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.**
@@ -212,7 +216,7 @@ Once you're ready to redirect traffic, you can complete the final step of the mi
 >
 
 > [!NOTE]
-> You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+> It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
 >
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
@@ -296,7 +300,7 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022
 
 ### 5. Update dependent resources with new outbound IPs
 
-By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step.
+By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step. For example, if you have a custom domain suffix and an Azure Key Vault and are managing access restrictions with a firewall, you need to update the Azure Key Vault's firewall to allow either just the new outbound IPs or the entire new subnet.
 
 ### 6. Delegate your App Service Environment subnet
 
@@ -389,7 +393,11 @@ If you're using a system assigned managed identity for your custom domain suffix
 
 After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](#migrate-to-app-service-environment-v3).
 
-This step takes three to six hours complete. During that time, there's no application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+This step takes three to six hours complete. During that time, there's no application downtime if you've followed the previous steps. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug may cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
 
 Run the following command to start the migration:
 
@@ -443,7 +451,7 @@ az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties
 
 This step is your opportunity to test and validate your new App Service Environment v3.
 
-Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment. You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to discuss your options. Don't run the DNS change command since that command completes the migration.
 

@@ -25,9 +25,9 @@ Roles for service administration (control plane) are built in and can't be enabl
 
 ## Prerequisites
 
-+ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
-
 + A search service in any region, on any tier, including free.
+
++ Owner, User Access Administrator, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 ## Enable role-based access for data plane operations
 

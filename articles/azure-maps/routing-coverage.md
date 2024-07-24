@@ -2,8 +2,8 @@
 title: Routing coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -479,7 +479,6 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Kazakhstan                             | Good                |                       | ✓                 | ✓                         |
 | Kenya                                  | Good                | ✓                     | ✓                 | ✓                         |
 | Kiribati                               | Major Roads Only    |                       | ✓                 |                            |
-| Korea                                  | Good                | ✓                     |                   |                            |
 | Kosovo                                 | Good                |                       |                   |                            |
 | Kuwait                                 | Good                | ✓                     | ✓                 | ✓                         |
 | Kyrgyzstan                             | Major Roads Only    |                       | ✓                 |                            |
