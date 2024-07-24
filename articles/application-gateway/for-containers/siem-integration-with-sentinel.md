@@ -52,64 +52,75 @@ In this QuickStart guide, you set up:
       ![A screenshot of Log Management.](./media/siem-integration-with-sentinel/log-management.png)
       
 ## Create Analytics Rule
-    - a. In **Search resources, service, and docs**, type **Azure Sentinel**.
-    - b. Go to your selected Sentinel Resource.
-    - c. Select **Analytics** under **Configuration**.
-    - d. Click **Create** and Select **Schedule Query Rule**.
-    - e. Enter name, description, and leave rest as default and go to next page.
-      ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
-      
-    - f. Create rule query based on your access logs:
-        - a. Example Scenario: A user sends encrypted data through a specific URL.
-        - b. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
-        - c. Create query:
-                
-        ```bash
-        # Example Query
-        AGCAccessLogs
-          | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
-        ```
+
+- a. In **Search resources, service, and docs**, type **Azure Sentinel**.
+- b. Go to your selected Sentinel Resource.
+- c. Select **Analytics** under **Configuration**.
+- d. Click **Create** and Select **Schedule Query Rule**.
+- e. Enter name, description, and leave the rest as default and go to the next page.
+  ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
+  
+- f. Create rule query based on your access logs:
+    - a. Example Scenario: A user sends encrypted data through a specific URL.
+    - b. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
+    - c. Create query:
         
-        - d. Detect associated IPs by Entity Mapping:
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
-        
-        - e. Set Query Scheduling:
-            - Run for every 5 hours.
-            - Look up data for every 5 hours.
-        - f. **Review + Create**.
+    ```bash
+    # Example Query
+    AGCAccessLogs
+      | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
+    ```
+
+    This query filters `AGCAccessLogs` based on conditions related to hostname and request URI.
+
+    - d. Detect associated IPs by Entity Mapping:
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
+
+    - e. Set Query Scheduling:
+        - Run for every 5 hours.
+        - Look up data for every 5 hours.
+    - f. **Review + Create**.
+
 
 ## Test Incident
-    - a. An incident occurs after the rule is active. Now we're ready to send some traffic with **"/secret/path"** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN.
 
-        ```bash
-        fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
-        ```
+- a. An incident occurs after the rule is active. Now we're ready to send some traffic with **"/secret/path"** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
 
-    - b. Curling this FQDN should return responses from the backend as configured on the HTTPRoute.
+    ```bash
+    fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
+    ```
 
-        ```bash
-        curl --insecure https://$fqdn/secret/path
-        ```
+- b. Curling this FQDN should return responses from the backend as configured on the HTTPRoute:
+
+    ```bash
+    curl --insecure https://$fqdn/secret/path
+    ```
+
     
 ## Visualize Test Incident
 
-    - a. After the Incident occurred, view the details of the details under **"Incidents"** under **"Threat Management**".
-    - b. Select an Incident and open the pane on the right hand side of the page.
-    - c. Click **"View Full Details"**.
-    - d. Select **"Investigate"**.
-      
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/investigate.png" alt="A screenshot of investigate." width="40%">
-    
-    > [!Note]
-    > **"Investigate"** option only appear if there are entities associated with that incident.
-   
-    - e. In Investigate, you can visualize the entities associated and similar alerts.
-      [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/mapping.png) ](./media/siem-integration-with-sentinel/mapping.png#lightbox)
+- a. After the Incident occurred, view the details of the incident under **"Incidents"** in **"Threat Management"**.
 
-    - f. Click on the entity to view **Insights** to dig deeper into investigation.
-      
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/insights.png" alt="A screenshot of the insights ." width="50%">
+- b. Select an Incident and open the pane on the right-hand side of the page.
 
-7. [Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
+- c. Click **"View Full Details"**.
+
+- d. Select **"Investigate"**.
+
+    ![A screenshot of investigate.](./media/siem-integration-with-sentinel/investigate.png)
+
+> [!Note]
+> **"Investigate"** option only appears if there are entities associated with that incident.
+
+- e. In Investigate, you can visualize the associated entities and similar alerts.
+  
+  [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/mapping.png)](./media/siem-integration-with-sentinel/mapping.png#lightbox)
+
+- f. Click on the entity to view **Insights** and delve deeper into the investigation.
+
+    ![A screenshot of the insights.](./media/siem-integration-with-sentinel/insights.png)
+
+
+[Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
 
 Congratulations, You can now create security barriers on your logs and investigate any incidents!
