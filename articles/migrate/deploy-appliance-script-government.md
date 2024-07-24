@@ -57,8 +57,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]  
-
+| **Download** | **Hash value** |
+  | --- | --- |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 ### Run the script
 
@@ -115,10 +116,10 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
-
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731 
+    
+    | **Download** | **Hash value** |
+    | --- | --- |
+    | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 ### Run the script
 
@@ -176,7 +177,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+  | **Download** | **Hash value** |
+  | --- | --- |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.

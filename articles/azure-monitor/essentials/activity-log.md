@@ -15,7 +15,7 @@ The Azure Monitor activity log is a platform log that provides insight into subs
 
 For more functionality, create a diagnostic setting to send the activity log to one or more of these locations for the following reasons:
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-archive.md).
+- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-configure.md).
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
@@ -155,8 +155,6 @@ You can also access activity log events by using the following methods:
 - Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the activity log from PowerShell. See [Azure Monitor PowerShell samples](../powershell-samples.md#retrieve-activity-log).
 - Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the activity log from the CLI.  See [Azure Monitor CLI samples](../cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the activity log from a REST client.
-- 
-- 
 ## Legacy collection methods
 
 > [!NOTE]

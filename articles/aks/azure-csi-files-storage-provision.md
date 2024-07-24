@@ -5,7 +5,7 @@ description: Learn how to create a static or dynamic persistent volume with Azur
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.subservice: aks-storage
-ms.date: 07/09/2024
+ms.date: 07/20/2024
 author: tamram
 ms.author: tamram
 
@@ -108,6 +108,7 @@ For more information on Kubernetes storage classes for Azure Files, see [Kuberne
      - mfsymlinks
      - cache=strict
      - actimeo=30
+     - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
     parameters:
       skuName: Premium_LRS
     ```
@@ -240,6 +241,7 @@ mountOptions:
   - mfsymlinks
   - cache=strict
   - actimeo=30
+  - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 parameters:
   skuName: Premium_LRS
 ```
@@ -368,7 +370,7 @@ Kubernetes needs credentials to access the file share created in the previous st
         - mfsymlinks
         - cache=strict
         - nosharesock
-        - nobrl
+        - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
     ```
 
 2. Create the persistent volume using the [`kubectl create`][kubectl-create] command.
@@ -470,7 +472,7 @@ spec:
         volumeAttributes:
           secretName: azure-secret  # required
           shareName: aksshare  # required
-          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock'  # optional
+          mountOptions: 'dir_mode=0777,file_mode=0777,cache=strict,actimeo=30,nosharesock,nobrl'  # optional
 ```
 
 2. Create the pod using the [`kubectl apply`][kubectl-apply] command.
