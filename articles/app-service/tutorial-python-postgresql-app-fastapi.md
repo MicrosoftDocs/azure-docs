@@ -21,7 +21,7 @@ In this tutorial, you'll deploy a data-driven Python web app (**[FastAPI](https:
 ::: zone pivot="azure-portal"  
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
+* Knowledge of Python with FastAPI development
 
 ::: zone-end
 
@@ -45,7 +45,7 @@ azd up
 
 ## Sample application
 
-Sample Python application using FastAPI framework is provided to help you follow along with this tutorial. To deploy it without running it locally, skip this part.
+A sample Python application using FastAPI framework is provided to help you follow along with this tutorial. To deploy it without running it locally, skip this part.
 
 To run the application locally, make sure you have [Python 3.8 or higher](https://www.python.org/downloads/) and [PostgreSQL](https://www.postgresql.org/download/) installed locally. Then, clone the sample repository's `starter-no-infra` branch and change to the repository root.
 
@@ -110,7 +110,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -126,7 +126,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -140,7 +140,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-create-app-postgres-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -297,7 +297,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
         Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png" alt-text="A screenshot of the FastAPI web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png":::
     :::column-end:::
 :::row-end:::
 
@@ -376,7 +376,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     cd msdocs-fastapi-postgresql-sample-app
     ```
 
-    This cloned branch is your starting point. It contains a simple data-drive Flask application.
+    This cloned branch is your starting point. It contains a simple data-drive FastAPI application.
 
 1. From the repository root, run `azd init`.
 
@@ -457,9 +457,9 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
     Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
     </pre>
 
-1. In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+1. In the SSH terminal, run `python3 src/fastapi_app/seed_data.py`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
-    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png":::
 
     > [!NOTE]
     > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
@@ -478,7 +478,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 2. Add a few restaurants to the list.
 
-    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png" alt-text="A screenshot of the Flask web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Flask)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png" alt-text="A screenshot of the FastAPI web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-browse-app-2.png":::
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
 
@@ -488,7 +488,7 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample app includes `print()` statements to demonstrate this capability as shown in the following snippet.
 
-:::code language="python" source="~/msdocs-flask-postgresql-sample-app/app.py" range="37-41" highlight="3":::
+:::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="33-40" highlight="3":::
 
 In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
 
@@ -524,7 +524,6 @@ If you encounter any errors related to connecting to the database, check if the 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-postgresql-server-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
-- [How is the Django sample configured to run on Azure App Service?](#how-is-the-django-sample-configured-to-run-on-azure-app-service)
 
 #### How much does this setup cost?
 
