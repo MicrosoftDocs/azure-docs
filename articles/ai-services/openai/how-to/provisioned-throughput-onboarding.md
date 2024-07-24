@@ -96,15 +96,15 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
 1. Launch [Azure AI Studio](https://ai.azure.com/)
 2. Select the Azure OpenAI resource in the desired region, then select **Deployments** in the left-hand navigation bar.
 
-    :::image type="content" source="../media/provisioned/deployments.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/deployments.png":::
+    :::image type="content" source="../media/provisioned/deployments.png" alt-text="Screenshot of deployments UI for Azure OpenAI deployments." lightbox="../media/provisioned/deployments.png":::
 
 3. Select **Deploy base model**, then select the desired model.
 
-    :::image type="content" source="../media/provisioned/select-model.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/select-model.png":::
+    :::image type="content" source="../media/provisioned/select-model.png" alt-text="Screenshot of the Azure AI Studio model selection screen." lightbox="../media/provisioned/select-model.png":::
 
 4. Enter deployment information:
 
-    :::image type="content" source="../media/provisioned/deploy-model.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/deploy-model.png":::
+    :::image type="content" source="../media/provisioned/deploy-model.png" alt-text="Screenshot of model deployment UI for Azure OpenAI with a provisioned model being deployed." lightbox="../media/provisioned/deploy-model.png":::
 
     - Provide the deployment name and model version.
     - Specify the Deployment Type as **Provisioned Managed**. This is what indicates a provisioned, instead of a standard deployment.
@@ -114,7 +114,7 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
 
     Azure regions have differing amounts of capacity available for provisioned deployments, and the capacity can change dynamically as customers scale up and down their provisioned deployments. If a region has less capacity available than your available quota, the following message will appear to show you how much capacity is available to deploy this model and version.
 
-    :::image type="content" source="../media/provisioned/capacity.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/capacity.png":::
+    :::image type="content" source="../media/provisioned/capacity.png" alt-text="Screenshot of a capacity warning indicating there isn't enough capacity in the current region." lightbox="../media/provisioned/capacity.png":::
 
 6. Choose the size of your deployment and select **Deploy**
 
@@ -126,15 +126,15 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
 
     If you select more PTUs than are available as service capacity, you're given the option to choose a resource in a region that has available quota and capacity.
 
-    :::image type="content" source="../media/provisioned/insufficient-capacity.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/insufficient- capacity.png":::
+    :::image type="content" source="../media/provisioned/insufficient-capacity.png" alt-text="Screenshot of capacity recommendation to try a new region." lightbox="../media/provisioned/insufficient-capacity.png":::
 
     Selecting **See other regions** brings up a dialog where you can select alternative regions with both available quota and capacity for this model. Select a new resource and the deployment dialog will redisplay with the new resource so that you can continue your deployment.
 
-    :::image type="content" source="../media/provisioned/different-region.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/different-region.png":::
+    :::image type="content" source="../media/provisioned/different-region.png" alt-text="Screenshot of choose a different region with more capacity option UI." lightbox="../media/provisioned/different-region.png":::
 
 ## Purchase an Azure Reservation to receive term discounts
 
-The following is a summary of the steps to purchase an Azure reservation. Detailed documentation on purchasing and managing reservations can be found [here](TODO:aka.ms link to the Azure reservations doc that will be published in a separate PR).
+The following is a summary of the steps to purchase an Azure reservation. Detailed documentation on purchasing and managing reservations can be found [here](/azure/cost-management-billing/reservations/save-compute-costs-reservations).
 
 Azure Reservations are purchased from the Azure portal, not from AI or Azure OpenAI Studio.
 
@@ -152,19 +152,19 @@ To buy a reservation: 
 
 1. Navigate to the reservation section of the Azure portal by searching for "Reservations" in the top search bar, then select **Reservations**.
 
-    :::image type="content" source="../media/provisioned/reservations.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/reservations.png":::
+    :::image type="content" source="../media/provisioned/reservations.png" alt-text="Screenshot of the Azure Reservations icon." lightbox="../media/provisioned/reservations.png":::
 
 2. Select **+Add** on the reservation portal
 
-    :::image type="content" source="../media/provisioned/reservations-pane.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/reservations-pane.png":::
+    :::image type="content" source="../media/provisioned/reservation-pane.png" alt-text="Screenshot of the add reservations portal experience." lightbox="../media/provisioned/reservation-pane.png":::
 
 3. Select **Azure OpenAI** from the reservation catalog.
 
-    :::image type="content" source="../media/provisioned/purchase.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/purchase.png":::
+    :::image type="content" source="../media/provisioned/purchase.png" alt-text="Screenshot of the purchase reservation experience." lightbox="../media/provisioned/purchase.png":::
 
 4. Choose the reservation product details and add to cart.
 
-    :::image type="content" source="../media/provisioned/select-purchase.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/select-purchase.png":::
+    :::image type="content" source="../media/provisioned/select-product.png" alt-text="Screenshot of reservation select product screen." lightbox="../media/provisioned/select-product.png":::
 
     - Select the reservation scope. This identifies the deployments that will be included in the discount. Options include:
 
@@ -184,7 +184,7 @@ To buy a reservation: 
 
 5. Complete the purchase(Select **View Cart**)
 
-    :::image type="content" source="../media/provisioned/purchase-reservation.png" alt-text="Screenshot of new quota UI for Azure OpenAI deployments screen." lightbox="../media/provisioned/purchase-reservation.png":::
+    :::image type="content" source="../media/provisioned/purchase-reservation.png" alt-text="Screenshot of the final purchase reservation screen." lightbox="../media/provisioned/purchase-reservation.png":::
 
     Review/correct the content and review/purchase the reservation.
 

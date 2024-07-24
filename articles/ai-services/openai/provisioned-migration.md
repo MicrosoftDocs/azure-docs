@@ -56,7 +56,7 @@ The conversion to model-independent quota will be made automatically within 48 h
 
 The new model-independent quota will show up as a quota item named **Provisioned Managed Throughput Unit**. Model/version is no longer included in the name. In the Studio Quota pane, expanding the quota item will still show all of the deployments that contribute to the quota item. However, the deployments will include all provisioned managed deployments within the subscription and region.
 
-:::image type="content" source="./media/provisioned/quota.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/quota.png":::
+:::image type="content" source="./media/provisioned/quota.png" alt-text="Screenshot of the quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/quota.png":::
 
 ### Default quota
 
@@ -68,7 +68,7 @@ For existing customers, if the region already contains a quota assignment, the q
 
 Customers will no longer obtain quota by contacting their sales teams. Instead, they'll use the self-service quota request form and specify the PTU-Managed quota type. The form is accessible from a link to the right of the quota item.
 
-:::image type="content" source="./media/provisioned/request-type.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/request-type.png":::
+:::image type="content" source="./media/provisioned/request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/request-type.png":::
   
 The target is to respond to all quota requests within two business days. However, many requests will be autoapproved and responses can be expected within 30 minutes in these cases.
 
