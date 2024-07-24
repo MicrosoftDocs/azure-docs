@@ -57,11 +57,16 @@ In this QuickStart guide, you set up:
     - c. Select **Analytics** under **Configuration**.
     - d. Click **Create** and Select **Schedule Query Rule**.
     - e. Enter name, description, and leave rest as default and go to next page.
+      ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
     - f. Create rule query based on your access logs:
         - a. Example Scenario: A user sends encrypted data through a specific URL.
         - b. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
         - c. Create query:
-        ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
+        ```Bash
+      # Example Query
+      AGCAccessLogs
+        | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
+      ```
 
         - d. Detect associated IPs by Entity Mapping:
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
