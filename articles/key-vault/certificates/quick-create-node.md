@@ -9,6 +9,7 @@ ms.subservice: certificates
 ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
+zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
 # Quickstart: Azure Key Vault certificate client library for JavaScript
@@ -23,6 +24,8 @@ For more information about Key Vault and certificates, see:
 - [Key Vault Overview](../general/overview.md)
 - [Certificates Overview](about-certificates.md)
 
+::: zone pivot="programming-language-javascript"
+
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -32,6 +35,19 @@ For more information about Key Vault and certificates, see:
     - [Azure CLI](../general/quick-create-cli.md)
     - [Azure portal](../general/quick-create-portal.md) 
     - [Azure PowerShell](../general/quick-create-powershell.md)
+
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Current [Node.js LTS](https://nodejs.org).
+- [TypeScript 5+](https://www.typescriptlang.org/download/)
+- [Azure CLI](/cli/azure/install-azure-cli)
+- An existing Key Vault - you can create one using:
+    - [Azure CLI](../general/quick-create-cli.md)
+    - [Azure portal](../general/quick-create-portal.md) 
+    - [Azure PowerShell](../general/quick-create-powershell.md)
+::: zone-end
 
 This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -134,6 +150,8 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
 
 ### Set up the app framework
 
+::: zone pivot="programming-language-javascript"
+
 1. Create new text file and paste the following code into the **index.js** file. 
 
     ```javascript
@@ -216,6 +234,29 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     ```terminal
     node index.js
     ```
+
+::: zone-end
+::: zone pivot="programming-language-typescript"
+1. Create new text file and paste the following code into the **index.ts** file. 
+
+    ```javascript
+
+    ```
+
+## Run the sample application
+
+1. Build the TypeScript app:
+
+    ```terminal
+    tsc
+    ```
+
+1. Run the app:
+
+    ```terminal
+    node index.js
+    ```
+::: zone-end
 
 1. The create and get methods return a full JSON object for the certificate:
 

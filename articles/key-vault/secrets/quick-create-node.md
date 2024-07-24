@@ -215,57 +215,12 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
 1. Create new text file and paste the following code into the **index.ts** file. 
 
     ```typescript
-    import { SearchIndexClient, SimpleField, ComplexField, SearchSuggester, SearchClient, AzureKeyCredential, odata, SearchIndex } from "@azure/search-documents";
-    import indexDefinition from './hotels_quickstart_index.json';
-    import 'dotenv/config'
-    
-    // Getting endpoint and apiKey from .env file
-    const endpoint: string = process.env.SEARCH_API_ENDPOINT!!;
-    const apiKey: string = process.env.SEARCH_API_KEY!!;
-    if (!endpoint || !apiKey) {
-        throw new Error ("Make sure to set valid values for endpoint and apiKey with proper authorization.");
-    }
-    
-    function printSearchIndex(searchIndex:SearchIndex){
-        const { name, etag, defaultScoringProfile } = searchIndex;
-        console.log(`Search Index name: ${name}, etag: ${etag}, defaultScoringProfile: ${defaultScoringProfile}`);
-    }
-    
-    type MyIndexDefinition = {
-        name: string;
-        fields: SimpleField[] | ComplexField[];
-        suggesters: SearchSuggester[];
-    }
-    
-    async function main() {
-        console.log(`Running Azure AI Search JavaScript quickstart...`);
-     
-        // Create a new SearchIndexClient
-        const indexClient = new SearchIndexClient(endpoint, new AzureKeyCredential(apiKey));
-    
-        // Delete the index if it already exists
-        indexDefinition?.name 
-            ? await indexClient.deleteIndex(indexDefinition?.name) 
-            : console.log('Index doesn\'t exist.');
-    
-        // Convert JSON data to SearchIndex
-        const searchIndex: SearchIndex = indexDefinition as MyIndexDefinition;
-    
-        console.log('Creating index...');
-        const newIndex: SearchIndex = await indexClient.createIndex(searchIndex);
-    
-        // Print the new index
-        printSearchIndex(newIndex);
-    }
-    
-    main().catch((err) => {
-        console.error("The sample encountered an error:", err);
-    });
+
     ```
 
 ## Run the sample application
 
-1. Build the app:
+1. Build the TypeScript app:
 
     ```terminal
     tsc
@@ -274,7 +229,7 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
 1. Run the app:
 
     ```terminal
-    node dist/index.js
+    node index.js
     ```
 ::: zone-end
 
@@ -312,7 +267,7 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "name": "secret1637692472606"
     ```
 
-::: zone-end
+
 
 ## Integrating with App Configuration
 
