@@ -4856,11 +4856,27 @@
             "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": false
         }
-
-
-
-        
 
     ]
 }
