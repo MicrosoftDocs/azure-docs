@@ -126,7 +126,7 @@ items:
         href: public-ip-upgrade-vm.md
       - name: Add dual-stack network to an existing VM
         href: add-dual-stack-ipv6-vm-portal.md
-      - name: Create VM - dual-stack network
+      - name: Create a virtual machine with a dual-stack network
         href: create-vm-dual-stack-ipv6-portal.md
       - name: Create VM - static public IP
         items:
