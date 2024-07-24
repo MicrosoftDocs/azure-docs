@@ -95,7 +95,7 @@ There a number of different types of certificates that need to be taken into con
 - An [App Service Certificate through Azure Key Vault](../app-service/configure-ssl-certificate.md?tabs=apex#import-an-app-service-certificate) can be exported using PS1/CLI.
 - A certificate that you manage outside of App Service.
 - An App Service Certificate, not managed through Azure Key Vault, can be exported.
-- App Service certificate resources can be moved to a new Resource Group or Subscription but not cross-region. Cross-region relocations are not supported by App Service.
+- App Service certificate resources can be moved to a new Resource Group or Subscription but not cross-region. Cross-region relocations are not supported by App Service Certificates.
 - Certificates Managed that you manage and store in Azure Key Vault would first need to be exported from the source Key Vault and re-imported to the Target Key Vault associated with the target Web App(s)
 
 
