@@ -21,11 +21,11 @@ All calculations are based on a fictitious price. You can find each price in the
 
 ## The cost to store data
 
-You can calculate your storage costs by multiplying the <u>size of your data</u> in GB by the <u>price of storage</u>. For example (assuming [sample pricing](#sample-prices)), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = $117.78 per month. 
+You can calculate your storage costs by multiplying the <u>size of your data</u> in GB by the <u>price of storage</u>. For example (assuming [sample pricing](#sample-prices)), if you plan to store 10 TB of blobs in the cool access tier, the capacity cost is $0.0115 * 10 * 1024 = **$117.78** per month. 
 
-Depending on how much storage you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount. You can reserve capacity in increments of 100 TB and 1 PB sizes for 1-year and 3-year commitment duration. Reserved capacity is available only for data stored in the hot, cool, and archive access tiers.
+Depending on how much storage space you require, it might make sense to [reserve capacity](../blobs/storage-blob-reserved-capacity.md) at a discount. You can reserve capacity in increments of 100 TB and 1 PB for a 1-year or 3-year commitment duration. Reserved capacity is available only for data stored in the hot, cool, and archive access tiers.
 
-Using the [Sample prices](#sample-prices) that appear in this article, the following table compares the cost of storing 100 TB (102,400 GB) of data with pay-as-you-go pricing versus reserved capacity pricing.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table compares the pay-as-you-go and reserved capacity cost of storing 100 TB (102,400 GB) of data.
 
 | Calculation                                           | Hot    | Cool | Archive |
 |-------------------------------------------------------|--------|------|---------|
@@ -33,7 +33,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Monthly price for 100 TB of storage (1-year reserved) | $1,747 | $966 | $183    |
 | Monthly price for 100 TB of storage (3-year reserved) | $1,406 | $872 | $168    |
 
-To calculate the amount of TB of storage where reserved capacity begins to make sense, divide the cost of reserved capacity by the pay-as-you-go rate. For example, if the cost of 1-year reserved capacity for cool tier storage is $966 and the pay-as-you-go rate is $0.0115, then the calculation is  $966 / $0.0115 = 84,000 GB (roughly 82 TB). If you plan to store at least 82 TB of data in the cool tier, then reserved capacity begins to make sense. The following table calculates break even points for each access tier.
+To calculate the point at which reserved capacity begins to make sense, divide the cost of reserved capacity by the pay-as-you-go rate. For example, if the cost of 1-year reserved capacity for cool tier storage is $966 and the pay-as-you-go rate is $0.0115, then the calculation is  $966 / $0.0115 = 84,000 GB (roughly **82 TB**). If you plan to store at least 82 TB of data in the cool tier, then reserved capacity begins to make sense. The following table calculates break even point in TB for each access tier.
 
 | Calculation                                          | Hot         | Cool    | Archive |
 |------------------------------------------------------|-------------|---------|---------|
@@ -44,36 +44,64 @@ To calculate the amount of TB of storage where reserved capacity begins to make 
 
 <sup>1</sup>The hot tier has multiple pay-as-you-go rates. The price of the first 50TB and the price of the second 50TB are factored into this calculation.<br />
 
-> [!NOTE]
-> Reserved capacity is tied to an access tier. Data that you move out of that tier is billed at the rate of the destination tier.
+To learn more about reserved capacity, see [Optimize costs for Blob Storage with reserved capacity](storage-blob-reserved-capacity.md).
 
 ## The cost to transfer data
 
-When you transfer data, you're billed for _write_ and _read_ operations. Your client utility might also use operations to list container contents or get blob properties. The AzCopy utility is optimized to upload blobs reliably and efficiently and can serve as a canonical example on which to base your cost estimates. See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md) for example calculations. 
+When you transfer data, you're billed for _write_ and _read_ operations. Some data transfer utilities use additional operations such as operations to list the contents of a container or to get the properties of a blob. The [AzCopy](../common/storage-use-azcopy-s3.md) utility is optimized to transfer data efficiently and reliably and can serve as a canonical example on which to base your cost estimates. 
+
+See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md).
 
 #### The cost to upload
 
-Blobs are uploaded as blocks. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
+When you upload data, your client divides that data into blocks and uploads each block individually. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations that a client needs depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
-To estimate costs, see [The cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
+See [Estimate the cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
 
 #### The cost to download
 
-A blob that is downloaded from the Blob Service endpoint, incurs the cost of a single _read_ operation. A blob downloaded from the Data Lake Storage endpoint incurs the cost of multiple read operations because blobs must be downloaded in 4 MiB blocks and. Each 4 MiB block is billed as a separate read operation.  
+The number of operations required to download blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks. Each 4 MiB block is billed as a separate read operation.  
 
-To estimate costs, see [The cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
+See [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
 
 #### The cost to copy between containers
 
-A blob that is copied between containers incurs the cost of a single _write_ operation which is based on the destination tier. If the destination container is in another account, you're also billed for data retrieval and for read operation that is based on the source tier. If the destination account is in another region, you're also billed for network egress charges. 
+If you copy a blob to another container in the same account, then you're billed the cost of a single _write_ operation that is based on the destination tier. If the destination container is in another account, then you'll add the cost of data retrieval and the cost of a read operation that is based on the source tier. If the destination account is in another region, then you'll add the cost of network egress. 
 
-To estimate costs, see [The cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
+The following table summarizes the cost to copy a blob to another container. 
 
-## The cost to rename blobs and directories
+| Destination account | Costs |
+|---|---|
+| Same account | - A read operation based on the destination tier |
+| Different account | - A read operation based on the destination tier<br>- A read operation that is based on the source tier<br>- A data retrieval charge |
+| Different account in another region | - A read operation based on the destination tier<br>- A read operation that is based on the source tier<br>- A data retrieval charge<br>- network egress | 
 
-If you rename a blob in a flat namespace account, you must copy the blob to a new blob and then delete the old blob.
-Delete operations are free
-If you rename a blob in a hierarchical namespace account, you can use a single rename operation because you are operating on a single zero-length blob.
+See [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
+
+## The cost to rename
+
+The cost to rename blobs depends on the file structure of the account and how many blobs you need to rename.
+
+### The cost to delete individual blobs
+
+If the account has a flat namespace, there is no dedicated operation to rename a blob. Instead, your client tool will copy the blob to a new blob, and then delete the source blob. Delete operations are free. Therefore, when you rename a blob, you're billed for the cost of single _write_ operation. If the account has a hierarchical namespace, then there is a dedicated operation to rename a blob and it is billed as an _iterative write_ operation. The cost of a write operation against the Blob Service endpoint is lower than the cost of an iterative write operation against the Data Lake Storage endpoint. Therefore, the cost to rename blobs one-by-one, it will cost less in accounts that have a flat namespace. 
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to rename 1000 blobs.
+
+| Price factor                                                                                | Hot         | Cool       | Cold      |
+|---------------------------------------------------------------------------------------------|-------------|------------|-----------|
+| Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055  | $0.00001   | $0.000018 |
+| **Cost to rename blob virtual directories (1000 * operation price)**                        | **$0.0055** | **$0.01**  | **$.018** |
+| Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715   | $0.000715  | $0.000715 |
+| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715**  | **$0.715** | **0.715** |
+
+Based on these calculations, the cost to rename 1000 blobs in the hot tier differs by 70 cents.
+
+### The cost to rename a directory
+
+The cost difference is far more dramatic when renaming directories (or virtual directories).  
+
+If the account has a flat namespace, then blobs are organized into _virtual directories_ that mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character. Because a virtual directory is a part of the blob name, it doesn't actually exist as an independent object. There is no way to rename a virtual directory without renaming all of the blobs that contain that virtual directory in the name. To effectively rename each blob, client applications have to copy a blob and then delete the source blob. If the account has a hierarchical namespace, directories are not virtual. They are concrete, independent objects that you can operate on directly. Therefore, renaming a blob is far more efficient because client applications can rename a blob in a single operation. 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to rename 1000 directories that each contain 1000 blobs.
 
@@ -83,6 +111,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost to rename blob virtual directories (1000 * (1000 * operation price))**               | **$5.50**  | **$10.00** | **$18.00** |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715  | $0.000715  | $0.000715  |
 | **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715** | **$0.715** | **0.715**  |
+
+Based on these calculations, the cost to rename 1000 directories in the hot tier that each contain 1000 blobs differs by almost **$5.00**. For directories in the cold tier, the difference is over **$17**.
 
 ## The cost to change access tiers
 
