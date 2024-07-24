@@ -67,7 +67,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-This Azure Table storage connector supports the following authentication types. See the corresponding sections for details.
+This Azure Table Storage connector supports the following authentication types. See the corresponding sections for details.
 
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
@@ -214,13 +214,13 @@ When you create a shared access signature URI, consider the following points:
 
 ### System-assigned managed identity authentication
 
-A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this managed identity for Azure Table storage authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this managed identity for Azure Table Storage authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
 To use system-assigned managed identity authentication, follow these steps：
 
 1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
-2. Grant the managed identity permission in Azure Table storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+2. Grant the managed identity permission in Azure Table Storage. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-table-data-contributor).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Table Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Table Data Contributor** role.
@@ -252,7 +252,7 @@ A data factory can be assigned with one or multiple [user-assigned managed ident
 
 To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Table Storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Table Storage. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-table-data-contributor).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Table Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Table Data Contributor** role.
