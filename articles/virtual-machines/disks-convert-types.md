@@ -36,9 +36,9 @@ The preview allowing direct switching to Premium SSD v2 disks has some additiona
 - Existing disks can only be directly switched to 512 sector size Premium SSD v2 disks.
 - You can only perform 40 conversions at the same time per subscription per region.
 - If your existing disk is a shared disk, you must detach all VMs before changing to Premium SSD v2.
-- If your existing disk is using host caching, you must set it to none before changing to Premium SSD v2.
-- If your existing disk is using bursting, you must disable it before changing to Premium SSD v2.
-- If your existing disk is using double encryption, you must switch to one of the single encryption options before changing to Premium SSD v2.
+- If your existing disk is using host caching, you must [set it to none](#disable-host-caching) before changing to Premium SSD v2.
+- If your existing disk is using bursting, you must [disable it](#disable-bursting) before changing to Premium SSD v2.
+- If your existing disk is using double encryption, you must [switch to one of the single encryption options](#disable-double-encryption) before changing to Premium SSD v2.
 - You can't directly switch from a Premium SSD v2 to another disk type. If you want to change a Premium SSD v2 to another disk type, you must migrate using [snapshots](#migrate-to-premium-ssd-v2-or-ultra-disk-using-snapshots).
 - You can't directly switch from Ultra Disks to Premium SSD v2 disks, you must migrate using [snapshots](#migrate-to-premium-ssd-v2-or-ultra-disk-using-snapshots).
 - If you're using the rest API, you must use an API version `2020-12-01` or newer for both the Compute Resource Provider and the Disk Resource Provider.
@@ -56,6 +56,33 @@ This preview is currently only available in the following regions:
 - Southeast Asia
 - Central India
 - France Central
+
+### Disable host caching
+
+You can use the following CLI script to identify your disk's LUN and disable host caching. Replace `yourResourceGroup` and `nameOfYourVM` with your own values, then run the script.
+
+```azurecli
+$myRG="yourResourceGroup"
+$myVM="nameOfYourVM"
+
+lun=$(az vm show -g $myRG -n $myVM --query "storageProfile.dataDisks[].lun")
+
+az vm update --resource-group $myRG --name $myVM --disk-caching $lun=None
+```
+
+### Disable bursting
+
+If you enabled bursting within 12 hours, you have to wait until the 13th hour or later to disable it.
+
+You can use the following command to disable disk bursting: `az disk update --name "yourDiskNameHere" --resource-group "yourRGNameHere" --enable-bursting false`
+
+### Disable double encryption
+
+You can use the following command to change your disk from double encryption to encryption at rest with customer-managed keys:
+
+```azurecli
+az disk-encryption-set update --name "nameOfYourDiskEncryptionSetHere" --resource-group "yourRGNameHere" --key-url yourKeyURL --source-vault "yourKeyVaultName" --encryption-type EncryptionAtRestWithCustomerKey
+```
 
 ## Switch all managed disks of a VM from one account to another
 
@@ -108,7 +135,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
  ```azurecli
 
 #resource group that contains the virtual machine
-$rgName='yourResourceGroup'
+rgName='yourResourceGroup'
 
 #Name of the virtual machine
 vmName='yourVM'
@@ -190,7 +217,7 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
  ```azurecli
 
 #resource group that contains the managed disk
-$rgName='yourResourceGroup'
+rgName='yourResourceGroup'
 
 #Name of your managed disk
 diskName='yourManagedDiskName'
