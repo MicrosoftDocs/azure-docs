@@ -112,8 +112,8 @@ additionalContent:
       items:
         # Card
         - title: Copilot in Azure video series
-          summary: This playlist shows examples how to use Copilot in Azure with various Azure services. 
-          url: https://youtube.com/playlist?list=PLjt5SKzX1iI8d7Uj123-VGhVR5WxekNul&si=31tHgg0JAHfZBRzC
+          summary: See how Microsoft Copilot integrates with various Azure services to help with hybrid management tasks. 
+          url: https://learn.microsoft.com/en-us/shows/microsoft-copilot-in-azure/
         # Card
         - title: Copilot learning hub
           summary: Get started on your Copilot learning journey.
