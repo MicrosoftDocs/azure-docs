@@ -101,6 +101,13 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 
 Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
 
+- We recommend `DefaultAzureCredential` for local development.
+- We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
+  - For system-assigned, use the default constructor without parameters.
+  - For user-assigned, provide the client ID to the constructor.
+- We recommend `ClientSecretCredential` for service principals.
+  - Provide the tenant ID, client ID, and client secret to the constructor.
+
 #### DefaultAzureCredential
 
 ```javascript
@@ -112,6 +119,38 @@ appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;Inges
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
 ```
+
+#### ClientSecretCredential
+
+```javascript
+import appInsights from "applicationinsights";
+import { ClientSecretCredential } from "@azure/identity"; 
+ 
+const credential = new ClientSecretCredential(
+    "<YOUR_TENANT_ID>",
+    "<YOUR_CLIENT_ID>",
+    "<YOUR_CLIENT_SECRET>"
+  );
+appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
+appInsights.defaultClient.config.aadTokenCredential = credential;
+
+```
+
+#### Environment variable configuration
+
+When using [Azure App Services autoinstrumentation](./azure-web-apps-nodejs.md) The `APPLICATIONINSIGHTS_AUTHENTICATION_STRING` environment variable lets Application Insights authenticate to Microsoft Entra ID and send telemetry.
+
+- For system-assigned identity:
+
+| App setting    | Value    |
+| -------------- |--------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD`    |
+
+- For user-assigned identity:
+
+| App setting   | Value    |
+| ------------- | -------- |
+| APPLICATIONINSIGHTS_AUTHENTICATION_STRING         | `Authorization=AAD;ClientId={Client id of the User-Assigned Identity}`    |
 
 ### [Java](#tab/java)
 
