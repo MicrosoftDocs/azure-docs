@@ -305,16 +305,6 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
-
-
-
 ```python
 response = model.complete(
     messages=[
@@ -666,16 +656,6 @@ var response = await client.path("/chat/completions").post({
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
-
-
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
 
 
 
@@ -1049,16 +1029,6 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
-
-
-
 ```csharp
 requestOptions = new ChatCompletionsOptions()
 {
@@ -1090,7 +1060,9 @@ try
     {
         Messages = {
             new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
-            new ChatRequestUserMessage("Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+            new ChatRequestUserMessage(
+                "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+            ),
         },
     };
 

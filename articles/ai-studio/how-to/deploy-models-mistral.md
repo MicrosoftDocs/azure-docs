@@ -274,16 +274,6 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
-
-
-
 ```python
 response = model.complete(
     messages=[
@@ -395,7 +385,7 @@ response = model.complete(
 )
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
 
 
 
@@ -407,7 +397,7 @@ print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
 ```
 
-Append this message to the chat history:
+To continue with this tutorial, we append this message to the chat history:
 
 
 
@@ -778,16 +768,6 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
-
-
-
 ```javascript
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
@@ -904,7 +884,7 @@ var result = await client.path("/chat/completions").post({
 });
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
 
 
 
@@ -916,7 +896,7 @@ console.log("Finish reason: " + response.body.choices[0].finish_reason)
 console.log("Tool call: " + tool_calls)
 ```
 
-Append this message to the chat history:
+To continue with this tutorial, we append this message to the chat history:
 
 
 
@@ -1280,7 +1260,10 @@ requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
         new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("You are a helpful assistant that always generate responses in JSON format, using. the following format: { \"answer\": \"response\" }.")
+        new ChatRequestUserMessage(
+            "You are a helpful assistant that always generate responses in JSON format, " +
+            "using. the following format: { \"answer\": \"response\" }."
+        )
     },
     ResponseFormat = new ChatCompletionsResponseFormatJSON()
 };
@@ -1292,16 +1275,6 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ### Pass extra parameters to the model
 
 The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
-
-
-```http
-POST /chat/completions HTTP/1.1
-Host: <ENDPOINT_URI>
-Authorization: Bearer <TOKEN>
-Content-Type: application/json
-extra-parameters: pass-through
-```
 
 
 
@@ -1366,22 +1339,22 @@ FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
 {
     Description = "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
     Parameters = BinaryData.FromObjectAsJson(new
+    {
+        Type = "object",
+        Properties = new
         {
-            Type = "object",
-            Properties = new
+            origin_city = new
             {
-                origin_city = new
-                {
-                    Type = "string",
-                    Description = "The name of the city where the flight originates"
-                },
-                destination_city = new
-                {
-                    Type = "string",
-                    Description = "The flight destination city"
-                }
+                Type = "string",
+                Description = "The name of the city where the flight originates"
+            },
+            destination_city = new
+            {
+                Type = "string",
+                Description = "The flight destination city"
             }
-        },
+        }
+    },
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }
     )
 };
@@ -1398,7 +1371,8 @@ static string getFlightInfo(string loc_origin, string loc_destination)
 {
     return JsonConvert.SerializeObject(new
     {
-        info = $"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
+        info = $"There are no flights available from {loc_origin} to {loc_destination}. You " +
+        "should take a train, specially if it helps to reduce CO2 emissions."
     });
 }
 ```
@@ -1409,7 +1383,11 @@ Prompt the model to book flights with the help of this function:
 
 ```csharp
 var chatHistory = new List<ChatRequestMessage>(){
-        new ChatRequestSystemMessage("You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries."),
+        new ChatRequestSystemMessage(
+            "You are a helpful assistant that help users to find information about traveling, " +
+            "how to get to places and the different transportations options. You care about the" +
+            "environment and you always have that in mind when answering inqueries."
+        ),
         new ChatRequestUserMessage("When is the next flight from Miami to Seattle?")
     };
 
@@ -1420,7 +1398,7 @@ requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 response = client.Complete(requestOptions);
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
 
 
 
@@ -1432,7 +1410,7 @@ Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
 Console.WriteLine($"Tool call: {toolsCall[0].Id}");
 ```
 
-Append this message to the chat history:
+To continue with this tutorial, we append this message to the chat history:
 
 
 
@@ -1445,20 +1423,22 @@ Now, it's time to call the appropriate function to handle the tool call. The fol
 
 
 ```csharp
-foreach (ChatCompletionsToolCall tool in toolsCall )
+foreach (ChatCompletionsToolCall tool in toolsCall)
 {
     if (tool is ChatCompletionsFunctionToolCall functionTool)
     {
-        //Get the tool details:
+        // Get the tool details:
         string callId = functionTool.Id;
         string toolName = functionTool.Name;
         string toolArgumentsString = functionTool.Arguments;
         Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
 
-        // Call the function defined above using reflection, which allow us to call a function 
-        // by it's string name. Notice that this is just done for demonstration purposes as a simple 
-        // way to get the function callable from its string name. Then we can call it with the 
-        // corresponding arguments.
+        // Here you have to call the function defined. In this particular example we use 
+        // reflection to find the method we definied before in an static class called 
+        // `ChatCompletionsExamples`. Using reflection allows us to call a function 
+        // by string name. Notice that this is just done for demonstration purposes as a 
+        // simple way to get the function callable from its string name. Then we can call 
+        // it with the corresponding arguments.
 
         var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
         string toolResponse = (string)typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
@@ -1496,7 +1476,9 @@ try
     {
         Messages = {
             new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
-            new ChatRequestUserMessage("Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."),
+            new ChatRequestUserMessage(
+                "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills."
+            ),
         },
     };
 
@@ -2019,7 +2001,7 @@ Prompt the model to book flights with the help of this function:
 }
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. When a tool needs to be called, you'll see `finish_reason` is `tool_calls`.
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
 
 
 
@@ -2059,7 +2041,7 @@ By inspecting the response, you can find out if a tool needs to be called. When 
 }
 ```
 
-Append this message to the chat history:
+To continue with this tutorial, we append this message to the chat history:
 
 
 
