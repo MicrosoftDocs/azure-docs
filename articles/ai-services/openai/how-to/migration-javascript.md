@@ -39,7 +39,7 @@ const scope = "https://cognitiveservices.azure.com/.default";
 const azureADTokenProvider = getBearerTokenProvider(credential, scope);
 ```
 
-`azureADTokenProvider` will be passed to the options object when creating the `AzureOpenAI` client.
+`azureADTokenProvider` is passed to the options object when creating the `AzureOpenAI` client.
 
 ### (Highly Discouraged) API Key
 
@@ -173,7 +173,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { azure
 
 ---
 
-- `"@azure/openai/types"` is imported which adds Azure-specific definitions (e.g. `data_sources`) to the client types
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, `data_sources`) to the client types
 - The `azureExtensionOptions` property has been replaced with the inner `data_sources` property.
 - The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI service API.
 - Camel case properties have been replaced with snake case properties.
@@ -493,7 +493,7 @@ for (const choice of results.choices) {
 
 
 - camel case properties have been replaced with snake case properties
-- `"@azure/openai/types"` is imported which adds Azure-specific definitions (e.g. content_filter_results) to the client types, see the [Azure types](#azure-types) section for more information
+- `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, content_filter_results) to the client types, see the [Azure types](#azure-types) section for more information
 
 ## Comparing Types
 
