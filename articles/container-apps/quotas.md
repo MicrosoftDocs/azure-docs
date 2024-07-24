@@ -34,7 +34,7 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 | Feature | Scope | Default Quota | Maximum Quota | Remarks |
 |--|--|--|--|--|
 | Cores | Replica | 4 | 4 | Maximum number of cores available to a revision replica. |
-| Cores | Environment | 100 | 5,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. Quota name: Managed Environment General Purpose Cores |
+| Cores | Environment | 100 | 5,000 | Maximum number of cores the Consumption workload profile in a Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions created in consumption workload profile within an environment. Quota name: Managed Environment Consumption Cores |
 
 ### Dedicated workload profiles
 
