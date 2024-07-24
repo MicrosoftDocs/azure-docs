@@ -57,9 +57,7 @@ You can view metrics for Virtual WAN by using PowerShell. To query, use the foll
 
 ```azurepowershell-interactive
 $MetricInformation = Get-AzMetric -ResourceId "/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualHubs/<VirtualHubName>" -MetricName "VirtualHubDataProcessed" -TimeGrain 00:05:00 -StartTime 2022-2-20T01:00:00Z -EndTime 2022-2-20T01:30:00Z -AggregationType Sum
-```
 
-```azurepowershell-interactive
 $MetricInformation.Data
 ```
 
@@ -186,8 +184,8 @@ Most of the recommendations in this article suggest creating Azure Monitor alert
 - Create alert rule for VPN gateway overutilization.
 - Create alert rule for tunnel overutilization.
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create alert rule for increase in Tunnel Egress and/or Ingress packet drop count.| An increase in tunnel egress and/or ingress packet drop count might indicate an issue with the Azure VPN gateway, or with the remote VPN device. Select the **Tunnel Egress/Ingress Packet drop count** metric when creating alert rules. Define a **static Threshold value** greater than **0** and the **Total** aggregation type when configuring the alert logic.<br><br>You can choose to monitor the **Connection** as a whole, or split the alert rule by **Instance** and **Remote IP** to be alerted for issues involving individual tunnels. To learn the difference between the concept of **VPN connection**, **link**, and **tunnel** in Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).|
 |Create alert rule to monitor BGP peer status.|When using BGP in your site-to-site connections, it's important to monitor the health of the BGP peerings between the gateway instances and the remote devices, as recurrent failures can disrupt connectivity.<br><br>Select the **BGP Peer Status** metric when creating the alert rule. Using a **static** threshold, choose the **Average** aggregation type and configure the alert to be triggered whenever the value is **less than 1**.<br><br>We recommend that you split the alert by **Instance** and **BGP Peer Address** to detect issues with individual peerings. Avoid selecting the gateway instance IPs as **BGP Peer Address** because this metric monitors the BGP status for every possible combination, including with the instance itself (which is always 0).|
 |Create alert rule to monitor number of BGP routes advertised and learned.|**BGP Routes Advertised** and **BGP Routes Learned** monitor the number of routes advertised to and learned from peers by the VPN gateway, respectively. If these metrics drop to zero unexpectedly, it could be because there’s an issue with the gateway or with on-premises.<br><br>We recommend that you configure an alert for both these metrics to be triggered whenever their value is **zero**. Choose the **Total** aggregation type. Split by **Instance** to monitor individual gateway instances.|
@@ -201,8 +199,8 @@ To configure log-based alerts, you must first create a diagnostic setting for yo
 - Create tunnel disconnect alert rule.
 - Create BGP disconnect alert rule.
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create tunnel disconnect alert rule.|**Use Tunnel Diagnostic Logs** to track disconnect events in your site-to-site connections. A disconnect event can be due to a failure to negotiate SAs, unresponsiveness of the remote VPN device, among other causes. Tunnel Diagnostic Logs also provide the disconnect reason. See the **Create tunnel disconnect alert rule - log query** below this table to select disconnect events when creating the alert rule.<br><br>Configure the alert to be triggered whenever the number of rows resulting from running the query is **greater than 0**. For this alert to be effective, select **Aggregation Granularity** to be between 1 and 5 minutes and the **Frequency of evaluation** to also be between 1 and 5 minutes. This way, after the **Aggregation Granularity** interval passes, the number of rows is 0 again for a new interval.<br><br>For troubleshooting tips when analyzing Tunnel Diagnostic Logs, see [Troubleshoot Azure VPN gateway](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md#TunnelDiagnosticLog) using diagnostic logs. Additionally, use **IKE Diagnostic Logs** to complement your troubleshooting, as these logs contain detailed IKE-specific diagnostics.|
 |Create BGP disconnect alert rule. |Use **Route Diagnostic Logs** to track route updates and issues with BGP sessions. Repeated BGP disconnect events can affect connectivity and cause downtime. See the **Create BGP disconnect rule alert- log query** below this table to select disconnect events when creating the alert rule.<br><br>Configure the alert to be triggered whenever the number of rows resulting from running the query is **greater than 0**. For this alert to be effective, select **Aggregation Granularity** to be between 1 and 5 minutes and the **Frequency of evaluation** to also be between 1 and 5 minutes. This way, after the **Aggregation Granularity** interval has passes, the number of rows is 0 again for a new interval if the BGP sessions are restored.<br><br>For more information about the data collected by Route Diagnostic Logs, see [Troubleshooting Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md#RouteDiagnosticLog). |
 
@@ -234,8 +232,8 @@ The following section details the configuration of metric-based alerts only. How
 - Create alert for P2S connection count nearing limit.
 - Create alert for User VPN route count nearing limit.
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create alert rule for gateway overutilization.|The number of scale units configured determines the bandwidth of a point-to-site gateway. To learn more about point-to-site gateway scale units, see Point-to-site (User VPN).<br><br>**Use the Gateway P2S Bandwidth** metric to monitor the gateway’s utilization and configure an alert rule that is triggered whenever the gateway’s bandwidth is **greater than** a value near its aggregate throughput – for example, if the gateway was configured with 2 scale units, it has an aggregate throughput of 1 Gbps. In this case, you could define a threshold value of 950 Mbps.<br><br>Use this alert to proactively investigate the root cause of the increased utilization, and ultimately increase the number of scale units, if needed. Select the **Average** aggregation type when configuring the alert rule.|
 |Create alert for P2S connection count nearing limit |The maximum number of point-to-site connections allowed is also determined by the number of scale units configured on the gateway. To learn more about point-to-site gateway scale units, see the FAQ for [Point-to-site (User VPN)](virtual-wan-faq.md#p2s-concurrent).<br><br>Use the **P2S Connection Count** metric to monitor the number of connections. Select this metric to configure an alert rule that is triggered whenever the number of connections is nearing the maximum allowed. For example, a 1-scale unit gateway supports up to 500 concurrent connections. In this case, you could configure the alert to be triggered whenever the number of connections is **greater than** 450.<br><br>Use this alert to determine whether an increase in the number of scale units is required or not. Choose the **Total** aggregation type when configuring the alert rule.|
 |Create alert rule for User VPN routes count nearing limit.|The protocol used determines the maximum number of User VPN routes. IKEv2 has a protocol-level limit of 255 routes, whereas OpenVPN has a limit of 1,000 routes. To learn more about this fact, see [VPN server configuration concepts](point-to-site-concepts.md#vpn-server-configuration-concepts).<br><br>You might want to be alerted if you’re close to hitting the maximum number of User VPN routes and act proactively to avoid any downtime. Use the **User VPN Route Count** to monitor this situation and configure an alert rule that is triggered whenever the number of routes surpasses a value close to the limit. For example, if the limit is 255 routes, an appropriate **Threshold** value could be 230. Choose the **Total** aggregation type when configuring the alert rule.|
@@ -253,8 +251,8 @@ The following section focuses on metric-based alerts. In addition to the alerts 
 - Count alert rule for number of routes learned from peer.
 - Create alert rule for high frequency in route changes.
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create alert rule for Bits Received Per Second.|**Bits Received per Second** monitors the total amount of traffic received by the gateway from the MSEEs.<br><br>You might want to be alerted if the amount of traffic received by the gateway is at risk of hitting its maximum throughput. This situation can lead to performance and connectivity issues. This approach allows you to act proactively by investigating the root cause of the increased gateway utilization or increasing the gateway’s maximum allowed throughput.<br><br>Choose the **Average** aggregation type and a **Threshold** value close to the maximum throughput provisioned for the gateway when configuring the alert rule.<br><br>Additionally, we recommend that you set an alert when the number of **Bits Received per Second** is near zero, as it might indicate an issue with the gateway or the MSEEs.<br><br>The number of scale units provisioned determines the maximum throughput of an ExpressRoute gateway. To learn more about ExpressRoute gateway performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).|
 |Create alert rule for CPU overutilization.|When using ExpressRoute gateways, it's important to monitor the CPU utilization. Prolonged high utilization can affect performance and connectivity.<br><br>Use the **CPU utilization** metric to monitor utilization and create an alert for whenever the CPU utilization is **greater than** 80%, so you can investigate the root cause and ultimately increase the number of scale units, if needed. Choose the **Average** aggregation type when configuring the alert rule.<br><br>To learn more about ExpressRoute gateway performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).|
 |Create alert rule for packets received per second.|**Packets per second** monitors the number of inbound packets traversing the Virtual WAN ExpressRoute gateway.<br><br>You might want to be alerted if the number of **packets per second** is nearing the limit allowed for the number of scale units configured on the gateway.<br><br>Choose the Average aggregation type when configuring the alert rule. Choose a **Threshold** value close to the maximum number of **packets per second** allowed based on the number of scale units of the gateway. To learn more about ExpressRoute performance, see [About ExpressRoute connections in Azure Virtual WAN](virtual-wan-expressroute-about.md).<br><br>Additionally, we recommend that you set an alert when the number of **Packets per second** is near zero, as it might indicate an issue with the gateway or MSEEs.|
@@ -270,8 +268,8 @@ The following section focuses on metrics-based alerts for virtual hubs.
 
 - Create alert rule for BGP peer status
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create alert rule to monitor BGP peer status.| Select the **BGP Peer Status** metric when creating the alert rule. Using a **static** threshold, choose the **Average** aggregation type and configure the alert to be triggered whenever the value is **less than 1**.<br><br> This approach allows you to identify when the virtual hub router is having connectivity issues with ExpressRoute, Site-to-Site VPN, and Point-to-Site VPN gateways deployed in the hub.|
 
 ### Azure Firewall
@@ -283,8 +281,8 @@ This section of the article focuses on metric-based alerts. Azure Firewall offer
 - Create alert rule for risk of SNAT port exhaustion.
 - Create alert rule for firewall overutilization.
 
-|Recommendation | Description|
-|---|---|
+| Recommendation | Description |
+|:---|:---|
 |Create alert rule for risk of SNAT port exhaustion.|Azure Firewall provides 2,496 SNAT ports per public IP address configured per backend virtual machine scale instance. It’s important to estimate in advance the number of SNAT ports that can fulfill your organizational requirements for outbound traffic to the Internet. Not doing so increases the risk of exhausting the number of available SNAT ports on the Azure Firewall, potentially causing outbound connectivity failures.<br><br>Use the **SNAT port utilization** metric to monitor the percentage of outbound SNAT ports currently in use. Create an alert rule for this metric to be triggered whenever this percentage surpasses **95%** (due to an unforeseen traffic increase, for example) so you can act accordingly by configuring another public IP address on the Azure Firewall, or by using an [Azure NAT Gateway](../nat-gateway/nat-overview.md) instead. Use the **Maximum** aggregation type when configuring the alert rule.<br><br>To learn more about how to interpret the **SNAT port utilization** metric, see [Overview of Azure Firewall logs and metrics](../firewall/logs-and-metrics.md#metrics). To learn more about how to scale SNAT ports in Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).|
 |Create alert rule for firewall overutilization.|Azure Firewall maximum throughput differs depending on the SKU and features enabled. To learn more about Azure Firewall performance, see [Azure Firewall performance](../firewall/firewall-performance.md).<br><br>You might want to be alerted if your firewall is nearing its maximum throughput. You can troubleshoot the underlying cause, because this situation can affect the firewall’s performance.<br><br> Create an alert rule to be triggered whenever the **Throughput** metric surpasses a value nearing the firewall’s maximum throughput – if the maximum throughput is 30 Gbps, configure 25 Gbps as the **Threshold** value, for example. The **Throughput** metric unit is **bits/sec**. Choose the **Average** aggregation type when creating the alert rule.
 
