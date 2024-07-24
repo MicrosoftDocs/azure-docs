@@ -42,13 +42,13 @@ Key points about the wizard:
 
   Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
 
-+ An embedding model on a supported platform. [Deployment instructions](#set-up-embedding-models) are provided in this article.
++ An embedding model on an Azure AI platform. [Deployment instructions](#set-up-embedding-models) are in this article.
 
   | Provider | Supported models |
   |---|---|
   | [Azure OpenAI Service](https://aka.ms/oai/access) | text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small. |
   | [Azure AI Studio model catalog](/azure/ai-studio/what-is-ai-studio) |  Azure, Cohere, and Facebook embedding models. |
-  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions: East US, West US, West US2, North Europe, West Europe, France Central, Sweden Central, Switzerland North, Southeast Asia, Korea Central, Australia East, or Japan East. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. |
+  | [Azure AI services multiservice account](/azure/ai-services/multi-service-resource) | [Azure AI Vision multimodal](/azure/ai-services/computer-vision/how-to/image-retrieval) for image and text vectorization. Azure AI Vision multimodal is available in selected regions. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval?tabs=csharp) for an updated list. **To use this resource, the account must be in an available region and in the same region as Azure AI Search**. |
 
 ### Public endpoint requirements
 
@@ -208,9 +208,18 @@ The next step is to connect to a data source to use for the search index.
 
 1. Choose the storage account and container that provide the data.
 
-1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md).
+1. Specify whether you want [deletion detection](search-howto-index-changed-deleted-blobs.md) support. On subsequent indexing runs, the search index is updated to remove any search documents based on soft-deleted blobs on Azure Storage.
+
+   + You're prompted to choose either **Native blob soft delete** or **Soft delete using custom data**.
+   + Your blob container must have deletion detection enabled before you run the wizard.
+   + [Enable soft delete](/azure/storage/blobs/soft-delete-blob-overview) in Azure Storage, or [add custom metadata](search-howto-index-changed-deleted-blobs.md#soft-delete-strategy-using-custom-metadata) to your blobs that indexing recognizes as a deletion flag.
+   + If you choose **Soft delete using custom data**, you're prompted to provide the metadata property name-value pair.
 
 1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
+
+   + You're prompted to choose either a system-managed or user-managed identity. 
+   + The identity should have a **Storage Blob Data Reader** role on Azure Storage. 
+   + Do not skip this option. A connection error occurs during indexing if the wizard can't connect to Azure Storage.
 
 1. Select **Next**.
 
@@ -237,19 +246,27 @@ Support for OneLake indexing is in preview. For more information about supported
 
 In this step, specify the embedding model for vectorizing chunked data.
 
-1. On the **Vectorize your text** page, specify whether deployed models are on Azure OpenAI, the Azure AI Studio model catalog, or an existing Azure AI Vision multimodal resource in the same region as Azure AI Search.
+1. On the **Vectorize your text** page, choose the source of the embedding model:
 
-1. Specify the Azure subscription.
+   + Azure OpenAI
+   + Azure AI Studio model catalog
+   + An existing Azure AI Vision multimodal resource in the same region as Azure AI Search. If there's no [Azure AI Services multi-service account](/azure/ai-services/multi-service-resource) in the same region, this option isn't available.
+
+1. Choose the Azure subscription.
 
 1. Make selections according to the resource:
 
-   1. For Azure OpenAI, select the service, model deployment, and authentication type.
+   + For Azure OpenAI, choose an existing deployment of text-embedding-ada-002, text-embedding-3-large, or text-embedding-3-small.
 
-   1. For AI Studio catalog, select the project, model deployment, and authentication type.
+   + For AI Studio catalog, choose an existing deployment of an Azure, Cohere, and Facebook embedding model.
 
-   1. For AI Vision vectorization, select the account.
+   + For AI Vision multimodal embeddings, select the account.
 
    For more information, see [Set up embedding models](#set-up-embedding-models) earlier in this article.
+
+1. Specify whether you want your search service to authenticate using an API key or managed identity.
+
+   + The identity should have a **Cognitive Services OpenAI User** role on the Azure AI multi-services account.
 
 1. Select the checkbox that acknowledges the billing impact of using these resources.
 
@@ -260,7 +277,8 @@ In this step, specify the embedding model for vectorizing chunked data.
 If your content includes images, you can apply AI in two ways:
 
 + Use a supported image embedding model from the catalog, or choose the Azure AI Vision multimodal embeddings API to vectorize images.
-+ Use optical character recognition (OCR) to recognize text in images.
+
++ Use optical character recognition (OCR) to recognize text in images. This option invokes the [OCR skill](cognitive-search-skill-ocr.md) to read text from images.
 
 Azure AI Search and your Azure AI resource must be in the same region.
 
