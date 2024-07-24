@@ -147,7 +147,7 @@ The specified image version is deployed to your app.
 :::zone pivot="azure-functions"  
 You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
 ::: zone-end  
-:::zone pivot="azure-functions"  
+:::zone pivot="azure-functions, container-apps"  
 ## Azure portal create using containers
 
 When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).

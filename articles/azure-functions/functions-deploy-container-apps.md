@@ -160,9 +160,6 @@ In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) c
 
 Specifying `--workload-profile-name "Consumption"` creates your app in an environment using the default `Consumption` workload profile, which costs the same as running in a Container Apps Consumption plan. When you first create the function app, it pulls the initial image from your registry. 
   
-<!--- CI/CD isn't yet supported: 
-You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from Docker Hub.-->
-
 At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
