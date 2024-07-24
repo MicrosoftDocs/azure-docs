@@ -124,7 +124,7 @@ To use the retention workbook in Application Insights, navigate to the **Workboo
 
 * The insights cards show the top five initiating events and the top five returned events. This information gives users a better understanding of their retention report.
 
-    :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot that shows the Retention workbook showing the User returned after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
+    :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot that shows the Retention workbook showing the User returned after number of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
 
 #### Use business events to track retention
 
