@@ -22,7 +22,7 @@ Some key points about synonym maps:
 - A synonym map is a top-level resource that can be created once and used by many indexes.
 - A synonym map applies to string fields.
 - You can create and assign a synonym map at any time with no disruption to indexing or queries.
-- Your [service tier](search-limits-quotas-capacity.md#synonym-limits) sets the limits on how many synonyms maps you can create.
+- Your [service tier](search-limits-quotas-capacity.md#synonym-limits) sets the limits on how many synonym maps you can create.
 - Your search service can have multiple synonym maps, but within an index, a field definition can only have one synonym map assignment.
 
 ## Create a synonym map
