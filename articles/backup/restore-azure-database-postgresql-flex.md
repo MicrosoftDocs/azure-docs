@@ -43,7 +43,7 @@ Follow these steps:
 1. Submit the Restore operation and track the triggered job under **Backup jobs**.
    :::image type="content" source="./media/restore-azure-database-postgresql-flex/validate.png" alt-text="Screenshot showing the validate process page.":::
 
-1. Once the job is finished, the backed up data is restored into the storage account. Below are the set of files recovered in your storage account after the restore:
+1. Once the job is finished, the backed-up data is restored into the storage account. Below are the set of files recovered in your storage account after the restore:
 
    - The first file is a marker or timestamp file that gives the customer the time the backup was taken at. The file cannot be restored but if opened with a text editor should tell the customer the UTC time when the backup was taken.
      
