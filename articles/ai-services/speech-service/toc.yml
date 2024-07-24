@@ -316,7 +316,7 @@ items:
         - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
-        - name: AI-powered language learning with pronunciation assessment
+        - name: Interactive language learning with pronunciation assessment
           href: language-learning-with-pronunciation-assessment.md
           displayName: pronounce, learn language, assess pron, chatting 
     - name: Azure OpenAI speech to speech chat
