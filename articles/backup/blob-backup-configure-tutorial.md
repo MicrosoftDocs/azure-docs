@@ -2,7 +2,7 @@
 title: Tutorial - Configure vaulted backup for Azure Blobs using Azure Backup
 description: In this tutorial, learn how to configure vaulted backup for Azure Blobs.
 ms.topic: tutorial
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
