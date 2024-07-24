@@ -108,29 +108,12 @@ Application Insights Node.JS supports the credential classes provided by [Azure 
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
-#### DefaultAzureCredential
 
 ```javascript
 import appInsights from "applicationinsights";
 import { DefaultAzureCredential } from "@azure/identity"; 
  
 const credential = new DefaultAzureCredential();
-appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
-appInsights.defaultClient.config.aadTokenCredential = credential;
-
-```
-
-#### ClientSecretCredential
-
-```javascript
-import appInsights from "applicationinsights";
-import { ClientSecretCredential } from "@azure/identity"; 
- 
-const credential = new ClientSecretCredential(
-    "<YOUR_TENANT_ID>",
-    "<YOUR_CLIENT_ID>",
-    "<YOUR_CLIENT_SECRET>"
-  );
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();
 appInsights.defaultClient.config.aadTokenCredential = credential;
 
