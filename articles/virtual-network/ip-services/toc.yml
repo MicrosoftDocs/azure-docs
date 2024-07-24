@@ -125,13 +125,7 @@ items:
       - name: Upgrade a basic public IP address on a VM
         href: public-ip-upgrade-vm.md
       - name: Add dual-stack network to an existing VM
-        items:
-        - name: Portal
-          href: add-dual-stack-ipv6-vm-portal.md
-        - name: PowerShell
-          href: add-dual-stack-ipv6-vm-powershell.md
-        - name: CLI
-          href: add-dual-stack-ipv6-vm-cli.md
+        href: add-dual-stack-ipv6-vm-portal.md
       - name: Create VM - dual-stack network
         items:
         - name: Portal
