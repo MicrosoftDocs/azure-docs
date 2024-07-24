@@ -19,7 +19,7 @@ This article introduces capabilities in Azure API Management to help you manage 
 
 > [!NOTE]
 > * This article focuses on capabilities to manage APIs exposed by Azure OpenAI Service. Many of the GenAI gateway capabilities can be applied to APIs for other generative AI services.
-> * Generative AI gateway capabilities are features of API Management's existing API gateway, not a separate API gateway. For more information on API Management, see [Azure API Management overview](../api-management/overview.md).
+> * Generative AI gateway capabilities are features of API Management's existing API gateway, not a separate API gateway. For more information on API Management, see [Azure API Management overview](api-management-key-concepts.md).
 
 ## Challenges in managing generative AI APIs
 
