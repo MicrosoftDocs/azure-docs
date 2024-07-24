@@ -3,7 +3,7 @@ title: "Quickstart: Create a TypeScript Durable Functions app"
 description: Create and publish a TypeScript Durable Functions app in Azure Functions by using Visual Studio Code.
 author: hossam-nasr
 ms.topic: quickstart
-ms.date: 07/09/2024
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf
 ms.devlang: typescript
 ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete, devx-track-ts

@@ -3,7 +3,7 @@ title: "Quickstart: Create a Python Durable Functions app"
 description: Create and publish a Python Durable Functions app in Azure Functions by using Visual Studio Code.
 author: davidmrdavid
 ms.topic: quickstart
-ms.date: 06/15/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf, davidmrdavid
 ms.devlang: python
 ms.custom: mode-api, devdivchpfy22, vscode-azure-extension-update-complete, devx-track-python

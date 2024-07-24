@@ -4,7 +4,7 @@ description: Configure a Durable Functions app to use the Microsoft SQL Server (
 author: davidmrdavid
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
-ms.date: 11/14/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf
 ---
 
@@ -43,12 +43,7 @@ If you don't meet these prerequisites, we recommend that you begin with one of t
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-First, install the latest version of the MSSQL storage provider extension from NuGet. For .NET, you add a reference to the extension in your _.csproj_ file and build the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
-
-Which extension package you install depends on the .NET worker you're using:
-
-- For the _in-process_ .NET worker, install [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
-- For the _isolated_ .NET worker, install [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
+First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer) MSSQL storage provider extension from NuGet. For .NET, you add a reference to the extension in your _.csproj_ file and then build the project. You can also use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
 
 You can install the extension by using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command:
 
@@ -214,21 +209,21 @@ You can get your Azure SQL database's connection string by going to the database
 
 Here's an example of how to get the Azure SQL connection string in the portal:
 
-![Screenshot that shows an Azure connection string in the Azure portal.](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot that shows an Azure connection string in the Azure portal.":::
 
 In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that placeholder with the password that you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database overview pane in the Azure portal. In the **Essentials** view, select your server name. Then, select **Reset password**. See the following screenshots for examples.
 
-![Screenshot that shows the Azure SQL database view, with the server name option highlighted.](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-reset-pass-1.png" alt-text="Screenshot that shows the Azure SQL database view, with the server name option highlighted.":::
 
-![Screenshot that shows the SQL Server view, where Reset password is visible.](./media/quickstart-mssql/mssql-azure-reset-pass-2.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot that shows the SQL Server view, where Reset password is visible.":::
 
 ### Add the connection string as an application setting
 
 Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following screenshots for examples.
 
-![Screenshot that shows the database pane and New application setting highlighted.](./media/quickstart-mssql/mssql-azure-environment-variable-1.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-environment-variable-1.png" alt-text="Screenshot that shows the database pane and New application setting highlighted.":::
 
-![Screenshot that shows entering a connection string setting name and its value.](./media/quickstart-mssql/mssql-azure-environment-variable-2.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-environment-variable-2.png" alt-text="Screenshot that shows entering a connection string setting name and its value.":::
 
 ### Deploy
 
@@ -242,7 +237,7 @@ SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Insta
 
 After you run a simple orchestrator, you should see at least one result, as shown in this example:
 
-![Screenshot that shows Azure SQL Query Editor results for the SQL query.](./media/quickstart-mssql/mssql-azure-db-check.png)
+:::image type="content" source="media/quickstart-mssql/mssql-azure-db-check.png" alt-text="Screenshot that shows Azure SQL Query Editor results for the SQL query.":::
 
 ## Related content
 

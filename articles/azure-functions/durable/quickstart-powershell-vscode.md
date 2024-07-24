@@ -3,7 +3,7 @@ title: "Quickstart: Create a PowerShell Durable Functions app"
 description: Create and publish a PowerShell Durable Functions app in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 06/22/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete

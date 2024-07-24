@@ -3,7 +3,7 @@ title: "Quickstart: Create a JavaScript Durable Functions app"
 description: Create and publish a JavaScript Durable Functions app in Azure Functions by using Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 02/13/2023
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete

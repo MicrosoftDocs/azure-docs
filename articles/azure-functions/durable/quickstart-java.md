@@ -3,7 +3,7 @@ title: "Quickstart: Create a Java Durable Functions app"
 description: Create and publish a Java Durable Functions app in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: mode-api, devx-track-extended-java

@@ -4,7 +4,7 @@ description: Configure a Durable Functions app to use the Netherite storage prov
 author: sebastianburckhardt
 ms.topic: quickstart
 ms.custom: devx-track-dotnet
-ms.date: 11/14/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf
 ---
 
