@@ -3,7 +3,7 @@ title: Troubleshoot Azure Container Storage
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 07/15/2024
+ms.date: 07/24/2024
 ms.author: kendownie
 ms.topic: how-to
 ---
@@ -35,6 +35,14 @@ To remediate, create a node pool with a VM SKU that has NVMe drives and try agai
 ## Troubleshoot storage pool issues
 
 To check the status of your storage pools, run `kubectl describe sp <storage-pool-name> -n acstor`. Here are some issues you might encounter.
+
+### Error when trying to expand an Azure Disks storage pool
+
+If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. If you try to expand beyond that, the internal PVC will get an error message like "Only Disk CachingType 'None' is supported for disk with size greater than 4095 GB" or ""Disk 'xxx' of size 4096 GB (<=4096 GB) cannot be resized to 16384 GB (>4096 GB) while it is attached to a running VM. Please stop your VM or detach the disk and retry the operation."
+
+To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools larger than 4 TiB can be expanded up to the maximum storage capacity available.
+
+This limitation only applies when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` Disk SKUs.
 
 ### Elastic SAN creation fails
 
