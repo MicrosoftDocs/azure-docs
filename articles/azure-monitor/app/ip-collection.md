@@ -8,7 +8,7 @@ ms.reviewer: mmcc
 
 # Geolocation and IP address handling
 
-This article explains how geolocation lookup and IP address handling work in Application Insights.
+This article explains how geolocation lookup and IP address handling work in [Application Insights](app-insights-overview.md#application-insights-overview).
 
 ## Default behavior
 
@@ -32,7 +32,14 @@ When IP addresses aren't collected, city and other geolocation attributes also a
 >
 > To learn more about handling personal data, see [Guidance for personal data](../logs/personal-data-mgmt.md).
 
-To enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`. You can set this property through Azure Resource Manager templates (ARM templates) or by calling the REST API.
+To enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`.
+
+Options to set this property include:
+
+- [ARM template](#arm-template)
+- [Portal](#portal)
+- [REST API](#rest-api)
+- [PowerShell](#powershell)
 
 ### ARM template
 
@@ -100,7 +107,7 @@ If you need to modify the behavior for only a single Application Insights resour
 
 The following [REST API](/rest/api/azure/) payload makes the same modifications:
 
-```
+```json
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
 Host: management.azure.com
 Authorization: AUTH_TOKEN
@@ -130,3 +137,4 @@ For more information on the `Update-AzApplicationInsights` cmdlet, see [Update-A
 ## Next steps
 
 * Learn more about [personal data collection](../logs/personal-data-mgmt.md) in Azure Monitor.
+* Learn how to [set the user IP](opentelemetry-add-modify.md#set-the-user-ip) using OpenTelemetry.
