@@ -28,7 +28,7 @@ ms.author: jboback
 
 ### Generate an answer from a project
 
-To [query a custom question answering project](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
+To [query a custom question answering project](/rest/api/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -99,7 +99,7 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a project
 
-You can also [use custom question answering without a project](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt custom question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also [use custom question answering without a project](/rest/api/questionanswering/question-answering/get-answers-from-text) with the prebuilt custom question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
