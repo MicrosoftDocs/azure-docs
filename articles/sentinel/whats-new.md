@@ -20,6 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## July 2024
 
+- [SAP Business Technology Platform (BTP) connector now generally available](sap-business-technology-platform-btp-connector-now-generally-available-ga)
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
 
 ### SAP Business Technology Platform (BTP) connector now generally available (GA)
