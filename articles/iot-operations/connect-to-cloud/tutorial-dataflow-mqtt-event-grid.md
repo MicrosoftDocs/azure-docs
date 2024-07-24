@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Bi-directional MQTT bridge to Azure Event Grid
-description: Tutorial on how to set up a bi-directional MQTT bridge between an IoT MQ and Azure Event Grid.
+title: Tutorial - Create a bi-directional MQTT bridge to Azure Event Grid
+description: Tutorial on how to set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
@@ -13,11 +13,11 @@ ms.date: 07/23/2024
 
 
 
-# Bi-directional MQTT bridge to Azure Event Grid
+# Create bi-directional MQTT bridge to Azure Event Grid using dataflows
 
-In this tutorial, you will set up a bi-directional MQTT bridge between an IoT MQ and Azure Event Grid. To expedite the process, you will use the default settings for the IoT MQ and Azure Event Grid endpoints, and no transformation will be applied.
+In this tutorial, you will set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid using dataflows. To expedite the process, you will use the default settings for the MQTT broker and Azure Event Grid endpoints, and no transformation will be applied.
 
-1. Create an IoT MQ endpoint.
+1. Create an MQTT broker endpoint.
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -29,7 +29,7 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an IoT MQ
      mqttSettings: {}
    ```
 
-2. Create an Azure Event Grid endpoint.
+1. Create an Azure Event Grid endpoint.
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -47,7 +47,7 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an IoT MQ
          mode: enabled
    ```
 
-3. Give AIO permission to send messages to the Azure Event Grid endpoint.
+1. Give AIO permission to send messages to the Azure Event Grid endpoint.
 
    ```bash
    az role assignment create --role "EventGrid TopicSpaces Publisher" --assignee <AIO identity> --scope <Azure Event Grid endpoint resource ID>
@@ -59,7 +59,7 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an IoT MQ
 
    You can find the AIO managed identity in the Azure IoT Operations portal or use `az k8s-extension show` , under `identity` .
 
-4. Create two dataflows with the IoT MQ endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
+1. Create two dataflows with the MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -99,8 +99,8 @@ In this tutorial, you will set up a bi-directional MQTT bridge between an IoT MQ
           dataDestination: factory/$topic
    ```
 
-5. Send test data to the dataflow.
-6. View messages in Azure Event Grid.
-7. Send test data to Azure Event Grid.
-8. View messages in IoT MQ.
+1. Send test data to the dataflow.
+1. View messages in Azure Event Grid.
+1. Send test data to Azure Event Grid.
+1. View messages in MQTT broker.
 

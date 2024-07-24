@@ -55,7 +55,7 @@ In the output record:
 
 These transformations are achieved through `mapping`, which typically involves:
 
-* **Input definition**: Identifying the fields in the input records that will be used.
+* **Input definition**: Identifying the fields in the input records that are used.
 * **Output definition**: Specifying where and how the input fields should be organized in the output records.
 * **Conversion (optional)**: Modifying the input fields to fit into the output fields. This is required when multiple input fields are combined into a single output field.
 
@@ -91,7 +91,7 @@ Field references show how to specify paths in the input and output, using dot no
 
 ## Contextualization Dataset Selectors
 
-These selectors allow mappings to integrate additional data from external databases, referred to as "Contextualization Datasets".
+These selectors allow mappings to integrate additional data from external databases, referred to as *Contextualization Datasets*.
 
 ## Record Filtering
 
@@ -106,7 +106,7 @@ Dot-notation is widely used in computer science to reference fields, even recurs
   - Person.Address.Street.Number
 ```
 
-However, in dataflow a path described by dot-notation may include strings and some special characters without needing escaping:
+However, in dataflow a path described by dot-notation might include strings and some special characters without needing escaping:
 
 ```yaml
 - inputs:
@@ -120,14 +120,14 @@ However, in other cases, escaping is necessary:
   - nsu=http://opcfoundation.org/UA/Plc/Applications;s=RandomSignedInt32
 ```
 
-The example above, among other special characters, contains dots within the field name, which, without escaping, would serve as a separator in the dot-notation itself.
+The previous example, among other special characters, contains dots within the field name, which, without escaping, would serve as a separator in the dot-notation itself.
 
 While dataflow parses a path, it treats only two characters as special:
 
 * Dots ('.') act as field separators.
-* Quotes, when placed at the beginning or the end of a segment, start an escaped section where dots are not treated as field separators.
+* Quotes, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
 
-Any other characters are treated as part of the field name. This flexibility is particularly useful in formats like JSON, where field names can be arbitrary strings.
+Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
 Note, however, that the path definition must also adhere to the rules of YAML: once a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
 
@@ -146,11 +146,11 @@ The primary function of escaping in a dot-notated path is to accommodate the use
   - 'Payload."Tag.10".Value'
 ```
 
-In the example above, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotes (`'`) are necessary because of YAML syntax rules, allowing the inclusion of double quotes within the string.
+In the previous example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotes (`'`) are necessary because of YAML syntax rules, allowing the inclusion of double quotes within the string.
 
 **Escaping Rules in Dot-Notation:**
 
-* **Escape Each Segment Separately**: If multiple segments contain dots, those segments must be enclosed in quotes. Other segments can also be quoted, but it does not affect the path interpretation:
+* **Escape Each Segment Separately**: If multiple segments contain dots, those segments must be enclosed in quotes. Other segments can also be quoted, but it doesn't affect the path interpretation:
   
 ```yaml
 - inputs:
@@ -164,7 +164,7 @@ In the example above, the path consists of three segments: `Payload`, `Tag.10`, 
   - 'Payload.He said: "Hello", and waved'
 ```
 
-This example defines two fields in the dataDestination: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator, as shown below:
+This example defines two fields in the dataDestination: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator, as follows:
 
 ```yaml
 - inputs:
@@ -176,7 +176,7 @@ In this case, the path is split into the segments `Payload`, `He said: "No`, and
 **Segmentation Algorithm**:
 
 * If the first character of a segment is a quote, the parser searches for the next quote. The string enclosed between these quotes is considered a single segment.
-* If the segment does not start with a quote, the parser identifies segments by searching for the next dot or the end of the path.
+* If the segment doesn't start with a quote, the parser identifies segments by searching for the next dot or the end of the path.
 
 ## Wildcard (`*`)
 
@@ -192,8 +192,8 @@ Let's consider a basic scenario to understand the use of asterisks in mappings:
 
 Here's how the asterisk (`*`) operates in this context:
 
-* **Pattern Matching**: The asterisk can match a single or multiple segments of a path. It serves as a placeholder for any segment(s) in the path.
-* **Field Matching**: During the mapping process, the algorithm evaluates each field in the input record against the pattern specified in the `inputs`. The asterisk in the example above matches all possible paths, effectively fitting every individual field in the input.
+* **Pattern Matching**: The asterisk can match a single or multiple segments of a path. It serves as a placeholder for any segments in the path.
+* **Field Matching**: During the mapping process, the algorithm evaluates each field in the input record against the pattern specified in the `inputs`. The asterisk in the previous example matches all possible paths, effectively fitting every individual field in the input.
 * **Captured Segment**: The portion of the path that the asterisk matches is referred to as the `captured segment`.
 * **Output Mapping**: In the output configuration, the `captured segment` is placed where the asterisk appears. This means that the structure of the input is preserved in the output, with the `captured segment` filling the placeholder provided by the asterisk.
 
@@ -252,11 +252,11 @@ Another example illustrates how wildcards can be used to match sub-sections and 
 When placing a wildcard, the following rules must be followed:
 
 * **Single Asterisk per dataDestination:** Only one asterisk (`*`) is allowed within a single path.
-* **Full Segment Matching:** The asterisk must always match an entire segment of the path. It cannot be used to match only a part of a segment, such as `path1.partial*.path3`.
+* **Full Segment Matching:** The asterisk must always match an entire segment of the path. It can't be used to match only a part of a segment, such as `path1.partial*.path3`.
 * **Positioning:** The asterisk can be positioned in various parts of the dataDestination:
-  * **At the Beginning:** `*.path2.path3` — Here, the asterisk matches any segment that leads up to `path2.path3`.
-  * **In the Middle:** `path1.*.path3` — In this configuration, the asterisk matches any segment between `path1` and `path3`.
-  * **At the End:** `path1.path2.*` — The asterisk at the end matches any segment that follows after `path1.path2`.
+  * **At the Beginning:** `*.path2.path3` - Here, the asterisk matches any segment that leads up to `path2.path3`.
+  * **In the Middle:** `path1.*.path3` - In this configuration, the asterisk matches any segment between `path1` and `path3`.
+  * **At the End:** `path1.path2.*` - The asterisk at the end matches any segment that follows after `path1.path2`.
 
 ### Multi-Input Wildcards
 
@@ -301,7 +301,7 @@ When placing a wildcard, the following rules must be followed:
 }
 ```
 
-In the case of multi-input wildcards, the asterisk (`*`) must consistently represent the same `Captured Segment` across every input. For example, when `*` captures `Saturation` in the pattern `*.Max`, the mapping algorithm will expect the corresponding `Saturation.Min` to match with the pattern `*.Min`. Here, `*` is substituted by the `Captured Segment` from the first input, guiding the matching for subsequent inputs.
+If multi-input wildcards, the asterisk (`*`) must consistently represent the same `Captured Segment` across every input. For example, when `*` captures `Saturation` in the pattern `*.Max`, the mapping algorithm expects the corresponding `Saturation.Min` to match with the pattern `*.Min`. Here, `*` is substituted by the `Captured Segment` from the first input, guiding the matching for subsequent inputs.
 
 Consider this detailed example:
 
@@ -348,7 +348,7 @@ Consider this detailed example:
   conversion: ($1, $2, $3, $4)
 ```
 
-This initial mapping tries to build an array (e.g., for `Opacity`: `[0.88, 0.91, 0.89, 0.89]`). However, this configuration will fail because:
+This initial mapping tries to build an array (For example, for `Opacity`: `[0.88, 0.91, 0.89, 0.89]`). However, this configuration fails because:
 
 * The first input `*.Max` captures a segment like `Saturation`.
 * The mapping expects the subsequent inputs to be present at the same level:
@@ -357,7 +357,7 @@ This initial mapping tries to build an array (e.g., for `Opacity`: `[0.88, 0.91,
   * `Saturation.Avg`
   * `Saturation.Mean`
 
-Since `Avg` and `Mean` are nested within `Mid`, the asterisk in the initial mapping does not correctly capture these paths.
+Since `Avg` and `Mean` are nested within `Mid`, the asterisk in the initial mapping doesn't correctly capture these paths.
 
 **Corrected Mapping Configuration:**
 
@@ -432,7 +432,7 @@ Now, consider a scenario where a specific field needs a different calculation:
 
 In this case, the `Opacity` field has a unique calculation. Two options to handle this overlapping scenario are:
 
-1. Include both mappings for `Opacity`. Since the output fields are different in this example, they would not override each other.
+1. Include both mappings for `Opacity`. Since the output fields are different in this example, they wouldn't override each other.
 2. Use the more specific rule for `Opacity` and remove the more generic one.
 
 Consider a special case for the same fields to help deciding the right action:
@@ -457,10 +457,10 @@ An empty `output` field in the second definition implies not writing the fields 
 * The evaluation progresses from the top rule in the mapping definition.
 * If a new mapping resolves to the same fields as a previous rule, the following applies:
   * A `Rank` is calculated for each resolved input based on the number of segments the wildcard captures. For instance, if the `Captured Segments` are `Properties.Opacity`, the `Rank` is 2. If only `Opacity`, the `Rank` is 1. A mapping without wildcards has a `Rank` of 0.
-  * If the `Rank` of the later rule is equal to or higher than the previous rule, dataflow treats it as a `Second Rule`.
+  * If the `Rank` of the latter rule is equal to or higher than the previous rule, dataflow treats it as a `Second Rule`.
   * Otherwise, it treats the configuration as a `Specialization`.
 
-For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empty output has a `Rank` of zero. Since the second rule has a lower `Rank` than the previous, it is considered a specialization and overrides the previous rule, which would calculate a value for `Opacity`
+For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empty output has a `Rank` of zero. Since the second rule has a lower `Rank` than the previous, it's considered a specialization and overrides the previous rule, which would calculate a value for `Opacity`
 
 ### Wildcards in contextualization datasets
 
@@ -525,7 +525,7 @@ This section will explore each of these aspects.
 
 ## Reference to Input Fields
 
-In conversions, formulas can operate on static values (e.g., a number like `25`) or parameters derived from input fields. A mapping defines these input fields, which the formula can access. Each field is referenced according to its order in the input list:
+In conversions, formulas can operate on static values (For example, a number like `25`) or parameters derived from input fields. A mapping defines these input fields, which the formula can access. Each field is referenced according to its order in the input list:
 
 ```yaml
 - inputs:
@@ -551,7 +551,7 @@ For more complex calculations, functions like `sqrt` (which finds the square roo
 |----------|-------------|
 | ^        | Exponentiation: $1 ^ 3 |
 
-Since `Exponentiation` has the highest precedence, it is executed first unless parentheses override this order:
+Since `Exponentiation` has the highest precedence, it's executed first unless parentheses override this order:
 
 * `$1 * 2 ^ 3` is interpreted as `$1 * 8` because the `2 ^ 3` part is executed first, before multiplication.
 * `($1 * 2) ^ 3` processes the multiplication before exponentiation.
@@ -602,7 +602,7 @@ Since `Exponentiation` has the highest precedence, it is executed first unless p
 | \|\|     | Logical OR |
 | &&       | Logical AND |
 
-Logical operators are usually used to chain conditions:
+Logical operators are used to chain conditions:
 
 * `$1 > 100 && $2 > 200`
 
@@ -610,9 +610,9 @@ Logical operators are usually used to chain conditions:
 
 Different serialization formats support various data types. For instance, JSON offers a few primitive types: string, number, boolean, and null, along with arrays of these primitive types.
 
-In contrast, other serialization formats like Avro has a more complex type system, including integers with multiple bit field lengths and timestamps with different resolutions (milliseconds and microseconds).
+In contrast, other serialization formats like Avro have a more complex type system, including integers with multiple bit field lengths and timestamps with different resolutions (milliseconds and microseconds).
 
-When the mapper reads a input property, it converts it into an internal type. This conversion is necessary for holding the data in memory until it is written out into a output field, regardless of whether the input and output serialization formats are the same.
+When the mapper reads an input property, it converts it into an internal type. This conversion is necessary for holding the data in memory until it's written out into an output field, regardless of whether the input and output serialization formats are the same.
 
 The internal representation utilizes the following data types:
 
@@ -631,13 +631,13 @@ The internal representation utilizes the following data types:
 
 ### Reading Input Record Fields
 
-When a input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is generally versatile enough to handle most input types with minimal or no conversion. However, some input types require conversion or are unsupported. Some examples:
+When an input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is versatile enough to handle most input types with minimal or no conversion. However, some input types require conversion or are unsupported. Some examples:
 
 * **Avro's `UUID` type** is converted to a `string`, as there is no specific `UUID` type in the internal representation.
-* **Avro's `Decimal` type** is not supported by the mapper, thus fields of this type cannot be included in mappings.
-* **Avro's `Duration` type** varies; if the `months` field is set, it is unsupported. If only `days` and `milliseconds` are set, it is converted to the internal `duration` representation.
+* **Avro's `Decimal` type** is not supported by the mapper, thus fields of this type can't be included in mappings.
+* **Avro's `Duration` type** varies; if the `months` field is set, it's unsupported. If only `days` and `milliseconds` are set, it's converted to the internal `duration` representation.
 
-For some formats, surrogate types are used. For example, JSON does not have a datetime type and instead stores datetime values as strings formatted according to ISO8601. When the mapper reads such a field, the internal representation remains a string.
+For some formats, surrogate types are used. For example, JSON doesn't have a datetime type and instead stores datetime values as strings formatted according to ISO8601. When the mapper reads such a field, the internal representation remains a string.
 
 ### Writing Output Record Fields
 
@@ -673,7 +673,7 @@ If a formula is specified, the data types available for use in formulas are limi
 
 `Map` and `Byte` cannot participate in formulas in any way.
 
-Types related to time (`date time`, `time`, and `duration`) are converted into integer values representing time in seconds. After formula evaluation, results are stored in the internal representation and not converted back; for example, a datetime converted to seconds remains an integer. If the value is to be used in date-time fields, an explicit conversion method must applied, e.g. to convert the value into an ISO8601 string, which will then automatically converted to the date-time type of the output serialization format. **[FIXME as of today, no such functions are available]**
+Types related to time (`date time`, `time`, and `duration`) are converted into integer values representing time in seconds. After formula evaluation, results are stored in the internal representation and not converted back; for example, a datetime converted to seconds remains an integer. If the value is to be used in date-time fields, an explicit conversion method must applied, for example, to convert the value into an ISO8601 string, which will then automatically converted to the date-time type of the output serialization format. **[FIXME as of today, no such functions are available]**
 
 ### Using irregular types
 
@@ -689,7 +689,7 @@ Arrays can be processed using aggregation functions to compute a single value fr
 }
 ```
 
-with the mapping:
+With the mapping:
 
 ```yaml
 - inputs:
@@ -762,10 +762,10 @@ Now a mapping can be created that checks if the field is present in the input re
   conversion: if($1 == (), $2, $1)
 ```
 
-The `conversion` uses the `if` function, that has three parameters
+The `conversion` uses the `if` function that has three parameters
 
 * the first parameter is a condition. In the example it checks if the `BaseSalary` field of the input field (aliased as `$1`) is `Missing Value`.
-* the second parameter is the result of the function in case the condition in the first parameter is true. In this example this is the `BaseSalary` field of the contextualization dataset (aliased as `$2`)
+* the second parameter is the result of the function in case the condition in the first parameter is true. In this example, this is the `BaseSalary` field of the contextualization dataset (aliased as `$2`)
 * the third parameter is the value for the case the condition in the first parameter is false
 
 ## Available Functions
@@ -777,9 +777,9 @@ In the previous examples some functions already have been used:
 
 There are numerous other functions available in different categories:
 
-* string manipulation (e.g. `uppercase()`)
-* explicit conversion (e.g. `ISO8601_datetime`)
-* aggregation (e.g. `avg()`)
+* string manipulation (for example, `uppercase()`)
+* explicit conversion (for example, `ISO8601_datetime`)
+* aggregation (for example, `avg()`)
 * **[FIXME we actually don't have much methods, need a list about what to implement]**
 
 ## Enrich data from contextualization datasets
@@ -826,7 +826,7 @@ This is how the dataset is used, when a new record is being processed:
   conversion: if($1 == (), $2, $1)
 ```
 
-In this example the `WorkingHours` field is simply added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record does not contain `BaseSalary` field (or the value is `null` in case of nullable a field)
+In this example the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record doesn't contain `BaseSalary` field (or the value is `null` in case of nullable a field)
 
 Note, that the request for the contextualization data does not happen with every incoming record: the mapper requests the dataset at the beginning and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
 

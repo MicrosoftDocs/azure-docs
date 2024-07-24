@@ -14,7 +14,7 @@ ms.date: 07/22/2024
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a dataflow configuration with a MQTT source endpoint, transformations, and a Kafka destination endpoint:
+The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -78,7 +78,7 @@ spec:
 |-----------------------------|----------------------------------------------------------------------------|
 | profileRef                  | Reference to the [dataflow profile](howto-manage-dataflow.md#configure-dataflow-profile) |
 | mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
-| operations[]                | Operations to be performed by the dataflow                                 |
+| operations[]                | Operations performed by the dataflow                                       |
 | operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
 
 Review the following sections to learn how to configure the operation types of the dataflow.
@@ -171,13 +171,13 @@ spec:
 | operationType                        | *builtInTransformation*                                                         |
 | name                                 | Name of the transformation                                                      |
 | builtInTransformationSettings        | Settings for the *builtInTransformation* operation                              |
-| builtInTransformationSettings.enrich | Add additional data to the source data given a dataset and condition to match   |
+| builtInTransformationSettings.enrich | Add other data to the source data given a dataset and condition to match   |
 | builtInTransformationSettings.filter | Filter the data based on a condition                                            |
 | builtInTransformationSettings.map    | Move data from one field to another with an optional conversion                 |
 
-### Enrich stage: Add additional data
+### Enrich stage: Add extra data
 
-To enrich the data, you can use a contextualization dataset stored in Azure IoT Operations's distributed state store (DSS). The dataset is used to add additional data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, you can use a contextualization dataset stored in Azure IoT Operations's distributed state store (DSS). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
@@ -354,7 +354,7 @@ You can use dynamic path segments to reference properties or metadata from the s
     dataDestination: factory/$topic.2
 ```
 
-If the source is an MQTT broker, with messages coming from topic `thermostats/+/temperature/` , the output path is dynamically resolved. For example, if the source topic is `thermostats/1/temperature/` , the output path will be `factory/1` . To use the full source topic, you can use `$topic` without the index.
+If the source is an MQTT broker, with messages coming from topic `thermostats/+/temperature/` , the output path is dynamically resolved. For example, if the source topic is `thermostats/1/temperature/` , the output path is `factory/1` . To use the full source topic, you can use `$topic` without the index.
 
 To use data from the MQTT or Kafka payload in the output path, you can use JSON path expressions.
 
@@ -364,7 +364,7 @@ To use data from the MQTT or Kafka payload in the output path, you can use JSON 
     dataDestination: factory/$payload.temperature.value
 ```
 
-If the payload is a JSON object like `{"temperature": {"value": 25}}` , the output path will be `factory/25` .
+If the payload is a JSON object like `{"temperature": {"value": 25}}` , the output path is `factory/25` .
 
 You can also use system properties like `timestamp` , `clientId` , and `messageId` .
 
@@ -374,7 +374,7 @@ You can also use system properties like `timestamp` , `clientId` , and `messageI
     dataDestination: factory/$systemProperties.timestamp
 ```
 
-As well as user properties.
+You can also use user properties.
 
 ```yaml
 - operationType: destination
@@ -382,7 +382,7 @@ As well as user properties.
     dataDestination: factory/$userProperties.customer
 ```
 
-If the user property is not present in the source data, the part of the path referencing the user property will be empty. For example, if the user property `customer` is not present in the source data, the output path will be `factory/` .
+If the user property isn't present in the source data, the part of the path referencing the user property is empty. For example, if the user property `customer` isn't present in the source data, the output path is `factory/` .
 
 If you specified a `enrich` stage during transformation, you can use the enriched data in the output path.
 
@@ -406,7 +406,7 @@ spec:
       dataDestination: factory/$subscription(meta/thermostat/uns)
 ```
 
-Here, if the message from the `meta/thermostat/uns` topic is `thermostats/1/temperature/` , the output path will be `factory/thermostats/1/temperature/` .
+Here, if the message from the `meta/thermostat/uns` topic is `thermostats/1/temperature/` , the output path is `factory/thermostats/1/temperature/` .
 
 The full list of parameters that can be used in the path includes:
 
@@ -415,7 +415,7 @@ The full list of parameters that can be used in the path includes:
 | `$topic` | The full input topic. |
 | `$topic.<index>` | A segment of the input topic. The index starts at 1. |
 | `$systemProperties.<property>` | A system property of the message. |
-| `$userProperties.<property>` | An user property of the message. |
+| `$userProperties.<property>` | A user property of the message. |
 | `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
 | `$context(<dataset>).<property>` | A property from the contextualization dataset specified in `enrich` stage. |
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |

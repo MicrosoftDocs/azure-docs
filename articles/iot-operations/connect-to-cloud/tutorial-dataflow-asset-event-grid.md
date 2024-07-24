@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Dataflow from an asset to Azure Event Grid
+title: Tutorial - Create a Dataflow from an asset to Azure Event Grid
 description: Tutorial on how to set up a dataflow from an asset to Azure Event Grid.
 author: PatAltimore
 ms.author: patricka
@@ -10,12 +10,12 @@ ms.date: 07/23/2024
 #CustomerIntent: As an operator, I want to understand how to I can use Dataflows to .
 ---
 
-# Dataflow from an asset to Azure Event Grid
+# Tutorial: Create a dataflow from an asset to Azure Event Grid
 
-In this tutorial, you will set up a dataflow from an asset to Azure Event Grid. You will configure the source to read data from an asset, the destination to send data to Azure Event Grid, and apply a transformation to the data.
+In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You configure the source to read data from an asset, the destination to send data to Azure Event Grid, and apply a transformation to the data.
 
 1. Create the asset.
-2. Create an IoT MQ endpoint.
+1. Create an MQTT broker endpoint.
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -27,7 +27,7 @@ In this tutorial, you will set up a dataflow from an asset to Azure Event Grid. 
      mqttSettings: {}
    ```
 
-3. Create an Azure Event Grid endpoint.
+1. Create an Azure Event Grid endpoint.
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -45,7 +45,7 @@ In this tutorial, you will set up a dataflow from an asset to Azure Event Grid. 
          mode: enabled
    ```
 
-6. Create a dataflow with the asset as the source and Azure Event Grid as the destination.
+1. Create a dataflow with the asset as the source and Azure Event Grid as the destination.
 
     ```yaml
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
