@@ -1,22 +1,22 @@
 ---
-title: Dataflow language design
-description: Learn about the dataflow language design.
+title: Dataflow mapping language
+description: Learn about the dataflow mapping language for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/23/2024
 
-#CustomerIntent: As an operator, I want to understand how to use the dataflow language to transform data.
+#CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
 
-# Dataflow language design
+# Dataflow mapping language
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-## Map data
+Use the dataflow mapping language to transform data in Azure IoT Operations. The syntax is a simple, yet powerful, way to define mappings that transform data from one format to another. This article provides an overview of the dataflow mapping language and key concepts.
 
-Consider the following input record:
+Mapping allows you to transform data from one format to another. Consider the following input record:
 
 ```json
 {
@@ -29,7 +29,7 @@ Consider the following input record:
 }
 ```
 
-And compare it with the output record:
+Compare it with the output record:
 
 ```json
 {
@@ -45,21 +45,21 @@ And compare it with the output record:
 }
 ```
 
-In the output record:
+In the output record, the following changes are made to the input record data:
 
-* **Fields renamed:** `Birth Date` is now `Date of Birth`.
-* **Fields restructured:** Both `Name` and `Date of Birth` are grouped under the new `Employee` category.
-* **Field deleted:** `Place of birth` is removed, as it is not present in the output.
-* **Field added:** `Base Salary` is a new field in the `Employment` category.
-* **Field values changed/merged:** The `Position` field in the output combines the `Position` and `Office` fields from the input.
+* Fields renamed: **Birth Date** is now **Date of Birth**.
+* Fields restructured: Both **Name** and **Date of Birth** are grouped under the new **Employee** category.
+* Field deleted: **Place of birth** is removed, as it is not present in the output.
+* Field added: **Base Salary** is a new field in the **Employment** category.
+* Field values changed or merged: The **Position** field in the output combines the **Position** and **Office** fields from the input.
 
-These transformations are achieved through `mapping`, which typically involves:
+The transformations are achieved through *mapping* that typically involves:
 
 * **Input definition**: Identifying the fields in the input records that are used.
-* **Output definition**: Specifying where and how the input fields should be organized in the output records.
+* **Output definition**: Specifying where and how the input fields are organized in the output records.
 * **Conversion (optional)**: Modifying the input fields to fit into the output fields. This is required when multiple input fields are combined into a single output field.
 
-## Example Mappings
+The following is an example mapping:
 
 ```yaml
 - inputs:
@@ -77,15 +77,13 @@ These transformations are achieved through `mapping`, which typically involves:
   output: Employment.BaseSalary
 ```
 
-This example illustrates:
+The example maps:
 
 * **One-to-one mapping**: The `BirthDate` is directly mapped to `Employee.DateOfBirth` without conversion.
 * **Many-to-one mapping**: Combines `Position` and `Office` into a single `Employment.Position` field. The conversion formula (`$1 + ", " + $2`) merges these fields into a formatted string.
 * **Using contextual data**: The `BaseSalary` is added from a contextual dataset named `position`.
 
-## Key concepts
-
-## Field References
+## Field references
 
 Field references show how to specify paths in the input and output, using dot notation like `Employee.DateOfBirth` or accessing data from a contextual dataset via `$context(position)`.
 
@@ -95,7 +93,7 @@ These selectors allow mappings to integrate additional data from external databa
 
 ## Record Filtering
 
-Although not previously mentioned, record filtering involves setting conditions to select which records should be processed or dropped.
+Record filtering involves setting conditions to select which records should be processed or dropped.
 
 ## Dot-notation
 
@@ -178,7 +176,7 @@ In this case, the path is split into the segments `Payload`, `He said: "No`, and
 * If the first character of a segment is a quote, the parser searches for the next quote. The string enclosed between these quotes is considered a single segment.
 * If the segment doesn't start with a quote, the parser identifies segments by searching for the next dot or the end of the path.
 
-## Wildcard (`*`)
+## Wildcard
 
 In many scenarios, the output record closely resembles the input record, with only minor modifications required. When dealing with records that contain numerous fields, manually specifying mappings for each field can become tedious. Wildcards simplify this process by allowing for generalized mappings that can automatically apply to multiple fields.
 
@@ -247,7 +245,7 @@ Another example illustrates how wildcards can be used to match sub-sections and 
 }
 ```
 
-### Wildcard Placement
+### Wildcard placement
 
 When placing a wildcard, the following rules must be followed:
 
@@ -523,7 +521,7 @@ When discussing conversions, several aspects need to be clarified:
 
 This section will explore each of these aspects.
 
-## Reference to Input Fields
+## Reference to input fields
 
 In conversions, formulas can operate on static values (For example, a number like `25`) or parameters derived from input fields. A mapping defines these input fields, which the formula can access. Each field is referenced according to its order in the input list:
 
@@ -539,7 +537,7 @@ In conversions, formulas can operate on static values (For example, a number lik
 
 In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. Comments in the YAML file (e.g., `# - $1`, `# - $2`) are optional but help clarify the connection between each field property and its role in the conversion formula.
 
-## Available Operations
+## Available operations
 
 Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rules of precedence (e.g., `*` is performed before `+`), which can be modified using parentheses.
 
@@ -606,7 +604,7 @@ Logical operators are used to chain conditions:
 
 * `$1 > 100 && $2 > 200`
 
-## Data Types
+## Data types
 
 Different serialization formats support various data types. For instance, JSON offers a few primitive types: string, number, boolean, and null, along with arrays of these primitive types.
 
@@ -629,7 +627,7 @@ The internal representation utilizes the following data types:
 | array       | An array of any types listed above        |
 | map         | A vector of (key, value) pairs of any types listed above |
 
-### Reading Input Record Fields
+### Reading input record fields
 
 When an input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is versatile enough to handle most input types with minimal or no conversion. However, some input types require conversion or are unsupported. Some examples:
 
@@ -639,7 +637,7 @@ When an input record field is read, its underlying type is converted into one of
 
 For some formats, surrogate types are used. For example, JSON doesn't have a datetime type and instead stores datetime values as strings formatted according to ISO8601. When the mapper reads such a field, the internal representation remains a string.
 
-### Writing Output Record Fields
+### Writing output record fields
 
 The mapper is designed to be flexible, converting internal types into output types to accommodate scenarios where data comes from a serialization format with a limited type system. Here are some examples of how conversions are handled:
 
@@ -652,11 +650,11 @@ The mapper is designed to be flexible, converting internal types into output typ
   * Converted to 0/1 if the output field is numerical.
   * Converted to "true"/"false" if the output field is string.
 
-### Explicit Type Conversions
+### Explicit type conversions
 
 While the automatic conversions generally operate as one might expect, based on common implementation practices, there are instances where the right conversion cannot be determined automatically, resulting in an `unsupported` error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and ensure that data integrity is maintained even when automatic methods fall short.
 
-**[FIXME - actually we don't have functions, need a list of what they usually want]**
+<!--**[FIXME - actually we don't have functions, need a list of what they usually want]**-->
 
 ### Using conversion formula with types
 
@@ -723,7 +721,7 @@ Arrays can also be created from multiple single values:
 
 This mapping creates an array containing the minimum, maximum, average, and mean.
 
-### Missing Value
+### Missing value
 
 `Missing Value` is a special type used in scenarios such as:
 
@@ -768,7 +766,7 @@ The `conversion` uses the `if` function that has three parameters
 * the second parameter is the result of the function in case the condition in the first parameter is true. In this example, this is the `BaseSalary` field of the contextualization dataset (aliased as `$2`)
 * the third parameter is the value for the case the condition in the first parameter is false
 
-## Available Functions
+## Available functions
 
 In the previous examples some functions already have been used:
 

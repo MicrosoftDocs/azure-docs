@@ -77,8 +77,8 @@ items:
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
         - name: Create a dataflow
           href: connect-to-cloud/howto-create-dataflow.md
-        - name: Manage dataflows
-          href: connect-to-cloud/howto-manage-dataflow.md
+        - name: Configure dataflow profile
+          href: connect-to-cloud/howto-configure-dataflow-profile.md
         - name: Dataflow language design
           href: connect-to-cloud/concept-dataflow-language.md
         - name: MQTT to Event Grid tutorial

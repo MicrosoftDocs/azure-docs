@@ -1,5 +1,5 @@
 ---
-title: Create dataflow using Azure IoT Operations
+title: Create a dataflow using Azure IoT Operations
 description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
@@ -76,7 +76,7 @@ spec:
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the [dataflow profile](howto-manage-dataflow.md#configure-dataflow-profile) |
+| profileRef                  | Reference to the [dataflow profile](howto-configure-dataflow-profile.md)           |
 | mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
 | operations[]                | Operations performed by the dataflow                                       |
 | operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
@@ -262,7 +262,7 @@ spec:
           output: location
 ```
 
-To learn more, see the [Dataflow language design](concept-dataflow-language.md).
+To learn more, see the [Dataflow language syntax](concept-dataflow-language.md).
 
 ### Serialize data according to a schema
 
