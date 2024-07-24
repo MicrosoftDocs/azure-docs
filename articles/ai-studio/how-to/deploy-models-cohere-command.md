@@ -4,13 +4,13 @@ titleSuffix: Azure AI studio
 description: Learn how to use Cohere Command chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 07/24/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
-zone_pivot_groups: azure-ai-model-catalog-samples
+zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
 # How to use Cohere Command chat models with Azure AI studio
@@ -1219,9 +1219,9 @@ requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
         new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("You are a helpful assistant that always generate responses in JSON format, using. the following format: { ""answer"": ""response"" }."),
+        new ChatRequestUserMessage("You are a helpful assistant that always generate responses in JSON format, using. the following format: { \"answer\": \"response\" }.")
     },
-    ResponseFormat = ChatCompletionsResponseFormat.JsonObject
+    ResponseFormat = new ChatCompletionsResponseFormatJSON()
 };
 
 response = client.Complete(requestOptions);
@@ -1357,22 +1357,27 @@ Now, it's time to call the appropriate function to handle the tool call. The fol
 ```csharp
 foreach (ChatCompletionsToolCall tool in toolsCall )
 {
-    //Get the tool details:
-    string callId = tool.Id;
-    string toolName = (string) tool.GetType().GetProperty("Name").GetValue(tool, null); //tool.Name;
-    string toolArgumentsString = (string) tool.GetType().GetProperty("Arguments").GetValue(tool, null); //tool.Arguments;
-    Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
+    if (tool is ChatCompletionsFunctionToolCall functionTool)
+    {
+        //Get the tool details:
+        string callId = functionTool.Id;
+        string toolName = functionTool.Name;
+        string toolArgumentsString = functionTool.Arguments;
+        Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
 
-    // Call the function defined above using reflection, which allow us to call a function 
-    // by it's string name. Notice that this is just done for demonstration purposes as a simple 
-    // way to get the function callable from its string name. Then we can call it with the 
-    // corresponding arguments.
+        // Call the function defined above using reflection, which allow us to call a function 
+        // by it's string name. Notice that this is just done for demonstration purposes as a simple 
+        // way to get the function callable from its string name. Then we can call it with the 
+        // corresponding arguments.
 
-    var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
-    string toolResponse = (string) typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
+        var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+        string toolResponse = (string)typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
 
-    Console.WriteLine("->", toolResponse);
-    requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
+        Console.WriteLine("->", toolResponse);
+        requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
+    }
+    else
+        throw new Exception("Unsupported tool type");
 }
 ```
 

@@ -4,13 +4,13 @@ titleSuffix: Azure AI studio
 description: Learn how to use Jamba-Instruct chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 07/24/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
 author: msakande
 ms.custom: references_regions, generated
-zone_pivot_groups: azure-ai-model-catalog-samples
+zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
 # How to use Jamba-Instruct chat models with Azure AI studio
