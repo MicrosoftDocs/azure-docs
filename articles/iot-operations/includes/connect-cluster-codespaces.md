@@ -3,7 +3,7 @@
  description: include file
  author: kgremban
  ms.topic: include
- ms.date: 05/02/2024
+ ms.date: 07/22/2024
  ms.author: kgremban
 ms.custom: include file, ignite-2023, devx-track-azurecli
 ---
@@ -39,8 +39,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.Kubernetes"
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-   az provider register -n "Microsoft.IoTOperationsMQ"
-   az provider register -n "Microsoft.IoTOperationsDataProcessor"
+   az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
    ```
 

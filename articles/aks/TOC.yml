@@ -248,6 +248,16 @@
       href: deployment-safeguards.md
 - name: How-to guides
   items:
+    - name: AKS extension for Visual Studio Code
+      items:
+        - name: Attach to Azure Container Registry (ACR)
+          href: aks-extension-attach-azure-container-registry.md
+        - name: Create a Dockerfile
+          href: aks-extension-draft-dockerfile.md
+        - name: Create a Kubernetes deployment
+          href: aks-extension-draft-deployment.md
+        - name: Create a GitHub Workflow
+          href: aks-extension-draft-github-workflow.md
     - name: Migration
       items:
         - name: Plan and execute a migration
@@ -362,8 +372,10 @@
               href: gpu-multi-instance.md
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
@@ -701,8 +713,8 @@
           href: control-plane-metrics-default-list.md
         - name: View the kubelet logs
           href: kubelet-logs.md
-        - name: View container data real-time
-          href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: View container data in real time
+          href: container-insights-live-data.md
         - name: Cost analysis
           items:
           - name: Enable cost analysis on your cluster
@@ -759,8 +771,10 @@
       items:
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA

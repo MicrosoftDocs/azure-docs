@@ -2,7 +2,7 @@
 title: Create an Azure Files StorageClass on Azure Red Hat OpenShift 4
 description: Learn how to create an Azure Files StorageClass on Azure Red Hat OpenShift
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2023
 author: johnmarco
 ms.author: johnmarc
