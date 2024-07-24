@@ -18,7 +18,7 @@ This article covers the following areas:
 * [Funnels](#funnels---discover-how-customers-use-your-application) - Understand how users progress through a series of steps in your application and where they might be dropping off.
 * [User Flows](#user-flows---analyze-user-navigation-patterns) - Visualize user paths to identify the most common routes and pinpointing areas where users are most engaged users or may encounter issues.
 * [Cohorts](#cohorts---analyze-a-specific-set-of-users-sessions-events-or-operations) - Group users or events by common characteristics to analyze behavior patterns, feature usage, and the impact of changes over time.
-* [Impact Analysis](#impact-analysis---discover-how-different-properties-influence-conversion-rates) - Analyze how application performance metrics, like load times, influence user experiene and behavior, to help you to prioritize improvements.
+* [Impact Analysis](#impact-analysis---discover-how-different-properties-influence-conversion-rates) - Analyze how application performance metrics, like load times, influence user experience and behavior, to help you to prioritize improvements.
 * [HEART](#heart---five-dimensions-of-customer-experience) - Utilize the HEART framework to measure and understand user Happiness, Engagement, Adoption, Retention, and Task success.
 
 ## Send telemetry from your application
@@ -79,7 +79,7 @@ Explore different groups of users by adjusting the query options at the top of t
 | Option          | Description                                                                                                                               |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | During          | Choose a time range.                                                                                                                      |
-| Show            | hoose a cohort of users to analyze.                                                                                                       |
+| Show            | Choose a cohort of users to analyze.                                                                                                       |
 | Who used        | Choose custom events, requests, and page views.                                                                                           |
 | Events          | Choose multiple events, requests, and page views that will show users who did at least one, not necessarily all, of the selected options. |
 | By value x-axis | Choose how to categorize the data, either by time range or by another property, such as browser or city.                                  |
