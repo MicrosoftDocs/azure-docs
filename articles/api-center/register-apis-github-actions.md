@@ -249,7 +249,7 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
     }
     ```
 1. Upload a metadata JSON file in the folder for each API in the repository. 
-1. Add a workflow step to apply the metadata to the API registration using the [az apic api update](/cli/azure/apic/api#az-apic-api-update) command. In the following example, the API ID and metadata file are passed in environment variables:
+1. Add a workflow step to apply the metadata to the API registration using the [az apic api update](/cli/azure/apic/api#az-apic-api-update) command. In the following example, the API ID and metadata file are passed in environment variables, which would be set elsewhere in the workflow file.
 
     ```yml
     [...]
@@ -263,5 +263,5 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
 
 ## Related content
 
-* [Using secrets in a GitHub Actions](https://docs.github.com/en/actions/reference/encrypted-secrets)
+* [Using secrets in GitHub Actions](https://docs.github.com/en/actions/reference/encrypted-secrets)
 * [Creating configuration variables for a repository](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
