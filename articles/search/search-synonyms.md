@@ -76,7 +76,7 @@ Each rule is delimited by the new line character (`\n`). You can define up to 5,
 
 Query parsers automatically lower-case any upper or mixed case terms. To preserve special characters in the string, such as a comma or dash, add the appropriate escape characters when creating the synonym map.
 
-#### Equivalency rules
+### Equivalency rules
 
 Rules for equivalent terms are comma-delimited within the same rule. In the first example, a query on `USA` expands to `USA` OR `"United States"` OR `"United States of America"`. Notice that if you want to match on a phrase, the query itself must be a quote-enclosed phrase query.
 
@@ -92,7 +92,7 @@ In the equivalence case, a query for `dog` expands the query to also include `pu
 }
 ```
 
-#### Explicit mapping
+### Explicit mapping
 
 Rules for an explicit mapping are denoted by an arrow `=>`. When specified, a term sequence of a search query that matches the left-hand side of `=>` is replaced with the alternatives on the right-hand side at query time.
 
@@ -107,7 +107,7 @@ In the explicit case, a query for `Washington`, `Wash.` or `WA` is rewritten as 
 }
 ```
 
-#### Escaping special characters
+### Escaping special characters
 
 Synonyms are analyzed during query processing just like any other query term, which means that rules for reserved and special characters apply to the terms in your synonym map. The list of characters that requires escaping varies between the simple syntax and full syntax:
 
@@ -134,9 +134,9 @@ Since the backslash is itself a special character in other languages like JSON a
 }
 ```
 
-## Upload and manage synonym maps
+## Manage synonym maps
 
-You can create or update a synonym map without disrupting query and indexing workloads. A synonym map is a top-level resource, similar to indexes and indexers. However, once you add a synonym map to a field definition in an index, if you then delete a synonym map, any query that includes the fields in question fail with a 404 error.
+You can update a synonym map without disrupting query and indexing workloads. However, once you add a synonym map to a field, if you then delete a synonym map, any query that includes the fields in question fail with a 404 error.
 
 Creating, updating, and deleting a synonym map is always a whole-document operation. You can't update or delete parts of the synonym map incrementally. Updating even a single rule requires a reload.
 
