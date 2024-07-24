@@ -18,15 +18,15 @@ Azure Diagnostics extension is an [agent in Azure Monitor](../agents/agents-over
 
 Use Azure Diagnostics extension if you need to:
 
-- Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
-- Send data to third-party tools by using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Collect [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
+* Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* Send data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) to analyze it with [metrics explorer](../essentials/metrics-getting-started.md) and to take advantage of features such as near-real-time [metric alerts](../alerts/alerts-metric-overview.md) and [autoscale](../autoscale/autoscale-overview.md) (Windows only).
+* Send data to third-party tools by using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
+* Collect [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics) to investigate VM boot issues.
 
 Limitations of Azure Diagnostics extension:
 
-- It can only be used with Azure resources.
-- It has limited ability to send data to Azure Monitor Logs.
+* It can only be used with Azure resources.
+* It has limited ability to send data to Azure Monitor Logs.
 
 ## Comparison to Log Analytics agent
 
@@ -34,9 +34,9 @@ The Log Analytics agent in Azure Monitor can also be used to collect monitoring 
 
 The key differences to consider are:
 
-- Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
-- Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Azure Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
-- The Log Analytics agent is required for retired [solutions](/previous-versions/azure/azure-monitor/insights/solutions), [VM insights](../vm/vminsights-overview.md), and other services such as [Microsoft Defender for Cloud](../../security-center/index.yml).
+* Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
+* Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows only) and Azure Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](../logs/data-platform-logs.md).
+* The Log Analytics agent is required for retired [solutions](/previous-versions/azure/azure-monitor/insights/solutions), [VM insights](../vm/vminsights-overview.md), and other services such as [Microsoft Defender for Cloud](../../security-center/index.yml).
 
 ## Costs
 
@@ -116,24 +116,23 @@ The following tables list the operating systems that are supported by WAD and LA
 |:--------------------------------------------------------------------------------------------------|:-------:|
 | Windows Server 2022                                                                               |         |
 | Windows Server 2022 Core                                                                          |         |
-| Windows Server 2019                                                                               | X       |
+| Windows Server 2019                                                                               | ✅      |
 | Windows Server 2019 Core                                                                          |         |
-| Windows Server 2016                                                                               | X       |
-| Windows Server 2016 Core                                                                          | X       |
-| Windows Server 2012 R2                                                                            | X       |
-| Windows Server 2012                                                                               | X       |
-| Windows Server 2008 R2 SP1                                                                        | X       |
-| Windows Server 2008 R2                                                                            | X       |
+| Windows Server 2016                                                                               | ✅      |
+| Windows Server 2016 Core                                                                          | ✅      |
+| Windows Server 2012 R2                                                                            | ✅      |
+| Windows Server 2012                                                                               | ✅      |
+| Windows Server 2008 R2 SP1                                                                        | ✅      |
+| Windows Server 2008 R2                                                                            | ✅      |
 | Windows Server 2008 SP2                                                                           |         |
 | Windows 11 client OS                                                                              |         |
 | Windows 10 1803 (RS4) and higher                                                                  |         |
-| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>) | X       | 
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>) | ✅      | 
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)                               |         |
 | Windows 7 SP1<br>(Server scenarios only<sup>1</sup>)                                              |         |
 | Azure Stack HCI                                                                                   |         |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
-<sup>2</sup> Using the Azure Monitor agent [client installer (preview)](./azure-monitor-agent-windows-client.md)
 
 ### Linux
 
@@ -143,40 +142,38 @@ The following tables list the operating systems that are supported by WAD and LA
 | Amazon Linux 2017.09                                  |                |
 | Amazon Linux 2                                        |                |
 | CentOS Linux 8                                        |                |
-| CentOS Linux 7                                        | X              |
+| CentOS Linux 7                                        | ✅             |
 | CentOS Linux 6                                        |                |
-| CentOS Linux 6.5+                                     | X              |
+| CentOS Linux 6.5+                                     | ✅             |
 | Debian 11 <sup>1</sup>                                |                |
 | Debian 10 <sup>1</sup>                                |                |
-| Debian 9                                              | X              |
+| Debian 9                                              | ✅             |
 | Debian 8                                              |                |
-| Debian 7                                              | X              |
-| OpenSUSE 13.1+                                        | X              |
+| Debian 7                                              | ✅             |
+| OpenSUSE 13.1+                                        | ✅             |
 | Oracle Linux 8                                        |                |
-| Oracle Linux 7                                        | X              |
+| Oracle Linux 7                                        | ✅             |
 | Oracle Linux 6                                        |                |
-| Oracle Linux 6.4+                                     | X              |
+| Oracle Linux 6.4+                                     | ✅             |
 | Red Hat Enterprise Linux Server 8.5, 8.6              |                |
 | Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4 |                |
-| Red Hat Enterprise Linux Server 7                     | X              |
+| Red Hat Enterprise Linux Server 7                     | ✅             |
 | Red Hat Enterprise Linux Server 6                     |                |
-| Red Hat Enterprise Linux Server 6.7+                  | X              |
+| Red Hat Enterprise Linux Server 6.7+                  | ✅             |
 | Rocky Linux                                           |                |
 | SUSE Linux Enterprise Server 15.2                     |                |
 | SUSE Linux Enterprise Server 15.1                     |                |
 | SUSE Linux Enterprise Server 15 SP1                   |                |
 | SUSE Linux Enterprise Server 15                       |                |
-| SUSE Linux Enterprise Server 12 SP5                   | X              |
-| SUSE Linux Enterprise Server 12                       | X              |
+| SUSE Linux Enterprise Server 12 SP5                   | ✅             |
+| SUSE Linux Enterprise Server 12                       | ✅             |
 | Ubuntu 22.04 LTS                                      |                |
-| Ubuntu 20.04 LTS                                      | X <sup>4</sup> |
-| Ubuntu 18.04 LTS                                      | X              |
-| Ubuntu 16.04 LTS                                      | X              |
-| Ubuntu 14.04 LTS                                      | X              |
+| Ubuntu 20.04 LTS                                      | ✅             |
+| Ubuntu 18.04 LTS                                      | ✅             |
+| Ubuntu 16.04 LTS                                      | ✅             |
+| Ubuntu 14.04 LTS                                      | ✅             |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
-<sup>2</sup> Known issue collecting Syslog events in versions prior to 1.9.0.<br>
-<sup>3</sup> Not all kernel versions are supported. Check the supported kernel versions in the following table.
 
 ## Other documentation
 
