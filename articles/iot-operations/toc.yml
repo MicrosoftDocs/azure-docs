@@ -199,8 +199,6 @@ items:
         href: configure-observability-monitoring/howto-add-cluster.md
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
-      - name: Configure MQ diagnostic service settings
-        href: configure-observability-monitoring/howto-configure-diagnostics.md
     - name: Create edge apps
       items:
       - name: Edge apps overview

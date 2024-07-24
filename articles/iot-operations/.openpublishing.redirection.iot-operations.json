@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-diagnostics",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
             "redirect_document_id": false
         },
         {
@@ -202,8 +202,8 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-diagnostics",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-clean-up-observability-resources.md",
