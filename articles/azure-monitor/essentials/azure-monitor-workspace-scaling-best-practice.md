@@ -35,7 +35,7 @@ The following are scenarios that require splitting an Azure Monitor workspace in
 
 ## Service limits and quotas
 
-Azure Monitor workspaces have default quotas and limitations for metrics. As your usage grows and you need to ingest more metrics, you can request an increase. If your capacity requirements are exceptionally large and your data ingestion needs are exceeding the limits of a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. Use the Azure monitor workspace platform metrics to monitor utilization and limits. For more information on limits and quotas, see [Azure Monitor service limits and quotas](/azure/azure-monitor/service-limits#prometheus-metrics).
+Azure Monitor workspaces have default quotas and limitations for metrics of 1 million event ingested per minute. As your usage grows and you need to ingest more metrics, you can request an increase. If your capacity requirements are exceptionally large and your data ingestion needs are exceeding the limits of a single Azure Monitor workspace, consider creating multiple Azure Monitor workspaces. Use the Azure monitor workspace platform metrics to monitor utilization and limits. For more information on limits and quotas, see [Azure Monitor service limits and quotas](/azure/azure-monitor/service-limits#prometheus-metrics).
 
 Consider the following best practices for managing Azure Monitor workspace limits and quotas:
 
