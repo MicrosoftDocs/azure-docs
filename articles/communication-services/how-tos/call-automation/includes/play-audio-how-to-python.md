@@ -296,6 +296,14 @@ if event.type == "Microsoft.Communication.PlayCompleted":
     app.logger.info("Play completed, context=%s", event.data.get("operationContext"))
 ```
 
+### Example of how you can deserialize the *PlayStarted* event:
+
+```python 
+if event.type == "Microsoft.Communication.PlayStarted":
+
+    app.logger.info("Play started, context=%s", event.data.get("operationContext"))
+```
+
 ### Example of how you can deserialize the *PlayFailed* event:
 
 ```python
