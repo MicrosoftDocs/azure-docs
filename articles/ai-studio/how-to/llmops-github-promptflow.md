@@ -6,10 +6,8 @@ services: azure-ai-studio
 author: ritesh-modi
 ms.author: rimod
 ms.service: azure-ai-studio
-ms.subservice: prompt-flow
 ms.topic: how-to
 ms.reviewer: lagayhar
-ms.date: 23/07/2024
 ms.custom:
   - cli-v2
   - sdk-v2
@@ -17,7 +15,7 @@ ms.custom:
   - build-2024
 ---
 
-# LLMOps with prompt flow and GitHub
+# Elevating LLMOps with Prompt Flow and GitHub: A Unified Strategy for AI Workflows
 
 Large Language Operations, or LLMOps, is the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
@@ -62,7 +60,6 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 
 - **Comprehensive Reporting**: Generate detailed reports for each **variant configuration**, allowing you to make informed decisions. Provides detailed Metric collection, experiment, and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
     :::image type="content" source="../media/prompt-flow/llmops/variants.png" alt-text="Screenshot of flow variants report." lightbox = "../media/prompt-flow/llmops/variants.png":::
-    :::image type="content" source="../media/prompt-flow/llmops/metrics.png" alt-text="Screenshot of metrics report." lightbox = "../media/prompt-flow/llmops/metrics.png":::
 
 Other features for customization:
 - Offers **BYOF** (bring-your-own-flows). A **complete platform** for developing multiple use-cases related to LLM-infused applications.
@@ -133,10 +130,6 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 
 From here on, you can learn **LLMOps with prompt flow** by following the end-to-end samples we provided, which help you build LLM-infused applications using prompt flow and GitHub. Its primary objective is to provide assistance in the development of such applications, using the capabilities of prompt flow and LLMOps.
 
-> [!TIP]
-> We recommend you understand how to integrate [LLMOps with prompt flow](how-to-integrate-with-llm-app-devops.md).
-
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [Azure AI Studio](https://azure.microsoft.com/free/).
@@ -161,7 +154,6 @@ Prompt Flow uses connections resource to connect to endpoints like Azure OpenAI,
 
 Connections can be created through **prompt flow portal UI** or using the **REST API**. Follow the [guidelines](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md#setup-connections-for-prompt-flow) to create connections for prompt flow. 
 
-Select on the link to know more about [connections](./concept-connections.md). 
 
 > [!NOTE]
 >
@@ -260,4 +252,3 @@ python -m llmops.common.prompt_eval --run_id run_id.txt --subscription_id xxxxx 
 * [FAQS for LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/faqs.md)
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
 * [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
-* [Install and set up Python CLI v2](../how-to-configure-cli.md)
