@@ -22,7 +22,7 @@ For **Arc-enabled System Center Virtual Machine Manager (SCVMM)**, the manual up
 
 Before upgrading an Arc resource bridge, the following prerequisites must be met: 
 
-- The appliance VM must be on a General Availability version (1.0.15 or higher). If not, the Arc resource bridge VM needs to be redeployed. If you are using Arc-enabled VMware/AVS, then you have the option to [perform disaster recovery](../vmware-vsphere/recover-from-resource-bridge-deletion). If you are using Arc-enabled SCVMM, then follow this [disaster recovery guide](..c/system-center-virtual-machine-manager/disaster-recovery).
+- The appliance VM must be on a General Availability version (1.0.15 or higher). If not, the Arc resource bridge VM needs to be redeployed. If you are using Arc-enabled VMware/AVS, then you have the option to [perform disaster recovery](../vmware-vsphere/recover-from-resource-bridge-deletion.md). If you are using Arc-enabled SCVMM, then follow this [disaster recovery guide](..c/system-center-virtual-machine-manager/disaster-recovery.md).
 
 - The appliance VM must be online, healthy with a Status of "Running". You can check the Azure resource of your Arc resource bridge to verify.
 
