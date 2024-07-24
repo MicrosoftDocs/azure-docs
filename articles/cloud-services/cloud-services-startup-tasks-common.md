@@ -50,9 +50,9 @@ Variables can also use a [valid Azure XPath value](cloud-services-role-config-xp
 ```
 
 
-## Configure Internet Information Service (IIS) startup with AppCmd.exe
+## Configure IIS startup with AppCmd.exe
 
-The [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) command-line tool can be used to manage IIS settings at startup on Azure. *AppCmd.exe* provides convenient, command-line access to configuration settings for use in startup tasks on Azure. When you use *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
+The [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) command-line tool can be used to manage Internet Information Service (IIS) settings at startup on Azure. *AppCmd.exe* provides convenient, command-line access to configuration settings for use in startup tasks on Azure. When you use *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
 
 However, there are a few things to watch out for in the use of *AppCmd.exe* as a startup task:
 
