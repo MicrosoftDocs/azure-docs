@@ -429,7 +429,7 @@ In the operations experience, you can view activity logs for each instance or ea
 
 To view activity logs at the instance level, select the **Activity logs** tab. You can use the **Timespan** and **Resource type** filters to customize the view.
 
-:::image type="content" source="{source}" alt-text="A screenshot that shows the activity logs for an instance in the operations experience.":::
+:::image type="content" source="./media/howto-manage-assets-remotely/view-instance-activity-logs.png" alt-text="A screenshot that shows the activity logs for an instance in the operations experience.":::
 
 To view activity logs as the resource level, select the resource that you want to inspect. This resource can be an asset, asset endpoint, or data pipeline. In the resource overview, select **View activity logs**. You can use the **Timespan** filter to customize the view.
 
