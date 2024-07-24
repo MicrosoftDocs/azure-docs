@@ -3,7 +3,7 @@ title: Azure OpenAI Service provisioned throughput
 description: Learn about provisioned throughput and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 07/32/2024 
+ms.date: 07/23/2024 
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -79,7 +79,7 @@ Provisioned quota is granted on a per subscription/region basis, and unlike Stan
 
 The new quota shows up in the AI Studio and Azure OpenAI Studio as a quota item named **Provisioned Managed Throughput Unit**.  In the Studio Quota pane, expanding the quota item will show the deployments contributing to usage of the quota.
 
-:::image type="content" source="../media/provisioned/quota.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="../media/provisioned/quota.png":::
+:::image type="content" source="../media/provisioned/quota.png" alt-text="Screenshot of quota UI for Azure OpenAI provisioned." lightbox="../media/provisioned/quota.png":::
 
 ## Capacity transparency and quota definitions
 
@@ -96,17 +96,17 @@ To assist users to find the capacity needed for their deployments, customers wil
 
 In AI Studio and Azure OpenAI Studio, the deployment experience will identify when a region lacks the capacity to support the desired model, version and number of PTUs, and will direct the user to a select an alternative region when needed.
 
-:::image type="content" source="../media/provisioned/check-capacity.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/check-capacity.png":::
+:::image type="content" source="../media/provisioned/check-capacity.png" alt-text="Screenshot of the check capacity experience for quota for Azure OpenAI provisioned." lightbox="../media/provisioned/check-capacity.png":::
 
 Details on the new deployment experience can be found in the updated Azure OpenAI [provisioned onboarding guide](../how-to/provisioned-throughput-onboarding.md).
 
-The new [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP) can also be used to programmatically identify the maximum sized deployment of a specified model that can be created in each region based on the availability of both quota in the subscription and service capacity in the region.
+The new [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP&preserve-view=true) can also be used to programmatically identify the maximum sized deployment of a specified model that can be created in each region based on the availability of both quota in the subscription and service capacity in the region.
 
 If an acceptable region isn't available to support the desire model, version and/or PTUs, customers can also try the following steps:
 
 - Attempt the deployment with a smaller number of PTUs.
 - Attempt the deployment at a different time. Capacity availability changes dynamically based on customer demand and more capacity may become available later.
-- Ensure that quota is available in all acceptable regions. The [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP) and Studio experience consider quota availability in returning alternative regions for creating a deployment.
+- Ensure that quota is available in all acceptable regions. The [model capacities API](/rest/api/aiservices/accountmanagement/model-capacities/list?view=rest-aiservices-accountmanagement-2024-04-01-preview&tabs=HTTP&preserve-view=true) and Studio experience consider quota availability in returning alternative regions for creating a deployment.
 
 ### Determining the number of PTUs needed for a workload
 
