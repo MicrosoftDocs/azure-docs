@@ -224,7 +224,7 @@ To learn more about a specific size family or series, click the tab for that fam
 GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
 
 #### [Family list](#tab/gpusizelist)
-List of storage optimized VM size families:
+List of GPU optimized VM size families:
 
 | Family | Workloads | Series List |
 |----|---|---|
