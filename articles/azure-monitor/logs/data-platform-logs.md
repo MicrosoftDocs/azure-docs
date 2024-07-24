@@ -95,21 +95,15 @@ The diagram and table below compare the Analytics, Basic, and Auxiliary table pl
 
 ## Data collection
 
-To collect data from a resource to your Log Analytics workspace:
-
-1. Set up the relevant data collection tool based on the table below.
-1. Decide which data you need to collect from the resource.
-1. Use [transformations](../essentials/data-collection-transformations.md) to remove sensitive data, enrich data or perform calculations, and filter out data you don't need, to reduce costs.   
-
 This table lists the tools Azure Monitor provides for collecting data from various resource types.  
 
 | Resource type | Data collection tool |Collected data |
-| --- | --- | --- |--- |
-| **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Microsoft Entra audit logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
-| **Application** | [Application insights](../app/app-insights-overview.md) | Application performance monitoring data. |
-| **Container** |[Container insights](../containers/container-insights-overview.md)| Container performance data. |
-| **Virtual machine** | [Data collection rules](/azure/virtual-machines/monitor-vm#overview-monitor-vm-host-and-guest-metrics-and-logs) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
-| **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you collect from a monitored resource.|
+| --- | --- |--- |
+| **Azure** | **Azure tenant** - Microsoft Entra audit logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
+| **Application** | Application performance monitoring data. |
+| **Container**| Container performance data. |
+| **Virtual machine** | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
+| **Non-Azure source** | File-based logs and any data you collect from a monitored resource.|
 
 
 > [!IMPORTANT]
