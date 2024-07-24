@@ -25,12 +25,12 @@ The speech to text service offers the following core features:
 ## Real-time speech to text
 
 Real-time speech to text transcribes audio as it's recognized from a microphone or file. It's ideal for applications requiring immediate transcription, such as: 
-- Transcriptions, captions, or subtitles for live meetings: Real-time audio transcription for accessibility and record-keeping. 
-- Diarization: Identifying and distinguishing between different speakers in the audio. 
-- Pronunciation assessment: Evaluating and providing feedback on pronunciation accuracy. 
-- Call center agents assist: Providing real-time transcription to assist customer service representatives. 
-- Dictation: Transcribing spoken words into written text for documentation purposes. 
-- Voice agents: Enabling interactive voice response systems to transcribe user queries and commands. 
+- **Transcriptions, captions, or subtitles for live meetings**: Real-time audio transcription for accessibility and record-keeping. 
+- **Diarization**: Identifying and distinguishing between different speakers in the audio. 
+- **Pronunciation assessment**: Evaluating and providing feedback on pronunciation accuracy. 
+- **Call center agents assist**: Providing real-time transcription to assist customer service representatives. 
+- **Dictation**: Transcribing spoken words into written text for documentation purposes. 
+- **Voice agents**: Enabling interactive voice response systems to transcribe user queries and commands. 
 
 Real-time speech to text can be accessed via the Speech SDK, Speech CLI, and REST API, allowing integration into various applications and workflows. 
 Real-time speech to text is available via the [Speech SDK](speech-sdk.md), the [Speech CLI](spx-overview.md), and REST APIs such as the [Fast transcription API](fast-transcription-create.md). 
@@ -39,8 +39,8 @@ Real-time speech to text is available via the [Speech SDK](speech-sdk.md), the [
 
 Fast transcription API is used to transcribe audio files with returning results synchronously and faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
 
-- Quick audio or video transcription and subtitles: Quickly get a transcription of an entire video or audio file in one go.
-- Video translation: Immediately get new subtitles for a video if you have audio in different languages. 
+- **Quick audio or video transcription and subtitles**: Quickly get a transcription of an entire video or audio file in one go.
+- **Video translation**: Immediately get new subtitles for a video if you have audio in different languages. 
 
 > [!NOTE]
 > Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview and later. 
@@ -50,9 +50,9 @@ To get started with fast transcription, see [use the fast transcription API (pre
 ## Batch transcription API
 
 [Batch transcription](batch-transcription.md) is designed for transcribing large amounts of audio stored in files. This method processes audio asynchronously and is suited for: 
-- Transcriptions, captions, or subtitles for prerecorded audio: Converting stored audio content into text. 
-- Contact center post-call analytics: Analyzing recorded calls to extract valuable insights.
-- Diarization: Differentiating between speakers in recorded audio. 
+- **Transcriptions, captions, or subtitles for prerecorded audio**: Converting stored audio content into text. 
+- **Contact center post-call analytics**: Analyzing recorded calls to extract valuable insights.
+- **Diarization**: Differentiating between speakers in recorded audio. 
 
 Batch transcription is available via:
 - [Speech to text REST API](rest-speech-to-text.md): Facilitates batch processing with the flexibility of RESTful calls. To get started, see [How to use batch transcription](batch-transcription.md) and [Batch transcription samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
@@ -72,8 +72,8 @@ With [custom speech](./custom-speech-overview.md), you can evaluate and improve 
 Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pretrained with dialects and phonetics representing various common domains. When you make a speech recognition request, the most recent base model for each [supported language](language-support.md?tabs=stt) is used by default. The base model works well in most speech recognition scenarios.
 
 Custom speech allows you to tailor the speech recognition model to better suit your application's specific needs. This can be particularly useful for: 
-- Improving recognition of domain-specific vocabulary: Train the model with text data relevant to your field. 
-- Enhancing accuracy for specific audio conditions: Use audio data with reference transcriptions to refine the model. 
+- **Improving recognition of domain-specific vocabulary**: Train the model with text data relevant to your field. 
+- **Enhancing accuracy for specific audio conditions**: Use audio data with reference transcriptions to refine the model. 
 
 For more information about custom speech, see the [custom speech overview](./custom-speech-overview.md) and the [speech to text REST API](rest-speech-to-text.md) documentation.
 
@@ -87,9 +87,9 @@ Here are some practical examples of how you can utilize Azure AI speech to text:
 | --- | --- | --- |
 | **Live meeting transcriptions and captions** | A virtual event platform needs to provide real-time captions for webinars. | Integrate real-time speech to text using the Speech SDK to transcribe spoken content into captions displayed live during the event. |
 | **Customer service enhancement** | A call center wants to assist agents by providing real-time transcriptions of customer calls. | Use real-time speech to text via the Speech CLI to transcribe calls, enabling agents to better understand and respond to customer queries. |
-| **Video subtitling** | A video-hosting platform wants to quickly generate a set of subtitles for a video. | Implement Fast Transcription to quickly get a set of subtitles for the entire video. |
-| **Educational tools** | An e-learning platform aims to provide transcriptions for video lectures. | Apply batch transcription through the Speech to text REST API to process prerecorded lecture videos, generating text transcripts for students. |
-| **Healthcare documentation** | A healthcare provider needs to document patient consultations. | Implement real-time speech to text for dictation, allowing healthcare professionals to speak their notes and have them transcribed instantly. Use a custom model to enhance recognition on specific medical terms. |
+| **Video subtitling** | A video-hosting platform wants to quickly generate a set of subtitles for a video. | Use fast transcription to quickly get a set of subtitles for the entire video. |
+| **Educational tools** | An e-learning platform aims to provide transcriptions for video lectures. | Apply batch transcription through the speech to text REST API to process prerecorded lecture videos, generating text transcripts for students. |
+| **Healthcare documentation** | A healthcare provider needs to document patient consultations. | Use real-time speech to text for dictation, allowing healthcare professionals to speak their notes and have them transcribed instantly. Use a custom model to enhance recognition of specific medical terms. |
 | **Media and entertainment** | A media company wants to create subtitles for a large archive of videos. | Use batch transcription to process the video files in bulk, generating accurate subtitles for each video. |
 | **Market research** | A market research firm needs to analyze customer feedback from audio recordings. | Employ batch transcription to convert audio feedback into text, enabling easier analysis and insights extraction. |
 
