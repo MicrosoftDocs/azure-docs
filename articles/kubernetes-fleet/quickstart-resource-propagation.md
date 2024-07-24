@@ -208,7 +208,7 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 1. Replace the placeholder values with the following YAML, and select **Add**.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/create-crp-inline.png" lightbox="./media/quickstart-resource-propagation/create-crp.png" alt-text="The Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/create-crp-inline.png" lightbox="./media/quickstart-resource-propagation/create-crp.png" alt-text="A screenshot of the Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
 
     ```yml
     apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -228,15 +228,15 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
 
 1. Verify that the cluster resource placement is created successfully.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/crp-success-inline.png" lightbox="./media/quickstart-resource-propagation/crp-success.png" alt-text="The Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-success-inline.png" lightbox="./media/quickstart-resource-propagation/crp-success.png" alt-text="A screenshot of the Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
 
 1. To see more details on an individual cluster resource placement, select it from the list.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/crp-details-inline.png" lightbox="./media/quickstart-resource-propagation/crp-details.png" alt-text="The Azure portal overview page for an individual cluster resource placement, showing events and details.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-details-inline.png" lightbox="./media/quickstart-resource-propagation/crp-details.png" alt-text="A screenshot of the Azure portal overview page for an individual cluster resource placement, showing events and details.":::
 
 1. You can view additional details on the cluster resource placement's snapshots, bindings, works, and scheduling policy snapshots using the individual tabs. For example, select the **Cluster Resources Snapshots** tab.
 
-    :::image type="content" source="./media/quickstart-resource-propagation/crp-snapshot-inline.png" lightbox="./media/quickstart-resource-propagation/crp-snapshot.png" alt-text="The Azure portal page for an a cluster resource placement, with the cluster resources snapshots tab selected.":::
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-snapshot-inline.png" lightbox="./media/quickstart-resource-propagation/crp-snapshot.png" alt-text="A screenshot of the Azure portal page for a cluster resource placement, with the cluster resources snapshots tab selected.":::
 
 ---
 

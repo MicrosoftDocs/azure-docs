@@ -258,7 +258,7 @@ rules:
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource. Replace the default template with the YAML example below, and select **Add**.
 
-    :::image type="content" source="./media/cluster-resource-override/crp-create-inline.png" lightbox="./media/cluster-resource-override/crp-create.png" alt-text="The Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+    :::image type="content" source="./media/cluster-resource-override/crp-create-inline.png" lightbox="./media/cluster-resource-override/crp-create.png" alt-text="A screenshot of the Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
 
     ```yaml
     apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -287,7 +287,7 @@ rules:
 
 1. Verify that the cluster resource placement is created successfully.
 
-    :::image type="content" source="./media/cluster-resource-override/crp-success-inline.png" lightbox="./media/cluster-resource-override/crp-success.png" alt-text="The Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+    :::image type="content" source="./media/cluster-resource-override/crp-success-inline.png" lightbox="./media/cluster-resource-override/crp-success.png" alt-text="A screenshot of the Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
 
 1. Verify the cluster resource placement applied to the selected resources by selecting the resource from the list and checking the status.
 
