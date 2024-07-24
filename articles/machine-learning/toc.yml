@@ -1401,7 +1401,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor
+    - name: Monitor Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure code
       displayName: security threat
