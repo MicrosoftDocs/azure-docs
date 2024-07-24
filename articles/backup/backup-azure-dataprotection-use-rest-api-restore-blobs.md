@@ -2,7 +2,7 @@
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: AbhishekMallick-MS
