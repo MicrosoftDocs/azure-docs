@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 07/23/2024
+ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -17,7 +17,7 @@ Azure Container Storage is a cloud-based volume management, deployment, and orch
 
 > [!IMPORTANT]
 > Azure Container Storage isn't available in all Azure regions. See [regional availability](#regional-availability).
-> Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads. If you previously installed the Azure Container Storage preview and don't have autoupgrade enabled, be sure to update to the GA version.
+> Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads. If you previously installed the Azure Container Storage preview and don't have auto-upgrade enabled, be sure to [update to the GA version](container-storage-aks-quickstart.md#install-azure-container-storage-on-your-aks-cluster).
 
 To get started using Azure Container Storage, see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
 

@@ -1,10 +1,10 @@
 ---
-title: Quickstart for using Azure Container Storage with Azure Kubernetes Service (AKS)
+title: Quickstart for using Azure Container Storage with Azure Kubernetes Service
 description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 07/23/2024
+ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
@@ -121,6 +121,12 @@ Follow these guidelines when choosing a VM type for the cluster nodes. You must 
 - If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](../../virtual-machines/ev3-esv3-series.md).
 
 ## Install Azure Container Storage on your AKS cluster
+
+If you already have a preview instance of Azure Container Storage running on your cluster, you can skip this section. However, we recommend updating to the latest generally available (GA) version by running the following command. Remember to replace `<cluster-name>` and `<resource-group>` with your own values.
+
+```azurecli-interactive
+az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-name> --resource-group <resource-group> --name azurecontainerstorage --version 1.1.0 --auto-upgrade false --release-train stable
+```
 
 If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
