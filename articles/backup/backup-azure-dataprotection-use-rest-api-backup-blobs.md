@@ -75,7 +75,8 @@ The following is the request body to configure backup for all blobs within a sto
   }
 }
 ```
-To configure backup with vaulted backup (preview) enabled, refer the below request body.
+
+To configure backup with vaulted backup enabled, refer the below request body.
 
 ```json
 {backupInstanceDataSourceType is Microsoft.Storage/storageAccounts/blobServices
@@ -153,7 +154,8 @@ The [request body](#prepare-the-request-to-configure-blob-backup) that you prepa
   }
 }
 ```
-#### Example request body for vaulted backup (preview)
+
+#### Example request body for vaulted backup
 
 ```json
 {
