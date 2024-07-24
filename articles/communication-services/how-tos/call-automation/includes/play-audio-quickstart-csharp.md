@@ -250,6 +250,15 @@ if (acsEvent is PlayCompleted playCompleted)
 } 
 ```
 
+### Example of how you can deserialize the *PlayStarted* event:
+
+``` csharp
+if (acsEvent is PlayStarted playStarted) 
+{ 
+    logger.LogInformation("Play started successfully, context={context}", playStarted.OperationContext); 
+} 
+```
+
 ### Example of how you can deserialize the *PlayFailed* event:
 
 ``` csharp
