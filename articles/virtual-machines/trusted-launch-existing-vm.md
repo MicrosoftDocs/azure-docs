@@ -33,9 +33,6 @@ Azure Virtual Machines supports enabling Azure Trusted Launch on existing [Azure
   - Existing Azure VM backup can be migrated from the *Standard* to the *Enhanced* policy. Follow the steps in [Migrate Azure VM backups from Standard to Enhanced policy (preview)](../backup/backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Best practices
-
-- Validating that [Virtual Machine(VM) size](trusted-launch-faq.md#how-can-i-validate-that-my-os-image-supports-trusted-launch) supports Trusted Launch
-- Validating that [Operating System(OS) image](trusted-launch-faq.md#how-can-i-find-vm-sizes-that-support-trusted-launch) supports Trusted Launch
 - Enable Trusted Launch on a test Generation 2 VM and determine if any changes are required to meet the prerequisites before you enable Trusted Launch on Generation 2 VMs associated with production workloads.
 - [Create restore points](create-restore-points.md) for Azure Generation 2 VMs associated with production workloads before you enable the Trusted Launch security type. You can use the restore points to re-create the disks and Generation 2 VM with the previous well-known state.
 
@@ -308,6 +305,8 @@ For a Generation 2 VM, that has not met the prerequistes to upgrade to Trusted L
 1. If using an OS image not supported, upgrade to Trusted Launch|Gen2 image, most Windows OS support Trusted Launch except Windows 2012 Datacenter offerings. In the case of Linux OS, upgrade to the newest SKU offered by the image distribution. 
 2. If using a virtual machine size not supported, please look for an [equivalant Trusted Launch supported size](/sizes/resize-vm.md) that supports Trusted Launch.
 
+> [!NOTE]
+> For M-series and ARM64 virtual machine users, please dismiss the recommendation for all resources. 
 
 ## Related content
 
