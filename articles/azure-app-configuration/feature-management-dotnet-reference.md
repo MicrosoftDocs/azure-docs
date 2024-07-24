@@ -288,7 +288,7 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
 
 > [!NOTE]
-> If there is a feature flag declaration that can be found in both the Microsoft and .NET Feature Management schemas, the one from the Microsoft schema will be adopted.
+> If there is a feature flag declaration that can be found in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section will be adopted.
 
 :::zone-end
 
@@ -961,7 +961,7 @@ An example web application that uses the targeting feature filter is available i
 
 To begin using the `TargetingFilter` in an application, it must be added to the application's service collection just as any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor`.
 
-`Microsoft.FeatureManagement.AspNetCore` provides the a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` which will extract targeting info from `HttpContext.User`. You can use the default targeting context accesorr and `TargetingFilter` by calling `WithTargeting` on the `IFeatureManagementBuilder`.
+`Microsoft.FeatureManagement.AspNetCore` provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` which will extract targeting info from a request's `HttpContext`. You can use the default targeting context accessor when setting up targeting by using the non-generic `WithTargeting` overload on the `IFeatureManagementBuilder`.
 
 The default targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting` on the `IFeatureManagementBuilder`.
 
@@ -970,7 +970,7 @@ services.AddFeatureManagement()
         .WithTargeting();
 ```
 
-You can also register customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
+You can also register a customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
 
 ``` C#
 services.AddFeatureManagement()
@@ -981,7 +981,7 @@ services.AddFeatureManagement()
 
 To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, contextual information such as what user is currently being evaluated is needed. This information is known as the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs). Different applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
 
-An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type `Role`. This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
+An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role). This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
 
 ### Targeting in a Console Application
 
@@ -1329,7 +1329,7 @@ When a feature flag change is deployed, it's often important to analyze its effe
 * Which variant is a particular user seeing?
 
 
-These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
+These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses the [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
 
 ### Enabling Telemetry
 
@@ -1364,9 +1364,9 @@ The `telemetry` section of a feature flag has the following properties:
 
 ### Custom Telemetry Publishing
 
-The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation.
+The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the "FeatureName", "Enabled", "Variant", "VariantAssignmentReason", "TargetingId" and all key value pairs specified in `telemetry.metadata` of the feature flag.
 
-To enable custom telemetry publishing, you should create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when feature evaluation is done.
+To enable custom telemetry publishing, you can create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to the `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when a feature is evaluated.
 
 ``` C#
 ActivitySource.AddActivityListener(new ActivityListener()
@@ -1387,6 +1387,8 @@ ActivitySource.AddActivityListener(new ActivityListener()
 
 For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
+
+
 ### Application Insights Telemetry Publisher
 
 The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To take advantage of this, add a reference to the package and register the Application Insights telemetry publisher as shown below.
@@ -1397,7 +1399,7 @@ builder.services
     .AddApplicationInsightsTelemetryPublisher();
 ```
 
-The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides the [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs) which implements the [ITelemetryInitializer](/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer). The `TargetingTelemetryInitializer` will extract targeting information from current activity's baggage and add it to Application Insights telemetry properties. 
+The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a telemetry initializer that automatically tags all events with `TargetingId` so that events may be linked to flag evaluations. To use the telemetry initializer, [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs), add it into the application's service collection.
 
 ``` C#
 builder.Services.AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
@@ -1410,6 +1412,9 @@ app.UseMiddleware<TargetingHttpContextMiddleware>();
 ```
 
 An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
+
+> [!NOTE]
+> To ensure that `TargetingTelemetryInitializer` works correctly, it is essential to use `TargetingHttpContextMiddleware` in your middleware pipeline. The middleware is responsible for adding the targeting info to the current activity's baggage, which the telemetry initializer relies on. 
 
 #### Prerequisite
 
