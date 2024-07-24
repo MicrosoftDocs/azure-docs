@@ -9,7 +9,7 @@ ms.custom:
   - ignite-2023
 ms.date: 04/19/2024
 
-#CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Power BI.
+#CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ---
 
 # Quickstart: Send asset telemetry to the cloud using a dataflow
@@ -66,7 +66,7 @@ kubectl apply -f dataflow.yaml
 
 ## How did we solve the problem?
 
-In this quickstart, you used a dataflow to connect an MQTT topic to an event hub in your Azure Event Hubs namespace. In the next quickstart, you use Power BI to analyze the data in the lakehouse.
+In this quickstart, you used a dataflow to connect an MQTT topic to an event hub in your Azure Event Hubs namespace. In the next quickstart, you use Microsoft Fabric Real-Time Intelligence to visualize the data.
 
 ## Clean up resources
 
