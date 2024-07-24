@@ -214,5 +214,21 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 ```
 - `roomEndTime` : breakout room end time set by the organizer of the main meeting.
 
+### Troubleshooting
 
+- User trying to join a breakout room when the state of the room is closed.
+
+  When the join() method is called on the breakout room even before the breakout rooms are opened, then an error is thrown to the user with the message"Not able to join Breakout Room as the room is closed. Please    check the state of the Breakout Room before calling join."
+  Resoulution : Call join() only when the breakout room state is `open`.
+
+- User getting an error when joining the breakout room
+
+  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call breakoutRoom.join() method explicitly. Should be able to join
+  the breakout room. Even if that doesn't work, please share the console logs with the Azure Communication Services team.
+
+- User getting an error while leaving the breakout room
+
+  If the breakout room state is `closed` and the user has still not moved back to the main meeting , check if there are any errors or logs in the console. If no errors are found, try leaving the breakout room  
+  using the code shared above for leaving the breakout room and check if that helps. If the user is still not seen in the mainmeeting room, please gather console logs and share it with the Azure communications 
+  team for further debugging.
 
