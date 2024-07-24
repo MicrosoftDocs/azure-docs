@@ -53,7 +53,7 @@ The following table lists the metrics available for the Microsoft.Web/sites reso
 >These metrics aren't available when your function app runs on Linux in a [Consumption plan](./consumption-plan.md).
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Web/sites](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-web-sites-metrics-include.md)]
+[!INCLUDE [Microsoft.Web/sites](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-web-sites-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -62,7 +62,7 @@ The following table lists the metrics available for the Microsoft.Web/sites reso
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Web/sites
-[!INCLUDE [Microsoft.Web/sites](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-web-sites-logs-include.md)]
+[!INCLUDE [Microsoft.Web/sites](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-web-sites-logs-include.md)]
 
 The log specific to Azure Functions is **FunctionAppLogs**.
 
