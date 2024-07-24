@@ -376,7 +376,7 @@ diskBackedMessageBufferSettings:
 
 ### emptyDir volume
 
-Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)** emptyDir volume is the next preferred option for your message buffer after persistent volume. 
+Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir). An *emptyDir volume* is the next preferred option after persistent volume. 
 
 Only use *emptyDir* volume when using a cluster with filesystem quotas. For more information, see details in the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does *periodic scanning* that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy. 
 
