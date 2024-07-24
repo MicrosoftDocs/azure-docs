@@ -30,14 +30,23 @@ All maintenance operations should finish within the specified maintenance window
 
 ## Alerts and monitoring
 
-Integration with Service Health notifications and the Resource Health Check Monitor allows customers to stay informed of impending maintenance activity. This automation takes advantage of Azure Monitor. You can decide how you want to be notified of impending maintenance events. Also, you can choose which automated flows will help you manage downtime and minimize operational impact.
+Azure provides comprehensive insights into the health of your cloud resources, including current and upcoming issues, service-impacting events, planned maintenance, and other changes that may affect availability.
 
+Service Health offers a personalized view of the Azure services and regions you use, making it the best source for service-impacting communications such as outages, planned maintenance, and other health advisories. By setting up Service Health alerts, you can be notified via your preferred communication channels about any issues or changes affecting your services.
+
+To set up a service health alert for planned maintenance, navigate to the Azure Portal and access the **Service Health** section. Select the **Alerts** tab and create a new alert by specifying the service type as **Azure Synapse Analytics or (and) SQL Data Warehouse**, based on your pool type. Choose **Maintenance** as the event type, define the scope and notification settings according to your preferences, and save the alert configuration. For detailed instructions, refer to the following resources:
+
+- [Service Health alerts](https://learn.microsoft.com/azure/service-health/service-health-overview).
+- [How to create a service health alert](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal#create-a-service-health-alert-using-the-azure-portal).
+
+Remarks:
+As part of the configurations you need to set the condition details to be match the service which you are using.
+- For a dedicated SQL pool (formerly SQL DW), the Service selection should be **SQL Data Warehouse**
+  - For a dedicated SQL pool in an Azure Synapse Analytics workspace, the Service selection should be **Azure Synapse Analytics**
 > [!NOTE]
 > A 24-hour advance notification precedes all maintenance events. In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced. This could occur outside an identified maintenance window due to the critical nature of the update.
-
-If you received advance notification that maintenance will take place, but maintenance can't be performed during the time period in the notification, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
-
-All active maintenance events appear in the **Service Health - Planned Maintenance** section. The Service Health history includes a full record of past events. You can monitor maintenance via the Azure Service Health check portal dashboard during an active event.
+> If you received advance notification that maintenance will take place, but maintenance can't be performed during the time period in the notification, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
+> All active maintenance events appear in the **Service Health - Planned Maintenance** section. The Service Health history includes a full record of past events. You can monitor maintenance via the Azure Service Health check portal dashboard during an active event.
 
 ### Maintenance schedule availability
 
@@ -77,16 +86,16 @@ The primary and secondary windows must have separate day ranges. An example is a
 To change the maintenance schedule for your Synapse SQL pool, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select the Synapse SQL pool that you want to update. The page opens on the overview blade.
+1. Select the Synapse SQL pool that you want to update. The page opens on the overview blade.
 Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.
 
     ![Overview blade options](./media/maintenance-scheduling/maintenance-change-option.png)
-
-3. Identify the preferred day range for your primary maintenance window by using the options at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the drop-down values.
+   
+1. Identify the preferred day range for your primary maintenance window by using the options at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the drop-down values.
 During preview, some regions might not yet support the full set of available **Day** options.
 
    ![Maintenance settings blade](./media/maintenance-scheduling/maintenance-settings-page.png)
-
+   
 4. Choose your preferred primary and secondary maintenance windows by using the drop-down list boxes:
    - **Day**: Preferred day to perform maintenance during the selected window.
    - **Start time**: Preferred start time for the maintenance window.
@@ -94,13 +103,13 @@ During preview, some regions might not yet support the full set of available **D
 
    The **Schedule summary** area at the bottom of the blade is updated based on the values that you selected.
   
-5. Select **Save**. A message appears, confirming that your new schedule is now active.
+1. Select **Save**. A message appears, confirming that your new schedule is now active.
 
    You can update the Day, Start time, Time window (including the default 8-hour window) selections at any time. 
    If you're saving a schedule in a region that doesn't support maintenance scheduling, the following message appears. Your settings are saved and become active when the feature becomes available in your selected region.
 
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)
-
+   
 ## Frequently asked questions
 
 ### What is the expected frequency for the maintenance.
