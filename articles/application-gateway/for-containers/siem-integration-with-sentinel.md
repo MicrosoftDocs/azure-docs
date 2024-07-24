@@ -21,6 +21,12 @@ In this QuickStart guide, you set up:
 
 ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel.drawio.png)
 
+## Learn About The Services
+1. [What is Azure Sentinel?](../../sentinel/overview.md)
+   - Why use Sentinel:  Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products and platforms such as Log Analytics Workspace.
+2. [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+   - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
+   
 ## Prerequisites
 
 - To ingest into Microsoft Sentinel, you need an active Log Analytics Workspace.
