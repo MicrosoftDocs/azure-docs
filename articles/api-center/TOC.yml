@@ -40,6 +40,7 @@
         href: import-api-management-apis.md
       - name: Build and register APIs - VS Code extension
         href: use-vscode-extension.md
+
 - name: API governance
   items:
       - name: Use metadata for governance
@@ -50,6 +51,8 @@
         href: discover-shadow-apis-dev-proxy.md
       - name: Find nonproduction API requests with Dev Proxy
         href: find-nonproduction-api-requests-dev-proxy.md
+      - name: Enable workflow for API approval
+        href: set-up notification-workflow.md
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal
