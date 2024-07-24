@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
-ms.reviewer: mopeakande
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -46,6 +45,8 @@ Models deployed to [serverless API endpoints](how-to-deploy-models-serverless.md
 > * [Meta Llama 3 instruct](how-to-deploy-models-llama.md) family of models
 > * [Mistral-Small](how-to-deploy-models-mistral.md)
 > * [Mistral-Large](how-to-deploy-models-mistral.md)
+> * [Jais](deploy-jais-models.md) family of models
+> * [Jamba](how-to-deploy-models-jamba.md) family of models
 > * [Phi-3](how-to-deploy-models-phi-3.md) family of models
 
 Models deployed to [managed inference](concept-endpoints-online.md):
@@ -56,6 +57,9 @@ Models deployed to [managed inference](concept-endpoints-online.md):
 > * Mixtral famility of models
 
 The API is compatible with Azure OpenAI model deployments.
+
+> [!NOTE]
+> The Azure AI model inference API is available in managed inference (Managed Online Endpoints) for __models deployed after June 24th, 2024__. To take advance of the API, redeploy your endpoint if the model has been deployed before such date.
 
 ## Capabilities
 
@@ -96,6 +100,19 @@ model = ChatCompletionsClient(
 )
 ```
 
+If you are using an endpoint with support for Entra ID, you can create your client as follows:
+
+```python
+import os
+from azure.ai.inference import ChatCompletionsClient
+from azure.identity import AzureDefaultCredential
+
+model = ChatCompletionsClient(
+    endpoint=os.environ["AZUREAI_ENDPOINT_URL"],
+    credential=AzureDefaultCredential(),
+)
+```
+
 Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/ai/azure-ai-inference/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/python/reference) to get yourself started.
 
 # [JavaScript](#tab/javascript)
@@ -116,6 +133,19 @@ import { AzureKeyCredential } from "@azure/core-auth";
 const client = new ModelClient(
     process.env.AZUREAI_ENDPOINT_URL, 
     new AzureKeyCredential(process.env.AZUREAI_ENDPOINT_KEY)
+);
+```
+
+For endpoint with support for Microsoft Entra ID, you can create your client as follows:
+
+```javascript
+import ModelClient from "@azure-rest/ai-inference";
+import { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureDefaultCredential } from "@azure/identity";
+
+const client = new ModelClient(
+    process.env.AZUREAI_ENDPOINT_URL, 
+    new AzureDefaultCredential()
 );
 ```
 
@@ -154,7 +184,12 @@ response = model.complete(
         "safe_mode": True
     }
 )
+
+print(response.choices[0].message.content)
 ```
+
+> [!TIP]
+> When using Azure AI Inference SDK, using `model_extras` configures the request with `extra-parameters: pass-through` automatically for you.
 
 # [JavaScript](#tab/javascript)
 
@@ -171,6 +206,8 @@ var response = await client.path("/chat/completions").post({
         safe_mode: true
     }
 });
+
+console.log(response.choices[0].message.content)
 ```
 
 # [REST](#tab/rest)
@@ -205,8 +242,8 @@ extra-parameters: pass-through
 
 ---
 
-> [!TIP]
-> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: ignore` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
+> [!NOTE]
+> The default value for `extra-parameters` is `error` which returns an error if an extra parameter is indicated in the payload. Alternatively, you can set `extra-parameters: drop` to drop any unknown parameter in the request. Use this capability in case you happen to be sending requests with extra parameters that you know the model won't support but you want the request to completes anyway. A typical example of this is indicating `seed` parameter.
 
 ### Models with disparate set of capabilities
 
@@ -217,9 +254,9 @@ The following example shows the response for a chat completion request indicatin
 # [Python](#tab/python)
 
 ```python
-from azure.ai.inference.models import ChatCompletionsResponseFormat
-from azure.core.exceptions import HttpResponseError
 import json
+from azure.ai.inference.models import SystemMessage, UserMessage, ChatCompletionsResponseFormat
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(
@@ -321,7 +358,7 @@ __Response__
 ---
 
 > [!TIP]
-> You can inspect the property `details.loc` to understand the location of the offending parameter and `details.input` to see the value that was passed in the request.
+> You can inspect the property `detail.loc` to understand the location of the offending parameter and `detail.input` to see the value that was passed in the request.
 
 ## Content safety
 
@@ -333,6 +370,7 @@ The following example shows the response for a chat completion request that has 
 
 ```python
 from azure.ai.inference.models import AssistantMessage, UserMessage, SystemMessage
+from azure.core.exceptions import HttpResponseError
 
 try:
     response = model.complete(

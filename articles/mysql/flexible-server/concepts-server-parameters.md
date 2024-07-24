@@ -70,7 +70,13 @@ The [Physical Memory Size](./concepts-service-tiers-storage.md#physical-memory-s
 |---|---|---|---|---|---|
 |Burstable (B1s)|1|1|134217728|33554432|268435456|
 |Burstable (B1ms)|1|2|536870912|134217728|1073741824|
-|Burstable|2|4|2147483648|134217728|2147483648|
+|Burstable (B2s)|2|4|2147483648|134217728|2147483648|
+|Burstable (B2ms)|2|8|4294967296|134217728|5368709120|
+|Burstable |4|16|12884901888|134217728|12884901888|
+|Burstable |8|32|25769803776|134217728|25769803776|
+|Burstable |12|48|51539607552|134217728|51539607552|
+|Burstable |16|64|2147483648|134217728|2147483648|
+|Burstable |20|80|64424509440|134217728|64424509440|
 |General Purpose|2|8|4294967296|134217728|5368709120|
 |General Purpose|4|16|12884901888|134217728|12884901888|
 |General Purpose|8|32|25769803776|134217728|25769803776|
@@ -102,13 +108,19 @@ Azure Database for MySQL flexible server supports at largest, **4 TB**, in a sin
 
 ### max_connections
 
-The value of `max_connection` is determined by the memory size of the server.
+The value of `max_connection` is determined by the memory size of the server. The [Physical Memory Size](./concepts-service-tiers-storage.md#physical-memory-size-gb) (GB) in the table below represents the available random-access memory (RAM)  in gigabytes (GB)  on your Azure Database for MySQL flexible server.
 
-|**Pricing Tier**|**vCore(s)**|**Memory Size (GiB)**|**Default value**|**Min value**|**Max value**|
+|**Pricing Tier**|**vCore(s)**|**Physical Memory Size (GiB)**|**Default value**|**Min value**|**Max value**|
 |---|---|---|---|---|---|
 |Burstable (B1s)|1|1|85|10|171|
 |Burstable (B1ms)|1|2|171|10|341|
-|Burstable|2|4|341|10|683|
+|Burstable (B2s)|2|4|341|10|683|
+|Burstable (B2ms)|2|4|683|10|1365|
+|Burstable |4|16|1365|10|2731|
+|Burstable|8|32|2731|10|5461|
+|Burstable |12|48|4097|10|8193|
+|Burstable |16|64|5461|10|10923|
+|Burstable |20|80|6827|10|13653|
 |General Purpose|2|8|683|10|1365|
 |General Purpose|4|16|1365|10|2731|
 |General Purpose|8|32|2731|10|5461|
@@ -120,6 +132,7 @@ The value of `max_connection` is determined by the memory size of the server.
 |Business Critical|4|32|2731|10|5461|
 |Business Critical|8|64|5461|10|10923|
 |Business Critical|16|128|10923|10|21845|
+|Business Critical|20|160|13653|10|27306|
 |Business Critical|32|256|21845|10|43691|
 |Business Critical|48|384|32768|10|65536|
 |Business Critical|64|504|43008|10|86016|

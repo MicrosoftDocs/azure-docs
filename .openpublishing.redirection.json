@@ -1,123 +1,22 @@
 {
     "redirections": [
     {
-      "source_path": "articles/data-catalog/data-catalog-developer-concepts.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-developer-concepts",
+      "source_path": "articles/networking/connectivity-interoperability-configuration.md",
+      "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/data-catalog/data-catalog-dsr.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-dsr",
+      "source_path": "articles/expressroute/expressroute-howto-add-gateway-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-add-gateway-classic",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/data-catalog/data-catalog-frequently-asked-questions.yml",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-frequently-asked-questions",
-      "redirect_document_id": false
+      "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
     },
     {
-      "source_path": "articles/data-catalog/data-catalog-get-started.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-annotate.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-annotate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-big-data.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-big-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-business-glossary.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-business-glossary",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-connect.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-connect",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-data-profile.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-data-profile",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-discover.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-discover",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-documentation.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-documentation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-manage.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-manage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-register.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-register",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-save-pin.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-save-pin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-secure-catalog.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-secure-catalog",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-how-to-view-related-data-assets.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-view-related-data-assets",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-keyboard-shortcuts.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-keyboard-shortcuts",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-migration-to-microsoft-purview.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-migration-to-microsoft-purview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-samples.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/data-catalog-terminology.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-terminology",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/index.yml",
-      "redirect_url": "/previous-versions/azure/data-catalog/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/overview.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/register-data-assets-tutorial.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/register-data-assets-tutorial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/data-catalog/troubleshoot-policy-configuration.md",
-      "redirect_url": "/previous-versions/azure/data-catalog/troubleshoot-policy-configuration",
+      "source_path": "articles/digital-twins/how-to-integrate-maps.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-maps",
       "redirect_document_id": false
     },
     {
@@ -931,11 +830,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/advisor/advisor-cost-recommendations.md",
-            "redirect_url": "/azure/advisor/advisor-reference-cost-recommendations",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
             "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
             "redirect_document_id": false
@@ -1296,6 +1190,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/about-creator.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
@@ -1367,7 +1271,22 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
             "redirect_document_id": false
         },
         {
@@ -1683,6 +1602,11 @@
         {
             "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
             "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
             "redirect_document_id": false
         },
         {
@@ -2248,6 +2172,11 @@
         {
             "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
             "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/devtest/index.md",
+            "redirect_url": "/azure/devtest/offer/",
             "redirect_document_id": false
         },
         {
@@ -3789,6 +3718,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
             "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
             "redirect_document_id": false
@@ -4229,6 +4168,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-desktop/partners.md",
             "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
             "redirect_document_id": false
@@ -4604,6 +4558,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/pre-post-events-common-scenarios.md",
+            "redirect_url": "/azure/update-manager/manage-pre-post-events",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/update-manager/whats-upcoming.md",
             "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false
@@ -4621,6 +4580,11 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
+            "redirect_url": "/azure/aks/network-observability-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
@@ -4839,16 +4803,19 @@
             "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
+            "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
+            "redirect_document_id": false
+        },
+        {
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
         },
         {
-
            "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
            "redirect_document_id": false
-
         },
         {
            "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
@@ -4859,7 +4826,26 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
+            "redirect_url": "/azure/openshift/howto-byok",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
+            "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
         }
+
+
+
+        
 
     ]
 }

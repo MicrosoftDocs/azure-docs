@@ -2,9 +2,9 @@
 title: Attach a Kubernetes cluster to Azure Machine Learning workspace
 description: Learn about how to attach a Kubernetes cluster
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/18/2024

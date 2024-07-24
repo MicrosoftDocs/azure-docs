@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 07/01/2024
+ms.date: 07/11/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -126,7 +126,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
  ./resource-bridge-onboarding-script.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
-### Retry command - Linux
+>[!Note]
+>You can find the values for *Subscription*, *ResourceGroup*, *Azlocation*, *ApplianceName*, *CustomLocationName*, and *VMMservername* parameters from the onboarding script.
+
+ ### Retry command - Linux
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```--force``` to clean up and onboard again.
 
