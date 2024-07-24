@@ -51,6 +51,8 @@ Once you have these prerequisites, install the Azure AI inference package with t
 pip install azure-ai-inference
 ```
 
+Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
+
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
@@ -65,7 +67,7 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.core.credentials import AzureKeyCredential
 
-model = ChatCompletionsClient(
+client = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=AzureKeyCredential(os.environ["AZURE_INFERENCE_CREDENTIAL"]),
 )
@@ -79,7 +81,7 @@ import os
 from azure.ai.inference import ChatCompletionsClient
 from azure.identity import DefaultAzureCredential
 
-model = ChatCompletionsClient(
+client = ChatCompletionsClient(
     endpoint=os.environ["AZURE_INFERENCE_ENDPOINT"],
     credential=DefaultAzureCredential(),
 )
@@ -91,18 +93,22 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```python
-model.get_model_info()
+model_info = client.get_model_info()
 ```
 
 The response is as follows:
 
 
+```python
+print("Model name:", model_info.model_name)
+print("Model type:", model_info.model_type)
+print("Model provider name:", model_info.model_provider)
+```
+
 ```console
-{
-    "model_name": "Phi-3-vision-128k-Instruct",
-    "model_type": "chat-completions",
-    "model_provider_name": "Microsoft"
-}
+Model name: Phi-3-vision-128k-Instruct
+Model type": chat-completions
+Model provider name": Microsoft
 ```
 
 ### Create a chat completion request
@@ -112,7 +118,7 @@ The following example shows how you can create a basic chat completions request 
 ```python
 from azure.ai.inference.models import SystemMessage, UserMessage
 
-response = model.complete(
+response = client.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
@@ -129,18 +135,32 @@ The response is as follows, where you can see the model's usage statistics:
 ```python
 print("Response:", response.choices[0].message.content)
 print("Model:", response.model)
-print("Usage:", response.usage)
+print("Usage:")
+print("\tPrompt tokens:", response.usage.prompt_tokens)
+print("\tTotal tokens:", response.usage.total_tokens)
+print("\tCompletion tokens:", response.usage.completion_tokens)
 ```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
 
 
 ```python
-result = model.complete(
+result = client.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
@@ -164,8 +184,9 @@ def print_stream(result):
     """
     import time
     for update in result:
-        print(update.choices[0].delta.content, end="")
-        time.sleep(0.05)
+        if update.choices:
+            print(update.choices[0].delta.content, end="")
+            time.sleep(0.05)
 ```
 
 We can visualize how streaming generates content:
@@ -182,7 +203,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 ```python
 from azure.ai.inference.models import ChatCompletionsResponseFormat
 
-response = model.complete(
+response = client.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
@@ -208,7 +229,7 @@ The Azure AI Model Inference API allows you to pass extra parameters to the mode
 
 
 ```python
-response = model.complete(
+response = client.complete(
     messages=[
         SystemMessage(content="You are a helpful assistant."),
         UserMessage(content="How many languages are in the world?"),
@@ -266,7 +287,7 @@ Now, create a chat completion request with the image:
 
 ```python
 from azure.ai.inference.models import TextContentItem, ImageContentItem, ImageUrl
-response = model.complete(
+response = client.complete(
     messages=[
         SystemMessage("You are a helpful assistant that can generate responses based on images."),
         UserMessage(content=[
@@ -364,18 +385,22 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-await client.path("info").get()
+var model_info = await client.path("info").get()
 ```
 
 The response is as follows:
 
 
+```javascript
+console.log("Model name: ", model_info.body.model_name)
+console.log("Model type: ", model_info.body.model_type)
+console.log("Model provider name: ", model_info.body.model_provider_name)
+```
+
 ```console
-{
-    "model_name": "Phi-3-vision-128k-Instruct",
-    "model_type": "chat-completions",
-    "model_provider_name": "Microsoft"
-}
+Model name: Phi-3-vision-128k-Instruct
+Model type": chat-completions
+Model provider name": Microsoft
 ```
 
 ### Create a chat completion request
@@ -406,16 +431,30 @@ if (isUnexpected(response)) {
     throw response.body.error;
 }
 
-console.log(response.body.choices[0].message.content);
-console.log(response.body.model);
-console.log(response.body.usage);
+console.log("Response: ", response.body.choices[0].message.content);
+console.log("Model: ", response.body.model);
+console.log("Usage:");
+console.log("\tPrompt tokens:", response.body.usage.prompt_tokens);
+console.log("\tTotal tokens:", response.body.usage.total_tokens);
+console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 ```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
 
 
 ```javascript
@@ -665,10 +704,16 @@ Response<ModelInfo> modelInfo = client.GetModelInfo();
 The response is as follows:
 
 
-```console
+```csharp
 Console.WriteLine($"Model name: {modelInfo.Value.ModelName}");
 Console.WriteLine($"Model type: {modelInfo.Value.ModelType}");
 Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
+```
+
+```console
+Model name: Phi-3-vision-128k-Instruct
+Model type": chat-completions
+Model provider name": Microsoft
 ```
 
 ### Create a chat completion request
@@ -699,14 +744,28 @@ The response is as follows, where you can see the model's usage statistics:
 ```csharp
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 Console.WriteLine($"Model: {response.Value.Model}");
-Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
+Console.WriteLine("Usage:");
+Console.WriteLine($"\tPrompt tokens: {response.Value.Usage.PromptTokens}");
+Console.WriteLine($"\tTotal tokens: {response.Value.Usage.TotalTokens}");
+Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}");
 ```
+
+```console
+Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 19
+  Total tokens: 91
+  Completion tokens: 72
+```
+
+Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
 
 
 ```csharp
@@ -883,7 +942,7 @@ Content-Type: application/json
 The response is as follows:
 
 
-```console
+```json
 {
     "model_name": "Phi-3-vision-128k-Instruct",
     "model_type": "chat-completions",
@@ -942,11 +1001,13 @@ The response is as follows, where you can see the model's usage statistics:
 }
 ```
 
+Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+
 #### Stream content
 
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
-You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
+You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events). Extract chunks from the delta field, rather than the message field.
 
 
 ```json
@@ -1184,6 +1245,21 @@ The response is as follows, where you can see the model's usage statistics:
 ```
 
 ::: zone-end
+
+## More inference examples
+
+For more examples of how to use Phi-3, see the following examples and tutorials:
+
+| Description                               | Language          | Sample                                                          |
+|-------------------------------------------|-------------------|-----------------------------------------------------------------|
+| CURL request                              | Bash              | [Link](https://aka.ms/phi-3/webrequests-sample)         |
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
+| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)  |
+| Python web requests                       | Python            | [Link](https://aka.ms/phi-3/webrequests-sample)         |
+| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/phi-3/openaisdk)                  |
+| LangChain                                 | Python            | [Link](https://aka.ms/phi-3/langchain-sample)           |
+| LiteLLM                                   | Python            | [Link](https://aka.ms/phi-3/litellm-sample)             | 
+
 
 ## Cost and quotas
 

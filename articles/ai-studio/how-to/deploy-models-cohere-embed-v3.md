@@ -573,6 +573,14 @@ Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 ::: zone-end
 
+## More inference examples
+
+| Description                               | Language          | Sample                                                          |
+|-------------------------------------------|-------------------|-----------------------------------------------------------------|
+| Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
+| Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)  |
+
+
 ## Cost and quotas
 
 ### Cost and quota considerations for Cohere Command family of models deployed as serverless API endpoints
