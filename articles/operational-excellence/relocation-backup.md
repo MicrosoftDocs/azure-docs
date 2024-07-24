@@ -18,7 +18,7 @@ This article covers relocation guidance for [Azure Backup](../backup/backup-over
 
 Azure Backup doesn’t support the relocation of backup data from one Recovery Services vault to another. In order to continue to protect your resources, you must register and back them up to a Recovery Services vault in the new region. 
 
-After you relocate your resources to the new region, you can choose to ether keep or delete the backup data in the Recovery Services vaults in the old region.
+After you relocate your resources to the new region, you can choose to either keep or delete the backup data in the Recovery Services vaults in the old region.
 
 >[!NOTE] 
 >If you do choose to keep the backup data in the old region, you do incur backup charges.
