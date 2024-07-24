@@ -96,4 +96,4 @@ The following tables describe how to configure a collection of NSG allow rules. 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.
+- Don't explicitly deny the Azure DNS address `168.63.129.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

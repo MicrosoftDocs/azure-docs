@@ -289,7 +289,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 NSG flow logs can be used to analyze traffic flowing through the load balancer. 
 >[!Note]
->NSG flow logs don't contain the load balancers frontend IP address. To analyze the traffic flowing into a load balancer, the NSG flow logs would need to be filtered by the private IP addresses of the load balancer’s backend pool members.
+>NSG flow logs doesn't contain the load balancers frontend IP address. To analyze the traffic flowing into a load balancer, the NSG flow logs would need to be filtered by the private IP addresses of the load balancer’s backend pool members.
     
 
 ## Alerts

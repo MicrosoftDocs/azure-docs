@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 07/24/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
@@ -63,11 +63,11 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your virtual network that you want to log. |
-    | Flow log type | Select **Virtual Network** then select **+ Select target resource** (available options are: **Virtual network**, **Subnet**, and **Network interface**). <br> Select the resources that you want to flow log, then select **Confirm selection**. |
+    | Flow log type | Select **Virtual network** then select **+ Select target resource** (available options are: **Virtual network**, **Subnet**, and **Network interface**). <br> Select the resources that you want to flow log, then select **Confirm selection**. |
     | Flow Log Name | Enter a name for the flow log or leave the default name. Azure portal uses ***{ResourceName}-{ResourceGroupName}-flowlog*** as a default name for the flow log. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of the storage account. |
-    | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
+    | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
     :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png":::
@@ -105,7 +105,7 @@ To enable traffic analytics for a flow log, follow these steps:
 
 1. In **Network Watcher | Flow logs**, select the flow log that you want to enable traffic analytics for.
 
-1. In **Flow logs settings**, check the **Enable traffic analytics** checkbox.
+1. In **Flow logs settings**, under **Traffic analytics**, check the **Enable traffic analytics** checkbox.
 
     :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics.png":::
 
@@ -113,9 +113,9 @@ To enable traffic analytics for a flow log, follow these steps:
 
     | Setting | Value |
     | ------- | ----- |
-    | Traffic analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
     | Subscription | Select the Azure subscription of your Log Analytics workspace. |
-    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+    | Log Analytics workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+    | Traffic logging interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
 
     :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png":::
 

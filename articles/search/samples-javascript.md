@@ -58,7 +58,7 @@ Code samples from the Azure AI Search team demonstrate features and workflows. M
 
 | Samples | Article |
 |---------|---------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart/v11) | Source code for the JavaScript portion of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [quickstart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/quickstart) | Source code for the JavaScript portion of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
 | [search-website](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/main/search-website-functions-v4) | Source code for [Tutorial: Add search to web apps](tutorial-javascript-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
 
 > [!TIP]
