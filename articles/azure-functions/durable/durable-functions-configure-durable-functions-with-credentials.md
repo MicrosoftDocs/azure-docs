@@ -11,7 +11,7 @@ ms.author: azfuncdf
 
 [Microsoft Entra ID](/entra/fundamentals/whatis) is a cloud-based identity and access management service. Identity-based connections allow Durable Functions, a feature of Azure Functions, to make authorized requests against Microsoft Entra-protected resources, such as an Azure Storage account, without using manually managed secrets. When Durable Functions uses the default Azure storage provider, it must authenticate against an Azure storage account.
 
-In this quickstart, you complete the steps to set up a Durable Functions app to use two different kinds of identity-based connections:
+In this quickstart, you complete steps to set up a Durable Functions app to use two different kinds of identity-based connections:
 
 * Managed identity credentials (recommended)
 * Client secret credentials
@@ -60,7 +60,7 @@ Before you can use your app's managed identity, make some changes to the app con
 
 1. In the list of settings, select **AzureWebJobsStorage** and select the **Delete** icon.
 
-   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png" alt-text="Screenshot that shows default storage settings and deleting AzureWebJobsStorage.":::
+   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png" alt-text="Screenshot that shows default storage settings and deleting AzureWebJobsStorage." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png":::
 
 1. Add a setting to link your Azure storage account to the application.
 
@@ -103,7 +103,7 @@ Before you can use your app's managed identity, make some changes to the app con
 
      * For **AzureWebJobsStorage__clientId**, get this GUID value from the Microsoft Entra admin center.
 
-     :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png" alt-text="Screenshot that shows the user identity client ID.":::
+     :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png" alt-text="Screenshot that shows the user identity client ID." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png":::
 
 ## Configure your app to use client secret credentials
 
@@ -127,7 +127,7 @@ Registering a client application in Microsoft Entra ID is another way that you c
 
       The secret value doesn't appear again after you leave the pane, so be sure that you *copy the secret and save it*.
 
-   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png" alt-text="Screenshot that shows the Add a client secret pane.":::
+   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png" alt-text="Screenshot that shows the Add a client secret pane." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png":::
 
 ### Assign access roles to your application
 
@@ -143,11 +143,11 @@ To add the roles:
 
 1. In the resource menu, select **Access Control (IAM)**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png" alt-text="Screenshot that shows the Access control pane with Add role assignment highlighted.":::
+   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png" alt-text="Screenshot that shows the Access control pane with Add role assignment highlighted." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-02.png":::
 
 1. Select the role you want to add, select **Next**, and then search for your application. Review the role, and then add the role.
 
-   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png" alt-text="Screenshot that shows the role assignment pane.":::
+   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png" alt-text="Screenshot that shows the role assignment pane." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-03.png":::
 
 ### Configure the client secret
 
@@ -186,7 +186,7 @@ In the Azure portal, run and test the application. To run and test the app local
 
      You can get the values for these URI variables in the storage account on the **Endpoints** tab.
 
-     :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png" alt-text="Screenshot that shows an example of an endpoint as a specific service URI.":::
+     :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png" alt-text="Screenshot that shows an example of an endpoint as a specific service URI." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png":::
 
 1. To add client secret credentials, specify the following values:
 
@@ -198,4 +198,4 @@ In the Azure portal, run and test the application. To run and test the app local
 
    The values to use for the client ID and the tenant ID appear on your client application Overview pane. The client secret value is the one that you saved in an earlier step. The client secret value isn't available after the page is refreshed.
 
-   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png" alt-text="Screenshot that shows the tenant ID and client ID on a Microsoft Entra application pane.":::
+   :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png" alt-text="Screenshot that shows the tenant ID and client ID on a Microsoft Entra application pane." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png":::

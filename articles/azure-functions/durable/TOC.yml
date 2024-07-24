@@ -35,11 +35,11 @@
   - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Configure storage provider - Netherite
+  - name: Configure a storage provider - Netherite
     href: quickstart-netherite.md
-  - name: Configure storage provider - MSSQL
+  - name: Configure a storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Configure Durable Functions with Microsoft Entra ID
+  - name: Authenticate a Durable Functions app
     href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:

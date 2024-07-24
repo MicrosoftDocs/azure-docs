@@ -12,7 +12,7 @@ zone_pivot_groups: create-java-durable-options
 
 # Quickstart: Create a Java Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
 In this quickstart, you create and test a "hello world" Durable Functions app in Java.
 
@@ -274,7 +274,7 @@ Durable Functions needs a storage provider to store runtime state. You can set A
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select  **Azure Functions: Create New Project**.
 
-    ![Screenshot of the create new functions project command.](media/quickstart-js-vscode/functions-create-project.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the create new functions project command.":::
 
 1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -353,7 +353,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   ![Screenshot of Azure local output.](media/quickstart-java/maven-functions-run.png)
+   :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
 
 1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
 

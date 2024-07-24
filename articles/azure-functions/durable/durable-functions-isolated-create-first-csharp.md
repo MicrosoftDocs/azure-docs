@@ -12,19 +12,15 @@ ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete, de
 
 # Quickstart: Create a C# Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-Like Azure Functions, Durable Functions supports two process models for .NET class library functions:
-
-[!INCLUDE [functions-dotnet-execution-model](../../../includes/functions-dotnet-execution-model.md)]
-
-To learn more about the two processes, see [Differences between in-process and isolated worker process .NET Azure Functions](../dotnet-isolated-in-process-differences.md).
+Like Azure Functions, Durable Functions supports two process models for .NET class library functions. To learn more about the two processes, see [Differences between in-process and isolated worker process .NET Azure Functions](../dotnet-isolated-in-process-differences.md).
 
 ::: zone pivot="code-editor-vscode"
 
 In this quickstart, you use Visual Studio Code to locally create and test a "hello world" Durable Functions app. The function app orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. The tools you use are available via the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-:::image type="content" source="./media/durable-functions-create-first-csharp/functions-vscode-complete.png" alt-text="Screenshot of Durable Functions app code in Visual Studio Code.":::
+:::image type="content" source="./media/durable-functions-create-first-csharp/functions-vscode-complete.png" alt-text="Screenshot that shows Durable Functions app code in Visual Studio Code.":::
 
 ## Prerequisites
 
@@ -109,11 +105,11 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
    > [!NOTE]
    > For more information about debugging, see [Durable Functions diagnostics](durable-functions-diagnostics.md#debugging).
    >
-   > If the message *No job functions found* appears, [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Earlier versions of Core Tools don't support the .NET isolated worker model.
+   > If the message *No job functions found* appears, [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md).
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
+    :::image type="content" source="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png" alt-text="Screenshot of the Azure local output window." lightbox="media/durable-functions-create-first-csharp/isolated-functions-vscode-debugging.png":::
 
 1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint.
 
@@ -171,7 +167,7 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this quickstart, you use Visual Studio 2022 to locally create and test a "hello world" Durable Functions app that runs in the isolated worker process. The function orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. The tools you use are available via the *Azure development workload* in Visual Studio 2022.
+In this quickstart, you use Visual Studio 2022 to locally create and test a "hello world" Durable Functions app. The function orchestrates and chains together calls to other functions. Then, you publish the function code in Azure. The tools you use are available via the *Azure development workload* in Visual Studio 2022.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of Durable Functions app code in Visual Studio 2019.":::
 

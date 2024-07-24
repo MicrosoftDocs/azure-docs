@@ -11,7 +11,7 @@ ms.custom: mode-api, vscode-azure-extension-update-complete
 
 # Quickstart: Create a PowerShell Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md) that you can use to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts for you.
+Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
 
 In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
 
@@ -37,7 +37,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-   ![Screenshot that shows the Create a function command.](media/quickstart-js-vscode/functions-create-project.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot that shows the Create a function command.":::
 
 1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -139,7 +139,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Durable Functions requires an Azure storage account to run. When Visual Studio Code prompts you to select a storage account, choose **Select storage account**.
 
-   ![Screenshot that shows the Create storage account command.](media/quickstart-js-vscode/functions-select-storage.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-select-storage.png" alt-text="Screenshot that shows the Create storage account command.":::
 
 1. At the prompts, provide the following information to create a new storage account in Azure.
 
@@ -153,7 +153,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   ![Screenshot of Azure local output.](media/quickstart-js-vscode/functions-f5.png)
+   :::image type="content" source="media/quickstart-js-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
 
 1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

@@ -10,6 +10,8 @@ ms.reviewer: azfuncdf
 
 # Quickstart: Set a Durable Functions app to use the Netherite storage provider
 
+Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
+
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
@@ -42,12 +44,7 @@ If you don't meet these prerequisites, we recommend that you start with one of t
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
 
-First, install the latest version of the Netherite storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
-
-Which extension package you install depends on the .NET worker you're using:
-
-- For the *in-process* .NET worker, install [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
-- For the *isolated* .NET worker, install [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
+First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
 
 You can install the extension by using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command:
 
@@ -100,15 +97,14 @@ This code snippet is a basic configuration. Later, you might want to [add parame
 
 Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a basic orchestrator function.
 
-While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to check that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following screenshot for an example.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to verify that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following screenshot for an example.
 
-![Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
+:::image type="content" source="media/quickstart-netherite/partition-table.png" alt-text="Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.":::
+
+For more information about the contents of the **DurableTaskPartitions** table, see [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable).
 
 > [!NOTE]
-> For more information about the contents of this table, see [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable).
-
-> [!NOTE]
-> If you use local storage emulation on a Windows OS, ensure that you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy *Azure Storage Emulator* component. Local storage emulation with Netherite is supported only via Azurite.
+> If you use local storage emulation on a Windows OS, ensure that you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the earlier *Azure Storage Emulator* component. Local storage emulation with Netherite is supported only via Azurite.
 
 ## Run your app in Azure
 
@@ -123,7 +119,7 @@ You need to set up an Event Hubs namespace to run Netherite in Azure. You can al
 
 #### Create an Event Hubs namespace
 
-Follow [these steps](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) to create an Event Hubs namespace on the Azure portal. When you create the namespace, you might be prompted to:
+Complete the steps to [create an Event Hubs namespace](../../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)  in the Azure portal. When you create the namespace, you might be prompted to:
 
 - Select a *resource group*. Use the same resource group that the function app uses.
 - Select a *plan* and provision *throughput units*. Select the defaults. You can change this setting later.
@@ -131,17 +127,17 @@ Follow [these steps](../../event-hubs/event-hubs-create.md#create-an-event-hubs-
 
 #### Get the Event Hubs connection string
 
-To get the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal. Select **Shared access policies**, and then select **RootManagedSharedAccessKey**. A field named **Connection string-primary key** is revealed, and the field's value is the connection string.
+To get the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal. Select **Shared access policies**, and then select **RootManagedSharedAccessKey**. A field named **Connection string-primary key** appears, and the field's value is the connection string.
 
-![Screenshot that shows finding the connection string primary key in the Azure portal.](./media/quickstart-netherite/namespace-connection-string.png)
+:::image type="content" source="media/quickstart-netherite/namespace-connection-string.png" alt-text="Screenshot that shows finding the connection string primary key in the Azure portal.":::
 
 ### Add the connection string as an application setting
 
 Next, add your connection string as an application setting in your function app. To add it in the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. You can assign `EventHubsConnection` to map to your connection string. The following screenshots show some examples.
 
-![Screenshot that shows the function app view, Configuration, and select New application setting.](./media/quickstart-netherite/add-configuration.png)
+:::image type="content" source="media/quickstart-netherite/add-configuration.png" alt-text="Screenshot that shows the function app view, Configuration, and select New application setting.":::
 
-![Screenshot that shows entering EventHubsConnection as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
+:::image type="content" source="media/quickstart-netherite/enter-configuration.png" alt-text="Screenshot that shows entering EventHubsConnection as the name, and the connection string as its value.":::
 
 ### Enable runtime scaling (Elastic Premium only)
 
@@ -150,7 +146,7 @@ Next, add your connection string as an application setting in your function app.
 
 If your app is running on the Elastic Premium plan, we recommend that you enable runtime scale monitoring for better scaling. Go to **Configuration**, select **Function runtime settings**, and set **Runtime Scale Monitoring** to **On**.
 
-![Screenshot that shows how to enable runtime scale monitoring in the portal.](./media/quickstart-netherite/runtime-scale-monitoring.png)
+:::image type="content" source="media/quickstart-netherite/runtime-scale-monitoring.png" alt-text="Screenshot that shows how to enable runtime scale monitoring in the portal.":::
 
 ### Ensure that your app is using a 64-bit architecture (Windows only)
 
@@ -159,14 +155,14 @@ If your app is running on the Elastic Premium plan, we recommend that you enable
 
 Netherite requires a 64-bit architecture. Beginning with Azure Functions V4, 64-bit should be the default. You can usually validate this setting in the Azure portal. Under **Configuration**, select **General Settings**, and then ensure that **Platform** is set to **64 Bit**. If you don't see this option in the portal, then you might already run on a 64-bit platform. For example, Linux apps don't show this setting because they support only 64-bit architecture.
 
-![Screenshot that shows how to configure a runtime to use 64-bit in the portal.](./media/quickstart-netherite/ensure-64-bit-architecture.png)
+:::image type="content" source="media/quickstart-netherite/ensure-64-bit-architecture.png" alt-text="Screenshot that shows how to configure a runtime to use 64-bit in the portal.":::
 
 ## Deploy
 
 You can now deploy your code to the cloud and run your tests or workload on it. To validate that Netherite is correctly configured, you can review the metrics for Event Hubs in the portal to ensure that there's activity.
 
 > [!NOTE]
-> For guidance on deploying your project to Azure, review the deployment instructions for your programming language in [Prerequisites](#prerequisites).
+> For information about how to deploy your project to Azure, review the deployment instructions for your programming language in [Prerequisites](#prerequisites).
 
 ## Related content
 
