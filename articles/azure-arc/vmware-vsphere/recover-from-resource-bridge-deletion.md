@@ -17,7 +17,7 @@ In this article, you learn how to recover the Azure Arc resource bridge connecti
 
 ## Prerequisites
 
-1. The disaster recovery script must be run from the same folder where the config (.yaml) files are present. The config files are present on the machine used to run the script to [deploy Arc resource bridge](../quick-start-connect-vcenter-to-arc-using-script#inputs-for-the-script). 
+1. The disaster recovery script must be run from the same folder where the config (.yaml) files are present. The config files are present on the machine used to run the script to [deploy Arc resource bridge](../quick-start-connect-vcenter-to-arc-using-script.md#inputs-for-the-script). 
 
 1. The machine being used to run the script must have bidirectional connectivity to the Arc resource bridge VM on port 6443 (Kubernetes API server) and 22 (SSH), and outbound connectivity to the Arc resource bridge VM on port 443 (HTTPS).
 
