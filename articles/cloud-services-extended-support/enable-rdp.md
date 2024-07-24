@@ -6,12 +6,12 @@ ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ---
 
 # Apply the Remote Desktop extension to Azure Cloud Services (extended support)
 
-The Azure portal uses the remote desktop extension to enable remote desktop even after the application is deployed. The remote desktop settings for your Cloud Service allows you to enable remote desktop, update the local administrator account, select the certificates used in authentication and set the expiration date for those certificates. 
+The Azure portal uses the remote desktop extension to enable remote desktop even after the application is deployed. The remote desktop settings for your Cloud Service allow you to enable remote desktop, update the local administrator account, select the certificates used in authentication, and set the expiration date for those certificates. 
 
 ## Apply Remote Desktop  extension
 1. Navigate to the Cloud Service you want to enable remote desktop for and select **"Remote Desktop"** in the left navigation pane.
@@ -20,31 +20,31 @@ The Azure portal uses the remote desktop extension to enable remote desktop even
 
 2. Select **Add**.
 3. Choose the roles to enable remote desktop for.
-4. Fill in the required fields for user name, password and expiration.
+4. Fill in the required fields for user name, password, and expiration.
 
 > [!NOTE]
 > The password for remote desktop must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed
 
    :::image type="content" source="media/remote-desktop-2.png" alt-text="Image shows inputting the information required to connect to remote desktop.":::
 
-5. When finished, select **Save**. It will take a few moments before your role instances are ready to receive connections.
+5. When finished, select **Save**. It takes a few moments before your role instances are ready to receive connections.
 
 ## Connect to role instances with Remote Desktop enabled
 Once remote desktop is enabled on the roles, you can initiate a connection directly from the Azure portal.
 
-1. Click on **Roles and Instances** to open the instance settings.
+1. Select on **Roles and Instances** to open the instance settings.
 
     :::image type="content" source="media/remote-desktop-3.png" alt-text="Image shows selecting the roles and instances option in the configuration blade.":::
 
 2. Select a role instance that has remote desktop configured.
-3. Click **Connect** to download an remote desktop connection file.
+3. Select **Connect** to download a remote desktop connection file.
 
     :::image type="content" source="media/remote-desktop-4.png" alt-text="Image shows selecting the worker role instance in the Azure portal.":::
     
 4. Open the file to connect to the role instance.
 
 ## Update Remote Desktop Extension using PowerShell
-Follow the below steps to update your cloud service to the latest module with an RDP extension
+Follow the below steps to update your cloud service to the latest module with a Remote Desktop Protocol (RDP) extension
 
 1.	Update Az.CloudService module to the [latest version](https://www.powershellgallery.com/packages/Az.CloudService/0.5.0)
 
