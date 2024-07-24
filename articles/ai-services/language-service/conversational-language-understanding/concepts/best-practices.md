@@ -25,7 +25,7 @@ Schema is the definition of your intents and entities. There are different appro
 
 You can typically think of actions and queries as _intents_, while the information required to fulfill those queries are _entities_.
 
-For example, assume that you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _cancel_ intent with various examples like _"Cancel the Contoso service"_ or _"Stop charging me for the Fabrikam subscription."_ The user's intent here is to _cancel_, and the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they want to cancel.
+For example, assume that you want your customers to cancel subscriptions for various products that you offer through your chatbot. You can create a _cancel_ intent with various examples like "Cancel the Contoso service" or "Stop charging me for the Fabrikam subscription." The user's intent here is to _cancel_, and the _Contoso service_ or _Fabrikam subscription_ are the subscriptions they want to cancel.
 
 To proceed, you create an entity for _subscriptions_. Then you can model your entire project to capture actions as intents and use entities to fill in those actions. This approach allows you to cancel anything you define as an entity, such as other products. You can then have intents for signing up, renewing, and upgrading that all make use of the _subscriptions_ and other entities.
 
@@ -33,7 +33,7 @@ The preceding schema design makes it easy for you to extend existing capabilitie
 
 Another approach is to model the _information_ as intents and the _actions_ as entities. Let's take the same example of allowing your customers to cancel subscriptions through your chatbot.
 
-You can create an intent for each subscription available, such as _Contoso_, with utterances like _"Cancel Contoso"_, _"Stop charging me for Contoso services"_, and _"Cancel the Contoso subscription."_ You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
+You can create an intent for each subscription available, such as _Contoso_, with utterances like "Cancel Contoso," "Stop charging me for Contoso services", and "Cancel the Contoso subscription." You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
 
 This schema design makes it easy for you to extend new actions to existing targets by adding new action entities or entity components.
 
@@ -64,16 +64,16 @@ If you see too many false positives, such as out-of-context utterances being mar
 * Non-machine-learned entity components, like lists and regex, are by definition not contextual. If you see list or regex entities in unintended places, try labeling the list synonyms as the machine-learned component.
 * For entities, you can use learned component as the Required component, to restrict when a composed entity should fire.
 
-For example, suppose you have an entity called *ticket quantity* that attempts to extract the number of tickets you want to reserve for booking flights, for utterances such as *"Book two tickets tomorrow to Cairo."*
+For example, suppose you have an entity called **Ticket Quantity** that attempts to extract the number of tickets you want to reserve for booking flights, for utterances such as "Book two tickets tomorrow to Cairo."
 
-Typically, you add a prebuilt component for `Quantity.Number` that already extracts all numbers in utterances. However, if your entity was only defined with the prebuilt component, it also extracts other numbers as part of the *ticket quantity* entity, such as _"Book two tickets tomorrow to Cairo at 3 PM."_
+Typically, you add a prebuilt component for `Quantity.Number` that already extracts all numbers in utterances. However, if your entity was only defined with the prebuilt component, it also extracts other numbers as part of the **Ticket Quantity** entity, such as "Book two tickets tomorrow to Cairo at 3 PM."
 
-To resolve this issue, you label a learned component in your training data for all the numbers that are meant to be a *ticket quantity*. The entity now has two components:
+To resolve this issue, you label a learned component in your training data for all the numbers that are meant to be a ticket quantity. The entity now has two components:
 
 * The prebuilt component that can interpret all numbers.
-* The learned component that predicts where *ticket quantity* is located in a sentence.
+* The learned component that predicts where the ticket quantity is located in a sentence.
 
-If you require the learned component, make sure that *ticket quantity* is only returned when the learned component predicts it in the right context. If you also require the prebuilt component, you can then guarantee that the returned *ticket quantity* entity is both a number and in the correct position.
+If you require the learned component, make sure that **Ticket Quantity** is only returned when the learned component predicts it in the right context. If you also require the prebuilt component, you can then guarantee that the returned **Ticket Quantity** entity is both a number and in the correct position.
 
 ## Address model inconsistencies
 
@@ -117,9 +117,9 @@ Customers can use the LoraNorm recipe version if the model is being incorrectly 
 
 | Text |	Predicted intent |	Confidence score |
 |----|----|----|
-| _"Who built the Eiffel Tower?"_ |	 `Sports` | 1.00 |
-| _"Do I look good to you today?"_ | `QueryWeather` |	1.00 |
-| _"I hope you have a good evening."_ | `Alarm` | 1.00 |
+| "Who built the Eiffel Tower?" |	 `Sports` | 1.00 |
+| "Do I look good to you today?" | `QueryWeather` |	1.00 |
+| "I hope you have a good evening." | `Alarm` | 1.00 |
 
 To address this scenario, use the `2023-04-15` configuration version that normalizes confidence scores. The confidence threshold project setting can then be adjusted to achieve the desired result.
 
@@ -247,9 +247,9 @@ Customers can use the new recipe version `2024-06-01-preview` if the model has p
 
 | Text |	Predicted intent |	Confidence score |
 |----|----|----|
-| _"Who built the Eiffel Tower?"_ |	 `Sports` | 0.90 |
-| _"Do I look good to you today?"_ | `QueryWeather` |	1.00 |
-| _"I hope you have a good evening."_ | `Alarm` | 0.80 |
+| "Who built the Eiffel Tower?" |	 `Sports` | 0.90 |
+| "Do I look good to you today?" | `QueryWeather` |	1.00 |
+| "I hope you have a good evening." | `Alarm` | 0.80 |
 
 To address this scenario, use the `2024-06-01-preview` configuration version that's built specifically to address this issue while also maintaining reasonably good quality on `InDomain` utterances.
 
