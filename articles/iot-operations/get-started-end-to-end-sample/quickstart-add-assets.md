@@ -25,7 +25,7 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 ## Prerequisites
 
-Complete [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md) before you begin this quickstart.
+Complete [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) before you begin this quickstart.
 
 To sign in to the operations experience, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
 
