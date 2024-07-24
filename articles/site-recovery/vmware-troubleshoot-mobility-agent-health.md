@@ -31,7 +31,7 @@ To troubleshoot mobility agent health errors, follow these recommendations:
     - **Windows**: `/var/log/svagents_curr<>.log`
     - **Linux**: `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents_curr<>.log`
 
-### Error 1
+### Error 1 - ClientCertificateIsInvalidOrExpired
 
 If you get the following error in the `svagents_curr.log` file:
 
@@ -51,7 +51,7 @@ Follow these recommendations:
 1. [Upgrade Azure Site Recovery mobility agent](./upgrade-mobility-service-modernized.md) to the latest version available on the source machine. 
 1. [Generate Mobility Service configuration](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance.
 
-### Error 2
+### Error 2 - certificate verification failed
 
 If you get the following error in the `svagents_curr.log` file:
 
@@ -67,7 +67,7 @@ Follow these recommendations:
 1. Restart the services - *Process Server* and *Process Server Monitor* and wait for an hour.
 
 
-### Error 3
+### Error 3 - server certificate expired
 
 If you get the following error in the `svagents_curr.log` file:
 
@@ -94,7 +94,7 @@ Follow these recommendations:
 1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance. 
 
 
-### Error 4
+### Error 4 - mismatch of fingerprints received
 
 If you get the following error in the `svagents_curr.log` file:
 
