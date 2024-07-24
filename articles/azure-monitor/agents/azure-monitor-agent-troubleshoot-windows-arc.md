@@ -115,5 +115,3 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
     </Subscription>
     ```
     If there are no `Subscription` nodes, then the DCR wasn't parsed correctly. [File a ticket](#file-a-ticket) with **Summary** as 'AMA unable to parse DCR config' and **Problem type** as 'I need help with Azure Monitor Windows Agent'. 
-
-[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
