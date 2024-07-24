@@ -26,7 +26,7 @@ Source and target DBs must use the same HDInsight version and the same Storage A
 
 ## Prerequisites
 
-If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), Hive table locations are likely dependent on the cluster's HDFS configurations for Azure Data Lake Storage Gen1. Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
+Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
 
 The action is similar to replacing symlinks with their full paths.
 

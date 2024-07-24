@@ -70,4 +70,3 @@ For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/
 
 * [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction to Azure Storage](../storage/common/storage-introduction.md)
-* [Azure Data Lake Storage Gen1 overview](./overview-data-lake-storage-gen1.md)

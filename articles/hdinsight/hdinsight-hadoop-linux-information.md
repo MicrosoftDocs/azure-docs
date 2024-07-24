@@ -127,12 +127,6 @@ When using [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-s
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a nondefault storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), use one of the following URI schemes:
-
-* `adl:///`: Access the default Data Lake Storage for the cluster.
-
-* `adl://<storage-name>.azuredatalakestore.net/`: Used when communicating with a nondefault Data Lake Storage. Also used to access data outside the root directory of your HDInsight cluster.
-
 > [!IMPORTANT]  
 > When using Data Lake Storage as the default store for HDInsight, you must specify a path within the store to use as the root of HDInsight storage. The default path is `/clusters/<cluster-name>/`.
 >
