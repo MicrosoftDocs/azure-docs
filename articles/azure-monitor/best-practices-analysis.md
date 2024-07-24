@@ -93,182 +93,64 @@ Azure Monitor suggests using Azure Managed Grafana for data visualizations and d
 * Sharing dashboards outside of the Azure portal
 * Leveraging open-source community dashboards
 
-### Comparing Capabilities
+### Compare capabilities
 
 ✅ Supported<br>
 ☑️ Supported with requirements/limitations
 
-| Service/Feature                                                                 | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| **Fully Azure Native Reporting**                                                | ✅                                                                 |                                             |
-| In the Azure portal, no other entry points required                             | ✅                                                                 |                                             |
-| Leveraged by Azure Monitor Insights                                             | ✅                                                                 |                                             |
-| Visualizations are native ARM resources                                         | ✅                                                                 |                                             |
-| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                                 | ☑️<br>Only Azure CLI supported              |
-| Access model Identical to Azure RBAC                                            | ✅                                                                 | ☑️<br>Not supported for Prometheus          |
-| Included in Azure Cost                                                          | ✅                                                                 | ☑️<br>Additional per user pricing           |
-| Reports and guided workflows in the Azure portal                                | ✅                                                                 |                                             |
-
-| Complete set of  Azure datasources                                              | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
+| **Fully Azure Native Reporting**                                                | Workbooks                                                          | Azure Managed Grafana                          |
+|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:----------------------------------------------:|
+| In the Azure portal, no other entry points required                             | ✅                                                                 |                                                |
+| Leveraged by Azure Monitor Insights                                             | ✅                                                                 |                                                |
+| Visualizations are native ARM resources                                         | ✅                                                                 |                                                |
+| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                                 | ☑️<br>Only Azure CLI supported                |
+| Access model Identical to Azure RBAC                                            | ✅                                                                 | ☑️<br>Not supported for Prometheus            |
+| Included in Azure Cost                                                          | ✅                                                                 | ☑️<br>Additional per user pricing             |
+| Reports and guided workflows in the Azure portal                                | ✅                                                                 |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Complete set of  Azure datasources**                                          | **Workbooks**                                                      | **Azure Managed Grafana**                      |
 | ARM, Azure Resource Health, Azure Service Health                                | ✅                                                                 | ☑️<br>Doesn't support ARM and Resource Health |
-| Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                                 | ✅                                          |
-
-| Azure Hybrid Environments                                                       | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| Azure Arc                                                                       | ✅                                                                 |                                             |
-| Azure Stack Hub                                                                 | ✅                                                                 |                                             |
-| Azure Edge and Azure IoT                                                        | ✅                                                                 |                                             |
-
-| Azure Automation                                                                | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| Supports integrations actions and runbooks                                      | ✅                                                                 |                                             |
-
-| Multi-tenancy and portability                                                   | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                          |
-| Visualizations available outside of the Azure portal                            |                                                                    | ✅                                          |
-| On demand and scheduled reports outside of the Azure portal                     |                                                                    | ✅                                          |
-| Azure service principal and Azure SQL Managed Instance auth                     |                                                                    | ✅                                          |
-
-| Multicloud and multi-platform                                                   | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | ☑️<br>Requires ARC and Azure Monitor instrumentation and ingestion | ✅                                          |
-| OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                    | ✅                                          |
-| Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                    | ✅                                          |
-| Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                    | ✅                                          |
-| &nbsp;                                                                          |                                                                    |                                             |
-
-| Cloud Native                                                                    | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| Prometheus queries                                                              | ✅                                                                 | ✅                                          |
-| Prometheus Builder (No Code Queries)                                            |                                                                    | ✅                                          |
-| Prometheus  Community Dashboards                                                |                                                                    | ✅                                          |
-| Prometheus + Exemplars                                                          |                                                                    | ✅                                          |
-| Istio - Service Mesh                                                            |                                                                    | ✅                                          |
-
-| Operational dashboards                                                          | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| Multiple queries in single pane                                                 |                                                                    | ✅                                          |
-| Event and annotations combined with time series data                            |                                                                    | ✅                                          |
-| Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                          |
-| Dashboard playlists/rotation                                                    |                                                                    | ✅                                          |
-
-### One table (V1)
-
-| Service/Feature                                                                 | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| **Fully Azure Native Reporting**                                                | ✅                                                                 |                                             |
-| In the Azure portal, no other entry points required                             | ✅                                                                 |                                             |
-| Leveraged by Azure Monitor Insights                                             | ✅                                                                 |                                             |
-| Visualizations are native ARM resources                                         | ✅                                                                 |                                             |
-| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                                 | ☑️<br>Only Azure CLI supported              |
-| Access model Identical to Azure RBAC                                            | ✅                                                                 | ☑️<br>Not supported for Prometheus          |
-| Included in Azure Cost                                                          | ✅                                                                 | ☑️<br>Additional per user pricing           |
-| Reports and guided workflows in the Azure portal                                | ✅                                                                 |                                             |
-| &nbsp; | | |
-| **Complete set of  Azure datasources**                                              | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| ARM, Azure Resource Health, Azure Service Health                                | ✅                                                                 | ☑️<br>Doesn't support ARM and Resource Health |
-| Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                                 | ✅                                          |
-| &nbsp; | | |
-| **Azure Hybrid Environments**                                                       | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| Azure Arc                                                                       | ✅                                                                 |                                             |
-| Azure Stack Hub                                                                 | ✅                                                                 |                                             |
-| Azure Edge and Azure IoT                                                        | ✅                                                                 |                                             |
-| &nbsp; | | |
-| **Azure Automation**                                                                | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| Supports integrations actions and runbooks                                      | ✅                                                                 |                                             |
-| &nbsp; | | |
-| **Multi-tenancy and portability**                                                   | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                          |
-| Visualizations available outside of the Azure portal                            |                                                                    | ✅                                          |
-| On demand and scheduled reports outside of the Azure portal                     |                                                                    | ✅                                          |
-| Azure service principal and Azure SQL Managed Instance auth                     |                                                                    | ✅                                          |
-| &nbsp; | | |
-| **Multicloud and multi-platform**                                                   | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | ☑️<br>Requires ARC and Azure Monitor instrumentation and ingestion | ✅                                          |
-| OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                    | ✅                                          |
-| Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                    | ✅                                          |
-| Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                    | ✅                                          |
-| &nbsp; | | |
-| **Cloud Native**                                                                    | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| Prometheus queries                                                              | ✅                                                                 | ✅                                          |
-| Prometheus Builder (No Code Queries)                                            |                                                                    | ✅                                          |
-| Prometheus  Community Dashboards                                                |                                                                    | ✅                                          |
-| Prometheus + Exemplars                                                          |                                                                    | ✅                                          |
-| Istio - Service Mesh                                                            |                                                                    | ✅                                          |
-| &nbsp; | | |
-| **Operational dashboards**                                                          | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| &nbsp; | | |
-| Multiple queries in single pane                                                 |                                                                    | ✅                                          |
-| Event and annotations combined with time series data                            |                                                                    | ✅                                          |
-| Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                          |
-| Dashboard playlists/rotation                                                    |                                                                    | ✅                                          |
-
-### One table (V2)
-
-### One table
-
-| Service/Feature                                                                 | Workbooks                                                          | Azure Managed Grafana                       |
-|:--------------------------------------------------------------------------------|:------------------------------------------------------------------:|:-------------------------------------------:|
-| **Fully Azure Native Reporting**                                                | ✅                                                                 |                                             |
-| In the Azure portal, no other entry points required                             | ✅                                                                 |                                             |
-| Leveraged by Azure Monitor Insights                                             | ✅                                                                 |                                             |
-| Visualizations are native ARM resources                                         | ✅                                                                 |                                             |
-| At scale deployment and management of visualizations – ARM, Bicep, Terraform    | ✅                                                                 | ☑️<br>Only Azure CLI supported              |
-| Access model Identical to Azure RBAC                                            | ✅                                                                 | ☑️<br>Not supported for Prometheus          |
-| Included in Azure Cost                                                          | ✅                                                                 | ☑️<br>Additional per user pricing           |
-| Reports and guided workflows in the Azure portal                                | ✅                                                                 |                                             |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Complete set of  Azure datasources**                                              | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| ARM, Azure Resource Health, Azure Service Health                                | ✅                                                                 | ☑️<br>Doesn't support ARM and Resource Health |
-| Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                                 | ✅                                          |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Azure Hybrid Environments**                                                       | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| Azure Arc                                                                       | ✅                                                                 |                                             |
-| Azure Stack Hub                                                                 | ✅                                                                 |                                             |
-| Azure Edge and Azure IoT                                                        | ✅                                                                 |                                             |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Azure Automation**                                                                | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| Supports integrations actions and runbooks                                      | ✅                                                                 |                                             |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Multi-tenancy and portability**                                                   | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                          |
-| Visualizations available outside of the Azure portal                            |                                                                    | ✅                                          |
-| On demand and scheduled reports outside of the Azure portal                     |                                                                    | ✅                                          |
-| Azure service principal and Azure SQL Managed Instance auth                     |                                                                    | ✅                                          |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Multicloud and multi-platform**                                                   | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | ☑️<br>Requires ARC and Azure Monitor instrumentation and ingestion | ✅                                          |
-| OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                    | ✅                                          |
-| Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                    | ✅                                          |
-| Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                    | ✅                                          |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Cloud Native**                                                                    | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| Prometheus queries                                                              | ✅                                                                 | ✅                                          |
-| Prometheus Builder (No Code Queries)                                            |                                                                    | ✅                                          |
-| Prometheus  Community Dashboards                                                |                                                                    | ✅                                          |
-| Prometheus + Exemplars                                                          |                                                                    | ✅                                          |
-| Istio - Service Mesh                                                            |                                                                    | ✅                                          |
-| &nbsp; | | |
-| &nbsp; | | |
-| **Operational dashboards**                                                          | **Workbooks**                                                          | **Azure Managed Grafana**                       |
-| Multiple queries in single pane                                                 |                                                                    | ✅                                          |
-| Event and annotations combined with time series data                            |                                                                    | ✅                                          |
-| Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                          |
-| Dashboard playlists/rotation                                                    |                                                                    | ✅                                          |
+| Azure Monitor metrics, logs, traces, ARG, Azure Prom, ADX (Azure Data Explorer) | ✅                                                                 | ✅                                            |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Azure Hybrid Environments**                                                   | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| Azure Arc                                                                       | ✅                                                                 |                                                |
+| Azure Stack Hub                                                                 | ✅                                                                 |                                                |
+| Azure Edge and Azure IoT                                                        | ✅                                                                 |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Azure Automation**                                                            | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| Supports integrations actions and runbooks                                      | ✅                                                                 |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Multi-tenancy and portability**                                               | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| Single view for multiple Azure tenants                                          | ☑️<br>Via Lighthouse                                               | ✅                                            |
+| Visualizations available outside of the Azure portal                            |                                                                    | ✅                                             |
+| On demand and scheduled reports outside of the Azure portal                     |                                                                    | ✅                                             |
+| Azure service principal and Azure SQL Managed Instance auth                     |                                                                    | ✅                                             |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Multicloud and multi-platform**                                               | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| AWS (Amazon Web Services), GCP (Google Cloud Platform), Oracle Cloud            | ☑️<br>Requires ARC and Azure Monitor instrumentation and ingestion | ✅                                            |
+| OSS datasources – Zipkin, Jaeger, Tempo, Loki, Standalone Prometheus            |                                                                    | ✅                                             |
+| Third party datasources  - AppDynamic, DataDog, New Relic, DataDog etc.         |                                                                    | ✅                                             |
+| Generic database support – SQL, Mongo, Postgres, Oracle etc.                    |                                                                    | ✅                                             |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Cloud Native**                                                                | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| Prometheus queries                                                              | ✅                                                                 | ✅                                            |
+| Prometheus Builder (No Code Queries)                                            |                                                                    | ✅                                             |
+| Prometheus  Community Dashboards                                                |                                                                    | ✅                                             |
+| Prometheus + Exemplars                                                          |                                                                    | ✅                                             |
+| Istio - Service Mesh                                                            |                                                                    | ✅                                             |
+| &nbsp;                                                                          |                                                                    |                                                |
+| &nbsp;                                                                          |                                                                    |                                                |
+| **Operational dashboards**                                                      | **Workbooks**                                                      | **Azure Managed Grafana**                      |
+| Multiple queries in single pane                                                 |                                                                    | ✅                                             |
+| Event and annotations combined with time series data                            |                                                                    | ✅                                             |
+| Client-side Processing – Expressions & Transforms                               |                                                                    | ✅                                             |
+| Dashboard playlists/rotation                                                    |                                                                    | ✅                                             |
 
 ## Other options
 
