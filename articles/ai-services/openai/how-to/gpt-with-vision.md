@@ -260,6 +260,9 @@ The **object grounding** integration brings a new layer to data analysis and use
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
 
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
@@ -453,6 +456,9 @@ Follow these steps to set up a video retrieval system and integrate it with your
 
 > [!IMPORTANT]
 > To use the Vision enhancement with an Azure OpenAI resource, you need to specify a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource. If you're using an Azure AI Services resource, you don't need an additional Computer Vision resource.
+
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
 
 > [!CAUTION]
 > Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
