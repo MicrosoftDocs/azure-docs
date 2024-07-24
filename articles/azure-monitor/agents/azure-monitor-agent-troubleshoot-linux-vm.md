@@ -99,5 +99,3 @@ For more information on how to troubleshoot syslog issues with Azure Monitor Age
 
 ## Troubleshooting issues on Arc-enabled server
 If after checking basic troubleshooting steps you don't see the Azure Monitor Agent emitting logs or find  **'Failed to get MSI token from IMDS endpoint'**  errors in `/var/opt/microsoft/azuremonitoragent/log/mdsd.err` log file, it's likely `syslog` user isn't a member of the group `himds`. Add `syslog` user to `himds` user group if the user isn't a member of this group. Create user `syslog` and the group `syslog`, if necessary, and make sure that the user is in that group. For more information check out Azure Arc-enabled server authentication requirements [here](../../azure-arc/servers/managed-identity-authentication.md).
-
-[!INCLUDE [azure-monitor-agent-file-a-ticket](../../../includes/azure-monitor-agent/azure-monitor-agent-file-a-ticket.md)]
