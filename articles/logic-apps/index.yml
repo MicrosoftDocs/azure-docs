@@ -26,7 +26,7 @@ landingContent:
             url: logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Single-tenant versus multi-tenant
+          - text: Single-tenant versus multitenant
             url: single-tenant-overview-compare.md
           - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
