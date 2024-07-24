@@ -20,14 +20,7 @@ ms.custom:
 
 This quickstart shows you how to use an Azure Resource Manager template (ARM template) to create a resource in Azure AI services.
 
-Azure AI services is a cloud-based portfolio of AI services. It helps developers build cognitive intelligence into applications without needing direct skills or knowledge of AI or data science.
-
-Azure AI services is available through REST APIs and client library SDKs in popular development languages. It enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
-
-By creating an Azure AI services resource, you can:
-
-* Access multiple AI services in Azure with a single key and endpoint.
-* Consolidate billing from the services that you use.
+[!INCLUDE [About AI services](./includes/ai-services-intro.md)]
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -43,8 +36,6 @@ The template that you use in this quickstart is from [Azure Quickstart Templates
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
 One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it's an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
-
-[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 ## Deploy the template
 
