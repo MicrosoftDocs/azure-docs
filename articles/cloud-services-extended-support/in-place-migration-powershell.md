@@ -116,8 +116,8 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ## Migrate your Cloud Services 
 Before starting the migration, understand how the [migration steps](./in-place-migration-overview.md#migration-steps) works and what each step does. 
 
-* [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
-* [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
+* [Migrate a Cloud Service not in a virtual network](#option-1---migrate-a-cloud-service-not-in-a-virtual-network)
+* [Migrate a Cloud Service in a virtual network](#option-2---migrate-a-cloud-service-in-a-virtual-network)
 
 > [!NOTE]
 > All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
