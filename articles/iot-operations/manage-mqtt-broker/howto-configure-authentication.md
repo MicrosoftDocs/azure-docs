@@ -177,8 +177,13 @@ spec:
             subject = "CN = smart-fan"
             attributes:
               building = 17
+```
 
-To learn about the attributes file syntax, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
+In this example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed. In addition, the smart fan receives attributes specific to it.
+
+The matching for attributes always starts from the leaf client certificate and then goes along the chain. The attribute assignment stops after the first match. In previous example, even if `smart-fan` has the intermediate certificate `CN = Contoso Intermediate CA`, it doesn't get the associated attributes.
+
+Authorization rules can be applied to clients using X.509 certificates with these attributes.
 
 ### Enable X.509 client authentication
 
