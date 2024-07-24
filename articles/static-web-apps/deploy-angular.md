@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 08/02/2023
+ms.date: 07/24/2024
 ms.author: cshoe
 zone_pivot_groups: devops-or-github
 ---
@@ -41,25 +41,25 @@ This article uses a GitHub template repository to make it easy for you to get st
 This article uses an Azure DevOps repository to make it easy for you to get started. The repository features a starter app used to deploy using Azure Static Web Apps.
 
 1. Sign in to Azure DevOps.
-2. Select **New repository**.
-3. In the *Create new project* window, expand **Advanced** menu and make the following selections:
+1. Select **New repository**.
+1. In the *Create new project* window, expand the **Advanced** menu, and make the following selections:
 
     | Setting | Value |
     |--|--|
     | Project | Enter **my-first-web-static-app**. |
     | Visibility | Select **Private**. |
-    | Version control | Select **Git**.  |
+    | Version control | Select **Git**. |
     | Work item process | Select the option that best suits your development methods. |
 
-4. Select **Create**.
-5. Select the **Repos** menu item.
-6. Select the **Files** menu item.
-7. Under the *Import repository* card, select **Import**.
-8. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
+1. Select **Create**.
+1. Select the **Repos** menu item.
+1. Select the **Files** menu item.
+1. Under the *Import repository* card, select **Import**.
+1. Copy a repository URL for the framework of your choice, and paste it into the *Clone URL* box.
   
     [https://github.com/staticwebdev/angular-basic.git](https://github.com/staticwebdev/angular-basic.git)
 
-9. Select **Import** and wait for the import process to complete.
+1. Select **Import** and wait for the import process to complete.
 
 ::: zone-end
 
@@ -75,7 +75,10 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Type **dist/angular-basic** in the _App artifact location_ box.
+1. Type **dist/angular-basic** in the _Output location_ box.
+
+> [!NOTE]
+> If you are using these instructions with your own code and Angular 17 or above, the output location value needs to end with **/browser**.
 
 Select **Review + create**.
 
