@@ -24,7 +24,7 @@ The telemetry types are:
 This behavior is by design to help avoid unnecessary collection of personal data and IP address location information.
 
 > [!NOTE]
-> * The default and our recommendation is to not collect IP addresses. If you override this behavior, verify that the collection doesn't break any compliance requirements or local regulations.
+> The default and our recommendation is to not collect IP addresses. If you override this behavior, verify that the collection doesn't break any compliance requirements or local regulations.
 >
 > To learn more about handling personal data, see [Guidance for personal data](../logs/personal-data-mgmt.md).
 
