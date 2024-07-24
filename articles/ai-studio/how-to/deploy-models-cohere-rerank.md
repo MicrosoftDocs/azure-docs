@@ -30,7 +30,7 @@ In this section, you learn about the two Cohere Rerank models that are available
 You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
 ### Cohere Rerank 3 - English
-Cohere Rerank English is the market’s leading reranking model used for semantic search and retrieval-augmented generation (RAG). Rerank enables you to significantly improve search quality by augmenting traditional key-word based search systems with a semantic-based reranking system which can contextualize the meaning of a user's query beyond keyword relevance. Cohere's Rerank delivers much higher quality results than just embedding-based search, lexical search and even hybrid search, and it requires only adding a single line of code into your application. 
+Cohere Rerank English is the market's leading reranking model used for semantic search and retrieval-augmented generation (RAG). Rerank enables you to significantly improve search quality by augmenting traditional key-word based search systems with a semantic-based reranking system which can contextualize the meaning of a user's query beyond keyword relevance. Cohere's Rerank delivers much higher quality results than just embedding-based search, lexical search and even hybrid search, and it requires only adding a single line of code into your application. 
 Rerank should be used as a ranker after initial retrieval (i.e. an initial search system finds the top-100 most relevant documents for a larger corpus of documents). 
 
 Rerank supports JSON objects as documents where users can specify at query time the fields (keys) that semantic search should be applied over.
@@ -41,7 +41,7 @@ Rerank supports JSON objects as documents where users can specify at query time 
 Rerank English has SOTA performance on benchmarks in Code Retreival, Semi-structured Data Retreival, and Long Context. Cohere evaluated Rerank English on various configurations with BM25 (lexical search) as the initial retrieval step as well as Embeddings as the initial retrieval step <a href="https://github.com/cohere-ai/notebooks/blob/main/public_rerank_benchmarks/bm25_with_rerank.md">BM25 with Rerank v3.0 General Retreival Evaluation Results</a> and <a href="https://github.com/cohere-ai/notebooks/blob/main/public_rerank_benchmarks/embed_with_rerank.md">Embeddings with Rerank v3.0 General Retreival Evaluation Results</a>
 
 ### Cohere Rerank 3 - Multilingual
-Cohere Rerank Multilingual is the market’s leading reranking model used for semantic search and retrieval-augmented generation (RAG). Rerank Multilingual supports 100+ languages and can be used to search within a language (e.g., search with a French query on French documents) and across languages (e.g., search with an English query on Chinese documents). Rerank enables you to significantly improve search quality by augmenting traditional key-word based search systems with a semantic-based reranking system which can contextualize the meaning of a user's query beyond keyword relevance. Cohere's Rerank delivers much higher quality results than just embedding-based search, lexical search and even hybrid search, and it requires only adding a single line of code into your application. 
+Cohere Rerank Multilingual is the market's leading reranking model used for semantic search and retrieval-augmented generation (RAG). Rerank Multilingual supports 100+ languages and can be used to search within a language (e.g., search with a French query on French documents) and across languages (e.g., search with an English query on Chinese documents). Rerank enables you to significantly improve search quality by augmenting traditional key-word based search systems with a semantic-based reranking system which can contextualize the meaning of a user's query beyond keyword relevance. Cohere's Rerank delivers much higher quality results than just embedding-based search, lexical search and even hybrid search, and it requires only adding a single line of code into your application. 
 Rerank should be used as a ranker after initial retrieval (i.e. an initial search system finds the top-100 most relevant documents for a larger corpus of documents). 
 
 Rerank supports JSON objects as documents where users can specify at query time the fields (keys) that semantic search should be applied over.
@@ -126,10 +126,12 @@ These models can be consumed using the Rerank API.
 
 ### v1/rerank Request
 
+```json
     POST /v1/rerank HTTP/1.1
     Host: <DEPLOYMENT_URI>
     Authorization: Bearer <TOKEN>
     Content-type: application/json
+```
 
 ### v1/rerank Request Schema
 
@@ -169,6 +171,7 @@ The `results` object is a dictionary with the following fields:
 
 **Request**
 
+```json
     {
         "query": "What is the capital of the United States?",
         "rank_fields": ["Title", "Content"],
@@ -179,9 +182,11 @@ The `results` object is a dictionary with the following fields:
         ],
         "top_n": 3
     }
+```
 
 **Response**
 
+```json
     {
         "id": "571e6744-3074-457f-8935-08646a3352fb",
         "results": [
@@ -219,6 +224,7 @@ The `results` object is a dictionary with the following fields:
             }
         ]
     }
+```
 
 #### More inference examples
 
