@@ -1605,6 +1605,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -4163,6 +4168,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-desktop/partners.md",
             "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
             "redirect_document_id": false
@@ -4783,6 +4803,11 @@
             "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
+            "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
+            "redirect_document_id": false
+        },
+        {
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
@@ -4805,6 +4830,11 @@
         {
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
+            "redirect_url": "/azure/openshift/howto-byok",
             "redirect_document_id": false
         },
         {

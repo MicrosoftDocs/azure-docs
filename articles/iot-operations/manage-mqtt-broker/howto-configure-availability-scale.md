@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 07/11/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -216,28 +216,33 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 
 To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
-If you don't specify settings, default values are used. The following table shows the properties of the broker diagnostic settings and all default values.
+You can configure diagnostics using the *Broker* custom resource definition (CRD). The following table shows the properties of the broker diagnostic settings and all default values.
 
-| Name                                       | Required | Format           | Default| Description                                              |
-| ------------------------------------------ | -------- | ---------------- | -------|----------------------------------------------------------|
-| `diagnosticServiceEndpoint`                | true    | String            | N/A    |An endpoint to send metrics/ traces to                    |
-| `enableMetrics`                            | false   | Boolean           | true   |Enable or disable broker metrics                          |
-| `enableTracing`                            | false   | Boolean           | true   |Enable or disable tracing                                 |
-| `logLevel`                                 | false   | String            |`info`  |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
-| `enableSelfCheck`                          | false   | Boolean           | true   |Component that periodically probes the health of broker   |
-| `enableSelfTracing`                        | false   | Boolean           | true   |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
-| `logFormat`                                | false   | String            |`text`  |Log format in `json` or `text`                         |
-| `metricUpdateFrequencySeconds`             | false   | Integer           | 30     |The frequency to send metrics to diagnostics service endpoint, in seconds |
-| `selfCheckFrequencySeconds`                | false   | Integer           | 30     |How often the probe sends test messages|
-| `selfCheckTimeoutSeconds`                  | false   | Integer           | 15     |Timeout interval for probe messages  |
-| `selfTraceFrequencySeconds`                | false   | Integer           | 30     |How often to automatically trace external messages if `enableSelfTracing` is true |  
-| `spanChannelCapacity`                      | false   | Integer           | 1000   |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
-| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview | Image used for self check |
-
+| Name                                 | Format           | Default | Description                                                     |
+| ------------------------------------ | ---------------- | ------- | --------------------------------------------------------------- |
+| logs.exportIntervalSeconds           | integer          | 30      | How often to export the logs to the open telemetry collector    |
+| logs.exportLogLevel                  | string           | error   | The level of logs to export                                     |
+| logs.level                           | string           | info    | The log level. For example, `debug`, `info`, `warn`, `error`, `trace` |
+| logs.openTelemetryCollectorAddress   | string           |         | The open telemetry collector endpoint where to export           |
+| metrics.exportIntervalSeconds        | integer          | 30      | How often to export the metrics to the open telemetry collector |
+| metrics.mode                         | MetricsEnabled   | Enabled | The toggle to enable/disable metrics.                           |
+| metrics.openTelemetryCollectorAddress| string           |         | The open telemetry collector endpoint where to export           |
+| metrics.prometheusPort               | integer          | 9600    | The prometheus port to expose the metrics                       |
+| metrics.stalenessTimeSeconds         | integer          | 600     | The time used to determine if a metric is stale and drop from the metrics cache |
+| metrics.updateIntervalSeconds        | integer          | 30      | How often to refresh the metrics                                |
+| selfcheck.intervalSeconds            | integer          | 30      | The self check interval                                         |
+| selfcheck.mode                       | SelfCheckMode    | Enabled | The toggle to enable/disable self check                         |
+| selfcheck.timeoutSeconds             | integer          | 15      | The timeout for self check                                      |
+| traces.cacheSizeMegabytes            | integer          | 16      | The cache size in megabytes                                     |
+| traces.exportIntervalSeconds         | integer          | 30      | How often to export the metrics to the open telemetry collector |
+| traces.mode                          | TracesMode       | Enabled | The toggle to enable/disable traces                             |
+| traces.openTelemetryCollectorAddress | string           |         | The open telemetry collector endpoint where to export           |
+| traces.selfTracing                   | SelfTracing      |         | The self tracing properties                                     |
+| traces.spanChannelCapacity           | integer          | 1000    | The span channel capacity                                       |
 
 Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 
-```yml
+```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
@@ -246,11 +251,31 @@ metadata:
 spec:
   mode: auto
   diagnostics:
-    diagnosticServiceEndpoint: diagnosticservices.mq.iotoperations:9700
-    enableMetrics: true  
-    enableTracing: true
-    enableSelfCheck: false
-    logLevel: debug,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
+    logs:
+      exportIntervalSeconds: 220
+      exportLogLevel: nym
+      level: debug
+      openTelemetryCollectorAddress: acfqqatmodusdbzgomgcrtulvjy
+    metrics:
+      stalenessTimeSeconds: 463
+      mode: Enabled
+      exportIntervalSeconds: 246
+      openTelemetryCollectorAddress: vyasdzsemxfckcorfbfx
+      prometheusPort: 60607
+      updateIntervalSeconds: 15
+    selfCheck:
+      mode: Enabled
+      intervalSeconds: 106
+      timeoutSeconds: 70
+    traces:
+      cacheSizeMegabytes: 97
+      mode: Enabled
+      exportIntervalSeconds: 114
+      openTelemetryCollectorAddress: oyujxiemzlqlcsdamytj
+      selfTracing:
+        mode: Enabled
+        intervalSeconds: 179
+      spanChannelCapacity: 47152
 ```
 
 ## Configure encryption of internal traffic

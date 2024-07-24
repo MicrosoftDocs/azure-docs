@@ -624,7 +624,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ### Logs and configuration
 

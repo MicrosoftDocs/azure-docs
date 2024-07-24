@@ -3,8 +3,7 @@ title: Scaling resources
 description: This article describes the resource scaling in Azure Database for PostgreSQL flexible server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 07/23/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -49,7 +48,7 @@ Typically, this process could take anywhere between 2 to 10 minutes with regular
 
 When you update your Azure Database for PostgreSQL flexible server instance in scaling scenarios, we create a new copy of your server (VM) with the updated configuration. We synchronize it with your current one, and switch to the new copy with a 30-second interruption. Then we retire the old server. The process occurs all at no extra cost to you. 
 
-This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers. The experience remains consistent for both high-availablity (HA) and non-HA servers. This feature is enabled in all Azure regions. *No customer action is required* to use this capability.
+This process allows for seamless updates while minimizing downtime and ensuring cost-efficiency. This scaling process is triggered when changes are made to the storage and compute tiers. This feature is only available on non-HA servers and is enabled in all Azure regions. *No customer action is required* to use this capability.
 
 For read replica configured servers, scaling operations must follow a specific sequence to ensure data consistency and minimize downtime. For details about that sequence, refer to [scaling with read replicas](./concepts-read-replicas.md#scale).
 
@@ -68,7 +67,7 @@ For read replica configured servers, scaling operations must follow a specific s
 - Near-zero downtime scaling doesn't work for a replica server because it's only supported on the primary server. For a replica server, it automatically goes through a regular scaling process.
 - Near-zero downtime scaling doesn't work if a [virtual network-injected server with a delegated subnet](../flexible-server/concepts-networking-private.md#virtual-network-concepts) doesn't have sufficient usable IP addresses. If you have a standalone server, one extra IP address is necessary. For an HA-enabled server, two extra IP addresses are required.
 - Logical replication slots aren't preserved during a near-zero downtime failover event. To maintain logical replication slots and ensure data consistency after a scale operation, use the [pg_failover_slot](https://github.com/EnterpriseDB/pg_failover_slots) extension. For more information, see [Enabling extension in a flexible server](../flexible-server/concepts-extensions.md#pg_failover_slots-preview).
-- For HA-enabled servers, near-zero downtime scaling is currently enabled for a limited set of regions. More regions will be enabled in a phased manner based on regional capacity.
+- Near-zero downtime scaling doesn't work with [unlogged tables](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-UNLOGGED). Customers using unlogged tables for any of their data will lose all the data in those tables after the near-zero downtime scaling.
 
 ## Related content
 

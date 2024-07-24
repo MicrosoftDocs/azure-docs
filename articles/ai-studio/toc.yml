@@ -88,6 +88,8 @@ items:
       displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
+    - name: Distillation
+      href: concepts/concept-model-distillation.md
     - name: Serverless API models
       items:
       - name: Deploy models as serverless API
@@ -142,6 +144,8 @@ items:
       href: how-to/index-add.md
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
+    - name: Synthetic Data Generation
+      href: concepts/concept-synthetic-data.md
       displayName: code,sdk
   - name: Develop generative AI apps
     items:
