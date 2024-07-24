@@ -12,7 +12,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> See [Azure IoT SDKs](../articles/iot-hub/iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
 
 ## Create a device application
 
@@ -27,7 +27,7 @@ The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) obje
 
 Connect to the device using the device connection string that you gathered in prerequisites using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with the connection protocol.
 
-The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet) parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
+The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
 
 This example connects to the device.
 
@@ -57,7 +57,7 @@ Console.WriteLine($"\t{twin.ToJson()}");
 
 ### Update reported device twin properties
 
-To update a reported property, create a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection?view=azure-dotnet&branch=main) object, then use [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.updatereportedpropertiesasync) to push reported property changes to the IoT hub service.
+To update a reported property, create a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) object, then use [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.updatereportedpropertiesasync) to push reported property changes to the IoT hub service.
 
 ```csharp
 try
@@ -85,7 +85,7 @@ This section describes how to create a backend application that:
 * Updates device twin tags
 * Queries devices using filters on the tags and properties
 
-The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) class exposes all methods required to create a backend application to interact with device twins from the service.
+The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with device twins from the service.
 
 This section shows you how to:
 
