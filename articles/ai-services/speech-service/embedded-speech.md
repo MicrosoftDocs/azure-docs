@@ -288,8 +288,8 @@ For embedded voices, it's essential to note that certain SSML tags might not be 
 |-----------------|-----------|-------------------------------------------------------|--------------------------|
 | audio           | src       |                                                       | No                       |
 | bookmark        |           |                                                       | Yes                      |
-| break           | strength  |                                                       | No                       |
-|                 | time      |                                                       | No                       |
+| break           | strength  |                                                       | Yes                       |
+|                 | time      |                                                       | Yes                       |
 | silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
 |                 | value     |                                                       | No                       |
 | emphasis        | level     |                                                       | No                       |
