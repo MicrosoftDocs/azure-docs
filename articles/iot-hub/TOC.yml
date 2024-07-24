@@ -296,6 +296,9 @@
               href: file-upload-java.md
         - name: Get started with device twins
           items:
+            - name: New version
+              displayName: New version
+              href: how-to-device-twins.md         
             - name: CLI
               displayName: device twins
               href: device-twins-cli.md
