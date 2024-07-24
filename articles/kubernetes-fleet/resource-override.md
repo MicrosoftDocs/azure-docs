@@ -168,7 +168,7 @@ spec:
 
 This example replaces the container image in the `Deployment` with the `nginx:1.20.0` image for clusters with the `env: prod` label and the `nginx:latest` image for clusters with the `env: test` label.
 
-## Apply the resource override
+## Apply the cluster resource placement
 
 ### [Azure CLI](#tab/azure-cli)
 

@@ -178,7 +178,7 @@ rules:
 
 `jsonPatchOverrides` apply a JSON patch on the selected resources following [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902).
 
-## Apply the cluster resource override
+## Apply the cluster resource placement
 
 ### [Azure CLI](#tab/azure-cli)
 
