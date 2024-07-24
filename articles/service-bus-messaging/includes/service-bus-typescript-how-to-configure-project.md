@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -37,4 +37,4 @@ ms.custom: "include file"
 
     :::code language="json" source="~/azure-typescript-e2e-apps/quickstarts/service-bus/ts/tsconfig.json":::
 
-1. Create a `src` folder in the project. This is where you will place the TypeScript files created in this quickstart.
+1. Create a `src` folder in the project. This is where you'll place the TypeScript files created in this quickstart.
