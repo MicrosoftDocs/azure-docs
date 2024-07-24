@@ -34,8 +34,26 @@ Azure Virtual Machines supports enabling Azure Trusted Launch on existing [Azure
 
 ## Best practices
 
+- Validating that [Virtual Machine(VM) size](trusted-launch-faq.md#how-can-i-validate-that-my-os-image-supports-trusted-launch) supports Trusted Launch
+- Validating that [Operating System(OS) image](trusted-launch-faq.md#how-can-i-find-vm-sizes-that-support-trusted-launch) supports Trusted Launch
 - Enable Trusted Launch on a test Generation 2 VM and determine if any changes are required to meet the prerequisites before you enable Trusted Launch on Generation 2 VMs associated with production workloads.
 - [Create restore points](create-restore-points.md) for Azure Generation 2 VMs associated with production workloads before you enable the Trusted Launch security type. You can use the restore points to re-create the disks and Generation 2 VM with the previous well-known state.
+- Make sure to change the `-SecurityType` to `TrustedLaunch`, for all deployment scripts this will ensure when virtual machines are provisioned, they will be automatically Trusted Launch. 
+
+
+## Trusted Launch Upgrade Azure Advisor Recommendation
+
+Azure Advisor populates an **Enable Trusted Launch Compatible Images and VM Sizes for Existing Generation 2 VMs** operational excellence recommendation for existing Generation 2 VMs to adopt [Trusted Launch](trusted-launch.md), a higher security posture for Azure VMs at no additional cost to you. Ensure Generation 2 VM has all prerequisites to migrate to Trusted Launch, follow all the best practices including validation of OS image, VM Size, and creating restore points. For the Advisor recommendation to be considered complete, follow the steps outlined in the [**Enable Trusted Launch on an existing VM**](trusted-launch-existing-vm.md) to upgrade the virtual machines security type and enable Trusted Launch. 
+
+### What if there is Generation 2 VMs, that doesn't fit the prerequistes for Trusted Launch ? 
+
+For a Generation 2 VM, that has not met the prerequistes to upgrade to Trusted Launch, look how to fulfill the prerequistes. 
+1. If using an OS image not supported, upgrade to Trusted Launch|Gen2 image, most Windows OS support Trusted Launch except Windows 2012 Datacenter offerings. In the case of Linux OS, upgrade to the newest SKU offered by the image distribution. 
+2. If using a virtual machine size not supported, please look for an [equivalant Generation 2 size](../sizes/overview.md) that supports Trusted Launch.
+
+> [!NOTE]
+> 
+> For M-series and ARM64 virtual machine users, please postpone the recommendation for all resources. 
 
 ## Enable Trusted Launch on an existing VM
 
