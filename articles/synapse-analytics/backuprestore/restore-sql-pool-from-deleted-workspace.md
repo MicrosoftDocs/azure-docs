@@ -53,7 +53,7 @@ In this article, you learn how to restore a dedicated SQL pool in Azure Synapse 
     # Get the exact date and time the workspace SQL pool was dropped. Please do not provide an approximate value. Use the below script to get the exact date time value. 
     Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $SQLPoolName
     # Pick the desired restore point after verifying the date time output from the above command. Add it to the where predicate in the below script where x/xx/xxxx is seen.
-    $PointInTime = Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $SQLPoolName | Where-Object "RestorePointCreationDate" -eq "x/xx/xxxx x:xx:xx xM" | Select-Object -ExpandProperty RestorePointCreationDate
+    $DroppedDateTime = Get-AzSynapseSqlPoolRestorePoint -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $SQLPoolName | Where-Object "RestorePointCreationDate" -eq "x/xx/xxxx x:xx:xx xM" | Select-Object -ExpandProperty RestorePointCreationDate
   
     # construct the resource ID of the sql pool you wish to recover. The format required Microsoft.Sql. This includes the approximate date time the server was dropped.
     $SourceDatabaseID = "/subscriptions/"+$SubscriptionID+"/resourceGroups/"+$ResourceGroupName+"/providers/Microsoft.Sql/servers/"+$WorkspaceName+"/databases/"+$DatabaseName
