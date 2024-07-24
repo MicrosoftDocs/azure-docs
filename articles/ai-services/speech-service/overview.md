@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 1/21/2024
+ms.date: 7/18/2024
 ms.author: eur
 ---
 
@@ -63,10 +63,10 @@ With [real-time speech to text](get-started-speech-to-text.md), the audio is tra
 Fast transcription API is used to transcribe audio files with returning results synchronously and much faster than real-time audio. Use fast transcription in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as: 
 
 - Quick audio or video transcription, subtitles, and edit. 
-- Video dubbing  
+- Video translation 
 
 > [!NOTE]
-> Fast transcription API is only available via the speech to text REST API version 3.3. 
+> Fast transcription API is only available via the speech to text REST API version 2024-05-15-preview. 
 
 To get started with fast transcription, see [use the fast transcription API (preview)](fast-transcription-create.md).
 
