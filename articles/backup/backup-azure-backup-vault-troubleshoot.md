@@ -14,13 +14,13 @@ This article provides troubleshooting steps that help you resolve Azure Backup V
 
 ## Common User Errors
 
-- #### Error Code: UserErrorSystemIdentityNotEnabledWithVault
+#### Error Code: UserErrorSystemIdentityNotEnabledWithVault
 
 **Possible Cause:** Backup Vault is created with System Identity enabled by default. This error appears when System Identity of the Backup Vault is in a disabled state and a backup related operation fails with this error. 
 
 **Resolution:** To resolve this error, enable the System Identity of the Backup Vault and reassign all the necessary roles to it. Else use a User Identity in its place with all the roles assigned and update  Managed Identity for all the Backup Instances using the now disabled System Identity. 
 
-- #### Error Code: UserErrorUserIdentityNotFoundOrNotAssociatedWithVault
+#### Error Code: UserErrorUserIdentityNotFoundOrNotAssociatedWithVault
 
 **Possible Cause:** Backup Instances can be created with a User Identity having all the required roles assigned to it. In addition, User Identity can also be used for operations like Encryption using a Customer Managed Key. This error appears when the particular User Identity is deleted or not attached with the Backup Vault.  
 
