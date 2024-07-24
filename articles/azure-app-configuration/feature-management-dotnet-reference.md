@@ -974,7 +974,7 @@ You can also register a customized implementation for `ITargetingContextAccessor
 
 ``` C#
 services.AddFeatureManagement()
-        .WithTargeting<HttpContextTargetingContextAccessor>();
+        .WithTargeting<ExampleTargetingContextAccessor>();
 ```
 
 #### ITargetingContextAccessor
