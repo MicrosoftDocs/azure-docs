@@ -118,6 +118,10 @@ The script execution will take up to half an hour and you'll be prompted for var
 
 Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM.
 
+>[!IMPORTANT]
+>After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config (.yaml) files in a secure place that facilitates easy retrieval. These files are needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three config files (.yaml files) in the same folder where you ran the onboarding script. 
+
+
 ### Retry command - Windows
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```-Force``` to clean up and onboard again.
