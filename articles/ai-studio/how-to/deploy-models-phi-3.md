@@ -20,15 +20,11 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 
 
-
-
 ::: zone pivot="programming-language-python"
 
 ## Phi-3 family of models
 
 The Phi-3 family of models includes the following models:
-
-
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -44,8 +40,6 @@ The following models are available:
 - Phi-3-mini-4k-Instruct
 - Phi-3-mini-128k-Instruct
 
-
-
 # [Phi-3-small](#tab/phi-3-small)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
@@ -59,8 +53,6 @@ The following models are available:
 
 - Phi-3-small-4k-Instruct
 - Phi-3-small-128k-Instruct
-
-
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -76,17 +68,11 @@ The following models are available:
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
-
-
 ---
-
-
 
 ## Prerequisites
 
 To use Phi-3 models with Azure AI studio, you need the following prerequisites:
-
-
 
 ### A deployed Phi-3 chat models model
 
@@ -99,8 +85,6 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
-
-
 **Deployment to a self-hosted managed compute**
 
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
@@ -109,8 +93,6 @@ For deployment to a self-hosted managed compute, you must have enough quota in y
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-
 
 ### The inference package installed
 
@@ -126,18 +108,13 @@ Once you have these prerequisites, install the Azure AI inference package with t
 pip install azure-ai-inference
 ```
 
-
-
 ## Work with chat completions
 
-In this section, you use the Azure AI model inference API with a chat-completions model for chat.
-
-
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 ### Create a client to consume the model
 
 First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
-
 
 
 ```python
@@ -154,7 +131,6 @@ model = ChatCompletionsClient(
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
-
 ```python
 import os
 from azure.ai.inference import ChatCompletionsClient
@@ -169,12 +145,9 @@ model = ChatCompletionsClient(
 > [!NOTE]
 > Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
-
-
 ### Get the model's capabilities
 
 The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
-
 
 
 ```python
@@ -182,7 +155,6 @@ model.get_model_info()
 ```
 
 The response is as follows:
-
 
 
 ```console
@@ -195,8 +167,7 @@ The response is as follows:
 
 ### Create a chat completion request
 
-Create a chat completion request to see the output of the model.
-
+The following example shows how you can create a basic chat completions request to the model.
 
 ```python
 from azure.ai.inference.models import SystemMessage, UserMessage
@@ -212,10 +183,7 @@ response = model.complete(
 > [!NOTE]
 > Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
-
-
 The response is as follows, where you can see the model's usage statistics:
-
 
 
 ```python
@@ -231,7 +199,6 @@ By default, the completions API returns the entire generated content in a single
 You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
-
 ```python
 result = model.complete(
     messages=[
@@ -241,15 +208,13 @@ result = model.complete(
     temperature=0,
     top_p=1,
     max_tokens=2048,
+    stream=True,
 )
 ```
 
 To stream completions, set `stream=True` when you call the model.
 
-
-
 To visualize the output, define a helper function to print the stream.
-
 
 ```python
 def print_stream(result):
@@ -266,7 +231,6 @@ def print_stream(result):
 We can visualize how streaming generates content:
 
 
-
 ```python
 print_stream(result)
 ```
@@ -274,7 +238,6 @@ print_stream(result)
 #### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
-
 
 ```python
 from azure.ai.inference.models import ChatCompletionsResponseFormat
@@ -297,12 +260,11 @@ response = model.complete(
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-
+If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```python
@@ -317,14 +279,21 @@ response = model.complete(
 )
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
+| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
+| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
+| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
-
-
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
 
 
 ```python
@@ -354,12 +323,8 @@ except HttpResponseError as ex:
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-
-
 > [!NOTE]
 > Azure AI content safety is only available for models deployed as serverless API endpoints.
-
-
 
 ::: zone-end
 
@@ -369,8 +334,6 @@ except HttpResponseError as ex:
 ## Phi-3 family of models
 
 The Phi-3 family of models includes the following models:
-
-
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -386,8 +349,6 @@ The following models are available:
 - Phi-3-mini-4k-Instruct
 - Phi-3-mini-128k-Instruct
 
-
-
 # [Phi-3-small](#tab/phi-3-small)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
@@ -401,8 +362,6 @@ The following models are available:
 
 - Phi-3-small-4k-Instruct
 - Phi-3-small-128k-Instruct
-
-
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -418,17 +377,11 @@ The following models are available:
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
-
-
 ---
-
-
 
 ## Prerequisites
 
 To use Phi-3 models with Azure AI studio, you need the following prerequisites:
-
-
 
 ### A deployed Phi-3 chat models model
 
@@ -441,8 +394,6 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
-
-
 **Deployment to a self-hosted managed compute**
 
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
@@ -451,8 +402,6 @@ For deployment to a self-hosted managed compute, you must have enough quota in y
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-
 
 ### The inference package installed
 
@@ -468,18 +417,13 @@ Once you have these prerequisites, install the Azure ModelClient REST client RES
 npm install @azure-rest/ai-inference
 ```
 
-
-
 ## Work with chat completions
 
-In this section, you use the Azure AI model inference API with a chat-completions model for chat.
-
-
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 ### Create a client to consume the model
 
 First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
-
 
 
 ```javascript
@@ -496,7 +440,6 @@ const client = new ModelClient(
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
-
 ```javascript
 import ModelClient from "@azure-rest/ai-inference";
 import { isUnexpected } from "@azure-rest/ai-inference";
@@ -511,12 +454,9 @@ const client = new ModelClient(
 > [!NOTE]
 > Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
-
-
 ### Get the model's capabilities
 
 The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
-
 
 
 ```javascript
@@ -524,7 +464,6 @@ await client.path("info").get()
 ```
 
 The response is as follows:
-
 
 
 ```console
@@ -537,8 +476,7 @@ The response is as follows:
 
 ### Create a chat completion request
 
-Create a chat completion request to see the output of the model.
-
+The following example shows how you can create a basic chat completions request to the model.
 
 ```javascript
 var messages = [
@@ -556,10 +494,7 @@ var response = await client.path("/chat/completions").post({
 > [!NOTE]
 > Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
-
-
 The response is as follows, where you can see the model's usage statistics:
-
 
 
 ```javascript
@@ -579,7 +514,6 @@ By default, the completions API returns the entire generated content in a single
 You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
-
 ```javascript
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
@@ -595,10 +529,7 @@ var response = await client.path("/chat/completions").post({
 
 To stream completions, use `.asNodeStream()` when you call the model.
 
-
-
 We can visualize how streaming generates content:
-
 
 
 ```javascript
@@ -627,7 +558,6 @@ for await (const event of sses) {
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
-
 ```javascript
 var messages = [
     { role: "system", content: "You are a helpful assistant" },
@@ -651,12 +581,11 @@ var response = await client.path("/chat/completions").post({
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-
+If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```javascript
@@ -676,14 +605,21 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
+| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
+| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
+| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
-
-
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
 
 
 ```javascript
@@ -718,12 +654,8 @@ catch (error) {
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-
-
 > [!NOTE]
 > Azure AI content safety is only available for models deployed as serverless API endpoints.
-
-
 
 ::: zone-end
 
@@ -733,8 +665,6 @@ catch (error) {
 ## Phi-3 family of models
 
 The Phi-3 family of models includes the following models:
-
-
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -750,8 +680,6 @@ The following models are available:
 - Phi-3-mini-4k-Instruct
 - Phi-3-mini-128k-Instruct
 
-
-
 # [Phi-3-small](#tab/phi-3-small)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
@@ -765,8 +693,6 @@ The following models are available:
 
 - Phi-3-small-4k-Instruct
 - Phi-3-small-128k-Instruct
-
-
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -782,17 +708,11 @@ The following models are available:
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
-
-
 ---
-
-
 
 ## Prerequisites
 
 To use Phi-3 models with Azure AI studio, you need the following prerequisites:
-
-
 
 ### A deployed Phi-3 chat models model
 
@@ -805,8 +725,6 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
-
-
 **Deployment to a self-hosted managed compute**
 
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
@@ -815,8 +733,6 @@ For deployment to a self-hosted managed compute, you must have enough quota in y
 
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
-
-
 
 ### The inference package installed
 
@@ -837,18 +753,13 @@ You can also authenticate with Microsoft Entra ID (formerly Azure Active Directo
 dotnet add package Azure.Identity
 ```
 
-
-
 ## Work with chat completions
 
-In this section, you use the Azure AI model inference API with a chat-completions model for chat.
-
-
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 ### Create a client to consume the model
 
 First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
-
 
 
 ```csharp
@@ -863,7 +774,6 @@ client = new ChatCompletionsClient(
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
 
 
-
 ```csharp
 client = new ChatCompletionsClient(
     new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
@@ -874,12 +784,9 @@ client = new ChatCompletionsClient(
 > [!NOTE]
 > Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
 
-
-
 ### Get the model's capabilities
 
 The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
-
 
 
 ```csharp
@@ -887,7 +794,6 @@ Response<ModelInfo> modelInfo = client.GetModelInfo();
 ```
 
 The response is as follows:
-
 
 
 ```console
@@ -898,8 +804,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ### Create a chat completion request
 
-Create a chat completion request to see the output of the model.
-
+The following example shows how you can create a basic chat completions request to the model.
 
 ```csharp
 ChatCompletionsOptions requestOptions = null;
@@ -919,10 +824,7 @@ response = client.Complete(requestOptions);
 > [!NOTE]
 > Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
-
-
 The response is as follows, where you can see the model's usage statistics:
-
 
 
 ```csharp
@@ -936,7 +838,6 @@ Console.WriteLine($"Usage: {response.Value.Usage.TotalTokens}");
 By default, the completions API returns the entire generated content in a single response. If you're generating long completions, waiting for the response can take many seconds.
 
 You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
-
 
 
 ```csharp
@@ -961,10 +862,7 @@ static async Task RunAsync(ChatCompletionsClient client)
 
 To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
 
-
-
 To visualize the output, define an asynchronous method to print the stream in the console.
-
 
 ```csharp
 static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
@@ -987,7 +885,6 @@ static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> 
 We can visualize how streaming generates content:
 
 
-
 ```csharp
 // In this case we are using Nito.AsyncEx package
 AsyncContext.Run(() => RunAsync(client));
@@ -996,7 +893,6 @@ AsyncContext.Run(() => RunAsync(client));
 #### Explore more parameters supported by the inference client
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
-
 
 ```csharp
 requestOptions = new ChatCompletionsOptions()
@@ -1021,12 +917,11 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-
+If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```csharp
@@ -1043,14 +938,21 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
+| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
+| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
+| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
-
-
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
 
 
 ```csharp
@@ -1085,12 +987,8 @@ catch (RequestFailedException ex)
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-
-
 > [!NOTE]
 > Azure AI content safety is only available for models deployed as serverless API endpoints.
-
-
 
 ::: zone-end
 
@@ -1100,8 +998,6 @@ catch (RequestFailedException ex)
 ## Phi-3 family of models
 
 The Phi-3 family of models includes the following models:
-
-
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -1117,8 +1013,6 @@ The following models are available:
 - Phi-3-mini-4k-Instruct
 - Phi-3-mini-128k-Instruct
 
-
-
 # [Phi-3-small](#tab/phi-3-small)
 
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
@@ -1132,8 +1026,6 @@ The following models are available:
 
 - Phi-3-small-4k-Instruct
 - Phi-3-small-128k-Instruct
-
-
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -1149,17 +1041,11 @@ The following models are available:
 - Phi-3-medium-4k-Instruct
 - Phi-3-medium-128k-Instruct
 
-
-
 ---
-
-
 
 ## Prerequisites
 
 To use Phi-3 models with Azure AI studio, you need the following prerequisites:
-
-
 
 ### A deployed Phi-3 chat models model
 
@@ -1172,8 +1058,6 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 > [!div class="nextstepaction"]
 > [Deploy the model to serverless API endpoints](deploy-models-serverless.md)
 
-
-
 **Deployment to a self-hosted managed compute**
 
 Phi-3 chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
@@ -1183,8 +1067,6 @@ For deployment to a self-hosted managed compute, you must have enough quota in y
 > [!div class="nextstepaction"]
 > [Deploy the model to managed compute](../concepts/deployments-overview.md)
 
-
-
 ### A REST client
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
@@ -1192,37 +1074,31 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 * To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-
-
 ## Work with chat completions
 
-In this section, you use the Azure AI model inference API with a chat-completions model for chat.
-
-
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 ### Create a client to consume the model
 
 First, create the client to consume the model. The following code uses an endpoint URL and key that are stored in environment variables.
 
-
-
 When you deploy the model to a self-hosted online endpoint with **Microsoft Entra ID** support, you can use the following code snippet to create a client.
-
-
 
 > [!NOTE]
 > Currently, serverless API endpoints do not support using Microsoft Entra ID for authentication.
-
-
 
 ### Get the model's capabilities
 
 The `/info` route returns information about the model that is deployed to the endpoint. Return the model's information by calling the following method:
 
-
+```http
+GET /info HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+```
 
 The response is as follows:
-
 
 
 ```console
@@ -1235,8 +1111,7 @@ The response is as follows:
 
 ### Create a chat completion request
 
-Create a chat completion request to see the output of the model.
-
+The following example shows how you can create a basic chat completions request to the model.
 
 ```json
 {
@@ -1256,10 +1131,7 @@ Create a chat completion request to see the output of the model.
 > [!NOTE]
 > Phi-3-mini-4k-Instruct, Phi-3-mini-128k-Instruct, Phi-3-small-4k-Instruct, Phi-3-small-128k-Instruct and Phi-3-medium-128k-Instruct don't support system messages (`role="system"`). When you use the Azure AI model inference API, system messages are translated to user messages, which is the closest capability available. This translation is offered for convenience, but it's important for you to verify that the model is following the instructions in the system message with the right level of confidence.
 
-
-
 The response is as follows, where you can see the model's usage statistics:
-
 
 
 ```json
@@ -1295,7 +1167,6 @@ By default, the completions API returns the entire generated content in a single
 You can _stream_ the content to get it as it's being generated. Streaming content allows you to start processing the completion as content becomes available. This mode returns an object that streams back the response as [data-only server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format). Extract chunks from the delta field, rather than the message field.
 
 
-
 ```json
 {
     "messages": [
@@ -1316,7 +1187,6 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 ```
 
 We can visualize how streaming generates content:
-
 
 
 ```json
@@ -1340,7 +1210,6 @@ We can visualize how streaming generates content:
 ```
 
 The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
-
 
 
 ```json
@@ -1371,7 +1240,6 @@ The last message in the stream will have `finish_reason` set, indicating the rea
 
 Explore other parameters that you can specify in the inference client. For a full list of all the supported parameters and their corresponding documentation, see [Azure AI Model Inference API reference](https://aka.ms/azureai/modelinference).
 
-
 ```json
 {
     "messages": [
@@ -1393,6 +1261,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "response_format": { "type": "text" }
 }
 ```
+
 
 ```json
 {
@@ -1423,13 +1292,11 @@ Explore other parameters that you can specify in the inference client. For a ful
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-
+If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters.
-
-
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
 
 ```http
 POST /chat/completions HTTP/1.1
@@ -1438,7 +1305,6 @@ Authorization: Bearer <TOKEN>
 Content-Type: application/json
 extra-parameters: pass-through
 ```
-
 
 
 ```json
@@ -1457,14 +1323,21 @@ extra-parameters: pass-through
 }
 ```
 
+The following extra parameters can be passed:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `logit_bias` | Accepts a JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exclusive selection of the relevant token. | `float` |
+| `logprobs` | Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. | `int` |
+| `top_logprobs` | An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used. | `float` |
+| `n` | How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. | `int` |
+
+
 ### Apply content safety
 
 The Azure AI model inference API supports [Azure AI content safety](https://aka.ms/azureaicontentsafety). When you use deployments with Azure AI content safety turned on, inputs and outputs pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions.
 
-
-
 The following example shows how to handle events when the model detects harmful content in the input prompt and content safety is enabled.
-
 
 
 ```json
@@ -1482,6 +1355,7 @@ The following example shows how to handle events when the model detects harmful 
 }
 ```
 
+
 ```json
 {
     "error": {
@@ -1497,12 +1371,8 @@ The following example shows how to handle events when the model detects harmful 
 > [!TIP]
 > To learn more about how you can configure and control Azure AI content safety settings, check the [Azure AI content safety documentation](https://aka.ms/azureaicontentsafety).
 
-
-
 > [!NOTE]
 > Azure AI content safety is only available for models deployed as serverless API endpoints.
-
-
 
 ::: zone-end
 
@@ -1510,15 +1380,11 @@ The following example shows how to handle events when the model detects harmful 
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
-
-
 ### Cost and quota considerations for Phi-3 family of models deployed to managed compute
 
 Phi-3 models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 
 It is a good practice to start with a low number of instances and scale up as needed. You can monitor the cost of the compute instance in the Azure portal.
-
-
 
 ## Related content
 
@@ -1528,4 +1394,3 @@ It is a good practice to start with a low number of instances and scale up as ne
 * [Consume serverless API endpoints from a different Azure AI Studio project or hub](deploy-models-serverless-connect.md)
 * [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
 * [Plan and manage costs (marketplace)](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace)
-
