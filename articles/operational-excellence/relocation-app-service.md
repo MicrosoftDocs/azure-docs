@@ -30,7 +30,7 @@ To make copying your app easier, you can [backup and restore individual App Serv
 - Make sure that the target region supports App Service and any related service, whose resources you want to move.
 - Validate that sufficient permission exist to deploy App Service resources to the target subscription and region. 
 - Validate if any Azure policy is assigned with a region restriction.
-- Consider any operating costs, as Compute resource prices can vary from region to region. To estimate your possible costs, see [Pricing calculator](https://azure.microsoft.com/en-gb/pricing/calculator/).
+- Consider any operating costs, as Compute resource prices can vary from region to region. To estimate your possible costs, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Prepare
 
@@ -79,7 +79,7 @@ This section is a planning checklist in the following areas:
 
 - **Analyze and plan for API (or application) dependencies** Cross region communication is significantly less performant if the app in the target region reaches back to dependencies that are still in the source region. It's recommended that you relocate all downstream dependencies as part of the workload move. The exception to this is *on-premises* resources, in particular those resources that are geographically closer to the target region (as may be the case for repatriation scenarios).
 
-    Azure Container Registry can be a downstream (runtime) dependency for App Service that's configured to run against Custom Container Images. It makes more sense for the Container Registry to be in the same region as the App itself. Consider uploading the required images to a new ACR in the target get region. Otherwise,  consider using the [geo-replication feature](container-registry/container-registry-geo-replication) if you plan on keeping the images in the source region.
+    Azure Container Registry can be a downstream (runtime) dependency for App Service that's configured to run against Custom Container Images. It makes more sense for the Container Registry to be in the same region as the App itself. Consider uploading the required images to a new ACR in the target get region. Otherwise,  consider using the [geo-replication feature](../container-registry/container-registry-geo-replication.md) if you plan on keeping the images in the source region.
 
 - **Analyze and plan for regional services.** Application Insights and Log Analytics data are regional services. Consider the creation of new Application Insights and Log Analytics storage in the target region. For App Insights, a new resource also impacts the connection string that must be updated as part of the change in App Configuration.
 
@@ -88,7 +88,7 @@ This section is a planning checklist in the following areas:
 
 There a number of different types of certificates that need to be taken into consideration as you plan your App Service relocation:
 
-- A [Free Managed Certificate from App Service](../app-service/configure-ssl-certificate#import-an-app-service-certificate.md) is not exportable.
+- A [Free Managed Certificate from App Service](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) is not exportable.
 - An [App Service Certificate through Azure Key Vault](../app-service/configure-ssl-certificate.md?tabs=apex#import-an-app-service-certificate) can be exported using PS1/CLI.
 - A certificate that you manage outside of App Service.
 - An App Service Certificate, not managed through Azure Key Vault, can be exported.
@@ -104,7 +104,7 @@ Some further points to consider:
 
 
 >[!NOTE]
->App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [non-standard Root CA certificates](azure/app-service/environment/overview-certificates#private-client-certificate). The multi-tenant service doesn't provide access for customers to upload to the trusted certificate store.
+>App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [non-standard Root CA certificates](/azure/app-service/environment/overview-certificates#private-client-certificate). The multi-tenant service doesn't provide access for customers to upload to the trusted certificate store.
 >
 >App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment would not be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. ASEv3 in external mode shares the same features as the regular multi-tenant App Service.
 
@@ -191,9 +191,9 @@ Keep in mind that for App Service Environment (Isolated) tiers, you need to rede
 1. [Create a back up of the source app](../app-service/manage-backup.md).
 1. [Create an app in a new App Service plan, in the target region](../app-service/app-service-plan-manage.md#create-an-app-service-plan).
 1. [Restore the back up in the target app](../app-service/manage-backup.md)
-1. If you use a custom domain, [bind it preemptively to the target app](manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
+1. If you use a custom domain, [bind it preemptively to the target app](../app-service/amanage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
 1. Configure everything else in your target app to be the same as the source app and verify your configuration.
-1. When you're ready for the custom domain to point to the target app, [remap the domain name](manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
+1. When you're ready for the custom domain to point to the target app, [remap the domain name](../app-service/amanage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
 
 
 ### Relocate using IaC
