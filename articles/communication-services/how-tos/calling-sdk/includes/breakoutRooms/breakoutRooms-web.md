@@ -116,7 +116,7 @@ const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
 ```
 ### List invitees
 
-Invitees in the breakoutRooms are available only to the Co-Organizer / Organizer of the meeting. List of invitees can be accessed via the property 
+Invitees in the breakoutRooms are available only to the Co-Organizer / Organizer / Breakout room manager of the meeting. List of invitees can be accessed via the property 
 ```js
 const invitees = breakoutRoomsFeature.breakoutRooms[0].invitees;
 ```
