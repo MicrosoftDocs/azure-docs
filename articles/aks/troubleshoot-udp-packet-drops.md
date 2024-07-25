@@ -2,7 +2,7 @@
 title: Diagnose and solve UDP packet drops in Azure Kubernetes Service (AKS)
 description: Learn how to diagnose and solve UDP packet drops in Azure Kubernetes Service (AKS).
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 07/25/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
@@ -131,6 +131,19 @@ Once you apply the new values, you can access your VM to ensure the new values a
     ```
 
     Your values should now be set to the values outlined in `linuxosconfig.json`.
+
+## Revert to original values
+
+If you want to restore the buffer size to its default value of *0.2 MB*, you can update the `linuxosconfig.json` file with the following values:
+
+```json
+{
+    "sysctls": {
+        "netCoreRmemMax": 212992,
+        "netCoreRmemDefault": 212992
+    }
+}
+```
 
 ## Next steps
 
