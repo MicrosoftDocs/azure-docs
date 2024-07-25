@@ -12,6 +12,8 @@ ms.date: 07/26/2024
 
 # Create a dataflow
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
 The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:

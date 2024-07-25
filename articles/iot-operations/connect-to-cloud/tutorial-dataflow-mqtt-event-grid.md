@@ -12,6 +12,8 @@ ms.date: 07/25/2024
 
 # Tutorial: Create bi-directional MQTT bridge to Azure Event Grid using dataflows
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 In this tutorial, you set up a bi-directional MQTT bridge between an MQTT broker and Azure Event Grid using dataflows. To expedite the process, default settings for the MQTT broker and Azure Event Grid endpoints are used. No transformation are applied.
 
 1. Create an MQTT broker endpoint for the MQTT source by creating a file named `mqtt-endpoint.yaml` with the following content:

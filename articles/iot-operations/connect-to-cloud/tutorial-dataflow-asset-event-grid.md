@@ -12,6 +12,8 @@ ms.date: 07/25/2024
 
 # Tutorial: Create a dataflow from an asset to Azure Event Grid
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You configure the source to read data from an asset, the destination to send data to Azure Event Grid, and apply a transformation to the data.
 
 1. Create the asset.
