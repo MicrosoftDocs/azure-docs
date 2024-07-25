@@ -85,7 +85,7 @@ The following sections explain how to enable central DNS resolution for Azure St
 
 In addition to the private DNS zone, we need to [create a custom Azure Policy definition](/azure/governance/policy/tutorials/create-custom-policy-definition). This definition automatically creates the required DNS record in the central private DNS zone when private endpoint is created.
 
-The following policy triggers when you create a private endpoint resource with a service-specific `groupId`. The `groupId` is the ID of the group obtained from the remote resource (service) that this private endpoint should connect to. In this example, the `groupId` for Azure Storage blobs is `blob`. For more information on the `groupId` for other Azure services, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns), under the `Subresource` column.
+The following policy is triggered when you create a private endpoint resource with a service-specific `groupId`. The `groupId` is the ID of the group obtained from the remote resource (service) that this private endpoint should connect to. In this example, the `groupId` for Azure Storage blobs is `blob`. For more information on the `groupId` for other Azure services, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns), under the `Subresource` column.
 
 The policy then triggers a deployment of a `privateDNSZoneGroup` within the private endpoint, which associates the private endpoint with the private DNS zone that's specified as the parameter. In this example, the private DNS zone resource ID is `/subscriptions/<subscription-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net`.
 
