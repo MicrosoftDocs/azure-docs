@@ -46,8 +46,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-- Mistral-Large-2402
-- Mistral-Large-2407
+${model.variants-list}
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -64,7 +63,7 @@ Mistral Small is:
 
 The following models are available:
 
-- Mistral-Small
+${model.variants-list}
 
 ---
 
@@ -513,8 +512,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-- Mistral-Large-2402
-- Mistral-Large-2407
+${model.variants-list}
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -531,7 +529,7 @@ Mistral Small is:
 
 The following models are available:
 
-- Mistral-Small
+${model.variants-list}
 
 ---
 
@@ -998,8 +996,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-- Mistral-Large-2402
-- Mistral-Large-2407
+${model.variants-list}
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -1016,7 +1013,7 @@ Mistral Small is:
 
 The following models are available:
 
-- Mistral-Small
+${model.variants-list}
 
 ---
 
@@ -1485,8 +1482,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-- Mistral-Large-2402
-- Mistral-Large-2407
+${model.variants-list}
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -1503,7 +1499,7 @@ Mistral Small is:
 
 The following models are available:
 
-- Mistral-Small
+${model.variants-list}
 
 ---
 

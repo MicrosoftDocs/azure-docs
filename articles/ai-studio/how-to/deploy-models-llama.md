@@ -33,9 +33,7 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-- Meta-Llama-3.1-8B-Instruct
-- Meta-Llama-3.1-70B-Instruct
-- Meta-Llama-3.1-405B-Instruct
+${model.variants-list}
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -44,8 +42,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-- Meta-Llama-3-8B-Instruct
-- Meta-Llama-3-70B-Instruct
+${model.variants-list}
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -54,9 +51,7 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-- Llama-2-7b-chat
-- Llama-2-13b-chat
-- Llama-2-70b-chat
+${model.variants-list}
 
 ---
 
@@ -159,7 +154,7 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: Meta-Llama-3.1-8B-Instruct
+Model name: Meta-Llama-3.1-405B-Instruct
 Model type": chat-completions
 Model provider name": Meta
 ```
@@ -193,7 +188,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Meta-Llama-3.1-8B-Instruct
+Model: Meta-Llama-3.1-405B-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -356,9 +351,7 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-- Meta-Llama-3.1-8B-Instruct
-- Meta-Llama-3.1-70B-Instruct
-- Meta-Llama-3.1-405B-Instruct
+${model.variants-list}
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -367,8 +360,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-- Meta-Llama-3-8B-Instruct
-- Meta-Llama-3-70B-Instruct
+${model.variants-list}
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -377,9 +369,7 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-- Llama-2-7b-chat
-- Llama-2-13b-chat
-- Llama-2-70b-chat
+${model.variants-list}
 
 ---
 
@@ -480,7 +470,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Meta-Llama-3.1-8B-Instruct
+Model name: Meta-Llama-3.1-405B-Instruct
 Model type": chat-completions
 Model provider name": Meta
 ```
@@ -520,7 +510,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Meta-Llama-3.1-8B-Instruct
+Model: Meta-Llama-3.1-405B-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -699,9 +689,7 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-- Meta-Llama-3.1-8B-Instruct
-- Meta-Llama-3.1-70B-Instruct
-- Meta-Llama-3.1-405B-Instruct
+${model.variants-list}
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -710,8 +698,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-- Meta-Llama-3-8B-Instruct
-- Meta-Llama-3-70B-Instruct
+${model.variants-list}
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -720,9 +707,7 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-- Llama-2-7b-chat
-- Llama-2-13b-chat
-- Llama-2-70b-chat
+${model.variants-list}
 
 ---
 
@@ -820,7 +805,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Meta-Llama-3.1-8B-Instruct
+Model name: Meta-Llama-3.1-405B-Instruct
 Model type": chat-completions
 Model provider name": Meta
 ```
@@ -855,7 +840,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Meta-Llama-3.1-8B-Instruct
+Model: Meta-Llama-3.1-405B-Instruct
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -1036,9 +1021,7 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-- Meta-Llama-3.1-8B-Instruct
-- Meta-Llama-3.1-70B-Instruct
-- Meta-Llama-3.1-405B-Instruct
+${model.variants-list}
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -1047,8 +1030,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-- Meta-Llama-3-8B-Instruct
-- Meta-Llama-3-70B-Instruct
+${model.variants-list}
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -1057,9 +1039,7 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-- Llama-2-7b-chat
-- Llama-2-13b-chat
-- Llama-2-70b-chat
+${model.variants-list}
 
 ---
 
@@ -1126,7 +1106,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Meta-Llama-3.1-8B-Instruct",
+    "model_name": "Meta-Llama-3.1-405B-Instruct",
     "model_type": "chat-completions",
     "model_provider_name": "Meta"
 }
@@ -1159,7 +1139,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Meta-Llama-3.1-8B-Instruct",
+    "model": "Meta-Llama-3.1-405B-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1216,7 +1196,7 @@ We can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Meta-Llama-3.1-8B-Instruct",
+    "model": "Meta-Llama-3.1-405B-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1239,7 +1219,7 @@ The last message in the stream will have `finish_reason` set, indicating the rea
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Meta-Llama-3.1-8B-Instruct",
+    "model": "Meta-Llama-3.1-405B-Instruct",
     "choices": [
         {
             "index": 0,
@@ -1290,7 +1270,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Meta-Llama-3.1-8B-Instruct",
+    "model": "Meta-Llama-3.1-405B-Instruct",
     "choices": [
         {
             "index": 0,

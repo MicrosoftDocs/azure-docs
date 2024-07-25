@@ -40,7 +40,7 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-- Cohere-command-r-plus
+${model.variants-list}
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -56,7 +56,7 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-- Cohere-command-r
+${model.variants-list}
 
 ---
 
@@ -472,7 +472,7 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-- Cohere-command-r-plus
+${model.variants-list}
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -488,7 +488,7 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-- Cohere-command-r
+${model.variants-list}
 
 ---
 
@@ -917,7 +917,7 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-- Cohere-command-r-plus
+${model.variants-list}
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -933,7 +933,7 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-- Cohere-command-r
+${model.variants-list}
 
 ---
 
@@ -1367,7 +1367,7 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-- Cohere-command-r-plus
+${model.variants-list}
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -1383,7 +1383,7 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-- Cohere-command-r
+${model.variants-list}
 
 ---
 
