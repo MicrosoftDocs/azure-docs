@@ -29,10 +29,9 @@ In this QuickStart guide, you set up:
    
 ## Prerequisites
 
-- To ingest into Microsoft Sentinel, you need an active Log Analytics Workspace.
-- To enable Microsoft Sentinel, you need contributor permissions to the subscription in which the Microsoft Sentinel workspace resides.
-- To use Microsoft Sentinel, you need either Microsoft Sentinel Contributor or Microsoft Sentinel Reader permissions on the resource group that the workspace belongs to.
-- To install or manage solutions in the content hub, you need the Microsoft Sentinel Contributor role on the resource group that the workspace belongs to
+- You must have an active Log Analytics Workspace in order to ingest into Microsoft Sentinel.
+- Permissions for contributors to control Microsoft Sentinel at the subscription and resource group levels.
+- Permissions for contributors to install or manage Microsoft Sentinel solutions within the content hub.
 
 ## Enable Sentinel for Log Analytics Workspace
 
@@ -71,11 +70,11 @@ In this QuickStart guide, you set up:
     - Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
     - Create query:
         
-    ```bash
-    # Example Query
-    AGCAccessLogs
-      | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
-    ```
+      ```bash
+      # Example Query
+      AGCAccessLogs
+        | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
+      ```
 
     This query filters `AGCAccessLogs` based on conditions related to hostname and request URI.
 
