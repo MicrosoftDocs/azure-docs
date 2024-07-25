@@ -14,7 +14,7 @@ ms.custom:
   - sdkv2
   - build-2023
   - ignite-2023
-  - update-code1
+  - update-code2
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
