@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Virtual WAN
 description: This article contains important reference material you need when you monitor Azure Virtual WAN by using Azure Monitor.
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc

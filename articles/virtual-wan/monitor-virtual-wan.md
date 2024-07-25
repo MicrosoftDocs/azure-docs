@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Virtual WAN
 description: Start here to learn how to monitor availability and performance for Azure Virtual WAN by using Azure Monitor.
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
@@ -173,6 +173,8 @@ This article provides configuration best practices for monitoring Virtual WAN an
 Most of the recommendations in this article suggest creating Azure Monitor alerts. Azure Monitor alerts proactively notify you when there's an important event in the monitoring data. This information helps you address the root cause quicker and ultimately reduce downtime. To learn how to create a metric alert, see [Tutorial: Create a metric alert for an Azure resource](../azure-monitor/alerts/tutorial-metric-alert.md). To learn how to create a log query alert, see [Tutorial: Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md).
 
 ### Virtual WAN gateways
+
+This section describes best practices for WAN gateways.
 
 #### Site-to-site VPN gateway
 
