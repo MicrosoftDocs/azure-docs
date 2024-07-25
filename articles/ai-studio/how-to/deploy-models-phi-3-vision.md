@@ -26,7 +26,7 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models with vision
+### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
@@ -336,7 +336,7 @@ Usage:
 
 To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models with vision
+### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
@@ -667,7 +667,7 @@ Usage:
 
 To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models with vision
+### A model deployment
 
 **Deployment to a self-hosted managed compute**
 
@@ -977,7 +977,7 @@ Usage:
 
 To use Phi-3 chat models with vision with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models with vision
+### A model deployment
 
 **Deployment to a self-hosted managed compute**
 

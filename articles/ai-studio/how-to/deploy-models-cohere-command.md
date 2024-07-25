@@ -66,7 +66,7 @@ The following models are available:
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Command chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -499,7 +499,7 @@ The following models are available:
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Command chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -946,7 +946,7 @@ The following models are available:
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Command chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1398,7 +1398,7 @@ The following models are available:
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Command chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 

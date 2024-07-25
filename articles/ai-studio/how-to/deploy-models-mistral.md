@@ -74,7 +74,7 @@ The following models are available:
 
 To use Mistral premium chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral premium chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -542,7 +542,7 @@ The following models are available:
 
 To use Mistral premium chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral premium chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1029,7 +1029,7 @@ The following models are available:
 
 To use Mistral premium chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral premium chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1518,7 +1518,7 @@ The following models are available:
 
 To use Mistral premium chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral premium chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 

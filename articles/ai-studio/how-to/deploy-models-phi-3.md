@@ -77,7 +77,7 @@ The following models are available:
 
 To use Phi-3 chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -412,7 +412,7 @@ The following models are available:
 
 To use Phi-3 chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -768,7 +768,7 @@ The following models are available:
 
 To use Phi-3 chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1118,7 +1118,7 @@ The following models are available:
 
 To use Phi-3 chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Phi-3 chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 

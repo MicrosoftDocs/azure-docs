@@ -25,7 +25,7 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo chat model
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -444,7 +444,7 @@ except HttpResponseError as ex:
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo chat model
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -882,7 +882,7 @@ catch (error) {
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo chat model
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1322,7 +1322,7 @@ catch (RequestFailedException ex)
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo chat model
+### A model deployment
 
 **Deployment to serverless APIs**
 

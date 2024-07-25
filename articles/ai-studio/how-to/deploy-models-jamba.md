@@ -29,7 +29,7 @@ The Jamba Instruct model is AI21's production-grade Mamba-based large language m
 
 To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -271,7 +271,7 @@ except HttpResponseError as ex:
 
 To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -534,7 +534,7 @@ catch (error) {
 
 To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -795,7 +795,7 @@ catch (RequestFailedException ex)
 
 To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 

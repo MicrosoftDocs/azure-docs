@@ -30,7 +30,7 @@ JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**.
 
 To use Jaiss chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -272,7 +272,7 @@ except HttpResponseError as ex:
 
 To use Jaiss chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -535,7 +535,7 @@ catch (error) {
 
 To use Jaiss chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -796,7 +796,7 @@ catch (RequestFailedException ex)
 
 To use Jaiss chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 

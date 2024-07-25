@@ -67,7 +67,7 @@ The following models are available:
 
 To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -392,7 +392,7 @@ The following models are available:
 
 To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -738,7 +738,7 @@ The following models are available:
 
 To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
@@ -1078,7 +1078,7 @@ The following models are available:
 
 To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models
+### A model deployment
 
 **Deployment to serverless APIs**
 
