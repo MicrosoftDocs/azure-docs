@@ -15,14 +15,8 @@ sections:
   - name: General
     questions:
     - question: |
-         Does Azure IoT Operations offer a free trial?
-      answer: Currently, No
-    - question: |
          What are the hardware requirements?
       answer: For more information on hardware requirements, see [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
-    - question: |
-         What is the cost involved in using Azure IoT Operations?
-      answer: We're currently working on pricing.
     - question: |
          Is message persistence supported?
       answer: At Azure IoT Operations general availability (GA), full message persistence won't be supported. The capability is planned post-GA.
@@ -69,7 +63,14 @@ sections:
          Will Azure IoT Operations be able to support private endpoints with Azure IoT Operations clusters.
       answer: |
         Answer.
-
+  - name: Pricing
+    questions:
+    - question: |
+         Does Azure IoT Operations offer a free trial?
+      answer: Currently, No
+    - question: |
+         What is the cost involved in using Azure IoT Operations?
+      answer: We're currently working on pricing. 
 additionalContent: |
     ## Related content
 
