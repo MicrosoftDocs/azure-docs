@@ -38,28 +38,28 @@ LLMOps with prompt flow is a "LLMOps template and guidance" to help you build LL
 
 - It supports pure **python based Evaluation** as well using promptflow-evals package.
 
-- It should be used for INNER-LOOP Experimentation and Evaluation.
+- It supports INNER-LOOP Experimentation and Evaluation.
 
-- It should be used for OUTER-LOOP Deployment and Inferencing.
+- It supports OUTER-LOOP Deployment and Inferencing.
 
-- **Centralized Code Hosting**: This repo supports hosting code for multiple flows based on prompt flow, providing a single repository for all your flows. Think of this platform as a single repository where all your prompt flow code resides. It's like a library for your flows, making it easy to find, access, and collaborate on different projects.
+- It supports **Centralized Code Hosting** for multiple flows based on prompt flow, providing a single repository for all your flows. Think of this platform as a single repository where all your prompt flow code resides. It's like a library for your flows, making it easy to find, access, and collaborate on different projects.
 
-- **Lifecycle Management**: Each flow enjoys its own lifecycle, allowing for smooth transitions from local experimentation to production deployment.
-    :::image type="content" source="../media/prompt-flow/llmops/pipeline.png" alt-text="Screenshot of pipeline." lightbox = "../media/prompt-flow/llmops/pipeline.png":::
+- Each flow enjoys its own **Lifecycle Management**, allowing for smooth transitions from local experimentation to production deployment.
+    :::image type="content" source="../media/prompt-flow/llmops/workflow.png" alt-text="Screenshot of workflow." lightbox = "../media/prompt-flow/llmops/workflow.png":::
 
-- **Variant and Hyperparameter Experimentation**: Experiment with multiple variants and hyperparameters, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
+- Experiment with multiple **Variant and Hyperparameter Experimentation**, evaluating flow variants with ease. Variants and hyperparameters are like ingredients in a recipe. This platform allows you to experiment with different combinations of variants across multiple nodes in a flow.
 
-- **Multiple Deployment Targets**: The repo supports deployment of flows to **Azure App Services, Kubernetes, Azure Managed computes** driven through configuration ensuring that your flows can scale as needed. It also generates **Docker images** infused with Flow compute session and your flows for deployment to **any target platform and Operating system** supporting Docker.
+- The repo supports deployment of flows to **Azure App Services, Kubernetes, Azure Managed computes** driven through configuration ensuring that your flows can scale as needed. It also generates **Docker images** infused with Flow compute session and your flows for deployment to **any target platform and Operating system** supporting Docker.
     :::image type="content" source="../media/prompt-flow/llmops/endpoints.png" alt-text="Screenshot of endpoints." lightbox = "../media/prompt-flow/llmops/endpoints.png":::
 
-- **A/B Deployment**: Seamlessly implement A/B deployments, enabling you to compare different flow versions effortlessly. Like in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
+- Seamlessly implement **A/B Deployment**, enabling you to compare different flow versions effortlessly. As in traditional A/B testing for websites, this platform facilitates A/B deployment for prompt flow. This means you can effortlessly compare different versions of a flow in a real-world setting to determine which performs best.
     :::image type="content" source="../media/prompt-flow/llmops/a-b-deployments.png" alt-text="Screenshot of deployments." lightbox = "../media/prompt-flow/llmops/a-b-deployments.png":::
 
-- **Many-to-many dataset/flow relationships**: Accommodate multiple datasets for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
+- Accommodates **Many-to-many dataset/flow relationships** for each standard and evaluation flow, ensuring versatility in flow test and evaluation. The platform is designed to accommodate multiple datasets for each flow.
 
-- **Conditional Data and Model registration**: The platform creates a new version for dataset in Azure AI Studio Data Asset and flows in model registry only when there's a change in them, not otherwise.
+- It supports **Conditional Data and Model registration**  by creating a new version for dataset in Azure AI Studio Data Asset and flows in model registry only when there's a change in them, not otherwise.
 
-- **Comprehensive Reporting**: Generate detailed reports for each variant configuration, allowing you to make informed decisions. Provides detailed Metric collection, experiment, and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
+- Generates **Comprehensive Reporting** for each **variant configuration**, allowing you to make informed decisions. Provides detailed Metric collection, experiment, and variant bulk runs for all runs and experiments, enabling data-driven decisions in csv as well as HTML files.
     :::image type="content" source="../media/prompt-flow/llmops/variants.png" alt-text="Screenshot of flow variants report." lightbox = "../media/prompt-flow/llmops/variants.png":::
 
 Other features for customization:
@@ -79,13 +79,13 @@ LLMOps with prompt flow provides capabilities for both simple and complex LLM-in
 
 The lifecycle comprises four distinct stages:
 
-- **Initialization:** Clearly define the business objective, gather relevant data samples, establish a basic prompt structure, and craft a flow that enhances its capabilities.
+1. **Initialization:** Clearly define the business objective, gather relevant data samples, establish a basic prompt structure, and craft a flow that enhances its capabilities.
 
-- **Experimentation:** Apply the flow to sample data, assess the prompt's performance, and refine the flow as needed. Continuously iterate until satisfied with the results.
+2. **Experimentation:** Apply the flow to sample data, assess the prompt's performance, and refine the flow as needed. Continuously iterate until satisfied with the results.
 
-- **Evaluation & Refinement:** Benchmark the flow's performance using a larger dataset, evaluate the prompt's effectiveness, and make refinements accordingly. Progress to the next stage if the results meet the desired standards.
+3. **Evaluation & Refinement:** Benchmark the flow's performance using a larger dataset, evaluate the prompt's effectiveness, and make refinements accordingly. Progress to the next stage if the results meet the desired standards.
 
-- **Deployment:** Optimize the flow for efficiency and effectiveness, deploy it in a production environment including A/B deployment, monitor its performance, gather user feedback, and use this information to further enhance the flow.
+4. **Deployment:** Optimize the flow for efficiency and effectiveness, deploy it in a production environment including A/B deployment, monitor its performance, gather user feedback, and use this information to further enhance the flow.
 
 By adhering to this structured methodology, prompt flow empowers you to confidently develop, rigorously test, fine-tune, and deploy flows, leading to the creation of robust and sophisticated AI applications. 
 
@@ -111,13 +111,13 @@ The repository for this article is available at [LLMOps with Prompt flow templat
 4. The merge to Main triggers the build and release process for the Development environment. Specifically:
 
     a. The CI pipeline is triggered from the merge to Main. The CI pipeline performs all the steps done in the PR pipeline, and the following steps:
-        - Experimentation flow
-        - Evaluation flow
-        - Registers the flows in the AI Studio Registry when changes are detected
+        1. Experimentation flow
+        2. Evaluation flow
+        3. Registers the flows in the AI Studio Registry when changes are detected
     b. The CD pipeline is triggered after the completion of the CI pipeline. This flow performs the following steps:
-        - Deploys the flow from the AI Studio registry to a AI Studio deployment
-        - Runs integration tests that target the online endpoint
-        - Runs smoke tests that target the online endpoint
+        1. Deploys the flow from the AI Studio registry to a AI Studio deployment
+        2. Runs integration tests that target the online endpoint
+        3. Runs smoke tests that target the online endpoint
 
 5. An approval process is built into the release promotion process – upon approval, the CI & CD processes described in steps 4.a. & 4.b. are repeated, targeting the Test environment. Steps 4.a. and 4.b. are the same, except that user acceptance tests are run after the smoke tests in the Test environment.
 
@@ -224,7 +224,7 @@ The test outputs should be similar to ones shown at [here](https://github.com/mi
 
 ## Local execution
 
-Experiments can be executed using the prompt_pipeline.py python script locally. The script takes the experiment.yaml file as input and runs the evaluations defined in the experiment.yaml file along with use case name and environment name. This generates RUN_ID.txt file containing the run id's which is later used for evaluation phase.
+To harness the capabilities of the **local execution**, follow these installation steps:
 
 1. **Clone the Repository**: Begin by cloning the template's repository from its [GitHub repository](https://github.com/microsoft/llmops-promptflow-template.git).
 
@@ -276,7 +276,8 @@ python -m llmops.common.prompt_eval --run_id run_id.txt --subscription_id xxxxx 
 5. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).
 
 ## Next steps
-* [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md) on GitHub
+* [LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template/) on GitHub
+* [LLMOps with Prompt flow template documentation](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/Azure_devops_how_to_setup.md) on GitHub
 * [FAQS for LLMOps with Prompt flow template](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/faqs.md)
 * [Prompt flow open source repository](https://github.com/microsoft/promptflow)
 * [Install and set up Python SDK v2](/python/api/overview/azure/ai-ml-readme)
