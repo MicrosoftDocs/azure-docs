@@ -461,7 +461,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+Once you have these prerequisites, install the Azure Inference library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -496,7 +496,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-var model_info = await client.path("info").get()
+var model_info = await client.path("/info").get()
 ```
 
 The response is as follows:
@@ -586,7 +586,8 @@ We can visualize how streaming generates content:
 ```javascript
 var stream = response.body;
 if (!stream) {
-    throw new Error("The response stream is undefined");
+    stream.destroy();
+    throw new Error(`Failed to get chat completions with status: ${response.status}`);
 }
 
 if (response.status !== "200") {
@@ -770,11 +771,11 @@ By inspecting the response, you can find out if a tool needs to be called. Inspe
 
 
 ```javascript
-const response_message = response.body.choices[0].message
-const tool_calls = response_message.tool_calls
+const response_message = response.body.choices[0].message;
+const tool_calls = response_message.tool_calls;
 
-console.log("Finish reason: " + response.body.choices[0].finish_reason)
-console.log("Tool call: " + tool_calls)
+console.log("Finish reason: " + response.body.choices[0].finish_reason);
+console.log("Tool call: " + tool_calls);
 ```
 
 To continue with this tutorial, we append this message to the chat history:
@@ -791,20 +792,20 @@ Now, it's time to call the appropriate function to handle the tool call. The fol
 function applyToolCall({ function: call, id }) {
     // Get the tool details:
     const tool_params = JSON.parse(call.arguments);
-    console.log("Calling function " + call.name + " with arguments " + tool_params)
+    console.log("Calling function " + call.name + " with arguments " + tool_params);
 
     // Call the function defined above using `window`, which returns the list of all functions 
     // available in the scope as a dictionary. Notice that this is just done as a simple way to get
     // the function callable from its string name. Then we can call it with the corresponding
     // arguments.
     const function_response = tool_params.map(window[call.name]);
-    console.log("-> " + function_response)
+    console.log("-> " + function_response);
 
     return function_response
 }
 
 for (const tool_call of tool_calls) {
-    var tool_response = tool_call.apply(applyToolCall)
+    var tool_response = tool_call.apply(applyToolCall);
 
     messages.push(
         {
@@ -812,7 +813,7 @@ for (const tool_call of tool_calls) {
             tool_call_id: tool_call.id,
             content: tool_response
         }
-    )
+    );
 }
 ```
 
@@ -840,7 +841,7 @@ try {
     var messages = [
         { role: "system", content: "You are an AI assistant that helps people find information." },
         { role: "user", content: "Chopping tomatoes and cutting them into cubes or wedges are great ways to practice your knife skills." },
-    ]
+    ];
 
     var response = await client.path("/chat/completions").post({
         body: {
@@ -848,17 +849,17 @@ try {
         }
     });
 
-    console.log(response.body.choices[0].message.content)
+    console.log(response.body.choices[0].message.content);
 }
 catch (error) {
     if (error.status_code == 400) {
-        var response = JSON.parse(error.response._content)
+        var response = JSON.parse(error.response._content);
         if (response.error) {
-            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`)
+            console.log(`Your request triggered an ${response.error.code} error:\n\t ${response.error.message}`);
         }
         else
         {
-            throw error
+            throw error;
         }
     }
 }

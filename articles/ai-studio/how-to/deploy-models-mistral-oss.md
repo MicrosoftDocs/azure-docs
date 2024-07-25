@@ -374,7 +374,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+Once you have these prerequisites, install the Azure Inference library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -423,7 +423,7 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-var model_info = await client.path("info").get()
+var model_info = await client.path("/info").get()
 ```
 
 The response is as follows:
@@ -516,7 +516,8 @@ We can visualize how streaming generates content:
 ```javascript
 var stream = response.body;
 if (!stream) {
-    throw new Error("The response stream is undefined");
+    stream.destroy();
+    throw new Error(`Failed to get chat completions with status: ${response.status}`);
 }
 
 if (response.status !== "200") {

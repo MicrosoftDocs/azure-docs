@@ -256,7 +256,7 @@ You can consume predictions from this model by using the `@azure-rest/ai-inferen
 * The endpoint URL. To construct the client library, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
-Once you have these prerequisites, install the Azure ModelClient REST client REST client library for JavaScript with the following command:
+Once you have these prerequisites, install the Azure Inference library for JavaScript with the following command:
 
 ```bash
 npm install @azure-rest/ai-inference
@@ -291,18 +291,16 @@ The `/info` route returns information about the model that is deployed to the en
 
 
 ```javascript
-await client.path("info").get()
+await client.path("/info").get()
 ```
 
 The response is as follows:
 
 
 ```javascript
-{
-    "model_name": "{$model_name}",
-    "model_type": "{$model_type}",
-    "model_provider_name": "{$model_provider}"
-}
+console.log("Model name: ", model_info.body.model_name);
+console.log("Model type: ", model_info.body.model_type);
+console.log("Model provider name: ", model_info.body.model_provider_name);
 ```
 
 ```console
@@ -318,7 +316,7 @@ Create an embedding request to see the output of the model.
 ```javascript
 var response = await client.path("/embeddings").post({
     body: {
-        input=["The ultimate answer to the question of life"],
+        input: ["The ultimate answer to the question of life"],
     }
 });
 ```
@@ -345,7 +343,7 @@ It is usually useful to compute embeddings in batch of inputs. The parameter `in
 ```javascript
 var response = await client.path("/embeddings").post({
     body: {
-        input=[
+        input: [
             "The ultimate answer to the question of life", 
             "The largest planet in our solar system is Jupiter",
         ],
@@ -379,8 +377,8 @@ The following example shows how to create embeddings that is used to create an e
 ```javascript
 var response = await client.path("/embeddings").post({
     body: {
-        input=["The answer to the ultimate question of life, the universe, and everything is 42"],
-        input_type="document",
+        input: ["The answer to the ultimate question of life, the universe, and everything is 42"],
+        input_type: "document",
     }
 });
 ```
@@ -391,8 +389,8 @@ When working on a query to retrieve such document, you can use the following cod
 ```javascript
 var response = await client.path("/embeddings").post({
     body: {
-        input=["What's the ultimate meaning of life?"],
-        input_type="query",
+        input: ["What's the ultimate meaning of life?"],
+        input_type: "query",
     }
 });
 ```
