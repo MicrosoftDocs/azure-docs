@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Understand cross-zone replication of Azure NetApp Files (preview)
+# Understand cross-zone replication of Azure NetApp Files
 
 In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in [Use availability zones for high availability](use-availability-zones.md). However, simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
