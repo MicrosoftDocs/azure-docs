@@ -3,7 +3,7 @@ title: Overview of enterprise security in Azure HDInsight
 description: Learn the various methods to ensure enterprise security in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: overview
-ms.date: 06/15/2024
+ms.date: 07/23/2024
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -67,7 +67,7 @@ The following table provides links to resources for each type of security soluti
 
 | Security area | Solutions available | Responsible party |
 |---|---|---|
-| Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  | Customer |
+| Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen2  | Customer |
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
 |  | Configure [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Cosmos DB and [Azure SQL DB](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | Customer |

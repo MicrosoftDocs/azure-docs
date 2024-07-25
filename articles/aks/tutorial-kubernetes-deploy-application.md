@@ -2,7 +2,7 @@
 title: Kubernetes on Azure tutorial - Deploy an application to Azure Kubernetes Service (AKS)
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using images stored in Azure Container Registry.
 ms.topic: tutorial
-ms.date: 02/20/2023
+ms.date: 06/10/2024
 ms.custom: mvc, devx-track-extended-azdevcli
 #Customer intent: As a developer, I want to learn how to deploy apps to an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
@@ -57,11 +57,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
-
-    ```azurecli-interactive
-    vi aks-store-quickstart.yaml
-    ```
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the `aks-store-quickstart.yaml` manifest file with a text editor.
 
 3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
 
@@ -79,21 +75,17 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ...
     ```
 
-4. Save and close the file. In `vi`, use `:wq`.
+4. Save and close the file.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 1. Get your login server address using the [`Get-AzContainerRegistry`][get-azcontainerregistry] cmdlet and query for your login server. Make sure you replace `<acrName>` with the name of your ACR instance.
 
     ```azurepowershell-interactive
-    (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+    (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name $ACRNAME).LoginServer
     ```
 
-2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
-
-    ```azurepowershell-interactive
-    vi aks-store-quickstart.yaml
-    ```
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the `aks-store-quickstart.yaml` manifest file with a text editor.
 
 3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
 
@@ -111,7 +103,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ...
     ```
 
-4. Save and close the file. In `vi`, use `:wq`.
+4. Save and close the file.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
@@ -132,7 +124,8 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     The following example output shows the resources successfully created in the AKS cluster:
 
     ```output
-    deployment.apps/rabbitmq created
+    statefulset.apps/rabbitmq created
+    configmap/rabbitmq-enabled-plugins created
     service/rabbitmq created
     deployment.apps/order-service created
     service/order-service created
@@ -159,7 +152,8 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     The following example output shows the resources successfully created in the AKS cluster:
 
     ```output
-    deployment.apps/rabbitmq created
+    statefulset.apps/rabbitmq created
+    configmap/rabbitmq-enabled-plugins created
     service/rabbitmq created
     deployment.apps/order-service created
     service/order-service created
@@ -210,13 +204,13 @@ When the application runs, a Kubernetes service exposes the application front en
     kubectl get service store-front --watch
     ```
 
-    Initially, the `EXTERNAL-IP` for the *store-front* service shows as *pending*:
+    Initially, the `EXTERNAL-IP` for the `store-front` service shows as `<pending>`:
 
     ```output
     store-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
     ```
 
-2. When the `EXTERNAL-IP` address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
+2. When the `EXTERNAL-IP` address changes from `<pending>` to a public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
     The following example output shows a valid public IP address assigned to the service:
 
@@ -224,7 +218,7 @@ When the application runs, a Kubernetes service exposes the application front en
     store-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
     ```
 
-3. View the application in action by opening a web browser to the external IP address of your service.
+3. View the application in action by opening a web browser and navigating to the external IP address of your service: `http://<external-ip>`.
 
     :::image type="content" source="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png":::
 
@@ -237,10 +231,26 @@ Navigate to your Azure portal to find your deployment information.
 1. Open your [Resource Group][azure-rg] on the Azure portal
 1. Navigate to the Kubernetes service for your cluster
 1. Select `Services and Ingress` under `Kubernetes Resources`
-1. Copy the External IP shown in the column for store-front
+1. Copy the External IP shown in the column for the `store-front` service
 1. Paste the IP into your browser and visit your store page
 
     :::image type="content" source="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="./learn/media/quick-kubernetes-deploy-cli/aks-store-application.png":::
+
+## Clean up resources
+
+Since you validated the application's functionality, you can now remove the cluster from the application. We will deploy the application again in the next tutorial.
+
+1. Stop and remove the container instances and resources using the [`docker-compose down`][docker-compose-down] command.
+
+    ```console
+    kubectl delete -f aks-store-quickstart.yaml
+    ```
+
+1. Check that all the application pods have been removed:
+
+    ```console
+    kubectl get pods
+    ```
 
 ## Next steps
 

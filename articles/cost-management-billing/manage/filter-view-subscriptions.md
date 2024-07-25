@@ -6,7 +6,7 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 07/16/2024
 ms.author: banders
 ---
 
@@ -16,6 +16,8 @@ When you view subscriptions on the Subscriptions page, you see a list of subscri
 
 - Global subscription filter
 - Subscriptions list filter
+
+Subscriptions are shown for the directory that you're signed in to. If you have access to multiple directories, you can switch directories to view subscriptions for each directory.
 
 ## Global subscription filter
 

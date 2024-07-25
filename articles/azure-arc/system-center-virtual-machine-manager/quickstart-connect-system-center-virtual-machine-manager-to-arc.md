@@ -7,7 +7,7 @@ manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 07/01/2024
+ms.date: 07/11/2024
 ms.custom: references_regions
 
 # Customer intent: As a VI admin, I want to connect my VMM management server to Azure Arc.
@@ -118,6 +118,10 @@ The script execution will take up to half an hour and you'll be prompted for var
 
 Once the command execution is completed, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM.
 
+>[!IMPORTANT]
+>After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config (.yaml) files in a secure place that facilitates easy retrieval. These files are needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three config files (.yaml files) in the same folder where you ran the onboarding script. 
+
+
 ### Retry command - Windows
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```-Force``` to clean up and onboard again.
@@ -126,7 +130,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
  ./resource-bridge-onboarding-script.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VMMservername <VMMservername>
 ```
 
-### Retry command - Linux
+>[!Note]
+>You can find the values for *Subscription*, *ResourceGroup*, *Azlocation*, *ApplianceName*, *CustomLocationName*, and *VMMservername* parameters from the onboarding script.
+
+ ### Retry command - Linux
 
 If for any reason, the appliance creation fails, you need to retry it. Run the command with ```--force``` to clean up and onboard again.
 

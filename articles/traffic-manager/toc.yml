@@ -68,6 +68,10 @@
     href: traffic-manager-FAQs.md
 - name: How-to guides
   items:
+  - name: Use Azure App Gateway with Azure Traffic Manager
+    href: traffic-manager-use-with-application-gateway.md
+  - name: Use Azure App Service with Azure Traffic Manager
+    href: traffic-manager-use-azure-app-service.md
   - name: Configure performance routing in Traffic Manager
     href: traffic-manager-configure-performance-routing-method.md
   - name: Configure multivalue routing in Traffic Manager

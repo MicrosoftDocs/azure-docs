@@ -22,10 +22,6 @@ The prompt flow Azure OpenAI GPT-4 Turbo with Vision tool enables you to use you
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">You can create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, you must apply for access to this service. To apply for access to Azure OpenAI, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
 - An [AI Studio hub](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in [one of the regions that support GPT-4 Turbo with Vision](../../../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). When you deploy from your project's **Deployments** page, select `gpt-4` as the model name and `vision-preview` as the model version.
 
 ## Build with the Azure OpenAI GPT-4 Turbo with Vision tool

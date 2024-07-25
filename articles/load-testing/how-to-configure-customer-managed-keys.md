@@ -51,6 +51,9 @@ Make sure to configure the following key vault settings when you use customer-ma
 
 If you restricted access to your Azure key vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
 
+> [!IMPORTANT]
+> Retrieving customer-managed keys from a private Azure key vault that has access restrictions is currently not supported in **US Gov Virginia** region.
+
 ### Configure soft delete and purge protection
 
 You have to set the *Soft Delete* and *Purge Protection* properties on your key vault to use customer-managed keys with Azure Load Testing. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection at any time. Learn more about [soft delete and purge protection in Azure Key Vault](/azure/key-vault/general/soft-delete-overview).

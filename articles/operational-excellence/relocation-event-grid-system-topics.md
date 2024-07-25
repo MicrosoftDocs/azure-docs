@@ -13,9 +13,11 @@ ms.custom:
 
 # Relocate Azure Event Grid system topics to another region
 
+This article covers the recommended approach, guidelines, and practices to relocate Event Grid system topics to another region. 
+
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-This article covers the recommended approach, guidelines, and practices to relocate Event Grid system topics to another region. 
+
 
 Here are the high-level steps covered in this article: 
 
