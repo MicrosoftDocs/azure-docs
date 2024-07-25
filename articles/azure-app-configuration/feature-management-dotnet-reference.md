@@ -1364,7 +1364,18 @@ The `telemetry` section of a feature flag has the following properties:
 
 ### Custom Telemetry Publishing
 
-The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the "FeatureName", "Enabled", "Variant", "VariantAssignmentReason", "TargetingId" and all key value pairs specified in `telemetry.metadata` of the feature flag.
+The feature manager has its own `ActivitySource` with name "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of this feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` called "FeatureFlag" to the `Activity.Current`. The "FeatureFlag" event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the following fields:
+
+| Tag | Description |
+| ---------------- | ---------------- |
+| `FeatureName` | The feature flag name. |
+| `Enabled` | Whether the feature flag is evaluated as enabled. |
+| `Variant` | The assigned variant. |
+| `VariantAssignmentReason` | The reason why the variant is assigned. |
+| `TargetingId` | The user id used for targeting. |
+
+> [!NOTE]
+> All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.
 
 To enable custom telemetry publishing, you can create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to the `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when a feature is evaluated.
 
@@ -1414,7 +1425,7 @@ app.UseMiddleware<TargetingHttpContextMiddleware>();
 An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
 
 > [!NOTE]
-> To ensure that `TargetingTelemetryInitializer` works correctly, it is essential to use `TargetingHttpContextMiddleware` in your middleware pipeline. The middleware is responsible for adding the targeting info to the current activity's baggage, which the telemetry initializer relies on. 
+> To ensure that `TargetingTelemetryInitializer` works as expected, the `TargetingHttpContextMiddleware` described below should be used.
 
 #### Prerequisite
 
