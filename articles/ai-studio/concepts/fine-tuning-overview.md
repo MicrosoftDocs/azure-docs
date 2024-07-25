@@ -148,4 +148,5 @@ Fine-tuning of Llama 3.1 models is currently supported in projects located in We
 
 - [Learn how to fine-tune an Azure OpenAI model in Azure AI Studio](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context)
 - [Learn how to fine-tune a Llama 2 model in Azure AI Studio](../how-to/fine-tune-model-llama.md)
+- [](../how-to/fine-tune-phi-3.md)
 - [How to deploy Phi-3 family of small language models with Azure AI Studio](../how-to/deploy-models-phi-3.md)
