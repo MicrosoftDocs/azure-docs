@@ -13,6 +13,10 @@ ms.service: load-balancer
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
+- [Health Probes](./load-balancer-custom-probe-overview.md)
+- [Resource health status](./load-balancer-standard-diagnostics.md#resource-health-status)
+- [REST API](load-balancer-query-metrics-rest-api.md)
+
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 Load Balancer insights provide:
@@ -39,14 +43,6 @@ For more information about the resource types for Load Balancer, see [Azure Load
 You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
 
 For a list of available metrics for Load Balancer, see [Azure Load Balancer monitoring data reference](monitor-load-balancer-reference.md#metrics).
-
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)]
-
-Load Balancer provides other monitoring data through:
-
-- [Health Probes](./load-balancer-custom-probe-overview.md)
-- [Resource health status](./load-balancer-standard-diagnostics.md#resource-health-status)
-- [REST API](#get-load-balancer-usage-metrics-using-the-azure-rest-api)
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
