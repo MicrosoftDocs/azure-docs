@@ -6,7 +6,7 @@ ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/18/2024
+ms.date: 07/24/2024
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure portal
@@ -59,8 +59,8 @@ To deploy Cloud Services (extended support) by using the portal:
         - If you have IP input endpoints defined in your definition (.csdef) file, create a public IP address for your cloud service.
         - Cloud Services (extended support) supports only a Basic SKU public IP address.
         - If your configuration (.cscfg) file contains a reserved IP address, set the allocation type for the public IP address to **Static**.
-        - (Optional) You can assign a DNS name for your cloud service endpoint by updating the DNS label property of the public IP address that's associated with the cloud service.  
-    - (Optional) **Start cloud service**: Select the checkbox if you want to start the service immediately after it's deployed.
+        - (Optional) You can assign a DNS name for your cloud service endpoint by updating the DNS label property of the public IP address associated with the cloud service.  
+    - (Optional) **Start cloud service**: Select the checkbox if you want to start the service immediately after it deploys.
     - **Key vault**: Select a key vault.
         - A key vault is required when you specify one or more certificates in your configuration (.cscfg) file. When you select a key vault, we attempt to find the selected certificates that are defined in your configuration (.cscfg) file based on the certificate thumbprints. If any certificates are missing from your key vault, you can upload them now    , and then select **Refresh**.  
 
