@@ -209,7 +209,7 @@ You can temporarily disable an NSG flow log without deleting it. Disabling a flo
     :::image type="content" source="./media/nsg-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-flow-log.png":::
 
 > [!NOTE]
-> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-flow-log-settings).
+> If traffic analytics is enabled for a flow log, it must be disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-flow-log-settings).
 
 ## Delete a flow log
 
