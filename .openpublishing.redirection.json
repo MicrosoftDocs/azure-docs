@@ -4926,6 +4926,16 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
         }
 
     ]
