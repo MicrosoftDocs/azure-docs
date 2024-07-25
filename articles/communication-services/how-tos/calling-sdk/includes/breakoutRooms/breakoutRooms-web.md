@@ -58,7 +58,7 @@ export interface AssignedBreakoutRoomEvent {
 }
 ```
 
-3. BreakoutRoomsSettingsEvent: When the even type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer of the meeting.
+3. BreakoutRoomsSettingsEvent: When the even type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer / Breakout room manager of the meeting.
 ```js
 export interface BreakoutRoomSettingsEvent {
   /**
