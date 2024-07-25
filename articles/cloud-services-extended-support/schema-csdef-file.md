@@ -3,7 +3,7 @@ title: Azure Cloud Services (extended support) Definition Schema (csdef File) | 
 description: Information related to the definition schema (csdef) for Cloud Services (extended support)
 ms.topic: article
 ms.service: cloud-services-extended-support
-ms.date: 10/14/2020
+ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
@@ -18,7 +18,7 @@ By default, the Azure Diagnostics configuration schema file is installed to the 
 The default extension for the service definition file is csdef.
 
 ## Basic service definition schema
-The service definition file must contain one `ServiceDefinition` element. The service definition must contain at least one role (`WebRole` or `WorkerRole`) element. It can contain up to 25 roles defined in a single definition and you can mix role types. The service definition also contains the optional `NetworkTrafficRules` element which restricts which roles can communicate to specified internal endpoints. The service definition also contains the optional `LoadBalancerProbes` element which contains customer defined health probes of endpoints.
+The service definition file must contain one `ServiceDefinition` element. The service definition must contain at least one role (`WebRole` or `WorkerRole`) element. It can contain up to 25 roles defined in a single definition and you can mix role types. The service definition also contains the optional `NetworkTrafficRules` element, which restricts which roles can communicate to specified internal endpoints. The service definition also contains the optional `LoadBalancerProbes` element, which contains customer defined health probes of endpoints.
 
 The basic format of the service definition file is as follows.
 
@@ -45,7 +45,7 @@ The basic format of the service definition file is as follows.
 ```
 
 ## Schema definitions
-The following topics describe the schema:
+The following articles describe the schema:
 
 - [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
 - [WebRole Schema](schema-csdef-webrole.md)
@@ -60,7 +60,7 @@ The following table describes the attributes of the `ServiceDefinition` element.
 | Attribute               | Description |
 | ----------------------- | ----------- |
 | name                    |Required. The name of the service. The name must be unique within the service account.|
-| topologyChangeDiscovery | Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance has successfully accepted the update.|
+| topologyChangeDiscovery | Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance successfully accepts the update.|
 | schemaVersion           | Optional. Specifies the version of the service definition schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side.|
 | upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a Cloud Service role or deployment](sample-update-cloud-service.md) and [Manage the availability of virtual machines](../virtual-machines/availability.md) You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|
 
