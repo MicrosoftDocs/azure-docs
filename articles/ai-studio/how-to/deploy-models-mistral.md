@@ -21,9 +21,9 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 ::: zone pivot="programming-language-python"
 
-## Mistral premium chat models family of models
+## Mistral premium chat models
 
-The Mistral premium chat models family of models includes the following models:
+The Mistral premium chat models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -493,9 +493,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Mistral premium chat models family of models
+## Mistral premium chat models
 
-The Mistral premium chat models family of models includes the following models:
+The Mistral premium chat models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -983,9 +983,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Mistral premium chat models family of models
+## Mistral premium chat models
 
-The Mistral premium chat models family of models includes the following models:
+The Mistral premium chat models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -1475,9 +1475,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Mistral premium chat models family of models
+## Mistral premium chat models
 
-The Mistral premium chat models family of models includes the following models:
+The Mistral premium chat models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 

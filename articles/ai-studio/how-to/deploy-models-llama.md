@@ -1,7 +1,7 @@
 ---
-title: How to use Meta Llama with Azure AI studio
+title: How to use Meta Llama chat models with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Meta Llama with Azure AI studio.
+description: Learn how to use Meta Llama chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,18 +13,18 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Meta Llama with Azure AI studio
+# How to use Meta Llama chat models with Azure AI studio
 
-In this guide, you learn about Meta Llama and how to use them with Azure AI studio.
+In this guide, you learn about Meta Llama chat models and how to use them with Azure AI studio.
 Meta Llama 2 and 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF).
 
 
 
 ::: zone pivot="programming-language-python"
 
-## Meta Llama family of models
+## Meta Llama chat models
 
-The Meta Llama family of models includes the following models:
+The Meta Llama chat models includes the following models:
 
 # [Meta Llama-3.1](#tab/meta-llama-3-1)
 
@@ -73,13 +73,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama model
+### A deployed Meta Llama chat models model
 
 **Deployment to serverless APIs**
 
-Meta Llama can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -88,7 +88,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -116,7 +116,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama chat models.
 
 ### Create a client to consume the model
 
@@ -301,7 +301,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Meta Llama:
+The following extra parameters can be passed to a Meta Llama chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -356,9 +356,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Meta Llama family of models
+## Meta Llama chat models
 
-The Meta Llama family of models includes the following models:
+The Meta Llama chat models includes the following models:
 
 # [Meta Llama-3.1](#tab/meta-llama-3-1)
 
@@ -407,13 +407,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama model
+### A deployed Meta Llama chat models model
 
 **Deployment to serverless APIs**
 
-Meta Llama can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -422,7 +422,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -448,7 +448,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama chat models.
 
 ### Create a client to consume the model
 
@@ -650,7 +650,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Meta Llama:
+The following extra parameters can be passed to a Meta Llama chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -710,9 +710,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Meta Llama family of models
+## Meta Llama chat models
 
-The Meta Llama family of models includes the following models:
+The Meta Llama chat models includes the following models:
 
 # [Meta Llama-3.1](#tab/meta-llama-3-1)
 
@@ -761,13 +761,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama model
+### A deployed Meta Llama chat models model
 
 **Deployment to serverless APIs**
 
-Meta Llama can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -776,7 +776,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -807,7 +807,7 @@ dotnet add package Azure.Identity
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama chat models.
 
 ### Create a client to consume the model
 
@@ -998,7 +998,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Meta Llama:
+The following extra parameters can be passed to a Meta Llama chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1058,9 +1058,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Meta Llama family of models
+## Meta Llama chat models
 
-The Meta Llama family of models includes the following models:
+The Meta Llama chat models includes the following models:
 
 # [Meta Llama-3.1](#tab/meta-llama-3-1)
 
@@ -1109,13 +1109,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama model
+### A deployed Meta Llama chat models model
 
 **Deployment to serverless APIs**
 
-Meta Llama can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Meta Llama chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1124,7 +1124,7 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 **Deployment to a self-hosted managed compute**
 
-Meta Llama can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Meta Llama chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1143,7 +1143,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama chat models.
 
 ### Create a client to consume the model
 
@@ -1389,7 +1389,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Meta Llama:
+The following extra parameters can be passed to a Meta Llama chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |

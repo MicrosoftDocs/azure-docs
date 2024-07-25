@@ -1,7 +1,7 @@
 ---
-title: How to use Cohere Embed V3 models with Azure AI studio
+title: How to use Cohere Embed V3 with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Cohere Embed V3 models with Azure AI studio.
+description: Learn how to use Cohere Embed V3 with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-embeddings
 ---
 
-# How to use Cohere Embed V3 models with Azure AI studio
+# How to use Cohere Embed V3 with Azure AI studio
 
-In this guide, you learn about Cohere Embed V3 models and how to use them with Azure AI studio.
+In this guide, you learn about Cohere Embed V3 and how to use them with Azure AI studio.
 The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
 
 
@@ -48,11 +48,11 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Embed V3 models model
+### A deployed Cohere Embed V3 model
 
 **Deployment to serverless APIs**
 
-Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Cohere Embed V3 can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -133,7 +133,7 @@ response = model.embed(
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 is 512. Make sure to not exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -174,11 +174,11 @@ print("Usage:", response.usage)
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 #### Embedding's types
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -204,7 +204,7 @@ response = model.embed(
 )
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 can optimize the embeddings based on the intention of it.
 
 ::: zone-end
 
@@ -237,11 +237,11 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Embed V3 models model
+### A deployed Cohere Embed V3 model
 
 **Deployment to serverless APIs**
 
-Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Cohere Embed V3 can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -322,7 +322,7 @@ var response = await client.path("/embeddings").post({
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 is 512. Make sure to not exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -365,11 +365,11 @@ console.log(response.body.usage);
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 #### Embedding's types
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -395,7 +395,7 @@ var response = await client.path("/embeddings").post({
 });
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 can optimize the embeddings based on the intention of it.
 
 ::: zone-end
 
@@ -428,11 +428,11 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 To use Cohere models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Cohere Embed V3 models model
+### A deployed Cohere Embed V3 model
 
 **Deployment to serverless APIs**
 
-Cohere Embed V3 models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Cohere Embed V3 can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -492,7 +492,7 @@ Create an embedding request to see the output of the model.
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 is 512. Make sure to not exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -576,11 +576,11 @@ The response is as follows, where you can see the model's usage statistics:
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
 
 #### Embedding's types
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
 
 The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
 
@@ -606,7 +606,7 @@ When working on a query to retrieve such document, you can use the following cod
 }
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 can optimize the embeddings based on the intention of it.
 
 ::: zone-end
 

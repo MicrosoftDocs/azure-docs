@@ -1,7 +1,7 @@
 ---
-title: How to use Mistral-7B and Mixtral-8x7B with Azure AI studio
+title: How to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Mistral-7B and Mixtral-8x7B with Azure AI studio.
+description: Learn how to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,17 +13,17 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Mistral-7B and Mixtral-8x7B with Azure AI studio
+# How to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio
 
-In this guide, you learn about Mistral-7B and Mixtral-8x7B and how to use them with Azure AI studio.
+In this guide, you learn about Mistral-7B and Mixtral-8x7B chat models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
 
-## Mistral-7B and Mixtral-8x7B family of models
+## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B family of models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models includes the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
@@ -77,13 +77,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B model
+### A deployed Mistral-7B and Mixtral-8x7B chat models model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -114,7 +114,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B chat models.
 
 ### Create a client to consume the model
 
@@ -299,7 +299,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -314,9 +314,9 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 ::: zone pivot="programming-language-javascript"
 
-## Mistral-7B and Mixtral-8x7B family of models
+## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B family of models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models includes the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
@@ -370,13 +370,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B model
+### A deployed Mistral-7B and Mixtral-8x7B chat models model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -405,7 +405,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B chat models.
 
 ### Create a client to consume the model
 
@@ -607,7 +607,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -622,9 +622,9 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 ::: zone pivot="programming-language-csharp"
 
-## Mistral-7B and Mixtral-8x7B family of models
+## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B family of models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models includes the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
@@ -678,13 +678,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B model
+### A deployed Mistral-7B and Mixtral-8x7B chat models model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -718,7 +718,7 @@ dotnet add package Azure.Identity
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B chat models.
 
 ### Create a client to consume the model
 
@@ -909,7 +909,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -924,9 +924,9 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 ::: zone pivot="programming-language-rest"
 
-## Mistral-7B and Mixtral-8x7B family of models
+## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B family of models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models includes the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
@@ -980,13 +980,13 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B model
+### A deployed Mistral-7B and Mixtral-8x7B chat models model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1008,7 +1008,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B chat models.
 
 ### Create a client to consume the model
 
@@ -1254,7 +1254,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |

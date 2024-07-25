@@ -1,7 +1,7 @@
 ---
-title: How to use Mistral Nemo with Azure AI studio
+title: How to use Mistral Nemo chat model with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Mistral Nemo with Azure AI studio.
+description: Learn how to use Mistral Nemo chat model with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Mistral Nemo with Azure AI studio
+# How to use Mistral Nemo chat model with Azure AI studio
 
-In this guide, you learn about Mistral Nemo and how to use them with Azure AI studio.
+In this guide, you learn about Mistral Nemo chat model and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
 
 
@@ -23,13 +23,13 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 ## Prerequisites
 
-To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo chat model models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo model
+### A deployed Mistral Nemo chat model model
 
 **Deployment to serverless APIs**
 
-Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -60,7 +60,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -210,7 +210,7 @@ If you want to pass a parameter that is not indicated in this list, you can pass
 
 #### JSON outputs
 
-Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```python
@@ -241,7 +241,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Mistral Nemo:
+The following extra parameters can be passed to a Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -251,7 +251,7 @@ The following extra parameters can be passed to a Mistral Nemo:
 
 ### Safe mode
 
-Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral Nemo chat model supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -272,7 +272,7 @@ response = client.complete(
 
 ### Tools
 
-Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -443,13 +443,13 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo chat model models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo model
+### A deployed Mistral Nemo chat model model
 
 **Deployment to serverless APIs**
 
-Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -478,7 +478,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -640,7 +640,7 @@ If you want to pass a parameter that is not indicated in this list, you can pass
 
 #### JSON outputs
 
-Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```javascript
@@ -680,7 +680,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Mistral Nemo:
+The following extra parameters can be passed to a Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -690,7 +690,7 @@ The following extra parameters can be passed to a Mistral Nemo:
 
 ### Safe mode
 
-Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral Nemo chat model supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -716,7 +716,7 @@ var response = await client.path("/chat/completions").post({
 
 ### Tools
 
-Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -881,13 +881,13 @@ catch (error) {
 
 ## Prerequisites
 
-To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo chat model models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo model
+### A deployed Mistral Nemo chat model model
 
 **Deployment to serverless APIs**
 
-Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -921,7 +921,7 @@ dotnet add package Azure.Identity
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -1079,7 +1079,7 @@ If you want to pass a parameter that is not indicated in this list, you can pass
 
 #### JSON outputs
 
-Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```csharp
@@ -1118,7 +1118,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Mistral Nemo:
+The following extra parameters can be passed to a Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1128,7 +1128,7 @@ The following extra parameters can be passed to a Mistral Nemo:
 
 ### Safe mode
 
-Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral Nemo chat model supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1151,7 +1151,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 ### Tools
 
-Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -1321,13 +1321,13 @@ catch (RequestFailedException ex)
 
 ## Prerequisites
 
-To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo chat model models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral Nemo model
+### A deployed Mistral Nemo chat model model
 
 **Deployment to serverless APIs**
 
-Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo chat model can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -1349,7 +1349,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo chat model.
 
 ### Create a client to consume the model
 
@@ -1560,7 +1560,7 @@ If you want to pass a parameter that is not indicated in this list, you can pass
 
 #### JSON outputs
 
-Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral Nemo chat model can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```json
@@ -1635,7 +1635,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Mistral Nemo:
+The following extra parameters can be passed to a Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1645,7 +1645,7 @@ The following extra parameters can be passed to a Mistral Nemo:
 
 ### Safe mode
 
-Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral Nemo chat model supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1678,7 +1678,7 @@ extra-parameters: pass-through
 
 ### Tools
 
-Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 

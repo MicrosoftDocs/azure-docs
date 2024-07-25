@@ -22,9 +22,9 @@ The Cohere family of models includes a variety of models optimized for different
 
 ::: zone pivot="programming-language-python"
 
-## Cohere Command chat models family of models
+## Cohere Command chat models
 
-The Cohere Command chat models family of models includes the following models:
+The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
@@ -458,9 +458,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Cohere Command chat models family of models
+## Cohere Command chat models
 
-The Cohere Command chat models family of models includes the following models:
+The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
@@ -907,9 +907,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Cohere Command chat models family of models
+## Cohere Command chat models
 
-The Cohere Command chat models family of models includes the following models:
+The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
@@ -1361,9 +1361,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Cohere Command chat models family of models
+## Cohere Command chat models
 
-The Cohere Command chat models family of models includes the following models:
+The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 

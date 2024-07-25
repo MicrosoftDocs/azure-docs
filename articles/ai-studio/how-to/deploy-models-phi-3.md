@@ -22,9 +22,9 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ::: zone pivot="programming-language-python"
 
-## Phi-3 chat models family of models
+## Phi-3 chat models
 
-The Phi-3 chat models family of models includes the following models:
+The Phi-3 chat models includes the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -364,9 +364,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Phi-3 chat models family of models
+## Phi-3 chat models
 
-The Phi-3 chat models family of models includes the following models:
+The Phi-3 chat models includes the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -726,9 +726,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Phi-3 chat models family of models
+## Phi-3 chat models
 
-The Phi-3 chat models family of models includes the following models:
+The Phi-3 chat models includes the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -1082,9 +1082,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Phi-3 chat models family of models
+## Phi-3 chat models
 
-The Phi-3 chat models family of models includes the following models:
+The Phi-3 chat models includes the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
