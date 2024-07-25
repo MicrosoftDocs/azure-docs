@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to set up a dataflow from an asset to Azure Event Grid.
 ---

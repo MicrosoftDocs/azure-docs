@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a dataflow profile to control dataflow behavior.
 ---
