@@ -327,7 +327,7 @@ The sample app uses the Python Standard Library logging module to help you diagn
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
+Events can take several minutes to show up in the diagnostic logs. Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 ## 7. Clean up resources
 
@@ -398,7 +398,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd up
     ```  
 
-    The `azd up` command can take several minutes (up to 45) to complete. It also compiles and deploys your application code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command can take several minutes to complete. It also compiles and deploys your application code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -518,7 +518,7 @@ Use the values of the **Subscription ID** (Guid), **Resource Group**, and **App 
 https://portal.azure.com/#@/resource/subscriptions/<subscription-guid>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name>/logStream
 ```
 
-Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
+Events can take several minutes to show up in the diagnostic logs. Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 ## 7. Clean up resources
 
