@@ -353,18 +353,22 @@ Use the logs for further troubleshooting. Refer to the [FAQ](#faq) section for c
 
 #### Why isn’t the ConfigMap or Secret being generated?
 
-You can follow the steps in the [Troubleshooting](#troubleshooting) to check the logs to know the detailed reason of creating the ConfigMap failure. Here are some common problems:
+You can follow the steps in the [Troubleshooting](#troubleshooting) guide to collect logs for detailed error information. Here are some common causes.
 
-- **RESPONSE 403: 403 Forbidden**: It indicates that configured authentication doesn't have the necessary permission to access the App Configuration store. Please follow the [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure the associated managed identity is assigned proper role.
-- **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: It's because a Key Vault reference is selected by the `spec.configuration.selectors` field, but the `spec.secret` field is missed to conduct the Azure App Configuration Provider how the resolve the selected Key Vault reference. Please follow the [use Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) to configure the `spec.secret` field.
+- **RESPONSE 403: 403 Forbidden**: The configured identity lacks the necessary permissions to access the App Configuration store. Refer to the [Authentication](./reference-kubernetes-provider.md#authentication) section for examples that match the identity you are using.
+- **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: One or more Key Vault references are included in the selected key-values, but the authentication information for Key Vaults is not provided. To maintain the integrity of the configuration, the entire configuration fails to load. Configure the `spec.secret` section to provide the necessary authentication information. For examples and more information, see [Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) .
 
 #### Why does the generated ConfigMap not contain the expected data?
 
 Ensure that you specify the correct key-value selectors to match the expected data. If no selectors are specified, all key-values without a label will be downloaded from your App Configuration store. When using a key filter, verify that it matches the prefix of your expected key-values. If your key-values have labels, make sure to specify the label filter in the selectors. For more examples, refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) documentation.
 
-#### What customizations can I make to install the Azure App Configuration Kubernetes Provider?
+#### How can I customize the installation of the Azure App Configuration Kubernetes Provider?
 
-You can customize the installation by providing additional helm values when installing the Azure App Configuration Kubernetes Provider, e.g., setting the log level, configuring the `nodeSelector` to let the provider running on target node, disabling the workload identity, etc. You can find all supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
+You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
+
+#### Why the workload identity does not work after I upgrade the Azure App Configuration Kubernetes Provider to v2.0.0?
+
+Start from v2.0.0, per namespace service account should be used for workload identity by default. See the [workload identity](./reference-kubernetes-provider.md#use-workload-identity) documentation for more details. If you still want to use the provider's service account, binding your managed identities to the global service account `az-appconfig-k8s-provider` that been created in `azappconfig-system` namespace, you can enable it by setting `workloadIdentity.globalServiceAccountEnabled=true` at installation time, refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
 
 ## Clean up resources
 
