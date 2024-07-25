@@ -9,6 +9,7 @@ ms.custom: include file
 # azure-netapp-files-create-volumes-smb
 # create-volumes-dual-protocol
 # azure-netapp-files-create-volumes
+#azure-netapp-files-resize-capacity-pools-or-volumes.md
 ---
 
 The ability to set a volume quota between 50 and 100 GiB is currently in preview. You must register for the feature before you can create a 50 GiB volume. 
