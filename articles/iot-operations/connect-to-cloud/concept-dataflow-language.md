@@ -87,24 +87,24 @@ The example maps:
 
 Field references show how to specify paths in the input and output, using dot notation like `Employee.DateOfBirth` or accessing data from a contextual dataset via `$context(position)`.
 
-## Contextualization Dataset Selectors
+## Contextualization dataset selectors
 
-These selectors allow mappings to integrate additional data from external databases, referred to as *Contextualization Datasets*.
+These selectors allow mappings to integrate additional data from external databases, referred to as *contextualization datasets*.
 
-## Record Filtering
+## Record filtering
 
 Record filtering involves setting conditions to select which records should be processed or dropped.
 
 ## Dot-notation
 
-Dot-notation is widely used in computer science to reference fields, even recursively. In programming, field names typically consist of letters and numbers, so a standard dot-notation might look like this:
+Dot-notation is widely used in computer science to reference fields, even recursively. In programming, field names typically consist of letters and numbers. A standard dot-notation might look like this:
 
 ```yaml
 - inputs:
   - Person.Address.Street.Number
 ```
 
-However, in dataflow a path described by dot-notation might include strings and some special characters without needing escaping:
+However, in a dataflow a path described by dot-notation might include strings and some special characters without needing  escaping:
 
 ```yaml
 - inputs:
@@ -127,7 +127,7 @@ While dataflow parses a path, it treats only two characters as special:
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
-Note, however, that the path definition must also adhere to the rules of YAML: once a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
+Note that the path definition must also adhere to the rules of YAML. Once a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
 
 ```yaml
 - inputs:
@@ -146,7 +146,7 @@ The primary function of escaping in a dot-notated path is to accommodate the use
 
 In the previous example, the path consists of three segments: `Payload`, `Tag.10`, and `Value`. The outer single quotes (`'`) are necessary because of YAML syntax rules, allowing the inclusion of double quotes within the string.
 
-**Escaping Rules in Dot-Notation:**
+### Escaping rules in dot notation
 
 * **Escape Each Segment Separately**: If multiple segments contain dots, those segments must be enclosed in quotes. Other segments can also be quoted, but it doesn't affect the path interpretation:
   
@@ -171,7 +171,7 @@ This example defines two fields in the dataDestination: `Payload` and `He said: 
 
 In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
 
-**Segmentation Algorithm**:
+### Segmentation algorithm
 
 * If the first character of a segment is a quote, the parser searches for the next quote. The string enclosed between these quotes is considered a single segment.
 * If the segment doesn't start with a quote, the parser identifies segments by searching for the next dot or the end of the path.
@@ -197,9 +197,9 @@ Here's how the asterisk (`*`) operates in this context:
 
 This configuration demonstrates the most generic form of mapping, where every field in the input is directly mapped to a corresponding field in the output without modification.
 
-Another example illustrates how wildcards can be used to match sub-sections and move them together. This example effectively flattens nested structures within a JSON object:
+Another example illustrates how wildcards can be used to match sub-sections and move them together. This example effectively flattens nested structures within a JSON object.
 
-*Original JSON:*
+Original JSON:
 
 ```json
 {
@@ -218,7 +218,7 @@ Another example illustrates how wildcards can be used to match sub-sections and 
 }
 ```
 
-*Mapping Configuration Using Wildcards:*
+Mapping Configuration Using Wildcards:
 
 ```yaml
 - inputs:
@@ -230,7 +230,7 @@ Another example illustrates how wildcards can be used to match sub-sections and 
   output: *
 ```
 
-*Resulting JSON:*
+Resulting JSON:
 
 ```json
 {
@@ -256,7 +256,7 @@ When placing a wildcard, the following rules must be followed:
   * **In the Middle:** `path1.*.path3` - In this configuration, the asterisk matches any segment between `path1` and `path3`.
   * **At the End:** `path1.path2.*` - The asterisk at the end matches any segment that follows after `path1.path2`.
 
-### Multi-Input Wildcards
+### Multi-input wildcards
 
 *Original JSON:*
 
@@ -277,7 +277,7 @@ When placing a wildcard, the following rules must be followed:
 }
 ```
 
-*Mapping Configuration Using Wildcards:*
+Mapping Configuration Using wildcards:
 
 ```yaml
 - inputs:
@@ -287,7 +287,7 @@ When placing a wildcard, the following rules must be followed:
   conversion: ($1 + $2) / 2
 ```
 
-*Resulting JSON:*
+Resulting JSON:
 
 ```json
 {
@@ -303,7 +303,7 @@ If multi-input wildcards, the asterisk (`*`) must consistently represent the sam
 
 Consider this detailed example:
 
-**Original JSON:**
+Original JSON:
 
 ```json
 {
@@ -334,7 +334,7 @@ Consider this detailed example:
 }
 ```
 
-**Initial Mapping Configuration Using Wildcards:**
+Initial mapping configuration using wildcards:
 
 ```yaml
 - inputs:
@@ -357,7 +357,7 @@ This initial mapping tries to build an array (For example, for `Opacity`: `[0.88
 
 Since `Avg` and `Mean` are nested within `Mid`, the asterisk in the initial mapping doesn't correctly capture these paths.
 
-**Corrected Mapping Configuration:**
+Corrected mapping configuration:
 
 ```yaml
 - inputs:
@@ -371,9 +371,9 @@ Since `Avg` and `Mean` are nested within `Mid`, the asterisk in the initial mapp
 
 This revised mapping accurately captures the necessary fields by correctly specifying the paths to include the nested `Mid` object, ensuring that the asterisks work effectively across different levels of the JSON structure.
 
-### Second Rule vs. Specialization
+### Second rule versus specialization
 
-Using the example from Multi-Input Wildcards, consider the following mappings that generate two derived values for each property:
+Using the previous example from multi-input wildcards, consider the following mappings that generate two derived values for each property:
 
 ```yaml
 - inputs:
@@ -410,7 +410,7 @@ This mapping is intended to create two separate calculations (`Avg` and `Diff`) 
 }
 ```
 
-Here, the second mapping definition on the same inputs acts as a `Second Rule` for mapping.
+Here, the second mapping definition on the same inputs acts as a *second rule* for mapping.
 
 Now, consider a scenario where a specific field needs a different calculation:
 
@@ -450,7 +450,7 @@ Consider a special case for the same fields to help deciding the right action:
 
 An empty `output` field in the second definition implies not writing the fields in the output record (effectively removing `Opacity`). This setup is more of a `Specialization` than a `Second Rule`.
 
-**Resolution of Overlapping Mappings by dataflow:**
+Resolution of overlapping mappings by dataflow:
 
 * The evaluation progresses from the top rule in the mapping definition.
 * If a new mapping resolves to the same fields as a previous rule, the following applies:
@@ -543,7 +543,7 @@ Conversions use simple math formulas similar to those learned in middle school. 
 
 For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
 
-**Available arithmetic, comparison, and boolean operators grouped by precedence:**
+### Available arithmetic, comparison, and boolean operators grouped by precedence
 
 | Operator | Description |
 |----------|-------------|
@@ -654,7 +654,7 @@ The mapper is designed to be flexible, converting internal types into output typ
 
 While the automatic conversions generally operate as one might expect, based on common implementation practices, there are instances where the right conversion cannot be determined automatically, resulting in an `unsupported` error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and ensure that data integrity is maintained even when automatic methods fall short.
 
-<!--**[FIXME - actually we don't have functions, need a list of what they usually want]**-->
+<!-- We don't have functions, need a list of what they usually want -->
 
 ### Using conversion formula with types
 
@@ -778,7 +778,7 @@ There are numerous other functions available in different categories:
 * string manipulation (for example, `uppercase()`)
 * explicit conversion (for example, `ISO8601_datetime`)
 * aggregation (for example, `avg()`)
-* **[FIXME we actually don't have much methods, need a list about what to implement]**
+<!--- minimal methods, need a list about what to implement -->
 
 ## Enrich data from contextualization datasets
 
