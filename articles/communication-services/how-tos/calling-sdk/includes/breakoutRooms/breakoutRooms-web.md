@@ -89,7 +89,10 @@ const breakoutRoomsUpdatedListener = (event) => {
 switch(event.type) {
     case "breakoutRooms":
       const breakoutRooms = event.data;
-      console.log(`Event data is an array of Breakout rooms with ${breakoutRooms.length} elements`);      
+      console.log(`Event data is an array of Breakout rooms with ${breakoutRooms.length} elements`);
+      breakoutRooms.forEach((room)=>{
+      console.log(`Display name of the breakout rooms : ${room.displayName}`);
+      });    
       break;
     case "assignedBreakoutRooms":
       const assignedRoom = event.data;
@@ -142,9 +145,9 @@ When the breakout room state is `closed`, then the user is automatically moved t
 If the user wants to leave the breakout room even before the room is closed and join the main meeting call then use the below code :
 
 ```js
+const mainMeetingCall = callAgent.calls[0];
  if(breakoutRoomCall != null){
-    breakoutRoomCall.hangUp();
-    const mainMeetingCall = callAgent.calls.filter(x => x.id == mainMeetingCall.Id);
+    breakoutRoomCall.hangUp();   
     mainMeetingCall.resume();
  }
 ```
@@ -155,12 +158,8 @@ Use the below code to get the participants of the breakout room after joining th
 
 ```js
 const breakoutRoomCall = await breakoutRoom.join();
-const breakoutRoomParticipants = [breakoutRoomCall.remoteParticipants.values()].map((p: SDK.RemoteParticipant) => {
-            return {
-                identifier: p.identifier,                
-                displayName: p.displayName
-            };
-    });
+const breakoutRoomParticipants = [breakoutRoomCall.remoteParticipants.values()].map((p: SDK.RemoteParticipant) => { p.displayName || p.identifier });
+console.log(`Participants of the breakoutRoom : <br/>" + breakoutRoomParticipants.join("<br/>")`);
 ```
 
 ### stop receiving breakout rooms events
