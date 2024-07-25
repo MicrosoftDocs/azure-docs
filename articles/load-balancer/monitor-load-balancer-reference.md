@@ -1,99 +1,94 @@
 ---
-title: Load balancer metrics and log definitions
-titleSuffix: Azure Load Balancer
-description: Important reference material needed when you monitor Load Balancer.
-author: mbender-ms
+title: Monitoring data reference for Azure Load Balancer
+description: This article contains important reference material you need when you monitor Azure Load Balancer by using Azure Monitor.
+ms.date: 07/28/2024
+ms.custom: horz-monitor
 ms.topic: reference
+author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
-ms.date: 05/24/2024
-ms.custom: subject-monitoring
 ---
 
-# Monitoring load balancer data reference
+# Azure Load Balancer monitoring data reference
 
-See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecting and analyzing monitoring data for Load Balancer.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure Load Balancer](monitor-load-balancer.md) for details on the data you can collect for Load Balancer and how to use it.
 
-### Load balancer metrics 
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-| **Metric** | **Resource type** | **Description** | **Recommended aggregation** |
-| ------ | ------------- | ----------- | ----------------------- |
-| Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
-| Health probe status | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. | Average |
-| SYN (synchronize) count | Public and internal load balancer | Standard Load Balancer doesn’t terminate Transmission Control Protocol (TCP) connections or interact with TCP or User Data-gram Packet (UDP) flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received. | Average |
-| SNAT connection count | Public load balancer | Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows. | Sum |
+### Supported metrics for Microsoft.Network/loadBalancers
+
+The following table lists the metrics available for the Microsoft.Network/loadBalancers resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
+[!INCLUDE [Microsoft.Network/loadBalancers](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-loadbalancers-metrics-include.md)]
+
+### Load balancer metrics
+
+This table includes additional information about metrics from the Microsoft.Network/loadBalancers table:
+
+| Metric | Resource type | Description | Recommended aggregation |
+|:------ |:------------- |:----------- |:----------------------- |
 | Allocated SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports allocated per backend instance. | Average |
+| Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You might notice that the bytes aren't distributed equally across the backend instances. This behavior is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
+| Health probe status | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. | Average |
+| SNAT connection count | Public load balancer | Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows. | Sum |
+| SYN count (synchronize) | Public and internal load balancer | Standard Load Balancer doesn’t terminate Transmission Control Protocol (TCP) connections or interact with TCP or User Data-gram Packet (UDP) flows. Flows and their handshakes are always between the source and the virtual machine instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received. | Average |
 | Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. | Average |
-| Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes aren't distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
-| Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
+| Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your virtual machine. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
 
 ### Global load balancer metrics
 
-| **Metric** | **Resource type** | **Description** | **Recommended aggregation** |
-| ------ | ------------- | ----------- | ----------------------- |
-| Data path availability | Public global load balancer|  Global load balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
+This table includes additional information about global metrics from the Microsoft.Network/loadBalancers table:
+
+| Metric | Resource type | Description | Recommended aggregation |
+|:------ |:------------- |:----------- |:----------------------- |
 | Health probe status | Public global load balancer | Global load balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance regional load balancer in the global load balancer's backend pool. You can see how global load balancer views the health of your application, as indicated by your health probe configuration. | Average |
+| Data path availability | Public global load balancer|  Global load balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your virtual machine. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkloadbalancers).
+> [!NOTE]
+> Bandwidth-related metrics such as SYN packet, byte count, and packet count doesn't capture any traffic to an internal load balancer by using a UDR, such as from an NVA or firewall.
+>
+> Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
+> Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.
 
-## Metric dimensions
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-Load Balancer has the following **dimensions** associated with its metrics.
+| Dimension | Name | Description |
+|:----------|:-----|:------------|
+| BackendIPAddress  | Backend IP       | The backend IP address of one or more relevant load balancing rules |
+| BackendPort       | Backend Port     | The backend port of one or more relevant load balancing rules |
+| BackendRegion     | | |
+| ConnectionState   | Connection state | The state of SNAT connection. The state can be pending, successful, or failed |
+| Direction         | Direction        | The direction traffic is flowing. This value can be inbound or outbound. |
+| FrontendIPAddress | Frontend IP      | The frontend IP address of one or more relevant load balancing rules |
+| FrontendPort      | Frontend Port    | The frontend port of one or more relevant load balancing rules |
+| FrontendRegion    |                  | |
+| IsAwaitingRemoval |                  | |
+| ProtocolType      | Protocol Type    | The protocol of the relevant load balancing rule. The protocol can be TCP or UDP |
 
-| **Dimension Name** | **Description** |
-| -------------- | ----------- |
-| Frontend IP | The frontend IP address of one or more relevant load balancing rules |
-| Frontend Port | The frontend port of one or more relevant load balancing rules | 
-| Backend IP | The backend IP address of one or more relevant load balancing rules |
-| Backend Port | The backend port of one or more relevant load balancing rules |
-| Protocol Type | The protocol of the relevant load balancing rule. The protocol can be TCP or UDP |
-| Direction | The direction traffic is flowing. This can be inbound or outbound. | 
-| Connection state | The state of SNAT connection. The state can be pending, successful, or failed | 
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-## Resource logs
+### Supported resource logs for Microsoft.Network/loadBalancers
 
-Azure Load Balancer supports Azure Activity logs and the LoadBalancerHealthEvent log category.
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-loadbalancers-logs-include.md)]
 
-### LoadBalancerHealthEvent logs
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-For more information on the LoadBalancerHealthEvent log category, see [Azure Load Balancer health event logs](load-balancer-health-event-logs.md).
+### Load Balancer Microsoft.Network/LoadBalancers
 
-### Azure Activity logs
+- [ALBHealthEvent](/azure/azure-monitor/reference/tables/albhealthevent#columns)
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
 
-The following table lists the **operations** related to Load Balancer that may be created in the Activity log.
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-| **Operation** | **Description** |
-| --- | --- |
-| Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
-| Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
-| Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
-| Microsoft.Network/loadBalancers/backendAddressPools/queryInboundNatRulePortMapping/action | Query inbound Nat rule port mapping. |
-| Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
-| Microsoft.Network/loadBalancers/backendAddressPools/write | Creates a load balancer backend address pool or updates an existing load balancer backend address pool |
-| Microsoft.Network/loadBalancers/backendAddressPools/delete | Deletes a load balancer backend address pool |
-| Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
-| Microsoft.Network/loadBalancers/backendAddressPools/backendPoolAddresses/read | Lists the backend addresses of the Load Balancer backend address pool |
-| Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
-| Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
-| Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
-| Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
-| Microsoft.Network/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
-| Microsoft.Network/loadBalancers/inboundNatRules/write | Creates a load balancer inbound nat rule or updates an existing load balancer inbound nat rule |
-| Microsoft.Network/loadBalancers/inboundNatRules/delete | Deletes a load balancer inbound nat rule |
-| Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
-| Microsoft.Network/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
-| Microsoft.Network/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
-| Microsoft.Network/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
-| Microsoft.Network/loadBalancers/probes/read | Gets a load balancer probe |
-| Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of virtual machine scale set can reference the probe. Not alertable. |
-| Microsoft.Network/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
+- [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md). 
+## Related content
 
-## See Also
-
-- See [Monitoring Azure Load Balancer](./monitor-load-balancer.md) for a description of monitoring Azure Load Balancer.
+- See [Monitor Azure Load Balancer](monitor-load-balancer.md) for a description of monitoring Load Balancer.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

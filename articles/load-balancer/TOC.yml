@@ -132,10 +132,8 @@
     href: instance-metadata-service-load-balancer.md
   - name: Health monitoring
     items:
-    - name: Monitor load balancer
+    - name: Monitor Load Balancer
       href: monitor-load-balancer.md
-    - name: Monitoring data reference
-      href: monitor-load-balancer-reference.md
     - name: Azure Monitor Insights for Load Balancer
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
@@ -309,6 +307,8 @@
     href: /rest/api/load-balancer/loadbalancers
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/loadbalancers
+  - name: Monitoring data reference
+    href: monitor-load-balancer-reference.md
     displayName: ARM
 - name: Resources
   items:
