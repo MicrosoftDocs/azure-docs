@@ -112,11 +112,7 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -  **Cluster**
 
-    A Kubernetes cluster is a set of compute nodes that run containerized applications.
-
--  **Node**
-
-    A node can be a virtual or physical machine, depending on the cluster. Each node is managed by the control plane and contains the services necessary to run pods.
+    A Kubernetes cluster is a set of compute nodes (VMs) that run containerized applications. Each node is managed by the control plane and contains the services necessary to run pods.
 
 -  **Pod**
 
@@ -136,7 +132,7 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -  **Volume**
 
-    A Kubernetes volume is a directory containing data accessible to containers in a given pod. Depending on the backing storage type that you use, volumes can be persistent or ephemeral. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool.
+    A Kubernetes volume is a directory containing data accessible to containers in a given pod. Volumes can be persistent or ephemeral. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool.
 
 -   **Persistent volume**
 
