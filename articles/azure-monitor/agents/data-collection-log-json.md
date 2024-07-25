@@ -105,20 +105,21 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 > The agent based JSON custom file ingestion is currently in preview and does not have a complete UI experience in the portal yet. While you can create the DCR using the portal, you must modify it to define the columns in the incoming stream. This section includes details on creating the DCR using an ARM template.
 
 ### Incoming stream schema
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. You need to modify the `columns` section of the ARM template with the columns from your log.
 
-JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. The following table describes optional columns that you can include in addition to the columns defining the data in your log file. 
+ The following table describes optional columns that you can include in addition to the columns defining the data in your log file. 
 
  | Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. This value will be automatically populated with the time the record is added to the Log Analytics workspace if it's not included in the incoming stream.  |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
-Use the following ARM template to create a DCR for collecting text log files. You may need to modify the following values in the template itself:
+### Transformation
+The [transformation](../essentials/data-collection-transformations.md) potentially modifies the incoming stream to filter records or to modify the schema to match the target table. If the schema of the incoming stream is the same as the target table, then you can use the default transformation of `source`. If not, then modify the `transformKql` section of tee ARM template with a KQL query that returns the required schema.
 
-- `columns`: Modify with the list of columns in the JSON log that you're collecting.
-- `transformKql`: Modify the default transformation if the schema of the incoming stream doesn't match the schema of the target table. The output schema of the [transformation](../essentials/data-collection-transformations.md) must match the schema of the target table.
+### ARM template
 
-The following table describes the parameters.
+Use the following ARM template to create a DCR for collecting text log files, making the changes described in the previous sections. The following table describes the parameters that require values when you deploy the template.
 
 | Setting | Description |
 |:---|:---|
