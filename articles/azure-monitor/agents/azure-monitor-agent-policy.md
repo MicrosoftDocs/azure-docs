@@ -76,8 +76,6 @@ When you create the assignment by using the Azure portal, you have the option of
 :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
 
 
-## Preview experience
-Using the Azure portal, you can quickly create an assignment for any of the DCRs in your subscription. Azure Monitor identifies the policies and initiatives that 
 
 ## Next steps
 
