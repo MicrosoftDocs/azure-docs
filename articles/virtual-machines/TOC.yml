@@ -102,7 +102,7 @@
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python
     - name: Samples
-      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?toc=/azure/virtual-machines/toc.json
+      href: https://github.com/Azure-Samples/virtual-machines-python-manage
   - name: .NET
     items:
     - name: .NET SDK
@@ -346,6 +346,8 @@
           href: ecesv5-ecedsv5-series.md  
       - name: M family
         items:
+        - name: Mbsv3 and Mbdsv3 series
+          href: ./sizes/memory-optimized/mbsv3-mbdsv3-series.md
         - name: Overview
           displayName: M-series, sizes, size, vm size
           href: ./sizes/memory-optimized/m-family.md
