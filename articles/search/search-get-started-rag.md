@@ -33,6 +33,8 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Configure Azure OpenAI to use a system-assigned managed identity:
 
     1. In the Azure portal, find your Azure OpenAI resource.
@@ -118,16 +120,16 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
    Output should look similar to the following example. Results that are returned directly from the search engine consist of fields and their verbatim values, along with metadata like a search score and a semantic ranking score and caption if you use semantic ranking.
 
    ```
-         "@search.score": 5.600783,
+      "@search.score": 5.600783,
       "@search.rerankerScore": 2.4191176891326904,
       "@search.captions": [
         {
-          "text": "Ocean Breeze Motel. Budget. pool\r\nair conditioning\r\nbar. Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away..",
-          "highlights": "Ocean Breeze Motel. Budget.<em> pool\r\nair conditioning\r\nbar. O</em>ceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+          "text": "Contoso Ocean Motel. Budget. pool\r\nair conditioning\r\nbar. Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away..",
+          "highlights": "Contoso Ocean Motel. Budget.<em> pool\r\nair conditioning\r\nbar. O</em>ceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
         }
       ],
       "HotelId": "41",
-      "HotelName": "Ocean Breeze Motel",
+      "HotelName": "Contoso Ocean Motel",
       "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
       "Category": "Budget",
       "Tags": [

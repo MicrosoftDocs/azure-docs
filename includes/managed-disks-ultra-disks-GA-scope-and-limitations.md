@@ -15,7 +15,7 @@ The following list contains Ultra Disk's limitations:
 - Currently, Ultra Disks only support Single VM and Availability zone infrastructure options.
 - Ultra Disks don't support availability sets.
 - The size of an Ultra Disk can't be expanded without either deallocating the VM or detaching the Ultra Disk.
-- Existing disks currently can't change their type to an Ultra Disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk).
+- Existing disks currently can't change their type to an Ultra Disk. They must be [migrated](../articles/virtual-machines/disks-convert-types.md#migrate-to-premium-ssd-v2-or-ultra-disk-using-snapshots).
 - Currently, Azure Government and Azure China don't support [customer-managed keys](../articles/virtual-machines/disk-encryption.md#customer-managed-keys) for Ultra disks.
 - Azure Disk Encryption isn't supported for VMs with Ultra Disks. Instead, you should use encryption at rest with platform-managed or customer-managed keys.
 - Azure Site Recovery isn't supported for VMs with Ultra Disks.
