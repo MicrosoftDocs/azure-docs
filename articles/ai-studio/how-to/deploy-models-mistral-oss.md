@@ -15,7 +15,7 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio
 
-In this guide, you learn about Mistral-7B and Mixtral-8x7B chat models and how to use them with Azure AI studio.
+In this article, you learn about Mistral-7B and Mixtral-8x7B chat models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
 
 
@@ -205,7 +205,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -244,7 +244,7 @@ def print_stream(result):
             time.sleep(0.05)
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```python
@@ -276,11 +276,13 @@ response = client.complete(
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```python
@@ -498,7 +500,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -522,7 +524,7 @@ var response = await client.path("/chat/completions").post({
 
 To stream completions, use `.asNodeStream()` when you call the model.
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```javascript
@@ -575,11 +577,13 @@ var response = await client.path("/chat/completions").post({
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```javascript
@@ -794,7 +798,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -841,7 +845,7 @@ static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> 
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```csharp
@@ -876,11 +880,13 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```csharp
@@ -1073,7 +1079,7 @@ The response is as follows, where you can see the model's usage statistics:
 }
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -1101,7 +1107,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```json
@@ -1124,7 +1130,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
+The last message in the stream has `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 ```json
@@ -1207,11 +1213,13 @@ Explore other parameters that you can specify in the inference client. For a ful
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 ```http
 POST /chat/completions HTTP/1.1
@@ -1266,9 +1274,7 @@ For more examples of how to use Mistral, see the following examples and tutorial
 | LiteLLM                                   | Python            | [Link](https://aka.ms/mistral-large/litellm-sample)             | 
 
 
-## Cost and quotas
-
-### Cost and quota considerations for Mistral family of models deployed to managed compute
+## Cost and quota considerations for Mistral family of models deployed to managed compute
 
 Mistral models deployed to managed compute are billed based on core hours of the associated compute instance. The cost of the compute instance is determined by the size of the instance, the number of instances running, and the run duration.
 

@@ -15,8 +15,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Cohere Command chat models with Azure AI studio
 
-In this guide, you learn about Cohere Command chat models and how to use them with Azure AI studio.
-The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
+In this article, you learn about Cohere Command chat models and how to use them with Azure AI studio.
+The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 
 
 
@@ -28,14 +28,14 @@ The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
-Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R+ is a generative large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
-We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+We recommend using Command R+ for those workflows that lean on complex retrieval augmented generation (RAG) functionality and multi-step tool use (agents).
 
 
 The following models are available:
@@ -45,11 +45,11 @@ The following models are available:
 
 # [Cohere Command R](#tab/cohere-command-r)
 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R is a large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
 Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
@@ -94,7 +94,7 @@ pip install azure-ai-inference
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -179,7 +179,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -218,7 +218,7 @@ def print_stream(result):
             time.sleep(0.05)
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```python
@@ -247,11 +247,11 @@ response = client.complete(
 )
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Cohere Command chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```python
@@ -267,7 +267,9 @@ response = client.complete(
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```python
@@ -282,7 +284,7 @@ response = client.complete(
 )
 ```
 
-### Tools
+### Define tools
 
 Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -327,7 +329,7 @@ def get_flight_info(loc_origin: str, loc_destination: str):
 ```
 
 > [!NOTE]
-> Cohere-command-r-plus and Cohere-command-r require tool's responses to be a valid JSON content formatted as string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
+> Cohere-command-r-plus and Cohere-command-r require a tool's responses to be a valid JSON content formatted as a string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
 
 Prompt the model to book flights with the help of this function:
 
@@ -349,7 +351,7 @@ response = client.complete(
 )
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```python
@@ -360,7 +362,7 @@ print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```python
@@ -369,7 +371,7 @@ messages.append(
 )
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```python
@@ -461,14 +463,14 @@ The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
-Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R+ is a generative large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
-We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+We recommend using Command R+ for those workflows that lean on complex retrieval augmented generation (RAG) functionality and multi-step tool use (agents).
 
 
 The following models are available:
@@ -478,11 +480,11 @@ The following models are available:
 
 # [Cohere Command R](#tab/cohere-command-r)
 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R is a large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
 Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
@@ -525,7 +527,7 @@ npm install @azure-rest/ai-inference
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -616,7 +618,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -640,7 +642,7 @@ var response = await client.path("/chat/completions").post({
 
 To stream completions, use `.asNodeStream()` when you call the model.
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```javascript
@@ -690,11 +692,11 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Cohere Command chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```javascript
@@ -714,7 +716,9 @@ var response = await client.path("/chat/completions").post({
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```javascript
@@ -734,7 +738,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Tools
+### Define tools
 
 Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -781,7 +785,7 @@ function get_flight_info(loc_origin, loc_destination) {
 ```
 
 > [!NOTE]
-> Cohere-command-r-plus and Cohere-command-r require tool's responses to be a valid JSON content formatted as string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
+> Cohere-command-r-plus and Cohere-command-r require a tool's responses to be a valid JSON content formatted as a string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
 
 Prompt the model to book flights with the help of this function:
 
@@ -796,7 +800,7 @@ var result = await client.path("/chat/completions").post({
 });
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```javascript
@@ -807,14 +811,14 @@ console.log("Finish reason: " + response.body.choices[0].finish_reason);
 console.log("Tool call: " + tool_calls);
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```javascript
 messages.push(response_message);
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```javascript
@@ -908,14 +912,14 @@ The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
-Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R+ is a generative large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
-We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+We recommend using Command R+ for those workflows that lean on complex retrieval augmented generation (RAG) functionality and multi-step tool use (agents).
 
 
 The following models are available:
@@ -925,11 +929,11 @@ The following models are available:
 
 # [Cohere Command R](#tab/cohere-command-r)
 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R is a large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
 Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
@@ -977,7 +981,7 @@ dotnet add package Azure.Identity
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -1059,7 +1063,7 @@ Usage:
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -1106,7 +1110,7 @@ static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> 
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```csharp
@@ -1138,11 +1142,11 @@ response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Cohere Command chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```csharp
@@ -1164,7 +1168,9 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```csharp
@@ -1181,7 +1187,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-### Tools
+### Define tools
 
 Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -1231,7 +1237,7 @@ static string getFlightInfo(string loc_origin, string loc_destination)
 ```
 
 > [!NOTE]
-> Cohere-command-r-plus and Cohere-command-r require tool's responses to be a valid JSON content formatted as string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
+> Cohere-command-r-plus and Cohere-command-r require a tool's responses to be a valid JSON content formatted as a string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
 
 Prompt the model to book flights with the help of this function:
 
@@ -1253,7 +1259,7 @@ requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 response = client.Complete(requestOptions);
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```csharp
@@ -1264,14 +1270,14 @@ Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
 Console.WriteLine($"Tool call: {toolsCall[0].Id}");
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```csharp
 requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```csharp
@@ -1360,14 +1366,14 @@ The Cohere Command chat models includes the following models:
 
 # [Cohere Command R+](#tab/cohere-command-r-plus)
 
-Command R+ is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R+ is a generative large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
-We recommend using Command R+ for those workflows that lean on complex RAG functionality and multi-step tool use (agents).
+We recommend using Command R+ for those workflows that lean on complex retrieval augmented generation (RAG) functionality and multi-step tool use (agents).
 
 
 The following models are available:
@@ -1377,11 +1383,11 @@ The following models are available:
 
 # [Cohere Command R](#tab/cohere-command-r)
 
-Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
+Command R is a large language model optimized for various use cases, including reasoning, summarization, and question answering.
 
-* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-* **Pre-training data additionally included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+* **Model Architecture**: Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pre-training, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+* **Languages covered**: The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, simplified Chinese, and Arabic.
+* **Pre-training data also included the following 13 languages:** Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, and Persian.
 * **Context length:** Command R and Command R+ support a context length of 128K.
 
 Command R, is great for simpler retrieval augmented generation (RAG) and single-step tool use tasks, as well as applications where price is a major consideration.
@@ -1417,7 +1423,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -1500,7 +1506,7 @@ The response is as follows, where you can see the model's usage statistics:
 }
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -1528,7 +1534,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```json
@@ -1551,7 +1557,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
+The last message in the stream has `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 ```json
@@ -1631,11 +1637,11 @@ Explore other parameters that you can specify in the inference client. For a ful
 }
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Cohere Command chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Cohere Command chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```json
@@ -1683,7 +1689,9 @@ Cohere Command chat models can create JSON outputs. Setting `response_format` to
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 ```http
 POST /chat/completions HTTP/1.1
@@ -1710,7 +1718,7 @@ extra-parameters: pass-through
 }
 ```
 
-### Tools
+### Define tools
 
 Cohere Command chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -1747,7 +1755,7 @@ The following code example creates a tool definition that is able to look from f
 In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
 
 > [!NOTE]
-> Cohere-command-r-plus and Cohere-command-r require tool's responses to be a valid JSON content formatted as string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
+> Cohere-command-r-plus and Cohere-command-r require a tool's responses to be a valid JSON content formatted as a string. When constructing messages of type *Tool*, ensure the response is a valid JSON string.
 
 Prompt the model to book flights with the help of this function:
 
@@ -1794,7 +1802,7 @@ Prompt the model to book flights with the help of this function:
 }
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```json
@@ -1833,9 +1841,9 @@ By inspecting the response, you can find out if a tool needs to be called. Inspe
 }
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 View the response from the model:
 
@@ -1964,11 +1972,9 @@ For more examples of how to use Cohere, see the following examples and tutorials
 | Command R+ tool/function calling, using LangChain | `cohere`, `langchain`, `langchain_cohere` | [command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb) |
 
 
-## Cost and quotas
+## Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
 
-### Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 Cohere models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 

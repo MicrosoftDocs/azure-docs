@@ -15,8 +15,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-embeddings
 
 # How to use Cohere Embed V3 models with Azure AI studio
 
-In this guide, you learn about Cohere Embed V3 models and how to use them with Azure AI studio.
-The Cohere family of models includes a variety of models optimized for different use cases, including chat completions and embeddings. Cohere models are optimized for a variety of use cases including reasoning, summarization, and question answering.
+In this article, you learn about Cohere Embed V3 models and how to use them with Azure AI studio.
+The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 
 
 
@@ -28,7 +28,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -36,7 +36,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 # [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
-Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
 * Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -76,9 +76,9 @@ pip install azure-ai-inference
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
 
-## Working with embeddings
+## Work with embeddings
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
@@ -133,7 +133,7 @@ response = model.embed(
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -148,7 +148,7 @@ print("Model:", response.model)
 print("Usage:", response.usage)
 ```
 
-It is usually useful to compute embeddings in batch of inputs. The parameter `inputs` can be a list of strings, where each string is a different input. The response will be a list of embeddings, where each embedding corresponds to the input in the same position.
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
 
 
 ```python
@@ -174,13 +174,13 @@ print("Usage:", response.usage)
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
 
-#### Embedding's types
+#### Create different types of embeddings
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
 
 
 ```python
@@ -192,7 +192,7 @@ response = model.embed(
 )
 ```
 
-When working on a query to retrieve such document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
 
 
 ```python
@@ -204,7 +204,7 @@ response = model.embed(
 )
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on its use case.
 
 ::: zone-end
 
@@ -217,7 +217,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -225,7 +225,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 # [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
-Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
 * Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -263,9 +263,9 @@ npm install @azure-rest/ai-inference
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
 
-## Working with embeddings
+## Work with embeddings
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
@@ -322,7 +322,7 @@ var response = await client.path("/embeddings").post({
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -337,7 +337,7 @@ console.log(response.body.model);
 console.log(response.body.usage);
 ```
 
-It is usually useful to compute embeddings in batch of inputs. The parameter `inputs` can be a list of strings, where each string is a different input. The response will be a list of embeddings, where each embedding corresponds to the input in the same position.
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
 
 
 ```javascript
@@ -365,13 +365,13 @@ console.log(response.body.usage);
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
 
-#### Embedding's types
+#### Create different types of embeddings
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
 
 
 ```javascript
@@ -383,7 +383,7 @@ var response = await client.path("/embeddings").post({
 });
 ```
 
-When working on a query to retrieve such document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
 
 
 ```javascript
@@ -395,7 +395,7 @@ var response = await client.path("/embeddings").post({
 });
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on its use case.
 
 ::: zone-end
 
@@ -408,7 +408,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English has top performance on the HuggingFace MTEB benchmark and performs well on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -416,7 +416,7 @@ Cohere Embed English is the market's leading text representation model used for 
 
 # [Cohere Embed v3 - Multilingual](#tab/cohere-embed-v3-multilingual)
 
-Cohere Embed Multilingual is the market's leading text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports 100+ languages and can be used to search within a language (for example, search with a French query on French documents) and across languages (for example, search with an English query on Chinese documents). Embed multilingual has state-of-the-art performance on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
+Cohere Embed Multilingual is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed Multilingual supports more than 100 languages and can be used to search within a language (for example, to search with a French query on French documents) and across languages (for example, to search with an English query on Chinese documents). Embed multilingual performs well on multilingual benchmarks such as Miracl. Embed Multilingual also has the following attributes:
 
 * Embed Multilingual has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -443,13 +443,13 @@ Deployment to a serverless API endpoint doesn't require quota from your subscrip
 
 Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/modelinference) can be consumed using any REST client. To use the REST client, you need the following prerequisites:
 
-* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
+* To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name` is your unique model deployment host name and `your-azure-region` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about).
 
-## Working with embeddings
+## Work with embeddings
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
 
@@ -492,7 +492,7 @@ Create an embedding request to see the output of the model.
 ```
 
 > [!TIP]
-> The context window for Cohere Embed V3 models is 512. Make sure to not exceed this limit when creating embeddings.
+> The context window for Cohere Embed V3 models is 512. Make sure that you don't exceed this limit when creating embeddings.
 
 The response is as follows, where you can see the model's usage statistics:
 
@@ -523,7 +523,7 @@ The response is as follows, where you can see the model's usage statistics:
 }
 ```
 
-It is usually useful to compute embeddings in batch of inputs. The parameter `inputs` can be a list of strings, where each string is a different input. The response will be a list of embeddings, where each embedding corresponds to the input in the same position.
+It can be useful to compute embeddings in input batches. The parameter `inputs` can be a list of strings, where each string is a different input. In turn the response is a list of embeddings, where each embedding corresponds to the input in the same position.
 
 
 ```json
@@ -576,13 +576,13 @@ The response is as follows, where you can see the model's usage statistics:
 ```
 
 > [!TIP]
-> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches make sure to not exceed this limit.
+> Cohere Embed V3 models can take batches of 1024 at a time. When creating batches, make sure that you don't exceed this limit.
 
-#### Embedding's types
+#### Create different types of embeddings
 
-Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allow you to retrieve more accurate embeddings for RAG patterns.
+Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings that is used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
 
 
 ```json
@@ -594,7 +594,7 @@ The following example shows how to create embeddings that is used to create an e
 }
 ```
 
-When working on a query to retrieve such document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
+When you work on a query to retrieve such a document, you can use the following code snippet to create the embeddings for the query and maximize the retrieval performance.
 
 
 ```json
@@ -606,7 +606,7 @@ When working on a query to retrieve such document, you can use the following cod
 }
 ```
 
-Cohere Embed V3 models can optimize the embeddings based on the intention of it.
+Cohere Embed V3 models can optimize the embeddings based on its use case.
 
 ::: zone-end
 
@@ -633,9 +633,7 @@ Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 | Command R+ tool/function calling, using LangChain | `cohere`, `langchain`, `langchain_cohere` | [command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb) |
 
 
-## Cost and quotas
-
-### Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
+## Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
 
 Cohere models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
@@ -645,9 +643,8 @@ For more information on how to track costs, see monitor costs for models offered
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios. 
 
-## Additional resources
+## Related content
 
-Here are some additional reference: 
 
 * [Azure AI Model Inference API](../reference/reference-model-inference-api.md)
 * [Deploy models as serverless APIs](deploy-models-serverless.md)

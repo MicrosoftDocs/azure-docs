@@ -15,7 +15,7 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Mistral premium chat models with Azure AI studio
 
-In this guide, you learn about Mistral premium chat models and how to use them with Azure AI studio.
+In this article, you learn about Mistral premium chat models and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
 
 
@@ -46,7 +46,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-* [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
+* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
 
 
@@ -146,7 +146,7 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: Mistral-Large-2402
+Model name: Mistral-Large
 Model type": chat-completions
 Model provider name": MistralAI
 ```
@@ -180,14 +180,14 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large-2402
+Model: Mistral-Large
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -226,7 +226,7 @@ def print_stream(result):
             time.sleep(0.05)
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```python
@@ -255,11 +255,11 @@ response = client.complete(
 )
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```python
@@ -275,7 +275,9 @@ response = client.complete(
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```python
@@ -300,11 +302,11 @@ The following extra parameters can be passed to a Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral premium chat models supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
-The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+The Azure AI Model Inference API allows you to pass this extra parameter as follows:
 
 
 ```python
@@ -319,7 +321,7 @@ response = client.complete(
 )
 ```
 
-### Tools
+### Define tools
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -383,7 +385,7 @@ response = client.complete(
 )
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```python
@@ -394,7 +396,7 @@ print("Finish reason:", response.choices[0].finish_reason)
 print("Tool call:", tool_calls)
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```python
@@ -403,7 +405,7 @@ messages.append(
 )
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```python
@@ -514,7 +516,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-* [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
+* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
 
 
@@ -612,7 +614,7 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: Mistral-Large-2402
+Model name: Mistral-Large
 Model type": chat-completions
 Model provider name": MistralAI
 ```
@@ -652,14 +654,14 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large-2402
+Model: Mistral-Large
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -683,7 +685,7 @@ var response = await client.path("/chat/completions").post({
 
 To stream completions, use `.asNodeStream()` when you call the model.
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```javascript
@@ -733,11 +735,11 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```javascript
@@ -757,7 +759,9 @@ var response = await client.path("/chat/completions").post({
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```javascript
@@ -787,11 +791,11 @@ The following extra parameters can be passed to a Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral premium chat models supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
-The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+The Azure AI Model Inference API allows you to pass this extra parameter as follows:
 
 
 ```javascript
@@ -811,7 +815,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Tools
+### Define tools
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -870,7 +874,7 @@ var result = await client.path("/chat/completions").post({
 });
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```javascript
@@ -881,14 +885,14 @@ console.log("Finish reason: " + response.body.choices[0].finish_reason);
 console.log("Tool call: " + tool_calls);
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```javascript
 messages.push(response_message);
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```javascript
@@ -1001,7 +1005,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-* [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
+* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
 
 
@@ -1100,7 +1104,7 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: Mistral-Large-2402
+Model name: Mistral-Large
 Model type": chat-completions
 Model provider name": MistralAI
 ```
@@ -1135,14 +1139,14 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: Mistral-Large-2402
+Model: Mistral-Large
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
   Completion tokens: 72
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -1189,7 +1193,7 @@ static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> 
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```csharp
@@ -1221,11 +1225,11 @@ response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```csharp
@@ -1247,7 +1251,9 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 
 ```csharp
@@ -1274,11 +1280,11 @@ The following extra parameters can be passed to a Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral premium chat models supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
-The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+The Azure AI Model Inference API allows you to pass this extra parameter as follows:
 
 
 ```csharp
@@ -1295,7 +1301,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-### Tools
+### Define tools
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -1364,7 +1370,7 @@ requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
 response = client.Complete(requestOptions);
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```csharp
@@ -1375,14 +1381,14 @@ Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
 Console.WriteLine($"Tool call: {toolsCall[0].Id}");
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
 
 ```csharp
 requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
 ```
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 
 ```csharp
@@ -1490,7 +1496,7 @@ And attributes of Mistral Large (2407) include:
 
 The following models are available:
 
-* [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
+* [Mistral-Large](https://aka.ms/azureai/landing/Mistral-Large)
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
 
 
@@ -1566,7 +1572,7 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "Mistral-Large-2402",
+    "model_name": "Mistral-Large",
     "model_type": "chat-completions",
     "model_provider_name": "MistralAI"
 }
@@ -1599,7 +1605,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1620,7 +1626,7 @@ The response is as follows, where you can see the model's usage statistics:
 }
 ```
 
-Inspecting the section `usage` in the response, you can see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
+Inspect the `usage` section in the response to see the number of tokens used for the prompt, the total number of tokens generated, and the number of tokens used for the completion.
 
 #### Stream content
 
@@ -1648,7 +1654,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 }
 ```
 
-We can visualize how streaming generates content:
+You can visualize how streaming generates content:
 
 
 ```json
@@ -1656,7 +1662,7 @@ We can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1671,7 +1677,7 @@ We can visualize how streaming generates content:
 }
 ```
 
-The last message in the stream will have `finish_reason` set, indicating the reason for the generation process to stop.
+The last message in the stream has `finish_reason` set, indicating the reason for the generation process to stop.
 
 
 ```json
@@ -1679,7 +1685,7 @@ The last message in the stream will have `finish_reason` set, indicating the rea
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1730,7 +1736,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1751,11 +1757,11 @@ Explore other parameters that you can specify in the inference client. For a ful
 }
 ```
 
-If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 #### JSON outputs
 
-Mistral premium chat models can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+Mistral premium chat models can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
 
 ```json
@@ -1780,7 +1786,7 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718727522,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1803,7 +1809,9 @@ Mistral premium chat models can create JSON outputs. Setting `response_format` t
 
 ### Pass extra parameters to the model
 
-The Azure AI Model Inference API allows you to pass extra parameters to the model. The following example shows how to pass the extra parameter `logprobs` to the model. Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This tells the endpoint to pass the extra parameters to the model. Notice that this doesn't guarantee that the model can actually handle the model. Read the model's documentation to understand which extra parameters are supported.
+The Azure AI Model Inference API allows you to pass extra parameters to the model. The following code example shows how to pass the extra parameter `logprobs` to the model. 
+
+Before you pass extra parameters to the Azure AI model inference API, make sure your model supports those extra parameters. When the request is made to the underlying model, the header `extra-parameters` is passed to the model with the value `pass-through`. This value tells the endpoint to pass the extra parameters to the model. Use of extra parameters with the model doesn't guarantee that the model can actually handle them. Read the model's documentation to understand which extra parameters are supported.
 
 ```http
 POST /chat/completions HTTP/1.1
@@ -1840,11 +1848,11 @@ The following extra parameters can be passed to a Mistral premium chat models:
 
 ### Safe mode
 
-Mistral premium chat models supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+Mistral premium chat models supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
-The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+The Azure AI Model Inference API allows you to pass this extra parameter as follows:
 
 ```http
 POST /chat/completions HTTP/1.1
@@ -1871,7 +1879,7 @@ extra-parameters: pass-through
 }
 ```
 
-### Tools
+### Define tools
 
 Mistral premium chat models supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
 
@@ -1952,7 +1960,7 @@ Prompt the model to book flights with the help of this function:
 }
 ```
 
-By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+You can inspect the response to find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool types can be indicated. This example demonstrates a tool of type `function`.
 
 
 ```json
@@ -1960,7 +1968,7 @@ By inspecting the response, you can find out if a tool needs to be called. Inspe
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726007,
-    "model": "Mistral-Large-2402",
+    "model": "Mistral-Large",
     "choices": [
         {
             "index": 0,
@@ -1991,9 +1999,9 @@ By inspecting the response, you can find out if a tool needs to be called. Inspe
 }
 ```
 
-To continue with this tutorial, we append this message to the chat history:
+To continue, append this message to the chat history:
 
-Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. The response is also appended to the chat history.
 
 View the response from the model:
 
@@ -2113,11 +2121,9 @@ For more examples of how to use Mistral, see the following examples and tutorial
 | LiteLLM                                   | Python            | [Link](https://aka.ms/mistral-large/litellm-sample)             | 
 
 
-## Cost and quotas
+## Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
 
-### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
 Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
