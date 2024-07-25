@@ -144,11 +144,13 @@ If the rack's spec wasn't updated to the upgraded runtime version before the har
 
 During a runtime upgrade the cluster will enter a state of `Upgrading`  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a `Failed` provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and might be necessary to diagnose the failure with Microsoft support.
 
-### Cordon and drain minimize the risk of disruption
+### Purpose of cordoning and draining in a kubernetes cluster upgrade
 
-Cordon and Drain is a new initiative designed to enhance the reliability of our services during runtime upgrades. This feature, enabled by default, ensures a smooth transition of services with minimal disruptions. It facilitates the proper draining of CNF Pods during the runtime upgrade of the Baremetal Host where the cluster Virtual Machines are hosted. With cordoning the node and draining the Pods before the upgrade, the Pods can migrate to other nodes in the cluster if there's sufficient capacity. If there isn’t enough capacity, the Pods will enter a Pending state after the drain process.
+The cordon and drain process for Nexus Kubernetes cluster nodes on Bare Metal Hosts (BMH) during upgrades is aimed at reducing interruptions and ensuring a smooth transition. This feature manages the orderly evacuation of Cloud-Native Network Function (CNF) Pods while the BMH hosting the cluster Virtual Machines (VMs) is upgraded. By isolating the tenant cluster node and evacuating the Pods beforehand, it allows the Pods to move to other nodes within the tenant cluster, given there's enough space. If not, the Pods will be put on hold in a Pending state until the drain is complete.
 
-The process is efficient, with a maximum wait time of just 10 minutes, and includes a 30-minute post-upgrade monitoring period to ensure everything is functioning correctly.
+Once the cordon and drain process of the tenant cluster VMs in the BMH is complete, the BMH upgrade proceeds. The tenant cluster node drain timeout is set to 10 minutes; if draining takes longer, the BMH upgrade will still proceed after this timeout. Since this process happens in parallel, the overall maximum wait time for the entire rack is 10 minutes. After the BMH upgrade is complete and the BMH rejoins the bare metal cluster, the tenant cluster VM will be uncordoned.
+
+It's also important to remember that there won't be a shutdown of tenant cluster VMs after the cordon and drain process, and the BMH will be temporarily offline for the upgrade. Additionally, the cordon and drain feature is not triggered by BMH power-off and restart actions on the Nexus Kubernetes node; it's only activated for Nexus runtime upgrades.
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
