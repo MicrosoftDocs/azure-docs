@@ -162,7 +162,7 @@ Fill out the form with the following information:
 | **Nsg Name**                        | Enter the name of the NSG. The deployment creates this NSG and assigns an access rule to it.                          |
 | **Azure Container Instance OID**    | Fill in the value from the prerequisite information that you gathered.<br>The example in this article uses `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | **Container Subnet Name**           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| **Container Subnet Address Prefix** | The example in this article uses `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
+| **Container Subnet Address Prefix** | The example in this article uses `10.0.1.0/24`, which provides 254 IP addresses for Cloud Shell instances.                                          |
 | **Relay Subnet Name**               | Defaults to `relaysubnet`. Enter the name of the subnet that contains your relay.                                                                 |
 | **Relay Subnet Address Prefix**     | The example in this article uses `10.0.2.0/24`.                                                                                                        |
 | **Storage Subnet Name**             | Defaults to `storagesubnet`. Enter the name of the subnet that contains your storage.                                                             |
