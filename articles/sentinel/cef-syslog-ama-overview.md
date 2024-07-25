@@ -99,13 +99,12 @@ To avoid this scenario, use one of these methods:
 
     To see an example of how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, go to [Syslog and CEF streams in the same DCR](connect-cef-syslog-ama.md?tabs=api#syslog-and-cef-streams-in-the-same-dcr).
 
-- **If changing the facility for the source appliance isn't applicable**: After you create the DCR, add ingestion time transformation to filter out CEF messages from the Syslog stream to avoid duplication. On the DCR in the Azure portal, select **Export template** > **Edit template**. Add KQL transformation to filter out CEF messages similar to the following example:
+- **If changing the facility for the source appliance isn't applicable**: After you create the DCR, add ingestion time transformation to filter out CEF messages from the Syslog stream to avoid duplication. See [Tutorial: Edit a data collection rule (DCR)](../azure-monitor/essentials/data-collection-rule-edit.md). Add KQL transformation similar to the following example:
 
     ```json
     "transformKql": "  source\n    |  where ProcessName !contains \"CEF\"\n"
     ```
-  For more information, see [Tutorial: Edit a data collection rule (DCR)](../azure-monitor/essentials/data-collection-rule-edit.md).
-  
+ 
 ## Next steps
 
 > [!div class="nextstepaction"]
