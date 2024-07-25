@@ -150,7 +150,7 @@ During a Nexus cluster runtime upgrade, the Nexus Kubernetes workload cluster no
 
 Once the cordon and drain process of the tenant cluster VMs on the BMH is complete, the BMH upgrade proceeds. The drain timeout for the tenant cluster node is set to 10 minutes. If the draining process exceeds this duration, the BMH upgrade will still continue after the timeout, and the Bare Metal Host will be rebooted. This process occurs in parallel, so the maximum overall wait time for the entire rack is limited to 10 minutes. After completing the BMH upgrade and rejoining the bare metal cluster, and once the VM is up and joins the cluster, the VM will be uncordoned.
 
-It's important to note that the tenant cluster VMs won't shut down after the cordon and drain process. The BMH is rebooted as soon as the drain is done, or if the drain isn't successful within 10 minutes. Additionally, the cordon and drain feature is not initiated by power-off or restart actions on the Bare Metal Host; it's exclusively activated for Nexus runtime upgrades.
+It's important to note that the tenant cluster VMs won't shut down after the cordon and drain process. The BMH is rebooted as soon as the workload cluster node drain is done, or if the drain isn't successful within 10 minutes. Additionally, the cordon and drain is not initiated by power-off or restart actions on the Bare Metal Host; it's exclusively activated for Nexus runtime upgrades.
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
