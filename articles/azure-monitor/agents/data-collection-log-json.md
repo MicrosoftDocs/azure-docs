@@ -88,10 +88,6 @@ $tableParams = @'
                     {
                         "name": "FilePath",
                         "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
                     }
               ]
         }
@@ -196,10 +192,6 @@ The following table describes the parameters.
                             },
                             {
                                 "name": "FilePath",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Computer",
                                 "type": "string"
                             },
                             {
