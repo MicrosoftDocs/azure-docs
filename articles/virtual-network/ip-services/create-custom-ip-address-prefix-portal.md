@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 07/25/2024
 ---
 
 # Create a custom IPv4 address prefix using the Azure portal
