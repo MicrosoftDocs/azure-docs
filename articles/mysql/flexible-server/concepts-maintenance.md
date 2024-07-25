@@ -52,7 +52,7 @@ You can define system-managed schedule or custom schedule for each flexible serv
 * With system-managed schedule, the system will pick any one-hour window between 11pm and 7am in your server's region time.
 
 > [!IMPORTANT]
-> Starting from 31st July 2024, Azure Database for MySQL will no longer support custom maintenance windows for burstable SKU instances. This change is due to the need for simplifying maintenance processes, ensuring optimal performance, and our analysis indicating that the number of users utilizing custom maintenance windows on burstable SKUs is minimal. Existing burstable SKU instances with custom maintenance window configurations will remain unaffected; however, users will not be able to modify these custom maintenance window settings moving forward.
+> Starting from 31st August 2024, Azure Database for MySQL will no longer support custom maintenance windows for burstable SKU instances. This change is due to the need for simplifying maintenance processes, ensuring optimal performance, and our analysis indicating that the number of users utilizing custom maintenance windows on burstable SKUs is minimal. Existing burstable SKU instances with custom maintenance window configurations will remain unaffected; however, users will not be able to modify these custom maintenance window settings moving forward.
 > 
 > For customers requiring custom maintenance windows, we recommend upgrading to General Purpose or Business Critical SKUs to continue using this feature.
 
