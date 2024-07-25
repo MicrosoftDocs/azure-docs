@@ -23,8 +23,9 @@ const breakoutRoomsFeature = call.feature(Features.BreakoutRooms);
 The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `call` instance and contains information about the breakout rooms created or assigned. 
 
 To receive  breakoutroom details, subscribe to the `breakoutRoomsUpdated` event. 
-
+```js
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
+```
 
 ### Handling breakoutRoom events
 
@@ -218,21 +219,23 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
 - User trying to join a breakout room when the state of the room is closed.
 
-  When the `join()` method is called on the `breakoutRoomsFeature.assignedBreakoutRoom` even before the breakout room's state is `open`, then an error is thrown to the user with the message "Not able to join Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join."
-  Resoulution : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
+  When the `join()` method is called on the `breakoutRoomsFeature.assignedBreakoutRoom` even before the breakout room's state is `open`, then an error is thrown to the user with the message "Not able to join 
+  Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join."
+
+  Resolution : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
 
 - User getting an error when joining the breakout room.
 
-  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.
+  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method 
+  explicitly.
 
-  the breakout room. Even if that doesn't work, please share the console logs with the Azure Communication Services team.
+  Resolution : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
 
 - User getting an error while leaving the breakout room.
 
   If the breakout room state is `closed` and the user has still not moved back to the main meeting, leave the breakout room explicitly as defined previously. 
-  using the code shared above for leaving the breakout room and check if that helps. If the user is still not seen in the mainmeeting room, please gather console logs and share it with the Azure communications 
-  team for further debugging.
-
+  using the code shared above for leaving the breakout room and check if that helps.
+  
 - Assigned breakout room details are not available to the user.
 
   Check if the user has a Teams Meeting Policy with AllowBreakoutRooms set to false. Only in this case, the user will not be assigned to any breakout room. Update the AllowBreakoutRooms property in the policy to 
