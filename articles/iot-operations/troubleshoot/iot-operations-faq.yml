@@ -19,44 +19,44 @@ sections:
       answer: Currently, No
     - question: |
          What are the hardware requirements?
-      answer: For more information on hardware requirements, see Please see [Azure Arc-enabled Kubernetes system requirements](/azure-arc/kubernetes/system-requirements).
+      answer: For more information on hardware requirements, see [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
     - question: |
          What is the cost involved in using Azure IoT Operations?
-      answer: We are currently working on the pricing. Providing any price indication right now has some challenges like the pricing may change when it goes to GA, it requires justifications and exec sign offs etc.
+      answer: We're currently working on pricing.
     - question: |
          Is message persistence supported?
-      answer: At Azure IoT Operations GA1, full message persistence is not going to be supported - the capability will be added post-GA.
+      answer: At Azure IoT Operations general availability (GA), full message persistence won't be supported. The capability is planned post-GA.
     - question: |
-         Does Azure IoT Operations offer High Availability and Zero Data loss as GA features?
-      answer: Azure IoT Operations workloads on K3s and HCI/Aks-Arc multi-node clusters should support distribution of Azure IoT Operations workloads across multi-nodes setups taking advantage of fault tolerance and Kubernetes scheduling of pods across nodes. The expected timeline for this is GA
+         Does Azure IoT Operations offer high availability and zero data loss features at general availability?
+      answer: Azure IoT Operations workloads on K3s and HCI/Aks-Arc multi-node clusters should support distribution of Azure IoT Operations workloads across multi-nodes setups taking advantage of fault tolerance and Kubernetes scheduling of pods across nodes. The expected timeline for this is general availability.
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
-      answer: At this point, there is no documented migration path from IoT Edge to Azure IoT Operations. In the future we will have some more targeted migration. If you have any feature asks for Azure IoT Operations as part of any migration you're planning to do, please relay this back to us.
+      answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. Some targeted migration is planned. If you have any feature asks for Azure IoT Operations as part of any migration you're planning to do, relay this back to us.
     - question: |
-         Can I just upgrade my preview version to GA version?
-      answer: No, you won't be able to upgrade from the preview to GA version directly. You'll need to redeploy. Upgrade scenario will be available post-GA
+         Can I just upgrade my preview version to the general availability version?
+      answer: No, you won't be able to upgrade from the preview to general availability version directly. You need to redeploy. Upgrade scenario is planned post-GA.
     - question: |
          What Kubernetes distros are compatible with Azure IoT Operations?
-      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu+K3s, Windows IoT + AKS EE. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md). We are adding support for Stack HCI 23H2 + AKS Hybrid. The rest of the platform combinations are supported by GA. This platform will expand over time.
+      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu+K3s, Windows IoT + AKS EE. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md). We're adding support for Stack HCI 23H2 + AKS Hybrid. The rest of the platform combinations are planned to be supported by general availability. This platform will expand over time.
     - question: |
-         For IoT Operations, which device comm protocols are going to be supported out-of-the-box in GA?
-      answer: At GA we will support OPC UA and MQTT. There are many devices and protocol bridges that exist in-market to enable customers to connect much of the existing device ecosystem via these two protocols. After GA we will add ONVIF and Media Stream support [Camera use cases] and enable a third-party ecosystem to allow ISVs (or other Microsoft teams) to build pluggable protocols for other environments like Medical, etc.
+         For IoT Operations, which device comm protocols are going to be supported out-of-the-box in general availability?
+      answer: At general availability, we plan to support OPC UA and MQTT. There are many devices and protocol bridges that exist in-market to enable customers to connect much of the existing device ecosystem via these two protocols. After general availability, we plan to add ONVIF and Media Stream support [Camera use cases] and enable a third-party ecosystem to allow ISVs (or other Microsoft teams) to build pluggable protocols for other environments like medical, etc.
     - question: |
          Is there a non-Dapr Azure IoT Operations state store code example?
       answer: |
-        At this point we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md) For an SDK there is an upcoming Akri, MQ SDK which will simplify using StateStore, currently only in .NET This won't be available until Azure IoT Operations goes to GA later this year. The [SDKs](https://github.com/Azure-Samples/explore-akri-sdk/) will be initially available in Rust, Go and .NET.
+        Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md) For an SDK, there's an upcoming Akri and MQTT broker SDK that simplifies using StateStore, currently only in .NET. This won't be available until Azure IoT Operations is GA later this year. The [SDKs](https://github.com/Azure-Samples/explore-akri-sdk/) are initially available in Rust, Go, and .NET.
     - question: |
          MQTT with QOS 2. Is this in the roadmap for IoT Operations MQ
-      answer: For Azure IoT Operations, it is on the backlog but not prioritized yet. QoS 2 will not be supported in the initial Azure IoT Operations GA.
+      answer: For Azure IoT Operations, it is on the backlog but not prioritized yet. QoS 2 won't be supported in the initial Azure IoT Operations general availability.
     - question: |
          Which Azure regions is Azure IoT Operations currently available in?
       answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions. We plan to add support for Taiwan, Japan, EU, and China later.
     - question: |
-         Is there a way to gracefully fail over between two redundant OPC UA servers in case one of them fails. The idea is to have minimal/zero data loss and no reconfiguration effort.
-      answer: Yes, we have this as a feature on our roadmap for post Azure IoT Operations GA.
+         Is there a way to gracefully fail over between two redundant OPC UA servers in case one of them fails? The idea is to have minimal/zero data loss and no reconfiguration effort.
+      answer: Yes, we have this as a feature on our roadmap for Azure IoT Operations post-GA.
     - question: |
          Is there a hard limit on the sampling intervals for OPC UA tags for minimum and maximum sampling interval?
-      answer: The minimum is 1ms, however there is no upper restriction imposed at the connector level
+      answer: The minimum is 1ms, however there's no upper restriction imposed at the connector level
     - question: |
          How do I write my own apps?
       answer: |
@@ -73,6 +73,4 @@ sections:
 additionalContent: |
     ## Related content
 
-    To learn more, see IoT Operations [overview](/azure/iot-operations/overview) and [documentation](/azure/iot-operations/).
-
-
+    To learn more, see [IoT Operations overview](../overview-iot-operations.md) and [documentation](/azure/iot-operations/).

@@ -208,7 +208,7 @@ items:
       - name: Known issues
         href: troubleshoot/known-issues.md
       - name: FAQ
-        href: troubleshoot/iot-operations-faq.md
+        href: troubleshoot/iot-operations-faq.yml
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
       - name: Azure IoT Operations Arc Jumpstart scenario
