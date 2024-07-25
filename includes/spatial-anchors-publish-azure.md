@@ -21,8 +21,8 @@ The Publish Wizard starts.
 |-|-|-|
 |Name| _myASASharingService_ | Give your service a unique name |
 |Subscription Name | | Select your preferred Azure subscription |
-|Resource Group |_myResourceGroup_ or select an existing one | [!INCLUDE [resource group intro text](resource-group.md)] |
-|Hosting Plan | Select **New...** and see table below | [!INCLUDE [app-service-plan](app-service-plan.md)] |
+|Resource Group |_myResourceGroup_ or select an existing one | [!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)] |
+|Hosting Plan | Select **New...** and see table below | [!INCLUDE [app-service-plan](./app-service-plan.md)] |
  
 #### Hosting Plan Settings        
 | Setting | Suggested value | Description |

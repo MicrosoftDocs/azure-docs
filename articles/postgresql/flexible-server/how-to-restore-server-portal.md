@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides a step-by-step procedure for using the Azure portal to perform point-in-time recoveries in Azure Database for PostgreSQL flexible server through backups. You can perform this procedure to the latest restore point or to a custom restore point within your retention period.
 
@@ -87,7 +87,7 @@ If your source server is configured with geo-redundant backup, you can restore t
  
    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-click.png" alt-text="Screenshot that shows the Restore button.":::
 
-3. Under **Source details**, for **Geo-redundant restore (preview)**, select the **Restore to paired region** checkbox. 
+3. Under **Source details**, for **Geo-redundant restore**, select the **Restore to paired region** checkbox. 
  
    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-choose-checkbox.png" alt-text="Screenshot that shows the option for restoring to a paired region for geo-redundant restore.":::
  

@@ -80,11 +80,73 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 ## Set configuration parameters
 
 ::: zone pivot="programming-language-go"
+
 > [!NOTE]
 > Pronunciation assessment is not available with the Speech SDK for Go. You can read about the concepts in this guide. Select another programming language for your solution.
+
 ::: zone-end
 
-In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, see [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#LL1086C13-L1086C98).
+In the `SpeechRecognizer`, you can specify the language to learn or practice improving pronunciation. The default locale is `en-US`. To learn how to specify the learning language for pronunciation assessment in your own application, you can use the following sample code.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end  
+
+::: zone pivot="programming-language-cpp"
+
+```cpp
+auto recognizer = SpeechRecognizer::FromConfig(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, "en-US", audioConfig);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, language="en-US", audio_config=audio_config)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+speechConfig.speechRecognitionLanguage = "en-US";
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```ObjectiveC
+SPXSpeechRecognizer* recognizer = [[SPXSpeechRecognizer alloc] initWithSpeechConfiguration:speechConfig language:@"en-US" audioConfiguration:audioConfig];
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+```swift
+let recognizer = try! SPXSpeechRecognizer(speechConfiguration: speechConfig, language: "en-US", audioConfiguration: audioConfig)
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
 
 > [!TIP]
 > If you aren't sure which locale to set for a language that has multiple locales, try each locale separately. For instance, for Spanish, try `es-ES` and `es-MX`. Determine which locale scores higher for your scenario.

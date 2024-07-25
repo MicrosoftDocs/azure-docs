@@ -4,9 +4,10 @@ description: Real-time scoring with online inference endpoints on Azure Machine 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: how-to

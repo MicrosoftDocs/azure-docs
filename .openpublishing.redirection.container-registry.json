@@ -1,10 +1,22 @@
 {
     "redirections": [
+        
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oci-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oras-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
+        
         {
             "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
@@ -97,7 +109,7 @@
         },
         {
             "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-            "redirect_url": "/azure/container-registry/monitor-service"
+            "redirect_url": "/azure/container-registry/monitor-container-registry"
         },
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
@@ -143,6 +155,16 @@
             "source_path_from_root": "/articles/container-registry/github-action-scan.md",
             "redirect_url": "/azure/developer/github/",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/monitor-service.md",
+            "redirect_url": "/azure/container-registry/monitor-container-registry",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/container-registry/monitor-service-reference.md",
+            "redirect_url": "/azure/container-registry/monitor-container-registry-reference",
+            "redirect_document_id": true
         }
     ]
 }

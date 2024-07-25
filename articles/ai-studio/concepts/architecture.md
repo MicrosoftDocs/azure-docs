@@ -7,58 +7,56 @@ ms.service: azure-ai-studio
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 5/21/2024
+ms.date: 06/04/2024
 ms.reviewer: deeikele
 ms.author: larryfr
 author: Blackmist
 ---
 
-# Azure AI Studio architecture
-
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+# Azure AI Studio architecture 
     
-AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. It's built on capabilities and services provided by other Azure services.
+AI Studio provides a unified experience for AI developers and data scientists to build, evaluate, and deploy AI models through a web portal, SDK, or CLI. AI Studio is built on capabilities and services provided by other Azure services.
 
-The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Other resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project.
+The top level AI Studio resources (hub and project) are based on Azure Machine Learning. Connected resources, such as Azure OpenAI, Azure AI services, and Azure AI Search, are used by the hub and project in reference, but follow their own resource management lifecycle.
 
-- **AI Studio hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
-    - Data upload and artifact storage.
-    - Hub-scoped connections to Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search.
-    - Base model endpoints for Azure OpenAI, Speech, and Vision.
-    - Compute resources.
-    - Security and governance.
-- **AI Studio project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. It inherits the hub's connections, and compute resources. When a new project is created from the hub, the security settings of the hub are applied to it. The project provides the following features:
-    - Groups of components such as datasets, models, and indexes.
-    - An isolated data container (within the storage inherited from the hub).
-    - Project-scoped connections. For example, a project might need access to data stored in a separate Azure Storage account.
+- **AI hub**: The hub is the top-level resource in AI Studio. The Azure resource provider for a hub is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Hub`. It provides the following features:
+    - Security configuration including a managed network that spans projects and model endpoints.
+    - Compute resources for interactive development, finetuning, open source, and serverless model deployments.
+    - Connections to other Azure services such as Azure OpenAI, Azure AI services, and Azure AI Search. Hub-scoped connections are shared with projects created from the hub.
+    - Project management. A hub can have multiple child projects.
+    - An associated Azure storage account for data upload and artifact storage.
+- **AI project**: A project is a child resource of the hub. The Azure resource provider for a project is `Microsoft.MachineLearningServices/workspaces`, and the kind of resource is `Project`. The project provides the following features:
+    - Access to development tools for building and customizing AI applications.   
+    - Reusable components including datasets, models, and indexes.
+    - An isolated container to upload data to (within the storage inherited from the hub).
+    - Project-scoped connections. For example, project members might need private access to data stored in an Azure Storage account without giving that same access to other projects.
     - Open source model deployments from catalog and fine-tuned model endpoints.
  
-A hub can have multiple child projects. Each project can have its own set of project-scoped connections.
-
 :::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources." :::
 
-### Microsoft-hosted resources
+## Centrally set up and govern using hubs
 
-While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. This subscription provides some of the services used by Azure AI Studio. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
+Hubs provide a central way for a team to govern security, connectivity, and computing resources across playgrounds and projects. Projects that are created using a hub inherit the same security settings and shared resource access. Teams can create as many projects as needed to organize work, isolate data, and/or restrict access.
 
-- **Managed compute resources**: Provided by Azure Batch resources in the Microsoft subscription.
-- **Managed virtual network**: Provided by Azure Virtual Network resources in the Microsoft subscription. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
-- **Metadata storage**: Provided by Azure Cosmos DB, Azure AI Search, and Azure Storage Account in the Microsoft subscription. 
+Often, projects in a business domain require access to the same company resources such as vector indices, model endpoints, or repos. As a team lead, you can preconfigure connectivity with these resources within a hub, so developers can access them from any new project workspace without delay on IT.
 
-    > [!NOTE]
-    > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+[Connections](connections.md) let you access objects in AI Studio that are managed outside of your hub. For example, uploaded data on an Azure storage account, or model deployments on an existing Azure OpenAI resource. A connection can be shared with every project or made accessible to one specific project. Connections can be configured to use key-based access or Microsoft Entra ID passthrough to authorize access to users on the connected resource. As an administrator, you can  track, audit, and manage connections across the organization from a single view in AI Studio.
 
-Managed compute resources and managed virtual networks exist in the Microsoft subscription, but are managed by you. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
+:::image type="content" source="../media/concepts/connected-resources-spog.png" alt-text="Screenshot of AI Studio showing an audit view of all connected resources across a hub and its projects." :::
 
-Managed compute resources also require vulnerability management. This is a shared responsibility between you and Microsoft. For more information, see [vulnerability management](vulnerability-management.md).
- 
-## Azure resource providers
+### Organize for your team's needs
 
-Since Azure AI Studio is built from other Azure services, the resource providers for these services must be registered in your Azure subscription. The following table lists the resource, provider, and resource provider kinds:
+The number of hubs and projects you need depends on your way of working. You might create a single hub for a large team with similar data access needs. This configuration maximizes cost efficiency, resource sharing, and minimizes setup overhead. For example, a hub for all projects related to customer support.
+
+If you require isolation between dev, test, and production as part of your LLMOps or MLOps strategy, consider creating a hub for each environment. Depending on the readiness of your solution for production, you might decide to replicate your project workspaces in each environment or just in one.
+
+## Azure resource types and providers
+
+Azure AI Studio is built on the Azure Machine Learning resource provider, and takes a dependency on several other Azure services. The resource providers for these services must be registered in your Azure subscription. The following table lists the resource types, provider, and kind:
 
 [!INCLUDE [Resource provider kinds](../includes/resource-provider-kinds.md)]
 
-When you create a new hub, a set of dependent Azure resources are required to store data, manage security, and provide compute resources. The following table lists the dependent Azure resources and their resource providers:
+When you create a new hub, a set of dependent Azure resources are required to store data, get access to models, and provide compute resources for AI customization. The following table lists the dependent Azure resources and their resource providers:
 
 > [!TIP]
 > If you don't provide a dependent resource when creating a hub, and it's a required dependency, AI Studio creates the resource for you.
@@ -66,6 +64,21 @@ When you create a new hub, a set of dependent Azure resources are required to st
 [!INCLUDE [Dependent Azure resources](../includes/dependent-resources.md)]
 
 For information on registering resource providers, see [Register an Azure resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+
+### Microsoft-hosted resources
+
+While most of the resources used by Azure AI Studio live in your Azure subscription, some resources are in an Azure subscription managed by Microsoft. The cost for these managed resources shows on your Azure bill as a line item under the Azure Machine Learning resource provider. The following resources are in the Microsoft-managed Azure subscription, and don't appear in your Azure subscription:
+
+- **Managed compute resources**: Provided by Azure Batch resources in the Microsoft subscription.
+- **Managed virtual network**: Provided by Azure Virtual Network resources in the Microsoft subscription. If FQDN rules are enabled, an Azure Firewall (standard) is added and charged to your subscription. For more information, see [Configure a managed virtual network for Azure AI Studio](../how-to/configure-managed-network.md).
+- **Metadata storage**: Provided by Azure Storage resources in the Microsoft subscription.  
+
+    > [!NOTE]
+    > If you use customer-managed keys, the metadata storage resources are created in your subscription. For more information, see [Customer-managed keys](../../ai-services/encryption/cognitive-services-encryption-keys-portal.md?context=/azure/ai-studio/context/context).
+
+Managed compute resources and managed virtual networks exist in the Microsoft subscription, but you manage them. For example, you control which VM sizes are used for compute resources, and which outbound rules are configured for the managed virtual network.
+
+Managed compute resources also require vulnerability management. Vulnerability management is a shared responsibility between you and Microsoft. For more information, see [vulnerability management](vulnerability-management.md).
 
 ## Role-based access control and control plane proxy
 
@@ -94,17 +107,17 @@ For more information on Azure access-based control, see [What is Azure attribute
 
 ## Containers in the storage account
 
-The default storage account for a hub has the following containers. These containers are created for each project, and the `{workspace-id}` prefix matches the unique ID for the project. The container is accessed by the project using a [connection](connections.md).
+The default storage account for a hub has the following containers. These containers are created for each project, and the `{workspace-id}` prefix matches the unique ID for the project. Projects access a container by using a [connection](connections.md).
 
 > [!TIP]
 > To find the ID for your project, go to the project in the [Azure portal](https://portal.azure.com/). Expand **Settings** and then select **Properties**. The **Workspace ID** is displayed.
 
 | Container name | Connection name | Description |
 | --- | --- | --- |
-| {workspace-ID}-azureml | workspaceartifactstore | Storage for assets such as metrics, models, and components. |
-| {workspace-ID}-blobstore| workspaceblobstore | Storage for data upload, job code snapshots, and pipeline data cache. |
-| {workspace-ID}-code | NA | Storage for notebooks, compute instances, and prompt flow. |
-| {workspace-ID}-file | NA | Alternative container for data upload. |
+| `{workspace-ID}-azureml` | workspaceartifactstore | Storage for assets such as metrics, models, and components. |
+| `{workspace-ID}-blobstore`| workspaceblobstore | Storage for data upload, job code snapshots, and pipeline data cache. |
+| `{workspace-ID}-code` | NA | Storage for notebooks, compute instances, and prompt flow. |
+| `{workspace-ID}-file` | NA | Alternative container for data upload. |
 
 ## Encryption
 

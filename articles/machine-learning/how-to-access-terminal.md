@@ -3,9 +3,9 @@ title: How to access a compute instance terminal in your workspace
 titleSuffix: Azure Machine Learning
 description: Use the terminal on a compute instance for Git operations, to install packages, and add kernels.
 services: machine-learning
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: kritifaujdar
 ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
@@ -51,7 +51,7 @@ In addition to the previous steps, you can also access the terminal from:
 
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
+> * FireFox and Internet Explorer may not support clipboard permissions properly.
 
 ## <a name=git></a> Use files from Git and version files
 

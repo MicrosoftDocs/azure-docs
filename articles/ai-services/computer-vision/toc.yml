@@ -332,12 +332,12 @@ items:
         href: identity-encrypt-data-at-rest.md
   - name: Tutorials
     items:
-    - name: Detect liveness in face
+    - name: Detect liveness in faces
       href: Tutorials/liveness.md
     - name: Add users to a Face identification app
       href: Tutorials/build-enrollment-app.md
   - name: Samples
-    href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
+    href: https://aka.ms/FaceSamples
 
   - name: Responsible use of AI
     items:
@@ -367,13 +367,13 @@ items:
       - name: Face API error codes
         href: reference-face-error-codes.md
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/face
+        href: https://aka.ms/azsdk-csharp-face-ref
       - name: Java
-        href: /java/api/overview/azure/cognitiveservices/client/faceapi
+        href: https://aka.ms/azsdk-java-face-ref
       - name: Node.js
-        href: /javascript/api/overview/azure/cognitiveservices-face-readme
+        href: https://aka.ms/azsdk-javascript-face-ref
       - name: Python
-        href: /python/api/overview/azure/cognitiveservices-vision-face-readme
+        href: https://aka.ms/azsdk-python-face-ref
     - name: Client-side
       items:
       - name: Kotlin (Android)

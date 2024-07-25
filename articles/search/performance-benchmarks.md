@@ -14,7 +14,7 @@ ms.date: 04/22/2024
 # Azure AI Search performance benchmarks
 
 > [!IMPORTANT]
-> These benchmarks apply to search services created before April 3, 2024, and they apply to nonvector workloads only. Updates are pending for services and workloads on the new limits. 
+> These benchmarks apply to search services created *before April 3, 2024* on deployments that run on older infrastructure. The benchmarks also apply to nonvector workloads only. Updates are pending for services and workloads on the new limits. 
 
 Performance benchmarks are useful for estimating potential performance under similar configurations. Actual performance depends on a [variety of factors](search-performance-tips.md), including the size of your search service and the types of queries you're sending. 
 

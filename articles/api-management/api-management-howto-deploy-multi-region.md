@@ -164,7 +164,7 @@ This section provides considerations for multi-region deployments when the API M
 * Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are generally the same as those for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
 > [!IMPORTANT]
-> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1443 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
+> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 

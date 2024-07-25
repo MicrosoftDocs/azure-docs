@@ -4,7 +4,7 @@ description: Learn about the flexible server deployment model for Azure Database
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -140,7 +140,10 @@ See [Server concepts](concept-servers.md) for more information.
 
 ## Enterprise grade security, compliance, and privacy
 
-Azure Database for MySQL flexible server uses the FIPS 140-2 validated cryptographic module to store data at rest. Data, including backups and temporary files created while running queries, are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system-managed (default).
+Azure Database for MySQL flexible server uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default). You can also use customer managed keys (CMKs) to bring your own key (BYOK) stored in an Azure Key Vault or Managed Hardware Security Module (HSM) for data encryption at rest.
+
+For more information, see [data encryption with customer managed keys for Azure Database for MySQL flexible server instances](concepts-customer-managed-key.md).
+
 
 Azure Database for MySQL flexible server encrypts data in-motion with transport layer security enforced by default. Azure Database for MySQL flexible server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 are denied. You can disable TSL/SSL enforcement by setting the require_secure_transport server parameter and then setting the minimum tls_version for your server.
 
@@ -232,9 +235,9 @@ One advantage of running your workload in Azure is its global reach. Azure Datab
 | UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Arizona | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| USGov Texas | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| USGov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| USGov Arizona | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
+| USGov Texas | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |
 | West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |

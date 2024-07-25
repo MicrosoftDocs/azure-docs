@@ -1,9 +1,9 @@
 ---
 title: "Synapse implementation success methodology: Evaluate Spark pool design"
 description: "Learn how to evaluate your Spark pool design to identify issues and validate that it meets guidelines and requirements."
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022

@@ -21,7 +21,7 @@ Azure Communication Services allows end-user browsers, apps, and services to dri
 
 To build your own user experience with the Calling SDK, check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md).
 
-If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md) or [Storybook](https://aka.ms/acsstorybook).
+If you'd like help with the end-user experience, the Azure Communication Services UI Library provides a collection of open-source production-ready UI components to drop into your application. With this set of prebuilt controls, you can create beautiful communication experiences using [Microsoft's Fluent design language](https://developer.microsoft.com/en-us/fluentui#/). If you want to learn more about the UI Library, visit [the overview site](../ui-library/ui-library-overview.md).
 
 Once you start development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
 
@@ -59,7 +59,7 @@ The following list presents the set of features that are currently available in 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Mute other participants    |✔️<sup>1</sup>        |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
+|                   | Mute other participants    |✔️   |   ✔️<sup>1</sup>       |    ✔️<sup>1</sup>              |     ✔️<sup>1</sup>      |
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Active speaker                                                                                                      | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -99,7 +99,7 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️   | ✔️       | ✔️              | ✔️                 |
 | [Audio Effects](../../tutorials/audio-quality-enhancements/add-noise-supression.md)       | [Music Mode](./music-mode.md)          | ❌   | ✔️       | ✔️              | ✔️                 |
 |      | Echo cancellation        | ❌   | ✔️       | ✔️              | ✔️                 |
-|      | Noise supression          | ✔️   | ✔️       | ✔️              | ✔️                 |
+|      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
 

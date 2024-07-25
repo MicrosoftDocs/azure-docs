@@ -6,7 +6,7 @@ author: guywild
 ms.author: guywild
 ms.reviewer: meirm
 ms.date: 06/28/2022
-# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs Azure Monitor collects.
+# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs that Azure Monitor collects.
 
 ---
 
@@ -16,7 +16,13 @@ Log Analytics is a data store where personal data is likely to be found. Applica
 
 In this article, _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you're using a workspace-based Application Insights resource, the information on log data applies. If you're using a classic Application Insights resource, the application data applies.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
+
+## Permissions required
+
+| Action | Permissions required |
+|:-------|:---------------------|
+| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
 
 ## Strategy for personal data handling
@@ -85,7 +91,11 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 
 Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
 
+> [!NOTE]
+> You can't use the Log Analytics query API on that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans). Instead, use the [Log Analytics /search API](basic-logs-query.md#run-a-query-on-a-basic-or-auxiliary-table).
+
 You need to implement the logic for converting the data to an appropriate format for delivery to your users. [Azure Functions](https://azure.microsoft.com/services/functions/) is a great place to host such logic.
+
 
 ### Delete
 
@@ -109,6 +119,9 @@ To manage system resources, we limit purge requests to 50 requests an hour. Batc
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
+
+> [!NOTE]
+> You can't purge data from tables that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans).
 
 #### Application data
 

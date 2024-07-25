@@ -3,7 +3,7 @@ title: Configure VMware syslogs for Azure VMware Solution
 description: Learn how to configure diagnostic settings to collect VMware syslogs for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 6/7/2024
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
@@ -20,21 +20,20 @@ In this article, learn how to configure a diagnostic setting to collect VMware s
    >- vCenter Server logs
    >- ESXi logs
    >- vSAN logs
-   >- NSX-T Manager logs
-   >- NSX-T Data Center Distributed Firewall logs
-   >- NSX-T Data Center Gateway Firewall logs
-   >- NSX-T Data Center Edge Appliance logs
+   >- NSX Manager logs
+   >- NSX Distributed Firewall logs
+   >- NSX Gateway Firewall logs
+   >- NSX Edge Appliance logs
 
 ## Prerequisites
 
-Make sure you have an Azure VMware Solution private cloud with access to the vCenter Server and NSX-T Manager interfaces. 
+Make sure you have an Azure VMware Solution private cloud with access to the vCenter Server and NSX Manager interfaces. 
 
 ## Configure diagnostic settings
 
 1. From your Azure VMware Solution private cloud, select **Diagnostic settings**, then **Add diagnostic settings**.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to configure VMware syslogs.":::
-
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png" alt-text="Screenshot showing where to configure VMware syslogs." border="false"  lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-1.png":::
 
 1. Select the **vmwaresyslog**, **All metrics**, and select one of the following options presented.
 
@@ -59,20 +58,20 @@ In this section, you’ll:
 1. In the Azure portal, go to **Create a resource**.
 2. Search for “Log Analytics Workspace” and select **Create** -> **Log Analytics Workspace**.
 
-:::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Screenshot of Create a resource.":::
+:::image type="content" source="media/send-logs-to-log-analytics/marketplace.png" alt-text="Screenshot of Create a resource." border="false"  lightbox="media/send-logs-to-log-analytics/marketplace.png":::
 
 #### Set up your workspace
 
 1. Enter the Subscription you intend to use, the Resource Group chosen to house this workspace. Give it a name and select a region. 
 2. Select **Review** + **Create**.
 
-:::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Screenshot of Marketplace.":::
+:::image type="content" source="media/send-logs-to-log-analytics/create-workspace.png" alt-text="Screenshot of Marketplace." border="false"  lightbox="media/send-logs-to-log-analytics/create-workspace.png":::
 
 #### Add a diagnostic setting
 
 Next, we add a diagnostic setting in your Azure VMware Solution private cloud, so it knows where to send your logs to.
 
-:::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Screenshot of vh-private-cloud.":::
+:::image type="content" source="media/send-logs-to-log-analytics/private-cloud.png" alt-text="Screenshot of vh-private-cloud." border="false"  lightbox="media/send-logs-to-log-analytics/private-cloud.png":::
 
 1. Select your Azure VMware Solution private cloud.
 Go to Diagnostic settings on the left-hand menu under Monitoring.
@@ -84,7 +83,7 @@ Select the log categories you're interested in sending to your Log Analytics wor
 Select the Subscription your Log Analytics workspace lives in and the Log Analytics workspace.
 Select **Save** on the top left.
 
-:::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Screenshot of Diagnostics settings.":::
+:::image type="content" source="media/send-logs-to-log-analytics/diagnostic-setting.png" alt-text="Screenshot of Diagnostics settings." border="false"  lightbox="media/send-logs-to-log-analytics/diagnostic-setting.png":::
 
 At this point, your Log Analytics workspace is now successfully configured to receive logs from your Azure VMware Solution private cloud.
 
@@ -100,20 +99,20 @@ For more information, see
 
 1. In **Diagnostic setting**, select the storage account where you want to store the logs and select **Save**.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png" alt-text="Screenshot showing the options to select for storing the syslogs.":::
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png" alt-text="Screenshot showing the options to select for storing the syslogs." border="false"  lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-2.png":::
 
 2. Go to your **Storage accounts**, verify **Insight logs vmwarelog** was created, and select it. 
  
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available.":::
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png" alt-text="Screenshot showing the Insight logs vmwarelog option created and available." border="false"  lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-3.png":::
 
 
 3. Browse **Insight logs vmwarelog** to locate and download the json file to view the logs.
 
-:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-4.png" alt-text="Screenshot showing the drill-down path to the json file."::: 
+:::image type="content" source="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-4.png" alt-text="Screenshot showing the drill-down path to the json file." border="false"  lightbox="media/diagnostic-settings/diagnostic-settings-log-analytics-workspace-4.png"::: 
 
 ### Stream to Microsoft Azure Event Hubs
 
 1. In **Diagnostic setting**, under Destination details, select **Stream to an Event Hub**. 
 2. From the **Event Hub namespace** drop-down menu, choose where you want to send the logs, select, and **Save**.
     
-:::image type="content" source="media/diagnostic-settings/stream-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs."::: 
+:::image type="content" source="media/diagnostic-settings/stream-event-hub.png" alt-text="Screenshot showing the drill-down path to send the logs." border="false"  lightbox="media/diagnostic-settings/stream-event-hub.png"::: 

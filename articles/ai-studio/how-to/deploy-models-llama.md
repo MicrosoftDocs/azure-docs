@@ -1,11 +1,11 @@
 ---
-title: How to deploy Meta Llama models with Azure AI Studio
+title: How to deploy Meta Llama 3.1 models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Meta Llama models with Azure AI Studio.
+description: Learn how to deploy Meta Llama 3.1 models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 5/21/2024
+ms.date: 7/21/2024
 ms.reviewer: shubhiraj
 reviewer: shubhirajMsft
 ms.author: ssalgado
@@ -13,31 +13,39 @@ author: ssalgadodev
 ms.custom: references_regions, build-2024
 ---
 
-# How to deploy Meta Llama models with Azure AI Studio
+# How to deploy Meta Llama 3.1 models with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
+In this article, you learn about the Meta Llama model family. You also learn how to use Azure AI Studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
 
   > [!IMPORTANT]
-  > Read more about the announcement of Meta Llama 3 models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/Llama3Announcement) and from [Meta Announcement Blog](https://aka.ms/meta-llama3-announcement-blog).
+  > Read more about the announcement of Meta Llama 3.1 405B Instruct and other Llama 3.1 models available now on Azure AI Model Catalog: [Microsoft Tech Community Blog](https://aka.ms/meta-llama-3.1-release-on-azure) and from [Meta Announcement Blog](https://aka.ms/meta-llama-3.1-release-announcement).
 
-Meta Llama 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 8 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF), called Meta-Llama-3-8B-Instruct and Meta-Llama-3-70B-Instruct. See the following GitHub samples to explore integrations with [LangChain](https://aka.ms/meta-llama3-langchain-sample), [LiteLLM](https://aka.ms/meta-llama3-litellm-sample), [OpenAI](https://aka.ms/meta-llama3-openai-sample) and the [Azure API](https://aka.ms/meta-llama3-azure-api-sample).
+Now available on Azure AI Models-as-a-Service:
+- `Meta-Llama-3.1-405B-Instruct`
+- `Meta-Llama-3.1-70B-Instruct`
+- `Meta-Llama-3.1-8B-Instruct`
 
-## Deploy Meta Llama models as a serverless API
+The Meta Llama 3.1 family of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes (text in/text out). All models support long context length (128k) and are optimized for inference with support for grouped query attention (GQA). The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open source chat models on common industry benchmarks.
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+See the following GitHub samples to explore integrations with [LangChain](https://aka.ms/meta-llama-3.1-405B-instruct-langchain), [LiteLLM](https://aka.ms/meta-llama-3.1-405B-instruct-litellm), [OpenAI](https://aka.ms/meta-llama-3.1-405B-instruct-openai) and the [Azure API](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests).
 
-Meta Llama 3 models are deployed as a serverless API with pay-as-you-go billing through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
+## Deploy Meta Llama 3.1 405B Instruct as a serverless API
+
+Meta Llama 3.1 models - like `Meta Llama 3.1 405B Instruct` - can be deployed as a serverless API with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription. Meta Llama 3.1 models are deployed as a serverless API with pay-as-you-go billing through Microsoft Azure Marketplace, and they might add more terms of use and pricing.
 
 ### Azure Marketplace model offerings
 
-# [Meta Llama 3](#tab/llama-three)
+# [Meta Llama 3.1](#tab/llama-three)
 
-The following models are available in Azure Marketplace for Llama 3 when deployed as a service with pay-as-you-go:
+The following models are available in Azure Marketplace for Llama 3.1 and Llama 3 when deployed as a service with pay-as-you-go:
 
-* [Meta Llama-3 8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
-* [Meta Llama-3 70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
+* [Meta-Llama-3.1-405B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-405B-instruct)
+* [Meta-Llama-3.1-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-70B-instruct)
+* [Meta Llama-3.1-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-8B-instruct)
+* [Meta-Llama-3-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
+* [Meta-Llama-3-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -59,11 +67,17 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 # [Meta Llama 3](#tab/llama-three)
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Meta Llama 3.1 and Llama 3 is only available with hubs created in these regions:
 
-    > [!IMPORTANT]
-    > For Meta Llama 3 models, the pay-as-you-go model deployment offering is only available with hubs created in **East US 2** and **Sweden Central** regions.
-
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+  
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -87,11 +101,16 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 # [Meta Llama 2](#tab/llama-two)
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Meta Llama 2 is only available with hubs created in these regions:
 
-    > [!IMPORTANT]
-    > For Meta Llama 2 models, the pay-as-you-go model deployment offering is only available with hubs created in **East US 2** and **West US 3** regions.
-
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+  
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -121,15 +140,15 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
+1. Choose `Meta-Llama-3.1-405B-Instruct` deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
     Alternatively, you can initiate deployment by starting from your project in AI Studio. Select a project and then select **Deployments** > **+ Create**.
 
-1. On the model's **Details** page, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
+1. On the **Details** page for `Meta-Llama-3.1-405B-Instruct`, select **Deploy** and then select **Serverless API with Azure AI Content Safety**.
 
 1. Select the project in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
 1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
+1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering (for example, `Meta-Llama-3.1-405B-Instruct`) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
 
     > [!NOTE]
     > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-3-70B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
@@ -146,7 +165,7 @@ To create a deployment:
 
 1. You can always find the endpoint's details, URL, and access keys by navigating to the project page and selecting **Deployments** from the left menu.
 
-To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
+To learn about billing for Meta Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-meta-llama-31-models-deployed-as-a-service).
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -183,7 +202,7 @@ To create a deployment:
 1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**, which you can use to call the deployment and generate completions.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your project and selecting **Deployments** from the left menu.
 
-To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-llama-models-deployed-as-a-service).
+To learn about billing for Llama models deployed with pay-as-you-go, see [Cost and quota considerations for Llama 3 models deployed as a service](#cost-and-quota-considerations-for-meta-llama-31-models-deployed-as-a-service).
 
 ---
 
@@ -195,7 +214,7 @@ Models deployed as a service can be consumed using either the chat or the comple
 
 1. Select your project or hub and then select **Deployments** from the left menu.
 
-1. Find and select the deployment you created.
+1. Find and select the `Meta-Llama-3.1-405B-Instruct` deployment you created.
 
 1. Select **Open in playground**.
 
@@ -204,9 +223,9 @@ Models deployed as a service can be consumed using either the chat or the comple
 1. Make an API request based on the type of model you deployed. 
 
     - For completions models, such as `Meta-Llama-3-8B`, use the [`/completions`](#completions-api) API.
-    - For chat models, such as `Meta-Llama-3-8B-Instruct`, use the [`/chat/completions`](#chat-api) API.
+    - For chat models, such as `Meta-Llama-3.1-405B-Instruct`, use the [`/chat/completions`](#chat-api) API.
 
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-31-models-deployed-as-a-service) section.
 
 # [Meta Llama 2](#tab/llama-two)
 
@@ -226,11 +245,11 @@ Models deployed as a service can be consumed using either the chat or the comple
     - For completions models, such as `Meta-Llama-2-7B`, use the [`/v1/completions`](#completions-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions`.
     - For chat models, such as `Meta-Llama-2-7B-Chat`, use the [`/v1/chat/completions`](#chat-api) API or the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions`.
 
-    For more information on using the APIs, see the [reference](#reference-for-meta-llama-models-deployed-as-a-service) section.
+    For more information on using the APIs, see the [reference](#reference-for-meta-llama-31-models-deployed-as-a-service) section.
 
 ---
 
-### Reference for Meta Llama models deployed as a service
+### Reference for Meta Llama 3.1 models deployed as a service
 
 Llama models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` or a [Llama Chat API](#chat-api) on `/v1/chat/completions`. In the same way, text completions can be generated using the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/completions` or a [Llama Completions API](#completions-api) on `/v1/completions`
 
@@ -485,9 +504,15 @@ The following is an example response:
     
 ## Deploy Meta Llama models to managed compute
 
-Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama models to managed compute in AI Studio. When deployed to managed compute, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to managed compute consume quota from your subscription. All the models in the Llama family can be deployed to managed compute.
+Apart from deploying with the pay-as-you-go managed service, you can also deploy Meta Llama 3.1 models to managed compute in AI Studio. When deployed to managed compute, you can select all the details about the infrastructure running the model, including the virtual machines to use and the number of instances to handle the load you're expecting. Models deployed to managed compute consume quota from your subscription. The following models from the 3.1 release wave are available on managed compute:
+- `Meta-Llama-3.1-8B-Instruct` (FT supported)
+- `Meta-Llama-3.1-70B-Instruct` (FT supported)
+- `Meta-Llama-3.1-8B` (FT supported)
+- `Meta-Llama-3.1-70B` (FT supported)
+- `Llama Guard 3 8B`
+- `Prompt Guard`
 
-Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time endpoint in [Azure AI Studio](https://ai.azure.com).
+Follow these steps to deploy a model such as `Meta-Llama-3.1-70B-Instruct ` to a managed compute in [Azure AI Studio](https://ai.azure.com).
 
 1. Choose the model you want to deploy from the Azure AI Studio [model catalog](https://ai.azure.com/explore/models). 
 
@@ -495,7 +520,7 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 1. On the model's **Details** page, select **Deploy** next to the **View license** button.
 
-    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the real-time endpoint option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
+    :::image type="content" source="../media/deploy-monitor/llama/deploy-real-time-endpoint.png" alt-text="A screenshot showing how to deploy a model with the managed compute option." lightbox="../media/deploy-monitor/llama/deploy-real-time-endpoint.png":::
 
 1. On the **Deploy with Azure AI Content Safety (preview)** page, select **Skip Azure AI Content Safety** so that you can continue to deploy the model using the UI.
 
@@ -524,11 +549,20 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 
 For reference about how to invoke Llama models deployed to managed compute, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
+##### More inference examples
+
+| **Package**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| CLI using CURL and Python web requests | [webrequests.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-openai)|
+| LangChain      | [langchain.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-langchain)|
+| LiteLLM SDK    | [litellm.ipynb](https://aka.ms/meta-llama-3.1-405B-instruct-litellm) |
+
 ## Cost and quotas
 
-### Cost and quota considerations for Llama models deployed as a service
+### Cost and quota considerations for Meta Llama 3.1 models deployed as a service
 
-Llama models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). 
+Meta Llama 3.1 models deployed as a service are offered by Meta through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying or [fine-tuning the models](./fine-tune-model-llama.md). 
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
@@ -536,11 +570,11 @@ For more information on how to track costs, see [monitor costs for models offere
 
 :::image type="content" source="../media/cost-management/marketplace/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offers and their associated meters."  lightbox="../media/cost-management/marketplace/costs-model-as-service-cost-details.png":::
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
+Quota is managed per deployment. Each deployment has a rate limit of 400,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
-### Cost and quota considerations for Llama models deployed as managed compute
+### Cost and quota considerations for Meta Llama 3.1 models deployed as managed compute
 
-For deployment and inferencing of Llama models with managed compute, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
+For deployment and inferencing of Meta Llama 3.1 models with managed compute, you consume virtual machine (VM) core quota that is assigned to your subscription on a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once you reach this limit, you can request a quota increase.  
 
 ## Content filtering
 
@@ -549,5 +583,6 @@ Models deployed as a serverless API with pay-as-you-go are protected by Azure AI
 ## Next steps
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Fine-tune a Meta Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)
+- [Fine-tune a Meta Llama 3.1 models in Azure AI Studio](fine-tune-model-llama.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

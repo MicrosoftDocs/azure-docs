@@ -46,11 +46,11 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 
@@ -94,11 +94,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 
 ## Assign permissions to the VM identity
 
-Now you can assign the previously created identity permissions to your key vault by running the following command:
-
-```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Log in to the VM
 

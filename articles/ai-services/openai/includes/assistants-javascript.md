@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 05/21/2024
+ms.date: 05/30/2024
 ms.custom: passwordless-js, devex-track-javascript
 ---
 
@@ -16,12 +16,9 @@ ms.custom: passwordless-js, devex-track-javascript
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://nodejs.org/" target="_blank">Node.js LTS with TypeScript or ESM support.</a>
 - [Azure CLI](/cli/azure/install-azure-cli) used for passwordless authentication in a local development environment, create the necessary context by signing in with the Azure CLI. 
-- Azure OpenAI Assistants are currently available in Sweden Central, East US 2, and Australia East. For more information about model availability in those regions, see the [models guide](../concepts/models.md).
+- An Azure OpenAI resource with a [compatible model in a supported region](../concepts/models.md#assistants-preview).
 - We recommend reviewing the [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext&tabs=text) and other [Responsible AI resources](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext) to familiarize yourself with the capabilities and limitations of the Azure OpenAI Service.
 - An Azure OpenAI resource with the `gpt-4 (1106-preview)` model deployed was used testing this example. 
 
@@ -65,7 +62,9 @@ Create and assign persistent environment variables for your key and endpoint.
 
 [!INCLUDE [environment-variables](environment-variables.md)]
 
-Add an additional environment variable for the deployment name: `AZURE_OPENAI_DEPLOYMENT_NAME`.
+Add additional environment variables for the deployment name and API version: 
+* `AZURE_OPENAI_DEPLOYMENT_NAME`: Your deployment name as shown in the Azure portal.
+* `OPENAI_API_VERSION`: Learn more about [API Versions](/azure/ai-services/openai/concepts/model-versions).
 
 Create and assign persistent environment variables for your key and endpoint.
 
@@ -73,18 +72,21 @@ Create and assign persistent environment variables for your key and endpoint.
 
 ```cmd
 setx AZURE_OPENAI_DEPLOYMENT_NAME "REPLACE_WITH_YOUR_DEPLOYMENT_NAME" 
+setx OPENAI_API_VERSION "REPLACE_WITH_YOUR_API_VERSION" 
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 [System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_DEPLOYMENT_NAME', 'REPLACE_WITH_YOUR_DEPLOYMENT_NAME', 'User')
+[System.Environment]::SetEnvironmentVariable('OPENAI_API_VERSION', 'REPLACE_WITH_YOUR_API_VERSION', 'User')
 ```
 
 # [Bash](#tab/bash)
 
 ```bash
 export AZURE_OPENAI_DEPLOYMENT_NAME="REPLACE_WITH_YOUR_DEPLOYMENT_NAME"
+export OPENAI_API_VERSION="REPLACE_WITH_YOUR_API_VERSION"
 ```
 
 ---

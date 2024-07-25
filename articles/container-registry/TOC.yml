@@ -98,12 +98,10 @@
       items:
       - name: Push and pull an image
         href: container-registry-get-started-docker-cli.md
-      - name: Push and pull an OCI artifact
-        href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
-      - name: Push and pull supply chain artifacts (preview)
-        href: container-registry-oras-artifacts.md
+      - name: Manage artifacts with ORAS
+        href: container-registry-manage-artifact.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -202,7 +200,7 @@
       expanded: false
       items:
         - name: Monitor Container Registry
-          href: monitor-service.md
+          href: monitor-container-registry.md
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md
         - name: Scan container images
@@ -333,8 +331,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Monitoring data
-    href: monitor-service-reference.md
+  - name: Monitoring data reference
+    href: monitor-container-registry-reference.md
   - name: Service Tag
     href: container-registry-service-tag.md
 - name: Troubleshoot

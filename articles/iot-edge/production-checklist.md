@@ -1,11 +1,11 @@
 ---
-title: Prepare to deploy your solution in production - Azure IoT Edge
-description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
+title: Prepare your Azure IoT Edge solution for production
+description: Ready your Azure IoT Edge solution for production. Learn how to set up your devices with certificates and make a deployment plan for future updates.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/22/2022
-ms.topic: conceptual
+ms.date: 06/13/2024
+ms.topic: concept-article
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
@@ -26,7 +26,7 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 * **Important**
   * Install production certificates
   * Have a device management plan
-  * Use Moby as the container engine
+  * Use Moby as the container engine. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 * **Helpful**
   * Choose upstream protocol
@@ -53,9 +53,9 @@ Before you put any device in production you should know how you're going to mana
 
 Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
-### Use Moby as the container engine
+### Container engine
 
-A container engine is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine.
+A container engine is a prerequisite for any IoT Edge device. The moby-engine is supported in production. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios. Other container engines, like Docker, do work with IoT Edge and it's ok to use these engines for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. 
 
 ### Choose upstream protocol
 
@@ -84,7 +84,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 ### Be consistent with upstream protocol
 
-If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, configure the same AMQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP will override the settings and prevent you from connecting again.
+If you configured the IoT Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all future deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, configure the same AMQPWS protocol for the IoT Edge agent and IoT Edge hub, or else the default AMQP overrides the settings and prevents you from connecting again.
 
 You only have to configure the UpstreamProtocol environment variable for the IoT Edge agent and IoT Edge hub modules. Any additional modules adopt whatever protocol is set in the runtime modules.
 
@@ -177,7 +177,7 @@ In some cases, for example when dependencies exist between modules, it may be de
 
 A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.5** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.5**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
 
-Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
+Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine recognizes the incremented tag as a new version and pulls the latest module version down to your device.
 
 #### Tags for the IoT Edge runtime
 
@@ -192,7 +192,7 @@ IoT Edge does not remove volumes attached to module containers. This behavior is
 
 ### Store runtime containers in your private registry
 
-You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
 The following steps illustrate how to pull a Docker image of **edgeAgent** and **edgeHub** to your local machine, retag it, push it to your private registry, then update your configuration file so your devices know to pull the image from your private registry.
 
@@ -405,7 +405,7 @@ When you're testing an IoT Edge deployment, you can usually access your devices 
 
 ### Set up default logging driver
 
-By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. Configure your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
+By default, the Moby container engine does not set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. Configure your container engine to use the [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as your logging mechanism. `Local` logging driver offers a default log size limit, performs log-rotation by default, and uses a more efficient file format, which helps to prevent disk space exhaustion. You may also choose to use different [logging drivers](https://docs.docker.com/config/containers/logging/configure/) and set different size limits based on your need.
 
 #### Option: Configure the default logging driver for all container modules
 
@@ -500,9 +500,7 @@ To authenticate using a service principal, provide the service principal ID and 
 
 * For the password or client secret, specify the service principal password.
 
-<br>
-
-To create repository-scoped tokens, please follow [create a repository-scoped token](../container-registry/container-registry-repository-scoped-permissions.md).
+To create repository-scoped tokens, follow [create a repository-scoped token](../container-registry/container-registry-repository-scoped-permissions.md).
 
 To authenticate using repository-scoped tokens, provide the token name and password that you obtained after creating your repository-scoped token. Specify these credentials in the deployment manifest.
 

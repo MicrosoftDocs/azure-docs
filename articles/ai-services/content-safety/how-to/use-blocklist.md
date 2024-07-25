@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ---
 
@@ -18,7 +18,7 @@ ms.author: pafarley
 > [!CAUTION]
 > The sample data in this guide might contain offensive content. User discretion is advised.
 
-The default AI classifiers are sufficient for most content moderation needs. However, you might need to screen for items that are specific to your use case.
+The default AI classifiers are sufficient for most content moderation needs. However, you might need to screen for items that are specific to your use case. Blocklists let you add custom terms to the AI classifiers. You can use blocklists to screen for specific terms or phrases that you want to flag in your content.
 
 ## Prerequisites
 

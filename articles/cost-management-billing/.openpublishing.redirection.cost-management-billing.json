@@ -587,8 +587,13 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-mariadb.md",
-            "redirect_url": "/azure/cost-management-billing/reservations/understand-reservation-charges-mariadb",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/reservations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-reservation-charges-mariadb.md",
+            "redirect_url": "/azure/cost-management-billing/reservations",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-mysql.md",

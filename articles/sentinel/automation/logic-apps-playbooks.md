@@ -3,7 +3,7 @@ title: Azure Logic Apps for Microsoft Sentinel playbooks
 description: Learn about Azure Logic Apps concepts and how they work with Microsoft Sentinel playbooks.
 author: batamig
 ms.author: bagol
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/18/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -28,7 +28,7 @@ Within the Microsoft Sentinel connector, use triggers, actions, and dynamic fiel
 
 |Component  |Description  |
 |---------|---------|
-|**Trigger**     |   A trigger is the connector component that starts a workflow, in this case, a playbook. A Microsoft Sentinel trigger defines the schema that the playbook expects to receive when triggered. <br><br>The Microsoft Sentinel connector supports the following types of triggers: <br><br>- [Alert trigger](/connectors/azuresentinel/#triggers): The playbook receives an alert as input.<br>  - [Entity trigger (Preview)](/connectors/azuresentinel/#triggers): The playbook receives an entity as input.<br>  - [Incident trigger](/connectors/azuresentinel/#triggers): The playbook receives an incident as input, along with all the included alerts and entities.      |
+|**Trigger**     |   A trigger is the connector component that starts a workflow, in this case, a playbook. A Microsoft Sentinel trigger defines the schema that the playbook expects to receive when triggered. <br><br>The Microsoft Sentinel connector supports the following types of triggers: <br><br>- [Alert trigger](/connectors/azuresentinel/#triggers): The playbook receives an alert as input.<br>  - [Entity trigger](/connectors/azuresentinel/#triggers): The playbook receives an entity as input.<br>  - [Incident trigger](/connectors/azuresentinel/#triggers): The playbook receives an incident as input, along with all the included alerts and entities.      |
 |**Actions**     |   Actions are all the steps that happen after the trigger. Actions can be arranged sequentially, in parallel, or in a matrix of complex conditions. |
 |**Dynamic fields**     |    Dynamic fields are temporary fields that can be used in the actions that follow your trigger. Dynamic fields are determined by the output schema of triggers and actions, and are populated by their actual output.  |
 

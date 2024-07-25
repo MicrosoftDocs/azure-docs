@@ -2,7 +2,7 @@
 title: PasswordBox UI element
 description: Describes the Microsoft.Common.PasswordBox UI element for Azure portal. Enables users to provide a secret value when deploying managed applications.
 ms.topic: reference
-ms.date: 06/27/2018
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Common.PasswordBox UI element
@@ -46,7 +46,7 @@ A control that can be used to provide and confirm a password.
 
 - This element doesn't support the `defaultValue` property.
 - For implementation details of `constraints`, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- If `options.hideConfirmation` is set to **true**, the second text box for confirming the user's password is hidden. The default value is **false**.
+- If `options.hideConfirmation` is set to `true`, the second text box for confirming the user's password is hidden. The default value is `false`.
 
 ## Next steps
 

@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the trigger.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Create a function app in Azure
 

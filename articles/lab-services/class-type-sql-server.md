@@ -12,6 +12,8 @@ ms.date: 03/03/2023
 
 # Set up a lab to manage and develop with SQL Server
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article describes how to set up a lab for a basic SQL Server management and development class in Azure Lab Services. You learn how to set up a virtual machine template in a lab with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), and [Azure Data Studio](https://github.com/microsoft/azuredatastudio). In this lab, you use an [Azure SQL database](/azure/azure-sql/database/sql-database-paas-overview) instance.
@@ -131,7 +133,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 
 1. In the **Connection Details** box, fill in necessary information.
 
-    - Set **Server** to *server-name.database.windows.net*
+    - Set **Server** to *classlabdbserver.database.windows.net*
     - Set **User** name to *azureuser*
     - Set **Password** to password used to create the database.
     - Check **Remember Password**.
@@ -157,7 +159,7 @@ Now that you have installed Azure Data Studio, you can set up the connection to 
 Now that you installed SSMS, you can [connect and query a SQL Server](/sql/ssms/tutorials/connect-query-sql-server). When setting up the connection, use the following values:
 
 - **Server type**: *Database Engine*
-- **Server name**: *server-name.database.windows.net*
+- **Server name**: *classlabdbserver.database.windows.net*
 - **Authentication**: *SQL Server Authentication*
 - **Login**: *azureuser*
 - **Password**: enter the password you used to create the database.

@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
-ms.date: 04/05/2022
+ms.date: 07/24/2024
 
 ---
 # Available Provisioning and Power States for Azure Cloud Services (extended support)
@@ -31,9 +31,9 @@ This table lists the different power states for Cloud Services (extended support
 |Started|The Role Instance is healthy and is currently running|
 |Stopping|The Role Instance is in the process of getting stopped|
 |Stopped|The Role Instance is in the Stopped State|
-|Unknown|The Role Instance is either in the process of creating or is not ready to service the traffic|
+|Unknown|The Role Instance is either in the process of creating or isn't ready to service the traffic|
 |Starting|The Role Instance is in the process of moving to healthy/running state|
-|Busy|The Role Instance is not responding|
+|Busy|The Role Instance isn't responding|
 |Destroyed|The Role instance is destroyed|
 
 

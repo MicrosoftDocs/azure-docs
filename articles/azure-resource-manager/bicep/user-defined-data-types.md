@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 05/22/2024
+ms.date: 06/14/2024
 ---
 
 # User-defined data types in Bicep
@@ -12,7 +12,7 @@ Learn how to use user-defined data types in Bicep. For system-defined data types
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
-## User-defined data type syntax
+## Syntax
 
 You can use the `type` statement to define user-defined data types. In addition, you can also use type expressions in some places to define custom types.
 
@@ -20,8 +20,7 @@ You can use the `type` statement to define user-defined data types. In addition,
 type <user-defined-data-type-name> = <type-expression>
 ```
 
-> [!NOTE]
-> The [`@allowed` decorator](./parameters.md#decorators) is only permitted on [`param` statements](./parameters.md). To declare that a property must be one of a set of predefined values in a `type` or [`output`](./outputs.md) statement, use union type syntax. Union type syntax may also be used in [`param` statements](./parameters.md).
+The [`@allowed`](./parameters.md#decorators) decorator is only permitted on [`param` statements](./parameters.md). To declare that a property with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types). 
 
 The valid type expressions include:
 
@@ -95,13 +94,16 @@ The valid type expressions include:
     }
     ```
 
-    The following sample shows how to use the union type syntax to list a set of predefined values:
+    The following sample shows how to use the [union type syntax](./data-types.md#union-types) to list a set of predefined values:
 
     ```bicep
+    type directions = 'east' | 'south' | 'west' | 'north'
+
     type obj = {
       level: 'bronze' | 'silver' | 'gold'
     }
     ```
+
     **Recursion**
 
     Object types may use direct or indirect recursion so long as at least leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
@@ -191,7 +193,7 @@ param storageAccountName string
 ])
 param storageAccountSKU string = 'Standard_LRS'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -215,7 +217,7 @@ type storageAccountConfigType = {
 
 param storageAccountConfig storageAccountConfigType
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -225,17 +227,9 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 }
 ```
 
-## Declare tagged union type
+## Tagged union data type
 
-To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The syntax is:
-
-```bicep
-@discriminator('<propertyName>')
-```
-
-The discriminator decorator takes a single parameter, which represents a shared property name among all union members. This property name must be a required string literal on all members and is case-sensitive. The values of the discriminated property on the union members must be unique in a case-insensitive manner.
-
-The following example shows how to declare a tagged union type:
+To declare a custom tagged union data type within a Bicep file, you can place a discriminator decorator above a user-defined type declaration. [Bicep CLI version 0.21.X or higher](./install.md) is required to use this decorator. The following example shows how to declare a tagged union data type:
 
 ```bicep
 type FooConfig = {
@@ -256,9 +250,9 @@ param serviceConfig ServiceConfig = { type: 'bar', value: true }
 output config object = serviceConfig
 ```
 
-The parameter value is validated based on the discriminated property value.  In the preceding example, if the *serviceConfig* parameter value is of type *foo*, it undergoes validation using the *FooConfig*type. Likewise, if the parameter value is of type *bar*, validation is performed using the *BarConfig* type, and this pattern continues for other types as well.
+For more information, see [Custom tagged union data type](./data-types.md#custom-tagged-union-data-type).
 
-## Import types between Bicep files (Preview)
+## Import types between Bicep files
 
 [Bicep CLI version 0.21.X or higher](./install.md) is required to use this compile-time import feature. The experimental flag `compileTimeImports` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features).
 

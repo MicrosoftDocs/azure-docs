@@ -19,7 +19,7 @@ Data clean rooms allow organizations to share data and collaborate on analytics 
 
 Collaboration partners can now participate in cross-cloud, cross-region data sharing - with protections against unauthorized access to data across partners, cloud providers, and even Habu. You can hear more from Habu’s Chief Product Officer, Matthew Karasick, on their [partnership with Azure here](https://build.microsoft.com/en-US/home?source=partnerdetail).
 
-You can also get started on their [Azure Marketplace solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/habuinc1663874067667.habu?tab=Overview), today.
+You can also get started on their [Azure Marketplace solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/habuinc1663874067667.habu), today.
 
 
 ## Learn more

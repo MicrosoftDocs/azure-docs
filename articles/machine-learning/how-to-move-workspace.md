@@ -3,13 +3,13 @@ title: Move workspace between subscriptions (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to move an Azure Machine Learning workspace between Azure subscriptions.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: Blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
+ms.reviewer: deeikele
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Move Azure Machine Learning workspaces between subscriptions (preview)

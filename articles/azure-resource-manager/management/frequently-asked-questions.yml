@@ -3,7 +3,7 @@ metadata:
   title: Azure Resource Manager frequently asked questions
   description: Answers to common questions about using Azure Resource Manager to manage resources.
   ms.topic: faq
-  ms.date: 02/22/2024
+  ms.date: 05/31/2024
   content_well_notification: 
     - AI-contribution
   ai-usage: ai-assisted
@@ -34,12 +34,6 @@ sections:
           To ensure state consistency for the resource group, all control plane operations are routed through the resource group's location. When selecting a 
           resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to 
           your current location.
-
-      - question: Can I move a resource group to a different subscription?
-        answer: |
-          No, you can't move a resource group to a new subscription. But, you can move all of the resources in the resource group to a resource group in another 
-          subscription. Settings such as tags, role assignments, and policies aren't automatically transferred from the original resource group to the destination resource group. 
-          You need to reapply these settings to the new resource group. For more information, see [Move resources to new resource group or subscription](./move-support-resources.md).
 
   - name: Resources
     questions:

@@ -3,8 +3,7 @@ title: Use deployment safeguards to enforce best practices in Azure Kubernetes S
 description: Learn how to use deployment safeguards to enforce best practices on an Azure Kubernetes Service (AKS) cluster.
 author: schaffererin
 ms.topic: how-to
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli
 ms.date: 04/25/2024
 ms.author: schaffererin
 ---
@@ -24,7 +23,7 @@ Deployment safeguards offer two levels of configuration:
 
 After you configure deployment safeguards for 'Warning' or 'Enforcement', Deployment safeguards programmatically assess your clusters at creation or update time for compliance. Deployment safeguards also display aggregated compliance information across your workloads at a per resource level via Azure Policy's compliance dashboard in the [Azure portal][Azure-Policy-compliance-portal] or in your CLI or terminal. Running a noncompliant workload indicates that your cluster isn't following best practices and that workloads on your cluster are at risk of experiencing issues caused by your cluster configuration.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -115,7 +114,13 @@ Enable deployment safeguards on a new cluster using the [`az aks create`][az-aks
 If you want to receive noncompliance warnings, set the `--safeguards-level` to `Warning`. If you want to deny or mutate all noncompliant deployments, set it to `Enforcement`. To receive warnings, set the `--safeguards-level` to "Warning". To deny or mutate all deployments that don't adhere to deployment safeguards, set the `--safeguards-level` to "Enforcement". To set the deployment safeguards version, use the `--safeguards-version` flag. Currently, V2.0.0 is the latest version of deployment safeguards.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-policy --safeguards-level Warning --safeguards-version v2.0.0
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --enable-addons azure-policy \
+    --safeguards-level Warning \
+    --safeguards-version v2.0.0 \
+    --generate-ssh-keys
 ```
 
 ### Enable deployment safeguards on an existing cluster
@@ -245,7 +250,7 @@ To learn more, see [workload validation in Gatekeeper](https://open-policy-agent
 [az-feature-show]: /cli/azure/feature#az-feature-show
 [aks-gh-repo]: https://github.com/Azure/AKS
 [policy-for-kubernetes]: /azure/governance/policy/concepts/policy-for-kubernetes#install-azure-policy-add-on-for-aks
-[deployment-safeguards-list]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fc047ea8e-9c78-49b2-958b-37e56d291a44/scopes/
+[deployment-safeguards-list]: https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fc047ea8e-9c78-49b2-958b-37e56d291a44/scopes/
 [Azure-Policy-built-in-definition-docs]: /azure/aks/policy-reference#policy-definitions
 [Azure-Policy-compliance-portal]: https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Compliance
 [Azure-Policy-RBAC-permissions]: /azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy

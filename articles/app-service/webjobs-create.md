@@ -17,8 +17,12 @@ adobe-target-content: ./webjobs-create-ieux
 
 # Run background tasks with WebJobs in Azure App Service
 
+=======
 > [!NOTE]
 > WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available and not in preview.
+
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
 

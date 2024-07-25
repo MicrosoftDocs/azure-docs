@@ -23,7 +23,7 @@ Azure Monitor Logs provides greater operational visibility to your Automation St
 - Correlate compliance status across Automation accounts.
 - Use custom views and search queries to visualize your runbook results, runbook job status, and other related key indicators or metrics.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 

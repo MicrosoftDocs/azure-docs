@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 
@@ -29,7 +29,7 @@ The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing
 
 If you would like your VM to be deleted when it's evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you'll not continue to be charged for the storage. 
 
-You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction.
+You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). These are delivered on a best effort basis up to 30 seconds prior to the eviction.
 
 
 | Option | Outcome |
@@ -38,7 +38,7 @@ You can opt in to receive in-VM notifications through [Azure Scheduled Events](.
 | Max price is set to < the current price. | The VM isn't deployed. You'll get an error message that the max price needs to be >= current price. |
 | Restarting a stopped/deallocated VM if the max price is >= the current price | If there's capacity and quota, then the VM is deployed. |
 | Restarting a stopped/deallocated VM if the max price is < the current price | You'll get an error message that the max price needs to be >= current price. | 
-| Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
+| Price for the VM has gone up and is now > the max price. | The VM gets evicted. Azure will attempt scheduled event delivery up to 30 seconds before actual eviction. | 
 | After eviction, the price for the VM goes back to being < the max price. | The VM won't be automatically restarted. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM won't be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You'll never be charged above the standard price.| 
 | Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
@@ -60,7 +60,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P)
+-	Sponsored (0036P and 0136P) - not available in Fairfax
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
@@ -83,11 +83,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Chart**:
 
-:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ### Azure Resource Graph
 

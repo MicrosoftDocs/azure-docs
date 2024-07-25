@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 04/23/2024
+ms.date: 06/06/2024
 ms.subservice: aks-developer
 ms.custom: devx-track-azurecli
 ---
@@ -185,15 +185,17 @@ Notice that the workflow status is marked as completed.
 
 ## Next steps
 
-[Learn how to add configuration settings to the Dapr extension on your AKS cluster][dapr-config].
+- [Configure the Dapr extension on your AKS cluster][dapr-config].
+- [Determine if you need to migrate from Dapr open source to the Dapr extension][dapr-migration].
 
 <!-- Links Internal -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [install-cli]: /cli/azure/install-azure-cli
-[k8s-ext]: ./dapr.md#set-up-the-azure-cli-extension-for-cluster-extensions
+[k8s-ext]: ./dapr.md#add-the-azure-cli-extension-for-cluster-extensions
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-resource-provider
 [dapr-config]: ./dapr-settings.md
+[dapr-migration]: ./dapr-migration.md
 [az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
 [kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl
 

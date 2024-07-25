@@ -61,11 +61,11 @@ Connect-AzAccount
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 Create a Windows or Linux virtual machine using one of the following methods:
@@ -111,18 +111,8 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
 
-# [Azure CLI](#tab/azure-cli)
-```azurecli
-az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
-```
-# [Azure PowerShell](#tab/azurepowershell)
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
-```
----
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Sign in to the virtual machine
 

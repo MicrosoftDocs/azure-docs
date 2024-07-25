@@ -1,6 +1,6 @@
 ---
 title: B family VM size series
-description: Overview of the 'B' family and sub families of virtual machine sizes
+description: List of size series in the B family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -22,13 +22,6 @@ Read more about the [B-series CPU credit model](../../b-series-cpu-credit-model/
 [!INCLUDE [b-family-workloads](./includes/b-family-workloads.md)]
 
 ## Series in family
-
-### B-series V1
-[!INCLUDE [bv1-series-summary](./includes/bv1-series-summary.md)]
-
-[View the full B-series V1 page](../../sizes-b-series-burstable.md).
-
-[!INCLUDE [bv1-series-specs](./includes/bv1-series-specs.md)]
 
 ### Bsv2-series
 [!INCLUDE [bsv2-series-summary](./includes/bsv2-series-summary.md)]
@@ -53,5 +46,8 @@ Read more about the [B-series CPU credit model](../../b-series-cpu-credit-model/
 
 [!INCLUDE [bpsv2-series-specs](./includes/bpsv2-series-specs.md)]
 
+
+### Previous-generation B family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#general-purpose-previous-gen-sizes).
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
