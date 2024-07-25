@@ -76,7 +76,7 @@ In this QuickStart guide, you set up:
         | where HostName == "4.150.168.211" or RequestUri contains "/secret/path"
       ```
 
-    This query filters `AGCAccessLogs` based on conditions related to hostname and request URI.
+      This query filters `AGCAccessLogs` based on conditions related to hostname and request URI.
 
 7. Detect associated IPs by Entity Mapping:
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
