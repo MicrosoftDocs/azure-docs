@@ -36,6 +36,7 @@ At a high level you can break down working with functions into three steps:
 * `gpt-4` (vision-preview)
 * `gpt-4` (2024-04-09)
 * `gpt-4o` (2024-05-13)
+* `gpt-4o-mini` (2024-07-18)
 
 Support for parallel function was first added in API version [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
