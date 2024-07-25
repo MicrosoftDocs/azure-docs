@@ -116,29 +116,9 @@ Based on these calculations, the cost to rename 1000 directories in the hot tier
 
 ## The cost to move between tiers
 
+This section illustrates the costs associated with using different tiers.
 
-
-Each month, you'd assume the cost of writing to the hot tier. The cost to store and then move data to the cool tier would increase over time. Something here about the early deletion penalty.
-
-Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates four months of spending. 
-
-This scenario assumes a monthly upload of 1,000 files to the hot access tier. Each file is 5 GB so the total size is 5,000 GB. It also assumes a one-time read each month of about 5% of those files. This scenario assumes that you plan to periodically move data to the cool tier by using [lifecycle management policies](lifecycle-management-overview.md) to move data to the cool tier that has not been accessed in 30 days. 
-
-This scenario uses these sample prices.
-
-| Price factor                                      | Hot         | Cool      |
-|---------------------------------------------------|-------------|-----------|
-| Price of a single write transaction               | $0.0000055  | $0.00001  |
-| Price of a single read transaction                | $0.00000044 | $0.000001 |
-| Price of data retrieval (per GB)                  | Free        | $0.01     |
-| Price of Data storage first 50 TB (pay-as-you-go) | $0.0208     | $0.0115   |
-
-#### January
-
-In the first month, this scenario assumes the following activities:
-
-- 1000 files are uploaded to the hot access tier. Each file is 5 GB in size. 
-- 5% of these files read by client workloads.
+Each month 1000 files are uploaded to the hot access tier. Each file is 5 GB in size, and each month, 5% of these files read by client workloads. In February, March, and April, [lifecycle management policies](lifecycle-management-overview.md) policies move 20% of the previous months storage to the cool tier because those files haven't been accessed after 30 days. In April, client workloads read 10% of cool storage data. That data is returned back to the hot tier because the policy is configured to "tier up" blobs that are accessed in an effort to reduce storage costs for frequently accessed files. In the month of April, client workloads once again read 10% of cool storage data, but those blobs were in cold storage for less than 30 days. Because the policy moves those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed.  
 
 The following table calculates the number of write operations required to upload the blobs.
 
@@ -149,52 +129,24 @@ The following table calculates the number of write operations required to upload
 | Wite operation to assemble blocks into a blob                    | 1           |
 | **Total write operations (1,000 * 641)**                         | **641,000** |
 
-The following table breaks down the approximate costs for January.
+Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates four months of spending.
 
-| Cost factor | Cost |
-|---|---|
-| **Cost to write to the hot tier (641,000 * price of the operation)** | **$3.53** |
-| Blobs stored in hot tier | 1000 blobs (5,000 GB total size) |
-| **Cost to store blobs in hot tier (total size * price per GB)** | **$104** |
-| Total number of files read from the hot tier (1000 * 5%) | 50 |
-| **Cost to read files from the hot tier (50 * price of the operation)** | **$0.000022** |
-| **Total invoice for January (write + read + storage)** | **$107.53** |
+| Cost factor | January | February |
+|---|---|--|
+| **Cost to write to the hot tier (641,000 * price of the operation)** | **$3.53** | **$3.53** |
+| Number of files to move to cool | 0 | 200 |
+| **Cost to write to the cool tier (number of files * price of a write operation)** | $0.00 | **$0.0011** |
+| Total storage size of blobs stored in cool tier | 0 |  1000 GB |
+| **Cost to store blobs in the cool tier (total storage size * price per GB)** | $0.00 | **$11.5** |
+| Total storage size of blobs stored in hot tier |5,000 GB | 9,000 GB |
+| **Cost to store blobs in hot tier (total storage size * price per GB)** | **$104** | **$187.2** |
+| Number of files in the hot tier |1000 | 1800 |
+| Number of files read from the hot tier (Number of files * 5%) | 50 | 90 |
+| **Cost to read files from the hot tier (Number of files read * price of a read operation)** | **$0.000022** | **$0.0000396** |
+| **Total invoice for February (write + read + storage)** | **$107.53** | **$202.23** |
 
 > [!NOTE]
 > These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
-
-#### February
-
-In the second month, this scenario assumes the same pattern of uploads, but uses a lifecycle management policy that moves 20% of the files uploaded in the previous month to cool storage after 30 days of no activity. 
-
-The following table breaks down the approximate costs for February.
-
-| Cost factor | Cost |
-|---|---|
-| **Cost to write to the hot tier (641,000 * price of the operation)** | **$3.53** |
-| Blobs stored in hot tier before policy run | 2000 (10,000 GB total size) |
-| Total number of files from previous months to move to the cool tier (20% * 1000) | 200 |
-| **Cost to write to the cool tier (200 * price of a write operation)** | **$0.0011** |
-| Blobs stored in hot tier after policy run | 1800 (9,000 GB total size) |
-| **Cost to store blobs in hot tier (9,000 * price per GB)** | **$187.2** |
-| Blobs stored in cool tier | 200 (1000 GB total size) |
-| **Cost to store blobs in the cool tier (1,000 * price per GB)** | **$11.5** |
-| Total number of files read from the hot tier (1800 * 5%) | 90 |
-| **Cost to read files from the hot tier (90 * price of the operation)** | **$0.0000396** |
-| **Total invoice for February (write + read + storage)** | **$202.23** |
-
-#### March
-
-March - ingest into hot tier. Read some percentage of hot tier. Move some percentage to cool storage tier. Read some percentage from cool tier (no penalty)
-
-#### April
-
-April - ingest into hot tier. Read some percentage of hot tier. Move some percentage to cool storage tier. Read some percentage from cool tier (no penalty), Read some percentage from cool tier with a penalty.
-
-#### Summary table
-
-Put next scenario here.
-
 
 ## Sample prices
 
