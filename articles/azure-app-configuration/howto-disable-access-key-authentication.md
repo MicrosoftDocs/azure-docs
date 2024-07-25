@@ -13,6 +13,8 @@ ms.date: 04/05/2024
 
 Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource. If you want to use access keys to authenticate the request, it's recommended to rotate access keys periodically to enhance security.
 
+See [recommendations for protecting application secrets](https://learn.microsoft.com/en-us/azure/well-architected/security/application-secrets) to learn more.
+
 ## Enable access key authentication
 
 Access key is enabled by default, you can use access keys in your code to authenticate requests.
@@ -32,7 +34,7 @@ To allow access key authentication for an Azure App Configuration resource in th
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `false` for enable local auth. 
+To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `false` to enable access key-based authentication.. 
 
 ```azurecli-interactive
 az appconfig update \
@@ -95,7 +97,7 @@ To disallow access key authentication for an Azure App Configuration resource in
 
 # [Azure CLI](#tab/azure-cli)
 
-To disable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `true` for disable local auth. 
+To disable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `true` to disable access key-based authentication. 
 
 ```azurecli-interactive
 az appconfig update \
@@ -155,7 +157,7 @@ Be careful to restrict assignment of these roles only to those users who require
 > When access key authentication is disabled and [ARM authentication mode](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) of App Configuration store is local, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires access key authentication with local ARM authentication mode. It's recommended to use pass-through ARM authentication mode. For more information, see [Deployment overview](./quickstart-deployment-overview.md).
 
 ## Access key rotation
-Microsoft recommends that you rotate your access keys periodically to help keep your resource secure. Each Azure App Configuration resource has two read-only access keys and two read-write access keys to enable secret rotation. This is a security mechanism that lets you regularly change the keys that can access your service, protecting the security of your resource if a key gets leaked.
+Microsoft recommends periodic rotation of access keys to mitigate the risk of attack vectors from leaked secrets. Each Azure App Configuration resource includes two read-only access keys and two read-write access keys, designated as primary and secondary keys, to facilitate seamless secret rotation. This setup enables you to alternate access keys in your applications without causing any downtime.
 
 You can rotate keys using the following procedure:
 
@@ -186,7 +188,7 @@ You must have only one key in your code, because when you regenerate your second
 1. Next, update your code to use the newly generated secondary key.
 It is advisable to review your application logs to confirm that all instances of your application have transitioned from using the primary key to the secondary key before proceeding to the next step.
 
-1. Finally, you can regenerate the primary key using the same process.
+1. Finally, you can invalidate the primary keys by regenerating them. Next time, you can alternate access keys between the secondary and primary keys using the same process.
 
 ## Next steps
 
