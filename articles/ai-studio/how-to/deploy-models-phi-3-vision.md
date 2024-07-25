@@ -24,7 +24,7 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ## Prerequisites
 
-To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
@@ -56,6 +56,9 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision models.
 
 ### Create a client to consume the model
 
@@ -318,7 +321,7 @@ print("usage:", response.usage)
 
 ## Prerequisites
 
-To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
@@ -348,6 +351,9 @@ npm install @azure-rest/ai-inference
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision models.
 
 ### Create a client to consume the model
 
@@ -633,7 +639,7 @@ console.log("Usage:", response.body.usage);
 
 ## Prerequisites
 
-To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
@@ -668,6 +674,9 @@ dotnet add package Azure.Identity
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision models.
 
 ### Create a client to consume the model
 
@@ -929,7 +938,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ## Prerequisites
 
-To use Phi-3 models with Azure AI studio, you need the following prerequisites:
+To use Phi-3 chat models with vision models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Phi-3 chat models with vision model
 
@@ -952,6 +961,9 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models with vision models.
 
 ### Create a client to consume the model
 

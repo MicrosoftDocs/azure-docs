@@ -22,9 +22,9 @@ The Cohere family of models includes a variety of models optimized for different
 
 ::: zone pivot="programming-language-python"
 
-## Cohere Command embedding models
+## Cohere embedding models
 
-The Cohere Command family of models for embeddings includes the following models:
+The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
@@ -46,7 +46,7 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Embed V3 models model
 
@@ -211,9 +211,9 @@ Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 ::: zone pivot="programming-language-javascript"
 
-## Cohere Command embedding models
+## Cohere embedding models
 
-The Cohere Command family of models for embeddings includes the following models:
+The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
@@ -235,7 +235,7 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Embed V3 models model
 
@@ -402,9 +402,9 @@ Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 ::: zone pivot="programming-language-rest"
 
-## Cohere Command embedding models
+## Cohere embedding models
 
-The Cohere Command family of models for embeddings includes the following models:
+The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
@@ -426,7 +426,7 @@ Cohere Embed Multilingual is the market's leading text representation model used
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Embed V3 models model
 
@@ -635,9 +635,9 @@ Cohere Embed V3 models can optimize the embeddings based on the intention of it.
 
 ## Cost and quotas
 
-### Cost and quota considerations for Cohere Command family of models deployed as serverless API endpoints
+### Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
 
-Cohere Command models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Cohere models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 

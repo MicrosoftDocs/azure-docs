@@ -23,7 +23,7 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Mistral Nemo model
 
@@ -58,6 +58,9 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo models.
 
 ### Create a client to consume the model
 
@@ -440,7 +443,7 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Mistral Nemo model
 
@@ -473,6 +476,9 @@ npm install @azure-rest/ai-inference
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo models.
 
 ### Create a client to consume the model
 
@@ -875,7 +881,7 @@ catch (error) {
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Mistral Nemo model
 
@@ -913,6 +919,9 @@ dotnet add package Azure.Identity
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo models.
 
 ### Create a client to consume the model
 
@@ -1312,7 +1321,7 @@ catch (RequestFailedException ex)
 
 ## Prerequisites
 
-To use Mistral models with Azure AI studio, you need the following prerequisites:
+To use Mistral Nemo models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Mistral Nemo model
 
@@ -1338,6 +1347,9 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral Nemo models.
 
 ### Create a client to consume the model
 

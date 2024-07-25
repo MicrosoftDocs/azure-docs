@@ -62,7 +62,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere Command chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Command chat models model
 
@@ -97,6 +97,9 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
 
 ### Create a client to consume the model
 
@@ -491,7 +494,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere Command chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Command chat models model
 
@@ -524,6 +527,9 @@ npm install @azure-rest/ai-inference
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
 
 ### Create a client to consume the model
 
@@ -933,7 +939,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere Command chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Command chat models model
 
@@ -971,6 +977,9 @@ dotnet add package Azure.Identity
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
 
 ### Create a client to consume the model
 
@@ -1380,7 +1389,7 @@ The following models are available:
 
 ## Prerequisites
 
-To use Cohere Command models with Azure AI studio, you need the following prerequisites:
+To use Cohere Command chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Cohere Command chat models model
 
@@ -1406,6 +1415,9 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
 
 ### Create a client to consume the model
 
@@ -1922,7 +1934,7 @@ The following example shows how to handle events when the model detects harmful 
 
 ## More inference examples
 
-For more examples of how to use Cohere Command, see the following examples and tutorials:
+For more examples of how to use Cohere, see the following examples and tutorials:
 
 | Description                               | Language          | Sample                                                          |
 |-------------------------------------------|-------------------|-----------------------------------------------------------------|
@@ -1947,11 +1959,11 @@ For more examples of how to use Cohere Command, see the following examples and t
 
 ## Cost and quotas
 
-### Cost and quota considerations for Cohere Command family of models deployed as serverless API endpoints
+### Cost and quota considerations for Cohere family of models deployed as serverless API endpoints
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
-Cohere Command models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Cohere models deployed as a serverless API are offered by Cohere through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 

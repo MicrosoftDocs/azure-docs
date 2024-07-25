@@ -27,7 +27,7 @@ The Jamba Instruct model is AI21's production-grade Mamba-based large language m
 
 ## Prerequisites
 
-To use Jamba models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Jamba-Instruct chat models model
 
@@ -59,6 +59,9 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Jamba-Instruct chat models models.
 
 ### Create a client to consume the model
 
@@ -267,7 +270,7 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Jamba models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Jamba-Instruct chat models model
 
@@ -297,6 +300,9 @@ npm install @azure-rest/ai-inference
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Jamba-Instruct chat models models.
 
 ### Create a client to consume the model
 
@@ -527,7 +533,7 @@ catch (error) {
 
 ## Prerequisites
 
-To use Jamba models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Jamba-Instruct chat models model
 
@@ -562,6 +568,9 @@ dotnet add package Azure.Identity
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Jamba-Instruct chat models models.
 
 ### Create a client to consume the model
 
@@ -785,7 +794,7 @@ catch (RequestFailedException ex)
 
 ## Prerequisites
 
-To use Jamba models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
 
 ### A deployed Jamba-Instruct chat models model
 
@@ -808,6 +817,9 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
+
+> [!TIP]
+> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Jamba-Instruct chat models models.
 
 ### Create a client to consume the model
 
