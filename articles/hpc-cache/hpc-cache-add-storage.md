@@ -109,7 +109,7 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
     | Assign access to | "HPC Cache Resource Provider" or "StorageCache Resource Provider" |
 
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
    <!-- > [!NOTE]
    > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal. -->

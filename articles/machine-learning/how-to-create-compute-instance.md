@@ -433,7 +433,8 @@ To further enhance security, when you create a compute instance on behalf of a d
 :::image type="content" source="media/how-to-create-compute-instance/pobo-creation.png" alt-text="Screenshot shows SSO is disabled during creation of compute instance.":::
 
 The assigned to user needs to enable SSO on compute instance themselves after the compute is assigned to them by updating the SSO setting on the compute instance.
-Assigned to user needs to have the following permission/action in their role *MachineLearningServices/workspaces/computes/enableSso/action*.
+Assigned to user needs to have the following permission/action in their role *MachineLearningServices/workspaces/computes/enableSso/action*. 
+Assigned to user does not need compute write (create) permission to enable SSO.
 
 Here are the steps assigned to user needs to take. Please note creator of compute instance is not allowed to enable SSO on that compute instance due to security reasons.
 

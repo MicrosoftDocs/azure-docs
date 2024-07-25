@@ -134,6 +134,8 @@ The following table describes a couple of alert rules for HDInsight. These alert
 | Metric| Pending CPU | Whenever the maximum pending CPU is greater or less than dynamic threshold|
 | Activity log| Delete cluster | Whenever the Activity Log has an event with Category='Administrative', Signal name='Delete Cluster (HDInsight Cluster)'|
 
+For an example that shows how to create an alert, see [Azure Monitor alerts](cluster-availability-monitor-logs.md#azure-monitor-alerts).
+
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content

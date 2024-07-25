@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/02/2023
+ms.date: 07/25/2024
 ms.author: anfdocs
 ---
 
@@ -61,7 +61,6 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * Italy North
 * Japan East
 * Japan West
-
 * Korea Central
 * Korea South
 * North Central US
@@ -80,6 +79,9 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * UAE North
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2
@@ -357,9 +359,9 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
-## <a name="transition"></a> Transition an Azure NetApp Files volume to customer-managed keys (preview)
+## <a name="migrate"></a> Migrate an Azure NetApp Files volume to customer-managed keys (preview)
 
-Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the transition, you cannot revert back to platform-managed keys.
+Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the migration, you can't revert to platform-managed keys.
 
 ### Register the feature
 
@@ -384,7 +386,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Transition volumes
 
 >[!NOTE]
->When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. 
+>When you migrate volumes to use customer-managed keys, you must perform the migration for every virtual network where your Azure NetApp Files account has volumes. 
 
 1. Ensure you [configured your Azure NetApp Files account to use customer-managed keys](#configure-a-netapp-account-to-use-customer-managed-keys).
 1. In the Azure portal, navigate to **Encryption**. 

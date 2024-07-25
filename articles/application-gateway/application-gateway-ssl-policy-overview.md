@@ -4,7 +4,7 @@ description: Learn how to configure TLS policy for Azure Application Gateway and
 services: application gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/06/2023
 ms.author: greglin
 ---

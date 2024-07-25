@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Set up labs for Project Lead The Way classes
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 [Project Lead The Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK&ndash;12 curriculum across the United States in computer science, engineering, and biomedical science. In each PLTW class, students use various software applications as part of their hands-on learning experience. Many of the software applications require either a fast CPU or, in some cases, a GPU. This article shows you how to set up labs for the following PLTW classes. The classes are typically offered to students in grades 9&ndash;12:
