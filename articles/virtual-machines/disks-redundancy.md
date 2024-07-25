@@ -30,7 +30,7 @@ If your workflow doesn't support application-level synchronous writes across zon
 
 Zone-redundant storage (ZRS) synchronously replicates your Azure managed disk across three Azure availability zones in the region you select. Each availability zone is a separate physical location with independent power, cooling, and networking. ZRS disks provide at least 99.9999999999% (12 9's) of durability over a given year.
 
-A ZRS disk lets you recover from failures in availability zones. If a zone went down and your virtual machine (VM) wasn't affected, then your workloads continue running. But if your VM was affected by an outage and you want to recover before it's resolved, you can [force detach](https://learn.microsoft.com/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true) (in preview) the ZRS data disks from the impacted VM and attach them to another VM.
+A ZRS disk lets you recover from failures in availability zones. If a zone went down and your virtual machine (VM) wasn't affected, then your workloads continue running. But if your VM was affected by an outage and you want to recover before it's resolved, you can [force detach](/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true) (in preview) the ZRS data disks from the impacted VM and attach them to another VM.
 ZRS disks can also be shared between VMs for improved availability with clustered or distributed applications like SQL FCI, SAP ASCS/SCS, or GFS2. A shared ZRS disk can be attached to primary and secondary VMs in different zones to take advantage of both ZRS and [availability zones](../availability-zones/az-overview.md). If your primary zone fails, you can quickly fail over to the secondary VM using [SCSI persistent reservation](disks-shared-enable.md#supported-scsi-pr-commands).
 
 For more information on ZRS disks, see [Zone Redundant Storage (ZRS) option for Azure Disks for high availability](https://youtu.be/RSHmhmdHXcY).
@@ -57,4 +57,4 @@ Except for more write latency, disks using ZRS are identical to disks using LRS,
 
 - To learn how to create a ZRS disk, see [Deploy a ZRS managed disk](disks-deploy-zrs.md).
 - To convert an LRS disk to ZRS, see [Convert a disk from LRS to ZRS](disks-migrate-lrs-zrs.md).
-- More about [force detach](https://learn.microsoft.com/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true)
+- More about [force detach](/rest/api/compute/virtual-machines/attach-detach-data-disks?view=rest-compute-2024-03-01&tabs=HTTP#diskdetachoptiontypes&preserve-view=true)

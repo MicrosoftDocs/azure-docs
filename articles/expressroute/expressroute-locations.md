@@ -327,7 +327,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | Provider | Exchange |
 | --- | --- |
 | **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport<br/>PacketFabric |
-| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport<br/>PacketFabric |
+| **[Cyxtera](https://centersquaredc.com/products)** | Megaport<br/>PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
