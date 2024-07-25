@@ -68,17 +68,17 @@ The following code example shows a scenario for copying a source blob within Azu
 
 The following example shows sample usage:
 
-:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url":::
+:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url_usage":::
 
 ## Copy a blob from a source outside of Azure
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following code example shows a scenario for copying a blob from an accessible source object URL.
 
-:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url":::
+:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_external_source":::
 
 The following example shows sample usage:
 
-:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_source_url_external_usage":::
+:::code language="go" source="~/blob-devguide-go/cmd/copy-put-from-url/copy_put_from_url.go" id="snippet_copy_from_external_source_usage":::
 
 ## Resources
 

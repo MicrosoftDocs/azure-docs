@@ -20,12 +20,15 @@ This article shows how to copy a blob with asynchronous scheduling using the [Az
 
 The methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client module for Go. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Go](storage-blob-go-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation, or to abort a pending copy. To learn more, see the authorization guidance for the following REST API operation:
-    - [Copy Blob](/rest/api/storageservices/copy-blob#authorization)
-    - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-go](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-go.md)]
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to perform a copy operation, or to abort a pending copy. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Copy Blob](/rest/api/storageservices/copy-blob#authorization) or [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization).
 
 ## About copying blobs with asynchronous scheduling
 
@@ -51,7 +54,7 @@ This section gives an overview of methods provided by the Azure Storage client m
 
 The following methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and begin an asynchronous copy of data from the source blob:
 
-- [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#BlobClient.StartCopyFromURL)
+- [StartCopyFromURL](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.StartCopyFromURL)
 
 ## Copy a blob from a source within Azure
 
@@ -79,6 +82,14 @@ You can perform a copy operation on any source object that can be retrieved via 
 The following example shows sample usage:
 
 :::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_copy_from_external_source_async_usage":::
+
+## Check the status of a copy operation
+
+To check the status of an asynchronous `Copy Blob` operation, you can poll the [GetProperties](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.GetProperties) method and check the copy status.
+
+The following code example shows how to check the status of a copy operation:
+
+:::code language="go" source="~/blob-devguide-go/cmd/copy-blob-async/copy_blob_async.go" id="snippet_check_copy_status":::
 
 ## Abort a copy operation
 
