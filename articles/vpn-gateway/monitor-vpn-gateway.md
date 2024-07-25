@@ -28,10 +28,6 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md).
-
-To analyze logs, go to your virtual network gateway. In the **Essentials** section of the page, select **Logs** > **View in Azure Monitor**.
-
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
 For a list of available metrics for VPN Gateway, see [Azure VPN Gateway monitoring data reference](monitor-vpn-gateway-reference.md#metrics).

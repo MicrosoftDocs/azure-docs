@@ -37,31 +37,31 @@ The following table lists the metrics available for the microsoft.network/vpngat
 
 The following table provides more details about the metrics in the preceding tables.
 
-| Metric | Granularity | Description |
-|:-------|:------------|:------------|
-| **BGP Peer Status**                        | 5 minutes | Average BGP connectivity status per peer and per instance. |
-| **BGP Routes Advertised**                  | 5 minutes | Number of routes advertised per peer and per instance. |
-| **BGP Routes Learned**                     | 5 minutes | Number of routes learned per peer and per instance. |
-| **Gateway Inbound Flows**                  | 5 minutes | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.       |
-| **Gateway Outbound Flows**                 | 5 minutes | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.     |
-| **Gateway P2S Bandwidth**                  | 1 minute  | Average combined bandwidth utilization of all point-to-site connections on the gateway. |
-| **Gateway S2S Bandwidth**                  | 5 minutes | Average combined bandwidth utilization of all site-to-site connections on the gateway.  |
-| **P2S Connection Count**                   | 1 minute  | Count of point-to-site connections on the gateway. |
-| **Tunnel Bandwidth**                       | 5 minutes | Average bandwidth utilization of tunnels created on the gateway. |
-| **Tunnel Egress Bytes**                    | 5 minutes | Number of outgoing bytes from a tunnel. |
-| **Tunnel Egress Packet Drop Count**        | 5 minutes | Number of outgoing packets dropped by a tunnel. |
-| **Tunnel Egress Packets**                  | 5 minutes | Number of outgoing packets from a tunnel. |
-| **Tunnel Egress TS Mismatch Packet Drop**  | 5 minutes | Number of outgoing packets dropped by tunnels caused by traffic-selector mismatch. |
-| **Tunnel Ingress Bytes**                   | 5 minutes | Number of incoming bytes to a tunnel. |
-| **Tunnel Ingress Packet Drop Count**       | 5 minutes | Number of incoming packets dropped by a tunnel. |
-| **Tunnel Ingress Packets**                 | 5 minutes | Number of incoming packets to a tunnel. |
-| **Tunnel Ingress TS Mismatch Packet Drop** | 5 minutes | Number of incoming packets dropped by tunnels caused by traffic-selector mismatch. |
-| **Tunnel MMSA Count**                      | 5 minutes | Number of main mode security associations present. |
-| **Tunnel Peak PPS**                        | 5 minutes | Max number of packets per second per tunnel. |
-| **Tunnel QMSA Count**                      | 5 minutes | Number of quick mode security associations present. |
-| **Tunnel Total Flow Count**                | 5 minutes | Number of distinct 3-tuple flows (protocol, local IP address, remote IP address) created per tunnel. |
-| **User Vpn Route Count**                   | 5 minutes | Number of user VPN routes configured on the VPN Gateway. |
-| **VNet Address Prefix Count**              | 5 minutes | Number of virtual network address prefixes that the gateway uses and advertises.     |
+| Metric | Description |
+|:-------|:------------|
+| **BGP Peer Status**                        | Average BGP connectivity status per peer and per instance. |
+| **BGP Routes Advertised**                  | Number of routes advertised per peer and per instance. |
+| **BGP Routes Learned**                     | Number of routes learned per peer and per instance. |
+| **Gateway Inbound Flows**                  | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing into a VPN Gateway. Limit is 250k flows.       |
+| **Gateway Outbound Flows**                 | Number of distinct 5-tuple flows (protocol, local IP address, remote IP address, local port, and remote port) flowing out of a VPN Gateway. Limit is 250k flows.     |
+| **Gateway P2S Bandwidth**                  | Average combined bandwidth utilization of all point-to-site connections on the gateway. |
+| **Gateway S2S Bandwidth**                  | Average combined bandwidth utilization of all site-to-site connections on the gateway.  |
+| **P2S Connection Count**                   | Count of point-to-site connections on the gateway. |
+| **Tunnel Bandwidth**                       | Average bandwidth utilization of tunnels created on the gateway. |
+| **Tunnel Egress Bytes**                    | Number of outgoing bytes from a tunnel. |
+| **Tunnel Egress Packet Drop Count**        | Number of outgoing packets dropped by a tunnel. |
+| **Tunnel Egress Packets**                  | Number of outgoing packets from a tunnel. |
+| **Tunnel Egress TS Mismatch Packet Drop**  | Number of outgoing packets dropped by tunnels caused by traffic-selector mismatch. |
+| **Tunnel Ingress Bytes**                   | Number of incoming bytes to a tunnel. |
+| **Tunnel Ingress Packet Drop Count**       | Number of incoming packets dropped by a tunnel. |
+| **Tunnel Ingress Packets**                 | Number of incoming packets to a tunnel. |
+| **Tunnel Ingress TS Mismatch Packet Drop** | Number of incoming packets dropped by tunnels caused by traffic-selector mismatch. |
+| **Tunnel MMSA Count**                      | Number of main mode security associations present. |
+| **Tunnel Peak PPS**                        | Max number of packets per second per tunnel. |
+| **Tunnel QMSA Count**                      | Number of quick mode security associations present. |
+| **Tunnel Total Flow Count**                | Number of distinct 3-tuple flows (protocol, local IP address, remote IP address) created per tunnel. |
+| **User Vpn Route Count**                   | Number of user VPN routes configured on the VPN Gateway. |
+| **VNet Address Prefix Count**              | Number of virtual network address prefixes that the gateway uses and advertises.     |
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
