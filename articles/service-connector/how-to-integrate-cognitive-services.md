@@ -6,6 +6,7 @@ ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 06/14/2024
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Integrate a multi-service resource for Azure AI services with Service Connector
