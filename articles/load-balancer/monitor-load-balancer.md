@@ -13,6 +13,8 @@ ms.service: load-balancer
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
+Load Balancer provides other monitoring data through:
+
 - [Health Probes](./load-balancer-custom-probe-overview.md)
 - [Resource health status](./load-balancer-standard-diagnostics.md#resource-health-status)
 - [REST API](load-balancer-query-metrics-rest-api.md)
@@ -236,7 +238,7 @@ az monitor diagnostic-settings create \
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-## Analyzing Load Balancer Traffic with NSG Flow Logs
+## Analyzing Load Balancer Traffic with NSG flow logs
 
 [NSG flow logs](../network-watcher/nsg-flow-logs-overview.md) is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. Flow data is sent to Azure Storage from where you can access it and export it to a visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
