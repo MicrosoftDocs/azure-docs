@@ -709,7 +709,7 @@ items:
           - name: SNMP traps
             displayName: data collection rule,Azure Monitor agent
             href: agents/data-collection-snmp-data.md
-          - name: Collect Windows Firewall logs
+          - name: Windows Firewall logs
             displayName: data collection rule,Azure Monitor Agent,firewall logs
             href: agents/data-sources-firewall-logs.md
           - name: Configure a syslog forwarder
