@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Multi-service Cognitive Services with Service Connector
-description: In this document, learn how to integrate Azure Multi-service Cognitive Services into your application with Service Connector
+title: Integrate a multi-service resource for Azure AI services with Service Connector
+description: In this document, learn how to integrate a multi-service resource for Azure AI services into your application with Service Connector
 author: wchigit
 ms.author: wchi
 ms.service: service-connector
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 06/14/2024
 ---
 
-# Integrate Azure Multi-service Cognitive Services with Service Connector
+# Integrate a multi-service resource for Azure AI services with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Multi-service Cognitive Services to other cloud services using Service Connector. You might still be able to connect to Azure Multi-service Cognitive Services using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
+This page shows supported authentication methods and clients, and shows sample code you can use to connect a multi-service resource for Azure AI services to other cloud services using Service Connector. You might still be able to connect to a multi-service resource for Azure AI services using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to Azure Multi-service Cognitive Services:
+Service Connector can be used to connect the following compute services to a multi-service resource for Azure AI services:
 
 - Azure App Service
 - Azure Functions
@@ -23,7 +23,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Multi-service Cognitive Services using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to a multi-service resource for Azure AI services using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
@@ -34,11 +34,11 @@ The table below shows which combinations of authentication methods and clients a
 | Python      |                Yes               |               Yes              |            Yes           |        Yes        |
 | None        |                Yes               |               Yes              |            Yes           |        Yes        |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Multi-service Cognitive Services using Service Connector.
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to a multi-service resource for Azure AI services using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure Multi-service Cognitive Services. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to a multi-service resource for Azure AI services. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -47,8 +47,8 @@ Use the connection details below to connect compute services to Azure Multi-serv
 | AZURE_COGNITIVESERVICES_ENDPOINT | Azure Cognitive Services token provider service |  `https://<cognitive-service-name>.cognitiveservices.azure.com/` |
 
 #### Sample code
-Refer to the steps and code below to connect to Azure Multi-service Cognitive Services using a system-assigned managed identity.
-[!INCLUDE [code sample for app config](./includes/code-cognitive-me-id.md)]
+Refer to the steps and code below to connect to a multi-service resource for Azure AI services using a system-assigned managed identity.
+[!INCLUDE [code sample for a multi-service resource for Azure AI services](./includes/code-cognitive-me-id.md)]
 
 ### User-assigned managed identity
 
@@ -58,20 +58,20 @@ Refer to the steps and code below to connect to Azure Multi-service Cognitive Se
 | AZURE_COGNITIVESERVICES_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
 #### Sample code
-Refer to the steps and code below to connect to Azure Multi-service Cognitive Services using a user-assigned managed identity.
-[!INCLUDE [code sample for Azure Multi-service Cognitive Services](./includes/code-cognitive-me-id.md)]
+Refer to the steps and code below to connect to a multi-service resource for Azure AI services using a user-assigned managed identity.
+[!INCLUDE [code sample for a multi-service resource for Azure AI services](./includes/code-cognitive-me-id.md)]
 
 ### Connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_COGNITIVESERVICES_ENDPOINT | Azure Cognitive Services token provider service |  `https://<cognitive-service-name>.cognitiveservices.azure.com/` |
-> | AZURE_COGNITIVESERVICES_KEY | Azure Multi-service Cognitive Services API key | `<api-key>` |
+> | AZURE_COGNITIVESERVICES_ENDPOINT | endpoint of a multi-service resource for Azure AI services |  `https://<cognitive-service-name>.cognitiveservices.azure.com/` |
+> | AZURE_COGNITIVESERVICES_KEY | API key of a multi-service resource for Azure AI services | `<api-key>` |
 
 #### Sample Code 
-Refer to the steps and code below to connect to Azure Multi-service Cognitive Services using a connection string.
-[!INCLUDE [code sample for Azure Multi-service Cognitive Services](./includes/code-cognitive-secret.md)]
+Refer to the steps and code below to connect to a multi-service resource for Azure AI services using a connection string.
+[!INCLUDE [code sample for a multi-service resource for Azure AI services](./includes/code-cognitive-secret.md)]
 
 
 ### Service principal
@@ -84,8 +84,8 @@ Refer to the steps and code below to connect to Azure Multi-service Cognitive Se
 | AZURE_COGNITIVESERVICES_TENANTID     | Your tenant ID             | `<tenant-ID>`                                |
 
 #### Sample code
-Refer to the steps and code below to connect to Azure Multi-service Cognitive Services using a service principaL.
-[!INCLUDE [code sample for Azure Multi-service Cognitive Services](./includes/code-cognitive-me-id.md)]
+Refer to the steps and code below to connect to a multi-service resource for Azure AI services using a service principaL.
+[!INCLUDE [code sample for a multi-service resource for Azure AI services](./includes/code-cognitive-me-id.md)]
 
 ## Next steps
 

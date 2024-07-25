@@ -21,7 +21,7 @@ ms.author: wchi
     
     string endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_BASE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -62,7 +62,7 @@ ms.author: wchi
 1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -99,7 +99,7 @@ ms.author: wchi
     import OpenAI
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential, get_bearer_token_provider
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -138,7 +138,7 @@ ms.author: wchi
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

@@ -6,7 +6,7 @@ ms.date: 10/20/2023
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that Azure AI Services support. We use the language service as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that Azure AI Services support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
 
 ### [.NET](#tab/dotnet)
 
@@ -15,7 +15,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     dotnet add package Azure.AI.TextAnalytics
     dotnet add package Azure.Identity
     ```
-1. Authenticate using Azure Identity library and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using the Azure Identity library and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```csharp
     using Azure.AI.TextAnalytics;
@@ -23,7 +23,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     
     string endpoint = Environment.GetEnvironmentVariable("AZURE_AISERVICES_COGNITIVESERVICES_ENDPOINT");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -63,7 +63,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
 1. Authenticate using `azure-identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -100,7 +100,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     from azure.ai.textanalytics import TextAnalyticsClient
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -133,7 +133,7 @@ You can use the Azure client library to access various cognitive APIs that Azure
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { TextAnalyticsClient } = require("@azure/ai-text-analytics");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

@@ -15,7 +15,7 @@ using Azure.Identity;
 using Azure.Core;
 using Npgsql;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned identity.
 // var sqlServerTokenProvider = new DefaultAzureCredential();
 
@@ -108,7 +108,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
      
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # cred = DefaultAzureCredential()
 
@@ -142,7 +142,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # credential = DefaultAzureCredential()
 
@@ -205,7 +205,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	_ "github.com/lib/pq"
     )    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -255,7 +255,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 
@@ -325,7 +325,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     require 'net/http'
     require 'json'
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  

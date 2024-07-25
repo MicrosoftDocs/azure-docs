@@ -6,7 +6,7 @@ ms.date: 06/19/2024
 ms.author: wchi
 ---
 
-You can use the Azure client library to access various cognitive APIs that Azure AI Services support. We use the language service as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
+You can use the Azure client library to access various cognitive APIs that Azure AI Services support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Azure AI services](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
 
 ### [.NET](#tab/dotnet)
 
