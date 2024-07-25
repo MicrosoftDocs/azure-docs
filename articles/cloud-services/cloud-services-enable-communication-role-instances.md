@@ -3,7 +3,7 @@ title: Communication for Roles in Cloud Services (classic) | Microsoft Docs
 description: Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -14,10 +14,10 @@ ms.custom: compute-evergreen, devx-track-dotnet
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
+Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This article describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
 ## Input endpoint
-The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) attribute.
+The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint, which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) attribute.
 
 The input endpoint can use the following protocols: **http, https, tcp, udp**.
 
@@ -30,7 +30,7 @@ To create an input endpoint, add the **InputEndpoint** child element to the **En
 ```
 
 ## Instance input endpoint
-Instance input endpoints are similar to input endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on the load balancer. You can specify a single public-facing port, or a range of ports.
+Instance input endpoints are similar to input endpoints but allow you to map specific public-facing ports for each individual role instance by using port forwarding on the load balancer. You can specify a single public-facing port, or a range of ports.
 
 The instance input endpoint can only use **tcp** or **udp** as the protocol.
 
@@ -47,7 +47,7 @@ To create an instance input endpoint, add the **InstanceInputEndpoint** child el
 ```
 
 ## Internal endpoint
-Internal endpoints are available for instance-to-instance communication. The port is optional and if omitted, a dynamic port is assigned to the endpoint. A port range can be used. There is a limit of five internal endpoints per role.
+Internal endpoints are available for instance-to-instance communication. The port is optional and if omitted, a dynamic port is assigned to the endpoint. A port range can be used. There's a limit of five internal endpoints per role.
 
 The internal endpoint can use the following protocols: **http, tcp, udp, any**.
 
@@ -71,7 +71,7 @@ You can also use a port range.
 
 
 ## Worker roles vs. Web roles
-There is one minor difference with endpoints when working with both worker and web roles. The web role must have at minimum a single input endpoint using the **HTTP** protocol.
+There's one minor difference with endpoints when working with both worker and web roles. The web role must have at minimum a single input endpoint using the **HTTP** protocol.
 
 ```xml
 <Endpoints>
@@ -81,7 +81,7 @@ There is one minor difference with endpoints when working with both worker and w
 ```
 
 ## Using the .NET SDK to access an endpoint
-The Azure Managed Library provides methods for role instances to communicate at runtime. From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints, as well as information about the current role instance.
+The Azure Managed Library provides methods for role instances to communicate at runtime. From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints. You can also obtain information about the current role instance.
 
 > [!NOTE]
 > You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint. You cannot obtain data about role instances running in a different service.
@@ -90,22 +90,22 @@ The Azure Managed Library provides methods for role instances to communicate at 
 
 You can use the [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) property to retrieve instances of a role. First use the [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) to return a reference to the current role instance, and then use the [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) property to return a reference to the role itself.
 
-When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:
+When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you connect to a specific role environment, you can get the port of a specific endpoint with this code:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role does not define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.
+The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role doesn't define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection is always one in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection corresponds to the number of instances specified for the role in the service configuration file.
 
 > [!NOTE]
 > The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
 > 
 > 
 
-To determine the port number for an internal endpoint on a role instance, you can use the [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The `PublicIPEndpoint` property returns the port for a load balanced endpoint. The IP address portion of the `PublicIPEndpoint` property is not used.
+To determine the port number for an internal endpoint on a role instance, you can use the [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) property returns the IP address and port for a specified endpoint. The `PublicIPEndpoint` property returns the port for a load balanced endpoint. The IP address portion of the `PublicIPEndpoint` property isn't used.
 
-Here is an example that iterates role instances.
+Here's an example that iterates role instances.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -118,7 +118,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Here is an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.
+Here's an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.
 
 > [!WARNING]
 > This code will only work for a deployed service. When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.
@@ -360,7 +360,7 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** t
 </ServiceDefinition>
 ```
 
-An XML schema reference for the elements used above can be found [here](/previous-versions/azure/reference/gg557551(v=azure.100)).
+An XML schema reference for the elements used can be found [here](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## Next steps
 Read more about the Cloud Service [model](cloud-services-model-and-package.md).

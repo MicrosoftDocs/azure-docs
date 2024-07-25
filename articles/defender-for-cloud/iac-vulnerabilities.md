@@ -19,8 +19,6 @@ This article shows you how to apply a template YAML configuration file to scan y
   - If you manage your source code in Azure DevOps, set up the [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
 - Ensure that you have an IaC template in your repository.
 
-<a name="configure-iac-scanning-and-view-the-results-in-github"></a>
-
 ## Set up and run a GitHub action to scan your connected IaC source code
 
 To set up an action and view scan results in GitHub:
@@ -164,11 +162,7 @@ To set up an action and view scan results in GitHub:
 
    1. Select the workflow to see the action status.
 
-1. To view the results of the scan, go to **Security** > **Code scanning alerts**.
-
-   You can filter by tool to see only the IaC findings.
-
-<a name="configure-iac-scanning-and-view-the-results-in-azure-devops"></a>
+1. To view the results of the scan, go to **Defender for Cloud** > **DevOps security** (No GHAS pre-requisite) or **Security** > **Code scanning alerts** natively in GitHub (Requires GHAS license).
 
 ## Set up and run an Azure DevOps extension to scan your connected IaC source code
 
@@ -207,16 +201,18 @@ To set up an extension and view scan results in Azure DevOps:
 
 ## View details and remediation information for applied IaC rules
 
-The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer) ([PSRule](https://aka.ms/ps-rule-azure) is included in Template Analyzer) and [Terrascan](https://github.com/tenable/terrascan).
+The IaC scanning tools that are included with Microsoft Security DevOps are [Template Analyzer](https://github.com/Azure/template-analyzer) ([PSRule](https://aka.ms/ps-rule-azure) is included in Template Analyzer), [Checkov](https://www.checkov.io/) and [Terrascan](https://github.com/tenable/terrascan).
 
 Template Analyzer runs rules on Azure Resource Manager templates (ARM templates) and Bicep templates. For more information, see the [Template Analyzer rules and remediation details](https://github.com/Azure/template-analyzer/blob/main/docs/built-in-rules.md#built-in-rules).
 
 Terrascan runs rules on ARM templates and templates for CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform. For more information, see the [Terrascan rules](https://runterrascan.io/docs/policies/).
 
+Chekov runs rules on ARM templates and templates for CloudFormation, Docker, Helm, Kubernetes, Kustomize, and Terraform. For more information, see the [Checkov rules](https://www.checkov.io/5.Policy%20Index/all.html).
+
 To learn more about the IaC scanning tools that are included with Microsoft Security DevOps, see:
 
 - [Template Analyzer](https://github.com/Azure/template-analyzer)
-- [PSRule](https://aka.ms/ps-rule-azure)
+- [Checkov](https://www.checkov.io/)
 - [Terrascan](https://runterrascan.io/)
 
 ## Related content
