@@ -329,17 +329,19 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 1. Find the `TriggerAuthentication` object referenced by the KEDA `ScaledObject` specification.
 
-1. From the KEDA specification, find each `secretTargetRef` of the `TriggerAuthentication` object and its associated secret.
+1. In the `TriggerAuthentication` object, find each `secretTargetRef` and its associated secret.
 
     :::code language="yml" source="~/azure-docs-snippets-pr/container-apps/keda-azure-service-bus-auth.yml" highlight="8,16,17,18":::
 
-1. In the ARM template, add all entries to the `auth` array of the scale rule.
+1. In the ARM template, for each secret:
 
-    1. Add a [secret](./manage-secrets.md) to the container app's `secrets` array containing the secret value.
+    1. Add a [secret](./manage-secrets.md) to the container app's `secrets` array containing the secret name and value.
 
-    1. Set the value of the `triggerParameter` property to the value of the `TriggerAuthentication`'s `key` property.
+    1. Add an entry to the `auth` array of the scale rule.
 
-    1. Set the value of the `secretRef` property to the name of the Container Apps secret.
+        1. Set the value of the `triggerParameter` property to the value of the `secretTargetRef`'s `parameter` property.
+
+        1. Set the value of the `secretRef` property to the name of the `secretTargetRef`'s `key` property.
 
     :::code language="json" source="~/azure-docs-snippets-pr/container-apps/container-apps-azure-service-bus-rule-1.json" highlight="10,11,12,13,32,33,34,35":::
 

@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/05/2024
+ms.date: 07/08/2024
 ---
 
 # Azure HDInsight release notes
@@ -19,6 +19,17 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
+
+### Release date: Jul 05, 2024
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider)
+
+### Fixed issues 
+
+* HOBO tags overwrite user tags. 
+
+   * HOBO tags overwrite user tags on sub-resources in HDInsight cluster creation. 
 
 ### Release date: Jun 19, 2024
 

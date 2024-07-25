@@ -111,7 +111,7 @@
       href: core/howto-create-iot-central-application.md
     - name: Build and connect devices
       items:
-        - name: Set up a device template
+        - name: Create a device template
           href: core/howto-set-up-template.md
         - name: Edit a device template
           href: core/howto-edit-device-template.md
