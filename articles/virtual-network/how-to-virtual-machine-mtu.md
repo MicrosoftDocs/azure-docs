@@ -26,9 +26,9 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 | Operating System | Network Interface | Largest MTU for inter virtual network traffic |
 |------------------|-------------------|-----------------------------------------------|
-| Windows Server | Mellanox Cx3, Cx4, Cx5 | 3900 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `4088`. The value used when setting the MTU with `netsh` is 3900.** |
-| Windows Server | (Preview) Microsoft Azure Network Adapter MANA | 9000 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `9014`. The value used when setting the MTU with `netsh` is 9000.** | 
-| Linux | Mellanox Cx3, Cx4, Cx5 | 3900 |
+| Windows Server | Mellanox Cx-3, Cx-4, Cx-5 | 3900 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `4088`.**. **To persist reboots, the value returned by `Test-Connection` must also be set with `Set-NetIPInterface`.** |
+| Windows Server | (Preview) Microsoft Azure Network Adapter MANA | 9000 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `9014`.** **To persist reboots, the value returned by `Test-Connection` must also be set with `Set-NetIPInterface`.** | 
+| Linux | Mellanox Cx-3, Cx-4, Cx-5 | 3900 |
 | Linux | (Preview) Microsoft Azure Network Adapter | 9000 | 
 
 ## Prerequisites
@@ -64,7 +64,7 @@ The following resources are used as examples in this article. Replace these valu
 
 ## Precautions
 
-- Virtual machines in Azure can support a larger MTU than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of inter-virtual network VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet might not be supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
+- Virtual machines in Azure can support a larger MTU than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of intra-virtual network VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet might not be supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
 
 - Optimal MTU is operating system, network, and application specific. The maximal supported MTU might not be optimal for your use case.
 
@@ -88,7 +88,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Sign-in to **vm-1**
 
-1. Use the `ip` command to show the current network interfaces and their MTU settings, Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4**.
+1. Use the `ip` command to show the current network interfaces and their MTU settings, Record the IP address for the subsequent steps. In this example, the IP address is **10.0.0.4** and the ethernet interface is **eth0**.
 
     ```bash
     ip address show
@@ -115,7 +115,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
            valid_lft forever preferred_lft forever
     ```
 
-1. Set the MTU value on **vm-1** to the highest value supported by the network interface. 
+1. Set the MTU value on **vm-1** to the highest value supported by the network interface. In this example, the name of the network interface is **eth0**. Replace this value with your value.
 
     * For the Mellanox adapter, use the following example to set the MTU value to **3900**:
 
@@ -428,20 +428,20 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     vm-1             10.0.0.5                        1 Success             3892
     ```
 
-1. Verify the MTU size on the network interface using `PING`. For Windows, use -f and -l. The -f option instructs ping to NOT fragment and -l sets the packet size. To determine the packet size, subtract 28 from the MTU setting of 3900.
+1. Verify the MTU size on the network interface using `PING`. For Windows, use -f and -l. The -f option instructs ping to NOT fragment and -l sets the packet size. Use the value returned by the `Test-Connection` command for the MtuSize property. In this example, it's **3892**.
 
     ```powershell
-    ping 10.0.0.5 -f -l 3872
+    ping 10.0.0.5 -f -l 3892
     ```
     
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3872
+    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3892
 
-    Pinging 10.0.0.5 with 3872 bytes of data:
-    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
-    Reply from 10.0.0.5: bytes=3872 time<1ms TTL=128
-    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
-    Reply from 10.0.0.5: bytes=3872 time=1ms TTL=128
+    Pinging 10.0.0.5 with 3892 bytes of data:
+    Reply from 10.0.0.5: bytes=3892 time=1ms TTL=128
+    Reply from 10.0.0.5: bytes=3892 time<1ms TTL=128
+    Reply from 10.0.0.5: bytes=3892 time=1ms TTL=128
+    Reply from 10.0.0.5: bytes=3892 time=1ms TTL=128
 
     Ping statistics for 10.0.0.5:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
@@ -452,9 +452,9 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3872
+    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3892
 
-    Pinging 10.0.0.5 with 3872 bytes of data:
+    Pinging 10.0.0.5 with 3892 bytes of data:
     Packet needs to be fragmented but DF set.
     Packet needs to be fragmented but DF set.
     Packet needs to be fragmented but DF set.
@@ -464,33 +464,27 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-1. Use `netsh` to determine the subinterface name for the subsequent commands.
+1. Use `Get-NetIPInterface` to determine the current MTU value. The interface alias used in the following example is **Ethernet 2**. Replace this value with your value.
 
     ```powershell
-    netsh interface ipv4 show subinterface
+    Get-NetIPInterface -InterfaceAlias "Ethernet 2"
     ```
 
     ```output
-    C:\Users\azureuser>netsh interface ipv4 show subinterface
-
-           MTU  MediaSenseState      Bytes In     Bytes Out  Interface
-    ----------  ---------------  ------------  ------------  -------------
-    4294967295                1             0             0  Loopback Pseudo-Interface 1
-          4074                1        696088        890076  Ethernet 2
     ```
 
-1. Use `netsh` to set the MTU value for **vm-1** to persist reboots. 
+1. Use `Set-NetIPInterface` to set the MTU value for **vm-1** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command.
 
     * Mellanox interface:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet 2" mtu=3900 store=persistent
+    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 3892
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet 2" mtu=9000 store=persistent
+    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 9000
     ```
 
 1. Sign-in to **vm-2**.
@@ -552,33 +546,27 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-1. Use `netsh` to determine the subinterface name for the subsequent commands.
+1. Use `Get-NetIPInterface` to determine the current MTU value. The interface alias used in the following example is **Ethernet 2**. Replace this value with your value.
 
     ```powershell
-    netsh interface ipv4 show subinterface
+    Get-NetIPInterface -InterfaceAlias "Ethernet 2"
     ```
 
     ```output
-    C:\Users\azureuser>netsh interface ipv4 show subinterface
-
-           MTU  MediaSenseState      Bytes In     Bytes Out  Interface
-    ----------  ---------------  ------------  ------------  -------------
-    4294967295                1             0             0  Loopback Pseudo-Interface 1
-          4074                1        696088        890076  Ethernet 2
     ```
 
-1. Use the following steps on **vm-2** to set the MTU value for **vm-2** to persist reboots.
+1. Use `Set-NetIPInterface` to set the MTU value for **vm-2** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command.
 
-     * Mellanox interface:
+    * Mellanox interface:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet 2" mtu=3900 store=persistent
+    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 3892
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet 2" mtu=9000 store=persistent
+    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 9000
     ```
 
 ---
@@ -656,7 +644,7 @@ To revert the changes made in this article, use the following steps:
 1. Use the following steps on **vm-1** to set the MTU value for **vm-1** to persist reboots.
 
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet 2" mtu=1500 store=persistent
+    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 1500
     ```
 
 1. Sign-in to **vm-2** to repeat the previous steps to set the MTU value to the default value of **1500**.
