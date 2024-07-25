@@ -27,9 +27,9 @@ The Jamba Instruct model is AI21's production-grade Mamba-based large language m
 
 ## Prerequisites
 
-To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models model
+### A deployed Jamba-Instruct chat models
 
 **Deployment to serverless APIs**
 
@@ -251,13 +251,12 @@ try:
 
 except HttpResponseError as ex:
     if ex.status_code == 400:
-        response = json.loads(ex.response._content.decode('utf-8'))
+        response = ex.response.json()
         if isinstance(response, dict) and "error" in response:
             print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
         else:
-            raise ex
-    else:
-        raise ex
+            raise
+    raise
 ```
 
 > [!TIP]
@@ -270,9 +269,9 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models model
+### A deployed Jamba-Instruct chat models
 
 **Deployment to serverless APIs**
 
@@ -533,9 +532,9 @@ catch (error) {
 
 ## Prerequisites
 
-To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models model
+### A deployed Jamba-Instruct chat models
 
 **Deployment to serverless APIs**
 
@@ -794,9 +793,9 @@ catch (RequestFailedException ex)
 
 ## Prerequisites
 
-To use Jamba-Instruct chat models models with Azure AI studio, you need the following prerequisites:
+To use Jamba-Instruct chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jamba-Instruct chat models model
+### A deployed Jamba-Instruct chat models
 
 **Deployment to serverless APIs**
 

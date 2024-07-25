@@ -77,9 +77,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B chat models model
+### A deployed Mistral-7B and Mixtral-8x7B chat models
 
 **Deployment to a self-hosted managed compute**
 
@@ -370,9 +370,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B chat models model
+### A deployed Mistral-7B and Mixtral-8x7B chat models
 
 **Deployment to a self-hosted managed compute**
 
@@ -678,9 +678,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B chat models model
+### A deployed Mistral-7B and Mixtral-8x7B chat models
 
 **Deployment to a self-hosted managed compute**
 
@@ -980,9 +980,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Mistral-7B and Mixtral-8x7B chat models models with Azure AI studio, you need the following prerequisites:
+To use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral-7B and Mixtral-8x7B chat models model
+### A deployed Mistral-7B and Mixtral-8x7B chat models
 
 **Deployment to a self-hosted managed compute**
 

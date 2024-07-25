@@ -73,9 +73,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models model
+### A deployed Meta Llama chat models
 
 **Deployment to serverless APIs**
 
@@ -336,13 +336,12 @@ try:
 
 except HttpResponseError as ex:
     if ex.status_code == 400:
-        response = json.loads(ex.response._content.decode('utf-8'))
+        response = ex.response.json()
         if isinstance(response, dict) and "error" in response:
             print(f"Your request triggered an {response['error']['code']} error:\n\t {response['error']['message']}")
         else:
-            raise ex
-    else:
-        raise ex
+            raise
+    raise
 ```
 
 > [!TIP]
@@ -407,9 +406,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models model
+### A deployed Meta Llama chat models
 
 **Deployment to serverless APIs**
 
@@ -761,9 +760,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models model
+### A deployed Meta Llama chat models
 
 **Deployment to serverless APIs**
 
@@ -1109,9 +1108,9 @@ The following models are available:
 
 ## Prerequisites
 
-To use Meta Llama chat models models with Azure AI studio, you need the following prerequisites:
+To use Meta Llama chat models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Meta Llama chat models model
+### A deployed Meta Llama chat models
 
 **Deployment to serverless APIs**
 
