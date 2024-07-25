@@ -1,6 +1,6 @@
 ---
-title: Create free services with Azure free account
-description: Learn how to create services included with Azure free account. You can create these services in any region where they're available.
+title: Avoid unused subscriptions
+description: Learn how to avoid having an unused subscription that gets automatically deleted.
 author: bandersmsft
 ms.reviewer: mijeffer
 ms.service: cost-management-billing
