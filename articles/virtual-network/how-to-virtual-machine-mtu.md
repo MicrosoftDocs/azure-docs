@@ -464,27 +464,52 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-1. Use `Get-NetIPInterface` to determine the current MTU value. The interface alias used in the following example is **Ethernet 2**. Replace this value with your value.
+1. Use `Get-NetIPInterface` to determine the interface alias and the current MTU value. 
 
     ```powershell
-    Get-NetIPInterface -InterfaceAlias "Ethernet 2"
+    Get-NetIPInterface
     ```
 
     ```output
+    PS C:\Users\azureuser> Get-NetIPInterface
+
+    ifIndex InterfaceAlias                  AddressFamily NlMtu(Bytes) InterfaceMetric Dhcp     ConnectionState PolicyStore
+    ------- --------------                  ------------- ------------ --------------- ----     --------------- -----------
+    6       Ethernet                        IPv6                  4074              10 Enabled  Connected       ActiveStore
+    1       Loopback Pseudo-Interface 1     IPv6            4294967295              75 Disabled Connected       ActiveStore
+    6       Ethernet                        IPv4                  4074              10 Enabled  Connected       ActiveStore
+    1       Loopback Pseudo-Interface 1     IPv4            4294967295              75 Enabled  Connected       ActiveStore
     ```
 
-1. Use `Set-NetIPInterface` to set the MTU value for **vm-1** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command.
+    In the example, the interface alias is **Ethernet** and the MTU value is **4074**.
+
+1. Use `Set-NetIPInterface` to set the MTU value for **vm-1** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command. The interface alias is **Ethernet** in this example. Replace this value with your value.
 
     * Mellanox interface:
     
     ```powershell
-    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 3892
+    Set-NetIPInterface -InterfaceAlias "Ethernet" -NIMtuBytes 3892
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 9000
+    Set-NetIPInterface -InterfaceAlias "Ethernet" -NIMtuBytes 9000
+    ```
+
+1. Use `Get-NetIPInterface` to verify the MTU was set with `Set-NetIPInterface`.
+
+    ```powershell
+    Get-NetIPInterface -InterfaceAlias "Ethernet"
+    ```
+
+    ```output
+    PS C:\Users\azureuser> Get-NetIPInterface -InterfaceAlias "Ethernet"
+
+    ifIndex InterfaceAlias                  AddressFamily NlMtu(Bytes) InterfaceMetric Dhcp     ConnectionState PolicyStore
+    ------- --------------                  ------------- ------------ --------------- ----     --------------- -----------
+    6       Ethernet                        IPv6                  3892              10 Enabled  Connected       ActiveStore
+    6       Ethernet                        IPv4                  3892              10 Enabled  Connected       ActiveStore
     ```
 
 1. Sign-in to **vm-2**.
@@ -546,29 +571,53 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
         Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-1. Use `Get-NetIPInterface` to determine the current MTU value. The interface alias used in the following example is **Ethernet 2**. Replace this value with your value.
+1. Use `Get-NetIPInterface` to determine the interface alias and the current MTU value. 
 
     ```powershell
-    Get-NetIPInterface -InterfaceAlias "Ethernet 2"
+    Get-NetIPInterface
     ```
 
     ```output
+    PS C:\Users\azureuser> Get-NetIPInterface
+
+    ifIndex InterfaceAlias                  AddressFamily NlMtu(Bytes) InterfaceMetric Dhcp     ConnectionState PolicyStore
+    ------- --------------                  ------------- ------------ --------------- ----     --------------- -----------
+    6       Ethernet                        IPv6                  4074              10 Enabled  Connected       ActiveStore
+    1       Loopback Pseudo-Interface 1     IPv6            4294967295              75 Disabled Connected       ActiveStore
+    6       Ethernet                        IPv4                  4074              10 Enabled  Connected       ActiveStore
+    1       Loopback Pseudo-Interface 1     IPv4            4294967295              75 Enabled  Connected       ActiveStore
     ```
 
-1. Use `Set-NetIPInterface` to set the MTU value for **vm-2** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command.
+    In the example, the interface alias is **Ethernet** and the MTU value is **4074**.
+
+1. Use `Set-NetIPInterface` to set the MTU value for **vm-2** to persist reboots. For the MTU value, **3892** is used in this example. Replace this value with your value returned by the `Test-Connection` command. The interface alias is **Ethernet** in this example. Replace this value with your value.
 
     * Mellanox interface:
     
     ```powershell
-    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 3892
+    Set-NetIPInterface -InterfaceAlias "Ethernet" -NIMtuBytes 3892
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    Set-NetIPInterface -InterfaceAlias "Ethernet 2" -NIMtuBytes 9000
+    Set-NetIPInterface -InterfaceAlias "Ethernet" -NIMtuBytes 9000
     ```
 
+1. Use `Get-NetIPInterface` to verify the MTU was set with `Set-NetIPInterface`.
+
+    ```powershell
+    Get-NetIPInterface -InterfaceAlias "Ethernet"
+    ```
+
+    ```output
+    PS C:\Users\azureuser> Get-NetIPInterface -InterfaceAlias "Ethernet"
+
+    ifIndex InterfaceAlias                  AddressFamily NlMtu(Bytes) InterfaceMetric Dhcp     ConnectionState PolicyStore
+    ------- --------------                  ------------- ------------ --------------- ----     --------------- -----------
+    6       Ethernet                        IPv6                  3892              10 Enabled  Connected       ActiveStore
+    6       Ethernet                        IPv4                  3892              10 Enabled  Connected       ActiveStore
+    ```
 ---
 
 ## Revert changes
