@@ -17,7 +17,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 Azure Virtual Machines supports enabling Azure Trusted launch on existing [Azure Generation 2](generation-2.md) virtual machines (VMs) by upgrading to the [Trusted launch](trusted-launch.md) security type.
 
-[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md) VMs and protects against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, virtual Trusted Platform Module (vTPM), and boot integrity monitoring on your VM.
+[Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2 VMs](generation-2.md) and protects against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, virtual Trusted Platform Module (vTPM), and boot integrity monitoring on your VM.
 
 > [!IMPORTANT]
 > Support for *enabling Trusted launch on existing Azure Generation 1 VMs* is currently in private preview. You can gain access to preview by using the [registration form](https://aka.ms/Gen1ToTLUpgrade).
