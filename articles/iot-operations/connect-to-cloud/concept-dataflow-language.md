@@ -539,7 +539,7 @@ In this example, the conversion results in an array containing the values of `[M
 
 ## Available operations
 
-Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rules of precedence (for example, `*` is performed before `+`), which can be modified using parentheses.
+Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rule of precedence (for example, `*` is performed before `+`), which can be modified using parentheses.
 
 For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
 
