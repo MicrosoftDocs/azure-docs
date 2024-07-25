@@ -50,7 +50,13 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Custom table
-Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. For example, you can use the following PowerShell script to create a custom table with multiple columns.  
+Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table. 
+
+>
+> Warning: You shouldn’t use an existing custom table used by MMA agents. Your MMA agents won't be able to write to the table once the first AMA agent writes to the table. You should create a new table for AMA to use to prevent MMA data loss.
+>
+
+For example, you can use the following PowerShell script to create a custom table with multiple columns.  
 
 ```powershell
 $tableParams = @'
