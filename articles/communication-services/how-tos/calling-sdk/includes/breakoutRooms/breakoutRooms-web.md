@@ -7,7 +7,7 @@ ms.author: insravan
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-BreakoutRooms is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
+`BreakoutRooms` is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
 import { Features} from "@azure/communication-calling";
