@@ -21,7 +21,7 @@ All logs are stored in JavaScript Object Notation (JSON) format in the following
 - **AzureActivity**: Displays logs from operations and actions that are conducted against your namespace in the Azure portal or through Azure Resource Manager template deployments.
 - **AzureDiagnostics**: Displays logs from operations and actions that are conducted against your namespace by using the API, or through management clients on the language SDK.
 
-For a list of elements that are included in diagnotic log strings, see [Azure Monitor Logs tables](monitor-notification-hubs-reference.md#azure-monitor-logs-tables).
+For a list of elements that are included in diagnostic log strings, see [Azure Monitor Logs tables](monitor-notification-hubs-reference.md#azure-monitor-logs-tables).
 
 Here's an example of an operational log JSON string:
 
