@@ -956,7 +956,7 @@ items:
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
         - name: Best practices for scaling Azure Monitor workspaces  
-          href: essentials/azure-monitor-workspace-scaling.md
+          href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
