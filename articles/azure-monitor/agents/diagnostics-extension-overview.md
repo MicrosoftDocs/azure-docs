@@ -112,62 +112,49 @@ The following tables list the operating systems that are supported by WAD and LA
 
 ### Windows
 
-| Operating system                                                                            | Support |
-|:--------------------------------------------------------------------------------------------|:-------:|
-| Windows Server 2022                                                                         | ❌      |
-| Windows Server 2022 Core                                                                    | ❌      |
-| Windows Server 2019                                                                         | ✅      |
-| Windows Server 2019 Core                                                                    | ❌      |
-| Windows Server 2016                                                                         | ✅      |
-| Windows Server 2016 Core                                                                    | ✅      |
-| Windows Server 2012 R2                                                                      | ✅      |
-| Windows Server 2012                                                                         | ✅      |
-| Windows Server 2008 R2 SP1                                                                  | ✅      |
-| Windows Server 2008 R2                                                                      | ✅      |
-| Windows Server 2008 SP2                                                                     | ❌      |
-| Windows 11 Client & Pro                                                                     | ❌      |
-| Windows 11 Enterprise (including multi-session)                                             | ❌      |
-| Windows 10 1803 (RS4) and higher                                                            | ❌      |
-| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>) | ✅      |
-
-<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads.
+| Operating system                                                                             | Support |
+|:---------------------------------------------------------------------------------------------|:-------:|
+| Windows Server 2022                                                                          | ❌      |
+| Windows Server 2022 Core                                                                     | ❌      |
+| Windows Server 2019                                                                          | ✅      |
+| Windows Server 2019 Core                                                                     | ❌      |
+| Windows Server 2016                                                                          | ✅      |
+| Windows Server 2016 Core                                                                     | ✅      |
+| Windows Server 2012 R2                                                                       | ✅      |
+| Windows Server 2012                                                                          | ✅      |
+| Windows 11 Client & Pro                                                                      | ❌      |
+| Windows 11 Enterprise (including multi-session)                                              | ❌      |
+| Windows 10 1803 (RS4) and higher                                                             | ❌      |
+| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only)              | ✅      |
 
 ### Linux
 
-| Operating system                                      | Support |
-|:------------------------------------------------------|:-------:|
-| CentOS Linux 8                                        | ❌      |
-| CentOS Linux 7                                        | ✅      |
-| CentOS Linux 6                                        | ❌      |
-| CentOS Linux 6.5+                                     | ✅      |
-| Debian 11 <sup>1</sup>                                | ❌      |
-| Debian 10 <sup>1</sup>                                | ❌      |
-| Debian 9                                              | ✅      |
-| Debian 8                                              | ❌      |
-| Debian 7                                              | ✅      |
-| OpenSUSE 13.1+                                        | ✅      |
-| Oracle Linux 8                                        | ❌      |
-| Oracle Linux 7                                        | ✅      |
-| Oracle Linux 6                                        | ❌      |
-| Oracle Linux 6.4+                                     | ✅      |
-| Red Hat Enterprise Linux Server 8.5, 8.6              | ❌      |
-| Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4 | ❌      |
-| Red Hat Enterprise Linux Server 7                     | ✅      |
-| Red Hat Enterprise Linux Server 6                     | ❌      |
-| Red Hat Enterprise Linux Server 6.7+                  | ✅      |
-| SUSE Linux Enterprise Server 15.2                     | ❌      |
-| SUSE Linux Enterprise Server 15.1                     | ❌      |
-| SUSE Linux Enterprise Server 15 SP1                   | ❌      |
-| SUSE Linux Enterprise Server 15                       | ❌      |
-| SUSE Linux Enterprise Server 12 SP5                   | ✅      |
-| SUSE Linux Enterprise Server 12                       | ✅      |
-| Ubuntu 22.04 LTS                                      | ❌      |
-| Ubuntu 20.04 LTS                                      | ✅      |
-| Ubuntu 18.04 LTS                                      | ✅      |
-| Ubuntu 16.04 LTS                                      | ✅      |
-| Ubuntu 14.04 LTS                                      | ✅      |
+| Operating system                                       | Support |
+|:-------------------------------------------------------|:-------:|
+| CentOS Linux 8                                         | ❌      |
+| CentOS Linux 7                                         | ✅      |
+| Debian 11                                              | ❌      |
+| Debian 10                                              | ❌      |
+| Debian 9                                               | ✅      |
+| Debian 8                                               | ❌      |
+| Oracle Linux 9                                         | ❌      |
+| Oracle Linux 8                                         | ❌      |
+| Oracle Linux 7                                         | ✅      |
+| Oracle Linux 6.4+                                      | ✅      |
+| Red Hat Enterprise Linux Server 9+                     | ❌      |
+| Red Hat Enterprise Linux Server 8.6+\*                 | ✅      |
+| Red Hat Enterprise Linux Server 8.0 - 8.5\*            | ✅      |
+| Red Hat Enterprise Linux Server 7                      | ✅      |
+| Red Hat Enterprise Linux Server 6.7+                   | ❌      |
+| SUSE Linux Enterprise Server 15                        | ❌      |
+| SUSE Linux Enterprise Server 12                        | ✅      |
+| Ubuntu 22.04 LTS                                       | ❌      |
+| Ubuntu 20.04 LTS                                       | ✅      |
+| Ubuntu 18.04 LTS                                       | ✅      |
+| Ubuntu 16.04 LTS                                       | ✅      |
+| Ubuntu 14.04 LTS                                       | ✅      |
 
-<sup>1</sup> Requires Python (2 or 3) to be installed on the machine.
+\* Requires Python 2 to be installed on the machine and aliased to the python command.
 
 ## Other documentation
 
