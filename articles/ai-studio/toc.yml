@@ -127,6 +127,8 @@ items:
       displayName: maas
     - name: Deploy Phi-3 models
       href: how-to/deploy-models-phi-3.md
+    - name: Fine-tune Phi-3 models
+      href: how-to/fine-tune-phi-3.md
     - name: Deploy TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
