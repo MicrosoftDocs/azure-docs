@@ -1,8 +1,9 @@
 ---
 title: Azure Service Bus messaging - advanced features
-description: This article provides a high-level overview of advanced features in Azure Service Bus. 
-ms.topic: overview
+description: This article provides a high-level overview of advanced features in Azure Service Bus such as sessions, scheduled delivery, autodelete on ide, etc.
+ms.topic: concept-article
 ms.date: 07/25/2024
+#customer intent: as a developer of messaging applications, I want to know what features are supported by Azure Service Bus to make informed decisions. 
 ---
 
 # Azure Service Bus - advanced features
@@ -55,5 +56,5 @@ Service Bus supports standard [Advanced Message Queuing Protocol (AMQP) 1.0](ser
 
 For protection against unwanted traffic, Service Bus provides [security features](network-security.md) such as IP firewall and integration with virtual networks. 
 
-## Next steps
+## Related content
 See [Service Bus messaging samples](service-bus-samples.md) that show how to use these Service Bus features.
