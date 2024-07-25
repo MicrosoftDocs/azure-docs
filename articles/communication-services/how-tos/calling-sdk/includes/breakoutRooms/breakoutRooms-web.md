@@ -31,7 +31,7 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 
 **breakoutRoomsUpdated** event internally supports 4 event types.
 
-1. BreakoutRoomsEvent : This event is triggered when the Breakout room Manager / Organizer / Co-Organizer creates / updates the breakout rooms. When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer / Breakout room manager of the meeting. Details of breakout rooms are available to the Microsoft 365 User with Organizer / Co-Organizer / Breakout room Manager role. Breakoutrooms details can be used to display the created breakout rooms in the UI for the above roles.
+1. BreakoutRoomsEvent : This event is triggered when the [Breakout room Manager](https://support.microsoft.com/en-us/office/use-breakout-rooms-in-microsoft-teams-meetings-7de1f48a-da07-466c-a5ab-4ebace28e461#bkmk_appointpresenters) / Organizer / Co-Organizer creates / updates the breakout rooms. When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer / Breakout room manager of the meeting. Details of breakout rooms are available to the Microsoft 365 User with Organizer / Co-Organizer / Breakout room Manager role. Breakoutrooms details can be used to display the created breakout rooms in the UI for the above roles.
   ```js
   export interface BreakoutRoomsEvent {
     /**
