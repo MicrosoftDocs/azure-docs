@@ -12,9 +12,13 @@ ms.reviewer: nikeist
 [Data collection rules (DCRs)](data-collection-rule-overview.md) are used to specify the data that you want to collect from your Azure resources and the configuration for how that data is collected. This article describes how to view the DCRs in your subscription and the resources that they are associated with. It also provides details on managing [data collection rule associations (DCRAs)](data-collection-rule-overview.md#data-collection-rule-associations-dcra).
 
 > [!NOTE]
-> This article describes how to view DCRs and their associations and to create new associations. It's more complex to create the DCR itself, so that process is described in [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
+> This article describes how to manage DCRs and their associations with resources using the Azure portal. Details for creating the DCR itself are described in [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md). 
+> 
+> For alternate methods of working with DCRs and associations, see the following:
+> - Azure CLI - [az monitor data-collection rule](/cli/azure/monitor/data-collection/rule)
+> - PowerShell - [Az.Monitor](/powershell/module/az.monitor)
 
-## View data collection rules and associations
+## View DCRs and add associations
 
 To view your DCRs in the Azure portal, select **Data Collection Rules** under **Settings** on the **Monitor** menu.
 
@@ -25,17 +29,17 @@ Select a DCR to view its details, including the resources it's associated with. 
 > [!NOTE]
 > Although this view shows all DCRs in the specified subscriptions, selecting the **Create** button will create a data collection for Azure Monitor Agent. Similarly, this page will only allow you to modify DCRs for Azure Monitor Agent. For guidance on how to create and update DCRs for other workflows, see [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
 
-Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add a new resource. You can view and add resources using this feature whether or not you created the DCR in the Azure portal. 
+Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add an association to a new resource. You can view and add resources using this feature whether or not you created the DCR in the Azure portal. 
 
 :::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
 
 
 ## Preview DCR experience
-A preview of the new Azure portal experience for DCRs is now available. Select the option on the displayed banner to enable this experience.
+A preview of the new Azure portal experience for DCRs is now available. The preview experience ties together DCRs and the resources they're associated with. You can either view the list by **Data collection rule**, which shows the number of resources associated with each DCR, or by **Resources**, which shows the count of DCRs associated with each resource.
+
+Select the option on the displayed banner to enable this experience.
 
 :::image type="content" source="media/data-collection-rule-view/preview-experience.png" alt-text="Screenshot of title bar to enable the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/preview-experience.png":::
-
-The preview experience ties together DCRs and the resources they're associated with. You can either view the list by **Data collection rule**, which shows the number of resources associated with each DCR, or by **Resources**, which shows the count of DCRs associated with each resource.
 
 
 ### Data collection rule view
@@ -55,12 +59,24 @@ The **Data collection rules** column represents the number of DCRs that are asso
 > [!IMPORTANT]
 > Not all DCRs are associated with resources. For example, DCRs used with the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) are specified in the API call and do not use associations. These DCRs still appear in the view, but will have a **Resource Count** of 0.
 
+Using the **Resources** view, you can create new associations to one or more DCRs for a particular resource. Select the resource and then click **Associate to existing data collection rules**.
+
+:::image type="content" source="media/data-collection-rule-view/resources-view-associate.png" alt-text="Screenshot of the create association button in the resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-associate.png":::
+
+This opens a list of DCRs that can be associated with the current resource. This list only includes DCRs that are valid for the particular resource. For example, if the resource is a VM with the Azure Monitor agent (AMA) installed, only DCRs that process AMA data are listed. 
+
+:::image type="content" source="media/data-collection-rule-view/resources-view-create-associations.png" alt-text="Screenshot of the create associations view in the resources view in the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-create-associations.png":::
+
+Click **Review & Associate** to create the association.
+
 
 ## Azure Policy
-Using [Azure Policy](../../governance/policy/overview.md), you can associate a DCR with a multiple resources using a single assignment. When you create an assignment between a resource group and a built-in policy or initiative, associations are created between the DCR and each resource in the resource group, including any new resources as they're created. Rather than creating the assignment using Azure Policy directly, Azure Monitor provides a simplified user experience to create an assignment for a policy or initiative for a particular DCR.
+Using [Azure Policy](../../governance/policy/overview.md), you can associate a DCR with a multiple resources at scale. When you create an assignment between a resource group and a built-in policy or initiative, associations are created between the DCR and each resource of the assigned type in the resource group, including any new resources as they're created. Azure Monitor provides a simplified user experience to create an assignment for a policy or initiative for a particular DCR, which is an alternate method to creating the assignment using Azure Policy directly.
 
 > [!NOTE]
-> In Azure Policy, a **policy** is a single rule or condition that resources in Azure must comply with. For example, there is a built-in policy called **Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint**.  An **initiative** is a collection of policies that are grouped together to achieve a specific goal or purpose. For example, there is an initiative called **Configure Windows machines to run Azure Monitor Agent and associate them to a Data Collection Rule** that includes that policy in addition to other policies to install and configure the Azure Monitor agent.
+> A **policy** in Azure Policy is a single rule or condition that resources in Azure must comply with. For example, there is a built-in policy called **Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint**.
+> 
+> An **initiative** is a collection of policies that are grouped together to achieve a specific goal or purpose. For example, there is an initiative called **Configure Windows machines to run Azure Monitor Agent and associate them to a Data Collection Rule** that includes multiple policies to install and configure the Azure Monitor agent.
 
 From the DCR in the Azure portal, select **Policies (Preview)**. This will open a page that lists any assignments with the current DCR and the compliance state of included resources. Tiles across the top provide compliance metrics for all resources and assignments.
 
@@ -83,11 +99,8 @@ Once an assignment is created, you can view its details by clicking on it. This 
 
 :::image type="content" source="media/data-collection-rule-view/data-collection-rule-assignment-details.png" alt-text="Screenshot of assignment details." lightbox="media/data-collection-rule-view/data-collection-rule-assignment-details.png":::
 
-## Command line and Powershell
-This article describes the Azure portal experience for managing DCRs and associations. See the following references for alternate methods.
-
-- Azure CLI - [az monitor data-collection rule](/cli/azure/monitor/data-collection/rule)
-- PowerShell - [Az.Monitor](/powershell/module/az.monitor)
+> [!IMPORTANT]
+> The assignment won't be applied to existing resources until you create a remediation task. For more information, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 
 
 ## Next steps
