@@ -1,7 +1,7 @@
 ---
 title: Azure Synapse Link for Azure SQL Database
 description: Learn about Azure Synapse Link for Azure SQL Database, the link connection, and monitoring the Synapse Link.
-author: SnehaGunda
+author: whhender
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link

@@ -71,7 +71,7 @@ Connection state events are emitted whenever a device or module connects or disc
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-schema | deviceConnectionStateNotification |
-| opType | One of the following values: deviceConnected, deviceDisconnected, moduleConnected, or moduleDisconnected. |
+| opType | deviceConnected or deviceDisconnected |
 
 **System properties**: The following table shows how system properties are set for connection state events:
 

@@ -21,7 +21,7 @@ To enable Microsoft Entra integration for Azure Monitor Logs and remove reliance
 
 ## Prerequisites
 
-- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
+- [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents. Azure Monitor Agent doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-requirements.md#permissions).
 - [Migrate to the Log Ingestion API](./custom-logs-migrate.md) from the HTTP Data Collector API to send data to Azure Monitor Logs.
 
 ## Permissions required

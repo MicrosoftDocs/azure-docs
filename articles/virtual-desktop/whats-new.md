@@ -63,9 +63,9 @@ You can granularly control how RDP Shortpath is used by configuring the networki
 
 For more information, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md). 
 
-### Adding and managing app attach and MSIX app attach applications in Azure Virtual Desktop are now available 
+### Adding and managing app attach applications in Azure Virtual Desktop is now available 
 
-MSIX app attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with MSIX app attach also gives you greater control over which applications your users can access in a remote session. 
+App attach enables you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop. Applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Delivering applications with app attach also gives you greater control over which applications your users can access in a remote session. 
 
 For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
 
@@ -73,6 +73,10 @@ For more information and instructions, see [Add and manage app attach and MSIX
 ## May 2024 
 
 Here's what changed in May 2024: 
+
+### Windows multi-session 11 with Microsoft 365 Apps gallery images now pre-install new Microsoft Teams 
+
+Windows multi-session 11 with Microsoft 365 Apps images in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows Enterprise multi-session 11 23H2 and 22H2.  
 
 ### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
 
