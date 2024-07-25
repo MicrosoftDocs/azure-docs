@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python FastAPI web app with PostgreSQL'
 description: Create a FastAPI web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the FastAPI framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 7/19/2024
+ms.date: 7/24/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
@@ -398,7 +398,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     azd up
     ```  
 
-    The `azd up` command might take a few minutes to complete. It also compiles and deploys your application code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command can take a several minutes to complete. It also compiles and deploys your application code. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This azd template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -409,6 +409,8 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     - **Azure Database for PostgreSQL flexible server** &rarr; Accessible only from within the virtual network. A database and a user are created for you on the server.
     - **Private DNS zone** &rarr; Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace** &rarr; Acts as the target container for your app to ship its logs, where you can also query the logs.
+
+    Note down the values for the **Subscription ID** (Guid), the **App Service**, and the **Resource Group** in the output. You'll use them in the following sections.
 
 ## 2. Examine the database connection string
 
@@ -442,11 +444,11 @@ You may have noticed in the previous section that *entrypoint.sh* contains the f
 
 In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
-1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
+1. Use the value of the **App Service** that you noted previously in the azd output and the template shown below, to construct the URL for the SSH session and navigate to it in the browser:
 
-    <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>.scm.azurewebsites.net/webssh/host
-    </pre>
+    ```
+    https://<app-name>.scm.azurewebsites.net/webssh/host
+    ```
 
 1. In the SSH terminal, run `python3 src/fastapi_app/seed_data.py`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
@@ -481,11 +483,11 @@ The sample app uses the Python Standard Library logging module to output logs. T
 
 :::code language="python" source="~/msdocs-fastapi-postgresql-sample-app/src/fastapi_app/app.py" range="39-46" highlight="3":::
 
-In the azd output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the azd output:
+Use the values of the **Subscription ID** (Guid), **Resource Group**, and **App Service** that you noted previously in the azd output and the template shown below, to construct the URL to stream App Service logs and navigate to it in the browser.
 
-<pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
-</pre>
+```
+https://portal.azure.com/#@/resource/subscriptions/<subscription-guid>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name>/logStream
+```
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
