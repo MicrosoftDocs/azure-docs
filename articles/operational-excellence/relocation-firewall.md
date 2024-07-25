@@ -19,7 +19,7 @@ This article shows you how to relocate an Azure Firewall that protects an Azure 
 
 ## Prerequisites
 
-- We highly recommend that you use Premium SKU. If you are on Standard SKU, consider [migrating from an existing Standard SKU Azure Firewall to Premium SKU]() before you being relocation.
+- We highly recommend that you use Premium SKU. If you are on Standard SKU, consider [migrating from an existing Standard SKU Azure Firewall to Premium SKU](/azure/firewall-manager/migrate-to-policy) before you being relocation.
 
 - The following information must be collected in order to properly plan and execute an Azure Firewall relocation:
 
@@ -30,13 +30,13 @@ This article shows you how to relocate an Azure Firewall that protects an Azure 
     - **Public IP control.** Assess that any external identity relying on Azure Firewall public IP remains fixed and trusted.
 
 
-- Azure Firewall Standard and Premium tiers have the following dependencies that you may need to be deploy in the target region.
+- Azure Firewall Standard and Premium tiers have the following dependencies that you may need to be deploy in the target region:
 
     - [Azure Virtual Network](./relocation-virtual-network.md)
     - (If used) [Log Analytics Workspace](./relocation-log-analytics.md)
   
 
-- If you're using the TLS Inspection feature of Azure Firewall Premium tier, the following dependencies also need to be deployed in the target region.
+- If you're using the TLS Inspection feature of Azure Firewall Premium tier, the following dependencies also need to be deployed in the target region:
 
     - [Azure Key Vault](./relocation-key-vault.md)
     - [Azure Managed Identity](./relocation-managed-identity.md)
@@ -49,7 +49,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 ## Prepare
 
-To prepare for relocation, you need to first export and modify the template from the source region. To view a sample ARM template for Azure Firewall, see [Review the template](../firewall-manager/quick-firewall-policy.md#review-the-template).
+To prepare for relocation, you need to first export and modify the template from the source region. To view a sample ARM template for Azure Firewall, see [review the template](../firewall-manager/quick-firewall-policy.md#review-the-template).
 
 ### Export template
 
@@ -111,7 +111,7 @@ In this section, you learn how to modify the template that you generated in the 
 If you're running classic firewall rules without Firewall policy, migrate to Firewall policy before preceding with the steps in this section. To learn how to migrate from classic firewall rules to Firewall policy, see [Migrate Azure Firewall configuration to Azure Firewall policy using PowerShell](/azure/firewall-manager/migrate-to-policy).
 
 
-# [portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -212,7 +212,7 @@ To find the location code for your target region, see [Data residency in Azure](
 Deploy the template to create a new Azure Firewall in the target region.
 
 
-# [portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Enter or select the property values:
     
