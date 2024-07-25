@@ -201,7 +201,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Debian 10 and 11|
    | Rocky Linux 8|
 
-# [Windows IoT on Arc enabled IaaS VMs](#tab/winio-arc)
+# [Windows IoT Enterprise on Arc enabled IaaS VMs (preview)](#tab/winio-arc)
 
    - Windows 10 IoT Enterprise LTSC 2021 
    - Windows 10 IoT Enterprise LTSC 2019 
