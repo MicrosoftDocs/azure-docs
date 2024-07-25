@@ -99,7 +99,7 @@ switch(event.type) {
       break;
     case "breakoutRoomsSettings":
       const breakoutRoomSettings = event.data;
-      console.log(`Event data is a settings object with the room End time: ${breakoutRoomSettings.roomEndTime}`);
+      console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);
       console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
       break;
     case "join":
