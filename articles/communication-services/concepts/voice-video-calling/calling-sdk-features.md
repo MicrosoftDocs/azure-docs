@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 03/04/2024
+ms.date: 07/25/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -167,10 +167,11 @@ For example, this iframe allows both camera and microphone access:
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
-| Limit                                                         | Web                         | Windows/Android/iOS        |
-| ------------------------------------------------------------- | --------------------------- | -------------------------- |
+| Limit                                                         | Web                              | Windows/Android/iOS        |
+| ------------------------------------------------------------- | -------------------------------- | -------------------------- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 9 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 16 videos + 1 screen sharing on desktop browsers<br/>4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
+To properly support 16 incoming videos the computer should have 16GB RAM and 4-core CPU no older than 3 years as minimum recommended requirements
 
 \* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
 While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support.
@@ -192,8 +193,8 @@ The Azure Communication Services Calling SDK supports sending following video re
 ## Number of participants on a call support
 - Up to **350** users can join a group call, Room or Teams + ACS call.
 - Once the call size reaches 100+ participants in a call, only the top 4 most dominant speakers that have their video camera turned can be seen.
-- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos).
-- When the number of users goes below 100, the number of supported incoming videos goes back up to 3x3 (9 incoming videos).
+- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
+- When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
 
 ## Calling SDK timeouts
 The following timeouts apply to the Communication Services Calling SDKs:
