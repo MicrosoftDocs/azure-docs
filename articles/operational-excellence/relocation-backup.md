@@ -84,7 +84,7 @@ In order to continue to protect your resources, you must register and back them 
 - [Azure Virtual Machines](#back-up-azure-virtual-machine)
 - [Azure File Share](#back-up-azure-file-share)
 - [SQL Server/SAP HANA in Azure VM](#back-up-sql-serversap-hana-in-azure-vm)
-- [on-premises resources](#back-up-services-for-on-premises-resources)
+- [On-premises resources](#back-up-services-for-on-premises-resources)
 
 ### Back up Azure Virtual Machine
 
