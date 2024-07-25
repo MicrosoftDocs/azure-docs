@@ -98,7 +98,7 @@ In following example, we target a sample deployment `aspnet`. We scale up Pods w
 
 Replace your target deployment name and apply the following auto scale configuration:
 ```yaml
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: deployment-scaler
