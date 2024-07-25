@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: antchu
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Azure Container Apps custom container sessions (preview)
