@@ -173,11 +173,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: distributed TensorFlow
 
-:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
 
 ## YAML: distributed MPI
 
-:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## Next steps
 
