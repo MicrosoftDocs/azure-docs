@@ -260,7 +260,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
     1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
 
         > [!div class="nextstepaction"]
-        > [Deploy to Azure]()
+        > [Deploy to Azure](https://aka.ms/DeployCEFresources)
 
     1. Note the following deatails from the ARM template output:
 
