@@ -37,9 +37,7 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 The following models are available:
 
 * [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
-
 * [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
-
 
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
@@ -52,7 +50,6 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 The following models are available:
 
 * [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
-
 
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
@@ -70,7 +67,6 @@ Mixtral 8x22B comes with the following strengths:
 The following models are available:
 
 * [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
-
 
 
 ---
@@ -330,9 +326,7 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 The following models are available:
 
 * [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
-
 * [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
-
 
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
@@ -345,7 +339,6 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 The following models are available:
 
 * [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
-
 
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
@@ -363,7 +356,6 @@ Mixtral 8x22B comes with the following strengths:
 The following models are available:
 
 * [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
-
 
 
 ---
@@ -638,9 +630,7 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 The following models are available:
 
 * [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
-
 * [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
-
 
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
@@ -653,7 +643,6 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 The following models are available:
 
 * [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
-
 
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
@@ -671,7 +660,6 @@ Mixtral 8x22B comes with the following strengths:
 The following models are available:
 
 * [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
-
 
 
 ---
@@ -940,9 +928,7 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 The following models are available:
 
 * [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
-
 * [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
-
 
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
@@ -955,7 +941,6 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 The following models are available:
 
 * [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
-
 
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
@@ -973,7 +958,6 @@ Mixtral 8x22B comes with the following strengths:
 The following models are available:
 
 * [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
-
 
 
 ---

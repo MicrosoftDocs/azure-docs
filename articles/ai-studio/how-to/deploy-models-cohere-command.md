@@ -43,7 +43,6 @@ The following models are available:
 * [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
 
 
-
 # [Cohere Command R](#tab/cohere-command-r)
 
 Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
@@ -59,7 +58,6 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 The following models are available:
 
 * [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
-
 
 
 ---
@@ -478,7 +476,6 @@ The following models are available:
 * [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
 
 
-
 # [Cohere Command R](#tab/cohere-command-r)
 
 Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
@@ -494,7 +491,6 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 The following models are available:
 
 * [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
-
 
 
 ---
@@ -927,7 +923,6 @@ The following models are available:
 * [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
 
 
-
 # [Cohere Command R](#tab/cohere-command-r)
 
 Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
@@ -943,7 +938,6 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 The following models are available:
 
 * [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
-
 
 
 ---
@@ -1381,7 +1375,6 @@ The following models are available:
 * [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
 
 
-
 # [Cohere Command R](#tab/cohere-command-r)
 
 Command R is a highly performant generative large language model, optimized for a variety of use cases including reasoning, summarization, and question answering.
@@ -1397,7 +1390,6 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 The following models are available:
 
 * [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
-
 
 
 ---

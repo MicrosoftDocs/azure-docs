@@ -311,9 +311,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 ```python
 print(f"{response.choices[0].message.role}:\n\t{response.choices[0].message.content}\n")
-print("finish reason:", response.choices[0].finish_reason)
-print("model:", response.model)
-print("usage:", response.usage)
+print("Model:", response.model)
+print("Usage:")
+print("\tPrompt tokens:", response.usage.prompt_tokens)
+print("\tCompletion tokens:", response.usage.completion_tokens)
+print("\tTotal tokens:", response.usage.total_tokens)
+```
+
+```console
+ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there may be other factors at play that influence a model's performance.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 2380
+  Completion tokens: 126
+  Total tokens: 2506
 ```
 
 ::: zone-end
@@ -631,9 +642,20 @@ The response is as follows, where you can see the model's usage statistics:
 
 ```javascript
 console.log(response.body.choices[0].message.role + ": " + response.body.choices[0].message.content);
-console.log("Finish reason:" + response.body.choices[0].finish_reason);
 console.log("Model:", response.body.model);
-console.log("Usage:", response.body.usage);
+console.log("Usage:");
+console.log("\tPrompt tokens:", response.body.usage.prompt_tokens);
+console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
+console.log("\tTotal tokens:", response.body.usage.total_tokens);
+```
+
+```console
+ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there may be other factors at play that influence a model's performance.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 2380
+  Completion tokens: 126
+  Total tokens: 2506
 ```
 
 ::: zone-end
@@ -929,12 +951,21 @@ The response is as follows, where you can see the model's usage statistics:
 
 
 ```csharp
-Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+Console.WriteLine($"{response.Value.Choices[0].Message.Role}: {response.Value.Choices[0].Message.Content}");
 Console.WriteLine($"Model: {response.Value.Model}");
 Console.WriteLine("Usage:");
 Console.WriteLine($"\tPrompt tokens: {response.Value.Usage.PromptTokens}");
 Console.WriteLine($"\tTotal tokens: {response.Value.Usage.TotalTokens}");
 Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}");
+```
+
+```console
+ASSISTANT: The chart illustrates that larger models tend to perform better in quality, as indicated by their size in billions of parameters. However, there are exceptions to this trend, such as Phi-3-medium and Phi-3-small, which outperform smaller models in quality. This suggests that while larger models generally have an advantage, there may be other factors at play that influence a model's performance.
+Model: Phi-3-vision-128k-Instruct
+Usage: 
+  Prompt tokens: 2380
+  Completion tokens: 126
+  Total tokens: 2506
 ```
 
 ::: zone-end

@@ -34,11 +34,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-
 * [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-
 * [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
-
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -49,9 +46,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 The following models are available:
 
 * [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-
 * [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
-
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -62,11 +57,8 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 The following models are available:
 
 * [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-
 * [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-
 * [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
-
 
 
 ---
@@ -367,11 +359,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-
 * [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-
 * [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
-
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -382,9 +371,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 The following models are available:
 
 * [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-
 * [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
-
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -395,11 +382,8 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 The following models are available:
 
 * [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-
 * [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-
 * [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
-
 
 
 ---
@@ -721,11 +705,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-
 * [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-
 * [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
-
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -736,9 +717,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 The following models are available:
 
 * [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-
 * [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
-
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -749,11 +728,8 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 The following models are available:
 
 * [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-
 * [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-
 * [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
-
 
 
 ---
@@ -1069,11 +1045,8 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 The following models are available:
 
 * [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
-
 * [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
-
 * [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
-
 
 
 # [Meta Llama-3](#tab/meta-llama-3)
@@ -1084,9 +1057,7 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 The following models are available:
 
 * [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
-
 * [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
-
 
 
 # [Meta Llama-2](#tab/meta-llama-2)
@@ -1097,11 +1068,8 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 The following models are available:
 
 * [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
-
 * [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
-
 * [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
-
 
 
 ---

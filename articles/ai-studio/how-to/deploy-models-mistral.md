@@ -47,9 +47,7 @@ And attributes of Mistral Large (2407) include:
 The following models are available:
 
 * [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
-
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
-
 
 
 # [Mistral Small](#tab/mistral-small)
@@ -68,7 +66,6 @@ Mistral Small is:
 The following models are available:
 
 * [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
 
 
 ---
@@ -518,9 +515,7 @@ And attributes of Mistral Large (2407) include:
 The following models are available:
 
 * [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
-
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
-
 
 
 # [Mistral Small](#tab/mistral-small)
@@ -539,7 +534,6 @@ Mistral Small is:
 The following models are available:
 
 * [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
 
 
 ---
@@ -1008,9 +1002,7 @@ And attributes of Mistral Large (2407) include:
 The following models are available:
 
 * [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
-
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
-
 
 
 # [Mistral Small](#tab/mistral-small)
@@ -1029,7 +1021,6 @@ Mistral Small is:
 The following models are available:
 
 * [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
 
 
 ---
@@ -1500,9 +1491,7 @@ And attributes of Mistral Large (2407) include:
 The following models are available:
 
 * [Mistral-Large-2402](https://aka.ms/azureai/landing/Mistral-Large-2402)
-
 * [Mistral-Large-2407](https://aka.ms/azureai/landing/Mistral-Large-2407)
-
 
 
 # [Mistral Small](#tab/mistral-small)
@@ -1521,7 +1510,6 @@ Mistral Small is:
 The following models are available:
 
 * [Mistral-Small](https://aka.ms/azureai/landing/Mistral-Small)
-
 
 
 ---

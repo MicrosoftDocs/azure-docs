@@ -38,9 +38,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-
 * [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
-
 
 
 # [Phi-3-small](#tab/phi-3-small)
@@ -55,9 +53,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-
 * [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
 
 
 # [Phi-3-medium](#tab/phi-3-medium)
@@ -72,9 +68,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
 
 
 ---
@@ -379,9 +373,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-
 * [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
-
 
 
 # [Phi-3-small](#tab/phi-3-small)
@@ -396,9 +388,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-
 * [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
 
 
 # [Phi-3-medium](#tab/phi-3-medium)
@@ -413,9 +403,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
 
 
 ---
@@ -741,9 +729,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-
 * [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
-
 
 
 # [Phi-3-small](#tab/phi-3-small)
@@ -758,9 +744,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-
 * [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
 
 
 # [Phi-3-medium](#tab/phi-3-medium)
@@ -775,9 +759,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
 
 
 ---
@@ -1097,9 +1079,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
-
 * [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
-
 
 
 # [Phi-3-small](#tab/phi-3-small)
@@ -1114,9 +1094,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
-
 * [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
-
 
 
 # [Phi-3-medium](#tab/phi-3-medium)
@@ -1131,9 +1109,7 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 The following models are available:
 
 * [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
-
 * [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
-
 
 
 ---
