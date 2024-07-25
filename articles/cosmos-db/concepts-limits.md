@@ -290,9 +290,9 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Maximum execution time for MongoDB operations (for 3.6 and 4.0 server version)| 60 seconds|
 | Maximum level of nesting for embedded objects / arrays on index definitions | 6 |
 | Idle connection timeout for server side connection closure ² | 30 minutes |
-| Time limit for MongoDB shell in the Azure Portal | 120 minutes in a 24hr period |
+| Time limit for MongoDB shell in the Azure portal | 120 minutes in a 24hr period |
 
-¹ Large document sizes up to 16 MB require feature enablement in Azure portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
+¹ Large document sizes up to 16 MB require feature enablement in the Azure portal. Read the [feature documentation](../cosmos-db/mongodb/feature-support-42.md#data-types) to learn more.
 
 ² We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout ensures that an intermediate load balancer idle doesn't close connections between the client machine and Azure Cosmos DB.
 

@@ -128,7 +128,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 
 The following example shows a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5,000 RU/s and 50,000 RU/s, respectively.
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Screenshot of example workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s.":::
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
