@@ -27,7 +27,7 @@ To install the Microsoft Remote Desktop app:
 
     :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/google-play.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/google-play.png":::
 
-1. Verify that your device is compatible with the app.
+1. Verify that the app is avaiable for your device.
 
     :::image type="content" source="./media/connect-virtual-machine-chromebook-remote-desktop/google-play-verify.png" alt-text="Screenshot of the Microsoft Remote Desktop app in the app store with the app availability message highlighted." lightbox="./media/connect-virtual-machine-chromebook-remote-desktop/google-play-verify.png":::
 
