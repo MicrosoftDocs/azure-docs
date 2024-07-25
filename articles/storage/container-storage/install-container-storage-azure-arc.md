@@ -100,7 +100,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 ### VM types
 
-To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
 
@@ -113,7 +113,8 @@ If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized
 
 Run the following command to create a Linux-based AKS cluster and enable a system-assigned managed identity. If you already have an AKS cluster you want to use, you can skip this step.
 
-Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. In this example, we'll create a cluster with three nodes. Increase the `--node-count` if you want a larger cluster.
+Replace `<resource-group>` with the name of the resource group you created, `<cluster-name>` with the name of the cluster you want to create, and `<vm-type>` with the VM type you selected in the previous step. In this example, we'll create a cluster with three nodes. Increase the `--node-count` if you want a larger cluster. **If you want to use local NVMe for your storage pool type, be sure to set the node count to 4 or greater.**
+
 
 ```azurecli-interactive
 az aks create -g <resource-group> -n <cluster-name> --node-count 3 -s <vm-type> --generate-ssh-keys

@@ -130,7 +130,9 @@ If you already have an AKS cluster deployed, follow the installation instruction
 
 Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you must also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
-Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart.md#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-storage-pool-parameters.md).
+Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. **If you're specifying local NVMe for your storage pool type, be sure to set the node count to 4 or greater, or the command will fail to run.**
+
+By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart.md#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-storage-pool-parameters.md).
 
 \*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
 

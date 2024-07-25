@@ -108,7 +108,19 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -  **Kubernetes**
 
-    Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. A Kubernetes cluster is a set of nodes that run containerized applications.
+    Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+-  **Cluster**
+
+    A Kubernetes cluster is a set of compute nodes that run containerized applications.
+
+-  **Node**
+
+    A node can be a virtual or physical machine, depending on the cluster. Each node is managed by the control plane and contains the services necessary to run pods.
+
+-  **Pod**
+
+    A pod is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. A pod is the smallest deployable unit in a Kubernetes cluster.
 
 -  **Azure Kubernetes Service (AKS)**
 
@@ -122,9 +134,13 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
     A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
+-  **Volume**
+
+    A Kubernetes volume is a directory containing data accessible to containers in a given pod. Depending on the backing storage type that you use, volumes can be persistent or ephemeral. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool.
+
 -   **Persistent volume**
 
-    Persistent volumes are like disks in a VM. They represent a raw block device that you can use to mount any file system. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+    Persistent volumes are like disks in a VM. They represent a raw block device that you can use to mount any file system. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 -   **Persistent volume claim (PVC)**
 
@@ -133,4 +149,4 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 ## Next steps
 
 - [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
-- [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage)
+- [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
