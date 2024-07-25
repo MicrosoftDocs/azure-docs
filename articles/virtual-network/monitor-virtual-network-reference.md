@@ -1,84 +1,132 @@
 ---
-title: Monitoring Azure virtual network data reference 
-description: Important reference material needed when you monitor Azure virtual network 
-author: asudbring
+title: Monitoring data reference for Azure Virtual Network
+description: This article contains important reference material you need when you monitor Azure Virtual Network by using Azure Monitor.
+ms.date: 07/21/2024
+ms.custom: horz-monitor
 ms.topic: reference
+author: asudbring
 ms.author: allensu
-ms.service: expressroute
-ms.custom: subject-monitoring
-ms.date: 06/29/2021
+ms.service: virtual-network
 ---
 
-# Monitoring Azure virtual network data reference
+# Azure Virtual Network monitoring data reference
 
-See [Monitoring Azure virtual network](monitor-virtual-network.md) for details on collecting and analyzing monitoring data for Azure virtual networks.
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-## Metrics
+See [Monitor Azure Virtual Network](monitor-virtual-network.md) for details on the data you can collect for Virtual Network and how to use it.
 
-This section lists all the automatically collected platform metrics collected for Azure virtual network.  
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-| Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Virtual network | [Microsoft.Network/virtualNetworks](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkvirtualnetworks) |
-| Network interface | [Microsoft.Network/networkInterfaces](../azure-monitor/essentials/metrics-supported.md#microsoftnetworknetworkinterfaces) |
-| Public IP address | [Microsoft.Network/publicIPAddresses](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) |
-| NAT gateways | [Microsoft.Network/natGateways](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses)
+### Supported metrics for Microsoft.Network/virtualNetworks
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+The following table lists the metrics available for the Microsoft.Network/virtualNetworks resource type.
 
-## Metric dimensions
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+[!INCLUDE [Microsoft.Network/virtualNetworks](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-virtualnetworks-metrics-include.md)]
 
-Azure virtual network has the following dimensions associated with its metrics.
+### Supported metrics for Microsoft.Network/networkInterfaces
 
-### Dimensions for NAT gateway
+The following table lists the metrics available for the Microsoft.Network/networkInterfaces resource type.
 
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **Direction (Out - In)** | The direction of traffic flow. The supported values are In and Out. |
-| **Protocol** | The type of transport protocol. The supported values are TCP and UDP. |
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-## Resource logs
+[!INCLUDE [Microsoft.Network/networkInterfaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-networkinterfaces-metrics-include.md)]
 
-This section lists the types of resource logs you can collect for resources used with Azure virtual network. 
+### Supported metrics for Microsoft.Network/publicIPAddresses
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
+The following table lists the metrics available for the Microsoft.Network/publicIPAddresses resource type.
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Network security group | [Microsoft.Network/networksecuritygroups](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworknetworksecuritygroups) |
-| Public IP address | [Microsoft.Network/publicIPAddresses](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkpublicipaddresses) |
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-## Azure Monitor logs tables
+[!INCLUDE [Microsoft.Network/publicIPAddresses](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-publicipaddresses-metrics-include.md)]
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure virtual network and available for query by Log Analytics. 
+### Supported metrics for Microsoft.Network/natGateways
 
-|Resource Type | Notes |
-|-------|-----|
-| Virtual network | [Microsoft.Network/virtualNetworks](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-networks) |
-| Network interface | [Microsoft.Network/networkInterface](/azure/azure-monitor/reference/tables/tables-resourcetype#network-interfaces) |
-| Public IP address | [Microsoft.Network/publicIP](/azure/azure-monitor/reference/tables/tables-resourcetype#public-ip-addresses) |
+The following table lists the metrics available for the Microsoft.Network/natGateways resource type.
 
-### Diagnostics tables
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-**Virtual network**
+[!INCLUDE [Microsoft.Network/natGateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-natgateways-metrics-include.md)]
 
-Azure virtual network doesn't have diagnostic logs.
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
-## Activity log
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-The following table lists the operations related to Azure virtual network that may be created in the Activity log.
+Dimensions for Microsoft.Network/virtualNetworks:
+
+| Dimension name | Description |
+|:---------------|:------------|
+| DestinationCustomerAddress | |
+| ProtectedIPAddress         | |
+| SourceCustomerAddress      | |
+
+Dimensions for Microsoft.Network/networkInterfaces:
+
+None.
+
+Dimensions for Microsoft.Network/publicIPAddresses:
+
+| Dimension name | Description |
+|:---------------|:------------|
+| Direction | |
+| Port      | |
+
+Dimensions for Microsoft.Network/natGateways:
+
+| Dimension name | Description |
+|:---------------|:------------|
+| Direction | The direction of traffic flow. The supported values are `In` and `Out`. |
+| Protocol  | The type of transport protocol. The supported values are `TCP` and `UDP`. |
+| ConnectionState | |
+
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+
+### Supported resource logs for Microsoft.Network/networksecuritygroups
+
+[!INCLUDE [Microsoft.Network/networksecuritygroups](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-networksecuritygroups-logs-include.md)]
+
+### Supported resource logs for Microsoft.Network/publicIPAddresses
+
+[!INCLUDE [Microsoft.Network/publicIPAddresses](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-publicipaddresses-logs-include.md)]
+
+### Supported resource logs for Microsoft.Network/virtualNetworks
+
+[!INCLUDE [Microsoft.Network/virtualNetworks](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-virtualnetworks-logs-include.md)]
+
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
+### Virtual Network Microsoft.Network/virtualNetworks
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+### Virtual Network Microsoft.Network/networkinterfaces
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+### Virtual Network Microsoft.Network/PublicIpAddresses
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+- [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
+
+The following table lists the operations related to Azure virtual network that might be created in the Activity log.
 
 | Operation | Description |
-|:---|:---|
-| All administrative operations | All administrative operations including create, update and delete of an Azure virtual network. |
+|:----------|:------------|
+| All administrative operations    | All administrative operations including create, update, and delete of an Azure virtual network. |
 | Create or update virtual network | A virtual network was created or updated. |
-| Deletes virtual network | A virtual network was deleted.|
+| Deletes virtual network          | A virtual network was deleted.|
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
+## Related content
 
-## See also
-
-- See [Monitoring Azure virtual network](monitor-virtual-network.md) for a description of monitoring Azure virtual network.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure Virtual Network](monitor-virtual-network.md) for a description of monitoring Virtual Network.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

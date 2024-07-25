@@ -91,7 +91,7 @@ The following chart breaks out OpenTelemetry feature support for each language.
 | [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
-| [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
+| [Custom Events](../app/usage.md#track-user-interactions-with-custom-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
 | [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Live metrics](../app/live-stream.md)                                                                                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Live Metrics Filtering](../app/live-stream.md#select-and-filter-your-metrics)                                        | :x:                | :x:                | :x:                | :x:                |

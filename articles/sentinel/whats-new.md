@@ -20,8 +20,24 @@ The listed features were released in the last three months. For information abou
 
 ## July 2024
 
+- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
 - [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+
+### SOC optimizations now generally available
+
+The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
+
+- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
+
+- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
+
+The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
 
 ### SAP Business Technology Platform (BTP) connector now generally available (GA)
 
