@@ -1,7 +1,7 @@
 ---
 title: Manage domain suppression lists in Azure Communication Services using the management client libraries
 titleSuffix: An Azure Communication Services quick start guide.
-description: Learn about managing domain suppression ists in Azure Communication Services using the management client libraries
+description: Learn about managing domain suppression lists in Azure Communication Services using the management client libraries
 author: yogeshmo
 manager: koagbakp
 services: azure-communication-services
