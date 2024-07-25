@@ -12,23 +12,20 @@ metadata:
   author: halkazwini
   ms.author: halkazwini
   manager: kumudD
-  ms.date: 07/18/2024
+  ms.date: 07/25/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items:
-    - title: Network monitoring and management overview
-      itemType: overview
-      url: ../../network-watcher/network-watcher-overview.md
+    - title: Azure networking services
+      itemType: concept
+      url: ../index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/en-us/blog/category/networking/
-    - title: Azure networking services
-      itemType: concept
-      url: ../index.yml
 
 # productDirectory section (Optional; Remove if not applicable.)
 productDirectory:
