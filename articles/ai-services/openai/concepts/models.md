@@ -277,7 +277,7 @@ These models can only be used with Embedding API requests.
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
 | `gpt-4` (0613) <sup>**1**</sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
-| `gpt-4o-mini` <sup>**2**</sup> (2024-07-18) | Sweden Central | Input: 128,000 <br> Output: 16,000 <br> Training example context length: 64,536 | Oct 2023 |
+| `gpt-4o-mini` <sup>**2**</sup> (2024-07-18) | Sweden Central | Input: 128,000 <br> Output: 16,384  <br> Training example context length: 64,536 | Oct 2023 |
 
 **<sup>1</sup>** GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 **<sup>2</sup>** GPT-4o mini fine-tuning is currently in public preview.
