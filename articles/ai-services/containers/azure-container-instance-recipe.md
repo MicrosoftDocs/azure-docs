@@ -42,7 +42,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [Portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
+[!INCLUDE [Azure portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
 
 # [CLI](#tab/cli)
 

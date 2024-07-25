@@ -74,11 +74,7 @@ Azure AI containers provide the following set of Docker containers, each of whic
 | [Azure AI Vision][cv-containers] | **Read OCR** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/read/about)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/overview-ocr.md). | Generally Available. <br>This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Spatial Analysis][spa-containers] | **Spatial analysis** ([image](https://mcr.microsoft.com/product/azure-cognitive-services/vision/spatial-analysis/about)) | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. | Preview |
 
-<!--
-|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure AI Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
--->
-
-Additionally, some containers are supported in the Azure AI services [multi-service resource](multi-service-resource.md?pivots=azportal) offering. You can create one single Azure AI services All-In-One resource and use the same billing key across supported services for the following services:
+Additionally, some containers are supported in the [Azure AI services multi-service resource](multi-service-resource.md?pivots=azportal) offering. You can create one single Azure AI services resource and use the same billing key across supported services for the following services:
 
 * Azure AI Vision
 * LUIS
@@ -116,9 +112,6 @@ Install and explore the functionality provided by containers in Azure AI service
 * [Speech Service API containers][sp-containers]
 * [Language service containers][ta-containers]
 * [Translator containers][tr-containers]
-
-<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
--->
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

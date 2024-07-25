@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure AI services resource using Terraform
 
-This article shows how to use Terraform to create an [Azure AI services account](multi-service-resource.md?pivots=azportal) using [Terraform](/azure/developer/terraform/quickstart-configure).
+This article shows how to use Terraform to create an [Azure AI services multi-service resource](multi-service-resource.md?pivots=azportal) using [Terraform](/azure/developer/terraform/quickstart-configure).
 
 [!INCLUDE [About AI services](./includes/ai-services-intro.md)]
 
@@ -29,7 +29,7 @@ In this article, you learn how to:
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a random string using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
-> * Create an Azure AI services account using [azurerm_cognitive_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
+> * Create an Azure AI services multi-service resource using [azurerm_cognitive_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cognitive_account)
 
 ## Prerequisites
 
@@ -76,13 +76,13 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Get the Azure resource name in which the Azure AI services account was created.
+1. Get the Azure resource name in which the Azure AI services multi-service resource was created.
 
     ```console
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the Azure AI services account name.
+1. Get the Azure AI services multi-service resource name.
 
     ```console
     azurerm_aiservices_account_name=$(terraform output -raw azurerm_aiservices_account_name)
@@ -97,13 +97,13 @@ In this article, you learn how to:
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-1. Get the Azure resource name in which the Azure AI services account was created.
+1. Get the Azure resource name in which the Azure AI services multi-service resource was created.
 
     ```console
     $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Get the Azure AI services account name.
+1. Get the Azure AI services multi-service resource name.
 
     ```console
     $azurerm_aiservices_account_name=$(terraform output -raw azurerm_aiservices_account_name)

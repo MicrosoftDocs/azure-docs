@@ -59,7 +59,7 @@ To create and subscribe to a new Azure AI services resource, use the [az cogniti
 > [!IMPORTANT]
 > Azure provides a few resources for Azure AI services. Be sure to create one with the `kind` of `AIServices`.
 
-You can create a Standard S0 multi-service resource named `multi-service-resource` with the command below.
+You can create a Standard S0 Azure AI services multi-service resource named `multi-service-resource` with the command below.
 
 ```azurecli-interactive
 az cognitiveservices account create --name multi-service-resource --resource-group ai-services-resource-group  --kind AIServices --sku F0 --location westus2 --yes

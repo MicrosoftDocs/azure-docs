@@ -49,7 +49,7 @@ The multi-service resource enables access to the following Azure AI services wit
 
 ::: zone pivot="azportal"
 
-[!INCLUDE [Azure Portal quickstart](includes/quickstarts/management-azportal.md)]
+[!INCLUDE [Azure portal quickstart](includes/quickstarts/management-azportal.md)]
 
 ::: zone-end
 

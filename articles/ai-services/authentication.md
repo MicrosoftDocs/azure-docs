@@ -58,11 +58,11 @@ The resource key is provided in each request as the `Ocp-Apim-Subscription-Key` 
 
 ### Supported regions
 
-When using the [multi-service](./multi-service-resource.md) resource key to make a request to `api.cognitive.microsoft.com`, you must include the region in the URL. For example: `westus.api.cognitive.microsoft.com`.
+When using the [Azure AI services multi-service](./multi-service-resource.md) resource key to make a request to `api.cognitive.microsoft.com`, you must include the region in the URL. For example: `westus.api.cognitive.microsoft.com`.
 
 When using a multi-service resource key with [Azure AI Translator](./translator/index.yml), you must specify the resource region with the `Ocp-Apim-Subscription-Region` header.
 
-Multi-service authentication is supported in these regions:
+Multi-service resource authentication is supported in these regions:
 
 - `australiaeast`
 - `brazilsouth`
