@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
@@ -430,8 +430,8 @@ Now, consider a scenario where a specific field needs a different calculation:
 
 In this case, the `Opacity` field has a unique calculation. Two options to handle this overlapping scenario are:
 
-1. Include both mappings for `Opacity`. Since the output fields are different in this example, they wouldn't override each other.
-2. Use the more specific rule for `Opacity` and remove the more generic one.
+- Include both mappings for `Opacity`. Since the output fields are different in this example, they wouldn't override each other.
+- Use the more specific rule for `Opacity` and remove the more generic one.
 
 Consider a special case for the same fields to help deciding the right action:
 
@@ -462,7 +462,7 @@ For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empt
 
 ### Wildcards in contextualization datasets
 
-While a detailed explanation of Contextualization Datasets will follow later, let's see now how they can be used with wildcards through an example. Consider a dataset named `position` that contains the following record:
+While a detailed explanation of contextualization datasets is explained later, let's see now how they can be used with wildcards through an example. Consider a dataset named `position` that contains the following record:
 
 ```json
 {
@@ -516,10 +516,10 @@ When discussing conversions, several aspects need to be clarified:
 
 * **Reference to Input Fields**: Understanding how to correctly reference values from input fields in the conversion formula.
 * **Available Operations**: Identifying which operations (such as addition, subtraction, multiplication, and division) can be utilized in conversions.
-* **Data Types**: The types of data (e.g., integer, floating-point, string) that the formula can process and manipulate.
+* **Data Types**: The types of data (for example, integer, floating-point, string) that the formula can process and manipulate.
 * **Type Conversions**: How data types are converted between the input field values, the formula evaluation, and the output fields.
 
-This section will explore each of these aspects.
+This section explores each of these aspects.
 
 ## Reference to input fields
 
@@ -535,11 +535,11 @@ In conversions, formulas can operate on static values (For example, a number lik
   conversion: ($1, $2, $3, $4)
 ```
 
-In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. Comments in the YAML file (e.g., `# - $1`, `# - $2`) are optional but help clarify the connection between each field property and its role in the conversion formula.
+In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. Comments in the YAML file (for example, `# - $1`, `# - $2`) are optional but help clarify the connection between each field property and its role in the conversion formula.
 
 ## Available operations
 
-Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rules of precedence (e.g., `*` is performed before `+`), which can be modified using parentheses.
+Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rules of precedence (for example, `*` is performed before `+`), which can be modified using parentheses.
 
 For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
 
@@ -652,7 +652,7 @@ The mapper is designed to be flexible, converting internal types into output typ
 
 ### Explicit type conversions
 
-While the automatic conversions generally operate as one might expect, based on common implementation practices, there are instances where the right conversion cannot be determined automatically, resulting in an `unsupported` error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and ensure that data integrity is maintained even when automatic methods fall short.
+While the automatic conversions generally operate as one might expect, based on common implementation practices, there are instances where the right conversion can't be determined automatically, resulting in an `unsupported` error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and ensure that data integrity is maintained even when automatic methods fall short.
 
 <!-- We don't have functions, need a list of what they usually want -->
 
@@ -669,9 +669,9 @@ If a formula is specified, the data types available for use in formulas are limi
 * Arrays of the above types
 * Missing value
 
-`Map` and `Byte` cannot participate in formulas in any way.
+`Map` and `Byte` can't participate in formulas in any way.
 
-Types related to time (`date time`, `time`, and `duration`) are converted into integer values representing time in seconds. After formula evaluation, results are stored in the internal representation and not converted back; for example, a datetime converted to seconds remains an integer. If the value is to be used in date-time fields, an explicit conversion method must applied, for example, to convert the value into an ISO8601 string, which will then automatically converted to the date-time type of the output serialization format. **[FIXME as of today, no such functions are available]**
+Types related to time (`date time`, `time`, and `duration`) are converted into integer values representing time in seconds. After formula evaluation, results are stored in the internal representation and not converted back. For example, a *datetime* converted to seconds remains an integer. If the value is to be used in date-time fields, an explicit conversion method must be applied. For example, converting the value into an ISO8601 string that is automatically converted to the date-time type of the output serialization format.
 
 ### Using irregular types
 
@@ -698,7 +698,7 @@ With the mapping:
 
 This configuration selects the smallest value from the `Measurements` array for the output field.
 
-It is also possible to use functions that result a new array: **[FIXME: this is not available today]**
+It's also possible to use functions that result a new array:
 
 ```yaml
 - inputs:
@@ -826,9 +826,9 @@ This is how the dataset is used, when a new record is being processed:
 
 In this example the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record doesn't contain `BaseSalary` field (or the value is `null` in case of nullable a field)
 
-Note, that the request for the contextualization data does not happen with every incoming record: the mapper requests the dataset at the beginning and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
+Note, that the request for the contextualization data doesn't happen with every incoming record: the mapper requests the dataset at the beginning and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
 
-It is possible to use multiple datasets:
+It's possible to use multiple datasets:
 
 ```yaml
 enrich:
@@ -839,7 +839,7 @@ enrich:
   condition: $source.Position == $context.Position
 ```
 
-and then use the references mixed:
+Then use the references mixed:
 
 ```yaml
 - inputs:

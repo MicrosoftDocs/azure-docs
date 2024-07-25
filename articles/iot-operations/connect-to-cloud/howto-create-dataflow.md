@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
@@ -384,7 +384,7 @@ You can also use user properties.
 
 If the user property isn't present in the source data, the part of the path referencing the user property is empty. For example, if the user property `customer` isn't present in the source data, the output path is `factory/` .
 
-If you specified a *enrich* stage during transformation, you can use the enriched data in the output path.
+If you specified an *enrich* stage during transformation, you can use the enriched data in the output path.
 
 ```yaml
 spec:
