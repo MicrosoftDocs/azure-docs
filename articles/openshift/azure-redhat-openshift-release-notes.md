@@ -5,13 +5,17 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 ms.custom: references_regions
 ---
 
 # What's new with Azure Red Hat OpenShift?
 
 Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the latest releases.
+
+## Update - July 2023
+
+You can now create up to 20 IP addresses per Azure Red Hat OpenShift cluster load balancer, with a maximum number of 180 nodes per IP address. This feature was previously in preview but is now generally available. See [Configure multiple IP addresses per cluster load balancer](howto-multiple-ips.md) for details.
 
 ## Version 4.14 - May 2024
 
