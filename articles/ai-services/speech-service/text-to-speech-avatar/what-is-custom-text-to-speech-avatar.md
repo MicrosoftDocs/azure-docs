@@ -39,7 +39,7 @@ Here's an overview of the steps to create a custom text to speech avatar:
 
 1. **Prepare training data:** Ensure that the video recording is in the right format. It's a good idea to shoot the video recording in a professional-quality video shooting studio to get a clean background image. The quality of the resulting avatar heavily depends on the recorded video used for training. Factors like speaking rate, body posture, facial expression, hand gestures, consistency in the actor's position, and lighting of the video recording are essential to create an engaging custom text to speech avatar.
 
-1. **Train the avatar model:** We'll start training the custom text to speech model after verifying the consent statement of the avatar talent. In the preview stage of this service, this step will be done manually by Microsoft. You'll be notified after the model is successfully trained.
+1. **Train the avatar model:** We'll start training the custom text to speech model after verifying the consent statement of the avatar talent. This step is currently manually done by Microsoft. You'll be notified after the model is successfully trained.
 
 1. **Deploy and use your avatar model in your APPs**
 
