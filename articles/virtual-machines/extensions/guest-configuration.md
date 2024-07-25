@@ -107,7 +107,7 @@ To deploy the extension for Linux:
     "type": "ConfigurationForLinux",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
-    "enableAutomaticUpgrade": true, 
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -130,7 +130,7 @@ To deploy the extension for Windows:
     "type": "ConfigurationforWindows",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
-    "enableAutomaticUpgrade": true, 
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -154,7 +154,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationForLinux'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
-    enableAutomaticUpgrade: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }
@@ -176,7 +176,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationforWindows'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
-    enableAutomaticUpgrade: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }
