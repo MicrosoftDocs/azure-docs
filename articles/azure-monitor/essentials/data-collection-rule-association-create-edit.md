@@ -16,6 +16,7 @@ ms.custom: references_regions
 
 ## Automatic creation
 There are several scenarios where associations are automatically created for you when you create and configure a DCR.
+
 | Scenario | Description |
 |:---|:---|
 | [Enable VM insights on a VM or VMSS](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, a DCR is created along with an association between the VM and the DCR. |

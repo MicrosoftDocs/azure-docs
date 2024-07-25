@@ -81,7 +81,7 @@ To create a new assignment, click either **Assign Policy** or **Assign Initiativ
 
 Once an assignment is created, you can view its details by clicking on it. This will allow you to edit the details of the assignment and also to create a remediation task. 
 
-:::image type="content" source="media/data-collection-rule-view/data-collection-rule-assignment-details.png" alt-text="Screenshot of assignment details." lightbox="media/data-collection-rule-view/assignment-details.png":::
+:::image type="content" source="media/data-collection-rule-view/data-collection-rule-assignment-details.png" alt-text="Screenshot of assignment details." lightbox="media/data-collection-rule-view/data-collection-rule-assignment-details.png":::
 
 ## Command line and Powershell
 This article describes the Azure portal experience for managing DCRs and associations. See the following references for alternate methods.
