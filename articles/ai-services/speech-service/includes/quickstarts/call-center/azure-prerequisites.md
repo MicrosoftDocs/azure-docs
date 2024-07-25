@@ -8,7 +8,7 @@ ms.author: eur
 
 > [!div class="checklist"]
 > * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create an Azure AI services resource" target="_blank">Create a multi-service resource</a> in the Azure portal. This quickstart only requires one Azure AI services [multi-service resource](../../../../multi-service-resource.md?pivots=azportal). The sample code allows you to specify separate <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language</a> and <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech</a> resource keys.
+> * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create an Azure AI services resource" target="_blank">Create a multi-service resource</a> in the Azure portal. This quickstart only requires one Azure AI services [multi-service resource](../../../../multi-service-resource.md?pivots=azportal). The sample code allows you to specify separate <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language</a> and <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Speech</a> resource keys.
 > * Get the resource key and region. After your Azure AI services resource is deployed, select **Go to resource** to view and manage keys. F
 
 > [!IMPORTANT]

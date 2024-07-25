@@ -22,7 +22,7 @@ Each request to an Azure AI service must include an authentication header. This 
 
 ## Prerequisites
 
-Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a multi-service resource](multi-service-resource.md?pivots=azportal).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create an Azure AI services resource](multi-service-resource.md?pivots=azportal).
 
 Go to your resource in the Azure portal. The **Keys & Endpoint** section can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
