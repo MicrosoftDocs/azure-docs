@@ -84,15 +84,15 @@ Verify the subscription is registered to the `Microsoft.Network` resource provid
 
 ### Data preparation
 
-Prepare your training and validation data to finetune your model. Your training data and validation data sets consist of input and output examples for how you would like the model to perform.
+Prepare your training and validation data to fine-tune your model. Your training data and validation data sets consist of input and output examples for how you would like the model to perform.
 
-Make sure all your training examples follow the expected format for inference. To finetune models effectively, ensure a balanced and diverse dataset.
+Make sure all your training examples follow the expected format for inference. To fine-tune models effectively, ensure a balanced and diverse dataset.
 
 This involves maintaining data balance, including various scenarios, and periodically refining training data to align with real-world expectations, ultimately leading to more accurate and balanced model responses.
 
 Different model types require a different format of training data.
 
-### Chat Completion
+### Chat completion
 
 The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Phi-3-mini-128k-instruct` the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
 
@@ -129,7 +129,7 @@ To fine-tune a Phi-3 model:
 1. Select training data to fine-tune your model. See [data preparation](#data-preparation) for more information.
 
     > [!NOTE]
-    > If the you have your training/validation files in a credential less datastore, you will need to allow workspace managed identity access to your datastore in order to proceed with MaaS finetuning with a credential less storage. On the "Datastore" page, after clicking "Update authentication" > Select the following option: 
+    > If the you have your training/validation files in a credential less datastore, you will need to allow workspace managed identity access to your datastore in order to proceed with MaaS fine-tuning with a credential less storage. On the "Datastore" page, after clicking "Update authentication" > Select the following option: 
 	
 	![Use workspace managed identity for data preview and profiling in Azure Machine Learning Studio.](../media/how-to/fine-tune/phi-3/credentials.png)
 
