@@ -13,7 +13,7 @@ ms.service: vpn-gateway
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure VPN Gateway](monitor-monitor-vpn-gateway.md) for details on the data you can collect for VPN Gateway and how to use it.
+See [Monitor Azure VPN Gateway](monitor-vpn-gateway.md) for details on the data you can collect for VPN Gateway and how to use it.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
