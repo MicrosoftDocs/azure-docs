@@ -39,4 +39,4 @@ The following table lists some of the most common HTTP response status codes for
 
 ## Next steps
 
-* REST API [authoring](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true) and [endpoint](/rest/api/cognitiveservices-luis/runtime/operation-groups?view=rest-cognitiveservices-luis-runtime-v3.0&preserve-view=true) documentation
+* [REST API documentation](/rest/api/luis/operation-groups)

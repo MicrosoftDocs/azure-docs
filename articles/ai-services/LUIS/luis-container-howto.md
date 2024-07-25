@@ -397,7 +397,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Use more [Azure AI containers](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
-[download-published-package]: /rest/api/cognitiveservices-luis/authoring/apps/package-published-application-as-gzip?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true
+[download-published-package]: /rest/api/luis/apps/package-published-application-as-gzip
 [download-versioned-package]: /rest/api/luis/apps/package-trained-application-as-gzip
 
 [unsupported-dependencies]: luis-container-limitations.md#unsupported-dependencies-for-latest-container

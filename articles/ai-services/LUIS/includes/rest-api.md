@@ -13,7 +13,7 @@ By following this quickstart, you will perform three REST calls in sequence.
 - Next, you will begin a training session for the Pizza app, using the [REST Train application version](/rest/api/luis/train/train-version) call.
 - Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](/rest/api/luis/train/get-status) call.
 
-[Reference documentation](/rest/api/luis/operation-group)
+[Reference documentation](/rest/api/luis/operation-groups)
 
 ## Prerequisites
 

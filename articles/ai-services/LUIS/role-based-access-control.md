@@ -118,7 +118,7 @@ A user that is responsible for building and modifying LUIS application, as a col
         * [Delete application](/rest/api/luis/apps/delete)
         * Move app to another LUIS authoring Azure resource
         * [Publish an application](/rest/api/luis/apps/publish)
-        * [Update application settings](rest/api/luis/apps/update-settings)
+        * [Update application settings](/rest/api/luis/apps/update-settings)
         * [Assign a LUIS azure accounts to an application](/rest/api/luis/azure-accounts/assign-to-app)
         * [Remove an assigned LUIS azure accounts from an application](/rest/api/luis/azure-accounts/remove-from-app)
     :::column-end:::
