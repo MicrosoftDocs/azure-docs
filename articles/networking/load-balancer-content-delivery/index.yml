@@ -148,3 +148,13 @@ conceptualContent:
 
 # additionalContent section (optional)
 # Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network Foundations
+          url: /azure/networking/foundations/
+        - title: Network security
+          url: /azure/networking/security/
+        - title: Hybrid connectivity
+          url: /azure/networking/hybrid-connectivity/
