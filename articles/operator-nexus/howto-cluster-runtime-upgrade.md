@@ -144,9 +144,9 @@ If the rack's spec wasn't updated to the upgraded runtime version before the har
 
 During a runtime upgrade the cluster will enter a state of `Upgrading`  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a `Failed` provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and might be necessary to diagnose the failure with Microsoft support.
 
-### Cordon and drain minimizes the risk of diruption
+### Cordon and drain minimize the risk of disruption
 
-Cordon and Drain is a new initiative designed to enhance the reliability of our services during runtime upgrades. This feature, enabled by default, ensures a smooth transition of services with minimal disruptions. It facilitates the proper draining of CNF Pods during the runtime upgrade of the BMH where the cluster VMs are hosted. By cordoning the node and draining the Pods before the upgrade, the Pods can migrate to other nodes in the cluster if there is sufficient capacity. If there isn’t enough capacity, the Pods will enter a Pending state after the drain process.
+Cordon and Drain is a new initiative designed to enhance the reliability of our services during runtime upgrades. This feature, enabled by default, ensures a smooth transition of services with minimal disruptions. It facilitates the proper draining of CNF Pods during the runtime upgrade of the Baremetal Host where the cluster Virtual Machines are hosted. With cordoning the node and draining the Pods before the upgrade, the Pods can migrate to other nodes in the cluster if there's sufficient capacity. If there isn’t enough capacity, the Pods will enter a Pending state after the drain process.
 
 The process is efficient, with a maximum wait time of just 10 minutes, and includes a 30-minute post-upgrade monitoring period to ensure everything is functioning correctly.
 
