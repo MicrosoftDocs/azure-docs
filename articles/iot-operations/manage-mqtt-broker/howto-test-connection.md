@@ -87,7 +87,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --username '$sat' --pw $(cat /var/run/secrets/tokens/mq-sat) --debug --cafile /var/run/certs/ca.crt
+    mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -104,7 +104,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. To subscribe to the topic, run the following command:
 
     ```console
-    mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "world" --username '$sat' --pw $(cat /var/run/secrets/tokens/mq-sat) --debug --cafile /var/run/certs/ca.crt
+    mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -125,7 +125,7 @@ The first option is to connect from within the cluster. This option uses the def
     > Using `--insecure` is not recommended for production scenarios. Only use it for testing or development purposes.
 
     ```console
-    mqttui --broker mqtts://aio-mq-dmqtt-frontend:8883 --username '$sat' --password $(cat /var/run/secrets/tokens/mq-sat) --insecure
+    mqttui --broker mqtts://aio-mq-dmqtt-frontend:8883 --insecure -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
 1. To remove the pod, run `kubectl delete pod mqtt-client -n azure-iot-operations`.
