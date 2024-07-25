@@ -85,13 +85,13 @@ In this article, you learn how to:
 1. Get the Azure AI services account name.
 
     ```console
-    azurerm_cognitive_account_name=$(terraform output -raw azurerm_cognitive_account_name)
+    azurerm_aiservices_account_name=$(terraform output -raw azurerm_aiservices_account_name)
     ```
 
 1. Run [az cognitiveservices account show](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-show) to show the Azure AI services account you created in this article.
 
     ```azurecli
-    az cognitiveservices account show --name $azurerm_cognitive_account_name \
+    az cognitiveservices account show --name $azurerm_aiservices_account_name \
                                       --resource-group $resource_group_name
     ```
 
@@ -106,14 +106,14 @@ In this article, you learn how to:
 1. Get the Azure AI services account name.
 
     ```console
-    $azurerm_cognitive_account_name=$(terraform output -raw azurerm_cognitive_account_name)
+    $azurerm_aiservices_account_name=$(terraform output -raw azurerm_aiservices_account_name)
     ```
 
 1. Run [Get-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount) to display information about the new service.
 
     ```azurepowershell
     Get-AzCognitiveServicesAccount -ResourceGroupName $resource_group_name `
-                                   -Name $azurerm_cognitive_account_name
+                                   -Name $azurerm_aiservices_account_name
     ```
 
 ---
@@ -128,4 +128,4 @@ In this article, you learn how to:
 
 ## Next steps
 
-- [Learn more about Azure AI resources](./multi-service-resource.md)
+- [Learn more about Azure AI services resources](./multi-service-resource.md)

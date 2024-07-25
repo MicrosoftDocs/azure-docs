@@ -16,7 +16,6 @@ author: eric-urban
 ## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 
 ## Create a new Azure AI services resource
 
