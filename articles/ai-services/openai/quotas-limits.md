@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 ms.author: mbullwin
 ---
 
@@ -55,23 +55,27 @@ The following sections provide you with a quick guide to the default quotas and 
 
 ## gpt-4o rate limits
 
-`gpt-4o` introduces rate limit tiers with higher limits for certain customer types.
+`gpt-4o` and `gpt-4o-mini` have rate limit tiers with higher limits for certain customer types.
 
 ### gpt-4o global standard
 
-|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
-|---|:---:|:---:|
-|Enterprise agreement | 30 M | 60 K |
-|Default | 450 K | 2.7 K |
+| Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|---|:---:|:---:|
+|`gpt-4o`|Enterprise agreement | 30 M | 180 K |
+|`gpt-4o-mini` | Enterprise agreement | 15 M | 90 K |
+|`gpt-4o` |Default | 450 K | 2.7 K |
+|`gpt-4o-mini` | Default | 250 K | 1.5 K  |
 
 M = million | K = thousand
 
 ### gpt-4o standard
 
-|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
-|---|:---:|:---:|
-|Enterprise agreement | 1 M | 6 K |
-|Default | 150 K | 900 |
+| Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
+|---|---|:---:|:---:|
+|`gpt4o`|Enterprise agreement | 1 M | 6 K |
+|`gpt-4o-mini` | Enterprise agreement | 7.5 M | 45 K |
+|`gpt4o`|Default | 150 K | 900 |
+|`gpt-4o-mini` | Default | 125 K | 750 |
 
 M = million | K = thousand
 

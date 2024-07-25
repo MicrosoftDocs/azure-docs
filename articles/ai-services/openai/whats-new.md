@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 07/18/2024
+ms.date: 07/25/2024
 recommendations: false
 ---
 
@@ -20,15 +20,17 @@ This article provides a summary of the latest releases and major documentation u
 
 ## July 2024
 
-### GPT-4o mini preview model available for early access
+### GPT-4o mini preview model available for deployment & fine-tuning (preview)
 
-GPT-4o mini is the latest model from OpenAI [launched on July 18, 2024](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/).
+GPT-4o mini is the latest Azure OpenAI model first [announced on July 18, 2024](https://azure.microsoft.com/en-us/blog/openais-fastest-model-gpt-4o-mini-is-now-available-on-azure-ai/):
 
-From OpenAI:
+*"GPT-4o mini allows customers to deliver stunning applications at a lower cost with blazing speed. GPT-4o mini is significantly smarter than GPT-3.5 Turbo—scoring 82% on Measuring Massive Multitask Language Understanding (MMLU) compared to 70%—and is more than 60% cheaper.1 The model delivers an expanded 128K context window and integrates the improved multilingual capabilities of GPT-4o, bringing greater quality to languages from around the world."*
 
-*"GPT-4o mini surpasses GPT-3.5 Turbo and other small models on academic benchmarks across both textual intelligence and multimodal reasoning, and supports the same range of languages as GPT-4o. It also demonstrates strong performance in function calling, which can enable developers to build applications that fetch data or take actions with external systems, and improved long-context performance compared to GPT-3.5 Turbo."*
+- The model is currently available for both [standard and global standard deployment](./how-to/deployment-types.md) in the East US and Sweden Central regions.
 
-To start testing out the model today in Azure OpenAI, see the [**Azure OpenAI Studio early access playground**](./concepts/models.md#early-access-playground).
+- Fine-tuning for GPT-4o mini is in public preview and is currently available in Sweden Central.
+
+For information on model quota, consult the [quota and limits page](./quotas-limits.md) and for the latest info on model availability refer to the [models page](./concepts/models.md).
 
 ### New Responsible AI default content filtering policy 
 
