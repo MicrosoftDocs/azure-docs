@@ -154,8 +154,7 @@ The following table breaks down the approximate costs for January.
 | Cost factor | Cost |
 |---|---|
 | **Cost to write to the hot tier (641,000 * price of the operation)** | **$3.53** |
-| Total size stored in hot tier | 5,000 GB |
-| Total file number of files in hot tier | 1000 |
+| Blobs stored in hot tier | 1000 blobs (5,000 GB total size) |
 | **Cost to store blobs in hot tier (total size * price per GB)** | **$104** |
 | Total number of files read from the hot tier (1000 * 5%) | 50 |
 | **Cost to read files from the hot tier (50 * price of the operation)** | **$0.000022** |
@@ -173,15 +172,12 @@ The following table breaks down the approximate costs for February.
 | Cost factor | Cost |
 |---|---|
 | **Cost to write to the hot tier (641,000 * price of the operation)** | **$3.53** |
-| Total size stored in hot tier before policy run | 10,000 GB |
-| Total number of files in hot tier before policy run | 2000 |
+| Blobs stored in hot tier before policy run | 2000 (10,000 GB total size) |
 | Total number of files from previous months to move to the cool tier (20% * 1000) | 200 |
 | **Cost to write to the cool tier (200 * price of a write operation)** | **$0.0011** |
-| Total number files in hot tier after policy run | 1800 |
-| Total size stored in the hot tier after policy run | 9,000 GB |
+| Blobs stored in hot tier after policy run | 1800 (9,000 GB total size) |
 | **Cost to store blobs in hot tier (9,000 * price per GB)** | **$187.2** |
-| Total number of files in the cool tier | 200 |
-| Total size of files in the cool tier | 1000 GB |
+| Blobs stored in cool tier | 200 (1000 GB total size) |
 | **Cost to store blobs in the cool tier (1,000 * price per GB)** | **$11.5** |
 | Total number of files read from the hot tier (1800 * 5%) | 90 |
 | **Cost to read files from the hot tier (90 * price of the operation)** | **$0.0000396** |
