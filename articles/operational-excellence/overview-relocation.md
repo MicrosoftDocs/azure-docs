@@ -57,7 +57,7 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure API Management](../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Azure Application Gateway and Web Application Firewall](relocation-app-gateway.md)| ✅ | ❌| ❌ |
 [Azure App Service](../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
-[Azure Backup (Recovery Services vault)](../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅| ❌ |
+[Azure Backup](relocation-backup.md)| ✅ | ❌| ❌ |
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
 [Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
