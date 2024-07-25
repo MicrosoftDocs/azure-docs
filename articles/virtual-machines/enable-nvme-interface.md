@@ -49,7 +49,12 @@ For more information about enabling the NVMe interface on virtual machines creat
 ## Supported Windows OS images
 
 > [!IMPORTANT]
-> Only Gen2 images are supported. Older operating systems cannot support NVMe due to OS driver limitations. If an older version of the OS is not included in the list below, it means that NVMe support is not present for that OS.
+> Only Gen2 images are supported. Older operating systems cannot support NVMe due to OS driver limitations. If an older version of the OS is not included in the list below, it means that NVMe support is not present for that OS. Future operating systems will most likely be supported unless otherwise noted.
 
-Future operating systems will most likely be supported unless otherwise noted. These OS are supported: Windows Server 2019, Windows Server 2022, Windows 10, Windows 11.
- [Navigate to Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) for image.
+Supported OS: 
+- Windows Server 2019
+- Windows Server 2022
+- Windows 10
+- Windows 11
+
+For the image download, [Navigate to Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home)
