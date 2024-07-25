@@ -45,7 +45,6 @@ Read the following SAP Notes and papers first:
   * Important capacity information for Azure VM sizes.
   * Supported SAP software and operating system (OS) and database combinations.
   * Required SAP kernel version for Windows and Linux on Microsoft Azure.
-
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux (RHEL).
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux.
@@ -64,8 +63,7 @@ Read the following SAP Notes and papers first:
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configuring ASCS/ERS for SAP NetWeaver with Standalone Resources in RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL
-  ](https://access.redhat.com/articles/3974941)
+  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL](https://access.redhat.com/articles/3974941)
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -768,6 +766,9 @@ Follow these steps to install an SAP application server.
    * rsc_sap_NW1_ERS02_monitor_11000 on nw1-cl-0 'not running' (7): call=45, status=complete, exitreason='',
        last-rc-change='Tue Aug 21 13:52:39 2018', queued=0ms, exec=0ms
    ```
+
+   > [!NOTE]
+   > If you're using SBD as a STONITH mechanism, it could happen that after a reboot, when the node attempts to rejoin the cluster, it receives the message "we were allegendly just fenced" message in /var/log/messages and shut down the Pacemaker and Corosync services. To address the issue, you can follow the workaround described in RedHat KB [A node shuts down pacemaker after getting fenced and restarting corosync and pacemaker](https://access.redhat.com/solutions/5644441). However, in Azure, set a delay of 150 seconds for Corosync service to startup. Ensure that these steps are applied to all cluster nodes.
 
    Use the following command to clean the failed resources.
 

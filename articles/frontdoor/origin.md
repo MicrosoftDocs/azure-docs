@@ -50,6 +50,9 @@ An origin refers to the application deployment that Azure Front Door retrieves c
 
 * **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](routing-methods.md#weighted).
 
+> [!IMPORTANT]
+> When an origin is **disabled**, both routing and health probes to the origin are also disabled.
+
 ### Origin host header
 
 Requests that get forwarded by Azure Front Door to an origin include a host header field that the origin uses to retrieve the targeted resource. The value for this field typically comes from the origin URI that has the host header and port.

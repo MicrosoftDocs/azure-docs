@@ -2,8 +2,8 @@
 title: Create an Azure Red Hat OpenShift 4 private cluster
 description: Learn how to create an Azure Red Hat OpenShift private cluster running OpenShift 4
 ms.service: azure-redhat-openshift
-ms.topic: article
-ms.date: 10/23/2023
+ms.topic: how-to
+ms.date: 07/15/2024
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli
@@ -57,15 +57,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ### Get a Red Hat pull secret (optional)
 
-A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
+A Red Hat pull secret enables your cluster to access Red Hat container registries along with other content. This step is optional but recommended.
 
 1. **[Go to your Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and log in.**
 
-   You'll need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
+   Sign in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
 2. **Click Download pull secret.**
 
-Keep the saved `pull-secret.txt` file somewhere safe - it will be used in each cluster creation.
+Keep the saved `pull-secret.txt` file somewhere safe - it's used in each cluster creation.
 
 When running the `az aro create` command, you can reference your pull secret using the `--pull-secret @pull-secret.txt` parameter. Execute `az aro create` from the directory where you stored your `pull-secret.txt` file. Otherwise, replace `@pull-secret.txt` with `@<path-to-my-pull-secret-file`.
 
@@ -73,7 +73,7 @@ If you're copying your pull secret or referencing it in other scripts, your pull
 
 ### Create a virtual network containing two empty subnets
 
-Next, you'll create a virtual network containing two empty subnets.
+Next, create a virtual network containing two empty subnets.
 
 1. **Set the following variables.**
 
@@ -85,7 +85,7 @@ Next, you'll create a virtual network containing two empty subnets.
 
 1. **Create a resource group**
 
-    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored, it's also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
+    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you specify a location. This location is where resource group metadata is stored, it's also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
     ```azurecli-interactive
     az group create --name $RESOURCEGROUP --location $LOCATION
@@ -108,7 +108,7 @@ Next, you'll create a virtual network containing two empty subnets.
 
 2. **Create a virtual network.**
 
-    Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+    Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the control and worker nodes.
 
     Create a new virtual network in the same resource group you created earlier.
 
@@ -173,7 +173,7 @@ Next, you'll create a virtual network containing two empty subnets.
 
 ## Create the cluster
 
-Run the following command to create a cluster. Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with additional content.
+Run the following command to create a cluster. Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional) which enables your cluster to access Red Hat container registries along with other content.
 
 >[!NOTE]
 > If you're copy/pasting commands and using one of the optional parameters, be sure delete the initial hashtags and the trailing comment text. As well, close the argument on the preceding line of the command with a trailing backslash.
@@ -191,7 +191,7 @@ az aro create \
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
+The `az aro create` command normally takes about 35 minutes to create a cluster.
 
 > [!NOTE]
 > When attempting to create a cluster, if you receive an error message saying that your resource quota has been exceeded, see [Adding Quota to ARO account](https://mobb.ninja/docs/quickstart-aro/#adding-quota-to-aro-account) to learn how to proceed. 
@@ -235,9 +235,9 @@ For egress, the User Defined Routing option ensures that the newly created clust
 > If you choose the User Defined Routing network type, you're completely responsible for managing the egress of your cluster's routing outside of your virtual network (for example, getting access to public internet). Azure Red Hat OpenShift cannot manage this for you.
 > 
 
-You can configure one or more egress IP addresses to a namespace or to specific pods in a namespace of a private cluster with no public IP address. To do so, follow the procedure above to create a private cluster without a public IP address, and then configure the egress IP as per [this Red Hat OpenShift document](https://docs.openshift.com/container-platform/4.13/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html). These egress IP addresses will need to be from the subnets associated with the ARO cluster.
+You can configure one or more egress IP addresses to a namespace or to specific pods in a namespace of a private cluster with no public IP address. To do so, follow the procedure above to create a private cluster without a public IP address, and then configure the egress IP as per [this Red Hat OpenShift document](https://docs.openshift.com/container-platform/4.13/networking/ovn_kubernetes_network_provider/configuring-egress-ips-ovn.html). These egress IP addresses need to be from the subnets associated with the ARO cluster.
 
-Configuring an egress IP for an ARO private cluster is only supported for clusters with the `--outbound-type UserDefinedRouting` parameter. It is not supported for public ARO clusters that have the `--outbound-type LoadBalancer` parameter.
+Configuring an egress IP for an ARO private cluster is only supported for clusters with the `--outbound-type UserDefinedRouting` parameter. It isn't supported for public ARO clusters that have the `--outbound-type LoadBalancer` parameter.
 
 ## Connect to the private cluster
 
@@ -249,7 +249,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-The following example output shows the password will be in `kubeadminPassword`.
+The following example output shows the password in `kubeadminPassword`.
 
 ```json
 {
@@ -258,7 +258,7 @@ The following example output shows the password will be in `kubeadminPassword`.
 }
 ```
 
-You can find the cluster console URL by running the following command, which will look like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
+You can find the cluster console URL by running the following command, which looks like `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`
 
 ```azurecli-interactive
  az aro show \
@@ -270,13 +270,13 @@ You can find the cluster console URL by running the following command, which wil
 >[!IMPORTANT]
 > In order to connect to a private Azure Red Hat OpenShift cluster, you'll need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](../virtual-network/virtual-network-peering-overview.md) with the Virtual Network the cluster was deployed to.
 
-Launch the console URL in a browser and login using the `kubeadmin` credentials.
+Launch the console URL in a browser and sign in using the `kubeadmin` credentials.
 
 ![Screenshot that shows the Azure Red Hat OpenShift login screen.](media/aro4-login.png)
 
 ## Install the OpenShift CLI
 
-Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
+Once you're signed into the OpenShift Web Console, select the **?** at the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
 ![Image shows Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
@@ -293,7 +293,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > In order to connect to a private Azure Red Hat OpenShift cluster, you'll need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](../virtual-network/virtual-network-peering-overview.md) with the Virtual Network the cluster was deployed to.
 
-Login to the OpenShift cluster's API server using the following command. Replace **\<kubeadmin password>** with the password you just retrieved.
+Sign in to the OpenShift cluster's API server using the following command. Replace **\<kubeadmin password>** with the password you retrieved.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

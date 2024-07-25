@@ -63,7 +63,7 @@ Your input source (Event Hub/IoT Hub) likely has multiple partitions. Azure Stre
 
 When multiple partitions from the same input stream are combined, the late arrival tolerance is the maximum amount of time that every partition waits for new data. If there's one partition in your event hub or if IoT Hub doesn’t receive inputs, the timeline for that partition doesn't progress until it reaches the late arrival tolerance threshold. This delays your output by the late arrival tolerance threshold. In such cases, you may see the following message: 
 <br><code>
-{"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
+{"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"0000000000-0000-0000-0000-00000000000000"} 
 </code><br><br>
 This message to inform you that at least one partition in your input is empty and will delay your output by the late arrival threshold. To overcome this, it's recommended you either:  
 1. Ensure all partitions of your Event Hub/IoT Hub receive input. 
@@ -76,5 +76,5 @@ When a partition doesn't have any data for more than the configured late arrival
 
 ## Next steps
 * [Time handling considerations](stream-analytics-time-handling.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Azure Stream Analytics metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
+* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
+* [Azure Stream Analytics metrics dimensions](monitor-azure-stream-analytics-reference.md#metric-dimensions)

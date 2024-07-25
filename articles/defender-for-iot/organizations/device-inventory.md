@@ -19,7 +19,6 @@ For example:
 
 :::image type="content" source="media/device-inventory/azure-device-inventory.png" alt-text="Screenshot of the Defender for IoT Device inventory page in the Azure portal." lightbox="media/device-inventory/azure-device-inventory.png":::
 
-
 ## Supported devices
 
 Defender for IoT's device inventory supports the following device classes:
@@ -49,7 +48,6 @@ Defender for IoT device inventory is available in the following locations:
 | **Microsoft Defender XDR** | Enterprise IoT devices detected by Microsoft Defender for Endpoint agents | Correlate devices across Microsoft Defender XDR in purpose-built alerts, vulnerabilities, and recommendations. |
 |**OT network sensor consoles**     |   Devices detected by that OT sensor      |    - View all detected devices across a network device map<br><br>- View related events on the **Event timeline** |
 |**An on-premises management console**     |  Devices detected across all connected OT sensors          | Enhance device data by importing data manually or via script  |
-| 
 
 For more information, see:
 
@@ -101,7 +99,7 @@ The following table lists the columns available in the Defender for IoT device i
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-|Name  |Description
+|Name  |Description |
 |---------|---------|
 |**Authorization** *   |Editable. Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes.  |
 |**Business Function**     | Editable. Describes the device's business function. |

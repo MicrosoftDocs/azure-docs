@@ -11,16 +11,16 @@ ms.date: 07/14/2022
 
 # List of Service Fabric events 
 
-Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in a number of ways including configuring [Azure Monitor logs with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
+Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in various ways including configuring [Azure Monitor logs with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
 Here are some characteristics of these events
-* Each event is tied to a specific entity in the cluster e.g. Application, Service, Node, Replica.
+* Each event is tied to a specific entity in the cluster, for example, Application, Service, Node, Replica.
 * Each event contains a set of common fields: EventInstanceId, EventName, and Category.
-* Each event contains fields that tie the event back to the entity it is associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created.
-* Events are structured in such a way that they can be consumed in a variety of tools to do further analysis. Additionally, relevant details for an event are defined as separate properties as opposed to a long String. 
+* Each event contains fields that tie the event back to the entity it's associated with. For instance, the ApplicationCreated event would have fields that identify the name of the application created.
+* Events are structured in such a way that they can be consumed in various tools to do further analysis. Additionally, relevant details for an event are defined as separate properties as opposed to a long String. 
 * Events are written by different subsystems in Service Fabric are identified by Source(Task) below. More information is available on these subsystems in [Service Fabric Architecture](service-fabric-architecture.md) and [Service Fabric Technical Overview](service-fabric-technical-overview.md).
 
-Here is a list of these Service Fabric events organized by entity.
+Here's a list of these Service Fabric events organized by entity.
 
 ## Cluster events
 
@@ -32,7 +32,7 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Upgrade | A cluster upgrade has started | CM | Informational |
 | 29628 | ClusterUpgradeCompleted | Upgrade | A cluster upgrade has completed | CM | Informational | 
-| 29629 | ClusterUpgradeRollbackStarted | Upgrade | A cluster upgrade has started to rollback  | CM | Warning | 
+| 29629 | ClusterUpgradeRollbackStarted | Upgrade | A cluster upgrade has started to roll back  | CM | Warning | 
 | 29630 | ClusterUpgradeRollbackCompleted | Upgrade | A cluster upgrade has completed rolling back | CM | Warning | 
 | 29631 | ClusterUpgradeDomainCompleted | Upgrade | An upgrade domain has finished upgrading during a cluster upgrade | CM | Informational | 
 
@@ -44,7 +44,7 @@ More details on cluster upgrades can be found [here](service-fabric-cluster-upgr
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Deactivation of a node has completed | FM | Informational | 
 | 18603 | NodeUp | StateTransition | The cluster has detected a node has started up | FM | Informational | 
-| 18604 | NodeDown | StateTransition | The cluster has detected a node has shut down. During a node restart, you will see a NodeDown event followed by a NodeUp event |  FM | Error | 
+| 18604 | NodeDown | StateTransition | The cluster has detected a node has shut down. During a node restart, you'll see a NodeDown event followed by a NodeUp event |  FM | Error | 
 | 18605 | NodeAddedToCluster | StateTransition |  A new node has been added to the cluster and Service Fabric can deploy applications to this node | FM | Informational | 
 | 18606 | NodeRemovedFromCluster | StateTransition |  A node has been removed from the cluster. Service Fabric will no longer deploy applications to this node | FM | Informational | 
 | 18607 | NodeDeactivateStarted | StateTransition |  Deactivation of a node has started | FM | Informational | 
@@ -78,7 +78,7 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Upgrade | An application upgrade has started | CM | Informational | 
 | 29622 | ApplicationUpgradeCompleted | Upgrade | An application upgrade has completed | CM | Informational | 
-| 29623 | ApplicationUpgradeRollbackStarted | Upgrade | An application upgrade has started to rollback |CM | Warning | 
+| 29623 | ApplicationUpgradeRollbackStarted | Upgrade | An application upgrade has started to roll back |CM | Warning | 
 | 29624 | ApplicationUpgradeRollbackCompleted | Upgrade | An application upgrade has completed rolling back | CM | Warning | 
 | 29626 | ApplicationUpgradeDomainCompleted | Upgrade | An upgrade domain has finished upgrading during an application upgrade | CM | Informational | 
 
@@ -268,7 +268,7 @@ The [Service Fabric Health Model](service-fabric-health-introduction.md) provide
 
 ## Events prior to version 6.2
 
-Here is a comprehensive list of events provided by Service Fabric prior to version 6.2.
+Here's a comprehensive list of events provided by Service Fabric before version 6.2.
 
 | EventId | Name | Source (Task) | Level |
 | --- | --- | --- | --- |
@@ -298,7 +298,7 @@ Here is a comprehensive list of events provided by Service Fabric prior to versi
 
 ## Next steps
 
-* Get an overview of [diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
+* Get an overview of [diagnostics in Service Fabric](monitor-service-fabric.md)
 * Learn more about the EventStore in [Service Fabric Eventstore Overview](service-fabric-diagnostics-eventstore.md)
 * Modifying your [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) configuration to collect more logs
 * [Setting up Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to see your Operational channel logs

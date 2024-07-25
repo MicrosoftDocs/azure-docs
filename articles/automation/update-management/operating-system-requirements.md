@@ -4,7 +4,7 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 06/30/2024
+ms.date: 07/15/2024
 ms.topic: conceptual
 ---
 
