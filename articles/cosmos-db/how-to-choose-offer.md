@@ -113,7 +113,7 @@ If you see that your traffic pattern is variable, but you are over or under prov
 Autoscale bills for the highest RU/s scaled to in an hour. When analyzing the normalized RU consumption over time, it is important to use the highest utilization per hour when calculating the average. 
 
 To calculate the average of the highest utilization across all hours:
-1. Set the **Aggregation** on the Noramlized RU Consumption metric to **Max**.
+1. Set the **Aggregation** on the Normalized RU Consumption metric to **Max**.
 1. Select the **Time granularity** to 1 hour.
 1. Navigate to **Chart options**.
 1. Select the bar chart option. 
