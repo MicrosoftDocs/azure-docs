@@ -4843,6 +4843,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md",
+            "redirect_url": "/azure/vpn-gateway/monitor-vpn-gateway-reference",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
