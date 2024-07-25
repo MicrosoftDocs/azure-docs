@@ -238,6 +238,17 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
   Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to 
   breakout room. Azure Communication Services users are always assigned to breakout room. 
-  true. Only when the user joins the meeting next time this user will be assigned with breakout room.
+
+  ## Error Codes and Description
+|Error code| Subcode | Result Category | Advice |
+|----------------------------------------------|--------|--------|---------|
+|400		| 46250	| ExpectedError  | Breakout Rooms feature is only available in Teams meetings. 		|
+|405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | 
+|500 | 46254	| UnexpectedServerError | Not able to join Breakout Room due to an unexpected error. Please try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. |
+|500| 46255 | UnexpectedServerError | Not able to join Breakout Room as Main meeting hold is failed. Please try again, by calling join() method. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
+|412 | 46257| UnexpectedServerError | Not able to join back to the Main meeting as the resume failed.Please gather browser console logs and contact Azure Communication Services support. |
+|412| 46258 | UnexpectedClientError | Error while trying to update the Breakoutroom details. Please gather browser console logs and contact Azure Communication Services support.|
+|500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. Please gather browser console logs and contact Azure Communication Services support. |
+|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as the url is null or empty.Can join BreakoutRoom only when assigned.|
   
   
