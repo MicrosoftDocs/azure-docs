@@ -180,6 +180,8 @@ You can view the details of a flow log in a subscription or a group of subscript
 
     :::image type="content" source="./media/nsg-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-log-settings.png":::
 
+1. Select **Cancel** to close the settings page without making changes.
+
 ## Download a flow log
 
 The storage location of a flow log is defined at creation. To access and download flow logs from your storage account, you can use Azure Storage Explorer. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
