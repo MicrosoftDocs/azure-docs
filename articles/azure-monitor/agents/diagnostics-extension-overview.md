@@ -110,40 +110,16 @@ See the following articles for information on installing and configuring the dia
 
 The following tables list the operating systems that are supported by WAD and LAD. See the documentation for each agent for unique considerations and for the installation process. See Telegraf documentation for its supported operating systems. All operating systems are assumed to be x64. x86 is not supported for any operating system.
 
-### Windows
+### Option 1
 
-**Option 1**
+#### Windows
 
 * Windows Server 2019
 * Windows Server 2016, 2016 Core
 * Windows Server 2012 R2, 2012
 * Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only)
 
-**Option 2**
-
-| Operating system                                                                                  | Support | 
-|:--------------------------------------------------------------------------------------------------|:-------:|
-| Windows Server 2022                                                                               | ❌      |
-| Windows Server 2022 Core                                                                          | ❌      |
-| Windows Server 2019                                                                               | ✅      |
-| Windows Server 2019 Core                                                                          | ❌      |
-| Windows Server 2016                                                                               | ✅      |
-| Windows Server 2016 Core                                                                          | ✅      |
-| Windows Server 2012 R2                                                                            | ✅      |
-| Windows Server 2012                                                                               | ✅      |
-| Windows Server 2008 R2 SP1                                                                        | ✅      |
-| Windows Server 2008 R2                                                                            | ✅      |
-| Windows Server 2008 SP2                                                                           | ❌      |
-| Windows 11 Client & Pro                                                                           | ❌      |
-| Windows 11 Enterprise (including multi-session)                                                   | ❌      |
-| Windows 10 1803 (RS4) and higher                                                                  | ❌      |
-| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>)       | ✅      | 
-
-<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
-
-### Linux
-
-**Option 1**
+#### Linux
 
 * CentOS Linux 7, 6.5+
 * Debian 9, 7
@@ -153,7 +129,31 @@ The following tables list the operating systems that are supported by WAD and LA
 * SUSE Linux Enterprise Server 12 SP5, 12
 * Ubuntu 20.04 LTS, 18.04 LTS, 16.04 LTS, 14.04 LTS
 
-**Option 2**
+### Option 2
+
+#### Windows
+
+| Operating system                                                                                  | Support | &nbsp; |
+|:--------------------------------------------------------------------------------------------------|:-------:|---|
+| Windows Server 2022                                                                               | ❌      |   |
+| Windows Server 2022 Core                                                                          | ❌      |   |
+| Windows Server 2019                                                                               | ✅      |   |
+| Windows Server 2019 Core                                                                          | ❌      |   |
+| Windows Server 2016                                                                               | ✅      |   |
+| Windows Server 2016 Core                                                                          | ✅      |   |
+| Windows Server 2012 R2                                                                            | ✅      |   |
+| Windows Server 2012                                                                               | ✅      |   |
+| Windows Server 2008 R2 SP1                                                                        | ✅      |   |
+| Windows Server 2008 R2                                                                            | ✅      |   |
+| Windows Server 2008 SP2                                                                           | ❌      |   |
+| Windows 11 Client & Pro                                                                           | ❌      |   |
+| Windows 11 Enterprise (including multi-session)                                                   | ❌      |   |
+| Windows 10 1803 (RS4) and higher                                                                  | ❌      |   |
+| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>)       | ✅      |   |
+
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
+
+#### Linux
 
 | Operating system                                      | Support        | 
 |:------------------------------------------------------|:--------------:|
