@@ -59,7 +59,7 @@ Copilot in Azure can help you [create a Linux VM and connect to it via SSH](/azu
 
 ### Linux VM example
 
-You can say "**How do I create a Linux VM and SSH into it?**". You'll see two deployment options: **Guided deployment** or **Quick deployment**. If you choose the quick option and select a subscription, you can run the script to deploy the infrastructure. While the deployment is running, don't close or refresh the page. You'll see progress as each step of the deployment is completed.
+You can say "**How do I create a Linux VM and SSH into it?**" You'll see two deployment options: **Guided deployment** or **Quick deployment**. If you choose the quick option and select a subscription, you can run the script to deploy the infrastructure. While the deployment is running, don't close or refresh the page. You'll see progress as each step of the deployment is completed.
 
 :::image type="content" source="media/use-guided-deployments/linux-vm-deployment.png" lightbox="media/use-guided-deployments/linux-vm-deployment.png" alt-text="Screenshot showing Copilot in Azure providing a quick deployment for a Linux VM.":::
 
