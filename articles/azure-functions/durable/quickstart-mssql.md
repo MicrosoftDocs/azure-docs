@@ -10,7 +10,7 @@ ms.reviewer: azfuncdf
 
 # Quickstart: Set a Durable Functions app to use the MSSQL storage provider
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _back ends_, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql).
 
@@ -32,11 +32,11 @@ Specifically, this quickstart assumes that you have already:
 
 If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts:
 
-- [Create your first Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
-- [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
-- [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
-- [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
-- [Create your first Durable Functions app - Java](quickstart-java.md)
+- [Create a Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - JavaScript](quickstart-js-vscode.md)
+- [Create a Durable Functions app - Python](quickstart-python-vscode.md)
+- [Create a Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - Java](quickstart-java.md)
 
 ## Add the Durable Task MSSQL extension (.NET only)
 
@@ -56,7 +56,7 @@ For more information about installing Azure Functions extensions via the Core To
 ## Set up your database
 
 > [!NOTE]
-> If you already have an MSSQL-compatible database, you can skip this section and the next section on setting up a Docker-based local database.
+> If you already have an MSSQL-compatible database, you can skip this section and skip the next section on setting up a Docker-based local database.
 
 Because the MSSQL back end is designed for portability, you have several options to set up your backing database. For example, you can set up an on-premises SQL Server instance, use a fully managed instance of [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), or use any other SQL Server-compatible hosting option.
 
@@ -198,7 +198,7 @@ To run your app in Azure, you need a publicly accessible SQL Server instance. Yo
 ### Create an Azure SQL database
 
 > [!NOTE]
-> If you already have an Azure SQL database or another publicly accessible SQL Server instance that you would like to use, you can skip to the next section.
+> If you already have an Azure SQL database or another publicly accessible SQL Server instance that you would like to use, you can go to the next section.
 
 In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). When you configure the database, make sure that you set the value for _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
 
@@ -211,7 +211,7 @@ Here's an example of how to get the Azure SQL connection string in the portal:
 
 :::image type="content" source="media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot that shows an Azure connection string in the Azure portal.":::
 
-In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that placeholder with the password that you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database overview pane in the Azure portal. In the **Essentials** view, select your server name. Then, select **Reset password**. See the following screenshots for examples.
+In the Azure portal, the connection string has the database's password removed: it's replaced with `{your_password}`. Replace that placeholder with the password that you used to create the database earlier in this section. If you forgot your password, you can reset it by going to the database overview pane in the Azure portal. In the **Essentials** view, select your server name. Then, select **Reset password**. For examples, see the following screenshots.
 
 :::image type="content" source="media/quickstart-mssql/mssql-azure-reset-pass-1.png" alt-text="Screenshot that shows the Azure SQL database view, with the server name option highlighted.":::
 
@@ -219,7 +219,7 @@ In the Azure portal, the connection string has the database's password removed: 
 
 ### Add the connection string as an application setting
 
-Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. See the following screenshots for examples.
+Next, add your database's connection string as an application setting. To add it in the Azure portal, first go to your Azure Functions app view. Under **Configuration**, select **New application setting**. Assign **SQLDB_Connection** to map to a publicly accessible connection string. For examples, see the following screenshots.
 
 :::image type="content" source="media/quickstart-mssql/mssql-azure-environment-variable-1.png" alt-text="Screenshot that shows the database pane and New application setting highlighted.":::
 

@@ -12,7 +12,7 @@ ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete, de
 
 # Quickstart: Create a C# Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
 Like Azure Functions, Durable Functions supports two process models for .NET class library functions. To learn more about the two processes, see [Differences between in-process and isolated worker process .NET Azure Functions](../dotnet-isolated-in-process-differences.md).
 

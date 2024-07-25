@@ -27,22 +27,22 @@ To complete this quickstart, you need:
 
 If you don't have an existing Durable Functions project deployed in Azure, we recommend that you start with one of the following quickstarts:
 
-* [Create your first Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
-* [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
-* [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
-* [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
-* [Create your first Durable Functions app - Java](quickstart-java.md)
+* [Create a Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
+* [Create a Durable Functions app - JavaScript](quickstart-js-vscode.md)
+* [Create a Durable Functions app - Python](quickstart-python-vscode.md)
+* [Create a Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+* [Create a Durable Functions app - Java](quickstart-java.md)
 
 ## Configure your app to use managed identity credentials
 
-Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as Azure Key Vault. Managed identity access is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
+Your app can use a [managed identity](../../app-service/overview-managed-identity.md) to easily access other Microsoft Entra-protected resources, such as an instance of Azure Key Vault. Managed identity access is supported in the [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) version 2.7.0 and later.
 
 > [!NOTE]
 > A managed identity is available to apps only when they execute in Azure. When an app is configured to use identity-based connections, a locally executing app instead uses your *developer credentials* to authenticate with Azure resources. Then, when the app is deployed in Azure, it uses your managed identity configuration.
 
 ### Enable a managed identity
 
-To begin, enable a managed identity for your application. Your function app must have either a *system assigned managed identity* or a *user assigned managed identity*. To enable a managed identity for your function app, and to learn more about the differences between the two types of identities, see the [managed identity overview](../../app-service/overview-managed-identity.md).
+To begin, enable a managed identity for your application. Your function app must have either a *system-assigned managed identity* or a *user-assigned managed identity*. To enable a managed identity for your function app, and to learn more about the differences between the two types of identities, see the [managed identity overview](../../app-service/overview-managed-identity.md).
 
 ### Assign access roles to the managed identity
 
@@ -107,7 +107,7 @@ Before you can use your app's managed identity, make some changes to the app con
 
 ## Configure your app to use client secret credentials
 
-Registering a client application in Microsoft Entra ID is another way you can configure access to an Azure service for your Durable Functions app. In the following steps, you use client secret credentials for authentication to your Azure Storage account. Function apps can use this method both locally and in Azure. Using a client secret credential is *less recommended* than using managed identity credentials because a client secret is more complicated to configure and manage. A client secret credential also requires sharing a secret credential with the Azure Functions service.
+Registering a client application in Microsoft Entra ID is another way you can configure access to an Azure service for your Durable Functions app. In the following steps, you use client secret credentials for authentication to your Azure Storage account. Function apps can use this method both locally and in Azure. Using a client secret credential is *less recommended* than using managed identity credentials because a client secret is more complex to set up and manage. A client secret credential also requires sharing a secret credential with the Azure Functions service.
 
 <a name='register-a-client-application-on-azure-active-directory'></a>
 
@@ -125,7 +125,7 @@ Registering a client application in Microsoft Entra ID is another way you can co
 
    1. *Copy the secret value to use later*.
 
-      The secret value doesn't appear again after you leave the pane, so be sure that you *copy the secret and save it*.
+      The secret's value doesn't appear again after you leave the pane, so be sure that you *copy the secret and save it*.
 
    :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png" alt-text="Screenshot that shows the Add a client secret pane." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-01.png":::
 
@@ -196,6 +196,6 @@ In the Azure portal, run and test the application. To run and test the app local
 
    * **AzureWebJobsStorage__tenantId**: The tenant ID that the Microsoft Entra application is registered in. Get this GUID value on the Microsoft Entra application pane.
 
-   The values to use for the client ID and the tenant ID appear on your client application Overview pane. The client secret value is the one that you saved in an earlier step. The client secret value isn't available after the pane is refreshed.
+   The values to use for the client ID and the tenant ID appear on your client application Overview pane. The client secret value is the one that you saved in an earlier step. The client secret's value isn't available after the pane is refreshed.
 
    :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png" alt-text="Screenshot that shows the tenant ID and client ID on a Microsoft Entra application pane." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-client-secret-scenario-04.png":::

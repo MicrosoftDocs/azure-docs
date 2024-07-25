@@ -10,7 +10,7 @@ ms.reviewer: azfuncdf
 
 # Quickstart: Set a Durable Functions app to use the Netherite storage provider
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called *back ends*, for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this quickstart, you configure a Durable Functions app to use the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
@@ -33,11 +33,11 @@ Specifically, this quickstart assumes that you have already:
 
 If you don't meet these prerequisites, we recommend that you start with one of the following quickstarts:
 
-- [Create your first Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
-- [Create your first Durable Functions app - JavaScript](quickstart-js-vscode.md)
-- [Create your first Durable Functions app - Python](quickstart-python-vscode.md)
-- [Create your first Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
-- [Create your first Durable Functions app - Java](quickstart-java.md)
+- [Create a Durable Functions app - C#](durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - JavaScript](quickstart-js-vscode.md)
+- [Create a Durable Functions app - Python](quickstart-python-vscode.md)
+- [Create a Durable Functions app - PowerShell](quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - Java](quickstart-java.md)
 
 ## Add the Netherite extension (.NET only)
 
@@ -97,7 +97,7 @@ This code snippet is a basic configuration. Later, you might want to [add parame
 
 Your app is now ready for local development. You can start the function app to test it. One way to start the app is to run `func host start` on your application's root, and then execute a basic orchestrator function.
 
-While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to verify that it's working as expected. If Netherite is running correctly, the table isn't empty. See the following screenshot for an example.
+While the function app is running, Netherite publishes load information about its active partitions to an Azure Storage table named **DurableTaskPartitions**. You can use [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to verify that it's working as expected. If Netherite is running correctly, the table isn't empty. For an example, see the following screenshot.
 
 :::image type="content" source="media/quickstart-netherite/partition-table.png" alt-text="Screenshot that shows data in the DurableTaskPartitions table in Azure Storage Explorer.":::
 

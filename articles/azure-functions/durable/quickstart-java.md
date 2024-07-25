@@ -12,7 +12,7 @@ zone_pivot_groups: create-java-durable-options
 
 # Quickstart: Create a Java Durable Functions app
 
-Durable Functions is a feature of [Azure Functions](../functions-overview.md). Use Durable Functions to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
 In this quickstart, you create and test a "hello world" Durable Functions app in Java.
 
