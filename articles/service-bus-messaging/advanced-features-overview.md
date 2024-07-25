@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus messaging - advanced features
-description: This article provides a high-level overview of advanced features in Azure Service Bus such as sessions, scheduled delivery, autodelete on ide, etc.
+description: This article provides a high-level overview of advanced features in Azure Service Bus such as sessions, scheduled delivery, autodelete on idle, etc.
 ms.topic: concept-article
 ms.date: 07/25/2024
 #customer intent: as a developer of messaging applications, I want to know what features are supported by Azure Service Bus to make informed decisions. 
