@@ -285,6 +285,8 @@ import IPython.display as Disp
 Disp.Image(requests.get(image_url).content)
 ```
 
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+
 Now, create a chat completion request with the image:
 
 
@@ -594,6 +596,8 @@ img.src = data_url;
 document.body.appendChild(img);
 ```
 
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
+
 Now, create a chat completion request with the image:
 
 
@@ -898,6 +902,8 @@ string dataUrl = $"data:image/{imageFormat};base64,{imageBase64}";
 ```
 
 Visualize the image:
+
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
@@ -1229,6 +1235,8 @@ Phi-3-vision-128k-Instruct can reason across text and images and generate text c
 To see this capability, download an image and encode the information as base64 string:
 
 Visualize the image:
+
+:::image type="content" source="../media/how-to/sdks/slms-chart-example.jpg" alt-text="A chart displaying the relative capabilities between large language models and small language models." lightbox="../media/how-to/sdks/slms-chart-example.jpg":::
 
 Now, create a chat completion request with the image:
 
