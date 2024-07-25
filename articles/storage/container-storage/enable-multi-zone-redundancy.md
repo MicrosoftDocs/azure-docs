@@ -1,10 +1,10 @@
 ---
-title: Enable multi-zone storage redundancy in Azure Container Storage
+title: Enable multi-zone redundancy in Azure Container Storage
 description: Enable storage redundancy across multiple availability zones in Azure Container Storage to improve stateful application availability. Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 07/25/2024
 ms.author: kendownie
 ---
 
@@ -43,7 +43,7 @@ Follow these steps to create a multi-zone storage pool that uses Azure Disks. Fo
 1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk
@@ -70,7 +70,7 @@ If your workload requires storage redundancy, you can leverage disks that use [z
 You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` in your storage pool definition, as in the following example.
 
    ```yml
-   apiVersion: containerstorage.azure.com/v1beta1
+   apiVersion: containerstorage.azure.com/v1
    kind: StoragePool
    metadata:
      name: azuredisk
