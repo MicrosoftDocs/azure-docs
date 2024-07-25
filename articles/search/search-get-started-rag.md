@@ -120,7 +120,7 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
    Output should look similar to the following example. Results that are returned directly from the search engine consist of fields and their verbatim values, along with metadata like a search score and a semantic ranking score and caption if you use semantic ranking.
 
    ```
-         "@search.score": 5.600783,
+      "@search.score": 5.600783,
       "@search.rerankerScore": 2.4191176891326904,
       "@search.captions": [
         {

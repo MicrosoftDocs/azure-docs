@@ -31,6 +31,7 @@ Azure confidential VMs offer strong security and confidentiality for tenants. Th
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
 - Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
+- Ultra disk capability is supported on confidential VMs
 
 ## Confidential OS disk encryption
 
@@ -123,7 +124,6 @@ Confidential VMs *don't support*:
 - Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
 - Limited Azure Compute Gallery support
 - Shared disks
-- Ultra disks
 - Accelerated Networking
 - Live migration
 - Screenshots under boot diagnostics
