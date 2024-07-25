@@ -579,14 +579,18 @@ These estimates will vary based on the values set for the above parameters. For 
 
 The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
-| Model | Max tokens for system message | Max tokens for model response |
-|--|--|--|
-| GPT-35-0301 | 400 | 1500 |
-| GPT-35-0613-16K | 1000 | 3200 |
-| GPT-4-0613-8K | 400 | 1500 |
-| GPT-4-0613-32K | 2000 | 6400 |
+| Model | Max tokens for system message | 
+|--|--|
+| GPT-35-0301 | 400 |
+| GPT-35-0613-16K | 1000 |
+| GPT-4-0613-8K | 400 |
+| GPT-4-0613-32K | 2000 |
+| GPT-35-turbo-0125 | 2000 |
+| GPT-4-turbo-0409 | 4000 |
+| GPT-4o | 4000 |
+| GPT-4o-mini | 4000 |
 
-The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message). To see the maximum tokens for the model response, see the [models article](./models.md#gpt-4-and-gpt-4-turbo-models). Additionally, the following also consume tokens:
 
 
 
