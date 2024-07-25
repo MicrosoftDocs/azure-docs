@@ -115,10 +115,8 @@ The following tables list the operating systems that are supported by WAD and LA
 **Option 1**
 
 * Windows Server 2019
-* Windows Server 2016
-* Windows Server 2016 Core
-* Windows Server 2012 R2
-* Windows Server 2012
+* Windows Server 2016, 2016 Core
+* Windows Server 2012 R2, 2012
 * Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only)
 
 **Option 2**
@@ -147,21 +145,13 @@ The following tables list the operating systems that are supported by WAD and LA
 
 **Option 1**
 
-* CentOS Linux 7
-* CentOS Linux 6.5+
-* Debian 9
-* Debian 7
+* CentOS Linux 7, 6.5+
+* Debian 9, 7
 * OpenSUSE 13.1+
-* Oracle Linux 7 
-* Oracle Linux 6.4+
-* Red Hat Enterprise Linux Server 7
-* Red Hat Enterprise Linux Server 6.7+ 
-* SUSE Linux Enterprise Server 12 SP5
-* SUSE Linux Enterprise Server 12
-* Ubuntu 20.04 LTS
-* Ubuntu 18.04 LTS
-* Ubuntu 16.04 LTS
-* Ubuntu 14.04 LTS
+* Oracle Linux 7, 6.4+
+* Red Hat Enterprise Linux Server 7, 6.7+ 
+* SUSE Linux Enterprise Server 12 SP5, 12
+* Ubuntu 20.04 LTS, 18.04 LTS, 16.04 LTS, 14.04 LTS
 
 **Option 2**
 
