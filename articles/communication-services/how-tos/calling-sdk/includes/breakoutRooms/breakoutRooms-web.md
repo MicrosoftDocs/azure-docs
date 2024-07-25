@@ -212,7 +212,7 @@ const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMee
 ```js
 const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 ```
-- `roomEndTime` : breakout room end time set by the organizer of the main meeting.
+- `roomEndTime` : Breakout room end time set by the Organizer / Co-organizer / Breakout room manager of the main meeting.
 
 ### Troubleshooting
 
