@@ -310,7 +310,7 @@ The sample app uses the Python Standard Library logging module to help you diagn
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
-        1. From the left menu, select **App Service logs**.
+        1. From the left menu, under **Monitoring**, select **App Service logs**.
         1. Under **Application logging**, select **File System**.
         1. In the top menu, select **Save**.
     :::column-end:::
