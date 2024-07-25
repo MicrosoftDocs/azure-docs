@@ -73,9 +73,10 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
 1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
 
-    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Configure Azure OpenAI Connector.":::
+    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
 
-   **Note** - Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+   >[!Note]
+   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
 
    Select **Next: Tags** to set up tags for the new Elastic resource.
 
