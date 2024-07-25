@@ -125,7 +125,7 @@ To disable traffic analytics for a flow log, take the previous steps 1-3, then u
 
 :::image type="content" source="./media/vnet-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/disable-traffic-analytics.png":::
 
-## Change a flow log
+## Change flow log settings
 
 You can configure and change a flow log after you create it. For example, you can change the storage account or Log Analytics workspace.
 
@@ -137,11 +137,17 @@ You can configure and change a flow log after you create it. For example, you ca
 
 1. In **Flow logs settings**, you can change any of the following settings:
 
-    - **Storage Account**: Change the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. You can also choose a storage account from a different subscription. If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant.
-    - **Retention (days)**: Change the retention time in the storage account (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete the data from the storage account).
-    - **Traffic analytics**: Enable or disable traffic analytics for your flow log. For more information, see [Traffic analytics](traffic-analytics.md).
-    - **Traffic analytics processing interval**: Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md).
-    - **Log Analytics Workspace**: Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md). You can also choose a Log Analytics Workspace from a different subscription.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Storage account** |   |
+    | Subscription | Change the Azure subscription of the storage account that you want to use. |
+    | Storage account | Change the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
+    | Retention (days) | Change the retention time in the storage account. Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete the data from the storage account). |
+    | **Traffic analytics** |   |
+    | Enable traffic analytics | Enable or disable traffic analytics by checking or unchecking the checkbox. |
+    | Subscription | Change the Azure subscription of the Log Analytics workspace that you want to use. |
+    | Log analytics workspace | Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). |
+    | Traffic logging interval | Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
 
     :::image type="content" source="./media/vnet-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/vnet-flow-logs-portal/change-flow-log.png":::
 
