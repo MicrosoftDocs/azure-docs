@@ -1,5 +1,5 @@
 ### YamlMime:Hub
-title: Azure load balancing and content delivery
+title: Azure load balancing and content delivery documentation
 summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
 brand: azure ## Used for color theming of icons and hero area 
 
