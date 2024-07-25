@@ -22,9 +22,9 @@ In this QuickStart guide, you set up:
   ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel.drawio.png)
 
 ## Learn About The Services
-1. [What is Azure Sentinel?](../../sentinel/overview.md)
+- [What is Azure Sentinel?](../../sentinel/overview.md)
    - Why use Sentinel:  Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products and platforms such as Log Analytics Workspace.
-2. [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+- [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
    - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
    
 ## Prerequisites
@@ -39,9 +39,9 @@ In this QuickStart guide, you set up:
 2. Send Logs to Log Analytics Workspace:
    - In **Search resources, service, and docs**, type **Application Gateways for Containers**.
    - Go to your selected Application Gateway for Container Resource.
-   - Go to **Diagnostic Setting** under Monitoring:
-      -  Select a name, **check box allLogs** which include the Application Gateway for Container Access Logs.
-      -  Select **“Send to Log analytics Workspace”** with your desired subscription and your log analytics workspace.
+   - Go to Diagnostic Setting under Monitoring:
+      -  Select a name, check box **allLogs** which include the Application Gateway for Container Access Logs.
+      -  Select **Send to Log analytics Workspace** with your desired subscription and your log analytics workspace.
 
         ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/loggingall.png)
 
@@ -60,7 +60,7 @@ In this QuickStart guide, you set up:
 
 1. In **Search resources, service, and docs**, type **Azure Sentinel**.
 2. Go to your selected Sentinel Resource.
-3. Select **Analytics** under **Configuration**.
+3. Select **Analytics** under configuration.
 4. Click **Create** and Select **Schedule Query Rule**.
 5. Enter name, description, and leave the rest as default and go to the next page.
   ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
@@ -89,7 +89,7 @@ In this QuickStart guide, you set up:
 
 ## Test Incident
 
-1. An incident occurs after the rule is active. Now we're ready to send some traffic with **"/secret/path"** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
+1. An incident occurs after the rule is active. Now we're ready to send some traffic with **/secret/path** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
 
     ```bash
     fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
@@ -102,17 +102,17 @@ In this QuickStart guide, you set up:
     ```
 
     
-## Visualize Test Incident
+## Visualize Test Incidents
 
- 1. After the Incident occurred, view the details of the incident under **"Incidents"** in **"Threat Management"**.
- 2. Select an Incident and open the pane on the right-hand side of the page.
- 3. Click **"View Full Details"**.
- 4. Select **"Investigate"**.
+ 1. After the incident occurred, view the details in **Threat Management** under incidents.
+ 2. Select an incident and open the pane on the right-hand side of the page.
+ 3. Click **View Full Details**.
+ 4. Select **Investigate**.
 
     ![A screenshot of investigate.](./media/siem-integration-with-sentinel/investigate.png)
 
-   > [!Note]
-   > **"Investigate"** option only appears if there are entities associated with that incident.
+     > [!Note]
+     > The **Investigate** option will only show up if the incident has any linked entities.
 
 5. In Investigate, you can visualize the associated entities and similar alerts.
   
