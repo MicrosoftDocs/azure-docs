@@ -85,7 +85,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 
 ## Issues collecting Windows event logs
 1. Check that your DCR JSON contains a section for 'windowsEventLogs'. If not, fix your DCR. See [how to create DCR](./azure-monitor-agent-data-collection.md) or [sample DCR](./data-collection-rule-sample-agent.md).
-2. Check that the file `C:\WindowsAzure\Resources\AMADataStore.<virtual-machine-name>\mcs\mcsconfig.lkg.xml` exists. If it doesn't exist, [file a ticket](#file-a-ticket) with **Summary** as 'AMA didn't run long enough to mark and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
+2. Check that the file `C:\WindowsAzure\Resources\AMADataStore.<virtual-machine-name>\mcs\mcsconfig.lkg.xml` exists.
 3. Open the file and check if it contains `Subscription` nodes as shown in the example below:
     ```xml
     <Subscription eventName="c9302257006473204344_14882095577508259570" 
