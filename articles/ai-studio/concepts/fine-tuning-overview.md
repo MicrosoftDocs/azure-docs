@@ -127,7 +127,7 @@ The following Phi-3 family models are supported in Azure AI Studio for fine-tuni
 - `Phi-3-medium-4k-instruct`
 - `Phi-3-medium-128k-instruct`
 
-Fine-tuning of Phi-3 models is currently supported in projects located in East US 2.
+Fine-tuning of Phi-3 models is currently supported in projects located in East US2.
 
 ### Llama 2 family models
 The following Llama 2 family models are supported in Azure AI Studio for fine-tuning:
@@ -135,14 +135,14 @@ The following Llama 2 family models are supported in Azure AI Studio for fine-tu
 - `Meta-Llama-2-7b`
 - `Meta-Llama-2-13b`
 
-Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
+Fine-tuning of Llama 2 models is currently supported in projects located in West US3.
 
 ### Llama 3.1 family models
 The following Llama 3.1 family models are supported in Azure AI Studio for fine-tuning:
 - `Meta-Llama-3.1-70b-Instruct`
 - `Meta-Llama-3.1-8b-Instruct`
 
-Fine-tuning of Llama 3.1 models is currently supported in projects located in West US 3.
+Fine-tuning of Llama 3.1 models is currently supported in projects located in West US3.
 
 ## Related content
 
