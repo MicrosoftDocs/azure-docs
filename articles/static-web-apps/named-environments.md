@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 07/24/2023
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ You can configure your site to deploy every change to a named environment. This 
 
 ## Configuration
 
-To enable stable URL environments with named deployment environment, make the following changes to your [configuration file](configuration.md).
+To enable stable URL environments with named deployment environment, make the following changes to your build configuration file.
 
 - Set the `deployment_environment` input to a specific name on the `static-web-apps-deploy` job in GitHub action or on the AzureStaticWebApp task. This ensures all changes to your tracked branches are deployed to the named preview environment.
 - List the branches you want to deploy to preview environments in the trigger array in your workflow configuration so that changes to those branches also trigger the GitHub Actions or Azure Pipelines deployment.

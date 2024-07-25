@@ -14,9 +14,9 @@ ms.date: 07/24/2024
 
 ## July 2024
 
-### Pre and Post events
+### Support for Windows IoT on Arc enabled IaaS VMs
 
-General Availability: Azure Update Manager now supports creating and managing pre and post events on scheduled maintenance configurations. [Learn more](pre-post-scripts-overview.md).
+Public preview: Azure Update Manager now supports Windows IoT on Arc enabled IaaS VMs. For more information, see [supported Windows IoT releases](https://learn.microsoft.com/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 

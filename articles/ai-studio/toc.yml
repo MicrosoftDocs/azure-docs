@@ -88,6 +88,8 @@ items:
       displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
+    - name: Distillation
+      href: concepts/concept-model-distillation.md
     - name: Serverless API models
       items:
       - name: Deploy models as serverless API
@@ -142,6 +144,8 @@ items:
       href: how-to/index-add.md
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
+    - name: Synthetic Data Generation
+      href: concepts/concept-synthetic-data.md
       displayName: code,sdk
   - name: Develop generative AI apps
     items:
@@ -233,6 +237,12 @@ items:
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Large Language Operations(LLMOps)
+    items:
+    - name: LLMOps with Prompt Flow using Azure DevOps
+      href: how-to/llmops-azure-devops-prompt-flow.md
+    - name: LLMOps with Prompt Flow using Github
+      href: how-to/llmops-github-prompt-flow.md
   - name: Get started with Azure AI services
     items:
     - name: What are AI services?
@@ -371,3 +381,5 @@ items:
     href: https://azure.microsoft.com/blog/
   - name: Artificial Intelligence and Machine Learning Blog
     href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI
+  - name: LLMOps with Prompt Flow
+    href: https://github.com/microsoft/llmops-promptflow-template
