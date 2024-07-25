@@ -6,7 +6,7 @@ ms.date: 08/24/2023
 ms.author: eur
 ---
 
-Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you [get a key](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) for your Speech resource, write it to a new environment variable on the local machine that runs the application.
+Your application must be authenticated to access Azure AI services resources. For production, use a secure way of storing and accessing your credentials. For example, after you get a key for your Speech resource, write it to a new environment variable on the local machine that runs the application.
 
 > [!TIP]
 > Don't include the key directly in your code, and never post it publicly. See [Azure AI services security](../../../security-features.md) for more authentication options such as [Azure Key Vault](../../../use-key-vault.md).
