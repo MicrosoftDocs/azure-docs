@@ -784,7 +784,7 @@ If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rule
 * cnd.auth0.com
 * cdn-lfs.huggingface.co
 
-# Sceenario: Curated by Azure AI
+### Scenario: Curated by Azure AI
 
 These models involve dynamic installation of dependencies at runtime, and reequire outbound _FQDN_ rules to allow traffic to the following hosts:
 
