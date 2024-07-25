@@ -14,7 +14,6 @@ Replace your Subscription ID, Resource Group name, and Workspace name in the fol
 1. Open the workspace you wish to use.
 1. Select your workspace name in the upper right Azure Machine Learning studio toolbar.
 1. Copy the value for workspace, resource group, and subscription ID into the code.  
-1. Copy one value, close the area and paste, then come back for the next one when you're pasting to a notebook inside studio.
 
 [!INCLUDE [sdk v2](./machine-learning-sdk-v2.md)]
 
