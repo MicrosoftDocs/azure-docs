@@ -346,6 +346,8 @@
           href: ecesv5-ecedsv5-series.md  
       - name: M family
         items:
+        - name: Mbsv3 and Mbdsv3 series
+          href: ./sizes/memory-optimized/mbsv3-mbdsv3-series.md
         - name: Overview
           displayName: M-series, sizes, size, vm size
           href: ./sizes/memory-optimized/m-family.md
