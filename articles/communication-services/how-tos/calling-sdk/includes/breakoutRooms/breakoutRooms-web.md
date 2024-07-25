@@ -16,7 +16,7 @@ import { Features} from "@azure/communication-calling";
 
 Then you can get the feature API object from the call instance:
 ```js
-const breakoutRoomsFeature = call.feature(Features.BreakoutRooms);
+const breakoutRoomsFeature = mainMeetingCall.feature(Features.BreakoutRooms);
 ```
 ### Subscribe to breakoutRoom events
 
@@ -31,7 +31,7 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 
 **breakoutRoomsUpdated** event internally supports 4 event types.
 
-1. BreakoutRoomsEvent : When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer / Breakout room manager of the meeting. Details of breakout rooms are available to the Microsoft 365 User with Organizer / Co-Organizer / Breakout room Manager role.
+1. BreakoutRoomsEvent : This event is triggered when the Breakout room Manager / Organizer / Co-Organizer creates / updates the breakout rooms. When the event type is `breakoutRooms`, the subscriber would be able to receive all the BreakoutRooms which are created by the Organizer / Co-Organizer / Breakout room manager of the meeting. Details of breakout rooms are available to the Microsoft 365 User with Organizer / Co-Organizer / Breakout room Manager role. Breakoutrooms details can be used to display the created breakout rooms in the UI for the above roles.
   ```js
   export interface BreakoutRoomsEvent {
     /**
@@ -45,7 +45,7 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
   }
 ```
 
-2. AssignedBreakoutRoomsEvent :  When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the assigned Breakout room.
+2. AssignedBreakoutRoomsEvent :  This event is triggered when the participant is assigned to a breakout room and also when there is any change in the assigned breakout room properties like when the breakout room is `open` or `closed`. When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the assigned Breakout room.
 ```js
 export interface AssignedBreakoutRoomEvent {
   /**
@@ -59,7 +59,7 @@ export interface AssignedBreakoutRoomEvent {
 }
 ```
 
-3. BreakoutRoomsSettingsEvent: When the even type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer / Breakout room manager of the meeting.
+3. BreakoutRoomsSettingsEvent: This event is triggered when there are any changes to the breakout room settings like when the room duration is set. When the event type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer / Breakout room manager of the meeting. Breakout room settings details can be used to display the timer to the participant when the room will be closed.
 ```js
 export interface BreakoutRoomSettingsEvent {
   /**
@@ -72,7 +72,7 @@ export interface BreakoutRoomSettingsEvent {
   data: BreakoutRoomSettings | undefined;
 }
 ```
-4. JoinBreakoutRoomsEvent : When the event type is `join`, the subscriber would be able to receive the breakout room call object of the joined room.
+4. JoinBreakoutRoomsEvent : This event is triggered when the participant is automatically moved to the breakout room when the breakout room state is `open` and `autoMoveParticipantToBreakoutRoom` is set to true. This event is also triggered when the user calls the `join` api on the breakout room when `autoMoveParticipantToBreakoutRoom` is set to false.  When the event type is `join`, the subscriber would be able to receive the breakout room call object of the joined room. The Call object can be used to manage the breakout room call.
 ```js
 export interface JoinBreakoutRoomEvent {
   /**
@@ -145,7 +145,6 @@ When the breakout room state is `closed`, then the user is automatically moved t
 If the user wants to leave the breakout room even before the room is closed and join the main meeting call then use the below code :
 
 ```js
-const mainMeetingCall = callAgent.calls[0];
  if(breakoutRoomCall != null){
     breakoutRoomCall.hangUp();   
     mainMeetingCall.resume();
@@ -175,44 +174,44 @@ Breakout rooms have the following properties :
 ```js
 const displayName : string = breakoutRoom.displayName;
 ```
-- `displayName` : Name of the breakout room.
+- `displayName` : Name of the breakout room. This is a readonly property.
 
 ```js
 const threadId : string = breakoutRoom.threadId;
 ```
-- `threadId` : You can use chat thread ID to join chat of the breakout room.
+- `threadId` : You can use chat thread ID to join chat of the breakout room. This is a readonly property.
 
 ```js
 const state : BreakoutRoomState = breakoutRoom.state;
 ```
-- `state` : state of the breakout room. It can be either `Open` or `Closed`. Users would be able to join the breakout room only when the state is `Open`.
+- `state` : state of the breakout room. It can be either `Open` or `Closed`. Users would be able to join the breakout room only when the state is `Open`. This is a readonly property.
 
 ```js
-const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom;
+const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `Open`.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `Open`. This is a readonly property.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
 ```
-- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object.
+- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This is a readonly property.
 
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
-- `invitees` : The list of invitees who are assigned to the breakout room.
+- `invitees` : The list of invitees who are assigned to the breakout room. This is a readonly property.
 
 ### Breakout room  settings
 
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMeeting;
 ```
-- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call.
+- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This is a readonly property.
 
 ```js
 const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 ```
-- `roomEndTime` : Breakout room end time set by the Organizer / Co-organizer / Breakout room manager of the main meeting.
+- `roomEndTime` : Breakout room end time set by the Organizer / Co-organizer / Breakout room manager of the main meeting. This is a readonly property.
 
 ### Troubleshooting
 
@@ -237,7 +236,8 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
   
 - Assigned breakout room details are not available to the user.
 
-  Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to breakout room. Azure Communication Services users are always assigned to breakout room. 
+  Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to 
+  breakout room. Azure Communication Services users are always assigned to breakout room. 
   true. Only when the user joins the meeting next time this user will be assigned with breakout room.
   
   
