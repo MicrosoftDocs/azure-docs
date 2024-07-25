@@ -37,7 +37,7 @@
       - name: Azure API Management
         href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
       - name: Azure App Service
-        href: ../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-app-service.md
       - name: Azure Backup (Recovery Services vault)
         href: ../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Batch

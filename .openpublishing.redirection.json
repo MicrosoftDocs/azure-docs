@@ -4764,7 +4764,12 @@
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/manage-move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-app-service",
+            "redirect_document_id": false
         }
-
+        
     ]
 }

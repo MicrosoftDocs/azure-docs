@@ -22,7 +22,7 @@ This article describes how to move App Service resources to a different Azure re
 
 App Service resources are region-specific and can't be moved across regions. You must create a copy of your existing App Service resources in the target region, then move your content over to the new app. If your source app uses a custom domain, you can [migrate it to the new app in the target region](../app-service/manage-custom-dns-migrate-domain.md) when you're finished.
 
-To make copying your app easier, you can [backup and restore individual App Service app](../app-service/manage-backup.md?tabs=portal) into an App Service plan in another region, but it does have [limitations](../app-service/app-service-web-app-cloning.md#current-restrictions), especially that it doesn't support Linux apps.
+To make copying your app easier, you can [backup and restore individual App Service app](../app-service/manage-backup.md?tabs=portal) into an App Service plan in another region.
 
 ## Prerequisites
 
