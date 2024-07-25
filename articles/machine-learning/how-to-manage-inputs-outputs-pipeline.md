@@ -10,7 +10,7 @@ author: lgayhardt
 ms.reviewer: zhanxia
 ms.date:  08/27/2023
 ms.topic: how-to
-ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code5
+ms.custom: devplatv2, pipeline, devx-track-azurecli, update-code6
 ---
 # Manage inputs and outputs of component and pipeline
 

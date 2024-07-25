@@ -21,13 +21,11 @@ Microsoft's proprietary discovery technology recursively searches for infrastruc
 Defender EASM includes the discovery of the following kinds of assets:
 
 - Domains
-- Hostnames
-- Web Pages
 - IP Blocks
-- IP Addresses
+- Hosts
+- Email Contacts
 - ASNs
-- SSL Certificates
-- WHOIS Contacts
+- WHOIS Organizations
 
 ![Screenshot of Discovery View](media/Overview-2.png)
 

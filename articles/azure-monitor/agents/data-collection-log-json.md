@@ -88,10 +88,6 @@ $tableParams = @'
                     {
                         "name": "FilePath",
                         "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
                     }
               ]
         }
@@ -116,7 +112,6 @@ JSON files include a property name with each value, and the incoming stream in t
 | `TimeGenerated` | datetime | The time the record was generated. |
 | `RawData` | string | This column will be empty for a JSON log. |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 ### [Portal](#tab/portal)
 
@@ -196,10 +191,6 @@ Use the following ARM template to create a DCR for collecting text log files. In
                             },
                             {
                                 "name": "FilePath",
-                                "type": "String"
-                            },
-                            {
-                                "name": "Computer",
                                 "type": "String"
                             },
                             {
