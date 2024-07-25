@@ -33,7 +33,13 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -42,7 +48,11 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -51,7 +61,13 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-${model.variants-list}
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
 
 ---
 
@@ -100,7 +116,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
 
 ### Create a client to consume the model
 
@@ -351,7 +367,13 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -360,7 +382,11 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -369,7 +395,13 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-${model.variants-list}
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
 
 ---
 
@@ -416,7 +448,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
 
 ### Create a client to consume the model
 
@@ -689,7 +721,13 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -698,7 +736,11 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -707,7 +749,13 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-${model.variants-list}
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
 
 ---
 
@@ -759,7 +807,7 @@ dotnet add package Azure.Identity
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
 
 ### Create a client to consume the model
 
@@ -1021,7 +1069,13 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3.1-405B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-405B-Instruct)
+
+* [Meta-Llama-3.1-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-70B-Instruct)
+
+* [Meta-Llama-3.1-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3.1-8B-Instruct)
+
+
 
 # [Meta Llama-3](#tab/meta-llama-3)
 
@@ -1030,7 +1084,11 @@ Meta developed and released the Meta Llama 3 family of large language models (LL
 
 The following models are available:
 
-${model.variants-list}
+* [Meta-Llama-3-70B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-70B-Instruct)
+
+* [Meta-Llama-3-8B-Instruct](https://aka.ms/azureai/landing/Meta-Llama-3-8B-Instruct)
+
+
 
 # [Meta Llama-2](#tab/meta-llama-2)
 
@@ -1039,7 +1097,13 @@ Meta has developed and publicly released the Llama 2 family of large language mo
 
 The following models are available:
 
-${model.variants-list}
+* [Llama-2-70b-chat](https://aka.ms/azureai/landing/Llama-2-70b-chat)
+
+* [Llama-2-13b-chat](https://aka.ms/azureai/landing/Llama-2-13b-chat)
+
+* [Llama-2-7b-chat](https://aka.ms/azureai/landing/Llama-2-7b-chat)
+
+
 
 ---
 
@@ -1079,7 +1143,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Meta Llama.
 
 ### Create a client to consume the model
 

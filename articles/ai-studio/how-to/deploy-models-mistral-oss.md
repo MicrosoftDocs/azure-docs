@@ -36,7 +36,11 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
+
+* [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
+
+
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
@@ -47,7 +51,9 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
+
+
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
@@ -63,7 +69,9 @@ Mixtral 8x22B comes with the following strengths:
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
+
+
 
 ---
 
@@ -99,14 +107,14 @@ pip install azure-ai-inference
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
 
 ### Create a client to consume the model
 
@@ -321,7 +329,11 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
+
+* [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
+
+
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
@@ -332,7 +344,9 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
+
+
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
@@ -348,7 +362,9 @@ Mixtral 8x22B comes with the following strengths:
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
+
+
 
 ---
 
@@ -382,14 +398,14 @@ npm install @azure-rest/ai-inference
 ```
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
 
 ### Create a client to consume the model
 
@@ -621,7 +637,11 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
+
+* [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
+
+
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
@@ -632,7 +652,9 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
+
+
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
@@ -648,7 +670,9 @@ Mixtral 8x22B comes with the following strengths:
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
+
+
 
 ---
 
@@ -687,14 +711,14 @@ dotnet add package Azure.Identity
 ```
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
 
 ### Create a client to consume the model
 
@@ -915,7 +939,11 @@ The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned ver
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mistral-7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v01)
+
+* [mistralai-Mistral-7B-Instruct-v02](https://aka.ms/azureai/landing/mistralai-Mistral-7B-Instruct-v02)
+
+
 
 # [Mixtral-8x7B-Instruct](#tab/mistral-8x7B-instruct)
 
@@ -926,7 +954,9 @@ Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x7B-Instruct-v01](https://aka.ms/azureai/landing/mistralai-Mixtral-8x7B-Instruct-v01)
+
+
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
@@ -942,7 +972,9 @@ Mixtral 8x22B comes with the following strengths:
 
 The following models are available:
 
-${model.variants-list}
+* [mistralai-Mixtral-8x22B-Instruct-v0-1](https://aka.ms/azureai/landing/mistralai-Mixtral-8x22B-Instruct-v0-1)
+
+
 
 ---
 
@@ -969,14 +1001,14 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 > [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Mistral-7B and Mixtral-8x7B.
 
 ### Create a client to consume the model
 

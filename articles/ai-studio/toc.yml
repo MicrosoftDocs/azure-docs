@@ -93,11 +93,17 @@ items:
         href: how-to/deploy-models-openai.md
       - name: Fine-tune Azure OpenAI models
         href: ../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context
+    - name: Phi-3 models
+      items:
+      - name: Phi-3 chat models
+        href: how-to/deploy-models-phi-3.md
+      - name: Phi-3 chat models with vision
+        href: how-to/deploy-models-phi-3-vision.md
     - name: Cohere models
       items:
       - name: Cohere Command models
         href: how-to/deploy-models-cohere-command.md
-      - name: Deploy Cohere Embed models
+      - name: Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
     - name: Meta Llama models
       items:
@@ -114,9 +120,7 @@ items:
         - name: Mistral-7B and Mixtral models
           href: how-to/deploy-models-mistral-oss.md
       displayName: maas
-    - name: Deploy Phi-3 models
-      href: how-to/deploy-models-phi-3.md
-    - name: Deploy TimeGEN-1 model
+    - name: TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy models
       items:

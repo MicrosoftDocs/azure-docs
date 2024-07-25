@@ -40,7 +40,9 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
+
+
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -56,7 +58,9 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
+
+
 
 ---
 
@@ -92,14 +96,14 @@ pip install azure-ai-inference
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models.
 
 ### Create a client to consume the model
 
@@ -472,7 +476,9 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
+
+
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -488,7 +494,9 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
+
+
 
 ---
 
@@ -522,14 +530,14 @@ npm install @azure-rest/ai-inference
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models.
 
 ### Create a client to consume the model
 
@@ -917,7 +925,9 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
+
+
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -933,7 +943,9 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
+
+
 
 ---
 
@@ -972,14 +984,14 @@ dotnet add package Azure.Identity
 ```
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models.
 
 ### Create a client to consume the model
 
@@ -1367,7 +1379,9 @@ We recommend using Command R+ for those workflows that lean on complex RAG funct
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r-plus](https://aka.ms/azureai/landing/Cohere-command-r-plus)
+
+
 
 # [Cohere Command R](#tab/cohere-command-r)
 
@@ -1383,7 +1397,9 @@ Command R, is great for simpler retrieval augmented generation (RAG) and single-
 
 The following models are available:
 
-${model.variants-list}
+* [Cohere-command-r](https://aka.ms/azureai/landing/Cohere-command-r)
+
+
 
 ---
 
@@ -1410,14 +1426,14 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
 
 > [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/).
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Cohere Command chat models.
 
 ### Create a client to consume the model
 

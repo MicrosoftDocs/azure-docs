@@ -37,7 +37,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
+
+* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+
+
 
 # [Phi-3-small](#tab/phi-3-small)
 
@@ -50,7 +54,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
+
+* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
+
+
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -63,7 +71,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
+
+* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
+
+
 
 ---
 
@@ -112,7 +124,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models.
 
 ### Create a client to consume the model
 
@@ -367,7 +379,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
+
+* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+
+
 
 # [Phi-3-small](#tab/phi-3-small)
 
@@ -380,7 +396,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
+
+* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
+
+
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -393,7 +413,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
+
+* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
+
+
 
 ---
 
@@ -440,7 +464,7 @@ npm install @azure-rest/ai-inference
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models.
 
 ### Create a client to consume the model
 
@@ -717,7 +741,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
+
+* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+
+
 
 # [Phi-3-small](#tab/phi-3-small)
 
@@ -730,7 +758,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
+
+* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
+
+
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -743,7 +775,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
+
+* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
+
+
 
 ---
 
@@ -795,7 +831,7 @@ dotnet add package Azure.Identity
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models.
 
 ### Create a client to consume the model
 
@@ -1061,7 +1097,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-mini-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-4k-Instruct)
+
+* [Phi-3-mini-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-mini-128k-Instruct)
+
+
 
 # [Phi-3-small](#tab/phi-3-small)
 
@@ -1074,7 +1114,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-small-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-4k-Instruct)
+
+* [Phi-3-small-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-small-128k-Instruct)
+
+
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -1087,7 +1131,11 @@ The model underwent a rigorous enhancement process, incorporating both supervise
 
 The following models are available:
 
-${model.variants-list}
+* [Phi-3-medium-4k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-4k-Instruct)
+
+* [Phi-3-medium-128k-Instruct](https://aka.ms/azureai/landing/Phi-3-medium-128k-Instruct)
+
+
 
 ---
 
@@ -1127,7 +1175,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
 
 > [!TIP]
-> The Azure AI model inference API allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models models.
+> The [Azure AI model inference API](https://aka.ms/azureai/modelinference) allows you to talk with most models deployed in Azure AI studio with the same code and structure, including Phi-3 chat models.
 
 ### Create a client to consume the model
 
