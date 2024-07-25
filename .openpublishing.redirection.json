@@ -4926,6 +4926,16 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
         }
 
     ]
