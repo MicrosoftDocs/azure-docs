@@ -141,11 +141,9 @@ The following tables list the operating systems that are supported by WAD and LA
 | Oracle Linux 8                                         | ❌      |
 | Oracle Linux 7                                         | ✅      |
 | Oracle Linux 6.4+                                      | ✅      |
-| Red Hat Enterprise Linux Server 9+                     | ❌      |
-| Red Hat Enterprise Linux Server 8.6+\*                 | ✅      |
-| Red Hat Enterprise Linux Server 8.0 - 8.5\*            | ✅      |
+| Red Hat Enterprise Linux Server 9                      | ❌      |
+| Red Hat Enterprise Linux Server 8\*                    | ✅      |
 | Red Hat Enterprise Linux Server 7                      | ✅      |
-| Red Hat Enterprise Linux Server 6.7+                   | ❌      |
 | SUSE Linux Enterprise Server 15                        | ❌      |
 | SUSE Linux Enterprise Server 12                        | ✅      |
 | Ubuntu 22.04 LTS                                       | ❌      |
