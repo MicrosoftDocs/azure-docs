@@ -16,9 +16,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## July 2024
 
-* [Migrate a volume to customer-managed keys](configure-customer-managed-keys.md#migrate) (Preview)
+* [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
 
-    Azure NetApp Files now supports the ability to migrate an existing volume to use customer-managed keys for volume encryption. 
+    Azure NetApp Files now supports the ability to transition an existing volume to use customer-managed keys for volume encryption. 
 
 * [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md#supported-regions) is now available in all US Gov regions
 

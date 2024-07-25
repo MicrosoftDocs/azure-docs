@@ -359,7 +359,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 
-## <a name="migrate"></a> Migrate an Azure NetApp Files volume to customer-managed keys (preview)
+## <a name="transition"></a> Transition an Azure NetApp Files volume to customer-managed keys (preview)
 
 Azure NetApp Files supports the ability to move existing volumes using platform-managed keys to customer-managed keys. Once you complete the migration, you can't revert to platform-managed keys.
 
@@ -386,7 +386,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Transition volumes
 
 >[!NOTE]
->When you migrate volumes to use customer-managed keys, you must perform the migration for every virtual network where your Azure NetApp Files account has volumes. 
+>When you transition volumes to use customer-managed keys, you must perform the transition for every virtual network where your Azure NetApp Files account has volumes. 
 
 1. Ensure you [configured your Azure NetApp Files account to use customer-managed keys](#configure-a-netapp-account-to-use-customer-managed-keys).
 1. In the Azure portal, navigate to **Encryption**. 
