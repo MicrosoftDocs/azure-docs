@@ -1,7 +1,7 @@
 ---
 title: In-place automigration
 description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for MySQL Single Server instance schedule for in-place automigration to Flexible Server.
-author: adig
+author: aditivgupta
 ms.author: adig
 ms.reviewer: talawren, maghan
 ms.date: 07/19/2024
