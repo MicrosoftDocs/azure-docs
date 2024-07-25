@@ -25,7 +25,6 @@ Phi-3 Mini is a 3.8B parameters, lightweight, state-of-the-art open model built 
 
 The model underwent a rigorous enhancement process, incorporating both supervised fine-tuning and direct preference optimization to ensure precise instruction adherence and robust safety measures. When assessed against benchmarks testing common sense, language understanding, math, code, long context and logical reasoning, Phi-3 Mini-4K-Instruct and Phi-3 Mini-128K-Instruct showcased a robust and state-of-the-art performance among models with less than 13 billion parameters.
 
----
 
 ## [Phi-3-medium](#tab/phi-3-medium)
 Phi-3 Medium is a 14B parameters, lightweight, state-of-the-art open model. Phi-3-Medium was trained with Phi-3 datasets that include both synthetic data and the filtered, publicly available websites data, with a focus on high quality and reasoning-dense properties.
@@ -48,8 +47,6 @@ The following models are available in Azure AI studio for Phi 3 when fine-tuning
 - `Phi-3-mini-128k-instruct` (preview)
 
 Fine-tuning of Phi-3 models is currently supported in projects located in East US 2.
-
----
 
 ## [Phi-3-medium](#tab/phi-3-medium)
 
@@ -145,7 +142,7 @@ To fine-tune a Phi-3 model:
 
 1. Review your selections and proceed to train your model.
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md).
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi-3.md).
 
 # [Phi-3-medium](#tab/phi-3-medium)
 
@@ -182,7 +179,7 @@ To fine-tune a Phi-3 model:
 
 1. Review your selections and proceed to train your model.
 
-Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi3.md).
+Once your model is fine-tuned, you can deploy the model and can use it in your own application, in the playground, or in prompt flow. For more information, see [How to deploy Phi-3 family of large language models with Azure AI Studio](./deploy-models-phi-3.md).
 
 ## Cleaning up your fine-tuned models 
 
@@ -195,7 +192,7 @@ You can delete a fine-tuned model from the fine-tuning model list in [Azure AI S
 
 ### Cost and quota considerations for Phi-3 models fine-tuned as a service
 
-Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](./deploy-models-phi3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
+Phi models fine-tuned as a service are offered by Microsoft and integrated with Azure AI Studio for use. You can find the pricing when [deploying](./deploy-models-phi-3.md) or fine-tuning the models under the Pricing and terms tab on deployment wizard.
 
 
 ## Content filtering
@@ -205,5 +202,5 @@ Models deployed as a service with pay-as-you-go are protected by Azure AI Conten
 
 ## Next steps
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
-- [Learn more about deploying Phi-3 models](./deploy-models-phi3.md)
+- [Learn more about deploying Phi-3 models](./deploy-models-phi-3.md)
 - [Azure AI FAQ article](../faq.yml)
