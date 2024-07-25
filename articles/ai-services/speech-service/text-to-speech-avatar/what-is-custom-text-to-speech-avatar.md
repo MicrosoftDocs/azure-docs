@@ -11,9 +11,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# What is custom text to speech avatar? (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# What is custom text to speech avatar?
 
 Custom text to speech avatar allows you to create a customized, one-of-a-kind synthetic talking avatar for your application. With custom text to speech avatar, you can build a unique and natural-looking avatar for your product or brand by providing video recording data of your selected actors. If you also create a [custom neural voice](#custom-voice-and-custom-text-to-speech-avatar) for the same actor and use it as the avatar's voice, the avatar will be even more realistic.
 
