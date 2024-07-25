@@ -223,7 +223,7 @@ Yes, the Application Insights JavaScript SDK is open source. To view the source 
 
 ## Next steps
 
-* [Explore Application Insights usage experiences](usage-overview.md)
+* [Explore Application Insights usage experiences](usage.md)
 * [Track page views](api-custom-events-metrics.md#page-views)
 * [Track custom events and metrics](api-custom-events-metrics.md)
 * [Insert a JavaScript telemetry initializer](api-filtering-sampling.md#javascript-telemetry-initializers)
