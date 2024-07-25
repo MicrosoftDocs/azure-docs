@@ -16,5 +16,3 @@ Speak into the microphone to start a conversation with Azure OpenAI.
 
 Although the experience of this example is a back-and-forth exchange, Azure OpenAI doesn't remember the context of your conversation.
 
-> [!IMPORTANT]
-> To complete the steps in this guide, you must have access to Microsoft Azure OpenAI Service in your Azure subscription. Currently, access to this service is granted only by application. Apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access).

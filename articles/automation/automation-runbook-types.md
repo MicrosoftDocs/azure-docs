@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/23/2024
+ms.date: 07/19/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ---
@@ -38,7 +38,7 @@ The PowerShell version is determined by the **Runtime version** specified (that 
 The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShell** runbooks targeting different runtime versions side by side.
 
 > [!NOTE]
-> - Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel Central, Italy North, Germany North and Gov clouds. 
+> - Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel Central, Italy North, and Germany North. 
 > - At the time of runbook execution, if you select **Runtime Version** as **7.2**, PowerShell modules targeting 7.2 runtime version are used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used. This applies for PowerShell 7.1 (preview) modules and runbooks.
 
 Ensure that you select the right Runtime Version for modules.
@@ -65,7 +65,7 @@ The following are the current limitations and known issues with PowerShell runbo
 **Limitations**
 
 > [!NOTE]
-> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
+> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, and Germany North.
 
 - For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
