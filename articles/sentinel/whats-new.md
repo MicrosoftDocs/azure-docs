@@ -21,7 +21,7 @@ The listed features were released in the last three months. For information abou
 ## July 2024
 
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
-- [Create summary rules for large sets of data](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data)
+- [Create summary rules for large sets of data](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
 
 ### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
 
