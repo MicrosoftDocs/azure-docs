@@ -20,7 +20,7 @@ See [Monitor Notification Hubs](monitor-notification-hubs.md) for details on the
 ### Supported metrics for Microsoft.NotificationHubs/namespaces/notificationHubs
 The following table lists the metrics available for the Microsoft.NotificationHubs/namespaces/notificationHubs resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.NotificationHubs/namespaces/notificationHubs](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-notificationhubs-namespaces-notificationhubs-metrics-include.md)]
+[!INCLUDE [Microsoft.NotificationHubs/namespaces/notificationHubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-notificationhubs-namespaces-notificationhubs-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -29,10 +29,10 @@ The following table lists the metrics available for the Microsoft.NotificationHu
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.NotificationHubs/namespaces
-[!INCLUDE [Microsoft.NotificationHubs/namespaces](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-notificationhubs-namespaces-logs-include.md)]
+[!INCLUDE [Microsoft.NotificationHubs/namespaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-notificationhubs-namespaces-logs-include.md)]
 
 ### Supported resource logs for Microsoft.NotificationHubs/namespaces/notificationHubs
-[!INCLUDE [Microsoft.NotificationHubs/namespaces/notificationHubs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-notificationhubs-namespaces-notificationhubs-logs-include.md)]
+[!INCLUDE [Microsoft.NotificationHubs/namespaces/notificationHubs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-notificationhubs-namespaces-notificationhubs-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 <!-- No table(s) at https://learn.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype. -->

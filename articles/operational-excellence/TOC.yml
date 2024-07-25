@@ -54,6 +54,8 @@
         href: ../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
+      - name: Azure Firewall
+        href: relocation-firewall.md
       - name: Azure Event Grid
         items:
         - name: Relocate Azure Event Grid domains
