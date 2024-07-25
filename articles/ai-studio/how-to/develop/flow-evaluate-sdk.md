@@ -188,7 +188,7 @@ The result:
 ```JSON
 {"answer_length":27}
 ```
-#### Log your custom prompt-based evaluator to you AI project
+#### Log your custom prompt-based evaluator to your AI project
 ```python
 # First we need to save evaluator into separate file in its own directory:
 def answer_len(answer):
@@ -218,6 +218,7 @@ retrieved_eval = ml_client.evaluators.get("answer_len_uploaded", version=1)
 ml_client.evaluators.download("answer_len_uploaded", version=1, download_path=".")
 evaluator = load_flow(os.path.join("answer_len_uploaded", flex_flow_path))
 ```
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
 ### Prompt-based evaluators
 To build your own prompt-based large language model evaluator, you can create a custom evaluator based on a **Prompty** file. Prompty is a file with `.prompty` extension for developing prompt template. The Prompty asset is a markdown file with a modified front matter. The front matter is in YAML format that contains many metadata fields that define model configuration and expected inputs of the Prompty. Given an example `apology.prompty` file that looks like the following:
 
@@ -284,7 +285,7 @@ Here is the result:
 ```JSON
 {"apology": 0}
 ```
-#### Log your custom prompt-based evaluator to you AI project
+#### Log your custom prompt-based evaluator to your AI project
 ```python
 # Define the path to prompty file.
 prompty_path = os.path.join("apology-prompty", "apology.prompty")
@@ -300,7 +301,7 @@ retrieved_eval = ml_client.evaluators.get("prompty_uploaded", version=1)
 ml_client.evaluators.download("prompty_uploaded", version=1, download_path=".")
 evaluator = load_flow(os.path.join("prompty_uploaded", "apology.prompty"))
 ```
-
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
 ## Evaluate on test dataset using `evaluate()`
 After you spot-check your built-in or custom evaluators on a single row of data, you can combine multiple evaluators with the `evaluate()` API on an entire test dataset. In order to ensure the `evaluate()` can correctly parse the data, you must specify column mapping to map the column from the dataset to key words that are accepted by the evaluators. In this case, we specify the data mapping for `ground_truth`. 
 ```python
