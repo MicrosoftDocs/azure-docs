@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Resource Manager
 description: Start here to learn how to monitor Azure Resource Manager. Learn about Traffic and latency observability for subscription-level control plane requests.
-ms.date: 07/16/2024
+ms.date: 07/25/2024
 ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: conceptual
 author: mumian
@@ -33,7 +33,7 @@ With these metrics, you can observe traffic and latency for control plane reques
 
 The metrics are available for up to three months (93 days) and only track synchronous requests. For a scenario like a virtual machine creation, the metrics don't represent the performance or reliability of the long running asynchronous operation.
 
-## Accessing Azure Resource Manager metrics
+### Accessing Azure Resource Manager metrics
 
 You can access control plane metrics by using the Azure Monitor REST APIs, SDKs, and the Azure portal by selecting the **Azure Resource Manager** metric. For an overview on Azure Monitor, see [Azure Monitor Metrics](../../azure-monitor/data-platform.md).
 
@@ -41,7 +41,7 @@ There's no opt-in or sign-up process to access control plane metrics.
 
 For guidance on how to retrieve a bearer token and make requests to Azure, see [Azure REST API reference](/rest/api/azure/#create-the-request).
 
-## Metric definition
+### Metric definition
 
 The definition for Azure Resource Manager metrics in Azure Monitor is only accessible through the 2017-12-01-preview API version. To retrieve the definition, you can run the following snippet. Replace `00000000-0000-0000-0000-000000000000` with your subscription ID.
 
@@ -52,11 +52,11 @@ curl --location --request GET 'https://management.azure.com/subscriptions/000000
 
 This snippet returns the definition for the metrics schema. Notably, this schema includes [the dimensions you can filter on with the Monitor API](monitor-resource-manager-reference.md#metric-dimensions).
 
-## Examples
+### Metrics examples
 
 Here are some scenarios that can help you explore Azure Resource Manager metrics.
 
-### Query traffic and latency control plane metrics with Azure portal
+#### Query traffic and latency control plane metrics with Azure portal
 
 First, navigate to the Azure Monitor page within the [portal](https://portal.azure.com):
 
@@ -70,7 +70,7 @@ Then, after selecting **Apply**, you can visualize your Traffic or Latency contr
 
 :::image type="content" source="./media/view-arm-monitor-metrics/arm-metrics-view.png" alt-text="Screenshot of the metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
 
-### Query traffic and latency control plane metrics with REST API
+#### Query traffic and latency control plane metrics with REST API
 
 After you authenticate with Azure, you can make a request to retrieve control plane metrics for your subscription. In the script, replace `00000000-0000-0000-0000-000000000000` with your subscription ID. The script retrieves the average request latency, in seconds, and the total request count for the two day timespan, broken down by one day intervals:
 
@@ -172,7 +172,7 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 
 If you want to look at the number of requests made in your subscription for Networking resources, like Virtual Networks and Load Balancers, you would need to filter the **Namespace** dimension for **MICROSOFT.NETWORK**.
 
-### Examining Throttled Requests
+#### Examining Throttled Requests
 
 To view only your throttled requests, you need to filter for 429 status code responses only. For REST API calls, filtering is accomplished by using the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: `$filter=StatusCode eq '429'` as seen at the end of the request in the following snippet:
 
@@ -184,7 +184,7 @@ curl --location --request GET 'https://management.azure.com/subscriptions/000000
 You can also filter directly in portal:
 :::image type="content" source="./media/view-arm-monitor-metrics/throttling-filter-portal.png" alt-text="Screenshot of filtering HTTP Status Code to 429 responses only in the Azure portal.":::
 
-### Examining Server Errors
+#### Examining Server Errors
 
 Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses only. For REST API calls, filtering is accomplished by using the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: $filter=StatusCodeClass eq '5xx' as seen at the end of the request in the following snippet:
 
