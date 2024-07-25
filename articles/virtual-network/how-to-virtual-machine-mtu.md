@@ -538,17 +538,17 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 1. Verify the MTU size on the network interface using `PING`. For Windows, use -f and -l. The -f option instructs ping to NOT fragment and -l sets the packet size. To determine the packet size, subtract 28 from the MTU setting of 3900.
 
     ```powershell
-    ping 10.0.0.4 -f -l 3872
+    ping 10.0.0.4 -f -l 3892
     ```
     
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3872
+    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3892
 
-    Pinging 10.0.0.4 with 3872 bytes of data:
-    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
-    Reply from 10.0.0.4: bytes=3872 time<1ms TTL=128
-    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
-    Reply from 10.0.0.4: bytes=3872 time=1ms TTL=128
+    Pinging 10.0.0.4 with 3892 bytes of data:
+    Reply from 10.0.0.4: bytes=3892 time=1ms TTL=128
+    Reply from 10.0.0.4: bytes=3892 time<1ms TTL=128
+    Reply from 10.0.0.4: bytes=3892 time=1ms TTL=128
+    Reply from 10.0.0.4: bytes=3892 time=1ms TTL=128
 
     Ping statistics for 10.0.0.4:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
@@ -559,9 +559,9 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3872
+    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3892
 
-    Pinging 10.0.0.4 with 3872 bytes of data:
+    Pinging 10.0.0.4 with 3892 bytes of data:
     Packet needs to be fragmented but DF set.
     Packet needs to be fragmented but DF set.
     Packet needs to be fragmented but DF set.
