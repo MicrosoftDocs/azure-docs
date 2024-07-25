@@ -433,7 +433,7 @@ If I want to create a VM application package for `myApp.exe`, which ships as an 
 "move .\\myApp .\\myApp.exe & myApp.exe /S -config myApp_config"
 ```
 
-If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know here the uninstaller is located.
+If the installer executable file doesn't support an uninstall parameter, you can sometimes look up the registry on a test machine to know where the uninstaller is located.
 
 In the registry, the uninstall string is stored in `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\<installed application name>\UninstallString` so I would use the contents as my remove command:
 
