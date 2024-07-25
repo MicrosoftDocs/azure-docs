@@ -238,7 +238,7 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
   
 - Assigned breakout room details are not available to the user.
 
-  Check if the user has a Teams Meeting Policy with AllowBreakoutRooms set to false. Only in this case, the user will not be assigned to any breakout room. Update the AllowBreakoutRooms property in the policy to 
+  Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to breakout room. Azure Communication Services users are always assigned to breakout room. 
   true. Only when the user joins the meeting next time this user will be assigned with breakout room.
   
   
