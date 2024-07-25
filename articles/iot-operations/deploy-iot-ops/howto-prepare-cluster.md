@@ -232,7 +232,7 @@ To connect your cluster to Azure Arc:
    export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
 
    # Azure region where the created resource group will be located
-   # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westus3", "westeurope", or "northeurope"
+   # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westeurope", or "northeurope"
    export LOCATION=<REGION>
 
    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
@@ -241,6 +241,9 @@ To connect your cluster to Azure Arc:
    # Name of the Arc-enabled cluster to create in your resource group
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
+
+   >[!NOTE]
+   >West US 3 was a supported region in previous versions of Azure IoT Operations, but isn't supported with versions 0.6.x.
 
 1. Set the Azure subscription context for all commands:
 

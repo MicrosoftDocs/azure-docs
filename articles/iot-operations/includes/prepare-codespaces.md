@@ -29,12 +29,15 @@ To create your codespace and cluster, use the following steps:
    | --------- | ----- |
    | SUBSCRIPTION_ID | Your Azure subscription ID. |
    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. |
+   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westeurope, or northeurope. |
 
    >[!TIP]
    >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're also automatically added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
    >
    >Additionally, this codespace automatically creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
+
+   >[!NOTE]
+   >West US 3 was a supported region in previous versions of Azure IoT Operations, but isn't supported with versions 0.6.x.
 
 1. Select **Create new codespace**.
 
