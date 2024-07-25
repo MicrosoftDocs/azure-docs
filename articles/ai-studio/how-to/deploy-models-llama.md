@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Meta Llama with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -287,7 +287,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Meta Llama:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -621,7 +621,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Meta Llama:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -964,7 +964,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Meta Llama:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1341,7 +1341,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Meta Llama:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1411,22 +1411,11 @@ For more examples of how to use Meta Llama, see the following examples and tutor
 | LangChain                                 | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-langchain)      |
 | LiteLLM                                   | Python            | [Link](https://aka.ms/meta-llama-3.1-405B-instruct-litellm)        | 
 
-#### Retrieval Augmented Generation (RAG) and tool use samples
-
-| Description | Package | Sample          |
-|-------------|---------=-|---------------|
-| Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb) |
-| Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb) |
-| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb) |
-| Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb) |
-| Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb) |
-
-
 ## Cost and quotas
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
-
 ### Cost and quota considerations for Meta Llama family of models deployed as serverless API endpoints
+
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
 Meta Llama models deployed as a serverless API are offered by Meta through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 

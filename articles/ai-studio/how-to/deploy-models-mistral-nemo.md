@@ -1,7 +1,7 @@
 ---
-title: How to use Jaiss chat models with Azure AI studio
+title: How to use Mistral Nemo with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Jaiss chat models with Azure AI studio.
+description: Learn how to use Mistral Nemo with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
 ms.date: 07/25/2024
@@ -13,28 +13,23 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Jaiss chat models with Azure AI studio
+# How to use Mistral Nemo with Azure AI studio
 
-In this guide, you learn about Jaiss chat models and how to use them with Azure AI studio.
-JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
-
-* **Context length:** JAIS supports a context length of 8K.
-* **Input:** Model input is text only.
-* **Output:** Model generates text only.
-
+In this guide, you learn about Mistral Nemo and how to use them with Azure AI studio.
+Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
 
 ## Prerequisites
 
-To use Jais models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models model
+### A deployed Mistral Nemo model
 
 **Deployment to serverless APIs**
 
-Jaiss chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -56,6 +51,9 @@ pip install azure-ai-inference
 ```
 
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 ## Work with chat completions
 
@@ -96,9 +94,9 @@ print("Model provider name:", model_info.model_provider)
 ```
 
 ```console
-Model name: jais-30b-chat
+Model name: Mistral-Nemo
 Model type": chat-completions
-Model provider name": G42
+Model provider name": MistralAI
 ```
 
 ### Create a chat completion request
@@ -130,7 +128,7 @@ print("\tCompletion tokens:", response.usage.completion_tokens)
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: jais-30b-chat
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -205,10 +203,23 @@ response = client.complete(
 )
 ```
 
-> [!WARNING]
-> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
-
 If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+#### JSON outputs
+
+Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+
+
+```python
+response = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant that always generate responses in JSON format, using."
+                      " the following format: { ""answer"": ""response"" }."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    response_format={ "type": ChatCompletionsResponseFormat.JSON_OBJECT }
+)
+```
 
 ### Pass extra parameters to the model
 
@@ -224,6 +235,167 @@ response = client.complete(
     model_extras={
         "logprobs": True
     }
+)
+```
+
+The following extra parameters can be passed to a Mistral Nemo:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
+
+### Safe mode
+
+Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+
+> Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+
+The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+
+
+```python
+response = client.complete(
+    messages=[
+        SystemMessage(content="You are a helpful assistant."),
+        UserMessage(content="How many languages are in the world?"),
+    ],
+    model_extras={
+        "safe_mode": True
+    }
+)
+```
+
+### Tools
+
+Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+The following code example creates a tool definition that is able to look from flight information from two different cities.
+
+
+```python
+from azure.ai.inference.models import FunctionDefinition, ChatCompletionsFunctionToolDefinition
+
+flight_info = ChatCompletionsFunctionToolDefinition(
+    function=FunctionDefinition(
+        name="get_flight_info",
+        description="Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+        parameters={
+            "type": "object",
+            "properties": {
+                "origin_city": {
+                    "type": "string",
+                    "description": "The name of the city where the flight originates",
+                },
+                "destination_city": {
+                    "type": "string",
+                    "description": "The flight destination city",
+                },
+            },
+            "required": ["origin_city", "destination_city"],
+        },
+    )
+)
+
+tools = [flight_info]
+```
+
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
+
+
+```python
+def get_flight_info(loc_origin: str, loc_destination: str):
+    return { 
+        "info": f"There are no flights available from {loc_origin} to {loc_destination}. You should take a train, specially if it helps to reduce CO2 emissions."
+    }
+```
+
+Prompt the model to book flights with the help of this function:
+
+
+```python
+messages = [
+    SystemMessage(
+        content="You are a helpful assistant that help users to find information about traveling, how to get"
+                " to places and the different transportations options. You care about the environment and you"
+                " always have that in mind when answering inqueries.",
+    ),
+    UserMessage(
+        content="When is the next flight from Miami to Seattle?",
+    ),
+]
+
+response = client.complete(
+    messages=messages, tools=tools, tool_choice="auto"
+)
+```
+
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+
+
+```python
+response_message = response.choices[0].message
+tool_calls = response_message.tool_calls
+
+print("Finish reason:", response.choices[0].finish_reason)
+print("Tool call:", tool_calls)
+```
+
+To continue with this tutorial, we append this message to the chat history:
+
+
+```python
+messages.append(
+    response_message
+)
+```
+
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+
+
+```python
+import json
+from azure.ai.inference.models import ToolMessage
+
+for tool_call in tool_calls:
+
+    # Get the tool details:
+
+    function_name = tool_call.function.name
+    function_args = json.loads(tool_call.function.arguments.replace("\'", "\""))
+    tool_call_id = tool_call.id
+
+    print(f"Calling function `{function_name}` with arguments {function_args}")
+
+    # Call the function defined above using `locals()`, which returns the list of all functions 
+    # available in the scope as a dictionary. Notice that this is just done as a simple way to get
+    # the function callable from its string name. Then we can call it with the corresponding
+    # arguments.
+
+    callable_func = locals()[function_name]
+    function_response = callable_func(**function_args)
+
+    print("->", function_response)
+
+    # Once we have a response from the function and its arguments, we can append a new message to the chat 
+    # history. Notice how we are telling to the model that this chat message came from a tool:
+
+    messages.append(
+        ToolMessage(
+            tool_call_id=tool_call_id,
+            content=json.dumps(function_response)
+        )
+    )
+```
+
+View the response from the model:
+
+
+```python
+response = client.complete(
+    messages=messages,
+    tools=tools,
 )
 ```
 
@@ -268,13 +440,13 @@ except HttpResponseError as ex:
 
 ## Prerequisites
 
-To use Jais models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models model
+### A deployed Mistral Nemo model
 
 **Deployment to serverless APIs**
 
-Jaiss chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -294,6 +466,9 @@ Once you have these prerequisites, install the Azure ModelClient REST client RES
 ```bash
 npm install @azure-rest/ai-inference
 ```
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 ## Work with chat completions
 
@@ -334,9 +509,9 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 ```
 
 ```console
-Model name: jais-30b-chat
+Model name: Mistral-Nemo
 Model type": chat-completions
-Model provider name": G42
+Model provider name": MistralAI
 ```
 
 ### Create a chat completion request
@@ -374,7 +549,7 @@ console.log("\tCompletion tokens:", response.body.usage.completion_tokens);
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: jais-30b-chat
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -454,10 +629,27 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-> [!WARNING]
-> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
-
 If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+#### JSON outputs
+
+Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant that always generate responses in JSON format, using."
+        + " the following format: { \"answer\": \"response\" }." },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        response_format: { type: "json_object" }
+    }
+});
+```
 
 ### Pass extra parameters to the model
 
@@ -477,6 +669,161 @@ var response = await client.path("/chat/completions").post({
     body: {
         messages: messages,
         logprobs: true
+    }
+});
+```
+
+The following extra parameters can be passed to a Mistral Nemo:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
+
+### Safe mode
+
+Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+
+> Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+
+The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+
+
+```javascript
+var messages = [
+    { role: "system", content: "You are a helpful assistant" },
+    { role: "user", content: "How many languages are in the world?" },
+];
+
+var response = await client.path("/chat/completions").post({
+    headers: {
+        "extra-params": "pass-through"
+    },
+    body: {
+        messages: messages,
+        safe_mode: true
+    }
+});
+```
+
+### Tools
+
+Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+The following code example creates a tool definition that is able to look from flight information from two different cities.
+
+
+```javascript
+const flight_info = {
+    name: "get_flight_info",
+    description: "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+    parameters: {
+        type: "object",
+        properties: {
+            origin_city: {
+                type: "string",
+                description: "The name of the city where the flight originates",
+            },
+            destination_city: {
+                type: "string",
+                description: "The flight destination city",
+            },
+        },
+        required: ["origin_city", "destination_city"],
+    },
+}
+
+const tools = [
+    {
+        type: "function",
+        function: flight_info,
+    },
+];
+```
+
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
+
+
+```javascript
+function get_flight_info(loc_origin, loc_destination) {
+    return {
+        info: "There are no flights available from " + loc_origin + " to " + loc_destination + ". You should take a train, specially if it helps to reduce CO2 emissions."
+    }
+}
+```
+
+Prompt the model to book flights with the help of this function:
+
+
+```javascript
+var result = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        tools: tools,
+        tool_choice: "auto"
+    }
+});
+```
+
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+
+
+```javascript
+const response_message = response.body.choices[0].message
+const tool_calls = response_message.tool_calls
+
+console.log("Finish reason: " + response.body.choices[0].finish_reason)
+console.log("Tool call: " + tool_calls)
+```
+
+To continue with this tutorial, we append this message to the chat history:
+
+
+```javascript
+messages.push(response_message);
+```
+
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+
+
+```javascript
+function applyToolCall({ function: call, id }) {
+    // Get the tool details:
+    const tool_params = JSON.parse(call.arguments);
+    console.log("Calling function " + call.name + " with arguments " + tool_params)
+
+    // Call the function defined above using `window`, which returns the list of all functions 
+    // available in the scope as a dictionary. Notice that this is just done as a simple way to get
+    // the function callable from its string name. Then we can call it with the corresponding
+    // arguments.
+    const function_response = tool_params.map(window[call.name]);
+    console.log("-> " + function_response)
+
+    return function_response
+}
+
+for (const tool_call of tool_calls) {
+    var tool_response = tool_call.apply(applyToolCall)
+
+    messages.push(
+        {
+            role: "tool",
+            tool_call_id: tool_call.id,
+            content: tool_response
+        }
+    )
+}
+```
+
+View the response from the model:
+
+
+```javascript
+var result = await client.path("/chat/completions").post({
+    body: {
+        messages: messages,
+        tools: tools,
     }
 });
 ```
@@ -527,13 +874,13 @@ catch (error) {
 
 ## Prerequisites
 
-To use Jais models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models model
+### A deployed Mistral Nemo model
 
 **Deployment to serverless APIs**
 
-Jaiss chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -558,6 +905,9 @@ You can also authenticate with Microsoft Entra ID (formerly Azure Active Directo
 ```dotnetcli
 dotnet add package Azure.Identity
 ```
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 ## Work with chat completions
 
@@ -596,9 +946,9 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 ```
 
 ```console
-Model name: jais-30b-chat
+Model name: Mistral-Nemo
 Model type": chat-completions
-Model provider name": G42
+Model provider name": MistralAI
 ```
 
 ### Create a chat completion request
@@ -634,7 +984,7 @@ Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}
 
 ```console
 Response: As of now, it's estimated that there are about 7,000 languages spoken around the world. However, this number can vary as some languages become extinct and new ones develop. It's also important to note that the number of speakers can greatly vary between languages, with some having millions of speakers and others only a few hundred.
-Model: jais-30b-chat
+Model: Mistral-Nemo
 Usage: 
   Prompt tokens: 19
   Total tokens: 91
@@ -724,10 +1074,29 @@ response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-> [!WARNING]
-> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
-
 If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+#### JSON outputs
+
+Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage(
+            "You are a helpful assistant that always generate responses in JSON format, " +
+            "using. the following format: { \"answer\": \"response\" }."
+        )
+    },
+    ResponseFormat = new ChatCompletionsResponseFormatJSON()
+};
+
+response = client.Complete(requestOptions);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
 
 ### Pass extra parameters to the model
 
@@ -746,6 +1115,163 @@ requestOptions = new ChatCompletionsOptions()
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+The following extra parameters can be passed to a Mistral Nemo:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
+
+### Safe mode
+
+Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+
+> Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+
+The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+
+
+```csharp
+requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are a helpful assistant."),
+        new ChatRequestUserMessage("How many languages are in the world?")
+    },
+    // AdditionalProperties = { { "safe_mode", BinaryData.FromString("true") } },
+};
+
+response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+```
+
+### Tools
+
+Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+The following code example creates a tool definition that is able to look from flight information from two different cities.
+
+
+```csharp
+FunctionDefinition flightInfoFunction = new FunctionDefinition("getFlightInfo")
+{
+    Description = "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+    Parameters = BinaryData.FromObjectAsJson(new
+    {
+        Type = "object",
+        Properties = new
+        {
+            origin_city = new
+            {
+                Type = "string",
+                Description = "The name of the city where the flight originates"
+            },
+            destination_city = new
+            {
+                Type = "string",
+                Description = "The flight destination city"
+            }
+        }
+    },
+        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }
+    )
+};
+
+ChatCompletionsFunctionToolDefinition getFlightTool = new ChatCompletionsFunctionToolDefinition(flightInfoFunction);
+```
+
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
+
+
+```csharp
+static string getFlightInfo(string loc_origin, string loc_destination)
+{
+    return JsonConvert.SerializeObject(new
+    {
+        info = $"There are no flights available from {loc_origin} to {loc_destination}. You " +
+        "should take a train, specially if it helps to reduce CO2 emissions."
+    });
+}
+```
+
+Prompt the model to book flights with the help of this function:
+
+
+```csharp
+var chatHistory = new List<ChatRequestMessage>(){
+        new ChatRequestSystemMessage(
+            "You are a helpful assistant that help users to find information about traveling, " +
+            "how to get to places and the different transportations options. You care about the" +
+            "environment and you always have that in mind when answering inqueries."
+        ),
+        new ChatRequestUserMessage("When is the next flight from Miami to Seattle?")
+    };
+
+requestOptions = new ChatCompletionsOptions(chatHistory);
+requestOptions.Tools.Add(getFlightTool);
+requestOptions.ToolChoice = ChatCompletionsToolChoice.Auto;
+
+response = client.Complete(requestOptions);
+```
+
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+
+
+```csharp
+var responseMenssage = response.Value.Choices[0].Message;
+var toolsCall = responseMenssage.ToolCalls;
+
+Console.WriteLine($"Finish reason: {response.Value.Choices[0].FinishReason}");
+Console.WriteLine($"Tool call: {toolsCall[0].Id}");
+```
+
+To continue with this tutorial, we append this message to the chat history:
+
+
+```csharp
+requestOptions.Messages.Add(new ChatRequestAssistantMessage(response.Value.Choices[0].Message));
+```
+
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+
+
+```csharp
+foreach (ChatCompletionsToolCall tool in toolsCall)
+{
+    if (tool is ChatCompletionsFunctionToolCall functionTool)
+    {
+        // Get the tool details:
+        string callId = functionTool.Id;
+        string toolName = functionTool.Name;
+        string toolArgumentsString = functionTool.Arguments;
+        Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
+
+        // Here you have to call the function defined. In this particular example we use 
+        // reflection to find the method we definied before in an static class called 
+        // `ChatCompletionsExamples`. Using reflection allows us to call a function 
+        // by string name. Notice that this is just done for demonstration purposes as a 
+        // simple way to get the function callable from its string name. Then we can call 
+        // it with the corresponding arguments.
+
+        var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+        string toolResponse = (string)typeof(ChatCompletionsExamples).GetMethod(toolName, flags).Invoke(null, toolArguments.Values.Cast<object>().ToArray());
+
+        Console.WriteLine("->", toolResponse);
+        requestOptions.Messages.Add(new ChatRequestToolMessage(toolResponse, callId));
+    }
+    else
+        throw new Exception("Unsupported tool type");
+}
+```
+
+View the response from the model:
+
+
+```csharp
+response = client.Complete(requestOptions);
 ```
 
 ### Apply content safety
@@ -794,13 +1320,13 @@ catch (RequestFailedException ex)
 
 ## Prerequisites
 
-To use Jais models with Azure AI studio, you need the following prerequisites:
+To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Jaiss chat models model
+### A deployed Mistral Nemo model
 
 **Deployment to serverless APIs**
 
-Jaiss chat models can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
+Mistral Nemo can be deployed to serverless API endpoints with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. 
 
 Deployment to a serverless API endpoint doesn't require quota from your subscription. If your model isn't deployed already, use the Azure AI Studio, Azure Machine Learning SDK for Python, the Azure CLI, or ARM templates to [deploy the model as a serverless API](deploy-models-serverless.md).
 
@@ -813,6 +1339,9 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 * To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/).
 
 ## Work with chat completions
 
@@ -838,9 +1367,9 @@ The response is as follows:
 
 ```json
 {
-    "model_name": "jais-30b-chat",
+    "model_name": "Mistral-Nemo",
     "model_type": "chat-completions",
-    "model_provider_name": "G42"
+    "model_provider_name": "MistralAI"
 }
 ```
 
@@ -871,7 +1400,7 @@ The response is as follows, where you can see the model's usage statistics:
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "jais-30b-chat",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -928,7 +1457,7 @@ We can visualize how streaming generates content:
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "jais-30b-chat",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -951,7 +1480,7 @@ The last message in the stream will have `finish_reason` set, indicating the rea
     "id": "23b54589eba14564ad8a2e6978775a39",
     "object": "chat.completion.chunk",
     "created": 1718726371,
-    "model": "jais-30b-chat",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1002,7 +1531,7 @@ Explore other parameters that you can specify in the inference client. For a ful
     "id": "0a1234b5de6789f01gh2i345j6789klm",
     "object": "chat.completion",
     "created": 1718726686,
-    "model": "jais-30b-chat",
+    "model": "Mistral-Nemo",
     "choices": [
         {
             "index": 0,
@@ -1023,10 +1552,55 @@ Explore other parameters that you can specify in the inference client. For a ful
 }
 ```
 
-> [!WARNING]
-> Jais doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
-
 If you want to pass a parameter that is not indicated in this list, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+
+#### JSON outputs
+
+Mistral Nemo can create JSON outputs. Setting `response_format` to `json_object` enables JSON mode, which guarantees that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content may be partially cut off if `finish_reason="length"`, as this indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that always generate responses in JSON format, using the following format: { \"answer\": \"response\" }"
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "response_format": { "type": "json_object" }
+}
+```
+
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718727522,
+    "model": "Mistral-Nemo",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "{\"answer\": \"There are approximately 7,117 living languages in the world today, according to the latest estimates. However, this number can vary as some languages become extinct and others are newly discovered or classified.\"}",
+                "tool_calls": null
+            },
+            "finish_reason": "stop",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 39,
+        "total_tokens": 87,
+        "completion_tokens": 48
+    }
+}
+```
 
 ### Pass extra parameters to the model
 
@@ -1054,6 +1628,233 @@ extra-parameters: pass-through
         }
     ],
     "logprobs": true
+}
+```
+
+The following extra parameters can be passed to a Mistral Nemo:
+
+| Name           | Description           | Type            |
+| -------------- | --------------------- | --------------- |
+| `ignore_eos` | Whether to ignore the EOS token and continue generating tokens after the EOS token is generated. | `boolean` |
+| `safe_mode` | Whether to inject a safety prompt before all conversations. | `boolean` |
+
+
+### Safe mode
+
+Mistral Nemo supports the parameter `safe_prompt`. Toggling the safe prompt will prepend your messages with the following system prompt:
+
+> Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
+
+The Azure AI Model Inference API allows you to pass this extra paramter in the following way:
+
+```http
+POST /chat/completions HTTP/1.1
+Host: <ENDPOINT_URI>
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+extra-parameters: pass-through
+```
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant."
+        },
+        {
+            "role": "user",
+            "content": "How many languages are in the world?"
+        }
+    ],
+    "safemode": true
+}
+```
+
+### Tools
+
+Mistral Nemo supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+
+The following code example creates a tool definition that is able to look from flight information from two different cities.
+
+
+```json
+{
+    "type": "function",
+    "function": {
+        "name": "get_flight_info",
+        "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "origin_city": {
+                    "type": "string",
+                    "description": "The name of the city where the flight originates"
+                },
+                "destination_city": {
+                    "type": "string",
+                    "description": "The flight destination city"
+                }
+            },
+            "required": [
+                "origin_city",
+                "destination_city"
+            ]
+        }
+    }
+}
+```
+
+In this example, the function's output is that there are no flights available for the selected route, but the user should consider taking a train.
+
+Prompt the model to book flights with the help of this function:
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "get_flight_info",
+                "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "origin_city": {
+                            "type": "string",
+                            "description": "The name of the city where the flight originates"
+                        },
+                        "destination_city": {
+                            "type": "string",
+                            "description": "The flight destination city"
+                        }
+                    },
+                    "required": [
+                        "origin_city",
+                        "destination_city"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+By inspecting the response, you can find out if a tool needs to be called. Inspect the finish reason to determine if the tool should be called. Remember that multiple tool's types can be indicated. In this example, we are demonstrating a tool of type `function`.
+
+
+```json
+{
+    "id": "0a1234b5de6789f01gh2i345j6789klm",
+    "object": "chat.completion",
+    "created": 1718726007,
+    "model": "Mistral-Nemo",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "",
+                "tool_calls": [
+                    {
+                        "id": "abc0dF1gh",
+                        "type": "function",
+                        "function": {
+                            "name": "get_flight_info",
+                            "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                            "call_id": null
+                        }
+                    }
+                ]
+            },
+            "finish_reason": "tool_calls",
+            "logprobs": null
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 190,
+        "total_tokens": 226,
+        "completion_tokens": 36
+    }
+}
+```
+
+To continue with this tutorial, we append this message to the chat history:
+
+Now, it's time to call the appropriate function to handle the tool call. The following code snippet iterates over all the tool calls indicated in the response and calls the corresponding function with the appropriate parameters. Notice also that the response is appended to the chat history.
+
+View the response from the model:
+
+
+```json
+{
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that help users to find information about traveling, how to get to places and the different transportations options. You care about the environment and you always have that in mind when answering inqueries"
+        },
+        {
+            "role": "user",
+            "content": "When is the next flight from Miami to Seattle?"
+        },
+        {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+                {
+                    "id": "abc0DeFgH",
+                    "type": "function",
+                    "function": {
+                        "name": "get_flight_info",
+                        "arguments": "{\"origin_city\": \"Miami\", \"destination_city\": \"Seattle\"}",
+                        "call_id": null
+                    }
+                }
+            ]
+        },
+        {
+            "role": "tool",
+            "content": "{ \"info\": \"There are no flights available from Miami to Seattle. You should take a train, specially if it helps to reduce CO2 emissions.\" }",
+            "tool_call_id": "abc0DeFgH" 
+        }
+    ],
+    "tool_choice": "auto",
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+            "name": "get_flight_info",
+            "description": "Returns information about the next flight between two cities. This includes the name of the airline, flight number and the date and time of the next flight",
+            "parameters":{
+                "type": "object",
+                "properties": {
+                    "origin_city": {
+                        "type": "string",
+                        "description": "The name of the city where the flight originates"
+                    },
+                    "destination_city": {
+                        "type": "string",
+                        "description": "The flight destination city"
+                    }
+                },
+                "required": ["origin_city", "destination_city"]
+            }
+            }
+        }
+    ]
 }
 ```
 
@@ -1099,20 +1900,27 @@ The following example shows how to handle events when the model detects harmful 
 
 ## More inference examples
 
-For more examples of how to use Jais, see the following examples and tutorials:
+For more examples of how to use Mistral, see the following examples and tutorials:
 
 | Description                               | Language          | Sample                                                          |
 |-------------------------------------------|-------------------|-----------------------------------------------------------------|
+| CURL request                              | Bash              | [Link](https://aka.ms/mistral-large/webrequests-sample)         |
 | Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
 | Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)  |
+| Python web requests                       | Python            | [Link](https://aka.ms/mistral-large/webrequests-sample)         |
+| OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/mistral-large/openaisdk)                  |
+| LangChain                                 | Python            | [Link](https://aka.ms/mistral-large/langchain-sample)           |
+| Mistral AI                                | Python            | [Link](https://aka.ms/mistral-large/mistralai-sample)           |
+| LiteLLM                                   | Python            | [Link](https://aka.ms/mistral-large/litellm-sample)             | 
+
 
 ## Cost and quotas
 
-### Cost and quota considerations for Jais family of models deployed as serverless API endpoints
+### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
-Jais models deployed as a serverless API are offered by G42 through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 

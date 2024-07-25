@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Phi-3 chat models with vision with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -240,7 +240,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Phi-3 chat models with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -548,7 +548,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Phi-3 chat models with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -866,7 +866,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Phi-3 chat models with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1166,7 +1166,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Phi-3 chat models with vision:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1262,8 +1262,6 @@ For more examples of how to use Phi-3, see the following examples and tutorials:
 
 
 ## Cost and quotas
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
 ### Cost and quota considerations for Phi-3 family of models deployed to managed compute
 

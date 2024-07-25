@@ -109,7 +109,9 @@ items:
       items:
         - name: Mistral premium models
           href: how-to/deploy-models-mistral.md
-        - name: Mistral open-source models
+        - name: Mistral Nemo model
+          href: how-to/deploy-models-mistral-nemo.md
+        - name: Mistral-7B and Mixtral models
           href: how-to/deploy-models-mistral-oss.md
       displayName: maas
     - name: Phi-3 family models

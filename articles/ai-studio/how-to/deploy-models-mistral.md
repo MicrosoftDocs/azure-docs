@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Mistral premium chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -65,24 +65,6 @@ Mistral Small is:
 The following models are available:
 
 - Mistral-Small
-
-# [Mistral Nemo](#tab/mistral-nemo)
-
-Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
-
-Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
-
-Additionally, Mistral Nemo is:
-
-* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
-* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
-* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
-* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
-
-
-The following models are available:
-
-- Mistral-Nemo
 
 ---
 
@@ -303,7 +285,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral premium chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -548,24 +530,6 @@ The following models are available:
 
 - Mistral-Small
 
-# [Mistral Nemo](#tab/mistral-nemo)
-
-Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
-
-Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
-
-Additionally, Mistral Nemo is:
-
-* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
-* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
-* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
-* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
-
-
-The following models are available:
-
-- Mistral-Nemo
-
 ---
 
 ## Prerequisites
@@ -803,7 +767,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral premium chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1046,24 +1010,6 @@ Mistral Small is:
 The following models are available:
 
 - Mistral-Small
-
-# [Mistral Nemo](#tab/mistral-nemo)
-
-Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
-
-Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
-
-Additionally, Mistral Nemo is:
-
-* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
-* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
-* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
-* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
-
-
-The following models are available:
-
-- Mistral-Nemo
 
 ---
 
@@ -1312,7 +1258,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral premium chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1557,24 +1503,6 @@ Mistral Small is:
 The following models are available:
 
 - Mistral-Small
-
-# [Mistral Nemo](#tab/mistral-nemo)
-
-Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
-
-Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
-
-Additionally, Mistral Nemo is:
-
-* **Jointly developed with Nvidia**. This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
-* **Multilingual proficient**. Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
-* **Agent-centric**. Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
-* **Advanced in reasoning**. Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
-
-
-The following models are available:
-
-- Mistral-Nemo
 
 ---
 
@@ -1891,7 +1819,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral premium chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -2176,9 +2104,9 @@ For more examples of how to use Mistral, see the following examples and tutorial
 
 ## Cost and quotas
 
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
-
 ### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
+
+Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
 
 Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
 

@@ -1,10 +1,10 @@
 ---
-title: How to use Mistral open chat models with Azure AI studio
+title: How to use Mistral-7B and Mixtral-8x7B with Azure AI studio
 titleSuffix: Azure AI studio
-description: Learn how to use Mistral open chat models with Azure AI studio.
+description: Learn how to use Mistral-7B and Mixtral-8x7B with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/25/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Mistral open chat models with Azure AI studio
+# How to use Mistral-7B and Mixtral-8x7B with Azure AI studio
 
-In this guide, you learn about Mistral open chat models and how to use them with Azure AI studio.
+In this guide, you learn about Mistral-7B and Mixtral-8x7B and how to use them with Azure AI studio.
 Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
 
 
@@ -72,11 +72,11 @@ The following models are available:
 
 To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral open chat models model
+### A deployed Mistral-7B and Mixtral-8x7B model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -289,7 +289,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -355,11 +355,11 @@ The following models are available:
 
 To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral open chat models model
+### A deployed Mistral-7B and Mixtral-8x7B model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -586,7 +586,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -652,11 +652,11 @@ The following models are available:
 
 To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral open chat models model
+### A deployed Mistral-7B and Mixtral-8x7B model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -887,7 +887,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -953,11 +953,11 @@ The following models are available:
 
 To use Mistral models with Azure AI studio, you need the following prerequisites:
 
-### A deployed Mistral open chat models model
+### A deployed Mistral-7B and Mixtral-8x7B model
 
 **Deployment to a self-hosted managed compute**
 
-Mistral open chat models can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
+Mistral-7B and Mixtral-8x7B can be deployed to our self-hosted managed inference solution, which allows you to customize and control all the details about how the model is served.
 
 For deployment to a self-hosted managed compute, you must have enough quota in your subscription. If you don't have enough quota available, you can use our temporary quota access by selecting the option **I want to use shared quota and I acknowledge that this endpoint will be deleted in 168 hours.**
 
@@ -1222,7 +1222,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed:
+The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1251,16 +1251,6 @@ For more examples of how to use Mistral, see the following examples and tutorial
 
 
 ## Cost and quotas
-
-Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.    
-
-### Cost and quota considerations for Mistral family of models deployed as serverless API endpoints
-
-Mistral models deployed as a serverless API are offered by MistralAI through the Azure Marketplace and integrated with Azure AI studio for use. You can find the Azure Marketplace pricing when deploying the model.
-
-Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
-
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 ### Cost and quota considerations for Mistral family of models deployed to managed compute
 
