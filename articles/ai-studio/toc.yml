@@ -237,6 +237,12 @@ items:
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Large Language Operations(LLMOps)
+    items:
+    - name: LLMOps with Prompt Flow using Azure DevOps
+      href: how-to/llmops-azure-devops-prompt-flow.md
+    - name: LLMOps with Prompt Flow using Github
+      href: how-to/llmops-github-prompt-flow.md
   - name: Get started with Azure AI services
     items:
     - name: What are AI services?
@@ -375,3 +381,5 @@ items:
     href: https://azure.microsoft.com/blog/
   - name: Artificial Intelligence and Machine Learning Blog
     href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI
+  - name: LLMOps with Prompt Flow
+    href: https://github.com/microsoft/llmops-promptflow-template
