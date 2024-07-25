@@ -674,9 +674,7 @@ First, create the client to consume the model. The following code uses an endpoi
 
 
 ```csharp
-ChatCompletionsClient client = null;
-
-client = new ChatCompletionsClient(
+ChatCompletionsClient client = new ChatCompletionsClient(
     new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
 );
@@ -721,10 +719,7 @@ Model provider name": Microsoft
 The following example shows how you can create a basic chat completions request to the model.
 
 ```csharp
-ChatCompletionsOptions requestOptions = null;
-Response<ChatCompletions> response = null;
-
-requestOptions = new ChatCompletionsOptions()
+ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
         new ChatRequestSystemMessage("You are a helpful assistant."),
@@ -732,7 +727,7 @@ requestOptions = new ChatCompletionsOptions()
     },
 };
 
-response = client.Complete(requestOptions);
+Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 > [!NOTE]
@@ -771,10 +766,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 ```csharp
 static async Task RunAsync(ChatCompletionsClient client)
 {
-    ChatCompletionsOptions requestOptions = null;
-    Response<ChatCompletions> response = null;
-
-    requestOptions = new ChatCompletionsOptions()
+    ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
@@ -795,7 +787,6 @@ To visualize the output, define an asynchronous method to print the stream in th
 ```csharp
 static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
-    StringBuilder contentBuilder = new();
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
         if (chatUpdate.Role.HasValue)
@@ -829,13 +820,13 @@ requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage("You are a helpful assistant."),
         new ChatRequestUserMessage("How many languages are in the world?")
     },
-    //PresencePenalty = 0.1f,
-    //FrequencyPenalty = 0.8f,
+    PresencePenalty = 0.1f,
+    FrequencyPenalty = 0.8f,
     MaxTokens = 2048,
     StopSequences = { "<|endoftext|>" },
     Temperature = 0,
     NucleusSamplingFactor = 1,
-    //ResponseFormat = ChatCompletionsResponseFormat.Text
+    ResponseFormat = new ChatCompletionsResponseFormatText()
 };
 
 response = client.Complete(requestOptions);
@@ -859,7 +850,7 @@ requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage("You are a helpful assistant."),
         new ChatRequestUserMessage("How many languages are in the world?")
     },
-    // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+    AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
 };
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
@@ -885,11 +876,50 @@ Phi-3-vision-128k-Instruct can reason across text and images and generate text c
 
 To see this capability, download an image and encode the information as base64 string:
 
+
+```csharp
+string imageUrl = "https://news.microsoft.com/source/wp-content/uploads/2024/04/The-Phi-3-small-language-models-with-big-potential-1-1900x1069.jpg";
+string imageFormat = "jpeg";
+HttpClient httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0");
+byte[] imageBytes = httpClient.GetByteArrayAsync(imageUrl).Result;
+string imageBase64 = Convert.ToBase64String(imageBytes);
+string dataUrl = $"data:image/{imageFormat};base64,{imageBase64}";
+```
+
 Visualize the image:
 
 Now, create a chat completion request with the image:
 
+
+```csharp
+ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
+{
+    Messages = {
+        new ChatRequestSystemMessage("You are an AI assistant that helps people find information."),
+        new ChatRequestUserMessage([
+            new ChatMessageTextContentItem("Which conclusion can be extracted from the following chart?"),
+            new ChatMessageImageContentItem(new Uri(dataUrl))
+        ]),
+    },
+    MaxTokens=2048,
+};
+
+var response = client.Complete(requestOptions);
+Console.WriteLine(response.Value.Choices[0].Message.Content);
+```
+
 The response is as follows, where you can see the model's usage statistics:
+
+
+```csharp
+Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
+Console.WriteLine($"Model: {response.Value.Model}");
+Console.WriteLine("Usage:");
+Console.WriteLine($"\tPrompt tokens: {response.Value.Usage.PromptTokens}");
+Console.WriteLine($"\tTotal tokens: {response.Value.Usage.TotalTokens}");
+Console.WriteLine($"\tCompletion tokens: {response.Value.Usage.CompletionTokens}");
+```
 
 ::: zone-end
 

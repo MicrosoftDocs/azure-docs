@@ -16,14 +16,14 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 # How to use Mistral premium chat models with Azure AI studio
 
 In this guide, you learn about Mistral premium chat models and how to use them with Azure AI studio.
-Mistral AI offers two categories of models. Premium models including Mistral Large and Mistral Small, available as serverless APIs with pay-as-you-go token-based billing. Open models including Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01; available to also download and run on self-hosted managed endpoints.
+Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
 
-## Mistral family of models
+## Mistral premium chat models family of models
 
-The Mistral family of models includes the following models:
+The Mistral premium chat models family of models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -485,9 +485,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
-## Mistral family of models
+## Mistral premium chat models family of models
 
-The Mistral family of models includes the following models:
+The Mistral premium chat models family of models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -966,9 +966,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
-## Mistral family of models
+## Mistral premium chat models family of models
 
-The Mistral family of models includes the following models:
+The Mistral premium chat models family of models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
@@ -1060,9 +1060,7 @@ First, create the client to consume the model. The following code uses an endpoi
 
 
 ```csharp
-ChatCompletionsClient client = null;
-
-client = new ChatCompletionsClient(
+ChatCompletionsClient client = new ChatCompletionsClient(
     new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
     new AzureKeyCredential(Environment.GetEnvironmentVariable("AZURE_INFERENCE_CREDENTIAL"))
 );
@@ -1097,10 +1095,7 @@ Model provider name": MistralAI
 The following example shows how you can create a basic chat completions request to the model.
 
 ```csharp
-ChatCompletionsOptions requestOptions = null;
-Response<ChatCompletions> response = null;
-
-requestOptions = new ChatCompletionsOptions()
+ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
         new ChatRequestSystemMessage("You are a helpful assistant."),
@@ -1108,7 +1103,7 @@ requestOptions = new ChatCompletionsOptions()
     },
 };
 
-response = client.Complete(requestOptions);
+Response<ChatCompletions> response = client.Complete(requestOptions);
 ```
 
 The response is as follows, where you can see the model's usage statistics:
@@ -1144,10 +1139,7 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 ```csharp
 static async Task RunAsync(ChatCompletionsClient client)
 {
-    ChatCompletionsOptions requestOptions = null;
-    Response<ChatCompletions> response = null;
-
-    requestOptions = new ChatCompletionsOptions()
+    ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
@@ -1168,7 +1160,6 @@ To visualize the output, define an asynchronous method to print the stream in th
 ```csharp
 static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
-    StringBuilder contentBuilder = new();
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
         if (chatUpdate.Role.HasValue)
@@ -1202,13 +1193,13 @@ requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage("You are a helpful assistant."),
         new ChatRequestUserMessage("How many languages are in the world?")
     },
-    //PresencePenalty = 0.1f,
-    //FrequencyPenalty = 0.8f,
+    PresencePenalty = 0.1f,
+    FrequencyPenalty = 0.8f,
     MaxTokens = 2048,
     StopSequences = { "<|endoftext|>" },
     Temperature = 0,
     NucleusSamplingFactor = 1,
-    //ResponseFormat = ChatCompletionsResponseFormat.Text
+    ResponseFormat = new ChatCompletionsResponseFormatText()
 };
 
 response = client.Complete(requestOptions);
@@ -1251,7 +1242,7 @@ requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage("You are a helpful assistant."),
         new ChatRequestUserMessage("How many languages are in the world?")
     },
-    // AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
+    AdditionalProperties = { { "logprobs", BinaryData.FromString("true") } },
 };
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
@@ -1282,7 +1273,7 @@ requestOptions = new ChatCompletionsOptions()
         new ChatRequestSystemMessage("You are a helpful assistant."),
         new ChatRequestUserMessage("How many languages are in the world?")
     },
-    // AdditionalProperties = { { "safe_mode", BinaryData.FromString("true") } },
+    AdditionalProperties = { { "safe_mode", BinaryData.FromString("true") } },
 };
 
 response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThrough);
@@ -1459,9 +1450,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
-## Mistral family of models
+## Mistral premium chat models family of models
 
-The Mistral family of models includes the following models:
+The Mistral premium chat models family of models includes the following models:
 
 # [Mistral Large](#tab/mistral-large)
 
