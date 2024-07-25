@@ -97,8 +97,8 @@ items:
       items:
       - name: Cohere Command models
         href: how-to/deploy-models-cohere-command.md
-      - name: Cohere Embed models
-        href: how-to/deploy-models-cohere-embed-v3.md
+      - name: Deploy Cohere Embed models
+        href: how-to/deploy-models-cohere-embed.md
     - name: Meta Llama models
       items:
       - name: Meta Llama family models
@@ -114,17 +114,9 @@ items:
         - name: Mistral-7B and Mixtral models
           href: how-to/deploy-models-mistral-oss.md
       displayName: maas
-    - name: Phi-3 family models
-      items:
-        - name: Phi-3 chat models
-          href: how-to/deploy-models-phi-3.md
-        - name: Phi-3 chat models with vision
-          href: how-to/deploy-models-phi-3-vision.md
-    - name: JAIS model
-      href: how-to/deploy-models-jais.md
-    - name: Jamba model
-      href: how-to/deploy-models-jamba.md
-    - name: TimeGEN-1 model
+    - name: Deploy Phi-3 models
+      href: how-to/deploy-models-phi-3.md
+    - name: Deploy TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy models
       items:
@@ -246,6 +238,12 @@ items:
       href: how-to/monitor-quality-safety.md
     - name: Troubleshoot deployments and monitoring
       href: how-to/troubleshoot-deploy-and-monitor.md
+  - name: Large Language Operations(LLMOps)
+    items:
+    - name: LLMOps with Prompt Flow using Azure DevOps
+      href: how-to/llmops-azure-devops-prompt-flow.md
+    - name: LLMOps with Prompt Flow using Github
+      href: how-to/llmops-github-prompt-flow.md
   - name: Get started with Azure AI services
     items:
     - name: What are AI services?
@@ -384,3 +382,5 @@ items:
     href: https://azure.microsoft.com/blog/
   - name: Artificial Intelligence and Machine Learning Blog
     href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI
+  - name: LLMOps with Prompt Flow
+    href: https://github.com/microsoft/llmops-promptflow-template

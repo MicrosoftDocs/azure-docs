@@ -33,11 +33,9 @@ The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a 
 
 The following models are available:
 
-- Meta-Llama-3.1-8B-Instruct
-- Meta-Llama-3.1-70B-Instruct
-- Meta-Llama-3.1-405B-Instruct
-
-# [Meta Llama-3](#tab/meta-llama-3)
+* [Meta-Llama-3.1-405B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-405B-instruct)
+* [Meta-Llama-3.1-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-70B-instruct)
+* [Meta Llama-3.1-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-8B-instruct)
 
 Meta developed and released the Meta Llama 3 family of large language models (LLMs), a collection of pretrained and instruction tuned generative text models in 8B, 70B, and 405B sizes. The Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks. Further, in developing these models, we took great care to optimize helpfulness and safety.
 

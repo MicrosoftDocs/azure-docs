@@ -4878,6 +4878,13 @@
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/backup/azure-backup-move-vaults-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-backup",
+            "redirect_document_id": false
+        },
+        {
+
            "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
            "redirect_document_id": false
