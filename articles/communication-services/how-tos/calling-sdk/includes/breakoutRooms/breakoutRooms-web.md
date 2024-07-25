@@ -223,7 +223,8 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
 - User getting an error when joining the breakout room.
 
-  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call breakoutRoom.join() method explicitly. Should be able to join
+  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.
+
   the breakout room. Even if that doesn't work, please share the console logs with the Azure Communication Services team.
 
 - User getting an error while leaving the breakout room.
