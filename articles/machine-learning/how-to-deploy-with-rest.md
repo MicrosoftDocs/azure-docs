@@ -19,7 +19,7 @@ ms.custom: devplatv2
 
 This article describes how to use the Azure Machine Learning REST API to deploy models by using online endpoints. Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure and Kubernetes clusters. The following procedures demonstrate how to create an online endpoint and deployment and validate the endpoint by invoking it.
 
-There are many ways to create an Azure Machine Learning online endpoint. You can use [the Azure CLI](how-to-deploy-online-endpoints.md), the [Azure Machine Learning studio](how-to-deploy-online-endpoints.md#tabs=azure-studio), or the REST API. The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. It works with any language or tool that can make HTTP requests. The straightforward structure of the REST API makes it a good choice in scripting environments and for machine learning operations automation.
+There are many ways to create an Azure Machine Learning online endpoint. You can use [the Azure CLI](how-to-deploy-online-endpoints.md), the [Azure Machine Learning studio](how-to-deploy-online-endpoints.md), or the REST API. The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. It works with any language or tool that can make HTTP requests. The straightforward structure of the REST API makes it a good choice in scripting environments and for machine learning operations automation.
 
 ## Prerequisites
 
@@ -147,6 +147,6 @@ Run the following command, which deletes the endpoint and all underlying deploym
 
 ## Related content
 
-- [Deploy and score a model by using an online endpoint](how-to-deploy-online-endpoints.md#tabs=cli)
+- [Deploy and score a model by using an online endpoint](how-to-deploy-online-endpoints.md)
 - [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-online-endpoints.md)
 - [Monitor online endpoints](how-to-monitor-online-endpoints.md)
