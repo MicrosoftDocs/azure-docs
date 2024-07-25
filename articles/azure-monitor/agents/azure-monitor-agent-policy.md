@@ -17,11 +17,14 @@ Using [Azure Policy](../../governance/policy/overview.md), you can have the Azur
 Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule every time you create a virtual machine, scale set, or Azure Arc-enabled server.
 
 > [!NOTE]
-> As per Microsoft Identity best practices, policies for installing Azure Monitor Agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
-> For Azure Arc-enabled servers, policies rely on system-assigned managed identity as the only supported option today.
+> Azure Monitor has a preview [data collection rule DCR](../essentials/data-collection-rule-overview.md) experience that simplifies creating assignments for policies and initiatives that use DCRs. This includes initiatives that install the Azure Monitor agent. You may choose to use that experience to create assignments for the initiatives described in this article. See [Manage data collection rules (DCRs) and associations in Azure Monitor](../essentials/data-collection-rule-view.md#azure-policy) for more information.
 
 ## Prequisites
 Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).
+
+> [!NOTE]
+> As per Microsoft Identity best practices, policies for installing Azure Monitor Agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
+> For Azure Arc-enabled servers, policies rely on system-assigned managed identity as the only supported option today.
 
 
 ## Built-in policies

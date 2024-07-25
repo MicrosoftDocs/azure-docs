@@ -619,7 +619,7 @@ items:
       - name: Best practices
         displayName: data collection rules, DCR
         href: essentials/data-collection-rule-best-practices.md
-      - name: View
+      - name: View and associate
         displayName: data collection rules, DCR
         href: essentials/data-collection-rule-view.md
       - name: Create and edit
