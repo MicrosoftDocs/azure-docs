@@ -126,9 +126,9 @@ To disable traffic analytics for a flow log, take the previous steps 1-3, then u
 
 :::image type="content" source="./media/nsg-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-traffic-analytics.png":::
 
-## Change a flow log
+## Change flow log settings
 
-You can change the properties of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
+You can change the settings of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
@@ -152,7 +152,7 @@ You can change the properties of a flow log after you create it. For example, yo
 
     :::image type="content" source="./media/nsg-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/nsg-flow-logs-portal/change-flow-log.png":::
 
-1. Select **Save** to apply the changes or **Cancel** to discard the changes.
+1. Select **Save** to apply the changes or **Cancel** to exit without saving them.
 
 ## List all flow logs
 
