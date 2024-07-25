@@ -14,7 +14,7 @@ ms.author: schaffererin
 [WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things like environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model.
 
 > [!IMPORTANT]
-> WASI nodepools now use [containerd shims][wasm-containerd-shims] to run WASM workloads. Previously, AKS used [Krustlet][krustlet] to allow WASM modules to be run on Kubernetes. If you are still using Krustlet-based WASI nodepools, you can migrate to containerd shims by creating a new WASI nodepool and migrating your workloads to the new nodepool.
+> WASI nodepools now use [the SpinKube Spin containerd shim][wasm-containerd-shims] to run WASM workloads. Previously, AKS used [Krustlet][krustlet] to allow WASM modules to be run on Kubernetes. If you are still using Krustlet-based WASI nodepools, you can migrate to the SpinKube shim by creating a new WASI nodepool and migrating your workloads to the new nodepool.
 
 ## Before you begin
 
@@ -58,8 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-* Currently, there are only containerd shims available for [spin][spin] and [slight][slight] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.
-* You can run containers and wasm modules on the same node, but you can't run containers and wasm modules on the same pod.
+* Currently, there is only a containerd shim available for [spin][spin] applications, which use the [wasmtime][wasmtime] runtime. In addition to wasmtime runtime applications, you can also run containers on WASM/WASI node pools.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.
 * You can't use the Azure portal to create WASM/WASI node pools.
@@ -122,7 +121,6 @@ Name:               aks-mywasipool-12456878-vmss000000
 Roles:              agent
 Labels:             agentpool=mywasipool
 ...
-                    kubernetes.azure.com/wasmtime-slight-v1=true
                     kubernetes.azure.com/wasmtime-spin-v1=true
 ...
 ```
@@ -226,9 +224,8 @@ az aks nodepool delete --name mywasipool -g myresourcegroup --cluster-name myaks
 [wasi]: https://wasi.dev/
 [azure-dns-zone]: https://azure.microsoft.com/services/dns/
 [external-dns]: https://github.com/kubernetes-sigs/external-dns
-[wasm-containerd-shims]: https://github.com/deislabs/containerd-wasm-shims
+[wasm-containerd-shims]: https://github.com/spinkube/containerd-shim-spin
 [spin]: https://spin.fermyon.dev/
-[slight]: https://github.com/deislabs/spiderlightning#spiderlightning-or-slight
 [wasmtime]: https://wasmtime.dev/
 <!-- INTERNAL LINKS -->
 
