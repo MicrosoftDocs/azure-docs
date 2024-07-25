@@ -15,7 +15,7 @@ ms.date: 07/23/2024
 In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You configure the source to read data from an asset, the destination to send data to Azure Event Grid, and apply a transformation to the data.
 
 1. Create the asset.
-1. Create an MQTT broker endpoint.
+1. Create an MQTT broker endpoint by creating a file named `mqtt-endpoint.yaml` with the following content:
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -27,7 +27,13 @@ In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You c
      mqttSettings: {}
    ```
 
-1. Create an Azure Event Grid endpoint.
+1. Apply the configuration to create the MQTT broker endpoint.
+
+   ```bash
+   kubectl apply -f mqtt-endpoint.yaml
+   ```
+
+1. Create an Azure Event Grid endpoint by creating a file named `eventgrid-endpoint.yaml` with the following content:
 
    ```yaml
    apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -45,7 +51,13 @@ In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You c
          mode: enabled
    ```
 
-1. Create a dataflow with the asset as the source and Azure Event Grid as the destination.
+1. Apply the configuration to create the Azure Event Grid endpoint.
+
+   ```bash
+   kubectl apply -f eventgrid-endpoint.yaml
+   ```
+
+1. Create a dataflow with the asset as the source and Azure Event Grid as the destination by creating a file named `dataflow.yaml` with the following content:
 
     ```yaml
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -66,3 +78,8 @@ In this tutorial, you set up a dataflow from an asset to Azure Event Grid. You c
           endpointRef: eventgrid
           dataDestination: factory/$topic.2
     ```
+
+1. Send test data to the dataflow.
+1. View messages in Azure Event Grid.
+1. Send test data to Azure Event Grid.
+1. View messages in MQTT broker.
