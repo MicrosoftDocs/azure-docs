@@ -126,7 +126,7 @@ const invitees = breakoutRoomsFeature.breakoutRooms[0].invitees;
 If the assigned breakout room has enabled property `autoMoveParticipantToBreakoutRoom`, then the user is automatically moved to the breakout room when the breakout room state is open. 
 `breakoutRoomsUpdated` event is fired with type as `join`, `call` object as the event data. 
 
-If the assigned breakout room doesn't have enabled property `autoMoveParticipantToBreakoutRoom` and the `state` of breakout room is set to `open`, then explicitly call the `join` method on object `breakoutRoom` to join the breakout room.
+If the assigned breakout room doesn't have enabled property `autoMoveParticipantToBreakoutRoom` and you receive event `breakoutRoomsUpdated` of a type `assignedBreakoutRooms` indicating the `state` of breakout room is set to `open`, then you can join breakout room by calling `join` method on object `breakoutRoom`.
 ```js
 const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
 if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRoom) {
