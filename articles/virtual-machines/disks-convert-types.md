@@ -59,7 +59,7 @@ This preview is currently only available in the following regions:
 
 ### Disable host caching
 
-You can use the following CLI script to identify your disk's LUN and disable host caching. Replace `yourResourceGroup` and `nameOfYourVM` with your own values, then run the script.
+If your disk is using host caching, you must disable it before converting to Premium SSD v2. You can use the following CLI script to identify your disk's LUN and disable host caching. Replace `yourResourceGroup` and `nameOfYourVM` with your own values, then run the script.
 
 ```azurecli
 $myRG="yourResourceGroup"
@@ -72,13 +72,13 @@ az vm update --resource-group $myRG --name $myVM --disk-caching $lun=None
 
 ### Disable bursting
 
-If you enabled bursting within 12 hours, you have to wait until the 13th hour or later to disable it.
+If your disk is using bursting, you must disable it before converting to Premium SSD v2. If you enabled bursting within 12 hours, you have to wait until the 13th hour or later to disable it.
 
 You can use the following command to disable disk bursting: `az disk update --name "yourDiskNameHere" --resource-group "yourRGNameHere" --enable-bursting false`
 
 ### Disable double encryption
 
-You can use the following command to change your disk from double encryption to encryption at rest with customer-managed keys:
+If your disk is using double encryption, you must disable it before converting to Premium SSD v2. You can use the following command to change your disk from double encryption to encryption at rest with customer-managed keys:
 
 ```azurecli
 az disk-encryption-set update --name "nameOfYourDiskEncryptionSetHere" --resource-group "yourRGNameHere" --key-url yourKeyURL --source-vault "yourKeyVaultName" --encryption-type EncryptionAtRestWithCustomerKey
