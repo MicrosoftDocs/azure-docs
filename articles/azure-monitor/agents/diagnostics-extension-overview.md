@@ -83,7 +83,7 @@ Configure one or more *data sinks* to send data to other destinations. The follo
 | Azure Storage blobs | Write data to blobs in Azure Storage in addition to tables. |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs, although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide more functionality. See [Collect Azure diagnostic logs from Azure Storage](../agents/diagnostics-extension-logs.md).
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs, although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide more functionality. See [Collect Azure diagnostic logs from Azure Storage](diagnostics-extension-logs.md).
 
 ### Linux diagnostics extension (LAD)
 
@@ -131,25 +131,80 @@ The following tables list the operating systems that are supported by WAD and LA
 
 ### Option 2
 
+| Operating system | Version                                                                                     | Support |
+|:-----------------|:--------------------------------------------------------------------------------------------|:-------:|
+| Windows          |                                                                                             |         |
+|                  | Windows Server 2022                                                                         | ❌      |
+|                  | Windows Server 2022 Core                                                                    | ❌      |
+|                  | Windows Server 2019                                                                         | ✅      |
+|                  | Windows Server 2019 Core                                                                    | ❌      |
+|                  | Windows Server 2016                                                                         | ✅      |
+|                  | Windows Server 2016 Core                                                                    | ✅      |
+|                  | Windows Server 2012 R2                                                                      | ✅      |
+|                  | Windows Server 2012                                                                         | ✅      |
+|                  | Windows Server 2008 R2 SP1                                                                  | ✅      |
+|                  | Windows Server 2008 R2                                                                      | ✅      |
+|                  | Windows Server 2008 SP2                                                                     | ❌      |
+|                  | Windows 11 Client & Pro                                                                     | ❌      |
+|                  | Windows 11 Enterprise (including multi-session)                                             | ❌      |
+|                  | Windows 10 1803 (RS4) and higher                                                            | ❌      |
+|                  | Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>) | ✅      |
+| Linux            |                                                                                             |         |
+|                  | CentOS Linux 8                                                                              | ❌      |
+|                  | CentOS Linux 7                                                                              | ✅      |
+|                  | CentOS Linux 6                                                                              | ❌      |
+|                  | CentOS Linux 6.5+                                                                           | ✅      |
+|                  | Debian 11 <sup>2</sup>                                                                      | ❌      |
+|                  | Debian 10 <sup>2</sup>                                                                      | ❌      |
+|                  | Debian 9                                                                                    | ✅      |
+|                  | Debian 8                                                                                    | ❌      |
+|                  | Debian 7                                                                                    | ✅      |
+|                  | OpenSUSE 13.1+                                                                              | ✅      |
+|                  | Oracle Linux 8                                                                              | ❌      |
+|                  | Oracle Linux 7                                                                              | ✅      |
+|                  | Oracle Linux 6                                                                              | ❌      |
+|                  | Oracle Linux 6.4+                                                                           | ✅      |
+|                  | Red Hat Enterprise Linux Server 8.5, 8.6                                                    | ❌      |
+|                  | Red Hat Enterprise Linux Server 8, 8.1, 8.2, 8.3, 8.4                                       | ❌      |
+|                  | Red Hat Enterprise Linux Server 7                                                           | ✅      |
+|                  | Red Hat Enterprise Linux Server 6                                                           | ❌      |
+|                  | Red Hat Enterprise Linux Server 6.7+                                                        | ✅      |
+|                  | SUSE Linux Enterprise Server 15.2                                                           | ❌      |
+|                  | SUSE Linux Enterprise Server 15.1                                                           | ❌      |
+|                  | SUSE Linux Enterprise Server 15 SP1                                                         | ❌      |
+|                  | SUSE Linux Enterprise Server 15                                                             | ❌      |
+|                  | SUSE Linux Enterprise Server 12 SP5                                                         | ✅      |
+|                  | SUSE Linux Enterprise Server 12                                                             | ✅      |
+|                  | Ubuntu 22.04 LTS                                                                            | ❌      |
+|                  | Ubuntu 20.04 LTS                                                                            | ✅      |
+|                  | Ubuntu 18.04 LTS                                                                            | ✅      |
+|                  | Ubuntu 16.04 LTS                                                                            | ✅      |
+|                  | Ubuntu 14.04 LTS                                                                            | ✅      |
+
+<sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
+<sup>2</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+
+<!--
+
 #### Windows
 
-| Operating system                                                                                  | Support | &nbsp; |
-|:--------------------------------------------------------------------------------------------------|:-------:|---|
-| Windows Server 2022                                                                               | ❌      |   |
-| Windows Server 2022 Core                                                                          | ❌      |   |
-| Windows Server 2019                                                                               | ✅      |   |
-| Windows Server 2019 Core                                                                          | ❌      |   |
-| Windows Server 2016                                                                               | ✅      |   |
-| Windows Server 2016 Core                                                                          | ✅      |   |
-| Windows Server 2012 R2                                                                            | ✅      |   |
-| Windows Server 2012                                                                               | ✅      |   |
-| Windows Server 2008 R2 SP1                                                                        | ✅      |   |
-| Windows Server 2008 R2                                                                            | ✅      |   |
-| Windows Server 2008 SP2                                                                           | ❌      |   |
-| Windows 11 Client & Pro                                                                           | ❌      |   |
-| Windows 11 Enterprise (including multi-session)                                                   | ❌      |   |
-| Windows 10 1803 (RS4) and higher                                                                  | ❌      |   |
-| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>)       | ✅      |   |
+| Operating system                                                                                  | Support |
+|:--------------------------------------------------------------------------------------------------|:-------:|
+| Windows Server 2022                                                                               | ❌      |
+| Windows Server 2022 Core                                                                          | ❌      |
+| Windows Server 2019                                                                               | ✅      |
+| Windows Server 2019 Core                                                                          | ❌      |
+| Windows Server 2016                                                                               | ✅      |
+| Windows Server 2016 Core                                                                          | ✅      |
+| Windows Server 2012 R2                                                                            | ✅      |
+| Windows Server 2012                                                                               | ✅      |
+| Windows Server 2008 R2 SP1                                                                        | ✅      |
+| Windows Server 2008 R2                                                                            | ✅      |
+| Windows Server 2008 SP2                                                                           | ❌      |
+| Windows 11 Client & Pro                                                                           | ❌      |
+| Windows 11 Enterprise (including multi-session)                                                   | ❌      |
+| Windows 10 1803 (RS4) and higher                                                                  | ❌      |
+| Windows 10 Enterprise (including multi-session) and Pro (Server scenarios only<sup>1</sup>)       | ✅      |
 
 <sup>1</sup> Running the OS on server hardware, for example, machines that are always connected, always turned on, and not running other workloads (PC, office, browser)<br>
 
@@ -189,6 +244,8 @@ The following tables list the operating systems that are supported by WAD and LA
 | Ubuntu 14.04 LTS                                      | ✅             |
 
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
+
+-->
 
 ## Other documentation
 
