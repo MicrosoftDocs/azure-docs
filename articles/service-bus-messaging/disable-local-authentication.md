@@ -77,7 +77,7 @@ You can disable local authentication for a Service Bus namespace by setting `dis
 ## Azure policy
 You can assign the [disable local auth](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcfb11c26-f069-4c14-8e36-56c394dae5af) Azure policy to an Azure subscription or a resource group to enforce disabling of local authentication for all Service Bus namespaces in the subscription or the resource group.
 
-:::image type="content" source="./media/disable-local-authentication/azure-policy.png" alt-text="Azure policy to disable location authentication." lightbox="./media/disable-local-authentication/azure-policy.png":::
+:::image type="content" source="./media/disable-local-authentication/azure-policy.png" alt-text="Screenshot of Azure policy to disable location authentication." lightbox="./media/disable-local-authentication/azure-policy.png":::
 
 ## Related content
 See the following to learn about Microsoft Entra ID and SAS authentication. 

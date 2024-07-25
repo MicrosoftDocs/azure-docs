@@ -80,7 +80,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal prompts you to enable it.
    
-    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Image showing the selection of virtual network and subnet.":::
+    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Screenshot showing the selection of virtual network and subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.ServiceBus**. Select **Add** at the bottom of the page to add the network. 
 
     :::image type="content" source="./media/service-endpoints/subnet-service-endpoint-enabled.png" alt-text="Image showing the success message of enabling the service endpoint.":::
