@@ -44,7 +44,7 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
   }
 ```
 
-2. AssignedBreakoutRoomsEvent :  When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the Breakout room assigned.
+2. AssignedBreakoutRoomsEvent :  When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the assigned Breakout room.
 ```js
 export interface AssignedBreakoutRoomEvent {
   /**
