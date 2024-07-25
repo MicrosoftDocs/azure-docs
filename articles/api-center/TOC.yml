@@ -38,8 +38,10 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Build and register APIs - VS Code extension
+      - name: Register APIs - VS Code extension
         href: use-vscode-extension.md
+      - name: Register APIs - GitHub Actions
+        href: register-apis-github-actions.md
 - name: API governance
   items:
       - name: Use metadata for governance
