@@ -174,7 +174,7 @@ Breakout rooms have the following properties :
 ```js
 const displayName : string = breakoutRoom.displayName;
 ```
-- `displayName` : Name of the breakout room. This is a readonly property.
+- `displayName` : Name of the breakout room. This is a read-only property.
 
 ```js
 const threadId : string = breakoutRoom.threadId;
