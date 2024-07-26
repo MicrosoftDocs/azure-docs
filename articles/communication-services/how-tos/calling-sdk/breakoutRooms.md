@@ -45,7 +45,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 |Participate in breakout room chat | | ✔️[2]|
 
 ## SDKs
-|| Web | Web UI | iOS | Android | Windows |
+| Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|--------|--------|--------|----------|--------|
 |Is Supported | ✔️|   |   |   |    |   |    |		
 
