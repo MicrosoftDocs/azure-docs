@@ -21,7 +21,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 ### FHIR service
 
-#### Disabling .NET DataTime objects from JSON data supplied to the $convert-data operation
+#### Disabling .NET DataTime objects from JSON data supplied to $convert-data
 
 It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload, string values, which are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
 
