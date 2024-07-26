@@ -188,7 +188,7 @@ The result:
 ```JSON
 {"answer_length":27}
 ```
-#### Log your custom prompt-based evaluator to your AI project
+#### Log your custom prompt-based evaluator to your AI Studio project
 ```python
 # First we need to save evaluator into separate file in its own directory:
 def answer_len(answer):
@@ -285,7 +285,7 @@ Here is the result:
 ```JSON
 {"apology": 0}
 ```
-#### Log your custom prompt-based evaluator to your AI project
+#### Log your custom prompt-based evaluator to your AI Studio project
 ```python
 # Define the path to prompty file.
 prompty_path = os.path.join("apology-prompty", "apology.prompty")
@@ -362,6 +362,7 @@ The evaluator outputs results in a dictionary which contains aggregate `metrics`
  'traces': {}}
 ```
 ### Requirements for `evaluate()`
+The `evaluate()` API has a few requirements for the data format that it accepts and how it handles evaluator parameter key names so that the charts in your AI Studio evaluation results show up properly.
 #### Data format
 The `evaluate()` API only accepts data in the JSONLines format. For all built-in evaluators, except for `ChatEvaluator` or `ContentSafetyChatEvaluator`, `evaluate()` requires data in the following format with required input fields. See the [previous section on required data input for built-in evaluators](#required-data-input-for-built-in-evaluators).
 ```json
