@@ -17,7 +17,7 @@ author: eric-urban
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to assess which one meets your business scenario. You can find model benchmarks under **Get started** on the left menu in Azure AI Studio.
+In Azure AI Studio, you can compare benchmarks across models and datasets available in the industry to decide which one meets your business scenario. You can find model benchmarks under **Get started** on the left menu in Azure AI Studio.
 
 :::image type="content" source="../media/explore/model-benchmarks-dashboard-view.png" alt-text="Screenshot of a dashboard view graph of model accuracy." lightbox="../media/explore/model-benchmarks-dashboard-view.png":::
 
@@ -35,7 +35,7 @@ Model benchmarks assess the quality of LLMs and SLMs across the following metric
 | Metric | Description |
 |--------|-------|
 | Accuracy | Accuracy scores are available at the dataset and model levels.<br><br>At the dataset level, the score is the average value of an accuracy metric computed over all examples in the dataset. The accuracy metric used is *exact match* in all cases except for the *HumanEval* dataset, which uses a `pass@1` metric. *Exact match* simply compares model-generated text with the correct answer according to the dataset. It reports a value of 1 if the generated text matches the answer exactly. Otherwise, it reports a value of 0. The `pass@1` metric measures the proportion of model solutions that pass a set of unit tests in a code generation task. <br><br>At the model level, the accuracy score is the average of the dataset-level accuracies for each model. |
-| Coherence | Coherence evaluates how well the language model can produce output that flows smoothly, reads naturally, and resembles humanlike language. |
+| Coherence | Coherence evaluates how well the language model can produce output that flows smoothly, reads naturally, and resembles human language. |
 | Fluency | Fluency evaluates the language proficiency of a generative AI model's predicted answer. It assesses how well the generated text adheres to grammatical rules, syntactic structures, and appropriate usage of vocabulary to produce linguistically correct and natural-sounding responses. |
 | GPT similarity | GPT similarity is a measure that quantifies the similarity between a ground-truth sentence (or document) and the prediction sentence that an AI model generates. It's calculated by first computing sentence-level embeddings by using the embeddings API for both the ground truth and the model's prediction. These embeddings represent high-dimensional vector representations of the sentences to capture their semantic meaning and context. |
 |Groundedness | Groundedness measures how well the language model's generated answers align with information from the input source. |
@@ -88,5 +88,5 @@ You can also filter the list view by task, model collection, model name, dataset
 
 ## Related content
 
-- [Explore Azure AI foundation models in Azure AI Studio](models-foundation-azure-ai.md)
-- [View and compare benchmarks in AI Studio](https://ai.azure.com/explore/benchmarks)
+- [Explore foundation models in Azure AI Studio](models-foundation-azure-ai.md)
+- [View and compare benchmarks in Azure AI Studio](https://ai.azure.com/explore/benchmarks)

@@ -63,11 +63,11 @@ The following table describes how you're billed for deploying and inferencing LL
 | Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed according to the infrastructure of the endpoint.<sup>1</sup> | Yes, you're billed for the infrastructure that hosts the model.<sup>2</sup> |
 | Testing chat mode in a playground after deploying a model to your project | Yes, you're billed based on your token usage. | Yes, you're billed based on your token usage. | None |
 | Testing a model in a sample playground on the model catalog (if applicable) | Not applicable | None | None |
-| Testing a model in a playground under your project (if applicable) or in the test tab on the deployment details page under your project. | Yes, you're billed based on your token usage. | Yes, you're billed based on your token usage. | None |
+| Testing a model in a playground under your project (if applicable), or on the test tab on the deployment details page under your project. | Yes, you're billed based on your token usage. | Yes, you're billed based on your token usage. | None |
 
-<sup>1</sup> A minimal endpoint infrastructure is billed per minute. You aren't billed for the infrastructure that hosts the model in pay-as-you-go. After you delete the endpoint, there are no further charges.
+<sup>1</sup> A minimal endpoint infrastructure is billed per minute. You aren't billed for the infrastructure that hosts the model in pay-as-you-go. After you delete the endpoint, no further charges accrue.
 
-<sup>2</sup> Billing is on a per-minute basis, depending on the product tier and the number of instances used in the deployment since the moment of creation. After you delete the endpoint, there are no further charges.
+<sup>2</sup> Billing is on a per-minute basis, depending on the product tier and the number of instances used in the deployment since the moment of creation. After you delete the endpoint, no further charges accrue.
 
 ## Deploying flows
 
@@ -79,7 +79,7 @@ Whichever way you choose to create a flow in Azure AI Studio, you can deploy it 
 
 ## Deploying web apps
 
-The model or flow that you deploy can be used in a web application hosted on Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI enterprise chat tutorial](../tutorials/deploy-chat-web-app.md).
+The model or flow that you deploy can be used in a web application hosted on Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI Studio enterprise chat tutorial](../tutorials/deploy-chat-web-app.md).
 
 ## Planning AI safety for a deployed model
 
@@ -96,4 +96,4 @@ Optimizing LLMs requires a careful consideration of several factors, including o
 - [Deploy Azure OpenAI models with Azure AI Studio](../how-to/deploy-models-openai.md)
 - [Deploy Meta Llama 3.1 models with Azure AI Studio](../how-to/deploy-models-llama.md)
 - [Deploy large language models with Azure AI Studio](../how-to/deploy-models-open.md)
-- [Azure AI frequently asked questions](../faq.yml)
+- [Azure AI Studio FAQ](../faq.yml)

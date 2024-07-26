@@ -40,7 +40,7 @@ You might be ready for fine-tuning if:
 
   Good use cases for fine-tuning include steering the model to output content in a specific and customized style, tone, or format. They also include scenarios where the information needed to steer the model is too long or complex to fit into the prompt window.
 - You have clear examples of how you addressed the challenges in alternate approaches and what you tested as possible resolutions to improve performance.
-- You identified shortcomings by using a base model, such as inconsistent performance on edge cases, inability to fit enough few shot prompts in the context window to steer the model, or high latency.
+- You identified shortcomings by using a base model, such as inconsistent performance on edge cases, inability to fit enough shot prompts in the context window to steer the model, or high latency.
 
 You might not be ready for fine-tuning if:
 
@@ -56,7 +56,7 @@ If you want to add out-of-domain knowledge to the model, you should start with R
 
 Understanding where prompt engineering falls short should provide guidance on approaching your fine-tuning. Is the base model failing on edge cases or exceptions? Is the base model not consistently providing output in the right format, and you can't fit enough examples in the context window to fix it?
 
-Examples of failure with the base model and prompt engineering will help you identify the data that they need to collect for fine-tuning, and how you should be evaluating your fine-tuned model.
+Examples of failure with the base model and prompt engineering can help you identify the data that they need to collect for fine-tuning, and how you should be evaluating your fine-tuned model.
 
 Here's an example: A customer wants to use GPT-3.5 Turbo to turn natural language questions into queries in a specific, nonstandard query language. The customer provides guidance in the prompt ("Always return GQL") and uses RAG to retrieve the database schema. However, the syntax isn't always correct and often fails for edge cases. The customer collects thousands of examples of natural language questions and the equivalent queries for the database, including cases where the model failed before. The customer then uses that data to fine-tune the model. Combining the newly fine-tuned model with the engineered prompt and retrieval brings the accuracy of the model outputs up to acceptable standards for use.
 
@@ -80,9 +80,9 @@ You might not be ready for fine-tuning if:
 
 ### What data are you going to use for fine-tuning?
 
-Even with a great use case, fine-tuning is only as good as the quality of the data that you can provide. You need to be willing to invest the time and effort to make fine-tuning work. Different models will require different data volumes, but you often need to be able to provide fairly large quantities of high-quality curated data.
+Even with a great use case, fine-tuning is only as good as the quality of the data that you can provide. You need to be willing to invest the time and effort to make fine-tuning work. Different models require different data volumes, but you often need to be able to provide fairly large quantities of high-quality curated data.
 
-Another important point is that even with high-quality data, if your data isn't in the necessary format for fine-tuning, you'll need to commit engineering resources in order to properly format the data. For more information on how to prepare your data for fine-tuning, refer to the [fine-tuning documentation](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context).
+Another important point is that even with high-quality data, if your data isn't in the necessary format for fine-tuning, you'll need to commit engineering resources for the formatting. For more information on how to prepare your data for fine-tuning, refer to the [fine-tuning documentation](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context).
 
 You might be ready for fine-tuning if:
 

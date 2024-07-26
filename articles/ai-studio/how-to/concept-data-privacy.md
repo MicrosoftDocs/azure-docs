@@ -24,7 +24,7 @@ When you deploy models in Azure AI Studio, the following types of data are proce
 
 * **Uploaded data**. For models that support fine-tuning, customers can upload their data to a [datastore](../concepts/connections.md#connections-to-datastores) for fine-tuning.
 
-## Generate inferencing outputs with managed compute
+## Generation of inferencing outputs with managed compute
 
 Deploying models to managed compute deploys model weights to dedicated virtual machines and exposes a REST API for real-time inference. To learn more about deploying models from the model catalog to managed compute, see [Model catalog and collections in Azure AI Studio](model-catalog-overview.md).
 
@@ -34,7 +34,7 @@ Although containers for **Curated by Azure AI** models are scanned for vulnerabi
 
 :::image type="content" source="../media/explore/subscription-service-cycle.png" alt-text="Diagram that shows the platform service life cycle." lightbox="../media/explore/subscription-service-cycle.png":::
 
-## Generate inferencing outputs as a serverless API
+## Generation of inferencing outputs as a serverless API
 
 When you deploy a model from the model catalog (base or fine-tuned) by using serverless APIs with pay-as-you-go billing for inferencing, an API is provisioned. The API gives you access to the model that the Azure Machine Learning service hosts and manages. Learn more about serverless APIs in [Model catalog and collections](./model-catalog-overview.md).
 
@@ -51,9 +51,9 @@ Prompts and outputs are processed within the geography specified during deployme
 :::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="Diagram that shows the model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
 > [!NOTE]
-> As explained during the deployment process for MaaS, Microsoft might share customer contact information and transaction details (including usage volume associated with the offering) with the model publisher so that the publisher can contact customers regarding the model. Learn more about information available to model publishers in [Access insights for the Microsoft commercial marketplace in Partner Center](/partner-center/analytics).
+> As explained during the deployment process for MaaS, Microsoft might share customer contact information and transaction details (including the usage volume associated with the offering) with the model publisher so that the publisher can contact customers regarding the model. Learn more about information available to model publishers in [Access insights for the Microsoft commercial marketplace in Partner Center](/partner-center/analytics).
 
-## Fine-tune a model for pay-as-you-go deployment (MaaS)
+## Fine-tuning a model for pay-as-you-go deployment (MaaS)
 
 If a model that's available for serverless APIs supports fine-tuning, you can upload data to (or designate data already in) a [datastore](../concepts/connections.md#connections-to-datastores) to fine-tune the model. You can then create a serverless API deployment for the fine-tuned model. The fine-tuned model can't be downloaded, but:
 

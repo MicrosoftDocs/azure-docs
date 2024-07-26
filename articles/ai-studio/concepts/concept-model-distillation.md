@@ -39,4 +39,4 @@ We used an advanced prompt during synthetic data generation. The advanced prompt
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Deploy Meta Llama 3.1 models with Azure AI Studio](../how-to/deploy-models-llama.md)
-- [Azure AI frequently asked questions](../faq.yml)
+- [Azure AI Studio FAQ](../faq.yml)

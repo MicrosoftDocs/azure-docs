@@ -86,20 +86,20 @@ The capability to deploy models as managed compute builds on platform capabiliti
 
 The models are made available through [Azure Machine Learning registries](../../machine-learning/concept-machine-learning-registries-mlops.md). These registries enable a machine-learning-first approach to [hosting and distributing Azure Machine Learning assets](../../machine-learning/how-to-share-models-pipelines-across-workspaces-with-registries.md). These assets include model weights, container runtimes for running the models, pipelines for evaluating and fine-tuning the models, and datasets for benchmarks and samples.
 
-The registries build on top of highly scalable and enterprise-ready infrastructure that:
+The registries build on top of a highly scalable and enterprise-ready infrastructure that:
 
-* Delivers low latency access model artifacts to all Azure regions with built-in geo-replication.
+* Delivers low-latency access model artifacts to all Azure regions with built-in geo-replication.
 
 * Supports enterprise security requirements such as limiting access to models by using Azure Policy and secure deployment by using managed virtual networks.
 
 ### Deployment of models for inference with managed compute
 
-Models available for deployment to managed compute can be deployed to Azure Machine Learning online endpoints for real-time inference. Deploying to managed compute requires you to have a virtual machine quota in your Azure subscription for the specific products that you need to optimally run the model. Some models allow you to deploy to a [temporarily shared quota for testing the model](deploy-models-open.md).
+Models available for deployment to managed compute can be deployed to Azure Machine Learning online endpoints for real-time inference. Deploying to managed compute requires you to have a virtual machine quota in your Azure subscription for the specific products that you need to optimally run the model. Some models allow you to deploy to a [temporarily shared quota for model testing](deploy-models-open.md).
 
 Learn more about deploying models:
 
 * [Deploy Meta Llama models](deploy-models-llama.md)
-* [Deploy open models created by Azure AI](deploy-models-open.md)
+* [Deploy Azure AI Studio open models](deploy-models-open.md)
 
 ### Building generative AI apps with managed compute
 
@@ -113,15 +113,21 @@ You can refer to [this notebook](https://github.com/Azure/azureml-examples/blob/
 
 ## Serverless APIs with pay-as-you-go billing
 
-You can deploy certain models in the model catalog as serverless APIs with pay-as-you-go billing. This deployment method, sometimes called *model as a service* (MaaS), provides a way to consume the models as APIs without hosting them on your subscription. Models are hosted in infrastructure that Microsoft manages, which enables API-based access to the model provider's model. API-based access can dramatically reduce the cost of accessing a model and simplify the provisioning experience.
+You can deploy certain models in the model catalog as serverless APIs with pay-as-you-go billing. This deployment method, sometimes called *model as a service* (MaaS), provides a way to consume the models as APIs without hosting them on your subscription. Models are hosted in a Microsoft-managed infrastructure, which enables API-based access to the model provider's model. API-based access can dramatically reduce the cost of accessing a model and simplify the provisioning experience.
 
-Models that are available for deployment as serverless APIs with pay-as-you-go billing are offered by the model provider, but they're hosted in Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models. The Azure Machine Learning service manages the hosting infrastructure, makes the inference APIs available, and acts as the data processor for prompts submitted and content outputted by models deployed via MaaS. Learn more about data processing for MaaS in the [article about data privacy](concept-data-privacy.md).
+Models that are available for deployment as serverless APIs with pay-as-you-go billing are offered by the model provider, but they're hosted in a Microsoft-managed Azure infrastructure and accessed via API. Model providers define the license terms and set the price for use of their models. The Azure Machine Learning service:
+
+* Manages the hosting infrastructure.
+* Makes the inference APIs available.
+* Acts as the data processor for prompts submitted and content output by models deployed via MaaS.
+
+Learn more about data processing for MaaS in the [article about data privacy](concept-data-privacy.md).
 
 :::image type="content" source="../media/explore/model-publisher-cycle.png" alt-text="Diagram that shows the model publisher service cycle." lightbox="../media/explore/model-publisher-cycle.png":::
 
 ### Billing
 
-The discovery, subscription, and consumption experience for models deployed via MaaS is in Azure AI Studio and Azure Machine Learning studio. Users accept license terms for use of the models, and pricing information for consumption is provided during deployment.
+The discovery, subscription, and consumption experience for models deployed via MaaS is in Azure AI Studio and Azure Machine Learning studio. Users accept license terms for use of the models. Pricing information for consumption is provided during deployment.
 
 Models from non-Microsoft providers are billed through Azure Marketplace, in accordance with the [Microsoft Commercial Marketplace Terms of Use](/legal/marketplace/marketplace-terms).
 
@@ -137,7 +143,7 @@ In Azure AI Studio, you can use vector indexes and retrieval-augmented generatio
 
 ### Regional availability of offers and models
 
-Pay-as-you-go billing is available only if your Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, you then must have a hub or project in the Azure region where the model is available for deployment or fine-tuning, as applicable.
+Pay-as-you-go billing is available only if your Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, you must have a hub or project in the Azure region where the model is available for deployment or fine-tuning, as applicable.
 
 <!-- docutune:disable -->
 
@@ -160,8 +166,6 @@ Phi-3-medium-4k-instruct <br> Phi-3-medium-128k-instruct | [Microsoft-managed co
 
 ### Content safety for models deployed via serverless APIs
 
-[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
-
 [!INCLUDE [content-safety-serverless-models](../includes/content-safety-serverless-models.md)]
 
 ### Network isolation for models deployed via serverless APIs
@@ -173,7 +177,7 @@ To set the PNA flag for the AI Studio hub:
 * Go to the [Azure portal](https://ms.portal.azure.com/).
 * Search for the resource group to which the hub belongs, and select your AI Studio hub from the resources listed for this resource group.
 * On the hub overview page, on the left pane, go to **Settings** > **Networking**.
-* On the **Public access** tab, you can configure settings for the public network access flag.
+* On the **Public access** tab, you can configure settings for the PNA flag.
 * Save your changes. Your changes might take up to five minutes to propagate.
 
 #### Limitations
@@ -188,4 +192,4 @@ To set the PNA flag for the AI Studio hub:
 
 ## Related content
 
-* [Explore Azure AI foundation models in Azure AI Studio](models-foundation-azure-ai.md)
+* [Explore foundation models in Azure AI Studio](models-foundation-azure-ai.md)

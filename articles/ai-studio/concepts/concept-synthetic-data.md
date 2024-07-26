@@ -37,4 +37,4 @@ To see how to generate synthetic data, you can use the [sample notebook](https:/
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Deploy Meta Llama 3.1 models with Azure AI Studio](../how-to/deploy-models-llama.md)
-- [Azure AI frequently asked questions](../faq.yml)
+- [Azure AI Studio FAQ](../faq.yml)
