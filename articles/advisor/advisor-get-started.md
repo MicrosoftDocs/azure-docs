@@ -1,8 +1,6 @@
 ---
 title: Azure Advisor portal basics
 description: Learn how to get started with Azure Advisor through the Azure portal, get and manage recommendations, and configure Advisor settings.
-author: mabrahms
-ms.author: v-mabrahms
 ms.service: azure
 ms.topic: article
 ms.date: 03/07/2024
