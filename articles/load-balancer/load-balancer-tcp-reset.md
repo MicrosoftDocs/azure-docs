@@ -1,7 +1,7 @@
 ---
 title: Load Balancer TCP Reset and idle timeout in Azure
 titleSuffix: Azure Load Balancer
-description: With this article, learn about Azure Load Balancer with bidirectional TCP RST packets on idle timeout.
+description: With this article, learn about Azure Load Balancer with bidirectional TCP Resetpackets on idle timeout.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
@@ -13,7 +13,7 @@ ms.custom: template-concept, engagement-fy23
 
 # Load Balancer TCP Reset and Idle Timeout
 
-You can use [Standard Load Balancer](./load-balancer-overview.md) to create a more predictable application behavior for your scenarios by enabling TCP Reset on Idle for a given rule. Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.  Enabling TCP reset causes Load Balancer to send bidirectional TCP Resets (TCP RST packets) on idle timeout to inform your application endpoints that the connection timed out and is no longer usable.  Endpoints can immediately establish a new connection if needed.
+You can use [Standard Load Balancer](./load-balancer-overview.md) to create a more predictable application behavior for your scenarios by enabling TCP Reset on Idle for a given rule. Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.  Enabling TCP reset causes Load Balancer to send bidirectional TCP Resets (TCP reset packets) on idle timeout to inform your application endpoints that the connection timed out and is no longer usable.  Endpoints can immediately establish a new connection if needed.
 
 :::image type="content" source="media/load-balancer-tcp-reset/load-balancer-tcp-reset.png" alt-text="Diagram shows default TCP reset behavior of network nodes.":::
  
@@ -21,7 +21,7 @@ You can use [Standard Load Balancer](./load-balancer-overview.md) to create a mo
 
 You change this default behavior and enable sending TCP Resets on idle timeout on inbound NAT rules, load balancing rules, and [outbound rules](./load-balancer-outbound-connections.md#outboundrules).  When enabled per rule, Load Balancer sends bidirectional TCP Resets (TCP RST packets) to both client and server endpoints at the time of idle timeout for all matching flows.
 
-Endpoints receiving TCP RST packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail.  Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time-out.
+Endpoints receiving TCP reset packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail.  Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time-out.
 
 For many scenarios, TCP reset can reduce the need to send TCP (or application layer) keepalives to refresh the idle timeout of a flow. 
 
@@ -34,6 +34,8 @@ By carefully examining the entire end to end scenario, you can determine the ben
 Azure Load Balancer has a 4 minutes to 100-minutes timeout range for Load Balancer rules, Outbound Rules, and Inbound NAT rules. The default is 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service.
 
 When the connection is closed, your client application can receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
+
+if TCP reset are enabled, and it is missed for any reason, resets for any subsequent packets. If the TCP reset option is not enabled, then packets will be silently dropped.
 
 A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see these [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). With keep-alive enabled, packets are sent during periods of inactivity on the connection. Keep-alive packets ensure the idle timeout value isn't reached and the connection is maintained for a long period.
 
@@ -59,7 +61,7 @@ It's important to take into account how the idle timeout values set for differen
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
 - TCP idle timeout doesn't affect load balancing rules on UDP protocol.
-- TCP reset isn't supported for ILB HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from NVA.
+- TCP reset isn't supported for Internal Load Balancer HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from Network Virtual Appliance.
 
 ## Next steps
 
