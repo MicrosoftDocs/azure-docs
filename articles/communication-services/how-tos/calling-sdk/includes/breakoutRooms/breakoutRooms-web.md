@@ -238,7 +238,6 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 The property `state` of assigned breakout room is set to "closed", but user have not moved back to the main meeting.
 
 **Resolution**: Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room.
-  using the code shared above for leaving the breakout room and check if that helps.
   
 - **Assigned breakout room details are not available to the user.**
 
