@@ -34,14 +34,18 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 **This release applies to the following**
 
 - Cluster Pool Version: 1.2
-- Cluster Version: 1.2
+- Cluster Version: 1.2.1
 - AKS version: 1.27
 
 ### New Features
 
 **MSI based SQL authentication**
 
-Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This will help to further secure the cluster connection with Metastore.
+Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This fearure helps to further secure the cluster connection with Metastore.
+
+**Configurable VM SKUs for Head node, SSH** 
+
+This functionality allows users to choose specific SKUs for head nodes, worker nodes, and SSH nodes, offering the flexibility to select according to the use case and the potential to lower total cost of ownership (TCO).
 
 ### Updated
 
@@ -51,19 +55,22 @@ Script Action now can be added with Sudo user permission. Users can now install 
 
 **Library Management**
 
-Maven repository shortcut feature has been added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
+Maven repository shortcut feature added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
 
 **Multiple MSI in cluster**
+
+Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
+For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
 
 **Spark 3.4**  
 
 > [!IMPORTANT]
-> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2
+> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
 
 ### Known issues
 
 - **Workload identity limitation:**
-  - There's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
+  - There's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
   - **User Assigned Managed Identities (UAMI)** support – There's a limit of 20 FICs per UAMI. You can only create 20 Federated Credentials on an identity. In HDInsight on AKS cluster, FIC (Federated Identity Credential) and SA have one-to-one mapping and only 20 SAs can be created against an MSI. If you want to create more clusters, then you are required to provide different MSIs to overcome the limitation.
   - Creation of federated identity credentials is currently not supported on user-assigned managed identities created in [these regions](/entra/workload-id/workload-identity-federation-considerations#unsupported-regions-user-assigned-managed-identities) 
 
