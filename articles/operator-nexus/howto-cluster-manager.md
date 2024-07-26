@@ -16,10 +16,10 @@ The Cluster Manager is deployed in the operator's Azure subscription to manage t
 
 ## Before you begin
 
-You'll need:
+Ensure you have the following information:
 
 - **Azure Subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network Fabric Controller).
-- **Network Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager.
+- **Network Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You need the resource ID of the Network Fabric Controller to be associated with the Cluster Manager.
 - **Log Analytics Workspace ID** - The resource ID of the Log Analytics Workspace used for the logs collection.
 - **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
@@ -44,8 +44,8 @@ Some arguments that are available for every Azure CLI command
 | managerExtendedLocation           | The ExtendedLocation associated with the Cluster Manager                                                                                                                                                                                 |
 | managedResourceGroupConfiguration | Information about the Managed Resource Group                                                                                                                                                                                             |
 | fabricControllerId                | A reference to the Network Fabric Controller that is 1:1 with this Cluster Manager                                                                                                                                                               |
-| analyticsWorkspaceId              | This workspace will be where any logs that 's relevant to the customer will be relayed.                                                                                                                                                  |
-| clusterVersions[]                 | List of ClusterAvailableVersions objects. <br> Cluster versions that the manager supports. Will be used as an input in the cluster clusterVersion property.                                                                              |
+| analyticsWorkspaceId              | The Log Analytics workspace where logs that are relevant to the customer will be relayed.                                                                                                                                                  |
+| clusterVersions[]                 | A list of Cluster versions that the Cluster Manager supports. It is used as an input in the cluster clusterVersion property.                                                                              |
 | provisioningState                 | Succeeded, Failed, Canceled, Provisioning, Accepted, Updating                                                                                                                                                                            |
 | detailedStatus                    | Detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                           |
 | detailedStatusMessage             | Descriptive message about the current detailedStatus.                                                                                                                                           
@@ -62,7 +62,7 @@ The role assignment can be done via Portal:
 
 - Open Azure Portal and locate User-assigned identity in question.
   - If you expect multiple managed identities provisioned, the role can be added instead at the resource group or subscription level.
-- Under Access control (IAM), click Add new role assignment
+- Under `Access control (IAM)`, click Add new role assignment
 - Select Role: `Managed Identity Operator`. See the [permissions](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator) that the role provides.
 - Assign access to: User, group, or service principal
 - Select Member: `AFOI-NC-MGMT-PME-PROD` application
@@ -70,7 +70,7 @@ The role assignment can be done via Portal:
 
 ## Create a Cluster Manager
 
-### Create the Cluster Manager using AZ CLI:
+### Create the Cluster Manager using Azure CLI:
 
 Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
@@ -108,7 +108,7 @@ az networkcloud clustermanager create \
 
 An alternate way to create a Cluster Manager is with the ARM template editor.
 
-In order to create the cluster this way, you will need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
+In order to create the cluster this way, you need to provide a template file (clusterManager.jsonc) and a parameter file (clusterManager.parameters.jsonc).
 
 You can find examples of these two files here:
 
@@ -280,4 +280,4 @@ az networkcloud clustermanager delete \
 
 ## Next steps
 
-After you successfully create an NFC and Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).
+After you successfully created the Network Fabric Controller and the Cluster Manager, the next step is to create a [Network Fabric](./howto-configure-network-fabric.md).
