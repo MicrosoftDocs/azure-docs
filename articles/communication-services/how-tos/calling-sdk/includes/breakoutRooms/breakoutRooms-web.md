@@ -215,7 +215,7 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
 ### Troubleshooting
 
-- User trying to join a breakout room when the state of the room is closed.
+- **User is trying to join a breakout room when the `state` of the assigned breakout room is `closed`.**
 
   When the `join()` method is called on the `breakoutRoomsFeature.assignedBreakoutRoom` even before the breakout room's state is `open`, then an error is thrown to the user with the message "Not able to join 
   Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join."
