@@ -240,6 +240,8 @@ The Outlines (Table of Contents) presents the first markdown header of any markd
 
 You can run the code cells in your notebook individually or all at once. The status and progress of each cell is represented in the notebook.
 
+> [!NOTE] Deleting notebook won't cancel existing running jobs. Please go to monitoring hub to cancel job if necessary. 
+
 ### Run a cell
 
 There are several ways to run the code in a cell.
