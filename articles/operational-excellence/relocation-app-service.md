@@ -213,7 +213,7 @@ The inclusion of external, global traffic routing edge services, such as Traffic
 
 Once the relocation is completed, test and validate Azure App Service with the recommended guidelines:
 
-- Once the Azure App Service is relocated to the target region,  run a smoke and integration test. You can do a manually test or run a test through a script. Make sure to validate that all configurations and dependent resources are properly linked and that all configured data are accessible.
+- Once the Azure App Service is relocated to the target region,  run a smoke and integration test. You can manually test or run a test through a script. Make sure to validate that all configurations and dependent resources are properly linked and that all configured data are accessible.
 
 - Validate all Azure App Service components and integration.
 
