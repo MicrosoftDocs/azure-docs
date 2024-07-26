@@ -12,9 +12,7 @@ ms.custom: upgradepolicy. maxsurge
 # Rolling upgrades with MaxSurge on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrades with MaxSurge for Virtual Machine Scale Sets with Uniform Orchestration is in general availability (GA). 
->
-> **Rolling upgrades with MaxSurge for Virtual Machine Scale Sets with Flexible Orchestration is currently in preview.** 
+> **Rolling upgrades with MaxSurge for Virtual Machine Scale Sets is currently in preview.** 
 >
 > Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
