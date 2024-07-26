@@ -45,7 +45,7 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
   }
 ```
 
-2. AssignedBreakoutRoomsEvent :  This event is triggered when the participant is assigned to a breakout room and also when there is any change in the assigned breakout room properties like when the breakout room is `open` or `closed`. When the event type is `assignedBreakoutRoom', the subscriber would be able to receive the details of the assigned Breakout room.
+2. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
 ```js
 export interface AssignedBreakoutRoomEvent {
   /**
