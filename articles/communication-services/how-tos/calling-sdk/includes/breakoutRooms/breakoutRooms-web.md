@@ -194,7 +194,7 @@ const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMovePartici
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
 ```
-- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This is a readonly property.
+- `call` : Breakout room call object. This is returned when the user joins the breakout room call automatically or by calling `join` method on `assignedBreakoutRoom` object. This is a read-only property.
 
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
