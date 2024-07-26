@@ -79,8 +79,8 @@ This method provides an automated deployment of the 1Password connector using an
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-OnePassword-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter the **Workspace Name**, **Workspace Name**, **1Password Events API Key**, and **URI**.
- - The default **Time Interval** is set to five (5) minutes. If you'd like to modify the interval, you can adjust the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion.
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
+     - The default **Time Interval** is set to five (5) minutes. If you'd like to modify the interval, you can adjust the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion.
+     - If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 
