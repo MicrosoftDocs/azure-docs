@@ -29,9 +29,9 @@ Follow this procedure to upload a file from a device to IoT hub:
 * Upload the file to Azure storage
 * Notify IoT hub of the file upload status
 
-### Connect to IoT hub
+### Connect to the device
 
-Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to IoT hub. See the prerequisites section for how to look up the device primary connection string.
+Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to the device. See the prerequisites section for how to look up the device primary connection string.
 
 `AMQP` is the default transport protocol.
 
