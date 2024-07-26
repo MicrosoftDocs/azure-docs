@@ -220,7 +220,7 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
   When the `join()` method is called on the `breakoutRoomsFeature.assignedBreakoutRoom` even before the breakout room's state is `open`, then an error is thrown to the user with the message "Not able to join 
   Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join."
 
-  Resolution : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
+  **Resolution** : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
 
 - **User gets an error when automatically joining the breakout room.**
 
