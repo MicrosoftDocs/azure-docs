@@ -438,7 +438,7 @@ When passing in your built-in evaluators, it is important to specify the right k
 | `ChatEvaluator`              | "chat"                |
 | `ContentSafetyEvaluator`     | "content_safety"      |
 | `ContentSafetyChatEvaluator` | "content_safety_chat" |
-Example below:
+Here's an example of setting the `evaluators` parameters:
 ```python
 result = evaluate(
     data="data.jsonl",
