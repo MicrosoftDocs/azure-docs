@@ -328,6 +328,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Use mixed SKU node pools
+              href: mixed-sku-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
             - name: Use generation 2 VMs
