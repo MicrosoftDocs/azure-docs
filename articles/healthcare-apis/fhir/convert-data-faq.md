@@ -46,6 +46,12 @@ For more information, see [Access the FHIR service in Azure Health Data Services
 
 The experience and core `$convert-data` operation functionality is similar for both Azure API for FHIR and the FHIR service in Azure Health Data Services(../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of the `$convert-data` operation, which requires assigning permissions to the right resources. 
 
+## Why are my dates being converted when transforming JSON data?
+ 
+Its possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload, string values, which are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
+
 Learn more:
 
 [Azure API for FHIR: Data conversion for Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/convert-data.md)
