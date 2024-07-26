@@ -36,9 +36,9 @@ Some arguments that are available for every Azure CLI command
 - **--query** - uses the JMESPath query language to filter the output returned from Azure services.
 - **--verbose** - prints information about resources created in Azure during an operation, and other useful information
 
-## Cluster Manager elements
+## Cluster Manager properties
 
-| Elements                          | Description                                                                                                                                                                                                                              |
+| Property Name                     | Description                                                                                                                                                                                                                              |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name, ID, location, tags, type    | Name: User friendly name <br> ID: < Resource ID > <br> Location: Azure region where the Cluster Manager is created. Values from: `az account list -locations`.<br> Tags: Resource tags <br> Type: Microsoft.NetworkCloud/clusterManagers |
 | managerExtendedLocation           | The ExtendedLocation associated with the Cluster Manager                                                                                                                                                                                 |
@@ -48,7 +48,25 @@ Some arguments that are available for every Azure CLI command
 | clusterVersions[]                 | List of ClusterAvailableVersions objects. <br> Cluster versions that the manager supports. Will be used as an input in the cluster clusterVersion property.                                                                              |
 | provisioningState                 | Succeeded, Failed, Canceled, Provisioning, Accepted, Updating                                                                                                                                                                            |
 | detailedStatus                    | Detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                           |
-| detailedStatusMessage             | Descriptive message about the current detailedStatus.                                                                                                                                                                                    |
+| detailedStatusMessage             | Descriptive message about the current detailedStatus.                                                                                                                                           
+                                         |
+
+## Cluster Manager Identity
+
+Starting with the 2024-06-01-preview API version, Cluster Manager can be assigned managed identity. Both System-assigned and User-Assigned managed identities are supported.
+
+If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
+Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Entra ID. It is a known limitation of the platform that will be addressed in the future.
+
+The role assignment can be done via Portal:
+
+- Open Azure Portal and locate User-assigned identity in question.
+  - If you expect multiple managed identities provisioned, the role can be added instead at the resource group or subscription level.
+- Under Access control (IAM), click Add new role assignment
+- Select Role: `Managed Identity Operator`. See the [permissions](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator) that the role provides.
+- Assign access to: User, group, or service principal
+- Select Member: `AFOI-NC-MGMT-PME-PROD` application
+- Review and assign
 
 ## Create a Cluster Manager
 
@@ -83,7 +101,8 @@ az networkcloud clustermanager create \
   - **wait/--no-wait** - Wait for command to complete or don't wait for the long-running operation to finish.
   - **--tags** - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
-
+  - **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
+  - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
 
 ### Create the Cluster Manager using Azure Resource Manager template editor:
 
@@ -169,6 +188,73 @@ az networkcloud clustermanager update \
   - **--IDs** - One or more resource IDs (space-delimited). It should be a complete resource ID containing all information of 'Resource ID' arguments.
   - **--resource-group -g** - Name of resource group. You can configure the default group using `az configure --defaults group=<name>`.
   - **--subscription** - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
+  - **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
+  - **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
+
+### Update Cluster Manager Identities via APIs
+
+Cluster Manager managed identities can be assigned via CLI. The un-assignment of the identities can be done via API calls.
+Note, `<APIVersion>` is the API version 2024-06-01-preview or newer.
+
+- To remove all managed identities, execute:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body "{\"identity\":{\"type\":\"None\"}}"
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the User-assigned can be removed by updating the `type` to `SystemAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "SystemAssigned"
+	}
+  }
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the System-assigned can be removed by updating the `type` to `UserAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "UserAssigned",
+		"userAssignedIdentities": {
+			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
+		}
+	}
+  }
+  ```
+
+- If multiple User-assigned managed identities were added, one of them can be removed by executing:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_MANAGER_RG/providers/Microsoft.NetworkCloud/clusterManagers/$CLUSTER_MANAGER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+  
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "UserAssigned",
+		"userAssignedIdentities": {
+			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
+		}
+	}
+  }
+  ```
 
 ## Delete Cluster Manager
 
