@@ -117,6 +117,9 @@ breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 To retreive all the breakoutRooms created in the Teams main meeting by the Organizer / Co-organizer / Breakout room manager use the following code. These breakout rooms are available only to the Organizer / Co-Organizer / Breakout room manager of the meeting.
 ```js
 const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
+breakoutRooms.forEach((room)=>{
+      console.log(`- ${room.displayName}`);
+       }); 
 ```
 ### List invitees
 
