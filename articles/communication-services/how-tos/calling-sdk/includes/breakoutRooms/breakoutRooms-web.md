@@ -252,7 +252,7 @@ The property `state` of assigned breakout room is set to "closed", but user have
 |405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | 
 |500 | 46254	| UnexpectedServerError | Unable to join breakout room due to an unexpected error. Please try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. |
 |500| 46255 | UnexpectedServerError | Not able to join Breakout Room as Main meeting hold is failed. Please try again, by calling join() method. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
-|412 | 46257| UnexpectedServerError | Not able to join back to the Main meeting as the resume failed.Please gather browser console logs and contact Azure Communication Services support. |
+|412 | 46257| UnexpectedServerError | Unable to resume main meeting. Please gather browser console logs and contact Azure Communication Services support. |
 |412| 46258 | UnexpectedClientError | Error while trying to update the Breakoutroom details. Please gather browser console logs and contact Azure Communication Services support.|
 |500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. Please gather browser console logs and contact Azure Communication Services support. |
 |412| 46260 | UnexpectedClientError | Cannot join Breakout Room as the url is null or empty.Can join BreakoutRoom only when assigned.|
