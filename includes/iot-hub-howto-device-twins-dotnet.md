@@ -159,7 +159,7 @@ await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
 
 ### Create a device twin query
 
-This section demonstrates two device twin queries. Device twin queries are SQL queries that retry a result set of device twins.
+This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
 
 Call [CreateQuery](/dotnet/api/microsoft.azure.devices.registrymanager.createquery) to submit a digital twins SQL query and obtain the twins result.
 
