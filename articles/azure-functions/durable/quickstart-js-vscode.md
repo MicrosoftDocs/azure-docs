@@ -279,7 +279,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app , like in this example:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app, like in this example:
 
     ```json
     {
@@ -304,7 +304,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
 
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app , like in this example:
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app, like in this example:
 
     ```json
     {
