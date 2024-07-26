@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/16/2024
+ms.date: 07/26/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -376,6 +376,25 @@ spec:
         headers:
           header_key: header_value
 ```
+
+## Client disconnect after credentials expire
+
+MQTT broker disconnects clients when their credentials expire. Disconnect after credential expiration applies to all clients that connect to the MQTT broker frontends including:
+
+- Clients authenticated with SATs disconnect when their SAT expires
+- Clients authenticated with X.509 disconnect when their client certificate expires
+- Clients authenticated with custom authentication disconnect based on the expiry time returned from the custom authentication server.
+
+On disconnect, the client's network connection is closed. The client won't receive an MQTT DISCONNECT packet, but the broker logs a message that it disconnected the client.
+
+MQTT v5 clients authenticated with SATs and custom authentication can reauthenticate with a new credential before their initial credential expires. X.509 clients cannot reauthenticate and must re-establish the connection since authentication is done at the TLS layer.
+
+Clients can reauthenticate by sending an MQTT v5 AUTH packet.
+
+SAT clients send an AUTH client with the fields `method: $sat`, `data: <token>`.
+Custom authentication clients set the method and data field as required by the custom authentication server.
+
+Successful reauthentication updates the client's credential expiry with the expiry time of its new credential, and the broker responds with a *Success AUTH* packet. Failed authentication due to transient issues cause the broker to respond with a *ContinueAuthentication AUTH* packet. For example, the custom authentication server being unavailable. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 
 ## Related content
 
