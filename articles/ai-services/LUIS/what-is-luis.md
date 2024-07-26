@@ -67,5 +67,5 @@ Learn more about planning and building your application [here](concepts/applicat
 [bot-framework]: /bot-framework/
 [flow]: /connectors/luis/
 [authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
-[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
+[endpoint-apis]: /rest/api/luis/operation-groups
 [qnamaker]: https://qnamaker.ai/

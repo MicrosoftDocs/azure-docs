@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 After you've trained your model, you can test it programmatically by submitting images to the prediction API endpoint. In this guide, you'll learn how to call the prediction API to score an image. You'll learn the different ways you can configure the behavior of this API to meet your needs.
 
 > [!NOTE]
-> This document demonstrates use of the .NET client library for C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](/rest/api/customvision/prediction/operation-groups?view=rest-customvision-prediction-v3.1).
+> This document demonstrates use of the .NET client library for C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](/rest/api/customvision/predictions).
 
 ## Setup
 
