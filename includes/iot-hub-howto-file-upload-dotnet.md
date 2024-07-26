@@ -31,12 +31,12 @@ Follow this procedure to upload a file from a device to IoT hub:
 
 ### Connect to IoT hub
 
-Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method to connect to IoT hub. See the prerequisites section for how to look up the IoT hub primary connection string.
+Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) to connect to IoT hub. See the prerequisites section for how to look up the device primary connection string.
 
 `AMQP` is the default transport protocol.
 
 ``` csharp
-static string connectionString = "{IoT hub primary connection string}";
+static string connectionString = "{device primary connection string}";
 deviceClient = DeviceClient.CreateFromConnectionString(connectionString);
 ```
 
@@ -53,7 +53,7 @@ var fileUploadSasUriRequest = new FileUploadSasUriRequest
     BlobName = fileName
 };
 
-FileUploadSasUriResponse sasUri = await _deviceClient.GetFileUploadSasUriAsync(fileUploadSasUriRequest);
+FileUploadSasUriResponse sasUri = await _deviceClient.GetFileUploadSasUriAsync(fileUploadSasUriRequest, System.Threading.CancellationToken cancellationToken = default);
 Uri uploadUri = sasUri.GetBlobUri();
 ```
 
@@ -63,7 +63,7 @@ To upload a file to Azure storage:
 
 * Create a [blockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient) object, passing a file upload URI
 
-* Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI
+* Use the [UploadAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync?#azure-storage-blobs-specialized-blockblobclient-uploadasync(system-io-stream-azure-storage-blobs-models-blobuploadoptions-system-threading-cancellationtoken)) method to upload a file to Blob Storage, passing the SAS URI. You can optionally add Blob upload options and cancellation token parameters.
 
 The Azure Blob client always uses HTTPS as the protocol to upload the file to Azure Storage.
 
@@ -71,7 +71,7 @@ In this example, `BlockBlobClient` is passed the SAS URI to create an Azure Stor
 
 ```csharp
 var blockBlobClient = new BlockBlobClient(uploadUri);
-await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
+await blockBlobClient.UploadAsync(fileStreamSource, null, null);
 ```
 
 ### Notify IoT hub of the file upload status
@@ -111,9 +111,12 @@ The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class con
 
 To receive file upload notification:
 
-* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken)
-* Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver
-* Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification
+* Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring?view=azure-dotnet&branch=main) to connect to IoT hub. Pass the IoT hub connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
+* Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken).
+* Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
+* Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
+
+For example:
 
 ```csharp
 using Microsoft.Azure.Devices;

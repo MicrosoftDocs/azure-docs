@@ -51,7 +51,7 @@ const path = require('path');
 
 ### Get a SAS URI from IoT hub
 
-Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub.
+Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub. As described in prerequisites, the IoT hub is linked to the Blob Storage.
 
 For example:
 

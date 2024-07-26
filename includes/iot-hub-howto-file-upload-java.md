@@ -24,7 +24,7 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to IoT hub
+* Connect to the device
 * Get a SAS URI from IoT hub
 * Upload the file to Azure Storage
 * Send file upload status notification to IoT hub
@@ -37,9 +37,9 @@ File upload operations always use HTTPS, but [DeviceClient](/java/api/com.micros
 IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
 ```
 
-### Connect to IoT hub
+### Connect to the device
 
-Instantiate the `DeviceClient` to connect to IoT hub using the IoT hub primary connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
+Instantiate the `DeviceClient` to connect to the device using the device primary connection string. See the prerequisites section for how to look up the device primary connection string.
 
 ```java
 String connString = "{IoT hub connection string}";
@@ -127,10 +127,10 @@ The [ServiceClient](/java/api/com.azure.core.annotation.serviceclient) class con
 
 Create a `IotHubServiceClientProtocol` object. The connection uses the `AMQPS` protocol.
 
-Call `createFromConnectionString` to connect to IoT hub.
+Call `createFromConnectionString` to connect to IoT hub. Pass the IoT hub primary connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
 
 ```java
-private static final String connectionString = "{IoT hub service connection string}";
+private static final String connectionString = "{IoT hub primary connection string}";
 private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
 ServiceClient sc = ServiceClient.createFromConnectionString(connectionString, protocol);
 ```

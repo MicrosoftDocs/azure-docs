@@ -31,7 +31,7 @@ This section describes how to upload a file from a device to an IoT hub using th
 
 Follow this procedure to upload a file from a device to IoT hub:
 
-* Connect to IoT hub
+* Connect to the device
 * Get Blob Storage information
 * Upload the file to Blob Storage
 * Notify IoT hub of upload status
@@ -45,17 +45,17 @@ from azure.core.exceptions import AzureError
 from azure.storage.blob import BlobClient
 ```
 
-### Connect to IoT hub
+### Connect to the device
 
-Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the IoT hub primary connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
+Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string. See the prerequisites section for how to look up the device primary connection string.
 
-Then call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client to an Azure IoT hub.
+Then call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
 
 For example:
 
 ```python
 # Add your IoT hub primary connection string
-CONNECTION_STRING = "{IoT hub connection string}"
+CONNECTION_STRING = "{Device primary connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
 # Connect the client
