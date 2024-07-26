@@ -7,7 +7,7 @@ ms.subservice: hpc
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 04/21/2023
+ms.date: 07/25/2024
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.author: jushiman
 author: ju-shim
@@ -32,7 +32,7 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | Version | InfiniBand NIC drivers |
 |---|---|---|
-| Ubuntu | 18.04 LTS, 20.04 LTS | CX3-Pro, CX5, CX6 |
+| Ubuntu | 18.04 LTS, 20.04 LTS, 22.04 LTS | CX3-Pro, CX5, CX6 |
 | CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 | Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8,2 | CX3-Pro, CX5, CX6 |
 
