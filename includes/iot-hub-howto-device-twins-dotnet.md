@@ -21,7 +21,7 @@ This section describes how to create a device application that:
 * Retrieves a device twin and examine a reported property
 * Updates a device twin desired property
 
-### Connect to IoT Hub
+### Connect to a device
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) object exposes all the methods you require to interact with device twins from the device.
 
