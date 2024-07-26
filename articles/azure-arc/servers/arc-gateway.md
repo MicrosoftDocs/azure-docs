@@ -106,6 +106,7 @@ When the resource is created, the success response includes the Arc gateway URL.
 |login.microsoftonline.com  |Microsoft Entra ID’s endpoint, for acquiring Identity access tokens  |
 |gbl.his.arc.azure.com  |The cloud service endpoint for communicating with Azure Arc agents  |
 |\<region\>.his.arc.azure.com  |Used for Arc’s core control channel  |
+|aka.ms | Used to resolve the download script during installation|
 |packages.microsoft.com  |Required to acquire Linux based Arc agentry payload, only needed to connect Linux servers to Arc  |
 |download.microsoft.com   |Used to download the Windows installation package  |
 
