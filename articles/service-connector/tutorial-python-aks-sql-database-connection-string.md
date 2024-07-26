@@ -43,18 +43,18 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 
 ### Register the Service Connector and Kubernetes Configuration resource providers
 
-* Register the Service Connector and Kubernetes Configuration resource providers using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
+Register the Service Connector and Kubernetes Configuration resource providers using the [`az provider register`](/cli/azure/provider#az-provider-register) command.
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ServiceLinker
-    ```
+```azurecli-interactive
+az provider register --namespace Microsoft.ServiceLinker
+```
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.KubernetesConfiguration
-    ```
+```azurecli-interactive
+az provider register --namespace Microsoft.KubernetesConfiguration
+```
 
-    > [!TIP]
-    > You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.KubernetesConfiguration" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
+> [!TIP]
+> You can check if these resource providers are already registered using the `az provider show --namespace "Microsoft.ServiceLinker" --query registrationState` and `az provider show --namespace "Microsoft.KubernetesConfiguration" --query registrationState` commands. If the output is `Registered`, then the service provider is already registered.
 
 
 ### Create a new connection
@@ -83,22 +83,22 @@ Create a service connection between your AKS cluster and your SQL database in th
 
 ### [Azure CLI](#tab/azure-cli)
 
-Create a service connection to the SQL database using the [`az aks connection create sql`](/cli/azure/aks/connection/create#az-aks-connection-create-sql) command. You can run this command in two different ways.
+Create a service connection to the SQL database using the [`az aks connection create sql`](/cli/azure/aks/connection/create#az-aks-connection-create-sql) command. You can run this command in two different ways:
     
-   * Generate the new connection step by step.
+   * generate the new connection step by step.
      
-   ```azurecli-interactive
-   az aks connection create sql
-   ```
+       ```azurecli-interactive
+       az aks connection create sql
+       ```
  
-   * Generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
+   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<server>`, `<database>`, and `<***>`.
     
-   ```azurecli-interactive
-   az aks connection create sql \
-      --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
-      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
-      --secret name=<secret-name> secret=<secret>
-   ```
+       ```azurecli-interactive
+       az aks connection create sql \
+          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
+          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Sql/servers/<server>/databases/<database> \
+          --secret name=<secret-name> secret=<secret>
+       ```
 
 ---
 
@@ -120,17 +120,17 @@ Now that you created a connection between your AKS cluster and the database, you
 
 ## Update your application code
 
-* As a final step, update your application code to use your environment variables, by [following these instructions](how-to-integrate-sql-database.md#connection-string).
+As a final step, update your application code to use your environment variables, by [following these instructions](how-to-integrate-sql-database.md#connection-string).
 
 ## Clean up resources
 
 If you no longer need the resources you created when following this tutorial, you can remove them by deleting the Azure resource group.
 
-* Delete your resource group using the [`az group delete`](/cli/azure/group#az_group_delete) command.
+Delete your resource group using the [`az group delete`](/cli/azure/group#az_group_delete) command.
 
-    ```azurecli-interactive
-    az group delete --resource-group $RESOURCE_GROUP
-    ```
+```azurecli-interactive
+az group delete --resource-group $RESOURCE_GROUP
+```
 
 ## Related content
 
