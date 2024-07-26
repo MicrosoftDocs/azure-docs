@@ -203,7 +203,7 @@ The following properties are supported for Microsoft Fabric Lakehouse Table data
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **LakehouseTable**. | Yes                         |
-| schema | Specify the name of your schema. If you don't specify a schema name, the service will use `dbo` as the default schema. | No |
+| schema | Name of the schema. If not specified, the default value is `dbo`. | No |
 | table | The name of your table. | Yes |
 
 **Example:**
