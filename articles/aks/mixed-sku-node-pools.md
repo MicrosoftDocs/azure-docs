@@ -71,7 +71,7 @@ When you deploy a workload onto Azure Kubernetes Services (AKS), each node pool 
 - Windows node pool isn't supported.
 - This feature isn't available in Azure portal. You can only manipulate or manage the pool using [Azure CLI][azure cli] or REST APIs.
 - [Node pool snapshot][node pool snapshot] isn't supported.
-- Certain preview features that work in the [Azure Virtual Machine Scale Sets][VMSS] node might may not be supported with this mixed SKU node pool.
+- Certain preview features that work in the [Azure Virtual Machine Scale Sets][VMSS] node might not be supported with this mixed SKU node pool.
 - All VM sizes selected in a node pool need to be from a similar VM family. For example, you can't mix an N-Series VM size with a D-Series VM size in the same node pool.
 
 ## Create an AKS cluster with mixed SKU node pools
