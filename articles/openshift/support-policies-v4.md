@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 07/25/2024
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -24,7 +24,8 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't scale the cluster workers to zero, or attempt a cluster shutdown. Deallocating or powering down any virtual machine in the cluster resource group isn't supported.
 * If you're making use of infrastructure nodes, don't run any undesignated workloads on them as this can affect the Service Level Agreement and cluster stability. Also, it's recommended to have three infrastructure nodes; one in each availability zone. See [Deploy infrastructure nodes in an Azure Red Hat OpenShift (ARO) cluster](howto-infrastructure-nodes.md) for more information.
 * Non-RHCOS compute nodes aren't supported. For example, you can't use an RHEL compute node.
-* Don't attempt to remove or replace a master node. That's a high risk operation that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, contact support before making any changes.
+* Don't attempt to remove, replace, add, or modify a master node. That's a high risk operation that can cause issues with etcd, permanent network loss, and loss of access and manageability by ARO SRE. If you feel that a master node should be replaced or removed, contact support before making any changes.
+* Ensure ample VM quota is available in case control plane nodes need to be scaled up by keeping at least double your current control plane vCPU count available.
 
 ### Operators
 

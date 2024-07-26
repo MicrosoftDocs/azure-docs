@@ -53,3 +53,6 @@
   - name: Azure Kubernetes Service
     tocHref: /compliance/regulatory/
     topicHref: /azure/aks/index
+  - name: Azure Kubernetes Service
+    tocHref: /azure/service-connector/
+    topicHref: /azure/aks/index

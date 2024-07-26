@@ -44,6 +44,8 @@ You can also install external scalers to autoscale on other Azure services:
 > [!IMPORTANT]
 > External scalers *aren't supported as part of the add-on* and rely on community support.
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]

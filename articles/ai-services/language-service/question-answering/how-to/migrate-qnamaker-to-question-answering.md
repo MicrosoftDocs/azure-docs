@@ -169,7 +169,7 @@ Here are [detailed steps on migration scenario 2](https://github.com/Azure/azure
 
 Learn more about the [pre-built API](../../../QnAMaker/How-To/using-prebuilt-api.md)
 
-Learn more about the [custom question answering Get Answers REST API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers)
+Learn more about the [custom question answering Get Answers REST API](/rest/api/questionanswering/question-answering/get-answers)
 
 ## Migration steps
 

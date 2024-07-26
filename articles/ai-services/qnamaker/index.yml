@@ -109,9 +109,9 @@ landingContent:
           - text: Limits of knowledge base
             url: limits.md
           - text: Authoring APIs
-            url: /rest/api/cognitiveservices/qnamaker/knowledgebase
+            url: /rest/api/qnamaker/knowledgebase
           - text: Generate Answer APIs
-            url: /rest/api/cognitiveservices/qnamaker4.0/Runtime
+            url: /rest/api/qnamaker/runtime
           - text: .NET SDK reference documentation
             url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
