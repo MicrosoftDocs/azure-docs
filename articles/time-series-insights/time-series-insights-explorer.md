@@ -18,7 +18,7 @@ ms.date: 09/29/2020
 > [!CAUTION]
 > This is a Gen1 article.
 
-This article describes the features and options for the Azure Time Series Insights Gen1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
+This article describes the features and options for the Azure Time Series Insights Gen1 Explorer web app. The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
@@ -46,7 +46,7 @@ Before you can use Azure Time Series Insights Explorer, you must:
 
 Within minutes of connecting your event source to your Azure Time Series Insights environment, you can explore and query your time series data.
 
-1. To start, open the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
+1. To start, open the Azure Time Series Insights Explorer in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
 
 1. After you select an environment, either use the **From** and **To** configurations at the top, or select and drag over the timespan you want. Select the magnifying glass in the upper-right corner, or right-click on the selected timespan and select **Search**.
 

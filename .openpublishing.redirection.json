@@ -4911,6 +4911,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/manage-move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
@@ -4955,6 +4960,6 @@
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
         }
-
+        
     ]
 }
