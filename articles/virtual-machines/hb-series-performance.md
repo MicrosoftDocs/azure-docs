@@ -4,10 +4,10 @@ description: Learn about performance testing results for HB-series VM sizes in A
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/04/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
-ms.author: jushiman
-author: ju-shim
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HB-series virtual machine sizes

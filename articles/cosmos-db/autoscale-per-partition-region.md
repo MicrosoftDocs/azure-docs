@@ -54,14 +54,12 @@ This feature is available for new Azure Cosmos DB accounts. To enable this featu
 
     :::image type="content" source="media/autoscale-per-partition-region/enable-feature.png" lightbox="media/autoscale-per-partition-region/enable-feature.png" alt-text="Screenshot of the 'Per Region and Per Partition Autoscale' feature in the Azure portal.":::
 
-> [!IMPORTANT]
-> The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
+    > [!IMPORTANT]
+    > The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
 
-## Metrics
+1. Use [Azure Monitor metrics](monitor-reference.md#supported-metrics-for-microsoftdocumentdbdatabaseaccounts) to analyze how the new autoscaling is applied across partitions and regions. Filter to your desired database account and container, then filter or split by the `PhysicalPartitionID` metric. This metric shows all partitions across their various regions.
 
-Use Azure Monitor to analyze how the new autoscaling is being applied across partitions and regions. Filter to your desired database account and container, then filter or split by the `PhysicalPartitionID` metric. This metric shows all partitions across their various regions.
-
-Then, use `NormalizedRUConsumption' to see which partitions are scaling indpendently and which regions are scaling independently if applicable. You can use the 'ProvisionedThroughput' metric to see what throughput value is getting emmitted to our billing service.
+    Then, use `NormalizedRUConsumption` to see which partitions and regions scale independently. You can use the `ProvisionedThroughput` metric to see what throughput value is emitted to our billing service.
 
 ## Requirements/Limitations
 
