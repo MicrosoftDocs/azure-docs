@@ -57,14 +57,14 @@ The deployment options and features available for each model vary, as described 
 
 Features | Managed compute | Serverless API (pay-as-you-go)
 --|--|--
-Deployment experience and billing | Model weights are deployed to dedicated virtual machines with managed online endpoints. A managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You're billed for the virtual machine core hours that the deployments use.  | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model that Microsoft hosts and manages, for inference. You're billed for inputs and outputs to the APIs, typically in tokens. Pricing information is provided before you deploy.
-API authentication | Keys and Microsoft Entra authentication.| Keys only.  
-Content safety | Use Azure AI Content Safety service APIs.  | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters are billed separately.  
+Deployment experience and billing | Model weights are deployed to dedicated virtual machines with managed online endpoints. A managed online endpoint, which can have one or more deployments, makes available a REST API for inference. You're billed for the virtual machine core hours that the deployments use. | Access to models is through a deployment that provisions an API to access the model. The API provides access to the model that Microsoft hosts and manages, for inference. You're billed for inputs and outputs to the APIs, typically in tokens. Pricing information is provided before you deploy.
+API authentication | Keys and Microsoft Entra authentication. | Keys only.  
+Content safety | Use Azure AI Content Safety service APIs. | Azure AI Content Safety filters are available integrated with inference APIs. Azure AI Content Safety filters are billed separately.
 Network isolation | [Configure managed networks for Azure AI Studio hubs](configure-managed-network.md).  | Endpoints follow your hub's public network access (PNA) flag setting. For more information, see the [Network isolation for models deployed via Serverless APIs](#network-isolation-for-models-deployed-via-serverless-apis) section later in this article.
 
 Model | Managed compute | Serverless API (pay-as-you-go)
 --|--|--
-Llama family models  | Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat <br> Llama-3-8B-Instruct <br> Llama-3-70B-Instruct <br> Llama-3-8B <br> Llama-3-70B | Llama-3-70B-Instruct <br> Llama-3-8B-Instruct <br> Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat
+Llama family models | Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat <br> Llama-3-8B-Instruct <br> Llama-3-70B-Instruct <br> Llama-3-8B <br> Llama-3-70B | Llama-3-70B-Instruct <br> Llama-3-8B-Instruct <br> Llama-2-7b <br> Llama-2-7b-chat <br> Llama-2-13b <br> Llama-2-13b-chat <br> Llama-2-70b <br> Llama-2-70b-chat
 Mistral family models | mistralai-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x22B-Instruct-v0-1 <br> mistral-community-Mixtral-8x22B-v0-1 <br> mistralai-Mixtral-8x7B-v01 <br> mistralai-Mistral-7B-Instruct-v0-2 <br> mistralai-Mistral-7B-v01 <br> mistralai-Mixtral-8x7B-Instruct-v01 <br> mistralai-Mistral-7B-Instruct-v01 | Mistral-large (2402) <br> Mistral-large (2407) <br> Mistral-small <br> Mistral-NeMo
 Cohere family models | Not available | Cohere-command-r-plus <br> Cohere-command-r <br> Cohere-embed-v3-english <br> Cohere-embed-v3-multilingual
 JAIS | Not available | jais-30b-chat
@@ -141,11 +141,11 @@ Pay-as-you-go billing is available only if your Azure subscription belongs to a 
 
 <!-- docutune:disable -->
 
-Model | Offer availability region  | Hub/Project region for deployment | Hub/project region for fine-tuning
+Model | Offer availability region | Hub/Project region for deployment | Hub/project region for fine-tuning
 --|--|--|--
 Llama-3-70B-Instruct <br> Llama-3-8B-Instruct | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2,  North Central US, South Central US, Sweden Central, West US,  West US 3 | Not available
 Llama-2-7b <br> Llama-2-13b <br> Llama-2-70b | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, West US, West US 3 | West US 3
-Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, West US, West US 3,  | Not available
+Llama-2-7b-chat <br> Llama-2-13b-chat <br> Llama-2-70b-chat | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, West US, West US 3 | Not available
 Mistral Small | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) | East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 Mistral Large (2402) <br> Mistral-Large (2407) | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
 Mistral NeMo | [Microsoft-managed countries/regions](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Brazil <br> Hong Kong <br> Israel| East US, East US 2, North Central US, South Central US, Sweden Central, West US, West US 3 | Not available
