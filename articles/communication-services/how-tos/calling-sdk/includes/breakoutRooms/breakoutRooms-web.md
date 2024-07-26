@@ -184,7 +184,7 @@ const threadId : string = breakoutRoom.threadId;
 ```js
 const state : BreakoutRoomState = breakoutRoom.state;
 ```
-- `state` : state of the breakout room. It can be either `Open` or `Closed`. Users would be able to join the breakout room only when the state is `Open`. This is a readonly property.
+- `state` : State of the breakout room. It can be either `open` or `closed`. Users would be able to join the breakout room only when the state is `open`. This is a read-only property.
 
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
