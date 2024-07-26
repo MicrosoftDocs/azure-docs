@@ -89,7 +89,7 @@ If your API Management instance is deployed in multiple regions, repeat the prec
 
 ## (Optional) Migrate back to original subnet
 
-You can optionally migrate back to the original subnet you used in each region before migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
+You can optionally migrate back to the original subnet you used in each region after migration to the `stv2` platform. To do so, update the VNet configuration again, this time specifying the original VNet and subnet in each region. As in the preceding migration, expect a long-running operation, and expect the VIP address to change.
 
 The following image shows a high level overview of what happens during migration back to the original subnet.
 
