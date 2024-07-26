@@ -26,64 +26,70 @@ You can use inferencing in various applications. For example, you can use a chat
 
 First, you might ask:
 
-- "What models can I deploy?" Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
-- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) where you can search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
-- "From where in Azure AI Studio can I deploy a model?" You can deploy a model from the model catalog or from your project's deployment page.
+- "What models can I deploy?"
 
-Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume.
+   Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
+- "How do I choose the right model?"
+
+   Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) where you can search and filter models based on your use case. You can also test a model in a sample playground before deploying it to your project.
+- "From where in Azure AI Studio can I deploy a model?"
+
+   You can deploy a model from the model catalog or from your project's deployment page.
+
+Azure AI Studio simplifies deployments. A simple selection or a line of code deploys a model and generates an API endpoint for your applications to consume.
 
 ### Azure OpenAI models
 
-Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI Studio](../how-to/deploy-models-openai.md).
+With Azure OpenAI Service, you can get access to the latest OpenAI models that have enterprise features from Azure. [Learn more about how to deploy Azure OpenAI models in AI Studio](../how-to/deploy-models-openai.md).
 
 ### Open models
 
-The model catalog offers access to a large variety of models across different modalities. Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need.
+The model catalog offers access to a large variety of models across modalities. You can deploy certain models in the model catalog as a service with pay-as-you-go pricing. This capability provides a way to consume the models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that your organization needs.
 
 #### Deploy models with MaaS
 
-The model as a service (MaaS) deployment option doesn't require quota from your subscription. You deploy as a Serverless API deployment and are billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
+The model as a service (MaaS) deployment option doesn't require a quota from your subscription. You use a serverless API deployment and are billed per token in a pay-as-you-go fashion. [Learn how to deploy and consume the Llama 2 model family with MaaS](../how-to/deploy-models-llama.md).
 
-#### Deploy models with hosted managed infrastructure
+#### Deploy models with a hosted, managed infrastructure
 
-You can also host open models in your own subscription with managed infrastructure, virtual machines, and number of instances for capacity management. Currently offering a wide range of models from Azure AI, HuggingFace, and Nvidia. Learn more about [how to deploy open models to real-time endpoints](../how-to/deploy-models-open.md).
+You can host open models in your own subscription with a managed infrastructure, virtual machines, and the number of instances for capacity management. There's a wide range of models from Azure OpenAI, Hugging Face, and NVIDIA. [Learn more about how to deploy open models to real-time endpoints](../how-to/deploy-models-open.md).
 
 ### Billing for deploying and inferencing LLMs in Azure AI Studio
 
-The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio. See [monitor costs for models offered throughout the Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio. To learn more about how to track costs, see [Monitor costs for models offered through Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
-| Use case | Azure OpenAI models | Models deployed as Serverless APIs (pay-as-you-go) | Models deployed with managed compute |
+| Use case | Azure OpenAI models | Models deployed as serverless APIs (pay-as-you-go) | Models deployed with managed compute |
 | --- | --- | --- | --- |
-| Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed per the infrastructure of the endpoint<sup>1</sup> | Yes, you're billed for the infrastructure hosting the model<sup>2</sup> |
-| Testing chat mode on Playground after deploying a model to your project | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. |
-| Testing a model on a sample playground on the model catalog (if applicable) | Not applicable | None. | None. |
-| Testing a model in playground under your project (if applicable) or in the test tab in the deployment details page under your project. | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. |
+| Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed according to the infrastructure of the endpoint.<sup>1</sup> | Yes, you're billed for the infrastructure that hosts the model.<sup>2</sup> |
+| Testing chat mode in a playground after deploying a model to your project | Yes, you're billed based on your token usage. | Yes, you're billed based on your token usage. | None |
+| Testing a model in a sample playground on the model catalog (if applicable) | Not applicable | None | None |
+| Testing a model in a playground under your project (if applicable) or in the test tab on the deployment details page under your project. | Yes, you're billed based on your token usage. | Yes, you're billed based on your token usage. | None |
 
-<sup>1</sup> A minimal endpoint infrastructure is billed per minute. You aren't billed for the infrastructure hosting the model itself in pay-as-you-go. After the endpoint is deleted, no further charges are made.
+<sup>1</sup> A minimal endpoint infrastructure is billed per minute. You aren't billed for the infrastructure that hosts the model in pay-as-you-go. After you delete the endpoint, there are no further charges.
 
-<sup>2</sup> Billing is done in a minute-basis depending on the SKU and the number of instances used in the deployment since the moment of creation. After the endpoint is deleted, no further charges are made.
+<sup>2</sup> Billing is on a per-minute basis, depending on the product tier and the number of instances used in the deployment since the moment of creation. After you delete the endpoint, there are no further charges.
 
 ## Deploying flows
 
-What is a flow and why would you want to deploy it? A flow is a sequence of tools that can be used to build a generative AI application. Deploying a flow differs from deploying a model in that you can customize the flow with your own data and other components such as embeddings, vector DB lookup. and custom connections. For a how-to guide, see [Deploying flows with Azure AI Studio](../how-to/flow-deploy.md).
+What is a flow and why would you want to deploy it? A flow is a sequence of tools that you can use to build a generative AI application. Deploying a flow differs from deploying a model in that you can customize the flow with your own data and other components such as embeddings, vector database lookup, and custom connections. For a how-to guide, see [Deploy a flow for real-time inference](../how-to/flow-deploy.md).
 
-For example, you can build a chatbot that uses your data to generate informed and grounded responses to user queries. When you add your data in the playground, a prompt flow is automatically generated for you. You can deploy the flow as-is or customize it further with your own data and other components. In Azure AI Studio, you can also create your own flow from scratch.
+For example, you can build a chatbot that uses your data to generate informed and grounded responses to user queries. When you add your data in the playground, a prompt flow is automatically generated for you. You can deploy the flow as is or customize it. In Azure AI Studio, you can also create your own flow from scratch.
 
 Whichever way you choose to create a flow in Azure AI Studio, you can deploy it quickly and generate an API endpoint for your applications to consume.
 
 ## Deploying web apps
 
-The model or flow that you deploy can be used in a web application hosted in Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI Enterprise Chat tutorial](../tutorials/deploy-chat-web-app.md).
+The model or flow that you deploy can be used in a web application hosted on Azure. Azure AI Studio provides a quick way to deploy a web app. For more information, see the [Azure AI enterprise chat tutorial](../tutorials/deploy-chat-web-app.md).
 
 ## Planning AI safety for a deployed model
 
-For Azure OpenAI models such as GPT-4, Azure AI Studio provides AI safety filter during the deployment to ensure responsible use of AI. AI content safety filter allows moderation of harmful and sensitive contents to promote the safety of AI-enhanced applications.
+For Azure OpenAI models such as GPT-4, Azure AI Studio provides a safety filter during the deployment to ensure responsible use of AI. A safety filter allows moderation of harmful and sensitive content to promote the safety of AI-enhanced applications.
 
-In addition to AI safety filter, Azure AI Studio offers model monitoring for deployed models. Model monitoring for LLMs uses the latest GPT language models to monitor and alert when the outputs of the model perform poorly against the set thresholds of generation safety and quality. For example, you can configure a monitor to evaluate how well the model's generated answers align with information from the input source ("groundedness") and closely match to a ground truth sentence or document ("similarity").
+Azure AI Studio also offers model monitoring for deployed models. Model monitoring for LLMs uses the latest GPT language models to monitor and alert when the outputs of a model perform poorly against the set thresholds of generation safety and quality. For example, you can configure a monitor to evaluate how well the model's generated answers align with information from the input source (*groundedness*) and closely match to a ground-truth sentence or document (*similarity*).
 
 ## Optimizing the performance of a deployed model
 
-Optimizing LLMs requires a careful consideration of several factors, including operational metrics (ex. latency), quality metrics (ex. accuracy), and cost. It's important to work with experienced data scientists and engineers to ensure your model is optimized for your specific use case.
+Optimizing LLMs requires a careful consideration of several factors, including operational metrics (for example, latency), quality metrics (for example, accuracy), and cost. It's important to work with experienced data scientists and engineers to ensure that your model is optimized for your specific use case.
 
 ## Related content
 
