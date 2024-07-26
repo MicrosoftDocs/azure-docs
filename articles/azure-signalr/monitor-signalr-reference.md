@@ -22,12 +22,12 @@ Metrics for Azure SignalR Service are in the **Errors**, **Saturation**, or **Tr
 ### Supported metrics for Microsoft.SignalRService/SignalR
 The following table lists the metrics available for the Microsoft.SignalRService/SignalR resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.SignalRService/SignalR](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-signalr-metrics-include.md)]
+[!INCLUDE [Microsoft.SignalRService/SignalR](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-signalrservice-signalr-metrics-include.md)]
 
 ### Supported metrics for Microsoft.SignalRService/SignalR/replicas
 The following table lists the metrics available for the Microsoft.SignalRService/SignalR/replicas resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-signalrservice-signalr-replicas-metrics-include.md)]
+[!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-signalrservice-signalr-replicas-metrics-include.md)]
 
 For more details about the metrics for Azure SignalR Service, see [Azure SignalR Service metrics](monitor-signalr.md#azure-signalr-service-metrics).
 
@@ -69,10 +69,10 @@ Gives the reason for closing the connection. Includes the following dimension va
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.SignalRService/SignalR
-[!INCLUDE [Microsoft.SignalRService/SignalR](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-signalr-logs-include.md)]
+[!INCLUDE [Microsoft.SignalRService/SignalR](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-signalrservice-signalr-logs-include.md)]
 
 ### Supported resource logs for Microsoft.SignalRService/SignalR/replicas
-[!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-signalrservice-signalr-replicas-logs-include.md)]
+[!INCLUDE [Microsoft.SignalRService/SignalR/replicas](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-signalrservice-signalr-replicas-logs-include.md)]
 
 ## Resource Log table mapping
 

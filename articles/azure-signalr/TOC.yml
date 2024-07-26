@@ -81,8 +81,6 @@
       href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
-  - name: Metrics
-    href: monitor-signalr-reference.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication
@@ -159,7 +157,7 @@
           href: signalr-howto-work-with-app-gateway.md
         - name: Use SignalR Service with API Management
           href: signalr-howto-work-with-apim.md
-  - name: Monitor
+  - name: Monitor SignalR Service
     items:
     - name: Monitor
       href: monitor-signalr.md

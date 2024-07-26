@@ -30,31 +30,9 @@ To enable resource logs, you need to set up a place to store your log data, such
 
 Azure SignalR Service supports connectivity logs, messaging logs, and Http request logs. For more details about these types of logs, see [Resource log categories](monitor-signalr.md#resource-log-categories).
 
-Resource logs are disabled by default. To enable resource logs by using diagnostic settings, follow these steps:
+Resource logs are disabled by default. To enable resource logs by using diagnostic settings, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-1. In the [Azure portal](https://portal.azure.com), under **Monitoring**, select **Diagnostic settings**.
-
-    :::image type="content" alt-text="Pane navigation to diagnostic settings." source="media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png":::
-
-   You get a full view of the diagnostic settings.
-
-    :::image type="content" alt-text="Diagnostic settings full view." source="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png" lightbox="media/signalr-tutorial-diagnostic-logs/azure-signalr-diagnostic-settings.png":::
-
-1. Configure the log source settings.
-   1. In **Log Source Settings** section, a table shows collecting behaviors for each log type. 
-   2. Check the specific log type you want to collect for all connections. Otherwise the log is collected only for [diagnostic clients](#diagnostic-client).
-1. Configure the log destination settings.
-   1. In **Log Destination Settings** section, a table of diagnostic settings displays the existing diagnostic settings. You can select the link in the table to get access to the log destination to view the collected resource logs.
-   2. In this section, select the button **Configure Log Destination Settings** to add, update, or delete diagnostic settings.
-   3. Select **Add diagnostic setting** to add a new diagnostic setting, or select **Edit** to modify an existing diagnostic setting.
-   4. Set the archive target that you want. Currently, Azure SignalR Service supports **Archive to a storage account** and **Send to Log Analytics**.
-   5. Select the logs you want to archive. Only `AllLogs` is available for resource log. It only controls whether you want to archive the logs. To configure which log types need to be generated in Azure SignalR Service, configure in **Log Source Settings** section.
-
-    :::image type="content" alt-text="Diagnostics settings pane." source="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png" lightbox="media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png":::
-
-   6. Save the new diagnostics setting. The new setting takes effect in about 10 minutes. After that, logs are sent to the configured archival target. For more information about configuring log destination settings, see the [overview of Azure resource logs](../azure-monitor/essentials/platform-logs-overview.md).
-
-Logs are stored in the Storage account configured in **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
+Logs are stored in the Storage account configured in the **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
 
 <a name="view-resource-logs"></a>
 ## Query resource logs
