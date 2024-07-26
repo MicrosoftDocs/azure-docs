@@ -38,17 +38,19 @@ To get started with language learning through chatting, follow these steps:
 
 1. Decide on a scenario or context in which you'd like to interact with the voice assistant. This can be a casual conversation, a specific topic, or a language learning exercise.  
 
-   :::image type="content" source="media/pronunciation-assessment/language-learning.png" alt-text="Screenshot of choosing chatting scenario to interact with the voice assistant.":::
-   
+   :::image type="content" source="media/pronunciation-assessment/language-learning.png" alt-text="Screenshot of choosing chatting scenario to interact with the voice assistant." lightbox="media/pronunciation-assessment/language-learning.png":::
+
+   If you want to interact with an avatar, toggle the **Avatar** button in the upper right corner to **On**.
+
 1. Press the microphone icon to start speaking naturally, as if you were talking to a real person. 
   
-   :::image type="content" source="media/pronunciation-assessment/language-learning-selecting-mic-icon.png" alt-text="Screenshot of selecting the microphone icon to interact with the voice assistant.":::
+   :::image type="content" source="media/pronunciation-assessment/language-learning-selecting-mic-icon.png" alt-text="Screenshot of selecting the microphone icon to interact with the voice assistant." lightbox="media/pronunciation-assessment/language-learning-selecting-mic-icon.png":::
 
    For accurate vocabulary and grammar scores, speak at least 3 sentences before assessment.
    
 1. Press the stop button or **Assess my response** button to finish speaking. This action will trigger the assessment process.
 
-   :::image type="content" source="media/pronunciation-assessment/language-learning-assess-response.png" alt-text="Screenshot of selecting the stop button to assess your response.":::
+   :::image type="content" source="media/pronunciation-assessment/language-learning-assess-response.png" alt-text="Screenshot of selecting the stop button to assess your response." lightbox="media/pronunciation-assessment/language-learning-assess-response.png":::
 
 1. Wait for a moment, and you can get a detailed assessment report.
 
