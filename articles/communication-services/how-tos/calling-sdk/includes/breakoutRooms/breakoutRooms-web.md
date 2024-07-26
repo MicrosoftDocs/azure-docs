@@ -89,7 +89,7 @@ const breakoutRoomsUpdatedListener = (event) => {
 switch(event.type) {
     case "breakoutRooms":
       const breakoutRooms = event.data;
-      console.log(`Event data is an array of Breakout rooms with ${breakoutRooms.length} elements`);
+      console.log(`Breakout rooms are created or updated. There are ${breakoutRooms.length} breakout rooms in total.`);
       breakoutRooms.forEach((room)=>{
       console.log(`Display name of the breakout rooms : ${room.displayName}`);
       });    
