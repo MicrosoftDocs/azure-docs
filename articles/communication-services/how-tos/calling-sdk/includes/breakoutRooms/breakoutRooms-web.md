@@ -189,7 +189,7 @@ const state : BreakoutRoomState = breakoutRoom.state;
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `Open`. This is a readonly property.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This is a read-only property.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
