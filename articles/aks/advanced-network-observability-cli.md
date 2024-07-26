@@ -250,7 +250,7 @@ Install the Hubble CLI to access the data it collects using the following comman
 
 ```azurecli-interactive
 # Set environment variables
-export HUBBLE_VERSION=0.11  
+export HUBBLE_VERSION=v0.11.0
 export HUBBLE_ARCH=amd64
 
 #Install Hubble CLI
