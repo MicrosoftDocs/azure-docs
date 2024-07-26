@@ -37,7 +37,7 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Two Linux virtual machines in the same virtual network in Azure. For more information about creating a Linux virtual machine, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal). Remote access to the virtual machines is required for completion of the article. For more information about connecting to Azure Virtual Machines securely, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+- Two Linux virtual machines in the same virtual network in Azure. For more information about creating a Linux virtual machine, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal). Remote access to the virtual machines is required for completion of the article. For more information about connecting to Azure Virtual Machines securely, see [What is Azure Bastion?](/azure/bastion/bastion-overview)
 
     - For the purposes of this article, the virtual machines are named **vm-1** and **vm-2**. Replace these values with your values.
 
@@ -45,11 +45,11 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Two Windows Server virtual machines in the same virtual network in Azure. For more information about creating a Windows Server virtual machine, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). Remote access to the virtual machines is required for completion of the article. For more information about connecting to Azure Virtual Machines securely, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+- Two Windows Server virtual machines in the same virtual network in Azure. For more information about creating a Windows Server virtual machine, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). Remote access to the virtual machines is required for completion of the article. For more information about connecting to Azure Virtual Machines securely, see [What is Azure Bastion?](/azure/bastion/bastion-overview)
 
     - For the purposes of this article, the virtual machines are named **vm-1** and **vm-2**. Replace these values with your values.
 
-- The newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell installed in Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows)
+- The newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell installed in Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
 ---
 
