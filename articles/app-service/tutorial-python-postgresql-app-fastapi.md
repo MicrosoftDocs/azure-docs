@@ -257,7 +257,9 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 ## 4. Generate database schema
 
-With the PostgreSQL database protected by the virtual network, the easiest way to run [FastAPI database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the App Service container. 
+In previous section, you added *src/entrypoint.sh* as the startup command for your app. *entrypoint.sh* contains the following line: `python3 src/fastapi_app/seed_data.py`. This command migrates your database. In the sample app, it only ensures that the correct tables are created in your database. It doesn't populate these tables with any data.
+
+In this section, you'll run this command manually for demonstration purposes. With the PostgreSQL database protected by the virtual network, the easiest way to run the command is in an SSH session with the App Service container.
 
 :::row:::
     :::column span="2":::
@@ -481,7 +483,7 @@ In this section, you'll run this command manually for demonstration purposes. Wi
 
 1. In the SSH terminal, run `python3 src/fastapi_app/seed_data.py`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
-    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-flask-2.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-fastapi-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (FastAPI)." lightbox="./media/tutorial-python-postgresql-app-fastapi/azure-portal-generate-db-schema-fastapi-2.png":::
 
     > [!NOTE]
     > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
