@@ -75,9 +75,7 @@ Follow the instructions to obtain the credentials.
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
-**IMPORTANT:** Before deploying the Transmit Security data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
-
-
+Before deploying the Transmit Security data connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
 
 Option 1 - Azure Resource Manager (ARM) Template
 
@@ -88,7 +86,8 @@ Use this method for automated deployment of the Transmit Security Audit data con
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-TransmitSecurityAPI-azuredeploy) [![Deploy to Azure Gov](https://aka.ms/deploytoazuregovbutton)](https://aka.ms/sentinel-TransmitSecurityAPI-azuredeploy-gov)
 
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
-> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
+  
+   Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
 3. Enter the **TransmitSecurityClientID**, **TransmitSecurityClientSecret**, **TransmitSecurityUserActivityEndpoint**, **TransmitSecurityAdminActivityEndpoint**, **TransmitSecurityTokenEndpoint** and deploy. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
@@ -134,8 +133,8 @@ If you're already signed in, go to the next step.
 
  3. Add each of the following application settings individually, with their respective string values (case-sensitive):
 
-	- TransmitSecurityClientID
-	- TransmitSecurityClientSecret
+    - TransmitSecurityClientID
+    - TransmitSecurityClientSecret
 	- TransmitSecurityAdminActivityEndpoint
 	- TransmitSecurityUserActivityEndpoint
 	- TransmitSecurityTokenEndpoint

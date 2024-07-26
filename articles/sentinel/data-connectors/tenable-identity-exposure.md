@@ -118,57 +118,55 @@ To integrate with Tenable Identity Exposure make sure you have:
 
 ## Vendor installation instructions
 
-
 This data connector depends on [afad_parser](https://aka.ms/sentinel-TenableApp-afad-parser) based on a Kusto Function to work as expected which is deployed with the Microsoft Sentinel Solution.
 
 1. Configure the Syslog server
 
-You will first need a **linux Syslog** server that TenableIE will send logs to. Typically you can run **rsyslog** on **Ubuntu**.
-You can then configure this server as you wish, but it is recommended to be able to output TenableIE logs in a separate file.
+   You will first need a **linux Syslog** server that TenableIE will send logs to. Typically you can run **rsyslog** on **Ubuntu**. You can then configure this server as you wish, but it is recommended to be able to output TenableIE logs in a separate file.
 
-Configure rsyslog to accept logs from your TenableIE IP address.:
+   Configure rsyslog to accept logs from your TenableIE IP address.:
 
-```shell
-sudo -i
-
-# Set TenableIE source IP address
-export TENABLE_IE_IP={Enter your IP address}
-
-# Create rsyslog configuration file
-cat > /etc/rsyslog.d/80-tenable.conf << EOF
-\$ModLoad imudp
-\$UDPServerRun 514
-\$ModLoad imtcp
-\$InputTCPServerRun 514
-\$AllowedSender TCP, 127.0.0.1, $TENABLE_IE_IP
-\$AllowedSender UDP, 127.0.0.1, $TENABLE_IE_IP
-\$template MsgTemplate,"%TIMESTAMP:::date-rfc3339% %HOSTNAME% %programname%[%procid%]:%msg%\n"
-\$template remote-incoming-logs, "/var/log/%PROGRAMNAME%.log"
-*.* ?remote-incoming-logs;MsgTemplate
-EOF
-
-# Restart rsyslog
-systemctl restart rsyslog
-```
+   ```shell
+   sudo -i
+   
+   # Set TenableIE source IP address
+   export TENABLE_IE_IP={Enter your IP address}
+   
+   # Create rsyslog configuration file
+   cat > /etc/rsyslog.d/80-tenable.conf << EOF
+   \$ModLoad imudp
+   \$UDPServerRun 514
+   \$ModLoad imtcp
+   \$InputTCPServerRun 514
+   \$AllowedSender TCP, 127.0.0.1, $TENABLE_IE_IP
+   \$AllowedSender UDP, 127.0.0.1, $TENABLE_IE_IP
+   \$template MsgTemplate,"%TIMESTAMP:::date-rfc3339% %HOSTNAME% %programname%[%procid%]:%msg%\n"
+   \$template remote-incoming-logs, "/var/log/%PROGRAMNAME%.log"
+   *.* ?remote-incoming-logs;MsgTemplate
+   EOF
+   
+   # Restart rsyslog
+   systemctl restart rsyslog
+   ```
 
 2. Install and onboard the Microsoft agent for Linux
 
-The OMS agent will receive the TenableIE syslog events and publish it in Microsoft Sentinel :
+   The OMS agent will receive the TenableIE syslog events and publish it in Microsoft Sentinel :
 
 
 3. Check agent logs on the Syslog server
 
-```shell
-tail -f /var/opt/microsoft/omsagent/log/omsagent.log
-```
+   ```shell
+   tail -f /var/opt/microsoft/omsagent/log/omsagent.log
+   ```
 
 4. Configure TenableIE to send logs to your Syslog server
 
-On your **TenableIE** portal, go to *System*, *Configuration* and then *Syslog*.
-From there you can create a new Syslog alert toward your Syslog server.
+   On your **TenableIE** portal, go to *System*, *Configuration* and then *Syslog*.
+   From there you can create a new Syslog alert toward your Syslog server.
 
-Once this is done, check that the logs are correctly gathered on your server in a separate file (to do this, you can use the *Test the configuration* button in the Syslog alert configuration in TenableIE).
-If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
+   Once this is done, check that the logs are correctly gathered on your server in a separate file (to do this, you can use the *Test the configuration* button in the Syslog alert configuration in TenableIE).
+   If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
 
 5. Configure the custom logs
 
@@ -180,10 +178,10 @@ Configure the agent to collect the logs.
 4. Set the record delimiter to **New Line** if not already the case and click **Next**.
 5. Select **Linux** and enter the file path to the **Syslog** file, click **+** then **Next**. The default location of the file is `/var/log/TenableIE.log` if you have a Tenable version <3.1.0, you must also add this linux file location `/var/log/AlsidForAD.log`.
 6. Set the **Name** to *Tenable_IE_CL* (Azure automatically adds *_CL* at the end of the name, there must be only one, make sure the name is not *Tenable_IE_CL_CL*).
-7. Click **Next**, you will see a resume, then click **Create**
+7. Click **Next**, you will see a resume, then click **Create**.
 
 
-6. Enjoy !
+6. Enjoy!
 
 You should now be able to receive logs in the *Tenable_IE_CL* table, logs data can be parse using the **afad_parser()** function, used by all query samples, workbooks and analytic templates.
 
