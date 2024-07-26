@@ -310,7 +310,7 @@ AKS clusters with [Container Insights][enable-monitor] enabled can access variou
 
 ## Clean up resources
 
-When you're finished with the Azure Store application, you can delete the resources to avoid incurring additional costs.
+If you no longer need the Azure Store application, you can delete the services to avoid incurring Azure costs.
 
 1. From the **Kubernetes resources** list, select **Services and ingresses**.
 2. Select the services you want to delete, and then select **Delete**.
@@ -320,8 +320,6 @@ When you're finished with the Azure Store application, you can delete the resour
 ### Unauthorized access
 
 To access the Kubernetes resources, you need access to the AKS cluster, Kubernetes API, and Kubernetes objects. Make sure you're either a *cluster administrator* or a user with the appropriate permissions to access the AKS cluster. For more information, see [Access and identity options for AKS][concepts-identity].
-
-The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-azure-ad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your Microsoft Entra user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 
