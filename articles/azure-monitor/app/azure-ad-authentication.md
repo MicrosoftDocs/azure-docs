@@ -96,10 +96,9 @@ services.AddApplicationInsightsTelemetry(new ApplicationInsightsServiceOptions
 
 ### [Node.js](#tab/nodejs)
 
-> [!NOTE]
-> Support for Microsoft Entra ID in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
 
-Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
+
+Azure Monitor OpenTelemetry and Application Insights Node.JS supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/identity/identity#credential-classes).
 
 - We recommend `DefaultAzureCredential` for local development.
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
@@ -108,10 +107,29 @@ Application Insights Node.JS supports the credential classes provided by [Azure 
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
+If using @azure/monitor-opentelemetry
+```typescript
+const { useAzureMonitor, AzureMonitorOpenTelemetryOptions } = require("@azure/monitor-opentelemetry");
+const { ManagedIdentityCredential } = require("@azure/identity");
 
-```javascript
-import appInsights from "applicationinsights";
-import { DefaultAzureCredential } from "@azure/identity"; 
+const credential = new ManagedIdentityCredential();
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+        credential: credential
+    }
+};
+useAzureMonitor(options);
+```
+
+> [!NOTE]
+> Support for Microsoft Entra ID in the Application Insights Node.JS is included starting with [version 2.1.0-beta.1](https://www.npmjs.com/package/applicationinsights/v/2.1.0-beta.1).
+
+If using applicationinsights npm package.
+```typescript
+const appInsights = require("applicationinsights");
+const { DefaultAzureCredential } = require("@azure/identity");
  
 const credential = new DefaultAzureCredential();
 appInsights.setup("InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/").start();

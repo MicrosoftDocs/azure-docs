@@ -615,6 +615,8 @@ const credential = new ManagedIdentityCredential();
 // Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
     azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
         credential: credential
     }
 };
