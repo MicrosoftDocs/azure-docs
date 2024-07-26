@@ -46,6 +46,10 @@ Contact the solution provider for more information or where information is unava
 
 [comment]: <> (DataConnector includes start)
 
+## 1Password
+
+- [1Password (using Azure Functions)](data-connectors/1password.md)
+
 ## 42Crunch
 
 - [API Protection](data-connectors/api-protection.md)
@@ -665,7 +669,8 @@ Contact the solution provider for more information or where information is unava
 
 ## Tenable
 
-- [Tenable.io Vulnerability Management (using Azure Function)](data-connectors/tenable-io-vulnerability-management.md)
+- [Tenable Identity Exposure](data-connectors/tenable-identity-exposure.md)
+- [Tenable Vulnerability Management (using Azure Functions)](data-connectors/tenable-vulnerability-management.md)
 
 ## The Collective Consulting BV
 
@@ -678,6 +683,10 @@ Contact the solution provider for more information or where information is unava
 ## Theom, Inc.
 
 - [Theom](data-connectors/theom.md)
+
+## Transmit Security LTD
+
+- [Transmit Security Connector (using Azure Functions)](data-connectors/transmit-security-connector.md)
 
 ## Trend Micro
 
