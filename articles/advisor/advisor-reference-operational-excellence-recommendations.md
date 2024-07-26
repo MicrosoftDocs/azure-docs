@@ -2,8 +2,6 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 10/05/2023
 ---
 
