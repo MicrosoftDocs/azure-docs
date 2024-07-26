@@ -47,7 +47,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 ## SDKs
 || Web | Web UI | iOS | Android | Windows |
 |-------------|--------|--------|--------|----------|--------|
-|Is Supported | ✔️|   |   | | |		
+|Is Supported | ✔️|   |   |   |    |   |    |		
 
 ## BreakoutRooms
 ::: zone pivot="platform-web"
