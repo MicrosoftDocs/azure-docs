@@ -136,6 +136,56 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
 
 ---
 
+## Retrieve message
+
+```http
+GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview
+```
+
+Retrieves a message file.
+
+**Path parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread that the message belongs to. |
+|`message_id`| string | Required | The ID of the message to retrieve. |
+
+
+### Returns
+
+The [message](#message-object) object matching the specified ID.
+
+### Example retrieve message request
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+message = client.beta.threads.messages.retrieve(
+  message_id="msg_abc123",
+  thread_id="thread_abc123",
+)
+print(message)
+
+```
+
+# [REST](#tab/rest)
+
+```console
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
 
 ## Modify message
 
@@ -198,6 +248,53 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/mess
       }
     }'  
    
+```
+
+---
+
+## Delete message
+
+
+```http
+DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview
+```
+
+Deletes a message.
+
+**Path parameters**
+
+|Parameter| Type | Required | Description |
+|---|---|---|---|
+|`thread_id` | string | Required | The ID of the thread to which the message belongs. |
+|`message_id`| string | Required | The ID of the message to modify. |
+
+### Returns
+
+The deletion status of the [message](#message-object) object.
+
+# [Python 1.x](#tab/python)
+
+```python
+from openai import AzureOpenAI
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-05-01-preview",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
+
+deleted_message = client.beta.threads.messages.delete(
+  message_id="msg_abc12",
+  thread_id="thread_abc123",
+)
+print(deleted_message)
+```
+
+# [REST](#tab/rest)
+
+```console
+curl -x DELETE https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/messages/{message_id}?api-version=2024-05-01-preview \
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
+  -H 'Content-Type: application/json'
 ```
 
 ---
