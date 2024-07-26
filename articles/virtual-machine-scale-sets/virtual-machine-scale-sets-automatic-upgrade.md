@@ -476,7 +476,7 @@ Customers can set up the following using action groups:
 
 ## Investigate and Resolve Auto Upgrade Errors
 
-The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
+The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
 
 **RollingUpgradeInProgressWithFailedUpgradedVMs**
 - Error is triggered for a VM failure.

@@ -225,6 +225,9 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that you already have [created a virtual network with subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet) in your account. You can enable virtual network integration when you create your app or at a later time.
 
+> [!IMPORTANT]
+> The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters. 
+
 To enable virtual networking when you create your app:
 
 ### [Azure CLI](#tab/azure-cli)
