@@ -10,8 +10,6 @@ ms.author: anfdocs
 ---
 # Understand directory sizes in Azure NetApp Files 
 
-
-
 When a file is created in a directory, an entry is added to a hidden index file within the Azure NetApp Files volume. This index file helps keep track of the existing inodes in a directory and helps speed up lookup requests for directories with a high number of files. As entries are added to this file, the file size increases (but never decrease) at a rate of approximately 512 bytes per entry depending on the length of the filename. Longer file names add more size to the file. Symbolic links also add entries to this file. This concept is known as the directory size, which is a common element in all Linux-based filesystems. Directory size is not the maximum total number of files in a single Azure NetApp Files volume. That is determined by the [`maxfiles` value](). 
 
 By default, when a new directory is created, it consumes 4 KiB (4096 bytes) or eight 512-byte blocks. You can view the size of a newly created directory from a Linux client using the stat command. 
@@ -49,17 +47,18 @@ When dealing with a high-file count environment, consider the following recommen
 
 The `maxdirsize` value can create concerns when you are using flat directory structures, where a single folder contains millions of files at a single level. Folder structures where files, folders, and subfolders are interspersed have a low impact on `maxdirsize`. There are several directory structure methodologies. 
 
-A flat directory structure is a single directory with many files below the same directory. 
+A **flat directory structure** is a single directory with many files below the same directory. 
 
+:::image type="content" source="./media/directory-sizes-concept/flat-structure.png" alt-text="Diagram of a flat directory structure.":::
 
-**
+A **wide directory structure** contains many top-level directories with files spread across all directories.
 
-./media/directory-sizes-concept/flat-structure.png
+:::image type="content" source="./media/directory-sizes-concept/wide-structure.png" alt-text="Diagram of a wide directory structure.":::
 
+A **deep directory structure** contains fewer top-level directories with many subdirectories. Although this structure provides fewer files per folder, file path lengths can become an issue if directory layouts are too deep and file paths become too long. For details on file path lengths, see [Understand file path lengths in Azure NetApp Files](understand-path-lengths.md).
 
-./media/directory-sizes-concept/wide-structure.png
+:::image type="content" source="./media/directory-sizes-concept/deep-structure.png" alt-text="Diagram of a deep directory structure.":::
 
-./media/directory-sizes-concept/deep-structure.png
 
 ### Impact of flat directory structure in Azure NetApp Files
 
@@ -86,7 +85,7 @@ For a single directory, use the `stat` command to find the directory size.
 # stat /mnt/dir_11/c5 
 ```
  
-Although the stat command can be used to check the directory size of a specific directory, it might not be as efficient to run it individually against a single directory. To see a list of the largest directory sizes sorted from largest to smallest, the following command provides that while omitting snapshot directories from the query. 
+Although the `stat` command can be used to check the directory size of a specific directory, it might not be as efficient to run it individually against a single directory. To see a list of the largest directory sizes sorted from largest to smallest, the following command provides that while omitting snapshot directories from the query. 
 
 ```
 # find /mnt -name .snapshot -prune -o -type d -ls -links 2 -prune | sort -rn -k 7 | head | awk '{print $2 " " $11}' | sort -rn 
@@ -111,3 +110,16 @@ Although the stat command can be used to check the directory size of a specific 
 3792 /mnt/dir_16 
 ```
 
+In the previous, the directory size of `/mnt/dir_11/c5` is 316,084 KiB (308.6 MiB), which approaches the 320 MiB limit. That equates to around 4.1 million files.
+
+```
+# ls /mnt/dir_11/c5 | wc -l
+4171624
+```
+
+In this case, consider corrective actions such as moving or deleting files.
+
+## More information 
+
+* [Azure NetApp Files resources limits](azure-netapp-files-resource-limits.md)
+* [Understand file path lengths in Azure NetApp Files](understand-path-lengths.md)
