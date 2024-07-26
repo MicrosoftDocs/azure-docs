@@ -10,7 +10,7 @@ metadata:
   ms.custom:
     - ignite-2023
   ms.topic: faq
-  ms.date: 09/15/2023
+  ms.date: 07/26/2024
   ms.author: aahi
 title: FAQ for Azure AI services disconnected containers
 summary: |
@@ -44,7 +44,7 @@ sections:
 
             * Your organization must have an enterprise agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
-              * Environment or device(s) with zero connectivity to internet. 
+              * Environment or devices with zero connectivity to internet. 
               *	Remote location that occasionally has internet access. 
               *	Organization under strict regulation of not sending any kind of data back to cloud. 
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
