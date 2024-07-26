@@ -199,7 +199,7 @@ const call : Call | TeamsCall = breakoutRoom.call;
 ```js
 const invitees : Invitee[] = breakoutRoom.invitees;
 ```
-- `invitees` : The list of invitees who are assigned to the breakout room. This is a readonly property.
+- `invitees` : The list of invitees who are assigned to the breakout room. This is a read-only property.
 
 ### Breakout room  settings
 
