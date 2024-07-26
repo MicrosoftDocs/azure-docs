@@ -37,7 +37,7 @@ await device_client.connect()
 
 ### Retrieve a device twin and examine reported properties
 
-Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-get-twin) to get the device or module twin from the Azure IoT Hub service. This is a synchronous call, meaning that this function will not return until the twin has been retrieved from the service.
+Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-get-twin) to get the device or module twin from the Azure IoT Hub service. This is a synchronous call, meaning that this function does not return until the twin is retrieved from the service.
 
 This example retrieves the device twin and uses the `print` command to view the device twin in JSON format.
 
@@ -52,9 +52,9 @@ print("{}".format(twin))
 
 Call [patch_twin_reported_properties](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-patch-twin-reported-properties) to update reported properties with the Azure IoT Hub.
 
-This is a synchronous call, meaning that this function will not return until the patch has been sent to the service and acknowledged.
+This is a synchronous call, meaning that this function does not return until the patch is sent to the service and acknowledged.
 
-If the service returns an error on the patch operation, this function will raise the appropriate error.
+If the service returns an error on the patch operation, this function raises the appropriate error.
 
 ```python
 # update the reported properties
@@ -127,7 +127,7 @@ Use a [QuerySpecification](/python/api/azure-iot-hub/azure.iot.hub.protocol.mode
 
 Use [query_iot_hub](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-query-iot-hub) to query an IoTHub and retrieve device twin information using the query specification.
 
-For example:
+This example runs two queries. The first selects only the device twins of devices located in the `Redmond43` plant, and the second refines the query to select only the devices that are also connected through a cellular network. Results are printed after each query.
 
 ```python
 query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'")
@@ -139,4 +139,6 @@ print()
 query_spec = QuerySpecification(query="SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity = 'cellular'")
 query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 100)
 print("Devices in Redmond43 plant using cellular network: {}".format(', '.join([twin.device_id for twin in query_result.items])))
+
+print()
 ```
