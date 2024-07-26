@@ -12,8 +12,10 @@ ms.custom: upgradepolicy, maxsurge
 # Configure rolling upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
-> Rolling upgrade policy and MaxSurge for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
+> Rolling upgrade policy for Virtual Machine Scale sets with Uniform Orchestration is in general availability (GA). 
 >
+> **MaxSurge for Virtual Machine scale Sets with Uniform  Orchestration is currently in preview.** 
+> 
 > **Rolling upgrade policy and MaxSurge for Virtual Machine scale Sets with Flexible Orchestration is currently in preview.** 
 >
 > Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
@@ -45,7 +47,7 @@ Rolling upgrade policy is best suited for production workloads.
 | **Max unhealthy upgrade %**| Specifies the total number of instances allowed to be marked as unhealthy after being upgraded. <br><br>Example: A max unhealthy upgrade % of 20 means if you have a scale set of 10 instances and more than two instances in the entire scale set report back as unhealthy after being upgraded, the rolling upgrade is canceled. <br><br>Max unhealthy upgrade % is an important setting because it allows the scale set to catch unstable or poor updates before they roll out to the entire scale set. |
 |**Prioritize unhealthy instances** | Tells the scale set to upgrade instances marked as unhealthy before upgrading instances marked as healthy. <br><br>Example: If some instances in your scale are failed or unhealthy when a rolling upgrade begins, the scale set updates those instances first. |
 | **Enable cross-zone upgrade** | Allows the scale set to ignore Availability Zone boundaries when determining batches. |
-| **MaxSurge** | With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances is successfully created and marked as healthy, they begin taking traffic. The scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>For more information see [MaxSurge rolling upgrades](virtual-machine-scale-sets-maxsurge.md). |
+| **MaxSurge (Preview)** | With MaxSurge enabled, new instances are created  in batches using the latest scale model. Once the batch of new instances is successfully created and marked as healthy, they begin taking traffic. The scale set then deletes instances in batches matching the old scale set model. This continues until all instances are brought up-to-date. rolling upgrades with MaxSurge can help improve service uptime during upgrade events. <br><br>For more information see [MaxSurge rolling upgrades](virtual-machine-scale-sets-maxsurge.md). |
 
 
 ## Setting or updating the rolling upgrade policy
