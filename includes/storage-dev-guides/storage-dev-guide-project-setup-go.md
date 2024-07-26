@@ -36,7 +36,7 @@ import (
 )
 ```
 
-Some code examples in this article might require additional import paths. For specific details and example usage, see [Code samples](#code-samples).
+These import paths represent the minimum needed to get started. Some code examples in this article might require additional import paths. For specific details and example usage, see [Code samples](#code-samples).
 
 #### Create a client object
 
