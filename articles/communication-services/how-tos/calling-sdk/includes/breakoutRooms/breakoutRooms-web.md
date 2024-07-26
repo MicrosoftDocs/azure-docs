@@ -211,7 +211,7 @@ const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMee
 ```js
 const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 ```
-- `roomEndTime` : Breakout room end time set by the Organizer / Co-organizer / Breakout room manager of the main meeting. This is a readonly property.
+- `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer or breakout room manager of the main meeting. This is a read-only property.
 
 ### Troubleshooting
 
