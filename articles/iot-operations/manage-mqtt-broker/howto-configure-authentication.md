@@ -277,7 +277,9 @@ Apply your changes with `kubectl apply`. It might take a few minutes for the cha
 
 ### Test SAT authentication
 
-SAT authentication must be used from a client in the same cluster as MQTT broker. The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+SAT authentication must be used from a client in the same cluster as MQTT broker. Only enhanced authentication fields are permitted. Set authentication method to `K8S-SAT` and authentication data to the token.
+
+The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod. 
 
 ```yaml
 apiVersion: v1
@@ -306,21 +308,28 @@ spec:
 
 Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the BrokerAuthentication resource.
 
-Once the pod has been created, start a shell in the pod:
+Once the pod is created, start a shell in the pod:
 
 ```bash
 kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
-The token is mounted at the path specified in the configuration `/var/run/secrets/tokens` in the previous example. Retrieve the token and use it to authenticate.
+Inside the pod's shell, run the following command to publish a message to the broker:
 
 ```bash
-token=$(cat /var/run/secrets/tokens/mqtt-client-token)
-
-mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t hello -m world -u '$sat' -P "$token"
+mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
 ```
 
-The MQTT username must be set to `$sat`. The MQTT password must be set to the SAT itself.
+The output should look similar to the following:
+
+```Output
+Client (null) sending CONNECT
+Client (null) received CONNACK (0)
+Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
+Client (null) sending DISCONNECT
+```
+
+The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 ### Refresh service account tokens
 
