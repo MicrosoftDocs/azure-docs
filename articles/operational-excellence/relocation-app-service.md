@@ -106,7 +106,7 @@ Some further points to consider:
 >[!NOTE]
 >App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [non-standard Root CA certificates](/azure/app-service/environment/overview-certificates#private-client-certificate). The multi-tenant service doesn't provide access for customers to upload to the trusted certificate store.
 >
->App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment would not be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. ASEv3 in external mode shares the same features as the regular multi-tenant App Service.
+>App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment would not be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. App Service Environment v3 in external mode shares the same features as the regular multi-tenant App Service.
 
 
 ### Configuration
@@ -120,10 +120,10 @@ Some further points to consider:
 
 ### VNet Connectivity / Custom Names / DNS
 
-- App Service Environment (ASE) is a VNet-Injected single tenant service. App Service Environment networking differs from the multi-tenant App Service which requires one or both “Private Endpoints” or “Regional VNet integration”. Other options that may be in play include the legacy P2S VPN based VNet integration and Hybrid Connections (an Azure Relay service).
+- App Service Environment is a VNet-Injected single tenant service. App Service Environment networking differs from the multi-tenant App Service which requires one or both “Private Endpoints” or “Regional VNet integration”. Other options that may be in play include the legacy P2S VPN based VNet integration and Hybrid Connections (an Azure Relay service).
 
     >[!NOTE]
-    >ASEv3 Networking is simplified - the Azure Management traffic and the ASEs own downstream dependencies are not visible to the customer Virtual Network, greatly simplifying the configuration required where the customer is using a force-tunnel for all traffic, or sending a subset of outbound traffic, through a Network Virtual Appliance/Firewall.
+    >ASEv3 Networking is simplified - the Azure Management traffic and the App Service Environments own downstream dependencies are not visible to the customer Virtual Network, greatly simplifying the configuration required where the customer is using a force-tunnel for all traffic, or sending a subset of outbound traffic, through a Network Virtual Appliance/Firewall.
     >
     >Hybrid Connections (Azure Relay) are regional. If Hybrid Connections are used and although an Azure Relay Namespace can be moved to another region, it would be simpler to redeploy the Hybrid Connection (ensure the Hybrid connection is setup in the new region on deploy of the target resources) and re-link it to the Hybrid Connection Manager. The Hybrid Connection Manager location should be carefully considered.
 
@@ -148,10 +148,10 @@ Some further points to consider:
  - DNS for App Service Environment is typically managed via the customers private custom DNS solution (there is a manual settings override available on a per app basic). App Service Environment provides a load balancer for ingress/egress,  while App Service itself filters on Host headers. Therefore, multiple custom names can be pointed towards the same App Service Environment ingress endpoint. App Service Environment doesn't require domain validation. 
 
     >[!NOTE]
-    >Kudu endpoint for App Service Environment v3 is only available at ``{resourcename}.scm.{asename}.appserviceenvironment.net``. For more information on ASEv3 DNS and Networking etc see [App Service Environment networking](/azure/app-service/environment/networking#dns).
+    >Kudu endpoint for App Service Environment v3 is only available at ``{resourcename}.scm.{asename}.appserviceenvironment.net``. For more information on App Service Environment v3 DNS and Networking etc see [App Service Environment networking](/azure/app-service/environment/networking#dns).
 
 
-    For ASE,  the customer owns the routing and therefore the resources used for the cut-over. Wherever access is enabled to the App Service Environment externally - typically via a Layer 7 NVA or Reverse Proxy -  Traffic Manager, or Azure Front Door/Other L7 Global Load Balancing Service can be used.
+    For App Service Environment,  the customer owns the routing and therefore the resources used for the cut-over. Wherever access is enabled to the App Service Environment externally - typically via a Layer 7 NVA or Reverse Proxy -  Traffic Manager, or Azure Front Door/Other L7 Global Load Balancing Service can be used.
 
 - For the public multi-tenant version of the service, a default name `{resourcename}.azurwwebsites.net` is provisioned for the data plane endpoints, along with a default name for the Kudu (SCM) endpoint.  As the service provides a public endpoint by default, the binding must be verified to prove domain ownership. However, once the binding is in place, re-verification is not required, nor is it required for public DNS records to point at the App Service endpoint.
 
@@ -223,7 +223,7 @@ Once the relocation is completed, Azure App Service needs to be tested and valid
 
 
 >[!TIP]
->An App Service relocation is also an opportunity to re-assess Availability and Disaster Recovery planning. App Service and App Service Environment (ASEv3) supports [availability zones](/azure/reliability/availability-zones-overview) and it is recommended that configure with an availability zone configuration.  Keep in mind the prerequisites for deployment, pricing, and limitations and factor these into the resource move planning. For more information on availability zones and App Service, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service).
+>An App Service relocation is also an opportunity to re-assess Availability and Disaster Recovery planning. App Service and App Service Environment (App Service Environment v3) supports [availability zones](/azure/reliability/availability-zones-overview) and it is recommended that configure with an availability zone configuration.  Keep in mind the prerequisites for deployment, pricing, and limitations and factor these into the resource move planning. For more information on availability zones and App Service, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service).
 
 
 ## Clean up
