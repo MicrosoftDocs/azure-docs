@@ -344,6 +344,8 @@
       href: data-connectors/recommended-pingfederate-via-ama.md
     - name: '[Recommended] Trend Micro Apex One via AMA'
       href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
+    - name: 1Password (using Azure Functions)
+      href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
       href: data-connectors/abnormalsecurity.md
     - name: AI Vectra Stream
@@ -760,8 +762,10 @@
       href: data-connectors/syslog-via-ama.md
     - name: Talon Insights
       href: data-connectors/talon-insights.md
-    - name: Tenable.io Vulnerability Management (using Azure Function)
-      href: data-connectors/tenable-io-vulnerability-management.md
+    - name: Tenable Identity Exposure
+      href: data-connectors/tenable-identity-exposure.md
+    - name: Tenable Vulnerability Management (using Azure Function)
+      href: data-connectors/tenable-vulnerability-management.md
     - name: Tenant-based Microsoft Defender for Cloud (Preview)
       href: data-connectors/tenant-based-microsoft-defender-for-cloud.md
     - name: TheHive Project - TheHive (using Azure Functions)
@@ -774,6 +778,8 @@
       href: data-connectors/threat-intelligence-platforms.md
     - name: Threat Intelligence Upload Indicators API (Preview)
       href: data-connectors/threat-intelligence-upload-indicators-api.md
+    - name: Transmit Security Connector (using Azure Functions)
+      href: data-connectors/transmit-security-connector.md
     - name: Trend Micro Deep Security
       href: data-connectors/trend-micro-deep-security.md
     - name: Trend Micro TippingPoint
