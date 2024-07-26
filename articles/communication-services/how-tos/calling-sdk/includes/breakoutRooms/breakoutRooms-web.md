@@ -45,7 +45,21 @@ Event **breakoutRoomsUpdated** provides instance of one of the following classes
   }
 ```
 
-2. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
+2. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
+```js
+export interface BreakoutRoomSettingsEvent {
+  /**
+   * Breakout room event type
+   */
+  type: "breakoutRoomSettings",
+   /**
+   * Breakout Room setting details
+   */
+  data: BreakoutRoomSettings | undefined;
+}
+```
+
+3. Class `AssignedBreakoutRoomsEvent`: This event is triggered when user is assigned to a breakout room, or assigned breakout room is updated. Users can join the breakout room when property `state` is set to `open`, leave the breakout room when property `state` is set to `closed` or render details of the breakout room. This class has property `type` equal to `"assignedBreakoutRoom"`.
 ```js
 export interface AssignedBreakoutRoomEvent {
   /**
@@ -59,19 +73,7 @@ export interface AssignedBreakoutRoomEvent {
 }
 ```
 
-3. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
-```js
-export interface BreakoutRoomSettingsEvent {
-  /**
-   * Breakout room event type
-   */
-  type: "breakoutRoomSettings",
-   /**
-   * Breakout Room setting details
-   */
-  data: BreakoutRoomSettings | undefined;
-}
-```
+
 4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This can happen when use is automatically moved to breakout room (i.e., if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (i.e., calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
 ```js
 export interface JoinBreakoutRoomEvent {
@@ -121,6 +123,11 @@ breakoutRooms.forEach((room)=>{
       console.log(`- ${room.displayName}`);
        }); 
 ```
+
+### List available breakout rooms
+
+Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access all breakout rooms.
+
 ### List invitees
 
 Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access participants assigned to individual breakout rooms.
@@ -257,6 +264,6 @@ The property `state` of assigned breakout room is set to "closed", but user have
 |412 | 46257| UnexpectedServerError | Unable to resume main meeting. Please gather browser console logs and contact Azure Communication Services support. |
 |412| 46258 | UnexpectedClientError | Error while trying to update the Breakoutroom details. Please gather browser console logs and contact Azure Communication Services support.|
 |500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. Please gather browser console logs and contact Azure Communication Services support. |
-|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as the url is null or empty.Can join BreakoutRoom only when assigned.|
+|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. Can join BreakoutRoom only when assigned.|
   
   
