@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 03/28/2024
+ms.date: 07/19/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 ms.service: batch
@@ -156,6 +156,10 @@ In your Batch applications, you can use the [Batch .NET library](/dotnet/api/mic
 You can use the Batch APIs to create list queries for Batch jobs, tasks, compute nodes, and other resources. For more information about how to filter list queries, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 Or, instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes, you can use the [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) and [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) operations to get counts for Batch tasks and compute nodes. For more information, see [Monitor Batch solutions by counting tasks and nodes by state](batch-get-resource-counts.md).
+
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
+
+### Application Insights
 
 You can integrate Application Insights with your Azure Batch applications to instrument your code with custom metrics and tracing. For a detailed walkthrough of how to add Application Insights to a Batch .NET solution, instrument application code, monitor the application in the Azure portal, and build custom dashboards, see [Monitor and debug an Azure Batch .NET application with Application Insights](monitor-application-insights.md) and accompanying [code sample](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights).
 
