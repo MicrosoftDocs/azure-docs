@@ -506,7 +506,7 @@ In this section, you'll run this command manually for demonstration purposes. Wi
 
 ## 6. Stream diagnostic logs
 
-Azure App Service can capture logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) as well as [shipping them to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+Azure App Service can capture logs to help you diagnose issues with your application. For convenience, the azd template has already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer).
 
 The sample app uses the Python Standard Library logging module to output logs. The sample app includes calls to the logger as shown below.
 
