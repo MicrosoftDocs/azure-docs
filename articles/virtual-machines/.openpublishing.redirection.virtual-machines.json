@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root":"/articles/virtual-machines/workloads/oracle/oracle-storage.md",
-            "redirect_url": "/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-storage",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-database-backup-strategies#azure-storage",
             "redirect_document_id": false
         },
         {
