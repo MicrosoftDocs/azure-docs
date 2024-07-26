@@ -15,9 +15,9 @@ Azure Web PubSub Service makes it easy to build web applications where server an
 With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency. 
 
 When an app's usage is small, developers typically opt for a polling mechanism to provide real-time communication between server and clients - clients send repeated HTTP requests to server over a time interval. However, developers often report that while polling mechanism is straightforward to implement, it suffers three important drawbacks. 
-1. Outdated data. 
-2. Inconsistent data. 
-3. Wasted bandwidth and compute resources.
+- Outdated data. 
+- Inconsistent data. 
+- Wasted bandwidth and compute resources.
 
 These drawbacks are the primary motivations that drive developers to look for alternatives. This article provides an overview of Azure Web PubSub service and how developers can use it to build real-time communication channel fast and at scale.
 
