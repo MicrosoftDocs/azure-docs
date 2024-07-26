@@ -122,7 +122,12 @@ const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
 
 Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access participants assigned to individual breakout rooms.
 ```js
-const invitees = breakoutRoomsFeature.breakoutRooms[0].invitees;
+breakoutRooms.forEach((room)=>{
+      console.log(`${room.displayName}`);
+      room.invitees.forEach((invitee) => {
+          console.log(`- ${invitee.id}`);         
+          })
+      })
 ```
 
 ### Join breakout room
