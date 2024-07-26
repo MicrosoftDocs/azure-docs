@@ -91,7 +91,7 @@ switch(event.type) {
       const breakoutRooms = event.data;
       console.log(`Breakout rooms are created or updated. There are ${breakoutRooms.length} breakout rooms in total.`);
       breakoutRooms.forEach((room)=>{
-      console.log(`Display name of the breakout rooms : ${room.displayName}`);
+      console.log(`- ${room.displayName}`);
       });    
       break;
     case "assignedBreakoutRooms":
