@@ -40,7 +40,7 @@
       href: enable-guest-management-at-scale.md
     - name: Install Arc agents using a script
       href: install-arc-agents-using-script.md
-    - name: Arc VM extensions management
+    - name: Arc-enabled SCVMM VM extensions management
       href: ../servers/manage-vm-extensions.md
   - name: Enable Extended Security Updates
     items:
