@@ -64,6 +64,8 @@ GitHub Actions help you automate your software development workflows from within
 
 There are many open-source and third-party integrations you can install on your AKS cluster. The [AKS support policy][aks-support-policy] doesn't support the following open-source and third-party integrations.
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 | Name | Description | More details |
 |---|---|---|
 | [Helm][helm] | An open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. | [Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm][helm-qs] |
