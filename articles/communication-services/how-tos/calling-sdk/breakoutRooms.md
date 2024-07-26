@@ -42,7 +42,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 |Get all breakout rooms	| ✔️[1]	|   | 
 |Join breakout room | ✔️	| ✔️ |
 |Manage breakout rooms| | |
-|Participate in breakout room chat | | ✔️|
+|Participate in breakout room chat | | ✔️[2]|
 
 ## SDKs
 || Web | Web UI | iOS | Android | Windows |
