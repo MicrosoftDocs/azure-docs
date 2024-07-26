@@ -137,7 +137,7 @@ In the **Event Subscription Details** section, provide an appropriate name.
 
 #### [Using API](#tab/api)
 
-1. Create a maintenance configuration by following the steps listed [here](https://learn.microsoft.com/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
+1. Create a maintenance configuration by following the steps listed [here](/rest/api/maintenance/maintenance-configurations/create-or-update?view=rest-maintenance-2023-09-01-preview&tabs=HTTP).
 
 1. **# System topic creation [Learn more](/rest/api/eventgrid/controlplane/system-topics/create-or-update)**
 
