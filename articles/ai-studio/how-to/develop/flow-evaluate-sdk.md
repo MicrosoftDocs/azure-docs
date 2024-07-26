@@ -479,5 +479,5 @@ result = evaluate(
 
 - [Get started building a chat app using the prompt flow SDK](../../quickstarts/get-started-code.md)
 - [Prompt flow Python reference documentation](https://microsoft.github.io/promptflow/reference/python-library-reference/promptflow-evals/promptflow.evals.evaluators.html)
-- [Learn more about the evaluation metrics](https://learn.microsoft.com/en-us/azure/ai-studio/concepts/evaluation-metrics-built-in?tabs=warning)
+- [Learn more about the evaluation metrics](../../concepts/evaluation-metrics-built-in.md)
 - [View your evaluation results in Azure AI Studio](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-flow-results)
