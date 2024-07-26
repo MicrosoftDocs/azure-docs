@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 07/25/2024
 ms.author: maquaran
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -34,7 +34,7 @@ Identifying this scenario helps understand if we need to scale our change feed p
 
 Like the [change feed processor](./change-feed-processor.md), the change feed estimator can work as a push model. The estimator will measure the difference between the last processed item (defined by the state of the leases container) and the latest change in the container, and push this value to a delegate. The interval at which the measurement is taken can also be customized with a default value of 5 seconds.
 
-As an example, if your change feed processor is defined like this:
+As an example, if your change feed processor is using latest version mode and is defined like this:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
@@ -81,7 +81,7 @@ Each estimation will consume [request units](../request-units.md) from your [mon
 
 ### [Java](#tab/java)
 
-The provided example represents a sample Java application that demonstrates the implementation of the Change Feed Processor with the estimation of the lag in processing change feed events. In the application - documents are being inserted into one container (the "feed container"), and meanwhile another worker thread or worker application is pulling inserted documents from the feed container's Change Feed and operating on them in some way.
+The provided example represents a sample Java application that demonstrates the implementation of the Change Feed Processor in latest version mode with the estimation of the lag in processing change feed events. In the application - documents are being inserted into one container (the "feed container"), and meanwhile another worker thread or worker application is pulling inserted documents from the feed container's Change Feed and operating on them in some way.
 
 The change Feed Processor is built and started like this:
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/changefeed/SampleChangeFeedEstimator.java?name=ChangeFeedProcessorBuilder)]
@@ -99,15 +99,20 @@ An example of a delegate that receives changes and handles them with a lag is:
 
 ---
 
+## Supported change feed modes
+
+The change feed estimator can be used for both [latest version mode](./change-feed-modes.md#latest-version-change-feed-mode) and [all versions and deletes mode](./change-feed-modes.md#all-versions-and-deletes-change-feed-mode-preview). In both modes, the estimate provided is not guaranteed to be an exact count of outstanding changes to process.
+
 ## Additional resources
 
 * [Azure Cosmos DB SDK](sdk-dotnet-v3.md)
-* [Usage samples on GitHub (.NET)](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Usage samples on GitHub (.NET latest version)](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Usage samples on Github (.NET all versions and deletes)](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeedAllVersionsAndDeletes)
 * [Usage samples on GitHub (Java)](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/tree/main/src/main/java/com/azure/cosmos/examples/changefeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## Next steps
 
-You can now proceed to learn more about change feed processor in the following articles:
+You can now proceed to learn more about change feed processor in the following article:
 
 * [Overview of change feed processor](change-feed-processor.md)
