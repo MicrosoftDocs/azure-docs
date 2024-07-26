@@ -111,7 +111,7 @@ The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class con
 
 To receive file upload notification:
 
-* Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring?view=azure-dotnet&branch=main) to connect to IoT hub. Pass the IoT hub connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
+* Call [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.serviceclient.createfromconnectionstring) to connect to IoT hub. Pass the IoT hub connection string. See the prerequisites section for how to look up the IoT hub primary connection string.
 * Create a [CancellationToken](/dotnet/api/azure.core.httpmessage.cancellationtoken?#azure-core-httpmessage-cancellationtoken).
 * Call [GetFileNotificationReceiver](/dotnet/api/microsoft.azure.devices.serviceclient.getfilenotificationreceiver?#microsoft-azure-devices-serviceclient-getfilenotificationreceiver) to create a notification receiver.
 * Use a loop with [ReceiveAsync](/dotnet/api/microsoft.azure.devices.receiver-1.receiveasync?#microsoft-azure-devices-receiver-1-receiveasync(system-threading-cancellationtoken)) to wait for the file upload notification.
