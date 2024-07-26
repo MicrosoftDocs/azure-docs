@@ -39,7 +39,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 |Operations| Communication Services user | Microsoft 365 user |
 |----------------------------------------------|--------|--------|
 |Get assigned breakout room		| ✔️	|   |  		
-|Get all breakout rooms	| ✔️	|   |   |
+|Get all breakout rooms	| ✔️[1]	|   | 
 |Join breakout room | ✔️	| ✔️ |
 |Manage breakout rooms| | |
 |Participate in breakout room chat | | ✔️|
