@@ -160,23 +160,19 @@ It's particularly effective for embeddings with dimensions greater than 1024. Fo
 
 ## Option 2: Assign narrow data types to vector fields
 
-Vector embeddings are represented as an array of numbers. When you specify a field type, you specify the underlying primitive data type used to hold each number within these arrays. The data type affects how much space each number takes up. Narrow primitive data types take less space, reducing the storage requirements of vector fields. 
+An easy way to reduce vector size is to store embeddings in a smaller data format. Most embedding models output 32-bit floating point numbers, but if you quantize your vectors, or if your embedding model supports it natively, output might be Float 16, `Int16`, or `Int8`, which is significantly smaller than Float 32. You can accommodate these smaller vector sizes by assigning a narrow data type to a vector field. In the vector index, narrow data types consume less storage.
 
-1. Review the [data types for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
+1. Review the [data types used for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
 
    - `Collection(Edm.Single)` 32-bit floating point (default)
-   - `Collection(Edm.Half)` 16-bit floating point
-   - `Collection(Edm.Int16)` 16-bit signed integer
-   - `Collection(Edm.SByte)` 8-bit signed integer
-   - `Collection(Edm.Byte)` 8-bit signed integer
+   - `Collection(Edm.Half)` 16-bit floating point (narrow)
+   - `Collection(Edm.Int16)` 16-bit signed integer (narrow)
+   - `Collection(Edm.SByte)` 8-bit signed integer (narrow)
+   - `Collection(Edm.Byte)` 8-bit signed integer (narrow)
 
-1. Choose a data type that's valid for your embedding model's output, or for vectors that undergo custom quantization.
+1. From that list, determine which data type is valid for your embedding model's output, or for vectors that undergo custom quantization.
 
-   Most embedding models output 32-bit floating point numbers, but if you apply custom quantization, your output might be `Int16` or `Int8`. You can now define vector fields that accept the smaller format.
-
-   Text embedding models have a native output format of `Float32`, which maps to `Collection(Edm.Single)` in Azure AI Search. You can't map that output to `Int8` because casting from `float` to `int` is prohibited. However, you can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`), and this is an easy way to use narrow data types without extra work.
-
-   The following table provides links to several embedding models that use the narrow data types. 
+   The following table provides links to several embedding models that can use a narrow data type (`Collection(Edm.Half)`) without extra quantization. You can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`) with no extra work.
 
    | Embedding model        | Native output | Valid types in Azure AI Search |
    |------------------------|---------------|--------------------------------|
@@ -184,6 +180,8 @@ Vector embeddings are represented as an array of numbers. When you specify a fie
    | [text-embedding-3-small](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
    | [text-embedding-3-large](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
    | [Cohere V3 embedding models with int8 embedding_type](https://docs.cohere.com/reference/embed) | `Int8` | `Collection(Edm.SByte)` |
+
+   Other narrow data types can be used if your model emits embeddings in the smaller data format, or if you have custom quantization that converts vectors to a smaller format.
 
 1. Make sure you understand the tradeoffs of a narrow data type. `Collection(Edm.Half)` has less information, which results in lower resolution. If your data is homogenous or dense, losing extra detail or nuance could lead to unacceptable results at query time because there's less detail that can be used to distinguish nearby vectors apart.
 
@@ -243,9 +241,9 @@ The following example shows the fields collection of a search index. Set `stored
 
 Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
 
-- "HotelNameVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
-- "HotelNameVector" also has `stored` set to false. Extra embeddings used in a query response aren't stored. When `stored` is false, `retrievable` must also be false.
-- "DescriptionVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. "DescriptionVector" also has `stored` set to false. 
+- "contentVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
+- "contentVector" also has `stored` set to false. Extra embeddings used in a query response aren't stored. When `stored` is false, `retrievable` must also be false.
+- "summaryVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. Compressed vector fields must use HNSW navigation.
 
 ```json
 ### Create a new index
@@ -254,10 +252,10 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
     api-key: {{apiKey}}
 
 {
-    "name": "hotels-vector-quickstart",
+    "name": "demo-index",
     "fields": [
         {
-            "name": "HotelId", 
+            "name": "id", 
             "type": "Edm.String",
             "searchable": false, 
             "filterable": true, 
@@ -267,7 +265,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "key": true
         },
         {
-            "name": "HotelName", 
+            "name": "title", 
             "type": "Edm.String",
             "searchable": true, 
             "filterable": false, 
@@ -276,7 +274,34 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "facetable": false
         },
         {
-            "name": "HotelNameVector",
+            "name": "content", 
+            "type": "Edm.String",
+            "searchable": true, 
+            "filterable": false, 
+            "retrievable": true, 
+            "sortable": true, 
+            "facetable": false
+        },
+        {
+            "name": "summary", 
+            "type": "Edm.String",
+            "searchable": true, 
+            "filterable": false, 
+            "retrievable": true, 
+            "sortable": true, 
+            "facetable": false
+        },
+        {
+            "name": "titleVector", 
+            "type": "Edm.String",
+            "searchable": true,
+            "retrievable": false,
+            "dimensions": 1536,
+            "stored": true,
+            "vectorSearchProfile": "my-vector-profile-no-compression"
+        },
+        {
+            "name": "contentVector",
             "type": "Collection(Edm.Half)",
             "searchable": true,
             "retrievable": false,
@@ -285,63 +310,13 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "vectorSearchProfile": "my-vector-profile-no-compression"
         },
         {
-            "name": "Description", 
-            "type": "Edm.String",
-            "searchable": true, 
-            "filterable": false, 
-            "retrievable": false, 
-            "sortable": false, 
-            "facetable": false
-        },
-        {
-            "name": "DescriptionVector",
+            "name": "summaryVectorCompressed",
             "type": "Collection(Edm.Single)",
             "searchable": true,
             "retrievable": false,
             "dimensions": 1536,
             "stored": false,
-            "vectorSearchProfile": "my-vector-profile-with-compression"
-        },
-        {
-            "name": "Category", 
-            "type": "Edm.String",
-            "searchable": true, 
-            "filterable": true, 
-            "retrievable": true, 
-            "sortable": true, 
-            "facetable": true
-        },
-        {
-            "name": "Tags",
-            "type": "Collection(Edm.String)",
-            "searchable": true,
-            "filterable": true,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": true
-        },
-        {
-            "name": "Address", 
-            "type": "Edm.ComplexType",
-            "fields": [
-                {
-                    "name": "City", "type": "Edm.String",
-                    "searchable": true, "filterable": true, "retrievable": true, "sortable": true, "facetable": true
-                },
-                {
-                    "name": "StateProvince", "type": "Edm.String",
-                    "searchable": true, "filterable": true, "retrievable": true, "sortable": true, "facetable": true
-                }
-            ]
-        },
-        {
-            "name": "Location",
-            "type": "Edm.GeographyPoint",
-            "searchable": false, 
-            "filterable": true, 
-            "retrievable": true, 
-            "sortable": true, 
-            "facetable": false
+            "vectorSearchProfile": "my-vector-profile-with-sq8-compression"
         }
     ],
 "vectorSearch": {
@@ -351,9 +326,15 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "kind": "scalarQuantization",
             "rerankWithOriginalVectors": true,
             "defaultOversampling": 10.0,
-                "scalarQuantizationParameters": {
-                    "quantizedDataType": "int8"
+            "scalarQuantizationParameters": {
+                "quantizedDataType": "int8"
                 }
+        },
+        {
+            "name": "my-binary-quantization",
+            "kind": "binaryQuantization",
+            "rerankWithOriginalVectors": true,
+            "defaultOversampling": 10.0
         }
     ],
     "algorithms": [
@@ -388,37 +369,31 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
     ],
     "profiles": [      
         {
-            "name": "my-vector-profile-with-compression",
+            "name": "my-vector-profile-with-sq8-compression",
             "compression": "my-scalar-quantization",
+            "algorithm": "my-hnsw-vector-config-1",
+            "vectorizer": null
+        },
+        {
+            "name": "my-vector-profile-with-bq-compression",
+            "compression": "my-binary-quantization",
             "algorithm": "my-hnsw-vector-config-1",
             "vectorizer": null
         },
         {
             "name": "my-vector-profile-no-compression",
             "compression": null,
+            "algorithm": "my-hnsw-vector-config-2",
+            "vectorizer": null
+        },
+        {
+            "name": "my-vector-profile-no-compression-eknn",
+            "compression": null,
             "algorithm": "my-eknn-vector-config",
             "vectorizer": null
         }
     ]
-},
-    "semantic": {
-        "configurations": [
-            {
-                "name": "my-semantic-config",
-                "prioritizedFields": {
-                    "titleField": {
-                        "fieldName": "HotelName"
-                    },
-                    "prioritizedContentFields": [
-                        { "fieldName": "Description" }
-                    ],
-                    "prioritizedKeywordsFields": [
-                        { "fieldName": "Tags" }
-                    ]
-                }
-            }
-        ]
-    }
+  }
 }
 ```
 

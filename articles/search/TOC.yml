@@ -344,9 +344,9 @@
       href: vector-search-how-to-query.md
     - name: Filter vectors
       href: vector-search-filters.md
-    - name: Vector quotas and staying under limits
+    - name: Vector quotas and limits
       href: vector-search-index-size.md
-    - name: Reduce vector size with compression
+    - name: Reduce vector size
       href: vector-search-how-to-configure-compression-storage.md
     - name: Configure a vectorizer for queries
       href: vector-search-how-to-configure-vectorizer.md
