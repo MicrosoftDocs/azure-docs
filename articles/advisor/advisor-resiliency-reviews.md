@@ -1,8 +1,6 @@
 ---
 title: Azure Advisor resiliency reviews
 description: Optimize resource resiliency with custom recommendation reviews.
-author: mabrahms
-ms.author: v-mabrahms
 ms.service: azure
 ms.topic: article
 ms.date: 03/8/2024
