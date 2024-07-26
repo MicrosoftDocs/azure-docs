@@ -259,8 +259,6 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
-    - name: BGP diagnostics
-      href: bgp-diagnostics.md
     - name: Configure site-to-site forced tunneling
       href: site-to-site-tunneling.md
     - name: Configure gateway transit for VNet peering
