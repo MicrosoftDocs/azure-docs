@@ -208,7 +208,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3872
+    azureuser@vm-1:~/GetPathMTU$ ping 10.0.0.5 -c 10 -M do -s 3873
     PING 10.0.0.5 (10.0.0.5) 3872(3900) bytes of data.
     ping: local error: message too long, mtu=1500
     ping: local error: message too long, mtu=1500
@@ -272,7 +272,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    azureuser@vm-2:~/GetPathMTU$ ping 10.0.0.4 -c 10 -M do -s 3872
+    azureuser@vm-2:~/GetPathMTU$ ping 10.0.0.4 -c 10 -M do -s 3873
     PING 10.0.0.4 (10.0.0.4) 3872(3900) bytes of data.
     ping: local error: message too long, mtu=1500
     ping: local error: message too long, mtu=1500
@@ -452,7 +452,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3892
+    PS C:\Users\azureuser> ping 10.0.0.5 -f -l 3893
 
     Pinging 10.0.0.5 with 3892 bytes of data:
     Packet needs to be fragmented but DF set.
@@ -559,7 +559,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     An indication that there is a mismatch in settings between the source and destination displays as an error message in the output. In this case, the MTU isn't set on the source network interface.
 
     ```output
-    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3892
+    PS C:\Users\azureuser> ping 10.0.0.4 -f -l 3893
 
     Pinging 10.0.0.4 with 3892 bytes of data:
     Packet needs to be fragmented but DF set.
