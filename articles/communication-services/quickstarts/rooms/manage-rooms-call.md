@@ -16,7 +16,7 @@ ms.custom: mode-other
 # Quickstart: Manage a room call
 
 ## Introduction
-Azure Communication Services (ACS) room call is started, the call can be managed using Calling SDKs, Call Automation SDKs or both. In a room call, the mid-call actions are controlled by either the roles assigned to participants and properties configured in the room.
+Once Azure Communication Services (ACS) room call is started, the call can be managed using Calling SDKs or Call Automation SDKs or both. In a room call, the mid-call actions are controlled by either the roles assigned to participants and properties configured in the room. The participant's roles are used to control capabilities permitted per participant while room's properties are applied to a room call as a whole.
 
 ## Calling SDKs
 Calling SDK is a client side calling libraries enabling participants in a room call to perform several mid-call operations (e.g. screen share, turn on/off video, mute/unmute, etc. ). Full list of capabilities offered in Calling SDK is listed in the [Calling SDK Overview](../../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)
@@ -249,15 +249,15 @@ call_connection_client.hang_up(is_for_everyone=True)
 
 ## Other Actions
 The following mid-call actions are also supported in a room call. 
-1. Add Participant (ACS identifier)
-1. Remove Participant (ACS identifier)
-1. Cancel Add Participant (ACS identifier and PSTN number)
+1. Add participant (ACS identifier)
+1. Remove participant (ACS identifier)
+1. Cancel add participant (ACS identifier and PSTN number)
 1. Hang up call
-1. Get Participant (ACS identifier and PSTN number)
-1. Get Participants (ACS identifier and PSTN number)
-1. Get Call
+1. Get participant (ACS identifier and PSTN number)
+1. Get multiple participants (ACS identifier and PSTN number)
+1. Get latest info about a call
 1. Play both audio files and text 
-1. Play All both audio files and text
+1. Play all both audio files and text
 1. Recognize both DTMF and speech
 1. Recognize continuous DTMF
 
