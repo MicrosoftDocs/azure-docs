@@ -59,7 +59,7 @@ export interface AssignedBreakoutRoomEvent {
 }
 ```
 
-3. BreakoutRoomsSettingsEvent: This event is triggered when there are any changes to the breakout room settings like when the room duration is set. When the event type is `breakoutRoomSettings` the subscriber would be able to receive all the settings available on the breakout room which are set by the Organizer / Co-Organizer / Breakout room manager of the meeting. Breakout room settings details can be used to display the timer to the participant when the room will be closed.
+3. Class `BreakoutRoomsSettingsEvent`: This event is triggered when a user with a role organizer, co-organizer or breakout room manager updates the breakout room's settings. Developers can use this information to render the time when breakout room ends or decide whether to render button to join main room. This class has property `type` equal to `"breakoutRoomSettings"`.
 ```js
 export interface BreakoutRoomSettingsEvent {
   /**
