@@ -165,7 +165,7 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Monitor
+      - name: Monitor Synapse Analytics
         href: monitor-synapse-analytics.md
       - name: Monitoring data reference
         href: monitor-synapse-analytics-reference.md
@@ -716,7 +716,7 @@ items:
       href: ./spark/apache-spark-concepts.md
     - name: Apache Spark pool configurations
       href: ./spark/apache-spark-pool-configurations.md
-    - name: GPU-accelerated Apache Spark pools
+    - name: GPU-accelerated Apache Spark pools (deprecated)
       href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
@@ -734,9 +734,9 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.4 runtime (GA)
           href: ./spark/apache-spark-34-runtime.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (GA)
+        - name: Azure Synapse Apache Spark 3.3 runtime (EOSA)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime (EOSA)
+        - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
@@ -794,7 +794,7 @@ items:
           href: ./spark/apache-spark-performance.md
         - name: Performance optimization for Apache Spark using Hyperspace indexes
           href: ./spark/apache-spark-performance-hyperspace.md
-        - name: Accelerate ETL operations with NVIDIA RAPIDS
+        - name: Accelerate ETL operations with NVIDIA RAPIDS (deprecated)
           href: ./spark/apache-spark-rapids-gpu.md
     - name: Manage and monitor
       items:
@@ -1017,7 +1017,7 @@ items:
       items:
       - name: Connector overview
         href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Amazon Marketplace Web Service
+      - name: Amazon Marketplace Web Service (Deprecated)
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon RDS for Oracle
         href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
@@ -1503,7 +1503,7 @@ items:
     items:
     - name: Train machine learning models
       href: ./spark/apache-spark-machine-learning-training.md
-    - name: Deep learning 
+    - name: Deep learning (deprecated)
       href: ./machine-learning/concept-deep-learning.md
     - name:  SynapseML library
       href: ./machine-learning/synapse-machine-learning-library.md
@@ -1529,13 +1529,13 @@ items:
         - name: In Python (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-      - name: With Horovod and Petastorm 
+      - name: With Horovod and Petastorm (deprecated)
         items:
-        - name: Train a model with Horovod and PyTorch
+        - name: Train a model with Horovod and PyTorch (deprecated)
           href: ./machine-learning/tutorial-horovod-pytorch.md
         - name: Train a model with Horovod and TensorFlow
           href: ./machine-learning/tutorial-horovod-tensorflow.md
-        - name: Write and load data with Petastorm
+        - name: Write and load data with Petastorm (deprecated)
           href: ./machine-learning/tutorial-load-data-petastorm.md
     - name: Score a model
       items:
@@ -1592,6 +1592,10 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+  - name: Monitor
+    items:
+    - name: Learn about monitoring
+      href: monitor-articles.md
 - name: Guidance
   items:
   - name: Azure Synapse Success by Design

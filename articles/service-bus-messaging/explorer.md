@@ -217,11 +217,16 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the resend messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
     
-    > [!NOTE]
+    > [!NOTE] 
     > - The resend operation sends a copy of the original message. It doesn't remove the original message that you resubmit. 
     > - If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 
 ## Switch authentication type
+
+> [!NOTE] 
+> To use Microsoft Entra ID (Azure Active Directory) authentication the following are required:
+> - The user/service principal is assigned the 'Azure Service Bus Data Owner' role. No other built in or customer roles are supported.
+> - The 'Azure Service Bus Data Owner' role has to be assigned at the namespace scope. Assignment at queue or topic scope is not supported.
 
 When working with Service Bus Explorer, it's possible to use either **Access Key** or **Microsoft Entra ID** authentication.
 

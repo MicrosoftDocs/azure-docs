@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 05/31/2024
+ms.date: 06/27/2024
 ms.topic: conceptual
 ---
 
@@ -19,15 +19,6 @@ This article discusses best practices and useful tips for using the Azure Batch 
 ### Pool configuration and naming
 
 - **Pool allocation mode:** When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable a small but important subset of scenarios. For more information, see [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
-
-- **`virtualMachineConfiguration` or `cloudServiceConfiguration`:** While you can currently create pools using either
-configuration, new pools should be configured using `virtualMachineConfiguration` and not `cloudServiceConfiguration`.
-All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Service Configuration
-pools don't support all features and no new capabilities are planned. You won't be able to create new
-`cloudServiceConfiguration` pools or add new nodes to existing pools
-[after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-For more information, see
-[Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **`classic` or `simplified` node communication mode:** Pools can be configured in one of two node communication modes,
 classic or [simplified](simplified-compute-node-communication.md). In the classic node communication model, the Batch service
@@ -86,9 +77,16 @@ Before you recreate or resize your pool, you should download any node agent logs
 #### Operating system updates
 
 It's recommended that the VM image selected for a Batch pool should be up-to-date with the latest publisher provided security updates.
-Some images may perform automatic updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
+Some images may perform automatic package updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
 as retrieving package repository updates (for example, `apt update`) or installing packages during actions such as a
 [StartTask](jobs-and-tasks.md#start-task).
+
+It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
+Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
+execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+For Windows operating systems, ensure that you aren't enabling the property
+`virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
 
 Azure Batch doesn't verify or guarantee that images allowed for use with the service have the latest security updates.
 Updates to images are under the purview of the publisher of the image, and not that of Azure Batch. For certain images published
@@ -122,7 +120,7 @@ Pools can be created using third-party images published to Azure Marketplace. Wi
 
 ### Container pools
 
-When specifying a Batch pool with a [virtual network](batch-virtual-network.md), there can be interaction
+When you create a Batch pool with a [virtual network](batch-virtual-network.md), there can be interaction
 side effects between the specified virtual network and the default Docker bridge. Docker, by default, will
 create a network bridge with a subnet specification of `172.17.0.0/16`. Ensure that there are no conflicting
 IP ranges between the Docker network bridge and your virtual network.
@@ -215,7 +213,7 @@ Tasks that only run for one to two seconds aren't ideal. Try to do a significant
 
 ### Use pool scope for short tasks on Windows nodes
 
-When scheduling a task on Batch nodes, you can choose whether to run it with task scope or pool scope. If the task will only run for a short time, task scope can be inefficient due to the resources needed to create the auto-user account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an auto-user with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
+When scheduling a task on Batch nodes, you can choose whether to run it with task scope or pool scope. If the task will only run for a short time, task scope can be inefficient due to the resources needed to create the autouser account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an autouser with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## Nodes
 
@@ -322,12 +320,6 @@ promotion into production use.
 
 If you notice a problem involving the behavior of a node or tasks running on a node, collect the Batch agent logs prior to deallocating the nodes in question. The Batch agent logs can be collected using the Upload Batch service logs API. These logs can be supplied as part of a support ticket to Microsoft and will help with issue troubleshooting and resolution.
 
-### Manage OS upgrades
-
-For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times when tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
-
-For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
-
 ## Batch API
 
 ### Timeout Failures
@@ -359,10 +351,6 @@ Ensure that your Batch service clients have appropriate retry policies in place 
 ### Static public IP addresses
 
 Typically, virtual machines in a Batch pool are accessed through public IP addresses that can change over the lifetime of the pool. This dynamic nature can make it difficult to interact with a database or other external service that limits access to certain IP addresses. To address this concern, you can create a pool using a set of static public IP addresses that you control. For more information, see [Create an Azure Batch pool with specified public IP addresses](create-pool-public-ip.md).
-
-### Testing connectivity with Cloud Services configuration
-
-You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol isn't permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## Batch node underlying dependencies
 

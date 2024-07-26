@@ -7,7 +7,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 03/18/2024
+ms.date: 07/17/2024
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template

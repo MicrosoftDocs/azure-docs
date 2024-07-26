@@ -4,9 +4,10 @@ titleSuffix: Azure Linux AKS Container Host partner solutions
 description: Discover partner-tested solutions that enable you to build, test, deploy, manage, and monitor your AKS environment using Azure Linux Container Host.
 ms.author: schaffererin
 author: schaffererin
-ms.topic: article
+ms.service: azure-kubernetes-service
+ms.topic: conceptual
 ms.custom: linux-related-content
-ms.date: 06/13/2024
+ms.date: 07/25/2024
 ---
 
 # Azure Linux AKS Container Host partner solutions
@@ -15,15 +16,9 @@ Microsoft collaborates with partners to ensure your build, test, deployment, con
 
 The third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
-| Solutions          | Partners                                                                                       |
-|--------------------|------------------------------------------------------------------------------------------------|
-| DevOps             | [Advantech](#advantech) <br> [Akuity](#akuity) <br> [Anchore](#anchore) <br> [Hashicorp](#hashicorp) <br> [Kong](#kong) <br> [NetApp](#netapp) |
-| Networking         | [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) |
-| Observability      | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Dynatrace](#dynatrace) <br> [Solo.io](#soloio) <br> [Tigera](#tigera-inc) |
-| Security           | [Anchore](#anchore) <br> [Buoyant](#buoyant) <br> [Isovalent](#isovalent) <br> [Kong](#kong) <br> [Palo Alto Networks](#palo-alto-networks) <br> [Solo.io](#soloio) <br> [Tetrate](#tetrate) <br> [Tigera](#tigera-inc) <br> [Wiz](#wiz) |
-| Storage            | [Catalogic](#catalogic) <br> [Veeam](#veeam)                                                   |
-| Config Management  | [Corent](#corent)                                                                              |
-| Migration          | [Catalogic](#catalogic)                                                                        |
+|          | DevOps | Networking | Observability | Security | Storage | Config Management | Migration |
+|----------|--------|------------|---------------|----------|---------|-------------------|-----------|
+| **Partners** | • [Advantech](#advantech) <br> • [Akuity](#akuity) <br> • [Anchore](#anchore) <br> • [Hashicorp](#hashicorp) <br> • [Kong](#kong) <br> • [NetApp](#netapp) | • [Buoyant](#buoyant) <br> • [Isovalent](#isovalent) <br> • [Solo.io](#soloio) <br> • [Tetrate](#tetrate) <br> • [Tigera](#tigera-inc) | • [Anchore](#anchore) <br> • [Buoyant](#buoyant) <br> • [Isovalent](#isovalent) <br> • [Dynatrace](#dynatrace) <br> • [Solo.io](#soloio) <br> • [Tigera](#tigera-inc) | • [Anchore](#anchore) <br> • [Buoyant](#buoyant) <br> • [Isovalent](#isovalent) <br> • [Kong](#kong) <br> • [Palo Alto Networks](#palo-alto-networks) <br> • [Qualys](#qualys) <br> • [Solo.io](#soloio) <br> • [Tetrate](#tetrate) <br> • [Tigera](#tigera-inc) <br> • [Wiz](#wiz) | • [Catalogic](#catalogic) <br> • [Veeam](#veeam) | • [Corent](#corent) | • [Catalogic](#catalogic) |
 
 ## DevOps
 
@@ -291,6 +286,48 @@ With Prisma Cloud by Palo Alto Networks you get always on, real-time app visibil
 </details>
 
 For more information, see [Palo Alto Networks Solutions](https://www.paloaltonetworks.com/prisma/environments/azure) and [Prisma Cloud Compute Edition on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pcce_twistlock?tab=Overview).
+
+### Qualys
+
+:::image type="icon" source="./media/azure-linux-aks-partner-solutions/qualys.png":::
+
+#### Qualys Cloud Agent
+
+| Solution | Categories |
+|----------|------------|
+| Qualys Cloud Agent | Security |
+
+The Qualys Cloud Agent is a lightweight, modular software agent that enables continuous, real-time security and compliance monitoring across various environments, including SaaS platforms, on-premises systems, and cloud infrastructures.
+
+<details> <summary> See more </summary><br>
+
+It supports a wide range of operating systems and architectures, such as Windows, Linux, macOS, AIX, Solaris, and specialized systems like AWS Bottlerocket. The agent provides functionalities such as vulnerability management, patching, endpoint protection, and file integrity monitoring, allowing customers to activate and deactivate capabilities based on their needs. Designed for ease of use, it facilitates seamless integration and management of security protocols across complex IT landscapes.
+
+</details>
+
+For more information, see [Qualys Cloud Agent Solutions](https://www.qualys.com/cloud-agent/).
+
+#### Qualys Container Security
+
+| Solution | Categories |
+|----------|------------|
+| Qualys Container Security | Security |
+
+Qualys K8s and the Container Security solution provide proactive, preventive, and reactive security for containerized applications.
+
+<details> <summary> See more </summary><br>
+
+It integrates into your DevOps workflows, offering continuous real-time security and compliance throughout the containerized application lifecycle. Key features include:
+
+* **Vulnerability management**: Identifies vulnerabilities in container images, registries, and running containers, prioritizes them, and helps mitigate the most critical vulnerabilities first.
+* **Runtime protection**: eBPF-based runtime security monitors and protects containers in real-time, detecting and responding to malicious activities.
+* **Compliance**: Ensures that Kubernetes configurations and container images adhere to best practices and compliance standards, preventing misconfigurations that might lead to security breaches.
+* **File integrity monitoring**: Monitors changes to critical files within containers to detect and respond to unauthorized modifications.
+* **Secret and malware detection**: Detects secrets and malware on the left side before container images are deployed in runtime, ensuring security from the development phase.
+
+</details>
+
+For more information, see [Qualys Container Security Solutions](https://www.qualys.com/apps/container-security/).
 
 ### Tetrate
 

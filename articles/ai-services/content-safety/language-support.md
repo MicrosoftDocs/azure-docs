@@ -20,7 +20,7 @@ ms.author: pafarley
 > [!NOTE]
 > **Language auto-detection**
 >
-> You don't need to specify a language code for text moderation. The service automatically detects your input language.
+> You don't need to specify a language code for text moderation and Prompt Shields. The service automatically detects your input language.
 
 | Language name         | Language code | Supported Languages | Specially trained languages|
 |-----------------------|---------------|--------|--|

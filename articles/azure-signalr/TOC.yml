@@ -123,6 +123,8 @@
     items:
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
+    - name: Application firewall
+      href: signalr-howto-configure-application-firewall.md  
     - name: Use Azure Service Tags
       href: howto-service-tags.md
     - name: Use Azure Private Endpoints
@@ -227,7 +229,7 @@
     href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
   - name: StackOverflow
     href: https://stackoverflow.com/search?q=signalr+service
-  - name: Twitter
+  - name: X
     href: https://twitter.com/SignalR
   - name: ASP.NET forums
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=aspsignalr

@@ -1,11 +1,11 @@
 ---
 title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
-author: abell
+author: AbdullahBell
 ms.author: abell
 ms.service: private-link
 ms.topic: concept-article
-ms.date: 11/15/2023
+ms.date: 07/08/2024
 
 #CustomerIntent: As a network administrator, I want to configure the private DNS zone values for Azure services that support private endpoints.
 ---
@@ -72,7 +72,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
->| Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
+>| Azure HDInsight (Microsoft.HDInsight/clusters) | gateway </br> headnode | privatelink.azurehdinsight.net | azurehdinsight.net |
 >| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net </br> privatelink.table.core.windows.net | {regionName}.kusto.windows.net </br> blob.core.windows.net </br> queue.core.windows.net </br> table.core.windows.net |
 >| Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 >| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
@@ -134,6 +134,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure Event Grid (Microsoft.EventGrid/namespaces/topicSpace) | topicSpace | privatelink.ts.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/partnerNamespaces) | partnernamespace | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
 >| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
@@ -240,7 +241,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.usgovcloudapi.net | azuresynapse.usgovcloudapi.net |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.us | datafactory.azure.us |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.us | adf.azure.us |
->| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.us | azurehdinsight.us |
+>| Azure HDInsight (Microsoft.HDInsight) | gateway </br> headnode | privatelink.azurehdinsight.us | azurehdinsight.us |
 >| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.databricks.azure.us | databricks.azure.us |
 
 ### Compute
@@ -371,7 +372,7 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.cn | datafactory.azure.cn |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.cn | adf.azure.cn |
->| Azure HDInsight (Microsoft.HDInsight) | N/A | privatelink.azurehdinsight.cn | azurehdinsight.cn |
+>| Azure HDInsight (Microsoft.HDInsight) | gateway </br> headnode | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 >| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.cn | {regionName}.kusto.windows.cn |
 
 ### Compute

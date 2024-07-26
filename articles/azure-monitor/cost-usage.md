@@ -21,7 +21,7 @@ Several other features don't have a direct cost, but you instead pay for the ing
 
 | Type | Description |
 |:---|:---|
-| Logs |Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). Log data ingestion will typically be the largest component of Azure Monitor charges for most customers. There's no charge for querying this data except in the case of [Basic Logs](logs/basic-logs-configure.md) or [Archived Logs](logs/data-retention-archive.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
+| Logs |Ingestion, retention, and export of data in [Log Analytics workspaces](logs/log-analytics-workspace-overview.md) and [legacy Application insights resources](app/convert-classic-resource.md). Log data ingestion is the largest component of Azure Monitor charges for most customers. There's no charge for querying this data except in the case of [Basic and Auxiliary logs](../azure-monitor/logs/data-platform-logs.md#table-plans) or [data in long-term retention](logs/data-retention-configure.md).<br><br>Charges for Logs can vary significantly on the configuration that you choose. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how charges for Logs data are calculated and the different pricing tiers available. |
 | Platform Logs | Processing of [diagnostic and auditing information](essentials/resource-logs.md) is charged for [certain services](essentials/resource-logs-categories.md#costs) when sent to destinations other than a Log Analytics workspace. There's no direct charge when this data is sent to a Log Analytics workspace, but there's a charge for the workspace data ingestion and collection. |
 | Metrics | There's no charge for [standard metrics](essentials/metrics-supported.md) collected from Azure resources. There's a cost for collecting [custom metrics](essentials/metrics-custom-overview.md) and for retrieving metrics from the [REST API](essentials/rest-api-walkthrough.md#retrieve-metric-values). |
 | Prometheus Metrics | Pricing for [Azure Monitor managed service for Prometheus](essentials/prometheus-metrics-overview.md) is based on [data samples ingested](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)  and [query samples processed](essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Data is retained for 18 months at no extra charge. |
@@ -67,14 +67,13 @@ See [Azure Monitor billing meter names](cost-meters.md) for a list of all Azure 
 Other services such as Microsoft Defender for Cloud and Microsoft Sentinel also bill their usage against Log Analytics workspace resources. See [Common cost analysis uses](../cost-management-billing/costs/cost-analysis-common-uses.md) for details on using this view.
 
 
->[!NOTE]
->Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application.
+> [!NOTE]
+> Alternatively, you can go to the **Overview** page of a Log Analytics workspace or Application Insights resource and click **View Cost** in the upper right corner of the **Essentials** section. This will launch the **Cost Analysis** from Azure Cost Management + Billing already scoped to the workspace or application. (You might need to use the [preview version](https://preview.portal.azure.com/) of the Azure portal to see this option.) 
 > :::image type="content" source="logs/media/view-bill/view-cost-option.png" lightbox="logs/media/view-bill/view-cost-option.png" alt-text="Screenshot of option to view cost for Log Analytics workspace.":::
-
 ### Automated mails and alerts
 Rather than manually analyzing your costs in the Azure portal, you can automate delivery of information using the following methods.
 
-- **Daily cost analysis emails.** After you configure your Cost Analysis view, you should click **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
+- **Daily cost analysis emails.** After you configure your Cost Analysis view, select **Subscribe** at the top of the screen to receive regular email updates from Cost Analysis.
 - **Budget alerts.** To be notified if there are significant increases in your spending, create a [budget alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) for a single workspace or group of workspaces. 
 
 ### Export usage details
@@ -87,7 +86,7 @@ For example, usage from Log Analytics can be found by first filtering on the **M
 
 1. **Log Analytics** (for Pay-as-you-go data ingestion and interactive Data Retention), 
 2. **Insight and Analytics** (used by some of the legacy pricing tiers), and 
-3. **Azure Monitor** (used by most other Log Analytics features such as Commitment Tiers, Basic Logs ingesting, Data Archive, Search Queries, Search Jobs, etc.) 
+3. **Azure Monitor** (used by most other Log Analytics features such as Commitment Tiers, Basic Logs ingesting, Long-Term Retention, Search Queries, Search Jobs, and so on) 
 
 Add a filter on the **Instance ID** column for **contains workspace** or **contains cluster**. The usage is shown in the **Consumed Quantity** column. The unit for each entry is shown in the **Unit of Measure** column.
 
@@ -103,13 +102,13 @@ There are several approaches to view the benefits a workspace receives from offe
 1. [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
 > [!NOTE]
-> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](https://learn.microsoft.com/cli/azure/monitor/log-analytics/solution).
+> To receive the Defender for Servers data allowance on your Log Analytics workspace, the **Security** solution must have been [created on the workspace](/cli/azure/monitor/log-analytics/solution).
 
 ### View benefits in a usage export
 
 Since a usage export has both the number of units of usage and their cost, you can use this export to see the benefits you're receiving. In the usage export, to see the benefits, filter the *Instance ID* column to your workspace. (To select all of your workspaces in the spreadsheet, filter the *Instance ID* column to "contains /workspaces/".) Then filter on the Meter to either of the following 2 meters:
 
-- **Standard Data Included per Node**: this meter is under the service "Insight and Analytics" and tracks the benefits received when a workspace in either in Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance and/or has [Defender for Servers](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) enabled. Each of these allowances provide a 500 MB/server/day data allowance. 
+- **Standard Data Included per Node**: this meter is under the service "Insight and Analytics" and tracks the benefits received when a workspace in either in Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance and/or has [Defender for Servers](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud) enabled. Each of these allowances provides a 500 MB/server/day data allowance. 
 
 - **Free Benefit - M365 Defender Data Ingestion**: this meter, under the service "Azure Monitor", tracks the benefit from the [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5, and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/).
 
@@ -139,7 +138,7 @@ Operation
 (This functionality of reporting the benefits used in the `Operation` table started January 27, 2024.) 
 
 > [!TIP]
-> If you [increase the data retention](logs/data-retention-archive.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  
+> If you [increase the data retention](logs/data-retention-configure.md) of the [Operation](/azure/azure-monitor/reference/tables/operation) table, you will be able to view these benefit trends over longer periods.  
 >
 
 ## Usage and estimated costs
@@ -156,7 +155,7 @@ A. Estimated monthly charges based on usage from the past 31 days using the curr
 B. Estimated monthly charges using different commitment tiers.<br>
 C. Billable data ingestion by solution from the past 31 days.
 
-To explore the data in more detail, click on the icon in the upper-right corner of either chart to work with the query in Log Analytics.  
+To explore the data in more detail, select the icon in the upper-right corner of either chart to work with the query in Log Analytics.  
 
 :::image type="content" source="logs/media/manage-cost-storage/logs.png" lightbox="logs/media/manage-cost-storage/logs.png" alt-text="Screenshot of log query with Usage table in Log Analytics.":::
 
@@ -195,7 +194,7 @@ Depending on the number of nodes of the suite that your organization purchased, 
 
 Workspaces linked to [classic Azure Migrate](/azure/migrate/migrate-services-overview#azure-migrate-versions) receive free data benefits for the data tables related to Azure Migrate (`ServiceMapProcess_CL`, `ServiceMapComputer_CL`, `VMBoundPort`, `VMConnection`, `VMComputer`, `VMProcess`, `InsightsMetrics`). This version of Azure Migrate was retired in February 2024. 
 
-Starting from 1 July 2024, the data benefit for Azure Migrate in Log Analytics will no longer be available. We suggest moving to the [Azure Migrate agentless dependency analysis](/azure/migrate/how-to-create-group-machine-dependencies-agentless). If you continue with agent-based dependency analysis, standard [Azure Monitor charges](https://azure.microsoft.com/pricing/details/monitor/) will apply for the data ingestion that enables dependency visualization. 
+Starting from 1 July 2024, the data benefit for Azure Migrate in Log Analytics will no longer be available. We suggest moving to the [Azure Migrate agentless dependency analysis](/azure/migrate/how-to-create-group-machine-dependencies-agentless). If you continue with agent-based dependency analysis, standard [Azure Monitor charges](https://azure.microsoft.com/pricing/details/monitor/) apply for the data ingestion that enables dependency visualization. 
 
 ## Next steps
 

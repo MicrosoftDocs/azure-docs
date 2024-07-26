@@ -4,7 +4,7 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 10/14/2020
+ms.date: 07/22/2024
 ms.topic: conceptual
 ---
 # Manage inventory collection from VMs

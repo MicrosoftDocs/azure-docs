@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -19,7 +19,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD051 -->
 
 :::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, ID Document, Receipt and Invoice models:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, ID Document, Receipt, and Invoice models:
 
 * [REST API `2022-08-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)
 * [REST API `2023-07-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.1%20(2023-07-31)&tabs=HTTP&preserve-view=true)
@@ -65,6 +65,10 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 * [Azure Kubernetes Service](../../../aks/index.yml).
 * [Azure Container Instances](../../../container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+
+> [!NOTE]
+>
+> Note that Studio container cannot be deployed and run in Azure Kubernetes Service. Studio container is only supported to be run on local machine.
 
 ### Container requirements and recommendations
 
@@ -681,7 +685,9 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. You're billed for each container instance used to process your documents and images.
+Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. Billing is calculated for each container instance used to process your documents and images.
+
+If you receive the following error: *Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota*. It's an indicator that your containers aren't communication wit the billing endpoint.
 
 ### Connect to Azure
 

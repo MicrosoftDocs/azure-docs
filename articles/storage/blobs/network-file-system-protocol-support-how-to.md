@@ -6,15 +6,12 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 08/18/2023
+ms.date: 06/28/2024
 ms.author: normesta
 
 ---
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article provides guidance on how to mount a container in Azure Blob Storage from a Linux-based Azure virtual machine (VM) or a Linux system that runs on-premises by using the Network File System (NFS) 3.0 protocol. To learn more about NFS 3.0 protocol support in Blob Storage, see [Network File System (NFS) 3.0 protocol support for Azure Blob Storage](network-file-system-protocol-support.md).
 
@@ -95,7 +92,6 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
    > [!NOTE]
    > AZNFS is supported on following Linux distributions:
    > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
-   > - Centos7, Centos8
    > - RedHat7, RedHat8, RedHat9
    > - Rocky8, Rocky9
    > - SUSE (SLES 15)

@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 07/25/2024
 ---
 
 # Configure a search service to connect using a managed identity in Azure AI Search
@@ -52,7 +52,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 <sup>1</sup> For connectivity between search and storage, your network security configuration imposes constraints on which type of managed identity you can use. Only a system managed identity can be used for a same-region connection to storage via the trusted service exception or resource instance rule. See [Access to a network-protected storage account](search-indexer-securing-resources.md#access-to-a-network-protected-storage-account) for details.
 
-<sup>2</sup> For enrichment caching in Azure table storage, the search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
+<sup>2</sup> AI search service currently can't connect to tables on a storage account that has [shared key access turned off](../storage/common/shared-key-authorization-prevent.md).
 
 <sup>3</sup> Connections to Azure OpenAI or Azure AI include: [Custom skill](cognitive-search-custom-skill-interface.md), [Custom vectorizer](vector-search-vectorizer-custom-web-api.md), [Azure OpenAI embedding skill](cognitive-search-skill-azure-openai-embedding.md), [Azure OpenAI vectorizer](vector-search-how-to-configure-vectorizer.md), [AML skill](cognitive-search-aml-skill.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), [Azure AI Vision multimodal embeddings skill](cognitive-search-skill-vision-vectorize.md), [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md).
 
@@ -200,6 +200,7 @@ You can use a preview Management REST API instead of the portal to assign a user
    + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" clears any previously assigned identities from the search service.
 
    + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Update Service request.
+  
 
 ---
 
@@ -313,6 +314,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 
  An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
 
+**System-managed identity example:**
  
 ```json
 {
@@ -344,6 +346,51 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
         "resourceUri": "https://url.openai.azure.com",
         "deploymentId": "text-embedding-ada-002",
         "modelName": "text-embedding-ada-002"
+      }
+    }
+  ]
+```
+
+**User-assigned managed identity example:**
+
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+  "description": "Connects a deployed embedding model.",
+  "resourceUri": "https://url.openai.azure.com/",
+  "deploymentId": "text-embedding-ada-002",
+  "modelName": "text-embedding-ada-002",
+  "inputs": [
+    {
+      "name": "text",
+      "source": "/document/content"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "embedding"
+    }
+  ],
+  "authIdentity": {
+    "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+    "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+   }
+}
+```
+
+```json
+ "vectorizers": [
+    {
+      "name": "my_azure_open_ai_vectorizer",
+      "kind": "azureOpenAI",
+      "azureOpenAIParameters": {
+        "resourceUri": "https://url.openai.azure.com",
+        "deploymentId": "text-embedding-ada-002",
+        "modelName": "text-embedding-ada-002"
+        "authIdentity": {
+            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+            "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+          }
       }
     }
   ]

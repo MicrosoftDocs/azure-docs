@@ -21,7 +21,7 @@ With an API center, stakeholders throughout your organization - including API pr
 
 ## Benefits
 
-* **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
+* **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Register APIs managed in all of your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
 
 *  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
 
@@ -37,7 +37,7 @@ Create and use an API center for the following:
 
 * **Real-world API representation** - Add real-world information about each API including versions and definitions such as OpenAPI definitions. List API deployments and associate them with runtime environments, for example, representing Azure API Management or other API management solutions.
 
-* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up linting and analysis to enforce API definition quality.  
+* **API governance** - Organize and filter APIs and related resources using built-in and custom metadata, to help with API governance and discovery by API consumers. Set up [linting and analysis](enable-api-analysis-linting.md) to enforce API definition quality. Integrate with tools such as Dev Proxy to ensure that apps don't use unregistered [shadow APIs](discover-shadow-apis-dev-proxy.md) or APIs that don't meet organizational standards.
 
 * **API discovery and reuse** - Enable developers and API program managers to discover APIs via the Azure portal, an API Center portal, and developer tools including a [Visual Studio Code extension](use-vscode-extension.md)​.
 

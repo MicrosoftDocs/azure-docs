@@ -40,7 +40,6 @@ Subnet per NodeType only works for Service Fabric API version `2022-10-01 previe
 
 ## Considerations and limitations
 
-* **Only secondary NodeTypes** can support subnet per NodeType.
 * For existing clusters in a Bring-Your-Own-Virtual-Network configuration with a `subnetId` specified, enabling subnet per NodeType overrides the existing value for the current NodeType.
 * For new clusters, customers need to specify `useCustomVNet : true` at the cluster level. This setting indicates that the cluster uses Bring-Your-Own-Virtual-Network but that the subnet is specified at the NodeType level. For such clusters, a virtual network isn't created in the managed resource group. For such clusters, the `subnetId` property is required for NodeTypes.
 
