@@ -164,8 +164,6 @@ items:
         href: network-file-system-protocol-performance-benchmark.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Map of commands to REST operations
-        href: network-file-system-protocol-map-commands-to-rest-operations.md
       - name: Limitations and known issues
         href: network-file-system-protocol-known-issues.md
     - name: SFTP
@@ -180,8 +178,6 @@ items:
         href: secure-file-transfer-protocol-support-connect.md
       - name: Performance considerations
         href: secure-file-transfer-protocol-performance.md
-      - name: Map of commands to REST operations
-        href: secure-file-transfer-map-commands-to-rest-operations.md
       - name: Limitations and known issues
         href: secure-file-transfer-protocol-known-issues.md
   - name: Data management
