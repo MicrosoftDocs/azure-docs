@@ -14,6 +14,8 @@ services: azure-maps
 
 You can manage the pricing tier of your Azure Maps account through the [Azure portal] or an [Azure Resource Manager (ARM) template].
 
+For information related to calculating costs, see [Azure Maps pricing] and [Understanding Azure Maps Transactions].
+
 > [!NOTE]
 >
 > **Azure Maps Gen1 pricing tier retirement**
@@ -84,3 +86,4 @@ Learn how to see the API usage metrics for your Azure Maps account:
 [Azure Resource Manager (ARM) template]: how-to-create-template.md
 [Create account with ARM template]: how-to-create-template.md
 [View usage metrics]: how-to-view-api-usage.md
+[Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md
