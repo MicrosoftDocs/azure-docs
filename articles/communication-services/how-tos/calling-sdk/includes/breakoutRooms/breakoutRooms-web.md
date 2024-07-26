@@ -233,7 +233,7 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
   **Resolution** : Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.
 
-- User getting an error while leaving the breakout room.
+- **User getting an error while leaving the breakout room.**
 
   If the breakout room state is `closed` and the user has still not moved back to the main meeting, leave the breakout room explicitly as defined previously. 
   using the code shared above for leaving the breakout room and check if that helps.
