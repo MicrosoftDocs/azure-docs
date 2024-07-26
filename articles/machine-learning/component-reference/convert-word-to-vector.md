@@ -129,7 +129,7 @@ This section contains tips and answers to frequently asked questions.
 
 + Difference between online-training and pretrained model:
 
-    In this Convert Word to Vector component, we provided three different strategies: two online-training models and one pretrained model. The online-training models use your input dataset as training data, and generate vocabulary and word vectors during training. The pretrained model is already trained by a much larger text corpus, such as Wikipedia or Twitter text. The pretrained model is actually a collection of word/embedding pairs.  
+    In this Convert Word to Vector component, we provided three different strategies: two online-training models and one pretrained model. The online-training models use your input dataset as training data, and generate vocabulary and word vectors during training. The pretrained model is already trained by a much larger text corpus, such as Wikipedia or X text. The pretrained model is actually a collection of word/embedding pairs.  
 
     The GloVe pre-trained model summarizes a vocabulary from the input dataset and generates an embedding vector for each word from the pretrained model. Without online training, the use of a pretrained model can save training time. It has better performance, especially when the input dataset size is relatively small.
 
