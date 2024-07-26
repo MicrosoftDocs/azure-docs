@@ -55,7 +55,7 @@ sections:
         answer: |
           Possible causes for a denied application are as follows: 
           *	Not being an existing Microsoft partner or enterprise agreement customer  
-          *	Invalid Azure subscription ID. your ID must belong to the applicant organization, and you can't apply on behalf of other organizations. 
+          *	Invalid Azure subscription ID. Your ID must belong to the applicant organization, and you can't apply on behalf of other organizations. 
           *	The application was submitted with a personal email address (For example: @hotmail.com, @gmail.com, @yahoo.com, etc.) 
           *	Invalid justification or business scenario provided 
           *	Other missing or inaccurate data
@@ -146,7 +146,7 @@ sections:
           Microsoft's standard warranty for enterprise software will apply when a container image is formally announced as General Available (GA). There's no warranty for container images in preview.
       - question: What hardware is required to run these containers?
         answer: |
-          Azure AI containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
+          Azure AI containers are x64-based containers that can run any compatible Linux node, Virtual Machine (VM), and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
 
           * Speech Service for:
             *	[Speech to text](../speech-service/speech-container-stt.md) 
