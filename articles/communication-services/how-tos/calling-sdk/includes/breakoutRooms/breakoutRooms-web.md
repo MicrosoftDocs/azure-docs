@@ -108,7 +108,7 @@ switch(event.type) {
       break;
     case "join":
       const breakoutRoomCall = event.data;
-      console.log(`Event data is a Teams call ${call.id}`);      
+      console.log(`Breakout room call ID is: ${breakoutRoomCall.id}`);      
       break;
   }
 }
