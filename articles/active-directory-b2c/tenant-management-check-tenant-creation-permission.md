@@ -42,7 +42,7 @@ As a *Global Administrator* in an Azure AD B2C tenant, you can restrict non-admi
 
 1. Under **Manage**, select **User Settings**.
 
-1. Under **Restrict non-admin users from creating tenants**, select **Yes**. 
+1. Under **Default user role permissions**, for **Restrict non-admin users from creating tenants**, select **Yes**. 
 
 1. At the top of the **User Settings** page, select **Save**. 
 
