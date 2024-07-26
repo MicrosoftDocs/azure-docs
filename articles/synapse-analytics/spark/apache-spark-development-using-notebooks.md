@@ -143,7 +143,7 @@ The IntelliSense features are at different levels of maturity for different lang
 
 <h3 id="code-snippets">Code Snippets</h3>
 
-Synapse notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
+Synapse notebooks provide code snippets that make it easier to enter commonly used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
 
 Snippets appear in [Shortcut keys of IDE style IntelliSense](#ide-style-intellisense) mixed with other suggestions. The code snippets contents align with the code cell language. You can see available snippets by typing **Snippet** or any keywords appear in the snippet title in the code cell editor. For example, by typing **read** you can see the list of snippets to read data from various data sources.
 
@@ -309,7 +309,7 @@ You can select the **Variables** button on the notebook command bar to open or h
 
 ### Cell status indicator
 
-A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time are shown and kept there for future reference.
+A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time is shown and kept there for future reference.
 
 ![Screenshot of cell-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
