@@ -37,7 +37,7 @@ await device_client.connect()
 
 ### Retrieve a device twin and examine reported properties
 
-Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?view=azure-python&branch=main#azure-iot-device-iothubdeviceclient-get-twin) to get the device or module twin from the Azure IoT Hub service. This is a synchronous call, meaning that this function will not return until the twin has been retrieved from the service.
+Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-get-twin) to get the device or module twin from the Azure IoT Hub service. This is a synchronous call, meaning that this function will not return until the twin has been retrieved from the service.
 
 This example retrieves the device twin and uses the `print` command to view the device twin in JSON format.
 
@@ -103,7 +103,7 @@ To update a device twin tag:
 
 * Call [get_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-twin) to get a device twin.
 
-* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&branch=main#azure-iot-hub-iothubregistrymanager-update-twin) to update tags and desired properties of a device twin.
+* Call [update_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-twin) to update tags and desired properties of a device twin.
 
 ```python
 new_tags = {
@@ -123,9 +123,9 @@ twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 
 This section demonstrates two device twin queries. Device twin queries are SQL queries that return a result set of device twins.
 
-Use a [QuerySpecification](/en-us/python/api/azure-iot-hub/azure.iot.hub.protocol.models.queryspecification) object to define a JSON query request.
+Use a [QuerySpecification](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.queryspecification) object to define a JSON query request.
 
-Use [query_iot_hub](https://review.learn.microsoft.com/en-us/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-query-iot-hub) to query an IoTHub and retrieve device twin information using the query specification.
+Use [query_iot_hub](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-query-iot-hub) to query an IoTHub and retrieve device twin information using the query specification.
 
 For example:
 
