@@ -10,22 +10,22 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ---
 
-# Reduce vector storage through quantization, narrow data types, and storage options
+# Reduce vector size through quantization, narrow data types, and storage options
 
 This article describes vector quantization and other techniques for compressing vector indexes in Azure AI Search.
 
-All of these features are generally available in [2024-07-01 REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-07-01&preserve-view=true) and in the Azure SDK packages targeting that API version.
+These features are generally available in [2024-07-01 REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-07-01&preserve-view=true) and in the Azure SDK packages targeting that version.
 
 ## Evaluate the options
 
-As a first step, review the four options for reducing the amount of storage used by vector fields. These options aren't mutually exclusive. 
+As a first step, review the three approaches for reducing the amount of storage used by vector fields. These approaches aren't mutually exclusive and can be combined for further reductions in vector size.
 
-We recommend scalar quantization because it compresses vector size in memory and on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for `Float16`) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
+We recommend built-in quantization because it compresses vector size in memory *and* on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for `Float16`) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
 
 | Approach | Why use this option |
 |----------|---------------------|
 | [Add scalar or binary quantization](#option-1-configure-quantization) | Use quantization to compress native `Float32` or `Float16`  embeddings to `Int8` (scalar) or `Byte` (binary). This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` or `Byte` produce vector indexes that are less content-rich than those with larger embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
-| [Assign smaller primitive data types to vector fields](#option-2assign-narrow-data-types-to-vector-fields) | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
+| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
 | [Eliminate optional storage of retrievable vectors](#option-3-set-the-stored-property-to-remove-retrievable-storage) | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 
 All of these options are defined on an empty index. To implement any of them, use the Azure portal, REST APIs, or an Azure SDK package targeting that API version.
@@ -36,10 +36,11 @@ After the index is defined, you can load and index documents as a separate step.
 
 Quantization is recommended because it reduces memory and disk storage requirements, and it adds reranking and oversampling to offset the effects of a smaller index.
 
-Scalar quantization converts floats into narrow data types, such as `Int8`.
-Binary quantization converts floats into binary form, which is necessary for indexing data as a packed binary data type (`Byte`).
+Quantization applies to vector fields containing `Float32` or `Float16` source data.
 
-Applies to vector fields containing `Float32` or `Float16` data.
+- Scalar quantization converts floats into narrow data types, such as `Int8`.
+
+- Binary quantization converts floats into binary form, which is necessary for handling data as a packed binary data type. 
 
 To use built-in quantization, follow these steps:
 
@@ -53,7 +54,7 @@ To use built-in quantization, follow these steps:
 
 ### Add "compressions" to a search index
 
-The following example shows a fields collection with a vector field and `vectorSearch.compressions`.
+The following example shows an index definition with a fields collection that includes a vector field and a `vectorSearch.compressions` section.
 
 This example includes both `scalarQuantization` or `binaryQuantization`. You can specify as many compression configurations as you need, and then assign the ones you want to a vector profile.
 
@@ -147,13 +148,15 @@ Within the profile, you must use the Hierarchical Navigable Small Worlds (HNSW) 
 
 ### How scalar quantization works in Azure AI Search
 
-Scalar quantization reduces the resolution of each number within each vector embedding. Instead of describing each number as a 32-bit floating point number, it uses an 8-bit integer. It identifies a range of numbers (typically 99th percentile minimum and maximum) and divides them into a finite number of levels or bin, assigning each bin an identifier. In 8-bit scalar quantization, there are 2^8, or 256, possible bins.
+Scalar quantization reduces the resolution of each number within each vector embedding. Instead of describing each number as a 16-bit or 32-bit floating point number, it uses an 8-bit integer. It identifies a range of numbers (typically 99th percentile minimum and maximum) and divides them into a finite number of levels or bin, assigning each bin an identifier. In 8-bit scalar quantization, there are 2^8, or 256, possible bins.
 
 Each component of the vector is mapped to the closest representative value within this set of quantization levels in a process akin to rounding a real number to the nearest integer. In the quantized 8-bit vector, the identifier number stands in place of the original value. After quantization, each vector is represented by an array of identifiers for the bins to which its components belong. These quantized vectors require much fewer bits to store compared to the original vector, thus reducing storage requirements and memory footprint. 
 
 ### How  binary quantization works in Azure AI Search
 
-TBD
+Binary quantization compresses high-dimensional vectors by representing each component as a single bit, either 0 or 1. This method drastically reduces the memory footprint and accelerates vector comparison operations, which are crucial for search and retrieval tasks. Benchmark tests show up to 96% reduction in vector index size.
+
+It's particularly effective for embeddings with dimensions greater than 1024. For smaller dimensions, we recommend testing the quality of binary quantization, or trying scalar instead. Additionally, we’ve found BQ performs very well when embeddings are centered around zero. Most popular embedding models such as OpenAI, Cohere, and Mistral are centered around zero. 
 
 ## Option 2: Assign narrow data types to vector fields
 
@@ -421,7 +424,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
 
 ## Query a quantized vector field using oversampling
 
-The query syntax in this example applies to vector fields using built-in scalar quantization. By default, vector fields that use scalar quantization also use `rerankWithOriginalVectors` and `defaultOversampling` to mitigate the effects of a smaller vector index. Those settings are [specified in the search index](#add-compression-settings-and-set-optional-properties).
+The query syntax in this example applies to vector fields using built-in scalar quantization. By default, vector fields that use scalar quantization also use `rerankWithOriginalVectors` and `defaultOversampling` to mitigate the effects of a smaller vector index. Those settings are [specified in the search index](#add-compressions-to-a-search-index).
 
 On the query, you can override the oversampling default value. For example, if `defaultOversampling` is 10.0, you can change it to something else in the query request.
 
