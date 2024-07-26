@@ -20,6 +20,10 @@ This article provides a summary of the latest releases and major documentation u
 
 ## July 2024
 
+### Assistants File Search tool is now billed
+
+The [file search](./how-to/file-search.md) tool for Assistants now has additional charges for usage. See the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information.
+
 ### GPT-4o mini preview model available for early access
 
 GPT-4o mini is the latest model from OpenAI [launched on July 18, 2024](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/).
