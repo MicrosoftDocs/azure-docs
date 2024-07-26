@@ -131,8 +131,10 @@ The following tables list the operating systems that are supported by WAD and LA
 
 | Operating system                                       | Support |
 |:-------------------------------------------------------|:-------:|
+| CentOS Linux 9                                         | ❌      |
 | CentOS Linux 8                                         | ❌      |
 | CentOS Linux 7                                         | ✅      |
+| Debian 12                                              | ❌      |
 | Debian 11                                              | ❌      |
 | Debian 10                                              | ❌      |
 | Debian 9                                               | ✅      |
