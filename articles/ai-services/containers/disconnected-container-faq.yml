@@ -10,7 +10,7 @@ metadata:
   ms.custom:
     - ignite-2023
   ms.topic: faq
-  ms.date: 09/15/2023
+  ms.date: 07/26/2024
   ms.author: aahi
 title: FAQ for Azure AI services disconnected containers
 summary: |
@@ -44,7 +44,7 @@ sections:
 
             * Your organization must have an enterprise agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.  
             * Valid business scenario/use case - Disconnected containers are expected to run fully offline hence, your use cases must meet one of below or similar requirements: 
-              * Environment or device(s) with zero connectivity to internet. 
+              * Environment or devices with zero connectivity to internet. 
               *	Remote location that occasionally has internet access. 
               *	Organization under strict regulation of not sending any kind of data back to cloud. 
             * Application completed as instructed - Please pay close attention to guidance provided throughout the application to ensure you provide all the necessary information required for approval. 
@@ -55,7 +55,7 @@ sections:
         answer: |
           Possible causes for a denied application are as follows: 
           *	Not being an existing Microsoft partner or enterprise agreement customer  
-          *	Invalid Azure subscription ID. your ID must belong to the applicant organization, and you can't apply on behalf of other organizations. 
+          *	Invalid Azure subscription ID. Your ID must belong to the applicant organization, and you can't apply on behalf of other organizations. 
           *	The application was submitted with a personal email address (For example: @hotmail.com, @gmail.com, @yahoo.com, etc.) 
           *	Invalid justification or business scenario provided 
           *	Other missing or inaccurate data
@@ -146,7 +146,7 @@ sections:
           Microsoft's standard warranty for enterprise software will apply when a container image is formally announced as General Available (GA). There's no warranty for container images in preview.
       - question: What hardware is required to run these containers?
         answer: |
-          Azure AI containers are x64-based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
+          Azure AI containers are x64-based containers that can run any compatible Linux node, Virtual Machine (VM), and edge device that supports x64 Linux Docker containers. They all require CPU processors. You can find the minimum and recommended configurations for each container offering on these pages:
 
           * Speech Service for:
             *	[Speech to text](../speech-service/speech-container-stt.md) 
