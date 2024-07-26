@@ -27,7 +27,25 @@ Azure Communication Services now enables you to receive Message Analysis results
 ## Setup
 
 1. **Connect Azure Communication Services with Azure OpenAI Services:**
-   - To set up the connection between your Azure Communication Services and Azure OpenAI Services, follow the instructions on the [Azure Communication Services and Azure Cognitive Services Integration page](../../../../communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md#azure-portal-experience).
+
+   - Open your Azure Communication Services resource and click on the Cognitive Services tab.
+   - If system-assigned managed identity isn't enabled, you'll need to enable it.
+   - In the Cognitive Services tab, click on "Enable Managed Identity" button.
+   
+      :::image type="content" source="./media/message-analysis/enabled-identity.png" lightbox="./media/message-analysis/enabled-identity.png" alt-text="Screenshot of Enable Managed Identity button.":::
+
+   - Enable system assigned identity. This action begins the creation of the identity; A pop-up notification appears notifying you that the request is being processed.
+   
+      :::image type="content" source="./media/message-analysis/enable-system-identity.png" lightbox="./media/message-analysis/enable-system-identity.png" alt-text="Screenshot of enable managed identity.":::
+
+   
+   - When managed identity is enabled, the Cognitive Service tab should show a button 'Connect cognitive service' to connect the two services.
+   
+      :::image type="content" source="./media/message-analysis/cognitive-services.png" lightbox="./media/message-analysis/cognitive-services.png" alt-text="Screenshot of Connect cognitive services button.":::
+
+   - Click on 'Connect cognitive service', select the Subscription, Resource Group, and Resource, and click 'Connect' in the context pane that opens up.
+   
+      :::image type="content" source="./media/message-analysis/choose-options.png" lightbox="./media/message-analysis/choose-options.png" alt-text="Screenshot of Subscription, Resource Group, and Resource in pane.":::
 
 2. **Enable Message Analysis:**
    - Go to the **Channels** page of the **Advanced Messaging** tab in your Azure Communication Services resource.
