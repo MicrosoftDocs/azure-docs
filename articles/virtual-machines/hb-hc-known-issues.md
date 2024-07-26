@@ -5,10 +5,10 @@ ms.service: virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 03/10/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
-ms.author: jushiman
-author: ju-shim
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # Known issues with HB-series and N-series VMs
