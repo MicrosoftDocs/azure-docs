@@ -240,7 +240,7 @@ The property `state` of assigned breakout room is set to "closed", but user have
 **Resolution**: Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room.
   using the code shared above for leaving the breakout room and check if that helps.
   
-- Assigned breakout room details are not available to the user.
+- **Assigned breakout room details are not available to the user.**
 
   Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to 
   breakout room. Azure Communication Services users are always assigned to breakout room. 
