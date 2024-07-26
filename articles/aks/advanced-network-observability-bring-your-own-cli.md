@@ -189,7 +189,7 @@ az aks get-credentials --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 
     ```azurecli-interactive
     # Set environment variables
-    export HUBBLE_VERSION=0.11  
+    export HUBBLE_VERSION=v0.11.0
     export HUBBLE_ARCH=amd64
     
     # Install Hubble CLI
