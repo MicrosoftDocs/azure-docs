@@ -38,8 +38,9 @@
         href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
       - name: Azure App Service
         href: relocation-app-service.md
-      - name: Azure Backup (Recovery Services vault)
-        href: ../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: ../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Backup
+        href: relocation-backup.md
       - name: Azure Batch
         href: ../batch/account-move.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Cache for Redis
@@ -54,6 +55,8 @@
         href: ../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for PostgreSQL
         href: relocation-postgresql-flexible-server.md
+      - name: Azure Firewall
+        href: relocation-firewall.md
       - name: Azure Event Grid
         items:
         - name: Relocate Azure Event Grid domains

@@ -32,26 +32,26 @@ The following facilities are supported with the Syslog collector:
 | 0	| None |
 | 1	| Kern |
 | 2	| user |
-| 3 | mail |
+| 3     | mail |
 | 4	| daemon |
-| 4	| auth |
-| 5	| syslog 
-| 6	| lpr |
-| 7	| news |
-| 8	| uucp |
-| 9	| ftp |
-| 10 | ntp |
-| 11 | audit |
-| 12 | alert |
-| 13 | mark	 |
-| 14 | local0 |
-| 15 | local1 |
-| 16 | local2 |
-| 17 | local3 |
-| 18 | local4 |
-| 19 | local5 |
-| 20 | local6 |
-| 21 | local7 |
+| 5	| auth |
+| 6	| syslog |
+| 7	| lpr |
+| 8	| news |
+| 9	| uucp |
+| 10	| ftp |
+| 11    | ntp |
+| 12    | audit |
+| 13    | alert |
+| 14    | clock	 |
+| 15    | local0 |
+| 16    | local1 |
+| 17    | local2 |
+| 18    | local3 |
+| 19    | local4 |
+| 20    | local5 |
+| 21    | local6 |
+| 22    | local7 |
 
 :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 
