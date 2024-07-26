@@ -16,7 +16,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 # [C#](#tab/csharp)
 
-* [Complete the quickstart article](durable-functions-create-first-csharp.md)
+* [Complete the quickstart article](durable-functions-isolated-create-first-csharp.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
 
 # [JavaScript](#tab/javascript)
@@ -30,7 +30,7 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 This sample monitors a location's current weather conditions and alerts a user by SMS when the skies are clear. You could use a regular timer-triggered function to check the weather and send alerts. However, one problem with this approach is **lifetime management**. If only one alert should be sent, the monitor needs to disable itself after clear weather is detected. The monitoring pattern can end its own execution, among other benefits:
 
-* Monitors run on intervals, not schedules: a timer trigger *runs* every hour; a monitor *waits* one hour between actions. A monitor's actions will not overlap unless specified, which can be important for long-running tasks.
+* Monitors run on intervals, not schedules: a timer trigger *runs* every hour; a monitor *waits* one hour between actions. A monitor's actions won't overlap unless specified, which can be important for long-running tasks.
 * Monitors can have dynamic intervals: the wait time can change based on some condition.
 * Monitors can terminate when some condition is met or be terminated by another process.
 * Monitors can take parameters. The sample shows how the same weather-monitoring process can be applied to any requested location and phone number.
@@ -47,7 +47,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 
 This sample involves using the Weather Underground API to check current weather conditions for a location.
 
-The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
+The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
 
 Once you have an API key, add the following **app setting** to your function app.
 
@@ -69,7 +69,7 @@ This article explains the following functions in the sample app:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-The orchestrator requires a location to monitor and a phone number to send a message to when the whether becomes clear at the location. This data is passed to the orchestrator as a strongly typed `MonitorRequest` object.
+The orchestrator requires a location to monitor and a phone number to send a message to when the weather becomes clear at the location. This data is passed to the orchestrator as a strongly typed `MonitorRequest` object.
 
 # [JavaScript](#tab/javascript)
 
@@ -77,7 +77,7 @@ The **E3_Monitor** function uses the standard *function.json* for orchestrator f
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/function.json":::
 
-Here is the code that implements the function:
+Here's the code that implements the function:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/index.js":::
 
@@ -85,14 +85,14 @@ Here is the code that implements the function:
 
 This orchestrator function performs the following actions:
 
-1. Gets the **MonitorRequest** consisting of the *location* to monitor and the *phone number* to which it will send an SMS notification.
+1. Gets the **MonitorRequest** consisting of the *location* to monitor and the *phone number* to which it sends an SMS notification.
 2. Determines the expiration time of the monitor. The sample uses a hard-coded value for brevity.
 3. Calls **E3_GetIsClear** to determine whether there are clear skies at the requested location.
 4. If the weather is clear, calls **E3_SendGoodWeatherAlert** to send an SMS notification to the requested phone number.
 5. Creates a durable timer to resume the orchestration at the next polling interval. The sample uses a hard-coded value for brevity.
 6. Continues running until the current UTC time passes the monitor's expiration time, or an SMS alert is sent.
 
-Multiple orchestrator instances can run simultaneously by calling the orchestrator function multiple times. The location to monitor and the phone number to send an SMS alert to can be specified. Finally, do note that the orchestrator function is *not* running while waiting for the timer, so you will not get charged for it.
+Multiple orchestrator instances can run simultaneously by calling the orchestrator function multiple times. The location to monitor and the phone number to send an SMS alert to can be specified. Finally, do note that the orchestrator function isn't* running while waiting for the timer, so you won't get charged for it.
 ### E3_GetIsClear activity function
 
 As with other samples, the helper activity functions are regular functions that use the `activityTrigger` trigger binding. The **E3_GetIsClear** function gets the current weather conditions using the Weather Underground API and determines whether the sky is clear.
@@ -107,7 +107,7 @@ The *function.json* is defined as follows:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/function.json":::
 
-And here is the implementation.
+And here's the implementation.
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/index.js":::
 
@@ -130,7 +130,7 @@ Its *function.json* is simple:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/function.json":::
 
-And here is the code that sends the SMS message:
+And here's the code that sends the SMS message:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/index.js":::
 
@@ -157,7 +157,7 @@ RetryAfter: 10
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
-The **E3_Monitor** instance starts and queries the current weather conditions for the requested location. If the weather is clear, it calls an activity function to send an alert; otherwise, it sets a timer. When the timer expires, the orchestration will resume.
+The **E3_Monitor** instance starts and queries the current weather conditions for the requested location. If the weather is clear, it calls an activity function to send an alert; otherwise, it sets a timer. When the timer expires, the orchestration resumes.
 
 You can see the orchestration's activity by looking at the function logs in the Azure Functions portal.
 
@@ -177,7 +177,7 @@ You can see the orchestration's activity by looking at the function logs in the 
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-The orchestration completes once its timeout is reached or clear skies are detected. You can also use the `terminate` API inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above. To use the webhook, replace `{text}` with the reason for the early termination. The HTTP POST URL will look roughly as follows:
+The orchestration completes once its timeout is reached or clear skies are detected. You can also use the `terminate` API inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the preceding 202 response. To use the webhook, replace `{text}` with the reason for the early termination. The HTTP POST URL looks roughly as follows:
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
@@ -185,7 +185,7 @@ POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a
 
 ## Next steps
 
-This sample has demonstrated how to use Durable Functions to monitor an external source's status using [durable timers](durable-functions-timers.md) and conditional logic. The next sample shows how to use external events and [durable timers](durable-functions-timers.md) to handle human interaction.
+This sample demonstrates how to use Durable Functions to monitor an external source's status using [durable timers](durable-functions-timers.md) and conditional logic. The next sample shows how to use external events and [durable timers](durable-functions-timers.md) to handle human interaction.
 
 > [!div class="nextstepaction"]
 > [Run the human interaction sample](durable-functions-phone-verification.md)

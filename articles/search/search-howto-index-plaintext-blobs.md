@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 07/25/2024
 ---
 
 # Index plain text blobs and files in Azure AI Search
@@ -48,12 +48,12 @@ api-key: [admin key]
 }
 ```
 
-By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
+By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property. The supported [list of encodings](/dotnet/fundamentals/runtime-libraries/system-text-encoding#list-of-encodings) is under **.NET 5 and later support** column.
 
 ```http
 {
   ... other parts of indexer definition
-  "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+  "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "iso-8859-1" } }
 }
 ```
 

@@ -2,8 +2,6 @@
 title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 10/15/2023
 ---
 
