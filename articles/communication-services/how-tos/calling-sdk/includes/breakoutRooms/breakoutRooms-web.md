@@ -222,7 +222,7 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 
   Resolution : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
 
-- User getting an error when joining the breakout room.
+- **User gets an error when automatically joining the breakout room.**
 
   There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. In this scenario, call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method 
   explicitly.
