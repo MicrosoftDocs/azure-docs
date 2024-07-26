@@ -113,4 +113,4 @@ ms.author: jianleishen
 | &nbsp;                | [Zoho (Preview)](../connector-zoho.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              ||
 
 > [!NOTE]
-> Any connector marked as *Preview* means that you can try it out and give us feedback.  If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.

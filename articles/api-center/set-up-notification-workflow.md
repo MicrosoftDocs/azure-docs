@@ -12,14 +12,14 @@ ms.custom:
 
 # Set up a notification workflow after API registration in your Azure API center
 
-This article shows how to set up an example notification workflow to set status of an API registered in your organization's [API center](overview.md) using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Microsoft Teams:
+This article shows how to set up an automated notification workflow to set status of an API registered in your organization's [API center](overview.md) using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Microsoft Teams. In this example:
 
 * Registration of an API in your API center triggers an event that runs a logic app workflow.
 * The workflow sends a notification in Teams to a designated individual. 
-* The individual decided the status of the API registration directly from the notification in Microsoft Teams. 
+* The individual decides the status of the API registration directly from the notification in Microsoft Teams. 
 * The workflow updates the metadata in the API registration based on the individual's decision.
 
-You can adapt this example to meet your organization's notification requirements for your API center.
+You can adapt this example to meet your organization's notification and governance requirements for your API center.
 
 ## Prerequisites
 
