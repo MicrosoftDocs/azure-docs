@@ -72,7 +72,7 @@ export interface BreakoutRoomSettingsEvent {
   data: BreakoutRoomSettings | undefined;
 }
 ```
-4. JoinBreakoutRoomsEvent : This event is triggered when the participant is automatically moved to the breakout room when the breakout room state is `open` and `autoMoveParticipantToBreakoutRoom` is set to true. This event is also triggered when the user calls the `join` api on the breakout room when `autoMoveParticipantToBreakoutRoom` is set to false.  When the event type is `join`, the subscriber would be able to receive the breakout room call object of the joined room. The Call object can be used to manage the breakout room call.
+4. Class `JoinBreakoutRoomsEvent` : This event is triggered when the participant is joining breakout room call. This can happen when use is automatically moved to breakout room (i.e., if `assignedBreakoutRoom` has property `state` set to `open` and `autoMoveParticipantToBreakoutRoom` is set to `true`) or when user explicitly joins breakout room (i.e., calls method `join` on the instance `assignedBreakoutRoom` when `autoMoveParticipantToBreakoutRoom` is set to `false`). Property `data` contains the breakout room `call` instance, that developers can use to control breakout room call. This class has property `type` equal to `"join"`.
 ```js
 export interface JoinBreakoutRoomEvent {
   /**
