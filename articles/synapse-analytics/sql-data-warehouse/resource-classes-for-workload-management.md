@@ -51,9 +51,8 @@ The static resource classes are implemented with these pre-defined database role
 
 Dynamic Resource Classes allocate a variable amount of memory depending on the current service level. While static resource classes are beneficial for higher concurrency and static data volumes, dynamic resource classes are better suited for a growing or variable amount of data.  When you scale up to a larger service level, your queries automatically get more memory.  
 
-The dynamic resource classes are implemented with these pre-defined database roles:
+Except smallrc, the dynamic resource classes are implemented with these pre-defined database roles:
 
-- smallrc
 - mediumrc
 - largerc
 - xlargerc
