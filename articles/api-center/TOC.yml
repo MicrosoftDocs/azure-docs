@@ -53,7 +53,7 @@
       - name: Find nonproduction API requests with Dev Proxy
         href: find-nonproduction-api-requests-dev-proxy.md
       - name: Automated workflow to set API status
-        href: set-up notification-workflow.md
+        href: set-up-notification-workflow.md
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal

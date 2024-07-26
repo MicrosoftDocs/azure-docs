@@ -297,7 +297,7 @@ Also, confirm that the event subscription is provisioned successfully in your AP
 1. In the left menu, select **Events**.
 1. Check that the logic app is listed under **Name**, and the **Endpoint** is **Webhook**.
 
-:::image type="content" source="./media/logic-app-event-subscription.png" alt-text="Screenshot of a logic app event subscription in the portal.":::
+:::image type="content" source="media/set-up-notification-workflow/logic-app-event-subscription.png" alt-text="Screenshot of a logic app event subscription in the portal.":::
 
 ## Enable a managed identity in your logic app
 
