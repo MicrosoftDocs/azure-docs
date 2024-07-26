@@ -176,4 +176,4 @@ additionalContent:
         - title: Network security
           url: ../security/index.yml
         - title: Network monitoring and management
-          url: /azure/networking/monitoring-management/index.yml 
+          url: ../monitoring-management/index.yml 
