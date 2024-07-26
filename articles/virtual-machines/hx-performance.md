@@ -5,7 +5,7 @@ services: virtual-machines
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/23/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas

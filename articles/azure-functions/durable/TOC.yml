@@ -17,34 +17,29 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create durable function - C#
-    items: 
-      - name: In-process
-        href: durable-functions-create-first-csharp.md
-        displayName: get started, chaining
-      - name: Isolated worker process
-        href: durable-functions-isolated-create-first-csharp.md
-        displayName: get started, chaining
-  - name: Create durable function - JavaScript
+  - name: Create a Durable Functions app - C#
+    displayName: get started, chaining
+    href: durable-functions-isolated-create-first-csharp.md
+  - name: Create a Durable Functions app - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
-  - name: Create durable function - TypeScript
+  - name: Create a Durable Functions app - TypeScript
     displayName: get started, chaining
     href: quickstart-ts-vscode.md
-  - name: Create durable function - Python
+  - name: Create a Durable Functions app - Python
     displayName: get started, chaining
     href: quickstart-python-vscode.md
-  - name: Create durable function - PowerShell
+  - name: Create a Durable Functions app - PowerShell
     displayName: get started, chaining
     href: quickstart-powershell-vscode.md
-  - name: Create durable function - Java
+  - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Configure storage provider - Netherite
+  - name: Configure a storage provider - Netherite
     href: quickstart-netherite.md
-  - name: Configure storage provider - MSSQL
+  - name: Configure a storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Configure Durable Functions with Microsoft Entra ID
+  - name: Authenticate a Durable Functions app
     href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:

@@ -1017,7 +1017,7 @@ items:
       items:
       - name: Connector overview
         href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Amazon Marketplace Web Service
+      - name: Amazon Marketplace Web Service (Deprecated)
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon RDS for Oracle
         href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      

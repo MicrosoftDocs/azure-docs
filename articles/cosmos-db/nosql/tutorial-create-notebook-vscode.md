@@ -147,7 +147,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Add a new code cell
 
-1. Within the code cell, add the following code to upload data from this url: <https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>.
+1. Within the code cell, add the following code to upload data from this url: ``<https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>``.
     ```python
         import urllib.request
         import json
@@ -181,7 +181,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Add a new code cell.
 
-1. Within the code cell, add the following code to upload data from this url: <https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>.
+1. Within the code cell, add the following code to upload data from this url: ``<https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json>``.
     ```csharp
     using System.Net.Http;
     using System.Text.Json;
