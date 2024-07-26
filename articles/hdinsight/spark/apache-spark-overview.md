@@ -97,7 +97,7 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/). MLlib is a mac
 
 ### Spark streaming and real-time data analysis
 
-Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets. Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having complete support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
+Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. Spark already has connectors to ingest data from many sources like Kafka, Flume, X, ZeroMQ, or TCP sockets. Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having complete support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
 
 * [Overview of Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Overview of Apache Spark Structured Streaming](apache-spark-structured-streaming-overview.md)
