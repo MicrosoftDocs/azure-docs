@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Integrate Microsoft Teams breakout rooms
-titleSuffix: An Azure Communication Services how-to guide
+titleSuffix: An Azure Communication Services tutorial
 description: Use Azure Communication Services SDKs to access BreakoutRooms
 author: insravan
 ms.author: insravan
