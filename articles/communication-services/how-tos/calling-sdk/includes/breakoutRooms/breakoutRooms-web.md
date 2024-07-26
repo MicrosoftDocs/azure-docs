@@ -107,7 +107,7 @@ switch(event.type) {
       console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
       break;
     case "join":
-      const call = event.data;
+      const breakoutRoomCall = event.data;
       console.log(`Event data is a Teams call ${call.id}`);      
       break;
   }
