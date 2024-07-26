@@ -179,7 +179,7 @@ const displayName : string = breakoutRoom.displayName;
 ```js
 const threadId : string = breakoutRoom.threadId;
 ```
-- `threadId` : You can use chat thread ID to join chat of the breakout room. This is a readonly property.
+- `threadId` : You can use chat thread ID to join chat of the breakout room. This is a read-only property.
 
 ```js
 const state : BreakoutRoomState = breakoutRoom.state;
