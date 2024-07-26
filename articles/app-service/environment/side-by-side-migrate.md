@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 7/24/2024
+ms.date: 7/25/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -449,6 +449,10 @@ For ELB App Service Environments, get the public inbound IP address by running t
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.externalInboundIpAddresses
 ```
+
+> [!IMPORTANT]
+> If your migration includes a custom domain suffix, the default host name behavior for App Service Environment v3 is different than for App Service Environment v2. For App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. Review all your dependent resources, such as App Gateway, that use the host names of your apps to ensure they're updated to account for this behavior. For more information on App Service Environment feature differences between the different versions, see [App Service Environment version comparison](version-comparison.md). 
+> 
 
 ### 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 

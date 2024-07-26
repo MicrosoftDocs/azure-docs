@@ -191,9 +191,9 @@ Keep in mind that for App Service Environment (Isolated) tiers, you need to rede
 1. [Create a back up of the source app](../app-service/manage-backup.md).
 1. [Create an app in a new App Service plan, in the target region](../app-service/app-service-plan-manage.md#create-an-app-service-plan).
 1. [Restore the back up in the target app](../app-service/manage-backup.md)
-1. If you use a custom domain, [bind it preemptively to the target app](../app-service/amanage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
+1. If you use a custom domain, [bind it preemptively to the target app](../app-service/manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
 1. Configure everything else in your target app to be the same as the source app and verify your configuration.
-1. When you're ready for the custom domain to point to the target app, [remap the domain name](../app-service/amanage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
+1. When you're ready for the custom domain to point to the target app, [remap the domain name](../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
 
 
 ### Relocate using IaC
