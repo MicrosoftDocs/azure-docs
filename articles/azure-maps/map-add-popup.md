@@ -99,7 +99,7 @@ Popup templates make it easy to create data driven layouts for popups. The follo
 > [!NOTE]
 > By default, all content rendered use the popup template will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
 >
 > If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.

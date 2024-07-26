@@ -91,7 +91,7 @@ This document contains information about new features and other changes to the A
 
 - Support for new [drawing package 2.0] derived tilesets.
 
-- Support the possibility to select a facility when clicking on a feature that doesn't contain a facilityId, but has a levelId so that the facility can be inferred from the levelId.
+- Support the possibility to select a facility when selecting a feature that doesn't contain a facilityId, but has a levelId so that the facility can be inferred from the levelId.
 
 ### Changes (0.2.0)
 

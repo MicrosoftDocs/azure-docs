@@ -139,7 +139,7 @@ To edit a feature property using the attribute table
     ![A screenshot showing the attribute table.](./media/creator-indoor-maps/qgis/attribute-table.png)
 
     > [!NOTE]
-    > The attribute table shows each feature, with their properties, in a tabular form. It can be accessed by right-clicking on any layer in the **Layers** panel then selecting **Open Attribute Table**.
+    > The attribute table shows each feature, with their properties, in a tabular form. Right-click to access any layer in the **Layers** panel then select **Open Attribute Table**.
 
 1. Toggle edit mode on.
 
