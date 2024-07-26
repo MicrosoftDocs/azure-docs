@@ -297,18 +297,78 @@ Along with using Elasticsearch databases in Azure OpenAI Studio, you can also us
 
 ---
 
-## Deploy to a copilot (preview) or web app 
+## Deploy to a copilot (preview), Teams app (preview), or web app 
 
-After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI studio.
+After you connect Azure OpenAI to your data, you can deploy it using the **Deploy to** button in Azure OpenAI Studio.
 
 :::image type="content" source="../media/use-your-data/deploy-model.png" alt-text="A screenshot showing the model deployment button in Azure OpenAI Studio." lightbox="../media/use-your-data/deploy-model.png":::
 
-This gives you the option of deploying a standalone web app for you and your users to interact with chat models using a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
+This gives you multiple options for deploying your solution.
 
-You can also deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
+#### [Copilot (preview)](#tab/copilot)
+
+You can deploy to a copilot in [Copilot Studio](/microsoft-copilot-studio/fundamentals-what-is-copilot-studio) (preview) directly from Azure OpenAI Studio, enabling you to bring conversational experiences to various channels such as: Microsoft Teams, websites, Dynamics 365, and other [Azure Bot Service channels](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels). The tenant used in the Azure OpenAI service and Copilot Studio (preview) should be the same. For more information, see [Use a connection to Azure OpenAI On Your Data](/microsoft-copilot-studio/nlu-generative-answers-azure-openai).
 
 > [!NOTE]
 > Deploying to a copilot in Copilot Studio (preview) is only available in US regions.
+
+#### [Teams app (preview)](#tab/teams)
+
+A Teams app lets you bring conversational experience to your users in Teams to improve operational efficiency and democratize access of information. This Teams app is configured to users within your Azure account tenant and personal chat (non-group chat) scenarios.
+
+
+**Prerequisites**
+
+- The latest version of [Visual Studio Code](https://code.visualstudio.com/) installed.
+- The latest version of [Teams Toolkit](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) installed. This is a VS Code extension that creates a project scaffolding for your app.
+- [Node.js](https://nodejs.org/en/download/) (version 16 or 18) installed. For more information, see [Node.js version compatibility table for project type](/microsoftteams/platform/toolkit/build-environments#nodejs-version-compatibility-table-for-project-type).
+- [Microsoft Teams](https://www.microsoft.com/microsoft-teams/download-app) installed.
+- Sign in to your [Microsoft 365 developer account](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant) (using this link to get a test account: [Developer program](https://developer.microsoft.com/microsoft-365/dev-program)).
+    - Enable **custom Teams apps** and turn on **custom app uploading** in your account (instructions [here](/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading))
+- [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) installed. This is a cross-platform command-line tool to connect to Azure and execute administrative commands on Azure resources. For more information on setting up environment variables, see the [Azure SDK documentation](https://github.com/Azure/azure-sdk-for-go/wiki/Set-up-Your-Environment-for-Authentication).
+- Your Azure account has been assigned **Cognitive Services OpenAI user** or **Cognitive Services OpenAI Contributor** role of the Azure OpenAI resource you're using, allowing your account to make Azure OpenAI API calls. For more information, see [Using your data with Azure OpenAI securely](/azure/ai-services/openai/how-to/use-your-data-securely#using-the-api) and [Add role assignment to an Azure OpenAI resource](/azure/ai-services/openai/how-to/role-based-access-control#add-role-assignment-to-an-azure-openai-resource) for instructions on setting this role in the Azure portal. 
+
+
+You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Follow the steps below: 
+
+1. After you've added your data to the chat model, select **Deploy** and then **a new Teams app (preview)**. 
+
+1. Enter the name of your Teams app and download the resulting .zip file.
+
+1. Extract the .zip file and open the folder in Visual Studio Code.
+
+1. If you chose **API key** in the data connection step, manually copy and paste your Azure AI Search key into the `src\prompts\chat\config.json` file. Your Azure AI Search Key can be found in Azure OpenAI Studio Playground by selecting the **View code** button with the key located under Azure Search Resource Key. If you chose **System assigned managed identity**, you can skip this step. Learn more about different data connection options in the [Data connection](/azure/ai-services/openai/concepts/use-your-data?tabs=ai-search#data-connection) section.
+
+1. Open the Visual Studio Code terminal and log into Azure CLI, selecting the account that you assigned **Cognitive Service OpenAI User** role to. Use the `az login` command in the terminal to log in.
+
+1. To debug your app, press the **F5** key or select **Run and Debug** from the left pane. Then select your debugging environment from the dropdown list. A webpage opens where you can chat with your custom copilot.
+    > [!NOTE]
+    > The citation experience is available in **Debug (Edge)** or **Debug (Chrome)** only.
+
+1. After you've tested your copilot, you can provision, deploy, and publish your Teams app by selecting the **Teams Toolkit Extension** on the left pane in Visual Studio Code. Run the separate provision, deploy, and publish stages in the **Lifecycle** section. You may be asked to sign in to your Microsoft 365 account where you have permissions to upload custom apps and your Azure Account.
+  
+1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision))
+
+1. Assign the **Cognitive Service OpenAI User** role to your deployed App Service resource 
+    1. Go to the Azure portal and select the newly created Azure App Service resource
+    1. Go to **settings** -> **identity** -> **enable system assigned identity** 
+        1. Select **Azure role assignments** and then **add role assignments**. Specify the following parameters:
+           * Scope: resource group 
+           * Subscription: the subscription of your Azure OpenAI resource 
+           * Resource group of your Azure OpenAI resource 
+           * Role: **Cognitive Service OpenAI user**  
+
+1. Deploy your app to Azure by following the instructions in [Deploy to the cloud](/microsoftteams/platform/toolkit/deploy). 
+
+1. Publish your app to Teams by following the instructions in [Publish Teams app](/microsoftteams/platform/toolkit/publish).
+
+The README file in your Teams app has additional details and tips. Also, see [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
+
+#### [Web app](#tab/web-app)
+
+Deploying to a standalone web app lets you and your users to interact with chat models through a graphical user interface. See [Use the Azure OpenAI web app](../how-to/use-web-app.md) for more information. 
+
+---
 
 ## Use Azure OpenAI On Your Data securely
 
@@ -519,14 +579,18 @@ These estimates will vary based on the values set for the above parameters. For 
 
 The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
-| Model | Max tokens for system message | Max tokens for model response |
-|--|--|--|
-| GPT-35-0301 | 400 | 1500 |
-| GPT-35-0613-16K | 1000 | 3200 |
-| GPT-4-0613-8K | 400 | 1500 |
-| GPT-4-0613-32K | 2000 | 6400 |
+| Model | Max tokens for system message | 
+|--|--|
+| GPT-35-0301 | 400 |
+| GPT-35-0613-16K | 1000 |
+| GPT-4-0613-8K | 400 |
+| GPT-4-0613-32K | 2000 |
+| GPT-35-turbo-0125 | 2000 |
+| GPT-4-turbo-0409 | 4000 |
+| GPT-4o | 4000 |
+| GPT-4o-mini | 4000 |
 
-The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message). To see the maximum tokens for the model response, see the [models article](./models.md#gpt-4-and-gpt-4-turbo-models). Additionally, the following also consume tokens:
 
 
 
@@ -554,7 +618,7 @@ token_output = TokenEstimator.estimate_tokens(input_text)
 
 ## Troubleshooting 
 
-To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI studio. Here are some of the common errors and warnings: 
+To troubleshoot failed operations, always look out for errors or warnings specified either in the API response or Azure OpenAI Studio. Here are some of the common errors and warnings: 
 
 ### Failed ingestion jobs
 

@@ -1,8 +1,6 @@
 ---
 title: Reliability recommendations
 description: Full list of available reliability recommendations in Advisor.
-author: mabrahms
-ms.author: v-mabrahms
 ms.topic: article
 ms.date: 12/11/2023
 ---

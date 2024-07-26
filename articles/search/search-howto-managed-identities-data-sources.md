@@ -11,7 +11,7 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 07/25/2024
 ---
 
 # Configure a search service to connect using a managed identity in Azure AI Search
@@ -200,6 +200,7 @@ You can use a preview Management REST API instead of the portal to assign a user
    + "type" is the type of identity. Valid values are "SystemAssigned", "UserAssigned", or "SystemAssigned, UserAssigned" for both. A value of "None" clears any previously assigned identities from the search service.
 
    + "userAssignedIdentities" includes the details of the user assigned managed identity. This identity [must already exist](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) before you can specify it in the Update Service request.
+  
 
 ---
 
@@ -313,6 +314,7 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
 
  An Azure OpenAI embedding skill and vectorizer in AI Search target the endpoint of an Azure OpenAI service hosting an embedding model. The endpoint is specified in the [Azure OpenAI embedding skill definition](cognitive-search-skill-azure-openai-embedding.md) and/or in the [Azure OpenAI vectorizer definition](vector-search-how-to-configure-vectorizer.md). The system-managed identity is used if configured and if the "apikey" and "authIdentity" are empty. The "authIdentity" property is used for user-assigned managed identity only.
 
+**System-managed identity example:**
  
 ```json
 {
@@ -344,6 +346,51 @@ A custom skill targets the endpoint of an Azure function or app hosting custom c
         "resourceUri": "https://url.openai.azure.com",
         "deploymentId": "text-embedding-ada-002",
         "modelName": "text-embedding-ada-002"
+      }
+    }
+  ]
+```
+
+**User-assigned managed identity example:**
+
+```json
+{
+  "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+  "description": "Connects a deployed embedding model.",
+  "resourceUri": "https://url.openai.azure.com/",
+  "deploymentId": "text-embedding-ada-002",
+  "modelName": "text-embedding-ada-002",
+  "inputs": [
+    {
+      "name": "text",
+      "source": "/document/content"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "embedding"
+    }
+  ],
+  "authIdentity": {
+    "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+    "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+   }
+}
+```
+
+```json
+ "vectorizers": [
+    {
+      "name": "my_azure_open_ai_vectorizer",
+      "kind": "azureOpenAI",
+      "azureOpenAIParameters": {
+        "resourceUri": "https://url.openai.azure.com",
+        "deploymentId": "text-embedding-ada-002",
+        "modelName": "text-embedding-ada-002"
+        "authIdentity": {
+            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+            "userAssignedIdentity": "/subscriptions/<subscription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-managed-identity-name>"
+          }
       }
     }
   ]

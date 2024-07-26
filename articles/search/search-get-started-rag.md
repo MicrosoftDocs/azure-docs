@@ -33,6 +33,8 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Configure Azure OpenAI to use a system-assigned managed identity:
 
     1. In the Azure portal, find your Azure OpenAI resource.
@@ -41,17 +43,24 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
     1. On the System assigned tab, set status to **On**.
 
-1. Configure Azure AI Search for role-based access and assign roles:
+1. Configure Azure AI Search for role-based access:
 
     1. In the Azure portal, find your Azure AI Search service.
 
     1. On the left menu, select **Settings** > **Keys**, and then select either **Role-based access control** or **Both**.
 
+1. Assign roles:
+
     1. On the left menu, select **Access control (IAM)**.
 
-    1. Add the following role assignments for the Azure OpenAI managed identity: **Search Index Data Reader**, **Search Service Contributor**.
+    1. On Azure AI Search, add two role assignments for the Azure OpenAI managed identity: 
 
-1. Assign yourself to the **Cognitive Services OpenAI User** role on Azure OpenAI. This is the only role you need for query workloads.
+       - **Search Index Data Reader**
+       - **Search Service Contributor**
+
+    1. On Azure OpenAI, select **Access control (IAM)** to assign yourself to a role. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system: 
+
+       - **Cognitive Services OpenAI User**
 
 It can take several minutes for permissions to take effect.
 
@@ -108,7 +117,31 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. Run the following query to test your index: `hotels near the ocean with beach access and good views`.
 
+   Output should look similar to the following example. Results that are returned directly from the search engine consist of fields and their verbatim values, along with metadata like a search score and a semantic ranking score and caption if you use semantic ranking.
+
+   ```
+      "@search.score": 5.600783,
+      "@search.rerankerScore": 2.4191176891326904,
+      "@search.captions": [
+        {
+          "text": "Contoso Ocean Motel. Budget. pool\r\nair conditioning\r\nbar. Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away..",
+          "highlights": "Contoso Ocean Motel. Budget.<em> pool\r\nair conditioning\r\nbar. O</em>ceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+        }
+      ],
+      "HotelId": "41",
+      "HotelName": "Contoso Ocean Motel",
+      "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+      "Category": "Budget",
+      "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+      ],
+   ```
+
 ## Get service endpoints
+
+In the remaining sections, you set up API calls to Azure OpenAI and Azure AI Search. Get the service endpoints so that you can provide them as variables in your code.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -122,7 +155,9 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 ## Set up the query and chat thread
 
-This section uses Visual Studio Code and Python to call the chat APIs on Azure OpenAI.
+This section uses Visual Studio Code and Python to call the chat completion APIs on Azure OpenAI.
+
+1. Start Visual Studio Code and [open the .ipynb file](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Quickstart-RAG) or create a new Python file.
 
 1. Install the following Python packages.
 
@@ -140,11 +175,10 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     AZURE_DEPLOYMENT_MODEL: str = "gpt-35-turbo"
    ```
 
-1. Specify query parameters. The query is a keyword search using semantic ranking. The search engine returns up to 50 matches, but the model returns just the top 5 in the response. If you can't enable semantic ranking on your search service, set the value to false.
+1. Run the following code to set query parameters. The query is a keyword search using semantic ranking. In a keyword search, the search engine returns up to 50 matches, but only the top 5 are provided to the model. If you can't enable semantic ranking on your search service, set the value to false.
 
    ```python
    # Set query parameters for grounding the conversation on your search index
-    k=50
     search_type="text"
     use_semantic_reranker=True
     sources_to_include=5
@@ -157,7 +191,6 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
     from azure.core.credentials_async import AsyncTokenCredential
     from azure.identity.aio import get_bearer_token_provider
     from azure.search.documents.aio import SearchClient
-    from azure.search.documents.models import VectorizableTextQuery, HybridSearch
     from openai import AsyncAzureOpenAI
     from enum import Enum
     from typing import List, Optional
@@ -184,7 +217,7 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
         HYBRID = "hybrid"
     
     # This function retrieves the selected fields from the search index
-    async def get_sources(search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5, k: int = 50) -> List[str]:
+    async def get_sources(search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5) -> List[str]:
         search_type == SearchType.TEXT,
         response = await search_client.search(
             search_text=query,
@@ -218,8 +251,8 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
                 "content": message
             })
     
-        async def append_grounded_message(self, search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5, k: int = 50):
-            sources = await get_sources(search_client, query, search_type, use_semantic_reranker, sources_to_include, k)
+        async def append_grounded_message(self, search_client: SearchClient, query: str, search_type: SearchType, use_semantic_reranker: bool = True, sources_to_include: int = 5):
+            sources = await get_sources(search_client, query, search_type, use_semantic_reranker, sources_to_include)
             sources_formatted = "\n".join([f'{document["HotelName"]}:{document["Description"]}:{document["Tags"]}' for document in sources])
             self.append_message(role="user", message=GROUNDED_PROMPT.format(query=query, sources=sources_formatted))
             self.search_results.append(
@@ -258,12 +291,26 @@ This section uses Visual Studio Code and Python to call the chat APIs on Azure O
             query="Can you recommend a few hotels near the ocean with beach access and good views",
             search_type=SearchType(search_type),
             use_semantic_reranker=use_semantic_reranker,
-            sources_to_include=sources_to_include,
-            k=k)
+            sources_to_include=sources_to_include)
         await chat_thread.get_openai_response(openai_client=openai_client, model=chat_deployment)
     
     print(chat_thread.get_last_message()["content"])
     ```
+
+    Output is from Azure OpenAI, and it consists of recommendations for several hotels. Here's an example of what the output might look like:
+
+    ```
+    Based on your criteria, we recommend the following hotels:
+    
+    - Contoso Ocean Motel: located right on the beach and has private balconies with ocean views. They also have indoor and outdoor pools. It's located on the boardwalk near shops and art entertainment.
+    - Northwind Plaza & Suites: offers ocean views, free Wi-Fi, full kitchen, and a free breakfast buffet. Although not directly on the beach, this hotel has great views and is near the aquarium. They also have a pool.
+    
+    Several other hotels have views and water features, but do not offer beach access or views of the ocean.
+    ```
+
+    To experiment further, change the query and rerun the last step to better understand how the model works with your data.
+
+    You can also modify the prompt to change the tone or structure of the output.
 
 ## Clean up
 

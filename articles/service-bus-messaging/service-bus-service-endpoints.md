@@ -2,19 +2,19 @@
 title: Configure virtual network service endpoints for Azure Service Bus
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 02/16/2023
+ms.date: 07/24/2024
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Allow access to Azure Service Bus namespace from specific virtual networks
-The integration of Service Bus with [Virtual Network (VNet) service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
+The integration of Service Bus with [Virtual Network service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
-Once configured to be bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace will no longer accept traffic from anywhere but authorized virtual network(s) and, optionally, specific internet IP addresses. From the virtual network perspective, binding a Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
+Once configured to be bound to at least one virtual network subnet service endpoint, the respective Service Bus namespace will no longer accept traffic from anywhere but the authorized virtual networks and, optionally, specific internet IP addresses. From the virtual network perspective, binding a Service Bus namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service.
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Service Bus namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range.
 
 ## Important points
-- Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using VNet service endpoints with Service Bus, you shouldn't enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier doesn't support VNets. The endpoint is restricted to Premium tier namespaces only.
+- Virtual Networks are supported only in [Premium tier](service-bus-premium-messaging.md) Service Bus namespaces. When using virtual network service endpoints with Service Bus, you shouldn't enable these endpoints in applications that mix standard and premium tier Service Bus namespaces. Because the standard tier doesn't support virtual networks. The endpoint is restricted to Premium tier namespaces only.
 - Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when network service endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
     The following Microsoft services are required to be on a virtual network
@@ -22,7 +22,7 @@ The result is a private and isolated relationship between the workloads bound to
     - Azure Functions
 - Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 
-## Advanced security scenarios enabled by VNet integration 
+## Advanced security scenarios enabled by virtual network integration 
 
 Solutions that require tight and compartmentalized security, and where virtual network subnets provide the segmentation between the compartmentalized services, generally still need communication paths between services residing in those compartments.
 
@@ -30,7 +30,7 @@ Any immediate IP route between the compartments, including those carrying HTTPS 
  
 That means your security sensitive cloud solutions not only gain access to Azure industry-leading reliable and  scalable asynchronous messaging capabilities, but they can now use messaging to create communication paths between secure solution compartments that are inherently more secure than what is achievable with any peer-to-peer communication mode, including HTTPS and other TLS-secured socket protocols.
 
-## Binding Service Bus to Virtual Networks
+## Binding Service Bus to virtual networks
 
 *Virtual network rules* are the firewall security feature that controls whether your Azure Service Bus server accepts connections from a particular virtual network subnet.
 
@@ -72,7 +72,7 @@ This section shows you how to use Azure portal to add a virtual network service 
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.       
     - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, Service Bus accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
-1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new VNet.
+1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. Select **+ Create new virtual network** if you want to create a new virtual network.
 
     :::image type="content" source="./media/service-endpoints/add-vnet-menu.png" lightbox="./media/service-endpoints/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network button on the toolbar.":::
 
@@ -80,7 +80,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal prompts you to enable it.
    
-    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Image showing the selection of VNet and subnet.":::
+    :::image type="content" source="./media/service-endpoints/select-subnet.png" alt-text="Screenshot showing the selection of virtual network and subnet.":::
 4. You should see the following successful message after the service endpoint for the subnet is enabled for **Microsoft.ServiceBus**. Select **Add** at the bottom of the page to add the network. 
 
     :::image type="content" source="./media/service-endpoints/subnet-service-endpoint-enabled.png" alt-text="Image showing the success message of enabling the service endpoint.":::
@@ -221,13 +221,13 @@ Use the following Azure PowerShell commands to add, list, remove, update, and de
 - [`New-AzServiceBusVirtualNetworkRuleConfig`](/powershell/module/az.servicebus/new-azservicebusipruleconfig) and [`Set-AzServiceBusNetworkRuleSet`](/powershell/module/az.servicebus/set-azservicebusnetworkruleset) together to add a virtual network rule.
 
 
-## default action and public network access 
+## Default action and public network access 
 
 ### REST API
 
-The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network (VNet) rules. That is, if you didn't have any IP filters or VNet rules, it's treated as `Allow`. 
+The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network rules. That is, if you didn't have any IP filters or virtual network rules, it's treated as `Allow`. 
 
-From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and VNet rules are enforced. If the default action is set to `Allow`, IP filters and VNet rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
+From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow`, to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and virtual network rules are enforced. If the default action is set to `Allow`, IP filters and virtual network rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
@@ -238,7 +238,7 @@ For more information about these properties, see [Create or Update Network Rule 
 
 ### Azure portal
 
-Azure portal always uses the latest API version to get and set properties.  If you had previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and VNet rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
+Azure portal always uses the latest API version to get and set properties. If you had previously configured your namespace using **2021-01-01-preview and earlier** with `defaultAction` set to `Deny`, and specified zero IP filters and virtual network rules, the portal would have previously checked **Selected Networks** on the **Networking** page of your namespace. Now, it checks the **All networks** option. 
 
 :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 
