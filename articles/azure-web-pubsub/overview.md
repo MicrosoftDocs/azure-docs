@@ -16,14 +16,14 @@ With the recent surge in interest in AI, Web PubSub has become an invaluable too
 
 When an app's usage is small, developers typically opt for a polling mechanism to provide real-time communication between server and clients - clients send repeated HTTP requests to server over a time interval. However, developers often report that while polling mechanism is straightforward to implement, it suffers three important drawbacks. 
 1. Outdated data. 
-2. Inconsistenct data. 
+2. Inconsistent data. 
 3. Wasted bandwidth and compute resources.
 
 These drawbacks are the primary motivations that drive developers to look for alternatives. This article provides an overview of Azure Web PubSub service and how developers can use it to build real-time communication channel fast and at scale.
 
 ## What is Azure Web PubSub service used for?
 
-Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilities the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscrbes to data updates. 
+Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilities the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates. 
 
 Azure Web PubSub service is used in a multitude of industries and app scenarios where data is time-sensitive. Here's a partial list of some common use cases. 
 
@@ -42,7 +42,7 @@ Azure Web PubSub service is used in a multitude of industries and app scenarios 
 
 **Built-in support for large-scale client connections and highly available architectures:**
 
-Azure Web PubSub service is designed for large-scale, real-time applications. With a single Web PubSub resource, it can scale to one million concurrent connections, which is sufficient for most cases. When multiple resources are used together, the service allows you to scale beyond one million concurrent connections. Meanwhile, it also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
+Azure Web PubSub service is designed for large-scale, real-time applications. With a single Web PubSub resource, it can scale to 1 million concurrent connections, which is sufficient for most cases. When multiple resources are used together, the service allows you to scale beyond 1 million concurrent connections. Meanwhile, it also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
 
 **Support for a wide variety of client SDKs and programming languages:**
 
