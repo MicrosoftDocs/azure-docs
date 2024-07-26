@@ -48,12 +48,11 @@ Some arguments that are available for every Azure CLI command
 | clusterVersions[]                 | The list of Cluster versions that the Cluster Manager supports. It is used as an input in the cluster clusterVersion property.                                                                              |
 | provisioningState                 | The provisioning status of the latest operation on the Cluster Manager. One of: Succeeded, Failed, Canceled, Provisioning, Accepted, Updating                                                                                                                                                                            |
 | detailedStatus                    | The detailed statuses that provide additional information about the status of the Cluster Manager.                                                                                                                                           |
-| detailedStatusMessage             | The descriptive message about the current detailed status.                                                                                                                                           
-                                         |
+| detailedStatusMessage             | The descriptive message about the current detailed status.                                                                                                                                   |
 
 ## Cluster Manager Identity
 
-Starting with the 2024-06-01-preview API version, Cluster Manager can be assigned managed identity. Both System-assigned and User-Assigned managed identities are supported.
+Starting with the 2024-06-01-preview API version, a customer can assign managed identity to a Cluster Manager. Both System-assigned and User-Assigned managed identities are supported.
 
 If a Cluster Manager is created with the User-assigned managed identity, a customer is required to provision access to that identity for the Nexus platform.
 Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for `AFOI-NC-MGMT-PME-PROD` Entra ID. It is a known limitation of the platform that will be addressed in the future.
