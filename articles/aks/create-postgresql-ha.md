@@ -12,6 +12,8 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you create the infrastructure needed to deploy a highly available PostgreSQL database on AKS using the [CloudNativePG (CNPG)](https://cloudnative-pg.io/) operator.
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Before you begin
 
 * Review the deployment overview and make sure you meet all the prerequisites in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
@@ -113,7 +115,7 @@ In this section, you create a user-assigned managed identity (UAMI) to allow the
     echo "ClientId: $AKS_UAMI_WORKLOAD_CLIENTID"
     ```
 
-The object ID is a unique identifier for the client ID (also known as the application ID) that uniquely identifies a security principal of type *Application* within the Entra ID tenant. The resource ID is a unique identifier to manage and locate a resource in Azure. These values are required to enabled AKS workload identity.
+The object ID is a unique identifier for the client ID (also known as the application ID) that uniquely identifies a security principal of type *Application* within the Microsoft Entra ID tenant. The resource ID is a unique identifier to manage and locate a resource in Azure. These values are required to enabled AKS workload identity.
 
 The CNPG operator automatically generates a service account called *postgres* that you use later in the guide to create a federated credential that enables OAuth access from PostgreSQL to Azure Storage.
 
