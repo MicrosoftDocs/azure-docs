@@ -20,12 +20,12 @@ These features are generally available in [2024-07-01 REST API](/rest/api/search
 
 As a first step, review the three approaches for reducing the amount of storage used by vector fields. These approaches aren't mutually exclusive and can be combined for further reductions in vector size.
 
-We recommend built-in quantization because it compresses vector size in memory *and* on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for `Float16`) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
+We recommend built-in quantization because it compresses vector size in memory *and* on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for float16) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
 
 | Approach | Why use this option |
 |----------|---------------------|
-| [Add scalar or binary quantization](#option-1-configure-quantization) | Use quantization to compress native `Float32` or `Float16`  embeddings to `Int8` (scalar) or `Byte` (binary). This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like `Int8` or `Byte` produce vector indexes that are less content-rich than those with larger embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in quantization of `Float32` or `Float16` fields and can't be used on embeddings that undergo custom quantization. |
-| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as `Float16`, `Int16`, `Int8`, and `byte` (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native `Float32` embeddings produced by most models to `Float16`. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
+| [Add scalar or binary quantization](#option-1-configure-quantization) | Use quantization to compress native float32 or float16  embeddings to  INT8  (scalar) or Byte (binary). This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like INT8 or Byte produce vector indexes that are less content-rich than those with larger embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in quantization of float32 or float16 fields and can't be used on embeddings that undergo custom quantization. |
+| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as float16, INT16,  INT8, and Byte (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native float32 embeddings produced by most models to float16. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
 | [Eliminate optional storage of retrievable vectors](#option-3-set-the-stored-property-to-remove-retrievable-storage) | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 
 All of these options are defined on an empty index. To implement any of them, use the Azure portal, REST APIs, or an Azure SDK package targeting that API version.
@@ -34,23 +34,25 @@ After the index is defined, you can load and index documents as a separate step.
 
 ## Option 1: Configure quantization
 
-Quantization is recommended because it reduces memory and disk storage requirements, and it adds reranking and oversampling to offset the effects of a smaller index.
+Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements. To offset the effects of a smaller index, built-in quantization adds reranking and oversampling.
 
-Quantization applies to vector fields containing `Float32` or `Float16` source data.
+Quantization applies to vector fields containing float32 or float16 source data.
 
-- Scalar quantization converts floats into narrow data types, such as `Int8`.
+- Scalar quantization converts floats into narrow data types, such as INT8.
 
 - Binary quantization converts floats into binary form, which is necessary for handling data as a packed binary data type. 
 
 To use built-in quantization, follow these steps:
 
 > [!div class="checklist"]
-> - Use [Create Index](/rest/api/searchservice/indexes/create) or [Create Or Update Index](/rest/api/searchservice/indexes/create-or-update) to add vector compression 
+> - Use [Create Index](/rest/api/searchservice/indexes/create) or [Create Or Update Index](/rest/api/searchservice/indexes/create-or-update) to specify vector compression 
 > - Add `vectorSearch.compressions` to a search index
 > - Add a `scalarQuantization` or `binaryQuantization` configuration and give it a name
 > - Set optional properties to mitigate the effects of lossy indexing
 > - Create a new vector profile that uses the named configuration
 > - Create a new vector field having the new vector profile
+> - Load the index with float32 or float16 data that's quantized during indexing with the configuration you defined
+> - Optionally, [query quantized data](#query-a-quantized-vector-field-using-oversampling) using the oversampling parameter if you want to override the default
 
 ### Add "compressions" to a search index
 
@@ -66,14 +68,14 @@ POST https://[servicename].search.windows.net/indexes?api-version=2024-07-01
   "fields": [
     { "name": "Id", "type": "Edm.String", "key": true, "retrievable": true, "searchable": true, "filterable": true },
     { "name": "content", "type": "Edm.String", "retrievable": true, "searchable": true },
-    { "name": "vector-content", "type": "Collection(Edm.Single)", "retrievable": false, "searchable": true },
+    { "name": "vectorContent", "type": "Collection(Edm.Single)", "retrievable": false, "searchable": true },
   ],
   "vectorSearch": {
         "profiles": [ ],
         "algorithms": [ ],
         "compressions": [
           {
-            "name": "mySQ8",
+            "name": "use-scalar",
             "kind": "scalarQuantization",
             "scalarQuantizationParameters": {
               "quantizedDataType": "int8"
@@ -82,7 +84,7 @@ POST https://[servicename].search.windows.net/indexes?api-version=2024-07-01
             "defaultOversampling": 10
           },
           {
-            "name": "myBQ",
+            "name": "use-binary",
             "kind": "binaryQuantization",
             "rerankWithOriginalVectors": true,
             "defaultOversampling": 10
@@ -114,33 +116,33 @@ Within the profile, you must use the Hierarchical Navigable Small Worlds (HNSW) 
    "vectorSearch": {
        "profiles": [
           {
-             "name": "my-new-vector-profile-for-scalar",
-             "compression": "mySQ8", 
-             "algorithm": "myHnsw",
+             "name": "vector-profile-hnsw-scalar",
+             "compression": "use-scalar", 
+             "algorithm": "use-hnsw",
              "vectorizer": null
           },
           {
-             "name": "my-new-vector-profile-for-binary",
-             "compression": "myBQ", 
-             "algorithm": "myHnsw",
+             "name": "vector-profile-hnsw-binary",
+             "compression": "use-binary", 
+             "algorithm": "use-hnsw",
              "vectorizer": null
           }
         ]
    }
    ```
 
-1. Assign a vector profile to a *new* vector field. The data type of the field is either `Float32` or `Float16`. 
+1. Assign a vector profile to a *new* vector field. The data type of the field is either float32 or float16. 
 
-   In Azure AI Search, the Entity Data Model (EDM) equivalents of `Float32` and `Float16` types are `Collection(Edm.Single)` and `Collection(Edm.Half)`, respectively. 
+   In Azure AI Search, the Entity Data Model (EDM) equivalents of float32 and float16 types are `Collection(Edm.Single)` and `Collection(Edm.Half)`, respectively. 
 
    ```json
    {
-      "name": "vector-content",
+      "name": "vectorContent",
       "type": "Collection(Edm.Single)",
       "searchable": true,
       "retrievable": true,
       "dimensions": 1536,
-      "vectorSearchProfile": "my-new-vector-profile-for-scalar",
+      "vectorSearchProfile": "vector-profile-hnsw-scalar",
    }
    ```
 
@@ -160,9 +162,9 @@ It's particularly effective for embeddings with dimensions greater than 1024. Fo
 
 ## Option 2: Assign narrow data types to vector fields
 
-An easy way to reduce vector size is to store embeddings in a smaller data format. Most embedding models output 32-bit floating point numbers, but if you quantize your vectors, or if your embedding model supports it natively, output might be Float 16, `Int16`, or `Int8`, which is significantly smaller than Float 32. You can accommodate these smaller vector sizes by assigning a narrow data type to a vector field. In the vector index, narrow data types consume less storage.
+An easy way to reduce vector size is to store embeddings in a smaller data format. Most embedding models output 32-bit floating point numbers, but if you quantize your vectors, or if your embedding model supports it natively, output might be float16, INT16, or INT8, which is significantly smaller than float32. You can accommodate these smaller vector sizes by assigning a narrow data type to a vector field. In the vector index, narrow data types consume less storage.
 
-1. Review the [data types used for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields):
+1. Review the [data types used for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) for recommended usage:
 
    - `Collection(Edm.Single)` 32-bit floating point (default)
    - `Collection(Edm.Half)` 16-bit floating point (narrow)
@@ -172,9 +174,9 @@ An easy way to reduce vector size is to store embeddings in a smaller data forma
 
 1. From that list, determine which data type is valid for your embedding model's output, or for vectors that undergo custom quantization.
 
-   The following table provides links to several embedding models that can use a narrow data type (`Collection(Edm.Half)`) without extra quantization. You can cast from `Float32` to `Float16` (or `Collection(Edm.Half)`) with no extra work.
+   The following table provides links to several embedding models that can use a narrow data type (`Collection(Edm.Half)`) without extra quantization. You can cast from float32 to float16 (using `Collection(Edm.Half)`) with no extra work.
 
-   | Embedding model        | Native output | Valid types in Azure AI Search |
+   | Embedding model        | Native output | Assign this type in Azure AI Search |
    |------------------------|---------------|--------------------------------|
    | [text-embedding-ada-002](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
    | [text-embedding-3-small](/azure/ai-services/openai/concepts/models#embeddings) | `Float32` | `Collection(Edm.Single)` or `Collection(Edm.Half)` |
@@ -189,10 +191,10 @@ An easy way to reduce vector size is to store embeddings in a smaller data forma
 
 1. Check the results. Assuming the vector field is marked as retrievable, use [Search explorer](search-explorer.md) or [Search - POST](/rest/api/searchservice/documents/search-post?) to verify the field content matches the data type.
 
+   To check vector index size, use the Azure portal or the [GET Statistics (REST API)](/rest/api/searchservice/indexes/get-statistics).
+
 <!-- 
    Evidence of choosing the wrong data type, for example choosing `int8` for a `float32` embedding, is a field that's indexed as an array of zeros. If you encounter this problem, start over. -->
-
-   To check vector index size, use the Azure portal or the [GET Statistics (REST API)](/rest/api/searchservice/indexes/get-statistics).
 
 > [!NOTE]
 > The field's data type is used to create the physical data structure. If you want to change a data type later, either drop and rebuild the index, or create a second field with the new definition.
@@ -208,15 +210,15 @@ Remember that the `stored` attribution is irreversible. It's set during index cr
 The following example shows the fields collection of a search index. Set `stored` to false to permanently remove retrievable storage for the vector field.
 
    ```http
-   PUT https://[service-name].search.windows.net/indexes/[index-name]?api-version=2024-07-01 
+   PUT https://[service-name].search.windows.net/indexes/demo-index?api-version=2024-07-01 
       Content-Type: application/json  
       api-key: [admin key]  
     
         { 
-          "name": "myindex", 
+          "name": "demo-index", 
           "fields": [ 
             { 
-              "name": "myvector", 
+              "name": "vectorContent", 
               "type": "Collection(Edm.Single)", 
               "retrievable": false, 
               "stored": false, 
@@ -241,7 +243,7 @@ The following example shows the fields collection of a search index. Set `stored
 
 Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
 
-- "contentVector" provides a narrow data type example, recasting the original `Float32` values to `Float16`, expressed as `Collection(Edm.Half)` in the search index.
+- "contentVector" provides a narrow data type example, recasting the original float32 values to float16, expressed as `Collection(Edm.Half)` in the search index.
 - "contentVector" also has `stored` set to false. Extra embeddings used in a query response aren't stored. When `stored` is false, `retrievable` must also be false.
 - "summaryVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. Compressed vector fields must use HNSW navigation.
 
@@ -298,7 +300,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "retrievable": false,
             "dimensions": 1536,
             "stored": true,
-            "vectorSearchProfile": "my-vector-profile-no-compression"
+            "vectorSearchProfile": "vector-profile-eknn"
         },
         {
             "name": "contentVector",
@@ -307,7 +309,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "retrievable": false,
             "dimensions": 1536,
             "stored": false,
-            "vectorSearchProfile": "my-vector-profile-no-compression"
+            "vectorSearchProfile": "vector-profile-hnsw-cosine"
         },
         {
             "name": "summaryVectorCompressed",
@@ -316,13 +318,13 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             "retrievable": false,
             "dimensions": 1536,
             "stored": false,
-            "vectorSearchProfile": "my-vector-profile-with-sq8-compression"
+            "vectorSearchProfile": "vector-profile-hnsw-scalar"
         }
     ],
 "vectorSearch": {
     "compressions": [
         {
-            "name": "my-scalar-quantization",
+            "name": "use-scalar",
             "kind": "scalarQuantization",
             "rerankWithOriginalVectors": true,
             "defaultOversampling": 10.0,
@@ -331,7 +333,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
                 }
         },
         {
-            "name": "my-binary-quantization",
+            "name": "use-binary",
             "kind": "binaryQuantization",
             "rerankWithOriginalVectors": true,
             "defaultOversampling": 10.0
@@ -339,7 +341,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
     ],
     "algorithms": [
         {
-            "name": "my-hnsw-vector-config-1",
+            "name": "vector-config-hnsw-cosine",
             "kind": "hnsw",
             "hnswParameters": 
             {
@@ -350,7 +352,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             }
         },
         {
-            "name": "my-hnsw-vector-config-2",
+            "name": "vector-config-hnsw-euclidean",
             "kind": "hnsw",
             "hnswParameters": 
             {
@@ -359,7 +361,7 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             }
         },
         {
-            "name": "my-eknn-vector-config",
+            "name": "vector-config-eknn",
             "kind": "exhaustiveKnn",
             "exhaustiveKnnParameters": 
             {
@@ -367,29 +369,28 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
             }
         }
     ],
-    "profiles": [      
+    "profiles": [
         {
-            "name": "my-vector-profile-with-sq8-compression",
-            "compression": "my-scalar-quantization",
-            "algorithm": "my-hnsw-vector-config-1",
-            "vectorizer": null
-        },
-        {
-            "name": "my-vector-profile-with-bq-compression",
-            "compression": "my-binary-quantization",
-            "algorithm": "my-hnsw-vector-config-1",
-            "vectorizer": null
-        },
-        {
-            "name": "my-vector-profile-no-compression",
+            "name": "vector-profile-hnsw",
             "compression": null,
-            "algorithm": "my-hnsw-vector-config-2",
+            "algorithm": "vector-config-hnsw-cosine",
+            "vectorizer": null
+        },        {
+            "name": "vector-profile-eknn",
+            "compression": null,
+            "algorithm": "vector-config-eknn",
             "vectorizer": null
         },
         {
-            "name": "my-vector-profile-no-compression-eknn",
-            "compression": null,
-            "algorithm": "my-eknn-vector-config",
+            "name": "vector-profile-hnsw-scalar",
+            "compression": "use-scalar",
+            "algorithm": "vector-config-hnsw-cosine",
+            "vectorizer": null
+        },
+        {
+            "name": "vector-profile-hnsw-binary",
+            "compression": "use-binary",
+            "algorithm": "vector-config-hnsw-euclidean",
             "vectorizer": null
         }
     ]
@@ -406,7 +407,7 @@ On the query, you can override the oversampling default value. For example, if `
 You can set the oversampling parameter even if the index doesn't explicitly have a `rerankWithOriginalVectors` or `defaultOversampling` definition. Providing `oversampling` at query time overrides the index settings for that query and executes the query with an effective `rerankWithOriginalVectors` as true.
 
 ```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-07-01   
+POST https://[service-name].search.windows.net/indexes/demo-index/docs/search?api-version=2024-07-01   
   Content-Type: application/json   
   api-key: [admin key]   
 
