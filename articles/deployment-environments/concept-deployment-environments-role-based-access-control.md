@@ -13,11 +13,13 @@ ms.date: 07/27/2024
 ---
 # Azure role-based access control in Azure Deployment Environments
 
-This article describes the different built-in roles that Azure Deployment Environments supports, and how they map to organizational roles like platform engineer and developer team lead.
+This article describes the different built-in roles that Azure Deployment Environments supports, and how they map to organizational roles like platform engineer and dev manager.
 
-Azure role-based access control (RBAC) specifies built-in role definitions that outline the permissions to be applied. You assign a user or group this role definition via a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription. In the next section, you learn which [built-in roles](#) Azure Deployment Environments supports.
+Azure role-based access control (RBAC) specifies built-in role definitions that outline the permissions to be applied. You assign a user or group this role definition via a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription. In the next section, you learn which built-in roles Azure Deployment Environments supports.
 
-For more information, see [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)?
+For more information, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview.md)
+
+
 
 > [!NOTE]
 >  When you make role assignment changes, it can take a few minutes for these updates to propagate.
@@ -34,17 +36,17 @@ The following are the built-in roles supported by Azure Deployment Environments:
 
 | **Organizational role type** | **Built-in role** | **Description** |
 |---|---|---|
-| Platform engineer | Owner | Grant full control to create/manage dev centers, catalogs, and projects, and grant permissions to other users. Learn more about the [Owner role](#). |
-| Platform engineer | Contributor | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#). |
-| Dev Manager | DevCenter Project Admin | Grant permission to manage certain aspects of projects and environments. Learn more about the [DevCenter Project Admin role](#). |
-| Developer | Deployment Environments Reader | Grant permission to view all environments in a project. Learn more about the [Deployment Environments Reader role](#). |
-| Developer | Deployment Environments User | Grant permission to create environments and have full control over the environments that they create. Learn more about the [Deployment Environments User role](#). |
+| Platform engineer | Owner | Grant full control to create/manage dev centers, catalogs, and projects, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
+| Platform engineer | Contributor | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
+| Dev Manager | DevCenter Project Admin | Grant permission to manage certain aspects of projects and environments. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
+| Developer | Deployment Environments Reader | Grant permission to view all environments in a project. Learn more about the [Deployment Environments Reader role](#deployment-environments-reader). |
+| Developer | Deployment Environments User | Grant permission to create environments and have full control over the environments that they create. Learn more about the [Deployment Environments User role](#deployment-environments-user). |
 
 ## Role assignment scope
 
 In Azure RBAC, *scope* is the set of resources that access applies to. When you assign a role, it's important to understand scope so that you grant just the access that is needed.
 
-In Azure, you can specify a scope at four levels: management group, subscription, resource group, and resource. Scopes are structured in a parent-child relationship. Each level of hierarchy makes the scope more specific. You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview).
+In Azure, you can specify a scope at four levels: management group, subscription, resource group, and resource. Scopes are structured in a parent-child relationship. Each level of hierarchy makes the scope more specific. You can assign roles at any of these levels of scope. The level you select determines how widely the role is applied. Lower levels inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 For Azure Deployment Environments, consider the following scopes:
 
@@ -56,7 +58,7 @@ For Azure Deployment Environments, consider the following scopes:
 | Project (resource) | An Azure resource used to apply common configuration settings when you create deployment environments. Role assignment for the project grants permission only to that specific project. |
 | Environment Type (resource) | An Azure resource used to define the types of environments that you can create, like sandbox, dev, test, or production. Environment types are defined at dev center level and configured at project level. Role assignment for the deployment environment type grants permission to that environment type within the project, not to other environment types in the same project. |
 
-:::image type="content" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-scopes.png" alt-text="Diagram that shows the role assignment scopes for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-scopes.png":::
+:::image type="content" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-scopes.png" alt-text="Diagram that shows the role assignment scopes for Azure Deployment Environments":::
 
 ## Roles for common Deployment Environments activities
 
@@ -66,25 +68,17 @@ The following table shows common Deployment Environments activities and the role
 |---|---|---|---|
 | Grant permission to create a resource group. | Platform engineer | Owner or Contributor | Subscription |
 | Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
-| Grant permission to create environment types in a project. | Platform engineer | [Custom role](../role-based-access-control/custom-roles-portal.md): Microsoft.Authorization/roleAssignments/write | Subscription |
-| | | Owner, Contributor, or Project Admin | Project |
+| Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal.md): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
-| Grant permission to: | Platform engineer | Owner, Contributor | Resource group |
+| Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.</br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Platform engineer | Owner, Contributor | Resource group |
 | Grant permission to enable / disable project catalogs. | Dev Manager | Owner, Contributor | Dev center |
 | Grant permission to create and manage all environments in a project. | Dev Manager | DevCenter Project Admin | Project |
 | View all environments in a project. | Dev Manager | Deployment Environments Reader | Project |
 | Create and manage your own environments in a project. | User | Deployment Environments User | Project |
 | Create and manage catalogs in a GitHub or Azure Repos repository. | Dev Manager | Not governed by RBAC.<br>The user must be assigned permissions through Azure DevOps or GitHub. | Repository |
 
-- Create / manage dev centers and projects.
-- Attach / detach catalog to a dev center or project.
-- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).
-- Configure expiry date and time to trigger automatic deletion.
-- Update & delete environment types.
-- Delete environments.
-
 > [!IMPORTANT]
->  An organization's subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role on the [subscription](https://microsoft-my.sharepoint.com/personal/rosemalcolm_microsoft_com/Documents/Documents/Deployment%20Environments/RBAC%20guide/administrator-guide.md). Typically, only Platform engineers have subscription-level access because this includes full access to all resources in the subscription.
+>  An organization's subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role on the subscription. Typically, only Platform engineers have subscription-level access because this includes full access to all resources in the subscription.
 
 ## Platform engineer roles
 
@@ -92,7 +86,7 @@ To grant users permission to manage Azure Deployment Environments within your or
 
 Assign these roles to the *resource group*. The dev center and projects within the resource group inherit these role assignments. Environment types inherit role assignments through projects.
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-administrator-scopes.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-administrator-scopes.png":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-administrator-scopes.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments":::
 
 ### Owner role
 
@@ -116,9 +110,9 @@ Assign the Contributor role to give a user full control to create or manage dev 
 
 To create a project-level environment type in Deployment Environments, you must assign the Owner role or the User Access Administrator role, for the subscription that is being mapped in the environment type in the project. Alternatively, to avoid assigning broad permissions at the subscription level, you can create and assign a custom role that applies Write permissions. Apply the cuustom role at the subscription that is being mapped in the environment type in the project.
 
-To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](../role-based-access-control/custom-roles-portal.md).
+To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](/azure/role-based-access-control/custom-roles-portal.md).
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments":::
 
 In addition to the custom role, the user must be assigned the Owner, Contributor, or Project Admin role on the project where the environment type is created.
 
@@ -126,7 +120,7 @@ In addition to the custom role, the user must be assigned the Owner, Contributor
 
 These roles have more restricted permissions at lower-level scopes than the platform engineer roles. You can assign these roles to developer teams to enable them to perform administrative tasks for their team. 
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Azure Deployment Environments":::
 
 
 ### DevCenter Project Admin role
@@ -143,7 +137,7 @@ The DevCenter Project Admin is the most powerful of the Dev Manager roles. Assig
 
 These roles give developers the permissions they require to view, create, and manage environments.
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-user-scopes.png" alt-text="Diagram that shows the user role assignments at the project for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-user-scopes.png":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-user-scopes.png" alt-text="Diagram that shows the user role assignments at the project for Azure Deployment Environments":::
 
 ### Deployment Environments User
 
@@ -166,9 +160,9 @@ When a developer creates an environment based on an environment type, they're as
 
 The **Access control (IAM)** page in the Azure portal is used to configure Azure role-based access control on Azure Deployment Environments resources. You can use built-in roles for individuals and groups in Active Directory. The following screenshot shows Active Directory integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/iam-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center" lightbox="media/concept-deployment-environments-role-based-access-control/iam-page.png":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/iam-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center":::
 
-For detailed steps, see [Assign Azure roles using the Azure portal](https://microsoft-my.sharepoint.com/azure/role-based-access-control/role-assignments-portal).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Dev center, resource group, and project structure
 
@@ -207,6 +201,6 @@ You can attach catalogs to your dev center or project to manage environment defi
 
 ## Related content
 
-- [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)
-- [Understand scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview)
+- [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)
+- [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview)
 
