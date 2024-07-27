@@ -267,7 +267,7 @@
           href: configure-authentication-provider-github.md
         - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Use Twitter
+        - name: Use X
           href: configure-authentication-provider-twitter.md
         - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
