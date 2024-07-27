@@ -31,7 +31,7 @@ Many customers start with standard provisioned throughput when developing new ap
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/convert-to-autoscale.sh" id="FullScript":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/convert-to-autoscale.sh" :::
 
 ## Sample reference
 
