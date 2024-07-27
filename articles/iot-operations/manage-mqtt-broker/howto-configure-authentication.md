@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/26/2024
+ms.date: 07/27/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -38,8 +38,10 @@ spec:
   listenerRef:
     - listener
   authenticationMethods:
-    - sat:
-        audiences: ["aio-mq"]
+  - method: ServiceAccountToken
+    serviceAccountToken:
+      audiences:
+      - aio-mq
 ```
 
 To change the configuration, modify the `authenticationMethods` setting in this BrokerAuthentication resource or create new brand new BrokerAuthentication resource with a different name. Then, deploy it using `kubectl apply`.
@@ -80,9 +82,11 @@ spec:
   listenerRef:
     - listener
   authenticationMethods:
-    - custom:
+    - method: custom
         # ...
-    - sat:
+    - method: serviceAccountToken
+        # ...
+    - method: x509Credentials
         # ...
 ```
 
@@ -162,7 +166,7 @@ metadata:
   namespace: azure-iot-operations
 spec:
   authenticationMethods:
-    - x509Credentials:
+    - method: x509Credentials
         authorizationAttributes:
           root:
             subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
@@ -192,7 +196,7 @@ Finally, once the trusted client root CA certificate and the certificate-to-attr
 ```yaml
 spec:
   authenticationMethods:
-    - x509:
+    - method: x509Credentials
         trustedClientCaCert: client-ca
         attributes:
           secretName: x509-attributes
@@ -264,13 +268,15 @@ Clients authentication via SAT can optionally have their SATs annotated with att
 
 ### Enable Service Account Token (SAT) authentication
 
-Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `sat` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the MQTT broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
+Modify the `authenticationMethods` setting in a BrokerAuthentication resource to specify `ServiceAccountToken` as a valid authentication method. The `audiences` specifies the list of valid audiences for tokens. Choose unique values that identify the MQTT broker service. You must specify at least one audience, and all SATs must match one of the specified audiences.
 
 ```yaml
 spec:
   authenticationMethods:
-    - sat:
-        audiences: ["aio-mq", "my-audience"]
+    - method: ServiceAccountToken
+        audiences:
+        - aio-mq
+        -  my-audience
 ```
 
 Apply your changes with `kubectl apply`. It might take a few minutes for the changes to take effect.

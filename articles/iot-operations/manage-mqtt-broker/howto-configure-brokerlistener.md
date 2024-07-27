@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 07/27/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -23,15 +23,35 @@ Each listener can have its own authentication and authorization rules that defin
 The *BrokerListener* resource has these fields:
 
 | Field Name | Required | Description |
-| --- | --- | --- |
-| `brokerRef` | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
-| `port` | Yes | The port number that this listener listens on. This field is required and must be a valid TCP port number. |
-| `serviceType` | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
-| `serviceName` | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to MQTT broker. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. Important: If you have multiple listeners with the same `serviceType` and `serviceName`, the listeners share the same Kubernetes service. For more information, see [Service name and service type](#service-name-and-service-type). |
-| `authenticationEnabled` | No | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authenticate the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. To learn more about authentication, see [Configure MQTT broker authentication](howto-configure-authentication.md). |
-| `authorizationEnabled` | No | A boolean flag that indicates whether this listener requires authorization from clients. If set to `true`, this listener uses any *BrokerAuthorization* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authorization. This field is optional and defaults to `false`. To learn more about authorization, see [Configure MQTT broker authorization](howto-configure-authorization.md). |
-| `tls` | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: <br> * If set to `automatic`, this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager issuer](howto-configure-tls-auto.md). <br> * If set to `manual`, the listener uses a manually provided certificate for the listener. To use this type, [specify a `secretName` field that references a Kubernetes secret containing the certificate and private key](howto-configure-tls-manual.md). |
-| `protocol` | No | The protocol that this listener uses. This field is optional and defaults to `mqtt`. Must be either `mqtt` or `websockets`. |
+|------------|----------|-------------|
+| brokerRef | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
+| ports[] | Yes | The listener can listen on multiple ports. List of ports that the listener accepts client connections. |
+| ports.authenticationRef  | No | Reference to client authentication settings. Omit to disable authentication. To learn more about authentication, see [Configure MQTT broker authentication](howto-configure-authentication.md). |
+| ports.authorizationRef   | No | Reference to client authorization settings. Omit to disable authorization.  |
+| ports.nodePort           | No | Kubernetes node port. Only relevant when this port is associated with a NodePort listener. |
+| ports.port               | Yes | TCP port for accepting client connections.                                  |
+| ports.protocol           | No | Protocol to use for client connections. Values: `Mqtt`, `Websockets`. Default: `Mqtt` |
+| ports.tls                | No | TLS server certificate settings for this port. Omit to disable TLS.         |
+| ports.tls.automatic      | No | Automatic TLS server certificate management with cert-manager. [Configure TLS with automatic certificate management](howto-configure-tls-auto.md)|
+| ports.tls.automatic.duration        | No | Lifetime of certificate. Must be specified using a *Go* time format (h\|m\|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| ports.tls.automatic.issuerRef       | No | cert-manager issuer reference. |
+| ports.tls.automatic.issuerRef.group | No | cert-manager issuer group. |
+| ports.tls.automatic.issuerRef.kind  | No | cert-manager issuer kind. Values: `Issuer`, `ClusterIssuer`. |
+| ports.tls.automatic.issuerRef.name  | No | cert-manager issuer name. |
+| ports.tls.automatic.privateKey      | No | Type of certificate private key. |
+| ports.tls.automatic.privateKey.algorithm | No | Algorithm for the private key. Values: `Ec256`, `Ec384`, `ec521`, `Ed25519`, `Rsa2048`, `Rsa4096`, `Rsa8192`. |
+| ports.tls.automatic.privateKey.rotationPolicy | No | Size of the private key. Values: `Always`, `Never`. |
+| ports.tls.automatic.renewBefore     | No | When to begin certificate renewal. Must be specified using a *Go* time format (h\|m\|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| ports.tls.automatic.san             | No | Additional Subject Alternative Names (SANs) to include in the certificate. |
+| ports.tls.automatic.san.dns         | No | DNS SANs. |
+| ports.tls.automatic.san.ip          | No | IP address SANs. |
+| ports.tls.automatic.secretName      | No | Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself. |
+| ports.tls.automatic.secretNamespace | No | Certificate Kubernetes namespace. Omit to use current namespace. |
+| ports.tls.manual         | No | Manual TLS server certificate management through a defined secret. For more information, see [Configure TLS with manual certificate management](howto-configure-tls-manual.md).|
+| ports.tls.manual.secretName | Yes | Kubernetes secret containing an X.509 client certificate. This is a reference to the secret through an identifying name, not the secret itself. |
+| ports.tls.manual.secretNamespace | No | Certificate K8S namespace. Omit to use current namespace. |
+| serviceName | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to MQTT broker. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. Important: If you have multiple listeners with the same `serviceType` and `serviceName`, the listeners share the same Kubernetes service. For more information, see [Service name and service type](#service-name-and-service-type). |
+| serviceType | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
 
 ## Default BrokerListener
 
@@ -53,17 +73,19 @@ metadata:
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
-  authenticationEnabled: true
-  authorizationEnabled: false
-  port: 8883
-  serviceName: aio-mq-dmqtt-frontend
-  serviceType: clusterIp
-  tls:
-    automatic:
-      issuerRef:
-        group: cert-manager.io
-        kind: Issuer
-        name: mq-dmqtt-frontend
+  ports:
+    - authenticationRef: authn
+      port: 8883
+      protocol: Mqtt
+      tls:
+        automatic:
+          issuerRef:
+            apiGroup: cert-manager.io
+            kind: Issuer
+            name: mq-dmqtt-frontend
+        mode: Automatic
+    serviceName: aio-mq-dmqtt-frontend
+    serviceType: ClusterIp
 ```
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
