@@ -34,6 +34,10 @@ You can choose to import your certificate into your Azure Spring Apps instance f
 
 You need to grant Azure Spring Apps access to your key vault before you import your certificate using these steps:
 
+Azure Key Vault offers two authorization systems: **[Azure role-based access control](../../role-based-access-control/overview.md)** (Azure RBAC), which operates on Azure's [control and data planes](../../azure-resource-manager/management/control-plane-and-data-plane.md), and the **access policy model**, which operates on the data plane alone.
+
+#### [Access Policies](#tab/accessPolicies)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Key vaults**, then select the Key Vault you import your certificate from.
 1. In the left navigation pane, select **Access policies**, then select **Create**.
@@ -46,6 +50,23 @@ You need to grant Azure Spring Apps access to your key vault before you import y
    :::image type="content" source="media/how-to-use-tls-certificate/select-service-principal.png" alt-text="Screenshot of the Azure portal that shows the Create an access policy page Principal tab with Azure Spring Cloud Resource Provider highlighted." lightbox="media/how-to-use-tls-certificate/select-service-principal.png":::
 
 1. Select **Review + Create**, then select **Create**.
+
+#### [RBAC](#tab/RBAC)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Key vaults**, then select the Key Vault you import your certificate from.
+1. In the left navigation pane, select **Access control (IAM)**, then select **Add role assignment**.
+1. Search **Certificate**, then select role named **Key Vault Certificate User**.
+
+   :::image type="content" source="media/how-to-use-tls-certificate/grant-key-vault-permission-rbac.png" alt-text="Screenshot of the Azure portal that shows the Create role assignment page with Permission pane showing and Get and List permissions highlighted." lightbox="media/how-to-use-tls-certificate/grant-key-vault-permission-rbac.png":::
+
+1. Under **Members**, click **+Select members** link and  search  **Azure Spring Cloud Resource Provider** and then click **Select**.
+
+   :::image type="content" source="media/how-to-use-tls-certificate/select-service-principal-rbac.png" alt-text="Screenshot of the Azure portal that shows the Create an role assignment page Principal tab with Azure Spring Cloud Resource Provider highlighted." lightbox="media/how-to-use-tls-certificate/select-service-principal-rbac.png":::
+
+1. Select **Review + assign**.
+
+---
 
 After you grant access to your key vault, you can import your certificate using these steps:
 
