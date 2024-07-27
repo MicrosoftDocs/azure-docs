@@ -548,7 +548,7 @@ Not available.
 >
 > Therefore, the *immutability* of data assets provides a level of protection when working in a team creating production workloads.
 
-When a data asset has been erroneously created - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
+For a mistakenly-created data asset - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
 
 |*I want to delete this data asset because...* | Solution  |
 |---------|---------|
@@ -871,7 +871,7 @@ Execute the following command in the Azure CLI. Be sure to update the `<>` place
 
 - name of your data asset
 - the version
-- key-valuye pair for the tag
+- key-value pair for the tag
 
 ```azurecli
 az ml data update --name <DATA ASSET NAME> --version <VERSION> --set tags.<KEY>=<VALUE>
@@ -1010,7 +1010,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-At the end of the following week, your ETL has updated the data to include more data:
+At the end of the following week, your ETL updated the data to include more data:
 
 ```text
 /myimages
