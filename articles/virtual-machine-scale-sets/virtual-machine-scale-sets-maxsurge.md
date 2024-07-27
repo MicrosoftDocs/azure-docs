@@ -34,7 +34,7 @@ Rolling upgrades with MaxSurge can help improve service uptime during upgrade ev
 
 ## Considerations
 
-When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. Additionally, these new virtual machines have new IP addresses and be placed into an existing subnet. You also need to have enough IP address quota and subnet space available to deploy these newly created virtual machines. 
+When using rolling upgrades with MaxSurge, new virtual machines are created using the latest scale set model to replace virtual machines using the old scale set model. These newly created virtual machines counts towards your overall core quota. Additionally, these new virtual machines have new IP addresses and are placed into an existing subnet. You also need to have enough IP address quota and subnet space available to deploy these newly created virtual machines. 
 
 During the rolling upgrade processes, Azure performs a quota check before each new batch. If that quota check fails, the rolling upgrade will be canceled. You can restart a rolling upgrade by making a new change to the scale set model or triggering a generic model update. For more information, see [restart a rolling upgrade](virtual-machine-scale-sets-configure-rolling-upgrades.md#restart-a-rolling-upgrade).
 
@@ -54,7 +54,9 @@ Rolling upgrades with MaxSurge disabled performs upgrades in place. Depending on
 
 
 ## Configure rolling upgrades with MaxSurge
-Enabling or disabling MaxSurge can be done during or after scale set provisioning. When using a rolling upgrade policy, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md). It's suggested to create the scale set with a manual upgrade policy and update the policy to rolling after successfully confirming the application health is being properly reported. 
+Enabling or disabling MaxSurge can be done during or after scale set provisioning. When using a rolling upgrade policy, the scale set must also use an [Application Health Extension](virtual-machine-scale-sets-health-extension.md) or a [health probe](../load-balancer/load-balancer-custom-probe-overview.md). It's suggested to create the scale set with a manual upgrade policy and update the policy to rolling after successfully confirming the application health is being properly reported. 
+
+
 
 
 ### [Portal](#tab/portal)
@@ -123,19 +125,6 @@ Update the properties section of your ARM template and set the upgrade policy to
     }
 ```
 ---
-## Frequently asked questions 
-
-### What triggers a MaxSurge upgrade? 
-Any changes that result in an update to the scale set model result in a MaxSurge upgrade. These also include upgrades that generally don't require a restart such as adding Data Disks. 
-
-### Can I cancel a MaxSurge upgrade? 
-Yes. The process of canceling a MaxSurge upgrade is the same as canceling an in place rolling upgrade. You can stop the upgrade from the Azure portal, CLI, PowerShell, or any other SDK. 
-
-### What happens if the newly created virtual machine enters a failed state during a MaxSurge upgrade? 
-During a MaxSurge upgrade, new virtual machines are created to replace virtual machines running the old model. If the newly created virtual machine fails to enter a healthy state, that virtual machine is deleted and the rolling upgrade is canceled. 
-
-
-
 ## Next steps
 To learn more about upgrades for Virtual Machine Scale Sets, see [configure rolling upgrade policy](./virtual-machine-scale-sets-configure-rolling-upgrades.md).
 
