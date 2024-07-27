@@ -17,9 +17,7 @@ This article describes the different built-in roles that Azure Deployment Enviro
 
 Azure role-based access control (RBAC) specifies built-in role definitions that outline the permissions to be applied. You assign a user or group this role definition via a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription. In the next section, you learn which built-in roles Azure Deployment Environments supports.
 
-For more information, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview.md)
-
-
+For more information, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
 > [!NOTE]
 >  When you make role assignment changes, it can take a few minutes for these updates to propagate.
@@ -67,8 +65,8 @@ The following table shows common Deployment Environments activities and the role
 | **Activity** | **Role type** | **Role** | **Scope** |
 |---|---|---|---|
 | Grant permission to create a resource group. | Platform engineer | Owner or Contributor | Subscription |
-| Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
-| Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal.md): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
+| Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
+| Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
 | Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.</br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Platform engineer | Owner, Contributor | Resource group |
 | Grant permission to enable / disable project catalogs. | Dev Manager | Owner, Contributor | Dev center |
@@ -110,7 +108,7 @@ Assign the Contributor role to give a user full control to create or manage dev 
 
 To create a project-level environment type in Deployment Environments, you must assign the Owner role or the User Access Administrator role, for the subscription that is being mapped in the environment type in the project. Alternatively, to avoid assigning broad permissions at the subscription level, you can create and assign a custom role that applies Write permissions. Apply the cuustom role at the subscription that is being mapped in the environment type in the project.
 
-To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](/azure/role-based-access-control/custom-roles-portal.md).
+To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](/azure/role-based-access-control/custom-roles-portal).
 
 :::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments":::
 
