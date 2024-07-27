@@ -70,7 +70,7 @@ The following is an example mapping:
   - Position # - - - $1
   - Office # - - - - $2
   output: Employment.Position
-  conversion: $1 + ", " + $2
+  expression: $1 + ", " + $2
 
 - inputs:
   - $context(position).BaseSalary
@@ -343,7 +343,7 @@ Initial mapping configuration using wildcards:
   - *.Avg    # - $3
   - *.Mean   # - $4
   output: ColorProperties.*
-  conversion: ($1, $2, $3, $4)
+  expression: ($1, $2, $3, $4)
 ```
 
 This initial mapping tries to build an array (For example, for `Opacity`: `[0.88, 0.91, 0.89, 0.89]`). However, this configuration fails because:
@@ -366,7 +366,7 @@ Corrected mapping configuration:
   - *.Mid.Avg    # - $3
   - *.Mid.Mean   # - $4
   output: ColorProperties.*
-  conversion: ($1, $2, $3, $4)
+  expression: ($1, $2, $3, $4)
 ```
 
 This revised mapping accurately captures the necessary fields by correctly specifying the paths to include the nested `Mid` object, ensuring that the asterisks work effectively across different levels of the JSON structure.
@@ -380,13 +380,13 @@ Using the previous example from multi-input wildcards, consider the following ma
   - *.Max   # - $1
   - *.Min   # - $2
   output: ColorProperties.*.Avg
-  conversion: ($1 + $2) / 2
+  expression: ($1 + $2) / 2
 
 - inputs:
   - *.Max   # - $1
   - *.Min   # - $2
   output: ColorProperties.*.Diff
-  conversion: abs($1 - $2)
+  expression: abs($1 - $2)
 ```
 
 This mapping is intended to create two separate calculations (`Avg` and `Diff`) for each property under `ColorProperties`. The result is as follows:
@@ -419,13 +419,13 @@ Now, consider a scenario where a specific field needs a different calculation:
   - *.Max   # - $1
   - *.Min   # - $2
   output: ColorProperties.*
-  conversion: ($1 + $2) / 2
+  expression: ($1 + $2) / 2
 
 - inputs:
   - Opacity.Max   # - $1
   - Opacity.Min   # - $2
   output: ColorProperties.OpacityAdjusted
-  conversion: ($1 + $2 + 1.32) / 2  
+  expression: ($1 + $2 + 1.32) / 2  
 ```
 
 In this case, the `Opacity` field has a unique calculation. Two options to handle this overlapping scenario are:
@@ -440,7 +440,7 @@ Consider a special case for the same fields to help deciding the right action:
   - *.Max   # - $1
   - *.Min   # - $2
   output: ColorProperties.*
-  conversion: ($1 + $2) / 2
+  expression: ($1 + $2) / 2
 
 - inputs:
   - Opacity.Max
@@ -509,7 +509,7 @@ In previous examples, we've seen the `conversion` element used to compute values
   - *.Max   # - $1
   - *.Min   # - $2
   output: ColorProperties.*
-  conversion: ($1 + $2) / 2
+  expression: ($1 + $2) / 2
 ```
 
 When discussing conversions, several aspects need to be clarified:
@@ -532,14 +532,41 @@ In conversions, formulas can operate on static values (For example, a number lik
   - *.Mid.Avg    # - $3
   - *.Mid.Mean   # - $4
   output: ColorProperties.*
-  conversion: ($1, $2, $3, $4)
+  expression: ($1, $2, $3, $4)
 ```
 
 In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. Comments in the YAML file (for example, `# - $1`, `# - $2`) are optional but help clarify the connection between each field property and its role in the conversion formula.
 
 ## Available operations
 
-Conversions use simple math formulas similar to those learned in middle school. Basic operators such as addition (`+`) and multiplication (`*`) are included, each following specific rule of precedence (for example, `*` is performed before `+`), which can be modified using parentheses.
+Dataflow offers a wide range of out-of-the-box (OOTB) conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. Below is a list of the available conversion functions, along with their corresponding formulas and function names:
+
+| Conversion | Formula | Function Name |
+| --- | --- | --- |
+| Celsius to Fahrenheit | F = (C * 9/5) + 32 | cToF |
+| PSI to Bar | Bar = PSI * 0.0689476 | psiToBar |
+| Inch to CM | CM = Inch * 2.54 | inToCm |
+| Foot to Meter | Meter = Foot * 0.3048 | ftToM |
+| Lbs to KG | KG = Lbs * 0.453592 | lbToKg |
+| Gallons to Liters | Liters = Gallons * 3.78541 | galToL |
+
+In addition to these unidirectional conversions, we also support the reverse calculations:
+
+| Conversion | Formula | Function Name |
+| --- | --- | --- |
+| Fahrenheit to Celsius | C = (F - 32) * 5/9 | fToC |
+| Bar to PSI | PSI = Bar / 0.0689476 | barToPsi |
+| CM to Inch | Inch = CM / 2.54 | cmToIn |
+| Meter to Foot | Foot = Meter / 0.3048 | mToFt |
+| KG to Lbs | Lbs = KG / 0.453592 | kgToLb |
+| Liters to Gallons | Gallons = Liters / 3.78541 | lToGal |
+
+These functions are designed to simplify the conversion process, allowing users to input values in one unit and receive the corresponding value in another unit effortlessly.
+
+Additionally, we provide a scaling function to scale the range of value to the user-defined range. Example-`scale($1,0,10,0,100)`the input value is scaled from the range 0 to 10 to the range 0 to 100. 
+
+Moreover, users have the flexibility to define their own conversion functions using simple mathematical formulas. Our system supports basic operators such as addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`). These operators follow standard rules of precedence (for example, multiplication and division are performed before addition and subtraction), which can be adjusted using parentheses to ensure the correct order of operations. This capability empowers users to customize their unit conversions to meet specific needs or preferences, enhancing the overall utility and versatility of the system.
+
 
 For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
 
@@ -693,7 +720,7 @@ With the mapping:
 - inputs:
   - Measurements # - $1
   output: Measurement
-  conversion: min($1)
+  expression: min($1)
 ```
 
 This configuration selects the smallest value from the `Measurements` array for the output field.
@@ -704,7 +731,7 @@ It's also possible to use functions that result a new array:
 - inputs:
   - Measurements # - $1
   output: Measurements
-  conversion: take($1, 10)  # taking at max 10 items
+  expression: take($1, 10)  # taking at max 10 items
 ```
 
 Arrays can also be created from multiple single values:
@@ -716,7 +743,7 @@ Arrays can also be created from multiple single values:
   - average  # - - $3
   - mean     # - - $4
   output: stats
-  conversion: ($1, $2, $3, $4)
+  expression: ($1, $2, $3, $4)
 ```
 
 This mapping creates an array containing the minimum, maximum, average, and mean.
@@ -757,7 +784,7 @@ Now a mapping can be created that checks if the field is present in the input re
   - BaseSalary  # - - - - - - - - - - $1
   - $context(position).BaseSalary #  - $2 
   output: BaseSalary
-  conversion: if($1 == (), $2, $1)
+  expression: if($1 == (), $2, $1)
 ```
 
 The `conversion` uses the `if` function that has three parameters
@@ -802,9 +829,12 @@ Consider the following dataset with a few records, represented as JSON records:
 This dataset can be accessed by the mapper through the Distributed State Store (DSS) using a key value based on a `condition` specified in the mapping configuration:
 
 ```yaml
-enrich:
-- dataset: position
-  condition: $source.Position == $context.Position
+datasets:
+- key: position
+  inputs:
+    - $source.Position # - $1
+    - $context.Position # -$2
+  expression: $1 == $2
 ```
 
 This is how the dataset is used, when a new record is being processed:
@@ -821,7 +851,7 @@ This is how the dataset is used, when a new record is being processed:
   - BaseSalary   # - - - - - - - - - - - $1
   - $context(position).BaseSalary #  - - $2 
   output: BaseSalary
-  conversion: if($1 == (), $2, $1)
+  expression: if($1 == (), $2, $1)
 ```
 
 In this example the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record doesn't contain `BaseSalary` field (or the value is `null` in case of nullable a field)
@@ -831,12 +861,18 @@ Note, that the request for the contextualization data doesn't happen with every 
 It's possible to use multiple datasets:
 
 ```yaml
-enrich:
-- dataset: position
-  condition: $source.Position == $context.Position
+datasets:
+- key: position
+  inputs:
+    - $source.Position  # - $1
+    - $context.Position # - $2
+  expression: $1 == $2
 
-- dataset: permissions
-  condition: $source.Position == $context.Position
+- key: permissions
+  inputs:
+    - $source.Position  # - $1
+    - $context.Position # - $2
+  expression: $1 == $2
 ```
 
 Then use the references mixed:
@@ -850,9 +886,12 @@ Then use the references mixed:
 The input references use the key of the dataset like `position` or `permission`. In case the key in DSS is inconvenient to use, an alias can be defined:
 
 ```yaml
-enrich:
-  - dataset: datasets.parag10.rule42 as position
-    condition: $source.Position == $context.Position
+datasets:
+  - key: datasets.parag10.rule42 as position
+    inputs:
+      - $source.Position  # - $1
+      - $context.Position # - $2
+    expression: $1 == $2
 ```
 
 Which configuration renames the dataset with key `datasets.parag10.rule42` to `position`
