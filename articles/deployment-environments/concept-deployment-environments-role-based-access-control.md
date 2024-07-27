@@ -1,7 +1,7 @@
 ---
 title: Azure role-based access control
-titleSuffix: Azure Lab Services
-description: Learn how Azure Lab Services provides protection with Azure role-based access control (Azure RBAC) integration.
+titleSuffix: Azure Deployment Environments
+description: Learn how Azure Deployment Environments provides protection with Azure role-based access control (Azure RBAC) integration.
 services: lab-services
 ms.service: lab-services
 author: RoseHJM
@@ -65,8 +65,8 @@ The following table shows common Deployment Environments activities and the role
 | **Activity** | **Role type** | **Role** | **Scope** |
 |---|---|---|---|
 | Grant permission to create a resource group. | Platform engineer | Owner or Contributor | Subscription |
-| Grant permission to submit a Microsoft support ticket, including to [request capacity](capacity-limits.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
-| Grant permission to create environment types in a project. | Platform engineer | [Custom role](../../role-based-access-control/custom-roles-portal.md): Microsoft.Authorization/roleAssignments/write | Subscription |
+| Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
+| Grant permission to create environment types in a project. | Platform engineer | [Custom role](../role-based-access-control/custom-roles-portal.md): Microsoft.Authorization/roleAssignments/write | Subscription |
 | | | Owner, Contributor, or Project Admin | Project |
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
 | Grant permission to: | Platform engineer | Owner, Contributor | Resource group |
@@ -116,7 +116,7 @@ Assign the Contributor role to give a user full control to create or manage dev 
 
 To create a project-level environment type in Deployment Environments, you must assign the Owner role or the User Access Administrator role, for the subscription that is being mapped in the environment type in the project. Alternatively, to avoid assigning broad permissions at the subscription level, you can create and assign a custom role that applies Write permissions. Apply the cuustom role at the subscription that is being mapped in the environment type in the project.
 
-To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](../../role-based-access-control/custom-roles-portal.md).
+To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](../role-based-access-control/custom-roles-portal.md).
 
 :::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments" lightbox="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png":::
 
