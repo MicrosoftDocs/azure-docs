@@ -65,7 +65,7 @@ The following table shows common Deployment Environments activities and the role
 | **Activity** | **Role type** | **Role** | **Scope** |
 |---|---|---|---|
 | Grant permission to create a resource group. | Platform engineer | Owner or Contributor | Subscription |
-| Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
+| Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
 | Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
 | Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.</br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Platform engineer | Owner, Contributor | Resource group |
