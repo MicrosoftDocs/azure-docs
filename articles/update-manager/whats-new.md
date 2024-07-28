@@ -14,9 +14,9 @@ ms.date: 07/24/2024
 
 ## July 2024
 
-### Support for Windows IoT on Arc enabled IaaS VMs
+### Support for Windows IoT Enterprise on Arc enabled IaaS VMs
 
-Public preview: Azure Update Manager now supports Windows IoT on Arc enabled IaaS VMs. For more information, see [supported Windows IoT releases](https://learn.microsoft.com/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled IaaS VMs. For more information, see [supported Windows IoT enterprise releases](https://learn.microsoft.com/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 

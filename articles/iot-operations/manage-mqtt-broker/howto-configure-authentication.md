@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/16/2024
+ms.date: 07/26/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -56,7 +56,7 @@ BrokerListener and BrokerAuthentication are separate resources, but they're link
 
 The order of authentication methods in the array determines how MQTT broker authenticates clients. MQTT broker tries to authenticate the client's credentials using the first specified method and iterates through the array until it finds a match or reaches the end.
 
-For each method, MQTT broker first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `$sat`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, MQTT broker first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, MQTT broker treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets MQTT broker fall back to other methods if the custom server is unreachable.
 
@@ -92,7 +92,7 @@ The earlier example specifies custom and SAT. When a client connects, MQTT broke
 
 1. If the custom authentication server responds with `Pass` or `Fail` result, the authentication flow ends. However, if the custom authentication server isn't available, then MQTT broker falls back to the remaining specified methods, with SAT being next.
 
-1. MQTT broker tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `$sat`, MQTT broker evaluates the MQTT password as a SAT.
+1. MQTT broker tries to authenticate the credentials as SAT credentials. If the MQTT username starts with `K8S-SAT`, MQTT broker evaluates the MQTT password as a SAT.
 
 If the custom authentication server is unavailable and all subsequent methods determined that the provided credentials aren't relevant, then the broker denies the client connection.
 
@@ -277,7 +277,9 @@ Apply your changes with `kubectl apply`. It might take a few minutes for the cha
 
 ### Test SAT authentication
 
-SAT authentication must be used from a client in the same cluster as MQTT broker. The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod.
+SAT authentication must be used from a client in the same cluster as MQTT broker. Only enhanced authentication fields are permitted. Set authentication method to `K8S-SAT` and authentication data to the token.
+
+The following command specifies a pod that has the mosquitto client and mounts the SAT created in the previous steps into the pod. 
 
 ```yaml
 apiVersion: v1
@@ -306,21 +308,28 @@ spec:
 
 Here, the `serviceAccountName` field in the pod configuration must match the service account associated with the token being used. Also, The `serviceAccountToken.audience` field in the pod configuration must be one of the `audiences` configured in the BrokerAuthentication resource.
 
-Once the pod has been created, start a shell in the pod:
+Once the pod is created, start a shell in the pod:
 
 ```bash
 kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
-The token is mounted at the path specified in the configuration `/var/run/secrets/tokens` in the previous example. Retrieve the token and use it to authenticate.
+Inside the pod's shell, run the following command to publish a message to the broker:
 
 ```bash
-token=$(cat /var/run/secrets/tokens/mqtt-client-token)
-
-mosquitto_pub -h aio-mq-dmqtt-frontend -V mqttv5 -t hello -m world -u '$sat' -P "$token"
+mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
 ```
 
-The MQTT username must be set to `$sat`. The MQTT password must be set to the SAT itself.
+The output should look similar to the following:
+
+```Output
+Client (null) sending CONNECT
+Client (null) received CONNACK (0)
+Client (null) sending PUBLISH (d0, q0, r0, m1, 'world', ... (5 bytes))
+Client (null) sending DISCONNECT
+```
+
+The mosquitto client uses the service account token mounted at `/var/run/secrets/tokens/mq-sat` to authenticate with the broker. The token is valid for 24 hours. The client also uses the default root CA cert mounted at `/var/run/certs/ca.crt` to verify the broker's TLS certificate chain.
 
 ### Refresh service account tokens
 
@@ -376,6 +385,25 @@ spec:
         headers:
           header_key: header_value
 ```
+
+## Client disconnect after credentials expire
+
+MQTT broker disconnects clients when their credentials expire. Disconnect after credential expiration applies to all clients that connect to the MQTT broker frontends including:
+
+- Clients authenticated with SATs disconnect when their SAT expires
+- Clients authenticated with X.509 disconnect when their client certificate expires
+- Clients authenticated with custom authentication disconnect based on the expiry time returned from the custom authentication server.
+
+On disconnect, the client's network connection is closed. The client won't receive an MQTT DISCONNECT packet, but the broker logs a message that it disconnected the client.
+
+MQTT v5 clients authenticated with SATs and custom authentication can reauthenticate with a new credential before their initial credential expires. X.509 clients cannot reauthenticate and must re-establish the connection since authentication is done at the TLS layer.
+
+Clients can reauthenticate by sending an MQTT v5 AUTH packet.
+
+SAT clients send an AUTH client with the fields `method: K8S-SAT`, `data: <token>`.
+Custom authentication clients set the method and data field as required by the custom authentication server.
+
+Successful reauthentication updates the client's credential expiry with the expiry time of its new credential, and the broker responds with a *Success AUTH* packet. Failed authentication due to transient issues cause the broker to respond with a *ContinueAuthentication AUTH* packet. For example, the custom authentication server being unavailable. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 
 ## Related content
 

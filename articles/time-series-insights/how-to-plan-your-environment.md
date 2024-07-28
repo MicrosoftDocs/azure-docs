@@ -71,7 +71,7 @@ You can now configure your Azure Time Series Insights environment's Time Series 
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Azure Time Series Insights. To build your model, read [Use the Time Series Model](./concepts-model-overview.md).
 
-For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo).
+For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly.
 
 ## Shape your events
 
