@@ -39,7 +39,7 @@ If you have virtual machines, or a Kubernetes cluster in non-Azure environments,
 Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
 
 > [!NOTE]
-> System-assigned managed identity is not supported for remote-write to Azure Monitor workspace. Use user-assigned managed identity or Microsoft Entra ID application authentication.
+> System-assigned managed identity is not supported for remote-write to Azure Monitor workspaces. Use user-assigned managed identity or Microsoft Entra ID application authentication.
 
 
 ## Prerequisites
