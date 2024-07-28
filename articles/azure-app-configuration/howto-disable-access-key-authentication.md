@@ -32,7 +32,7 @@ To allow access key authentication for an Azure App Configuration resource in th
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `false` to enable access key-based authentication.. 
+To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `false` to enable access key-based authentication. 
 
 ```azurecli-interactive
 az appconfig update \
@@ -168,7 +168,7 @@ You must have only one key in your code, because when you regenerate your second
 
     Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
-    :::image type="content" border="true" source="./media/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key":::
+    :::image type="content" border="true" source="./media/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key.":::
 
     ### [Azure CLI](#tab/azure-cli)
 
