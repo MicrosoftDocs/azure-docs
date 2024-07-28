@@ -57,5 +57,6 @@ By using dataflows, you can efficiently manage your data paths, ensuring data is
 
 ## Related content
 
+- [Quickstart: Send asset telemetry to the cloud using a dataflow](../get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md)
 - [Create a dataflow](howto-create-dataflow.md)
 - [Create a dataflow endpoint](howto-configure-dataflow-endpoint.md)
