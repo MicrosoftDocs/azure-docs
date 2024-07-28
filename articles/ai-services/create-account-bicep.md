@@ -36,17 +36,13 @@ Using Bicep to create an Azure AI services resource lets you create a multi-serv
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
-
-> [!NOTE]
-> * If you use a different resource `kind` (listed below), you may need to change the `sku` parameter to match the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) tier you wish to use. For example, the `TextAnalytics` kind uses `S` instead of `S0`.
-> * Many of the Azure AI services have a free `F0` pricing tier that you can use to try the service.
-
-Be sure to change the `sku` parameter to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, use `TextAnalytics` for the Azure AI Language service.
+The Bicep file used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it is an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file. The `kind` field in the Bicep file defines the type of resource.
+
+As needed change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
 
 ## Deploy the Bicep file
 
@@ -107,11 +103,10 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
+## Related content
 
-## See also
-
-* See **[Authenticate requests to Azure AI services](authentication.md)** on how to securely work with Azure AI services.
-* See **[What are Azure AI services?](./what-are-ai-services.md)** for a list of Azure AI services.
-* See **[Natural language support](language-support.md)** to see the list of natural languages that Azure AI services supports.
-* See **[Use Azure AI services as containers](cognitive-services-container-support.md)** to understand how to use Azure AI services on-premises.
-* See **[Plan and manage costs for Azure AI services](plan-manage-costs.md)** to estimate cost of using Azure AI services.
+* [Authenticate requests to Azure AI services](authentication.md).
+* [What are Azure AI services?](./what-are-ai-services.md)
+* [Natural language support](language-support.md)
+* [Use Azure AI services as containers](cognitive-services-container-support.md).
+* [Plan and manage costs for Azure AI services](plan-manage-costs.md).

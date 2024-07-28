@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create an Azure AI services resource using Terraform'
-description: 'In this article, you create an Azure AI services resource using Terraform'
-keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
+description: In this article, you create an Azure AI services resource using Terraform.
+keywords: Azure AI services, cognitive, artificial intelligence
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 2/23/2024
+ms.date: 8/1/2024
 ms.custom:
   - devx-track-terraform
   - ignite-2023
@@ -126,6 +126,6 @@ In this article, you learn how to:
 
 [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
 
-## Next steps
+## Related content
 
 - [Learn more about Azure AI services resources](./multi-service-resource.md)

@@ -2,13 +2,12 @@
 title: "Quickstart: Create an Azure AI services resource by using an ARM template"
 description: Learn how to use an Azure Resource Manager template to create an Azure AI services resource.
 keywords: Azure AI services, cognitive solutions, cognitive intelligence, cognitive artificial intelligence
-#services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: azure-ai-services
 ms.topic: quickstart
-ms.date: 01/20/2024
-ms.author: aahi
+ms.date: 8/1/2024
+ms.author: eur
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -30,11 +29,13 @@ This quickstart shows you how to use an Azure Resource Manager template (ARM tem
 
 ## Review the template
 
-The template that you use in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
+The template that you use in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
-One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts) specifies that it's an Azure AI services resource. The `kind` field in the Bicep file defines the type of resource.
+One Azure resource is defined in the Bicep file. The `kind` field in the Bicep file defines the type of resource.
+
+As needed change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
 
 ## Deploy the template
 
@@ -51,7 +52,7 @@ One Azure resource is defined in the Bicep file: [Microsoft.CognitiveServices/ac
     | **Subscription** | Select an Azure subscription. |
     | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region (for example, **East US**). |
-    | **Cognitive Service Name** | Replace the value with a unique name for your Azure AI services resource. You'll need the name in the next section when you validate the deployment. |
+    | **AI service Name** | Replace the value with a unique name for your Azure AI services resource. You'll need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region that you selected. |
     | **Sku** | Select the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
 
