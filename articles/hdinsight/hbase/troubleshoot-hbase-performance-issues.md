@@ -114,6 +114,6 @@ If your problem remains unresolved, visit one of the following channels for more
 
 - Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-- Connect with [@AzureSupport](https://twitter.com/azuresupport). This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport). This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
 - If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Your Microsoft Azure subscription includes access to subscription management and billing support, and technical support is provided through one of the [Azure support plans](https://azure.microsoft.com/support/plans/).
