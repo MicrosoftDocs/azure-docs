@@ -49,7 +49,7 @@ In the output record, the following changes are made to the input record data:
 
 * Fields renamed: **Birth Date** is now **Date of Birth**.
 * Fields restructured: Both **Name** and **Date of Birth** are grouped under the new **Employee** category.
-* Field deleted: **Place of birth** is removed, as it is not present in the output.
+* Field deleted: **Place of birth** is removed, as it isn't present in the output.
 * Field added: **Base Salary** is a new field in the **Employment** category.
 * Field values changed or merged: The **Position** field in the output combines the **Position** and **Office** fields from the input.
 
@@ -127,7 +127,7 @@ While dataflow parses a path, it treats only two characters as special:
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
-Note that the path definition must also adhere to the rules of YAML. Once a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
+The path definition must also adhere to the rules of YAML. Once a character with special meaning is included in the path, proper quoting is required in the configuration. Consult the YAML documentation for precise rules. Here are some examples that demonstrate the need for careful formatting:
 
 ```yaml
 - inputs:
@@ -197,7 +197,7 @@ Here's how the asterisk (`*`) operates in this context:
 
 This configuration demonstrates the most generic form of mapping, where every field in the input is directly mapped to a corresponding field in the output without modification.
 
-Another example illustrates how wildcards can be used to match sub-sections and move them together. This example effectively flattens nested structures within a JSON object.
+Another example illustrates how wildcards can be used to match subsections and move them together. This example effectively flattens nested structures within a JSON object.
 
 Original JSON:
 
@@ -539,7 +539,7 @@ In this example, the conversion results in an array containing the values of `[M
 
 ## Available operations
 
-Dataflow offers a wide range of out-of-the-box (OOTB) conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. Below is a list of the available conversion functions, along with their corresponding formulas and function names:
+Dataflow offers a wide range of out-of-the-box (OOTB) conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. The following is a list of the available conversion functions, along with their corresponding formulas and function names:
 
 | Conversion | Formula | Function Name |
 | --- | --- | --- |
@@ -651,15 +651,15 @@ The internal representation utilizes the following data types:
 | date time   | UTC or local time with nanosecond resolution |
 | time        | Time of day with nanosecond resolution    |
 | duration    | A duration with nanosecond resolution     |
-| array       | An array of any types listed above        |
-| map         | A vector of (key, value) pairs of any types listed above |
+| array       | An array of any types listed previously        |
+| map         | A vector of (key, value) pairs of any types listed previously |
 
 ### Reading input record fields
 
 When an input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is versatile enough to handle most input types with minimal or no conversion. However, some input types require conversion or are unsupported. Some examples:
 
-* **Avro's `UUID` type** is converted to a `string`, as there is no specific `UUID` type in the internal representation.
-* **Avro's `Decimal` type** is not supported by the mapper, thus fields of this type can't be included in mappings.
+* **Avro's `UUID` type** is converted to a `string`, as there's no specific `UUID` type in the internal representation.
+* **Avro's `Decimal` type** isn't supported by the mapper, thus fields of this type can't be included in mappings.
 * **Avro's `Duration` type** varies; if the `months` field is set, it's unsupported. If only `days` and `milliseconds` are set, it's converted to the internal `duration` representation.
 
 For some formats, surrogate types are used. For example, JSON doesn't have a datetime type and instead stores datetime values as strings formatted according to ISO8601. When the mapper reads such a field, the internal representation remains a string.
@@ -669,7 +669,7 @@ For some formats, surrogate types are used. For example, JSON doesn't have a dat
 The mapper is designed to be flexible, converting internal types into output types to accommodate scenarios where data comes from a serialization format with a limited type system. Here are some examples of how conversions are handled:
 
 * **Numeric Types**: These can be converted to other representations, even if it means losing precision. For example, a 64-bit floating-point number (`f64`) can be converted into a 32-bit integer (`i32`).
-* **Strings to Numbers**: If the incoming record contains a string like "123" and the output field is a 32-bit integer, the mapper will convert and write out the value as a number.
+* **Strings to Numbers**: If the incoming record contains a string like "123" and the output field is a 32-bit integer, the mapper converts and writes the value as a number.
 * **Strings to Other Types**:
   * If the output field is a datetime, the mapper attempts to parse the string as an ISO8601 formatted datetime.
   * If the output field is binary/bytes, the mapper tries to deserialize the string from a base64 encoded string.
@@ -789,13 +789,13 @@ Now a mapping can be created that checks if the field is present in the input re
 
 The `conversion` uses the `if` function that has three parameters
 
-* the first parameter is a condition. In the example it checks if the `BaseSalary` field of the input field (aliased as `$1`) is `Missing Value`.
+* the first parameter is a condition. In the example, it checks if the `BaseSalary` field of the input field (aliased as `$1`) is `Missing Value`.
 * the second parameter is the result of the function in case the condition in the first parameter is true. In this example, this is the `BaseSalary` field of the contextualization dataset (aliased as `$2`)
 * the third parameter is the value for the case the condition in the first parameter is false
 
 ## Available functions
 
-In the previous examples some functions already have been used:
+In the previous examples, some functions were used:
 
 * `min` to select a single item from an array
 * `if` to select between values
@@ -826,7 +826,7 @@ Consider the following dataset with a few records, represented as JSON records:
 }
 ```
 
-This dataset can be accessed by the mapper through the Distributed State Store (DSS) using a key value based on a `condition` specified in the mapping configuration:
+The mapper accesses this dataset through the Distributed State Store (DSS) using a key value based on a `condition` specified in the mapping configuration:
 
 ```yaml
 datasets:
@@ -854,7 +854,7 @@ This is how the dataset is used, when a new record is being processed:
   expression: if($1 == (), $2, $1)
 ```
 
-In this example the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record doesn't contain `BaseSalary` field (or the value is `null` in case of nullable a field)
+In this example the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally: only when the incoming record doesn't contain `BaseSalary` field (or the value is `null` if nullable field)
 
 Note, that the request for the contextualization data doesn't happen with every incoming record: the mapper requests the dataset at the beginning and then it receives notifications from DSS about the changes, while it uses a cached version of the dataset.
 

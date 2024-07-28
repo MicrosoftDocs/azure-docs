@@ -16,34 +16,46 @@ ms.date: 07/28/2024
 
 Dataflows allow you to connect various data sources and perform data operations, simplifying the setup of data paths to move, transform, and enrich data. The dataflow component is part of Azure IoT Operations, deployed as an Arc-extension. The configuration for a dataflow is done via Kubernetes Custom Resource Definitions (CRDs).
 
-Customers can write configurations for various use cases, such as:
-- **Transform data and write it back to MQTT**
-- **Transform data and write it to the cloud**
-- **Write data to the cloud or edge without transformation**
+You can write configurations for various use cases, such as:
+
+- Transform data and send it back to MQTT
+- Transform data and send it to the cloud
+- Send data to the cloud or edge without transformation
 
 ## Key Features
 
 ### Data Ingestion and Routing
-Dataflows enable the ingestion of messages from various sources and the routing of these messages to specified sinks. The configuration specifies:
-- **Sources:** Where messages are ingested from.
-- **Destinations:** Where messages are drained to.
-- **Transformations (optional):** Configuration for data processing operations.
+
+Dataflows enable the ingestion of messages from various sources and the routing of these messages to specified sinks. You can specify:
+
+- **Sources:** Where messages are ingested from
+- **Destinations:** Where messages are drained to
+- **Transformations (optional):** Configuration for data processing operations
 
 ### Transformation Capabilities
+
 Transformations can be applied to data during the processing stage to perform various operations. These operations can include:
-- **Compute new properties:** Based on existing properties in the message.
-- **Rename properties:** To standardize or clarify data.
-- **Convert units:** Convert values to different units of measurement.
-- **Standardize values:** Scale property values to a user-defined range.
-- **Contextualize data:** Add reference data to messages for enrichment and driving insights.
+
+- **Compute new properties:** Based on existing properties in the message
+- **Rename properties:** To standardize or clarify data
+- **Convert units:** Convert values to different units of measurement
+- **Standardize values:** Scale property values to a user-defined range
+- **Contextualize data:** Add reference data to messages for enrichment and driving insights
 
 ### Configuration and Deployment
+
 The configuration is specified using Kubernetes CRDs. Based on this configuration, the dataflow operator creates dataflow instances, ensuring high availability and reliability.
 
 ## Benefits
-- **Simplified Setup:** Easily connect data sources and destinations.
-- **Flexible Transformations:** Perform a wide range of data operations.
-- **Scalable Configuration:** Use Kubernetes CRDs for scalable and manageable configurations.
-- **High Availability:** Kubernetes native resource ensures reliability.
 
-By leveraging dataflows, users can efficiently manage their data paths, ensuring data is accurately sent, transformed, and enriched to meet their operational needs.
+- **Simplified Setup:** Easily connect data sources and destinations
+- **Flexible Transformations:** Perform a wide range of data operations
+- **Scalable Configuration:** Use Kubernetes CRDs for scalable and manageable configurations
+- **High Availability:** Kubernetes native resource ensures reliability
+
+By using dataflows, you can efficiently manage your data paths, ensuring data is accurately sent, transformed, and enriched to meet your operational needs.
+
+## Related content
+
+- [Create a dataflow](howto-create-dataflow.md)
+- [Create a dataflow endpoint](howto-configure-dataflow-endpoint.md)
