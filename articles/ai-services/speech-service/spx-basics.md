@@ -53,7 +53,7 @@ spx config @region --clear
 
 # [PowerShell](#tab/powershell)
 
-To get started, you need a Speech resource key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create an Azure AI services resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
+To get started, you need a Speech resource key and region identifier (for example, `eastus`, `westus`). Create a Speech resource on the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices). 
 
 To configure your Speech resource key and region identifier, run the following commands in PowerShell: 
 

@@ -33,19 +33,19 @@ Azure AI services are Azure [resources](../azure-resource-manager/management/man
 The multi-service resource enables access to the following Azure AI services with a single set of credentials. Some services are available via the multi-service resource and single-service resource.
 
 > [!TIP]
-> We recommend whenever possible to use the **Azure AI services** resource (where the API kind is `AIServices`) to access multiple Azure AI services with a single set of credentials. For services not available via the multi-service resource (such as Face and Vision), you can create a single-service resource.
+> We recommend whenever possible to use the **Azure AI services** resource (where the API kind is `AIServices`) to access multiple Azure AI services with a single set of credentials. For services not available via the multi-service resource (such as Face and Custom Vision), you can create a single-service resource.
 
 | Service | Description | Kind (via API) |
 | --- | --- | --- |
 | ![Azure OpenAI Service icon](~/reusable-content/ce-skilling/azure/media/ai-services/azure-openai.svg) [Azure OpenAI](./openai/index.yml) | Perform a wide variety of natural language tasks. | `AIServices`<br/>`OpenAI` |
 | ![Content Safety icon](~/reusable-content/ce-skilling/azure/media/ai-services/content-safety.svg) [Content Safety](./content-safety/index.yml) | An AI service that detects unwanted contents. | `AIServices`<br/>`ContentSafety` |
-| ![Custom Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/custom-vision.svg) [Custom Vision](./custom-vision-service/index.yml) | Customize image recognition for your business. | `AIServices` (Training and Prediction)<br/>`CustomVision.Prediction` (Prediction only)<br/>`CustomVision.Training` (Training only) |
+| ![Custom Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/custom-vision.svg) [Custom Vision](./custom-vision-service/index.yml) | Customize image recognition for your business. | `CustomVision.Prediction` (Prediction only)<br/>`CustomVision.Training` (Training only) |
 | ![Document Intelligence icon](~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg) [Document Intelligence](./document-intelligence/index.yml) | Turn documents into intelligent data-driven solutions. | `AIServices`<br/>`FormRecognizer` |
 | ![Face icon](~/reusable-content/ce-skilling/azure/media/ai-services/face.svg) [Face](./computer-vision/overview-identity.md) | Detect and identify people and emotions in images. | `Face` |
 | ![Language icon](~/reusable-content/ce-skilling/azure/media/ai-services/language.svg) [Language](./language-service/index.yml) | Build apps with industry-leading natural language understanding capabilities. | `AIServices`<br/>`TextAnalytics` |
 | ![Speech icon](~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg) [Speech](./speech-service/index.yml) | Speech to text, text to speech, translation, and speaker recognition. | `AIServices`<br/>`Speech` |
 | ![Translator icon](~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg) [Translator](./translator/index.yml) | Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects. | `AIServices`<br/>`TextTranslation` |
-| ![Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg) [Vision](./computer-vision/index.yml) | Analyze content in images and videos. | `ComputerVision` |
+| ![Vision icon](~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg) [Vision](./computer-vision/index.yml) | Analyze content in images and videos. | `AIServices` (Training and Prediction)<br/>`ComputerVision` |
 
 ::: zone pivot="azportal"
 

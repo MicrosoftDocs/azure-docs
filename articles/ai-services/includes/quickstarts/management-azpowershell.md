@@ -22,7 +22,6 @@ Use this quickstart to create an Azure AI services resource using [Azure PowerSh
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * [Azure PowerShell](/powershell/azure/install-azure-powershell)
-* [!INCLUDE [terms-azure-portal](terms-azure-portal.md)]
 
 ## Install Azure PowerShell and sign in
 
@@ -57,12 +56,12 @@ New-AzResourceGroup -Name ai-services-resource-group -Location westus2
 To create and subscribe to a new Azure AI services resource, use the [New-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location:
 
 > [!IMPORTANT]
-> Azure provides a few resources for Azure AI services. Be sure to create one with the `Type` (kind) of `AIServices`.
+> Azure provides more than one resource kinds for Azure AI services. Be sure to create one with the `Type` (kind) of `AIServices`.
 
 You can create a Standard S0 Azure AI services multi-service resource named `multi-service-resource` with the command below.
 
 ```azurepowershell-interactive
-New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -Name multi-service-resource -Type AIServices -SkuName F0 -Location westus2
+New-AzCognitiveServicesAccount -ResourceGroupName ai-services-resource-group -Name multi-service-resource -Type AIServices -SkuName S0 -Location westus2
 ```
 
 > [!TIP]

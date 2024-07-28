@@ -29,7 +29,6 @@ Using Bicep to create an Azure AI services resource lets you create a multi-serv
 
 * Access multiple Azure AI services with a single key and endpoint.
 * Consolidate billing from the services you use.
-* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Prerequisites
 

@@ -24,7 +24,7 @@ The Azure AI services multi-service resource is listed under **Azure AI services
 :::image type="content" source="../../media/ai-services-resource-portal.png" alt-text="Screenshot of the Azure AI services resource in the Azure portal." lightbox="../../media/ai-services-resource-portal.png":::
 
 > [!IMPORTANT]
-> Azure provides a few resources named Azure AI services. Be sure to select the one that is listed under **Azure AI services** > **Azure AI services** with the logo as shown previously.
+> Azure provides more than one resource kinds named Azure AI services. Be sure to select the one that is listed under **Azure AI services** > **Azure AI services** with the logo as shown previously.
 
 To create an Azure AI services resource follow these instructions:
 1. Select this link to create an **Azure AI services** resource: [https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices)
