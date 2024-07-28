@@ -65,7 +65,6 @@ The multi-service resource enables access to the following Azure AI services wit
 
 ::: zone-end
 
-
 ## Pricing
 
 [!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
