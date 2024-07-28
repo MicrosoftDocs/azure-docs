@@ -211,7 +211,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Subscribe to the `sensor/window_data` topic to observe the published output from the Dapr application:
 
     ```bash
-    mosquitto_sub -L mqtts://aio-mq-dmqtt-frontend/sensor/window_data -u '$sat' -P $(cat /var/run/secrets/tokens/mqtt-client-token) --cafile /var/run/certs/aio-mq-ca-cert/ca.crt 
+    mosquitto_sub -L mqtts://aio-mq-dmqtt-frontend/sensor/window_data -u 'K8S-SAT' -P $(cat /var/run/secrets/tokens/mqtt-client-token) --cafile /var/run/certs/aio-mq-ca-cert/ca.crt 
     ```
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:

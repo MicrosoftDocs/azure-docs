@@ -32,7 +32,7 @@ Azure Functions supports C# and C# script programming languages. If you're looki
 ### Updating to target .NET 8
 
 > [!NOTE]
-> Targeting .NET 8 with the in-process model is not yet enabled for Linux or for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
+> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
 
 Apps using the in-process model can target .NET 8 by following the steps outlined in this section. However, if you choose to exercise this option, you should still begin planning your [migration to the isolated worker model](./migrate-dotnet-to-isolated-model.md) in advance of [support ending for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model).
 

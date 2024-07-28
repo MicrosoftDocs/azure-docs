@@ -300,10 +300,8 @@
         - name: Overview
           displayName: E-series, sizes, size, vm size
           href: ./sizes/memory-optimized/e-family.md
-        - name: Esv6 and Edsv6-series
+        - name: Esv6 and Edsv6 series
           href: esv6-edsv6-series.md
-        - name: Easv6 and Eadsv6-series
-          href: easv6-eadsv6-series.md
         - name: Epsv6 series
           href: ./sizes/memory-optimized/epsv6-series.md
         - name: Epdsv6 series
