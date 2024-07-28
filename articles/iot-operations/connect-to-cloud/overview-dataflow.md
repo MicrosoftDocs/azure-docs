@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: conceptual
-ms.date: 07/26/2024
+ms.date: 07/28/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use dataflows connect data sources.
 ---
@@ -13,8 +13,6 @@ ms.date: 07/26/2024
 # What are dataflows?
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-# Dataflows Overview
 
 Dataflows allow you to connect various data sources and perform data operations, simplifying the setup of data paths to move, transform, and enrich data. The dataflow component is part of Azure IoT Operations, deployed as an Arc-extension. The configuration for a dataflow is done via Kubernetes Custom Resource Definitions (CRDs).
 
