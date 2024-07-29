@@ -20,7 +20,7 @@ When you ask Copilot in Azure for help with Kubernetes YAML files, it prompts yo
 
 The following video shows how Copilot in Azure how Copilot can assist in writing, formatting, and troubleshooting Kubernetes YAML files, making the process more efficient and user-friendly.
 
-[!VIDEO https://learn-video.azurefd.net/vod/player?show=microsoft-copilot-in-azure&ep=microsoft-copilot-in-azure-series-inline-yaml-editing]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=microsoft-copilot-in-azure&ep=microsoft-copilot-in-azure-series-inline-yaml-editing]
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
