@@ -24,7 +24,7 @@ The following legacy connectors are deprecated, but new updated versions are ava
 - [Google Ads/Adwords](connector-google-adwords.md)
 - [Google BigQuery](connector-google-bigquery-legacy.md)
 - [MariaDB](connector-mariadb.md)
-- [MongoDB](connector-mongo-db-legacy.md)
+- [MongoDB](connector-mongodb-legacy.md)
 - [MySQL](connector-mysql.md)
 - [Salesforce (Service Cloud)](connector-salesforce-service-cloud-legacy.md)
 - [ServiceNow](connector-servicenow.md)
@@ -35,7 +35,7 @@ The following legacy connectors are deprecated, but new updated versions are ava
 The following connectors will be deprecated at the end of December, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [Hive](connector-hive.md)
-- [Jira](connector-jive.md)
+- [Jira](connector-jira.md)
 - [Oracle](connector-oracle.md)
 - [Spark](connector-spark.md)
 - [Teradata](connector-teradata.md)
@@ -59,7 +59,7 @@ The following connectors will be deprecated at the end of November, 2024, and wi
 The following connectors will be deprecated at the end of September, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [HubSpot](connector-hubspot.md)
-- [Vertica](connector-veritca.md)
+- [Vertica](connector-vertica.md)
 
 ## Connectors to be deprecated in the future with an as-yet unspecified date
 
