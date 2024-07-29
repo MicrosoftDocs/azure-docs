@@ -63,6 +63,8 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
+## Pre-provisioning steps
+
 [!INCLUDE [ip-services-pre-provisioning-steps](../../../includes/ip-services-pre-provisioning-steps.md)]
 
 ## Provisioning steps

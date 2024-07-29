@@ -11,8 +11,6 @@
  ms.custom: include file
 ---
 
-## Pre-provisioning steps
-
 To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness

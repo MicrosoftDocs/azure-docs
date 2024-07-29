@@ -49,7 +49,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Refer to the [IPv4 instructions](create-custom-ip-address-prefix-powershell.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Refer to the [IPv4 instructions](./create-custom-ip-address-prefix-ipv6-portal.md#pre-provisioning-steps) for details.  Note all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
