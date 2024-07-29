@@ -56,7 +56,7 @@ Using Azure Functions to integrate with Azure Cosmos DB is an example of utilizi
 
 ### Authentication and users
 
-SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and Twitter. You can then send messages directly to these authenticated users.
+SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and X. You can then send messages directly to these authenticated users.
 
 ## Next steps
 

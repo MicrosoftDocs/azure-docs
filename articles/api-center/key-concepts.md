@@ -22,7 +22,7 @@ The following diagram shows the main entities in Azure API Center and how they r
 
 A top-level logical entity in Azure API Center, an API represents any real-world API that you want to track. An API center can include APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
 
-An API can be managed by any API management solution (such as Azure [API Management](../api-management/api-management-key-concepts.md) or solutions from other providers), or unmanaged.
+An API in the inventory can be managed by any API management solution, such as Azure [API Management](../api-management/api-management-key-concepts.md), Apigee API Management, Kong Konnect, MuleSoft API Management, or another platform. An API represented in Azure API Center can also be unmanaged.
 
 The API inventory in Azure API Center is designed to be created and managed by API program managers or IT administrators. 
 

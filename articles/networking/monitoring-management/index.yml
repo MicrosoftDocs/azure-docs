@@ -160,3 +160,16 @@ conceptualContent:
             - url: ../../ddos-protection/monitor-ddos-protection-reference.md
               itemType: how-to-guide
               text: Monitor Azure DDoS Protection
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network foundation
+          url: ../foundations/index.yml
+        - title: Load balancing and content delivery
+          url: ../load-balancer-content-delivery/index.yml
+        - title: Hybrid connectivity
+          url: ../hybrid-connectivity/index.yml
+        - title: Network security
+          url: ../security/index.yml
