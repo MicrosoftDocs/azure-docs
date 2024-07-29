@@ -31,7 +31,7 @@ Extractive text and document summarization support the following languages:
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Polish                | `pl`          |                     |
-| Portuguese (Portugal) | `pt`          | `pt-br` also accepted  |
+| Portuguese  | `pt`          | `pt-br` also accepted  |
 | Spanish               | `es`          |                     |
 
 Abstractive text and document summarization support the following languages:
@@ -48,7 +48,7 @@ Abstractive text and document summarization support the following languages:
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Polish                | `pl`          |                     |
-| Portuguese (Portugal) | `pt`          | `pt-br` also accepted  |
+| Portuguese  | `pt`          | `pt-br` also accepted  |
 | Spanish               | `es`          |                     |
 
 ## Conversation summarization
@@ -58,7 +58,6 @@ Conversation summarization supports the following languages:
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
 | Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
-| Chinese-Traditional   | `zh-hant`     |                     |
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
@@ -67,7 +66,7 @@ Conversation summarization supports the following languages:
 | Japanese              | `ja`          |                     |
 | Korean                | `ko`          |                     |
 | Polish                | `pl`          |                     |
-| Portuguese (Portugal) | `pt`          | `pt-br` also accepted  |
+| Portuguese  | `pt`          | `pt-br` also accepted  |
 | Spanish               | `es`          |                     |
 
 ## Custom summarization
