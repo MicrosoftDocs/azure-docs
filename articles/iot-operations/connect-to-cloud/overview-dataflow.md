@@ -3,7 +3,7 @@ title: What are dataflows?
 description: What are dataflows in Azure IoT Operations?
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: conceptual
 ms.date: 07/28/2024
 

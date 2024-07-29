@@ -3,7 +3,7 @@ title: Configure dataflow profile in Azure IoT Operations
 description: How to configure dataflow profile in Azure IoT Operations to change dataflow behavior.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: conceptual
 ms.date: 07/25/2024
 

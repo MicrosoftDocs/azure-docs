@@ -3,7 +3,7 @@ title: Configure dataflow endpoints
 description: Configure dataflow endpoints to create connection points for data sources.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: conceptual
 ms.date: 07/26/2024
 

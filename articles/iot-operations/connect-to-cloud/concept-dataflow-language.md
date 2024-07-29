@@ -3,7 +3,7 @@ title: Dataflow mapping language
 description: Learn about the dataflow mapping language for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 07/26/2024
 
