@@ -15,9 +15,6 @@ sections:
   - name: General
     questions:
     - question: |
-         What are the hardware requirements?
-      answer: For more information on hardware requirements, see [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
-    - question: |
          Is message persistence supported?
       answer: At Azure IoT Operations general availability (GA), full message persistence won't be supported. The capability is planned for post-GA.
     - question: |
