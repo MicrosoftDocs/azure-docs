@@ -6,7 +6,7 @@ author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 05/13/2024
+ms.date: 07/29/2024
 ms.author: jasteppe
 ms.custom: references_regions
 ---
@@ -21,7 +21,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 
 ### FHIR service
 
-#### $convert-data: Allow dates in JSON data to be treated as strings
+#### Allow dates in JSON data to be treated as strings in the Convert-Data operation
 
 It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
 
