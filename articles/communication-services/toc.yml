@@ -356,6 +356,8 @@ items:
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
         href: how-tos/calling-sdk/call-context.md
+      - name: Together Mode
+        href: how-tos/calling-sdk/together-mode.md
     - name: Call recording
       items:
       - name: Record a call
