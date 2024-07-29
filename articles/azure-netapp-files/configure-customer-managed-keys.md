@@ -370,7 +370,7 @@ Azure NetApp Files supports the ability to move existing volumes using platform-
 Encryption key transition for Azure NetApp Files is currently in preview. Before using this feature for the first time, you need to register it. 
 
 >[NOTE]
->Transitioning volumes to customer-managed keys isn't currently supported for US Gov regions. 
+> Transitioning volumes to customer-managed keys isn't currently supported in US Gov regions. 
 
 1. Register the feature: 
 
