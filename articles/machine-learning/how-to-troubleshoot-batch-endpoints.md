@@ -162,7 +162,7 @@ You can configure the `timeout` and `max_retries` properties for each deployment
 
 ### Exception in ScriptExecution.StreamAccess.Authentication
 
-For batch deployment to succeed, the managed identity for the compute cluster must have permission to mount the data asset storage. When the managed identity has insufficient permissions, the script causes an exception. This failure can also cause the [data asset storage to not mount](#no-mounted-storage-no-dataset-initialization).
+For batch deployment to succeed, the managed identity for the compute cluster must have permission to mount the data asset storage. When the managed identity has insufficient permissions, the script causes an exception. This failure can also cause the [data asset storage to not mount](#dataset-initialization-failed-cant-mount-dataset).
 
 **Message logged**: "ScriptExecutionException was caused by StreamAccessException. StreamAccessException was caused by AuthenticationException."
 
@@ -180,7 +180,7 @@ The batch deployment process requires mounted storage for the data asset. When t
 
 **Solution**: Ensure the managed identity associated with the compute cluster where your deployment is running has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only Azure Storage account owners can [change the access level in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
-### The dataset_param parameter doesn't have a specified value or a default value
+### dataset_param doesn't have specified value or default value
 
 During batch deployment, the data set node references the `dataset_param` parameter. For the deployment to proceed, the parameter must have an assigned value or a specified default value.
 
