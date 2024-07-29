@@ -8,7 +8,7 @@ ms.author: mopeakande
 ms.reviewer: fasantia
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/16/2024
+ms.date: 07/29/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1
 
@@ -54,26 +54,6 @@ For more MLflow and Azure Machine Learning functionality integrations, see [MLfl
 To deploy your MLflow model to an Azure Machine Learning web service, your model must be set up with the [MLflow Tracking URI to connect with Azure Machine Learning](how-to-use-mlflow.md). 
 
 For the deployment to Azure Container Instances, you don't need to define any deployment configuration. The service defaults to an Azure Container Instances deployment when a configuration isn't provided. You can register and deploy the model in one step with MLflow's [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) method for Azure Machine Learning.
-
-<!-- Reviewer: The following cell returns an error: 
- 
-    File /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages/packaging/specifiers.py:25
-      10 from typing import (
-      (...)
-      21     Union,
-      22 )
-      24 from .utils import canonicalize_version
- ~~~> 25 from .version import LegacyVersion, Version, parse
-      27 ParsedVersion = Union[Version, LegacyVersion]
-      28 UnparsedVersion = Union[Version, LegacyVersion, str]
-
-    ImportError: cannot import name 'LegacyVersion' from 'packaging.version'
-    (/anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages/packaging/version.py)
-
-    I tried downgrading the packaging version to 21.3 (or older) per this StackOverflow report, but the problem persists:
-    https://stackoverflow.com/questions/74941714/importerror-cannot-import-name-legacyversion-from-packaging-version
-
--->
 
 ```python
 from mlflow.deployments import get_deploy_client
