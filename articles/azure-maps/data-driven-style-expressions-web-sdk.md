@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: sdk-web
 ---
 
 # Data-driven style expressions (Web SDK)

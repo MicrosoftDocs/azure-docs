@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/01/2023
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-web
 ms.custom: mvc, devx-track-js
 ---
 

@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-web
 ---
 
 # Interaction types and keyboard shortcuts in the drawing tools module

@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-web
 ---
 
 # Supported data format details

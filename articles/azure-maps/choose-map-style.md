@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
+ms.subservice: sdk-web
 ms.custom:
 ---
 

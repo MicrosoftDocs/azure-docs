@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: sdk-web
 ---
 
 # Create a data source

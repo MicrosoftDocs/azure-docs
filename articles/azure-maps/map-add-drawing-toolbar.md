@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 06/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-web
 ---
 
 # Add a drawing tools toolbar to a map
