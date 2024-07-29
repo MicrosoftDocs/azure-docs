@@ -198,6 +198,13 @@ Alternatively, you can do this using Azure Resource Manager (ARM) templates, by 
                     "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
                     "keyData": "[parameters('adminPublicKey')]"
 ```
+> [!NOTE]
+> It's important to update the `AllowExtensionOperations` option after you manually install the Azure Windows VM Agent on a VM that was deployed from image without `ProvisionVMAgent` enabled.
+
+```powershell
+$vm.OSProfile.AllowExtensionOperations = $true
+$vm | Update-AzVM
+```
 
 ## Next steps
 
