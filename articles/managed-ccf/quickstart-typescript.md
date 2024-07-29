@@ -29,7 +29,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 ### Initialize a new npm project
 In a terminal or command prompt, create a suitable project folder and initialize an `npm` project. You may skip this step if you have an existing node project. 
