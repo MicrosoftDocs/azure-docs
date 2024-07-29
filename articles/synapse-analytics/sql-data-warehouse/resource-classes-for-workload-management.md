@@ -88,13 +88,13 @@ Resource classes are designed to improve performance for data management and man
 
 These operations are governed by resource classes:
 
-- INSERT-SELECT, UPDATE, DELETE
-- SELECT (when querying user tables)
-- ALTER INDEX - REBUILD or REORGANIZE
-- ALTER TABLE REBUILD
-- CREATE INDEX
-- CREATE CLUSTERED COLUMNSTORE INDEX
-- CREATE TABLE AS SELECT (CTAS)
+- `INSERT`-`SELECT`, `UPDATE`, `DELETE`
+- `SELECT` (when querying user tables)
+- `ALTER INDEX` - `REBUILD` or `REORGANIZE`
+- `ALTER TABLE REBUILD`
+- `CREATE INDEX`
+- `CREATE CLUSTERED COLUMNSTORE INDEX`
+- `CREATE TABLE AS SELECT` (CTAS)
 - Data loading
 - Data movement operations conducted by the Data Movement Service (DMS)
 
@@ -107,21 +107,21 @@ Some queries always run in the smallrc resource class even though the user is a 
 
 The following statements are exempt from resource classes and always run in smallrc:
 
-- CREATE or DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
-- ALTER INDEX DISABLE
-- DROP INDEX
-- CREATE, UPDATE, or DROP STATISTICS
-- TRUNCATE TABLE
-- ALTER AUTHORIZATION
-- CREATE LOGIN
-- CREATE, ALTER, or DROP USER
-- CREATE, ALTER, or DROP PROCEDURE
-- CREATE or DROP VIEW
-- INSERT VALUES
-- SELECT from system views and DMVs
-- EXPLAIN
-- DBCC
+- `CREATE` or `DROP TABLE`
+- `ALTER TABLE ... SWITCH`, `SPLIT`, or `MERGE PARTITION`
+- `ALTER INDEX DISABLE`
+- `DROP INDEX`
+- `CREATE`, `UPDATE`, or `DROP STATISTICS`
+- `TRUNCATE TABLE`
+- `ALTER AUTHORIZATION`
+- `CREATE LOGIN`
+- `CREATE`, `ALTER`, or `DROP USER`
+- `CREATE`, `ALTER`, or `DROP PROCEDURE`
+- `CREATE` or `DROP VIEW`
+- `INSERT VALUES`
+- `SELECT` from system views and DMVs
+- `EXPLAIN`
+- `DBCC`
 
 <!--
 Removed as these two are not confirmed / supported under Azure Synapse Analytics
@@ -169,7 +169,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 Users can be members of multiple resource classes. When a user belongs to more than one resource class:
 
-- Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc(dynamic) and staticrc80 (static), queries run with mediumrc.
+- Dynamic resource classes take precedence over static resource classes. For example, if a user is a member of both mediumrc (dynamic) and staticrc80 (static), queries run with mediumrc.
 - Larger resource classes take precedence over smaller resource classes. For example, if a user is a member of mediumrc and largerc, queries run with largerc. Likewise, if a user is a member of both staticrc20 and statirc80, queries run with staticrc80 resource allocations.
 
 ## Recommendations
@@ -226,8 +226,8 @@ For examples, see [Usage example](#usage-example).
 >[!NOTE]  
 >If you are not getting output after executing stored procedure with parameters provided, then there could be two cases.
 >
->1. Either DW Parameter contains an invalid SLO value
->2. Or, there is no matching resource class for the CCI operation on the table.
+>- Either DW Parameter contains an invalid SLO value
+>- Or, there is no matching resource class for the CCI operation on the table.
 >
 >For example, at DW100c, the highest memory grant available is 1 GB, and if table schema is wide enough to cross the requirement of 1 GB.
 
@@ -236,9 +236,9 @@ For examples, see [Usage example](#usage-example).
 Syntax:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
-1. @DWU: Either provide a NULL parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100c'
-1. @SCHEMA_NAME: Provide a schema name of the table
-1. @TABLE_NAME: Provide a table name of the interest
+- `@DWU`: Either provide a `NULL` parameter to extract the current DWU from the DW DB or provide any supported DWU in the form of 'DW100c'
+- `@SCHEMA_NAME`: Provide a schema name of the table
+- `@TABLE_NAME`: Provide a table name of the interest
 
 Examples executing this stored proc:
 

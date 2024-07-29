@@ -139,9 +139,9 @@ Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure S
 
 **Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal, on the **Overview** page of the dedicated SQL pool.
+   The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal, on the **Overview** page of the dedicated SQL pool.
 
-Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use `MEMBERNAME` option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
+   Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use `MEMBERNAME` option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
 
 ### Use workload group precedence for better classification
 
@@ -157,9 +157,9 @@ In scenarios where resource classes are being used it's best to create a dedicat
 1. Dynamic resource class takes precedence over static resource class. For example, if a user is member of mediumrc (dynamic) and staticrc80(static), user queries run with mediumrc.
 1. Bigger resource classes are preferred over smaller resource classes. For example, if a user is member of staticrc20 and staticrc80, then user queries will run with staticrc80.
 
-#### If Workload Management Capabilities are used
+#### If workload management capabilities are used
 
-WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
+Workload management (WLM) capabilities provide capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
 
 |**Classifier parameter** |**Weight**   |
 |---------------------|---------|
@@ -186,7 +186,7 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'Low')
 ```
 
-Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with the 'dimension_loads' label between 6PM and 7AM UTC will be assigned to `wgDashboards` as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of `CLASSIFIER-1` is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of `CLASSIFIER-2` is 68 (64 for user, 4 for START_TIME/END_TIME). 
+Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with the `dimension_loads` label between 6PM and 7AM UTC will be assigned to `wgDashboards` as weight score of `WLM_LABEL` is higher than `START_TIME`/`END_TIME`. The weighting of `CLASSIFIER-1` is 80 (64 for user, plus 16 for `WLM_LABEL`). The weighting of `CLASSIFIER-2` is 68 (64 for user, 4 for `START_TIME`/`END_TIME`). 
 
 For more information on workload classification, see [classification weighting](sql-data-warehouse-workload-classification.md#classification-weighting) and [query labels](../sql/develop-label.md).
 
@@ -296,5 +296,5 @@ If there was a tie in workload groups or classifiers, following precedence takes
 ## Related content 
 
 - For more information on workload classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
-- For more information on workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
+- For more information on workload importance, see [Workload Importance](sql-data-warehouse-workload-importance.md).
  
