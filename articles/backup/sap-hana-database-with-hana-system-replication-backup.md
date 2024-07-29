@@ -6,7 +6,7 @@ ms.date: 07/29/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-
+ms.custom: engagement-fy24
 ---
 
 # Back up SAP HANA System Replication databases on Azure VMs
