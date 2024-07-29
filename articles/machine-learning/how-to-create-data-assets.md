@@ -168,10 +168,10 @@ A Folder (`uri_folder`) type data asset points to a *folder* in a storage resour
 
 Copy-and-paste the following code into a new YAML file. Be sure to update the `<>` placeholders with the
 
-- name of your data asset
-- the version
-- description
-- path to a folder on a supported location
+- Name of your data asset
+- The version
+- Description
+- Path to a folder on a supported location
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -548,7 +548,7 @@ Not available.
 >
 > Therefore, the *immutability* of data assets provides a level of protection when working in a team creating production workloads.
 
-For a mistakenly-created data asset - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
+For a mistakenly created data asset - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
 
 |*I want to delete this data asset because...* | Solution  |
 |---------|---------|
@@ -562,11 +562,11 @@ For a mistakenly-created data asset - for example, with an incorrect name, type 
 
 Archiving a data asset hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data asset listing in the Studio UI. You can still continue to reference and use an archived data asset in your workflows. You can archive either:
 
-- *all versions* of the data asset under a given name
+- *All versions* of the data asset under a given name
 
 or
 
-- a specific data asset version
+- A specific data asset version
 
 #### Archive all versions of a data asset
 
@@ -737,9 +737,9 @@ ml_client.data.restore(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 
 Data lineage is broadly understood as the lifecycle that spans the origin of the data, and where it moves over time across storage. Different kinds of backwards-looking scenarios use it, for example
 
-- troubleshooting
-- tracing root causes in ML pipelines
-- debugging
+- Troubleshooting
+- Tracing root causes in ML pipelines
+- Debugging
 
 Data quality analysis, compliance and “what if” scenarios also use lineage. Lineage is represented visually to show data moving from source to destination, and additionally covers data transformations. Given the complexity of most enterprise data environments, these views can become hard to understand without consolidation or masking of peripheral data points.
 
@@ -869,9 +869,9 @@ ml_client.data.create_or_update(my_data)
 
 Execute the following command in the Azure CLI. Be sure to update the `<>` placeholders with the
 
-- name of your data asset
-- the version
-- key-value pair for the tag
+- Name of your data asset
+- The version
+- Key-value pair for the tag
 
 ```azurecli
 az ml data update --name <DATA ASSET NAME> --version <VERSION> --set tags.<KEY>=<VALUE>
