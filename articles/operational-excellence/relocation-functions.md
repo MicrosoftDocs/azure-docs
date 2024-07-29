@@ -75,11 +75,11 @@ See [Relocate Azure App Services to another region - Configuration](relocation-a
 
 ### VNet Connectivity / Custom Names / DNS
 
-See [Relocate Azure App Services to another region - VNet Connectivity](relocation-app-service.md#vnet-connectivity-custom-names-dns)
+See [Relocate Azure App Services to another region - VNet Connectivity](relocation-app-service.md#vnet-connectivity--custom-names--dns)
 
 ### Identities
 
-See [Relocate Azure App Services to another region - Identities](relocation-app-service.md#ideentities)
+See [Relocate Azure App Services to another region - Identities](relocation-app-service.md#identities)
 
 ## Relocate
 
@@ -95,7 +95,7 @@ If you only have access to the source code but not the deployment and automation
 
 ### Relocate using IaC
 
-As long as you aren't migrating any Durable Entities state, you can relocate using IaC. For instructions, see [Relocate App Service resources using IaC](./relocation-app-services.md#relocate-using-iac).
+As long as you aren't migrating any Durable Entities state, you can relocate using IaC. For instructions, see [Relocate App Service resources using IaC](./relocation-app-service.md#relocate-using-iac).
 
 To migrate Durable Entities, see [Recovery With GRS Enabled Storage for Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md#scenario-3---load-balanced-compute-with-grs-shared-storage)
 
