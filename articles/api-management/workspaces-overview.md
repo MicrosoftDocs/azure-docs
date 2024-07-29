@@ -90,13 +90,10 @@ Manage gateway capacity by manually adding or removing scale units, similar to t
 
 Workspace gateways need to be in the same Azure region and subscription as the API Management service. Currently, workspace gateways are supported in a subset of the regions where API Management is available:
 
-* East US 2
-* North Central US
-* West US
-* North Europe
 * UK South
-* Southeast Asia
-* Australia East
+* France Central
+* Japan East
+* Australia Southeast
 * East Asia
 
 ### Gateway constraints
