@@ -57,7 +57,7 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - All VMs in a common availability set aren't updated concurrently.
 -	VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.
 
-Narrowing the scope of VMs that are patched across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
+The platform orchestrates validates the size of the Resource Group with the Update Domain to ensure 20% or less of the VMs within a Resource Group are updated at a time. For less than 10 VMs, this limits to 1 VM at a time within a Resource Group. Limiting the number of VMs that are patched at a time across regions, within a region, or an availability set, limit the blast radius of the patch. With health monitoring, any potential issues are flagged without impacting the entire fleet.
 
 The patch installation date for a given VM may vary month-to-month, as a specific VM may be picked up in a different batch between monthly patching cycles.
 
